@@ -1,0 +1,4 @@
+
+[D-BUS Service]
+Name=de.buschmann23.ocNewsReader
+Exec=/usr/bin/invoker --splash=/opt/ocNewsReader/images/splash.jpg --splash-landscape=/opt/ocNewsReader/images/splash-l.jpg --type=d -s /opt/ocNewsReader/bin/ocNewsReader

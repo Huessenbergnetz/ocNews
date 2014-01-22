@@ -1,0 +1,49 @@
+ocNews Datenschutzerklärung
+===========================
+
+Welche Informationen sammelt ocNews?
+------------------------------------
+
+Um sich an Ihrem ownCloud-Server anzumelden benötigt ocNews die Server-Adresse, Ihren
+Benutzernamen und Ihr Passwort. Diese Daten werden in einem geschützten/privaten Bereich
+auf ihrem Gerät gespeichert. Die Informationen sind weder dem Autor von ocNews noch
+Dritten zugänglich.
+
+Wofür benötigt ocNews ihre Informationen?
+-----------------------------------------
+
+ocNews benötigt Ihre Informationen, um sich mit Ihrem ownCloud-Server zu verbinden. Ihre
+Anmeldedaten werden dazu genutzt, sich an Ihrem ownCloud-Server anzumelden und die Synchronisierung
+der ownCloud News App-Daten  mit ihrem Gerät durchzuführen.
+
+Wie schützt ocNews ihre Daten?
+------------------------------
+
+Ihre Daten werden im geschützten private-Ordner in Ihrem Benutzerverzeichnis gespeichert.
+Nur ocNews hat das Recht, auf diese Daten zuzugreifen.
+
+Teilt ocNews irgendeine Information mit Dritten?
+------------------------------------------------
+
+ocNews nutzt Ihre Daten nur zur Anmeldung an dem Server, den Sie in den Einstellungen angeben.
+ocNews sendet diese Daten weder an den Autoren von ocNews oder irgend einen anderen Dritten.
+Fragen zum Datenschutz auf ihrem ownCloud-Server richten Sie bitte an Ihren Server-Betreiber.
+
+Links zu Dritten
+----------------
+
+ocNews ist ein Cloud-basierter RSS/Atom Feed Reader. Es bringt keine vorinstallierten Links zu
+anderen Internetseiten mit als die zur eigenen Awendungsseite auf der Seite 'Über'. Das Hinzufügen
+von Feeds und/oder das Öffnen darin enthaltener Links liegt im Verantwortungsbereich des Nutzers.
+Fragen zum Datenschutz bezüglich der abonnierten Feeds und ihrer Inhalte richten Sie bitte an den
+Anbieter des jeweiligen Feeds.
+
+Ihr Einverständnis
+------------------
+
+Indem Sie ocNews benutzen willigen Sie in diese Datenschutzerklärung ein.
+
+Kontakt
+-------
+
+http://ocnews.buschmann23.de

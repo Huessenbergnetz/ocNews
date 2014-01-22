@@ -1,0 +1,47 @@
+ 
+<node>
+  <interface name="de.buschmann23.ocNewsEngine.Configuration">
+    <method name="setSetting">
+        <arg name="entry" type="s" direction="in"/>
+        <arg name="value" type="v" direction="in"/>
+    </method>
+    <method name="getSetting">
+        <arg name="entry" type="s" direction="in"/>
+        <arg name="defaultValue" type="v" direction="in"/>
+        <arg name="result" type="v" direction="out"/>
+    </method>
+    <method name="getConfig">
+        <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
+        <arg name="config" type="a{sv}" direction="out" />
+    </method>
+    <method name="resetConfig"/>
+    <signal name="gotConfig">
+        <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="QVariantMap"/>
+        <arg name="config" type="a{sv}" direction="out" />
+    </signal>
+    <method name="saveConfig">
+        <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="QVariantMap"/>
+        <arg name="config" type="a{sv}" direction="in" />
+    </method>
+    <signal name="savedConfig"/>
+    <method name="cleanDatabase"/>
+    <signal name="cleanedDatabase"/>
+    <method name="getStatistics">
+        <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
+        <arg name="stats" type="a{sv}" direction="out" />
+    </method>
+    <signal name="gotStatistics">
+        <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="QVariantMap"/>
+        <arg name="stats" type="a{sv}" direction="out" />
+    </signal>
+    <method name="cleanCertificates"/>
+    <signal name="cleanedCertificates"/>
+    <method name="isConfigSet">
+        <arg name="configStatus" type="b" direction="out" />
+    </method>
+    <method name="isAccountEnabled">
+        <arg name="accountState" type="b" direction="out" />
+    </method>
+    <signal name="changedConfig" />
+ </interface>
+</node>

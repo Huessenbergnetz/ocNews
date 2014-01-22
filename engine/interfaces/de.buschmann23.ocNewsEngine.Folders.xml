@@ -1,0 +1,47 @@
+
+<node>
+    <interface name="de.buschmann23.ocNewsEngine.Folders">
+        <method name="getFolders">
+            <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
+            <arg name="config" type="a{sv}" direction="out" />
+        </method>
+        <method name="requestFolders"/>
+        <method name="createFolder">
+            <arg name="name" type="s" direction="in" />
+        </method>
+        <method name="deleteFolder">
+            <arg name="id" type="s" direction="in" />
+        </method>
+        <method name="renameFolder">
+            <arg name="id" type="s" direction="in" />
+            <arg name="name" type="s" direction="in" />
+        </method>
+        <method name="markFolderRead">
+            <arg name="id" type="s" direction="in" />
+        </method>
+        <signal name="requestedFoldersError">
+            <arg name="requerstresulterror" type="s" direction="out" />
+        </signal>
+        <signal name="requestedFoldersSuccess" />
+        <signal name="createdFolderError">
+            <arg name="createresulterror" type="s" direction="out" />
+        </signal>
+        <signal name="createdFolderSuccess">
+            <arg name="foldername" type="s" direction="out" />
+        </signal>
+        <signal name="deletedFolderError">
+            <arg name="deleteresulterror" type="s" direction="out" />
+        </signal>
+        <signal name="deletedFolderSuccess" />
+        <signal name="renamedFolderError">
+            <arg name="renameresulterror" type="s" direction="out" />
+        </signal>
+        <signal name="renamedFolderSuccess">
+            <arg name="newfoldername" type="s" direction="out" />
+        </signal>
+        <signal name="markedReadFolderError">
+            <arg name="markedreaderror" type="s" direction="out" />
+        </signal>
+        <signal name="markedReadFolderSuccess"/>
+    </interface>
+</node>

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ocnewsreader_de.qm</file>
+    </qresource>
+</RCC>

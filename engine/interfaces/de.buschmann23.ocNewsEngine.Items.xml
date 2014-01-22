@@ -1,0 +1,52 @@
+ 
+<node>
+  <interface name="de.buschmann23.ocNewsEngine.Items">
+    <method name="requestItems">
+        <arg name="batchSize" type="s" direction="in"/>
+        <arg name="offset" type="s" direction="in"/>
+        <arg name="type" type="s" direction="in"/>
+        <arg name="id" type="s" direction="in"/>
+        <arg name="getRead" type="s" direction="in"/>
+    </method>
+    <method name="updateItems">
+        <arg name="lastModified" type="s" direction="in"/>
+        <arg name="type" type="s" direction="in"/>
+        <arg name="id" type="s" direction="in"/>
+    </method>
+    <method name="markItems">
+        <arg name="action" type="s" direction="in"/>
+        <arg name="ids" type="av" direction="in"/>
+    </method>
+    <method name="markItemsTillThis">
+        <arg name="action" type="s" direction="in"/>
+        <arg name="pubDate" type="v" direction="in"/>
+        <arg name="feedId" type="v" direction="in"/>
+    </method>
+    <method name="starItems">
+        <annotation name="com.trolltech.QtDBus.QtTypeName.In1" value="QVariantMap"/>
+        <arg name="action" type="s" direction="in"/>
+        <arg name="itemIds" type="a{sv}" direction="in"/>
+    </method>
+    <method name="markAllItemsRead"/>
+    <signal name="requestedItemsError">
+        <arg name="requestedItemsErrorString" type="s" direction="out"/>
+    </signal>
+    <signal name="requestedItemsSuccess"/>
+    <signal name="updatedItemsError">
+        <arg name="updateItemsErrorString" type="s" direction="out"/>
+    </signal>
+    <signal name="updatedItemsSuccess"/>
+    <signal name="markedItemsError">
+        <arg name="markedItemsErrorString" type="s" direction="out"/>
+    </signal>
+    <signal name="markedItemsSuccess"/>
+    <signal name="markedAllItemsReadError">
+        <arg name="markedAllItemsReadErrorString" type="s" direction="out"/>
+    </signal>
+    <signal name="markedAllItemsReadSuccess"/>
+    <signal name="starredItemsError">
+        <arg name="starredItemsErrorString" type="s" direction="out"/>
+    </signal>
+    <signal name="starredItemsSuccess"/>
+  </interface>
+</node>

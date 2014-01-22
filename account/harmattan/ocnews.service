@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<service id="icq">
+  <type>IM</type>
+  <provider>ocnews</provider>
+  <translations>ocnews</translations>
+  <name>qtn_ocnews_name</name>
+  <short-description>qtn_ocnews_description</short-description>
+  <description>qtn_ocnews_setup</description>
+  <icon>icon-m-ocnews</icon>
+
+  <!-- default settings (account settings have precedence over these) -->
+  <template>
+    <setting name="manager">haze</setting>
+    <setting name="protocol">icq</setting>
+
+    <group name="icons">
+      <setting name="icon-normal">icon-s-service-icq</setting>
+      <setting name="icon-m-normal">icon-m-service-icq</setting>
+      <setting name="icon-inverted">icon-s-service-icq</setting>
+    </group>
+
+  </template>
+
+  <type-data>
+
+    <service-presences-list>
+
+      <i18n-domain>rtcom-libpresence</i18n-domain>
+
+      <presence id="available" type="Available" >
+<!-- "id" is the presence name to be passed to mission-control, and "type" is one of these,
+        http://telepathy.freedesktop.org/spec/org.freedesktop.Telepathy.Connection.Interface.SimplePresence.html#org.freedesktop.Telepathy.Connection.Interface.SimplePresence.Connection_Presence_Type
+-->
+        <presence-icon size="small">icon-s-common-presence-online</presence-icon>
+        <presence-icon size="medium">icon-m-common-presence-online</presence-icon>
+        <i18n-name>qtn_comm_presence_online</i18n-name>
+      </presence>
+
+      <presence id="away" type="Away">
+        <presence-icon size="small">icon-s-common-presence-away</presence-icon>
+        <presence-icon size="medium">icon-m-common-presence-away</presence-icon>
+
+        <i18n-name>qtn_comm_presence_away</i18n-name>
+      </presence>
+
+      <presence id="busy" type="Busy">
+        <presence-icon size="small">icon-s-common-presence-busy</presence-icon>
+        <presence-icon size="medium">icon-m-common-presence-busy</presence-icon>
+
+        <i18n-name>qtn_comm_presence_busy</i18n-name>
+      </presence>
+
+      <presence id="invisible" type="Hidden">
+        <presence-icon size="small">icon-s-common-presence-unknown</presence-icon>
+        <presence-icon size="medium">icon-m-common-presence-unknown</presence-icon>
+        <i18n-name>qtn_comm_presence_invisible</i18n-name>
+      </presence>
+
+      <presence id="offline" type="Offline">
+        <presence-icon size="small">icon-s-common-presence-offline</presence-icon>
+        <presence-icon size="medium">icon-m-common-presence-offline</presence-icon>
+        <i18n-name>qtn_comm_presence_offline</i18n-name>
+      </presence>
+
+    </service-presences-list>
+
+  </type-data>
+
+</service>

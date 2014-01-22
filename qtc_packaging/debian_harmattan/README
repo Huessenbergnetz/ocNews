@@ -1,0 +1,12 @@
+The Debian Package ocnews
+----------------------------
+
+Client for the ownCloud News App.
+
+This application requires firmware version PR 1.2 or newer.
+
+ocNews is a client for the ownCloud News App, a RSS/Atom feed reader in the cloud. It synchronizes
+it's content with the ownCloud service and can not only read it's content, but also manage folders
+and feeds on the server.
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Wed, 23 Oct 2013 01:00:34 +0200

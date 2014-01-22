@@ -1,0 +1,47 @@
+ocNews Privacy Policy
+=====================
+
+What information does ocNews collect?
+-------------------------------------
+
+In order to log in to your ownCloud server, ocNews collects the server address, your user name
+and your password. These data is stored in a protected/private folder on your device. The data
+is not given to the author of ocNews or other third parties.
+
+What does ocNews use your information for?
+------------------------------------------
+
+ocNews needs your log in data to connect to your ownCloud server. Your log in data is used
+to log in to your ownCloud server to perform the tasks of synchronizing your ownCloud
+News App data with your device.
+
+How does ocNews protects your data?
+-----------------------------------
+
+Your data is stored in the protected private folder in your Home directory. Only ocNews has the
+rights to access these data.
+
+Does ocNews disclose any information to outside parties?
+--------------------------------------------------------
+
+ocNews only uses your data for the log in process into the server that you configure in the settings.
+ocNews does not send these data to the author of ocNews or other third parties. For questions
+concerning the privacy on the server side, you have to contact your ownCloud service provider.
+
+Third party links
+-----------------
+
+ocNews is a cloud based RSS/Atom feed reader. It has no preinstalled third party links other than
+the own application website link on the About page. Showing feed content and/or opening feed link
+addresses is in the user's responsibility. For questions concerning the privacy of the used feed
+content and/or website content you have to contact the feed provider.
+
+Your consent
+------------
+
+By using ocNews, you consent to this privacy policy.
+
+Contact
+-------
+
+http://ocnews.buschmann23.de

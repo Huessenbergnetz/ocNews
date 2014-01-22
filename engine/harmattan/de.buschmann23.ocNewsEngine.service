@@ -1,0 +1,4 @@
+
+[D-BUS Service]
+Name=de.buschmann23.ocNewsEngine
+Exec=/usr/bin/aegis-exec -s -u user /opt/ocNewsEngine/bin/ocNewsEngine

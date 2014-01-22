@@ -1,0 +1,14 @@
+ 
+<node>
+  <interface name="de.buschmann23.ocNewsEngine.Updater">
+    <method name="startUpdate"/>
+    <signal name="updateStarted"/>
+    <signal name="updateFinished"/>
+    <signal name="updateError">
+        <arg name="updateErrorMessage" type="s" direction="out"/>
+    </signal>
+    <method name="isUpdateRunning">
+        <arg type="b" direction="out"/>
+    </mehod>
+  </interface>
+</node>

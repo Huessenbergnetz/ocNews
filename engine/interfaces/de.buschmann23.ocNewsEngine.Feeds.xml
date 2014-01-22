@@ -1,0 +1,47 @@
+ 
+<node>
+    <interface name="de.buschmann23.ocNewsEngine.Feeds">
+        <method name="requestFeeds"/>
+        <method name="createFeed">
+            <arg name="url" type="s" direction="in"/>
+            <arg name="folderId" type="s" direction="in"/>
+            <arg name="eventView" type="b" direction="in"/>
+        </method>
+        <method name="deleteFeed">
+            <arg name="id" type="s" direction="in"/>
+        </method>
+        <method name="moveFeed">
+            <arg name="id" type="s" direction="in"/>
+            <arg name="folderId" type="s" direction="in"/>
+        </method>
+        <method name="markFeedRead">
+            <arg name="feedId" type="s" direction="in"/>
+        </method>
+        <method name="getFeeds">
+            <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
+            <arg name="feeds" type="a{sv}" direction="out"/>
+        </method>
+        <signal name="requestedFeedsError">
+            <arg name="requestedFeedsErrorString" type="s" direction="out"/>
+        </signal>
+        <signal name="requestedFeedsSuccess"/>
+        <signal name="createdFeedError">
+            <arg name="createFeedResultError" type="s" direction="out"/>
+        </signal>
+        <signal name="createdFeedSuccess">
+            <arg name="feedname" type="s" direction="out"/>
+        </signal>
+        <signal name="deletedFeedError">
+            <arg name="deleteFeedResultError" type="s" direction="out"/>
+        </signal>
+        <signal name="deletedFeedSuccess"/>
+        <signal name="movedFeedError">
+            <arg name="moveFeedResultError" type="s" direction="out"/>
+        </signal>
+        <signal name="movedFeedSuccess"/>
+        <signal name="markedReadFeedError">
+            <arg name="markedReadFeedErrorResult" type="s" direction="out"/>
+        </signal>
+        <signal name="markedReadFeedSuccess"/>
+    </interface>
+</node>

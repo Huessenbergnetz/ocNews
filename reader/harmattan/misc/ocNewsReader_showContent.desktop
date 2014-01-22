@@ -1,0 +1,9 @@
+ 
+[Desktop Entry]
+Type=Application
+Name=feedService
+MimeType=x-maemo-urischeme/ocnews;
+#X-Maemo-Service=de.buschmann23.ocNewsReader
+#X-Maemo-Method=de.buschmann23.ocNewsReader.showContent
+Exec=sh /opt/ocNewsReader/bin/ocNewsReader_showContent_Wrapper.sh %U
+NotShowIn=X-MeeGo;

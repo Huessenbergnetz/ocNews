@@ -1,0 +1,4 @@
+
+[D-BUS Service]
+Name=de.buschmann23.ocNewsEngine
+Exec=/usr/bin/invoker --type=generic -s /usr/bin/harbour-ocnews-engine

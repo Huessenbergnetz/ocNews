@@ -1,0 +1,11 @@
+ 
+<node>
+  <interface name="de.buschmann23.ocNewsReader">
+    <method name="showContent">
+        <arg name="itemId" type="as" direction="in" />
+    </method>
+    <method name="addFeed">
+        <arg name="feedUrl" type="as" direction="in" />
+    </method>
+ </interface>
+</node>

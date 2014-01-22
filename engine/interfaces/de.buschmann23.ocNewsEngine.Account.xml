@@ -1,0 +1,7 @@
+ 
+<node>
+  <interface name="de.buschmann23.ocNewsEngine.Account">
+    <method name="create" />
+    <method name="edit" />
+ </interface>
+</node>

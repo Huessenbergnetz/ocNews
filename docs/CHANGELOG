@@ -1,0 +1,138 @@
+Version 1.5.1, 2013-01-21 14:00:00 +0100
+
+  Sailfish OS:
+  * NEW: add maintenance options (delete database, reset configuration)
+  
+  Daemon/Engine:
+  * Changed: check for non existing database tables on every daemon start
+
+Version 1.5.0, 2014-01-20 00:00:00 +0100
+
+  Daemon/Engine
+  * Fixed: speed up marking all items read
+  
+  Harmattan
+  * Fixed: searching in feed item list is now working again
+  
+  General
+  * NEW: it is now possible to set a default sort order for the feed item list,
+    as well to decide how already read news items should be displayes (show, hide, 
+    show after unread)
+  
+
+Version 1.4.1, 2014-01-16 23:52:00 +0100
+
+  Sailfish OS:
+  * NEW: added Martin Grimmes FancyScroller from Tidings
+  * Changed: Quit in main menu now shuts down reader and engine
+  * Fixed: file permissions in Sailfish OS RPM
+  * Fixed: open in browser button in item view push up menu is now working
+  * Fixed: minor UI fixes
+  * Fixed: busy indicator was running on already read posts in special list view
+  
+  Harmattan:
+  * Fixed: when daemon was crashed without notice and account was deleted in account
+    manager it could happen, that it was not possible to create a new accout
+  * Fixed: clicking on the launcher icon is not activating an already running ocNews
+    instance
+ 
+Version 1.4.0, 2014-01-14 19:01:00 +0100
+
+  Sailfish OS:
+  * Initial port
+  
+  Harmattan:
+  * Changed: do not start daemon at system start but on D-Bus request
+  * NEW: option for shutting both completely down, reader and daemon/engine
+
+Version 1.3.1, 2013-12-17 16:31:01 +0100
+
+  Harmattan
+  * Fixed: added update hint to welcome screen
+
+Version 1.3.0, 2013-12-17 11:43:09 +0100
+
+  Daemon/Engine
+  * NEW: background daemon for synchronization and as a handler for the operations
+  * NEW: timed updates through background daemon
+  
+  Harmattan
+  * NEW: event feed integration through background daemon
+  * Changed: account is now handled by system account manager
+  * Changed: certificates are now handled by system certification manager
+
+Version 1.2.4, 2013-12-04, 13:58:33 +0100
+
+  Harmattan
+  * Changed: import qt components (com.nokia.meego and com.nokia.extras) in
+    version 1.0 instead of version 1.1
+
+Version 1.2.3, 2013-12-03, 20:33:47 +0100
+
+  Harmattan
+  * NEW: option for loading images in feed by default or load them onfly after
+    clicking on a button
+
+Version 1.2.2, 2013-11-08, 03:24:50 +0100
+
+  Harmattan
+  * Fixed: show privacy policy explicitely when opening settings for the first
+    time and ask user for acceptance
+
+Version 1.2.1, 2013-11-06, 01:16:41 +0100
+
+  Harmattan
+  * NEW: added privacy policy
+
+Version 1.2.0, 2013-10-31, 02:04:53 +0100
+
+  Harmattan
+  * NEW: support for inverted/dark theme
+  * NEW: add option to choose text format (rich or styled text)
+  * Fixed: improved text rendering performance
+
+Version 1.2.0, 2013-10-29, 20:14:16 +0100
+
+  Harmattan
+  * NEW: option for sorting folders and feeds
+  * Fixed: typo in dequeue function that prevents deleting dequeued items
+    from the queue database
+
+Version 1.1.0, 2013-10-28, 23:49:04 +0100
+
+  Harmattan
+  * NEW: haptic feedback for some actions, mostly context menu opening
+  * NEW: pull down search bar in item list views
+
+Version 1.0.4, 2013-10-28, 16:54:34 +0100
+
+  Harmattan
+  * NEW: item context menu option to mark all items up to this as read or unread
+  * Changed: improved first start page with welcome screen
+  * Fixed: some text elides, especialy for too long feed names
+
+Version 1.0.3, 2013-10-25, 01:40:07 +0200
+
+  Harmattan
+  * Fixed: little bug, where the feed view was not updated, after marking
+    the whole folder as read
+
+Version 1.0.2, 2013-10-24, 17:49:52 +0200
+
+  Harmattan
+  * NEW: confirmation dialog with additional information in case
+    user disables SSL connection
+
+Version 1.0.1, 2013-10-24, 15:11:18 +0200
+
+  Harmattan
+  * Changed: unread item color bar is now orange
+  * NEW: first start button to setup account
+  * NEW: maintenance page under settings where you can reset configuration,
+    delete database and remove trusted certificates, and check some database
+    statistics
+
+Version 1.0.0, 2013-10-23, 01:00:14 +0200
+
+  Harmattan
+  * first release

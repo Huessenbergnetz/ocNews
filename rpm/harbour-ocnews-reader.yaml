@@ -1,0 +1,34 @@
+Name: harbour-ocnews-reader
+Summary: ownCloud News App Client
+Version: 1.5.1
+Release: 1
+Group: Qt/Qt
+URL: http://example.org/
+License: GPL-2.0
+Sources:
+- '%{name}-%{version}.tar.bz2'
+Description: |
+  ocNews is a client for the ownCloud News app that supports the complete API and all functions of the news app. It consists of a reader that communicates with a background daemon through DBus.
+Configure: none
+Builder: qtc5
+PkgConfigBR:
+- Qt5Sql
+- Qt5Network
+- Qt5DBus
+- sailfishapp >= 0.0.10
+- Qt5Core
+- Qt5Qml
+- Qt5Quick
+Requires:
+- sailfishsilica-qt5 >= 0.10.9
+- qt5-plugin-imageformat-gif
+- qt5-plugin-imageformat-ico
+Files:
+- '%defattr(644, root, root, 755)'
+- '%attr(755, root, root) %{_bindir}/harbour-ocnews-*'
+- '%{_datadir}/dbus-1/interfaces/de.buschmann23.ocNewsEngine.*.xml'
+- '%{_datadir}/dbus-1/services/de.buschmann23.*.service'
+- '%{_datadir}/harbour-ocnews-reader/'
+- '%{_datadir}/applications/harbour-ocnews-reader.desktop'
+- '%{_datadir}/icons/hicolor/86x86/apps/harbour-ocnews-reader.png'
+PkgBR: []

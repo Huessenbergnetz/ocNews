@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE provider>
+<provider version="1.0" id="ocnews">
+    <name>ocNews</name>
+    <translations>ocnewsaccount</translations>
+    <short-description>qtn_ocnews_description</short-description>
+    <description>qtn_ocnews_setup</description>
+    <icon>icon-m-ocnews</icon>
+    <register type="formular"/>
+    <install-existing>
+        <setting name="server" type="string" />
+        <setting name="username" type="string" />
+        <setting name="password" type="password"/>
+        <setting name="usessl" type="boolean" default_value="true" />
+        <setting name="ignoresslerrors" type="boolean" default_value="false" />
+    </install-existing>
+    <plugin>ocnews</plugin>
+</provider>
+

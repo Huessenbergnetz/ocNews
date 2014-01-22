@@ -1,0 +1,31 @@
+<aegis>
+        <provide>
+                <credential name="CertOCNewsSSL">
+                    <docstring>Needed to use the application Certificates</docstring>
+                </credential>
+        </provide>
+        <request policy="add">
+                    <credential name="UID::user" />
+                    <credential name="GID::users" />
+                    <credential name="GRP::users" />
+                    <credential name="TrackerReadAccess" />
+                    <credential name="TrackerWriteAccess" />
+                    <credential name="GRP::metadata-users" />
+                    <for path="/usr/lib/AccountSetup/bin/ocnewsplugin" />
+        </request>
+        <request>
+                <credential name="UID::user" />
+                <credential name="GID::users" />
+                <credential name="GRP::users" />
+                <credential name="TrackerReadAccess" />
+                <credential name="TrackerWriteAccess" />
+                <credential name="GRP::metadata-users" />
+                <credential name="buschtrommel-ocnews::CertOCNewsSSL" />
+                <for path="/opt/ocNewsEngine/bin/ocNewsEngine" />
+        </request>
+        <request>
+                <for path="/opt/ocNewsReader/bin/ocNewsReader_showContent_Wrapper.sh" />
+                <for path="/opt/ocNewsReader/bin/ocNewsReader" />
+                <for path="applauncherd-launcher::/usr/bin/applauncherd.bin" id="" />
+        </request>
+</aegis>
