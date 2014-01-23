@@ -1,3 +1,7 @@
+  Sailfish OS:
+  * Changed: use a centralized property do indicate if an operaton is running
+  * Changed: go back, after last item was removed from favourites list
+
 Version 1.5.1, 2013-01-21 14:00:00 +0100
 
   Sailfish OS:

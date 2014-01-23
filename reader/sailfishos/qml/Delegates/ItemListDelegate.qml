@@ -45,7 +45,6 @@ ListItem {
             Row {
                 Text {
                     id: mainText
-//                    text: model.title
                     text: Theme.highlightText(model.title, searchString, model.unread ? Theme.highlightColor : Theme.secondaryHighlightColor)
     //                width: itemListItem.width - 60
                     width: mainRow.width - starImage.width

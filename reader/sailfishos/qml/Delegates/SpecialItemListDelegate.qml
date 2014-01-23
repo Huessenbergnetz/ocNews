@@ -46,7 +46,6 @@ ListItem {
 
                 Text {
                     id: mainText
-//                    text: model.title
                     text: Theme.highlightText(model.title, searchString, model.unread ? Theme.highlightColor : Theme.secondaryHighlightColor)
                     width: mainRow.width - starImage.width
                     color: if (model.unread) { specialItemListItem.highlighted ? Theme.highlightColor : Theme.primaryColor } else { specialItemListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor }

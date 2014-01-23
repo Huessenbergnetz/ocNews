@@ -72,7 +72,6 @@ Page {
                 id: updateAll
                 enabled: configState === 0 && !operationRunning
                 text: qsTr("Update all")
-//                onClicked: { updater.startUpdate(); mainViewPully.busy = true; updateAll.enabled = false; pHeader.title = qsTr("Update running...") }
                 onClicked: { updater.startUpdate(); operationRunning = true }
             }
         }

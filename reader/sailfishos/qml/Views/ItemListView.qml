@@ -17,26 +17,11 @@ Page {
     Component.onCompleted: { console.log(handleRead); itemsModelSql.refresh(feedId, handleRead, sortAsc) }
     Component.onDestruction: GLOBALS.previousContentY = 0
 
-//    Connections {
-//        target: feeds
-//        onMarkedReadFeedSuccess: { itemListViewPully.busy = false; itemsModelSql.refresh(feedId, handleRead, sortAsc) }
-//        onMarkedReadFeedError: itemListViewPully.busy = false
-//        onDeletedFeedSuccess: pageStack.pop()
-//        onDeletedFeedError: itemListViewPully.busy = false
-//    }
     Connections {
         target: feeds
         onMarkedReadFeedSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc) }
         onDeletedFeedSuccess: pageStack.pop()
     }
-//    Connections {
-//        target: items
-//        onUpdatedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; itemListViewPully.busy = false; updateFeed.enabled = true; }
-//        onUpdatedItemsError: { itemListViewPully.busy = false; updateFeed.enabled = true; }
-//        onRequestedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
-//        onStarredItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
-//        onMarkedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
-//    }
     Connections {
         target: items
         onUpdatedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY }
@@ -44,12 +29,6 @@ Page {
         onStarredItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
         onMarkedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
     }
-//    Connections {
-//        target: updater
-//        onUpdateError: { itemListViewPully.busy = false; updateFeed.enabled = true }
-//        onUpdateFinished: { itemListViewPully.busy = false; updateFeed.enabled = true }
-//        onUpdateStarted: { itemListViewPully.busy = true; updateFeed.enabled = false }
-//    }
 
     onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc)
     onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc)

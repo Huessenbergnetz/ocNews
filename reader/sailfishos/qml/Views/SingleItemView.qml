@@ -112,7 +112,6 @@ Page {
                 id: itemTitle
                 width: parent.width - starImage.width
                 text: title
-//                font.pixelSize: Theme.fontSizeLarge
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 textFormat: Text.PlainText
                 color: Theme.highlightColor

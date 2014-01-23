@@ -22,16 +22,6 @@ Page {
         target: folders
         onMarkedReadFolderSuccess: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
     }
-//    Connections {
-//        target: items
-//        onUpdatedItemsSuccess: { specialItemListViewPully.busy = false; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY; update.enabled = true }
-//        onUpdatedItemsError: { specialItemListViewPully.busy = false; update.enabled = true }
-//        onRequestedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
-//        onStarredItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
-//        onMarkedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
-//        onMarkedAllItemsReadSuccess: { specialItemListViewPully.busy = false; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
-//        onMarkedAllItemsReadError: { pecialItemListViewPully.busy = false; }
-//    }
     Connections {
         target: items
         onUpdatedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
@@ -39,14 +29,7 @@ Page {
         onStarredItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
         onMarkedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
         onMarkedAllItemsReadSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
-        onMarkedAllItemsReadError: { pecialItemListViewPully.busy = false; }
     }
-//    Connections {
-//        target: updater
-//        onUpdateFinished: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemListViewPully.busy = false; update.enabled = true }
-//        onUpdateError: { specialItemListViewPully.busy = false; update.enabled = true }
-//        onUpdateStarted: { specialItemListViewPully.busy = true; update.enabled = false }
-//    }
     Connections {
         target: updater
         onUpdateFinished: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
