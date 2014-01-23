@@ -70,7 +70,7 @@ Page {
 
     Connections {
         target: items
-        onStarredItemsSuccess: { singleItemPully.busy = false; getItemData(showImgsDefault); }
+        onStarredItemsSuccess: { getItemData(showImgsDefault); }
     }
 
     SilicaFlickable {
@@ -83,14 +83,16 @@ Page {
 
         PullDownMenu {
             id: singleItemPully
+            busy: operationRunning
             MenuItem {
                 text: qsTr("Open in Browser")
                 onClicked: Qt.openUrlExternally(url)
             }
             MenuItem {
                 text: starred ? qsTr("Remove from favourites") : qsTr("Mark as favourite")
+                enabled: !operationRunning
                 onClicked: {
-                    singleItemPully.busy = true
+                    operationRunning = true
                     starred ? items.starItems("unstar", starParams() ) : items.starItems("star", starParams() )
                 }
             }

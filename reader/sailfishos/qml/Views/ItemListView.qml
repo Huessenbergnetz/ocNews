@@ -17,27 +17,39 @@ Page {
     Component.onCompleted: { console.log(handleRead); itemsModelSql.refresh(feedId, handleRead, sortAsc) }
     Component.onDestruction: GLOBALS.previousContentY = 0
 
+//    Connections {
+//        target: feeds
+//        onMarkedReadFeedSuccess: { itemListViewPully.busy = false; itemsModelSql.refresh(feedId, handleRead, sortAsc) }
+//        onMarkedReadFeedError: itemListViewPully.busy = false
+//        onDeletedFeedSuccess: pageStack.pop()
+//        onDeletedFeedError: itemListViewPully.busy = false
+//    }
     Connections {
         target: feeds
-        onMarkedReadFeedSuccess: { itemListViewPully.busy = false; itemsModelSql.refresh(feedId, handleRead, sortAsc) }
-        onMarkedReadFeedError: itemListViewPully.busy = false
+        onMarkedReadFeedSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc) }
         onDeletedFeedSuccess: pageStack.pop()
-        onDeletedFeedError: itemListViewPully.busy = false
     }
+//    Connections {
+//        target: items
+//        onUpdatedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; itemListViewPully.busy = false; updateFeed.enabled = true; }
+//        onUpdatedItemsError: { itemListViewPully.busy = false; updateFeed.enabled = true; }
+//        onRequestedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
+//        onStarredItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
+//        onMarkedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
+//    }
     Connections {
         target: items
-        onUpdatedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; itemListViewPully.busy = false; updateFeed.enabled = true; }
-        onUpdatedItemsError: { itemListViewPully.busy = false; updateFeed.enabled = true; }
+        onUpdatedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY }
         onRequestedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
         onStarredItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
         onMarkedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
     }
-    Connections {
-        target: updater
-        onUpdateError: { itemListViewPully.busy = false; updateFeed.enabled = true }
-        onUpdateFinished: { itemListViewPully.busy = false; updateFeed.enabled = true }
-        onUpdateStarted: { itemListViewPully.busy = true; updateFeed.enabled = false }
-    }
+//    Connections {
+//        target: updater
+//        onUpdateError: { itemListViewPully.busy = false; updateFeed.enabled = true }
+//        onUpdateFinished: { itemListViewPully.busy = false; updateFeed.enabled = true }
+//        onUpdateStarted: { itemListViewPully.busy = true; updateFeed.enabled = false }
+//    }
 
     onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc)
     onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc)
@@ -49,7 +61,7 @@ Page {
 
         PageHeader {
             id: pHeader
-            title: updater.isUpdateRunning() ? "Update running..." : itemListView.feedName
+            title: operationRunning ? "Update running..." : itemListView.feedName
         }
 
         SearchField {
@@ -83,9 +95,10 @@ Page {
 
         PullDownMenu {
             id: itemListViewPully
-            busy: updater.isUpdateRunning() ? true : false
+            busy: operationRunning
             MenuItem {
                 id: deleteFeed
+                enabled: !operationRunning
                 text: qsTr("Delete feed")
                 onClicked: removeFeed(itemListView.feedId, itemListView.feedName)
             }
@@ -96,13 +109,15 @@ Page {
             }
             MenuItem {
                 id: markFeedAsRead
+                enabled: !operationRunning
                 text: qsTr("Mark feed as read")
-                onClicked: { itemListViewPully.busy = true; feeds.markFeedRead(itemListView.feedId) }
+                onClicked: { operationRunning = true; feeds.markFeedRead(itemListView.feedId) }
             }
             MenuItem {
                 id: updateFeed
+                enabled: !operationRunning
                 text: qsTr("Update feed")
-                onClicked: { itemListViewPully.busy = true; updateFeed.enabled = false; items.updateItems("0", "0", itemListView.feedId) }
+                onClicked: { operationRunning = true; items.updateItems("0", "0", itemListView.feedId) }
             }
             MenuItem {
                 id: showSearch
@@ -139,7 +154,7 @@ Page {
 
     function removeFeed(feedId, feedName)
     {
-        remorsePop.execute(qsTr("Deleting feed %1").arg(feedName), function() { itemListViewPully.busy = true; feeds.deleteFeed(feedId) } );
+        remorsePop.execute(qsTr("Deleting feed %1").arg(feedName), function() { operationRunning = true; feeds.deleteFeed(feedId) } );
     }
 
     RemorsePopup {

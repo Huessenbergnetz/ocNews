@@ -115,28 +115,32 @@ ListItem {
         ContextMenu {
             MenuItem {
                 text: qsTr("Update feed")
-                onClicked: { busyIndicator.state = "RUNNING"; items.updateItems("0", "0", model.id) }
+                enabled: !operationRunning
+                onClicked: { busyIndicator.state = "RUNNING"; operationRunning = true; items.updateItems("0", "0", model.id) }
             }
             MenuItem {
                 text: qsTr("Mark feed as read")
-                onClicked: { busyIndicator.state = "RUNNING"; feeds.markFeedRead(model.id) }
+                enabled: !operationRunning
+                onClicked: { busyIndicator.state = "RUNNING"; operationRunning = true; feeds.markFeedRead(model.id) }
             }
             MenuItem {
                 text: qsTr("Move feed")
+                enabled: !operationRunning
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/MoveFeed.qml"), {feedId: model.id, feedName: model.title, folderId: folderId})
-                    dialog.accepted.connect(function() { busyIndicator.state = "RUNNING"; })
+                    dialog.accepted.connect(function() { operationRunning = true; busyIndicator.state = "RUNNING"; })
                 }
             }
             MenuItem {
                 text: qsTr("Delete feed")
+                enabled: !operationRunning
                 onClicked: removeFeed(model.id, model.title)
             }
         }
     }
 
     function removeFeed(feedId, feedName) {
-        remorse.execute(feedListItem, qsTr("Deleting feed %1").arg(feedName), function() { busyIndicator.state = "RUNNING"; feeds.deleteFeed(feedId) } );
+        remorse.execute(feedListItem, qsTr("Deleting feed %1").arg(feedName), function() { busyIndicator.state = "RUNNING"; operationRunning = true; feeds.deleteFeed(feedId) } );
     }
 
     RemorseItem {

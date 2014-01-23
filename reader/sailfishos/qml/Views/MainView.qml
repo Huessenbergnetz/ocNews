@@ -22,22 +22,6 @@ Page {
     }
 
     Connections {
-        target: updater
-        onUpdateFinished: { mainViewPully.busy = false; updateAll.enabled = true }
-        onUpdateError: { mainViewPully.busy = false; updateAll.enabled = true }
-        onUpdateStarted: { mainViewPully.busy = true; updateAll.enabled = false }
-    }
-    Connections {
-        target: folders
-        onCreatedFolderError: mainViewPully.busy = false;
-        onCreatedFolderSuccess: mainViewPully.busy = false;
-    }
-    Connections {
-        target: feeds
-        onCreatedFeedError: mainViewPully.busy = false;
-        onCreatedFeedSuccess: mainViewPully.busy = false;
-    }
-    Connections {
         target: dbus
         onSavedConfig: {
             if (dbus.isConfigSet() && dbus.isAccountEnabled()) {
@@ -57,12 +41,12 @@ Page {
 
         header: PageHeader {
             id: pHeader
-            title: updater.isUpdateRunning() ? qsTr("Update running...") : "ocNews"
+            title: operationRunning ? qsTr("Update running...") : "ocNews"
         }
 
         PullDownMenu {
             id: mainViewPully
-            busy: updater.isUpdateRunning() ? true : false
+            busy: operationRunning
             MenuItem {
                 id: quit
                 text: qsTr("Quit")
@@ -80,15 +64,16 @@ Page {
             }
             MenuItem {
                 id: add
-                enabled: configState === 0
+                enabled: configState === 0 && !operationRunning
                 text: qsTr("Add")
                 onClicked: addActionsDock.open = !addActionsDock.open
             }
             MenuItem {
                 id: updateAll
-                enabled: configState === 0
+                enabled: configState === 0 && !operationRunning
                 text: qsTr("Update all")
-                onClicked: { updater.startUpdate(); mainViewPully.busy = true; updateAll.enabled = false; pHeader.title = qsTr("Update running...") }
+//                onClicked: { updater.startUpdate(); mainViewPully.busy = true; updateAll.enabled = false; pHeader.title = qsTr("Update running...") }
+                onClicked: { updater.startUpdate(); operationRunning = true }
             }
         }
 
@@ -134,20 +119,22 @@ Page {
             Button {
                 id: addFeed
                 text: qsTr("Add feed")
+                enabled: !operationRunning
                 onClicked: {
                     addActionsDock.open = false
                     var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/CreateFeed.qml"))
-                    dialog.accepted.connect(function() { mainViewPully.busy = true })
+                    dialog.accepted.connect(function() { operationRunning = true })
                 }
             }
 
             Button {
                 id: addFolder
                 text: qsTr("Add folder")
+                enabled: !operationRunning
                 onClicked: {
                     addActionsDock.open = false
                     var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/CreateFolder.qml"))
-                    dialog.accepted.connect(function() { mainViewPully.busy = true })
+                    dialog.accepted.connect(function() {operationRunning = true })
                 }
             }
         }

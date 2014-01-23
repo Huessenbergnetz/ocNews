@@ -20,23 +20,36 @@ Page {
 
     Connections {
         target: folders
-        onMarkedReadFolderSuccess: { specialItemListViewPully.busy = false; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc) }
+        onMarkedReadFolderSuccess: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
     }
+//    Connections {
+//        target: items
+//        onUpdatedItemsSuccess: { specialItemListViewPully.busy = false; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY; update.enabled = true }
+//        onUpdatedItemsError: { specialItemListViewPully.busy = false; update.enabled = true }
+//        onRequestedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
+//        onStarredItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
+//        onMarkedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
+//        onMarkedAllItemsReadSuccess: { specialItemListViewPully.busy = false; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
+//        onMarkedAllItemsReadError: { pecialItemListViewPully.busy = false; }
+//    }
     Connections {
         target: items
-        onUpdatedItemsSuccess: { specialItemListViewPully.busy = false; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY; update.enabled = true }
-        onUpdatedItemsError: { specialItemListViewPully.busy = false; update.enabled = true }
+        onUpdatedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
         onRequestedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
         onStarredItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
         onMarkedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
-        onMarkedAllItemsReadSuccess: { specialItemListViewPully.busy = false; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
+        onMarkedAllItemsReadSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
         onMarkedAllItemsReadError: { pecialItemListViewPully.busy = false; }
     }
+//    Connections {
+//        target: updater
+//        onUpdateFinished: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemListViewPully.busy = false; update.enabled = true }
+//        onUpdateError: { specialItemListViewPully.busy = false; update.enabled = true }
+//        onUpdateStarted: { specialItemListViewPully.busy = true; update.enabled = false }
+//    }
     Connections {
         target: updater
-        onUpdateFinished: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemListViewPully.busy = false; update.enabled = true }
-        onUpdateError: { specialItemListViewPully.busy = false; update.enabled = true }
-        onUpdateStarted: { specialItemListViewPully.busy = true; update.enabled = false }
+        onUpdateFinished: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
     }
 
     onHandleReadChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
@@ -49,7 +62,7 @@ Page {
 
         PageHeader {
             id: pHeader
-            title: updater.isUpdateRunning() ? "Update running..." : specialItemListView.pageName
+            title: operationRunning ? qsTr("Update running...") : specialItemListView.pageName
         }
 
         SearchField {
@@ -83,7 +96,7 @@ Page {
 
         PullDownMenu {
             id: specialItemListViewPully
-            busy: updater.isUpdateRunning() ? true : false
+            busy: operationRunning
             MenuItem {
                 id: menuSort
                 text: sortingPanel.open ? qsTr("Hide sorting options") : qsTr("Show sorting options")
@@ -91,15 +104,17 @@ Page {
             }
             MenuItem {
                 id: markAsRead
+                enabled: !operationRunning
                 visible: feedType !== "starred"
                 text: feedType === "folder" ? qsTr("Mark folder as read") : qsTr("Mark all as read")
                 onClicked: feedType === "folder" ?  markFolderRead(specialItemListView.id, specialItemListView.pageName) : markAllAsRead()
             }
             MenuItem {
                 id: update
+                enabled: !operationRunning
                 visible: feedType !== "starred"
                 text: feedType === "folder" ? qsTr("Update folder") : qsTr("Update all")
-                onClicked: { update.enabled = false; specialItemListViewPully.busy = true; feedType === "folder" ? items.updateItems("0", "1", specialItemListView.id) : updater.startUpdate() }
+                onClicked: { operationRunning = true; feedType === "folder" ? items.updateItems("0", "1", specialItemListView.id) : updater.startUpdate() }
             }
             MenuItem {
                 id: showSearch
@@ -135,12 +150,12 @@ Page {
 
     function markFolderRead(folderId, folderName)
     {
-        remorsePop.execute(qsTr("Marking %1 as read").arg(folderName), function() { specialItemListViewPully.busy = true; folders.markFolderRead(folderId); } );
+        remorsePop.execute(qsTr("Marking %1 as read").arg(folderName), function() { operationRunning = true; folders.markFolderRead(folderId); } );
     }
 
     function markAllAsRead()
     {
-        remorsePop.execute(qsTr("Marking all entries as read"), function() { specialItemListViewPully.busy = true; items.markAllItemsRead() } );
+        remorsePop.execute(qsTr("Marking all entries as read"), function() { operationRunning = true; items.markAllItemsRead() } );
     }
 
     RemorsePopup {

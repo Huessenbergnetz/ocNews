@@ -8,7 +8,6 @@ import "../Dialogs"
 ListItem {
     id: folderListItem
 
-//    contentHeight: model.type === "1" ? Theme.itemSizeMedium : Theme.itemSizeSmall
     contentHeight: Theme.itemSizeSmall
 
     showMenuOnPressAndHold: model.type === "-1" ? false : true
@@ -130,21 +129,25 @@ ListItem {
         ContextMenu {
             MenuItem {
                 text: qsTr("Update folder")
-                onClicked: { busyIndicator.state = "RUNNING"; items.updateItems("0", "1", model.id) }
+                enabled: !operationRunning
+                onClicked: { busyIndicator.state = "RUNNING"; operationRunning = true; items.updateItems("0", "1", model.id) }
             }
             MenuItem {
                 text: qsTr("Mark folder as read")
+                enabled: !operationRunning
                 onClicked: markFolderRead(model.id, model.title)
             }
             MenuItem {
                 text: qsTr("Rename folder")
+                enabled: !operationRunning
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/RenameFolder.qml"), {folderId: model.id, folderName: model.title})
-                    dialog.accepted.connect(function() { busyIndicator.state = "RUNNING"; })
+                    dialog.accepted.connect(function() { busyIndicator.state = "RUNNING"; operationRunning = true; })
                 }
             }
             MenuItem {
                 text: qsTr("Delete folder")
+                enabled: !operationRunning
                 onClicked: removeFolder(model.id, model.title)
             }
         }
@@ -155,36 +158,40 @@ ListItem {
         ContextMenu {
             MenuItem {
                 text: qsTr("Update feed")
-                onClicked: { busyIndicator.state = "RUNNING"; items.updateItems("0", "0", model.id) }
+                enabled: !operationRunning
+                onClicked: { busyIndicator.state = "RUNNING"; operationRunning = true; items.updateItems("0", "0", model.id) }
             }
             MenuItem {
                 text: qsTr("Mark feed as read")
-                onClicked: { busyIndicator.state = "RUNNING"; feeds.markFeedRead(model.id) }
+                enabled: !operationRunning
+                onClicked: { busyIndicator.state = "RUNNING"; operationRunning = true; feeds.markFeedRead(model.id) }
             }
             MenuItem {
                 text: qsTr("Move feed")
+                enabled: !operationRunning
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/MoveFeed.qml"), {feedId: model.id, feedName: model.title, folderId: "0"})
-                    dialog.accepted.connect(function() { busyIndicator.state = "RUNNING"; })
+                    dialog.accepted.connect(function() { busyIndicator.state = "RUNNING"; operationRunning = true; })
                 }
             }
             MenuItem {
                 text: qsTr("Delete feed")
+                enabled: !operationRunning
                 onClicked: removeFeed(model.id, model.title)
             }
         }
     }
 
     function removeFeed(feedId, feedName) {
-        remorse.execute(folderListItem, qsTr("Deleting feed %1").arg(feedName), function() { busyIndicator.state = "RUNNING"; feeds.deleteFeed(feedId) } );
+        remorse.execute(folderListItem, qsTr("Deleting feed %1").arg(feedName), function() { busyIndicator.state = "RUNNING"; operationRunning = true; feeds.deleteFeed(feedId) } );
     }
 
     function removeFolder(folderId, folderName) {
-        remorse.execute(folderListItem, qsTr("Deleting folder %1").arg(folderName), function() { busyIndicator.state = "RUNNING"; folders.deleteFolder(folderId) } );
+        remorse.execute(folderListItem, qsTr("Deleting folder %1").arg(folderName), function() { busyIndicator.state = "RUNNING"; operationRunning = true; folders.deleteFolder(folderId) } );
     }
 
     function markFolderRead(folderId, folderName) {
-        remorse.execute(folderListItem, qsTr("Mark folder %1 as read").arg(folderName), function() { busyIndicator.state = "RUNNING"; folders.markFolderRead(folderId) } );
+        remorse.execute(folderListItem, qsTr("Mark folder %1 as read").arg(folderName), function() { busyIndicator.state = "RUNNING"; operationRunning = true; folders.markFolderRead(folderId) } );
     }
 
     RemorseItem {

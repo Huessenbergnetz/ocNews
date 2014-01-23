@@ -116,11 +116,21 @@ ListItem {
         ContextMenu {
             MenuItem {
                 text: model.unread ? qsTr("Mark as read") : qsTr("Mark as unread")
-                onClicked: { GLOBALS.previousContentY = specialItemListItem.ListView.view.contentY; busyIndicator.state = "RUNNING"; model.unread ? items.markItems("read", specialItemListItem.markParams()) : items.markItems("unread", specialItemListItem.markParams()) }
+                enabled: !operationRunning
+                onClicked: {
+                    GLOBALS.previousContentY = specialItemListItem.ListView.view.contentY
+                    busyIndicator.state = "RUNNING"
+                    operationRunning = true
+                    model.unread ? items.markItems("read", specialItemListItem.markParams()) : items.markItems("unread", specialItemListItem.markParams()) }
             }
             MenuItem {
                 text: model.starred ? qsTr("Remove from favourites") : qsTr("Add to favourites")
-                onClicked: { GLOBALS.previousContentY = specialItemListItem.ListView.view.contentY; busyIndicator.state = "RUNNING"; model.starred ? items.starItems("unstar", specialItemListItem.starParams() ) : items.starItems("star", specialItemListItem.starParams() ) }
+                enabled: !operationRunning
+                onClicked: {
+                    GLOBALS.previousContentY = specialItemListItem.ListView.view.contentY
+                    busyIndicator.state = "RUNNING"
+                    operationRunning = true
+                    model.starred ? items.starItems("unstar", specialItemListItem.starParams() ) : items.starItems("star", specialItemListItem.starParams() ) }
             }
         }
     }
