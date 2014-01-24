@@ -63,7 +63,8 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Pages/CoverPage.qml \
     qml/Pages/About.qml \
     qml/Dialogs/PrivacyPolicy.qml \
-    qml/Common/FancyScroller.qml
+    qml/Common/FancyScroller.qml \
+    qml/Pages/Contributors.qml
 
 HEADERS += \
     ../common/ocdbmanager.h \

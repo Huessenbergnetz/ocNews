@@ -33,6 +33,29 @@
         <source>Make a donation</source>
         <translation>Faire un don</translation>
     </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/About.qml" line="100"/>
+        <source>Contributors</source>
+        <translation>Contributeurs</translation>
+    </message>
+</context>
+<context>
+    <name>Contributors</name>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="20"/>
+        <source>Contributors</source>
+        <translation>Contributeurs</translation>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="22"/>
+        <source>Main developer</source>
+        <translation>Développeur principal</translation>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="34"/>
+        <source>Translators</source>
+        <translation>Traducteurs</translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>

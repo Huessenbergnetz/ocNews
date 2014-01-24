@@ -237,7 +237,7 @@
 <context>
     <name>Header</name>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Common/Header.qml" line="21"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Common/Header.qml" line="20"/>
         <source>ocNews</source>
         <translation>ocNews</translation>
     </message>

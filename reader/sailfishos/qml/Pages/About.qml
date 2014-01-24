@@ -94,6 +94,13 @@ Page {
             onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDZAG64WD34PL")
         }
 
+        Button {
+            id: showContributors
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: qsTr("Contributors")
+            onClicked: pageStack.push(Qt.resolvedUrl("Contributors.qml"))
+        }
+
     }
 
     }
