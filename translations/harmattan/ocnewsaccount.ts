@@ -157,7 +157,7 @@
     <message id="qtn_help_ignoressl_text">
         <location filename="../ocNewsAccount/harmattan/qml/HelpSheet.qml" line="93"/>
         <source></source>
-        <translation>Activate this switch only if you know what you are doing. Sometimes self signed certificates get rejected, then try to connect with ingnoring SSL errors. As stated above, it is not a good idea to use an unencrypted or not trusted connection.</translation>
+        <translation>Activate this switch only if you know what you are doing. Sometimes self signed certificates get rejected, then try to connect with ignoring SSL errors. As stated above, it is not a good idea to use an unencrypted or not trusted connection.</translation>
     </message>
     <message id="qtn_ocnews_description">
         <translation>ownCloud News</translation>
