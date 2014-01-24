@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file alias="ocnewsengine_de.qm">ocnewsengine_de.qm</file>
+        <file alias="ocnewsengine_fr.qm">ocnewsengine_fr.qm</file>
     </qresource>
 </RCC>
