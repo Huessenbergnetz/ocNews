@@ -613,7 +613,7 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="44"/>
         <source>In order to log in to your ownCloud server, ocNews collects the server address, your user name and your password. These information is not given to the author of ocNews or other third parties.</source>
-        <translation>Pour se connecter à votre serveur ownCloud, ocNews doit collecter l&apos;adresse su serveur, votre nom d&apos;utilisateur et votre mot de passe. Ces informations ne sont pas transmises à l&apos;auteur d&apos;ocNews ni à des tierces parties.</translation>
+        <translation>Pour se connecter à votre serveur ownCloud, ocNews doit collecter l&apos;adresse du serveur, votre nom d&apos;utilisateur et votre mot de passe. Ces informations ne sont pas transmises à l&apos;auteur d&apos;ocNews ni à des tierces parties.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="54"/>
@@ -623,7 +623,7 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="62"/>
         <source>ocNews needs your log in data to connect to your ownCloud server. Your log in data is used to log in to your ownCloud server to perform the tasks of synchronizing your ownCloud News App data with your device.</source>
-        <translation>ocNews a besoin de vos identifiants de connexion pour se connecter à votre serveur ownCloud. Vos identifiants de connection sont utilisés pour se connecter à votre serveur ownCloud pour réaliser la synchronisation des données de votre application ownCloud News avec votre équipement.</translation>
+        <translation>ocNews a besoin de vos identifiants de connexion pour se connecter à votre serveur ownCloud. Vos identifiants de connection sont utilisés pour se connecter à votre serveur ownCloud et réaliser la synchronisation des données de votre application ownCloud News avec votre appareil.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="72"/>
@@ -720,7 +720,7 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="152"/>
         <source>Because ownCloud News requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption.</source>
-        <translation>Parce qu&apos;ownCloud News nécessite d&apos;envoyer votre nom d&apos;utilisateur et votre mot de passe avec chaque requête, vous devriez garder ceci activé et utiliser une connexion cryptée si votre serveur supporte ou nécessite le cryptage.</translation>
+        <translation>Parce qu&apos;ownCloud News nécessite d&apos;envoyer votre nom d&apos;utilisateur et votre mot de passe avec chaque requête, vous devriez garder ceci activé et utiliser une connexion cryptée si votre serveur le supporte ou le nécessite.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="156"/>
@@ -736,7 +736,7 @@
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="162"/>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="179"/>
         <source>Updating</source>
-        <translation>Mis à jour</translation>
+        <translation>Mise à jour</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="170"/>

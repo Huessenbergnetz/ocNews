@@ -85,17 +85,17 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="68"/>
         <source>Enter new feed address</source>
-        <translation>Entrer une adresse de nouveau flux</translation>
+        <translation>Entrez l&apos;adresse du nouveau flux</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="75"/>
         <source>Select folder</source>
-        <translation>Selectionner un dossier</translation>
+        <translation>Selectionnez un dossier</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="89"/>
         <source>Show feed in event view</source>
-        <translation>Afficher le dossier dans la page des évènements</translation>
+        <translation>Afficher dans les notifications</translation>
     </message>
 </context>
 <context>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFolderSheet.qml" line="38"/>
         <source>Enter folder name</source>
-        <translation>Entrer un nom de dossier</translation>
+        <translation>Entrez un nom de dossier</translation>
     </message>
 </context>
 <context>
@@ -350,7 +350,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="86"/>
         <source>&lt;b&gt;Welcome to ocNews&lt;/b&gt;&lt;br /&gt;With these app you can synchronize and view your ownCloud News App content on your smartphone. Before you can start, you have to setup your ownCloud server account.</source>
-        <translation>&lt;b&gt;Bienvenu dans ocNews&lt;/b&gt;&lt;br /&gt;Avec cette application, vous pouvez synchroniser et voir le contenu de votre application ownCLoud News sur votre smartphone. Avant de commencer, vous devez configurer votre compte ownCloud.</translation>
+        <translation>&lt;b&gt;Bienvenue dans ocNews&lt;/b&gt;&lt;br /&gt;Avec cette application, vous pouvez synchroniser et voir le contenu de votre application ownCloud News sur votre smartphone. Avant de commencer, vous devez configurer votre compte ownCloud.</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="99"/>
@@ -516,7 +516,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/MoveFeedSheet.qml" line="40"/>
         <source>Move feed to another folder</source>
-        <translation>Déplacer le flux dans un autre dossier</translation>
+        <translation>Déplacer dans un autre dossier</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/MoveFeedSheet.qml" line="66"/>
@@ -640,7 +640,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="66"/>
         <source>ocNews needs your log in data to connect to your ownCloud server. Your log in data is used to log in to your ownCloud server to perform the tasks of synchronizing your ownCloud News App data with your device.</source>
-        <translation>ocNews a besoin de vos identifiants de connexion pour se connecter à votre serveur ownCloud. Vos identifiants de connection sont utilisés pour se connecter à votre serveur ownCloud pour réaliser la synchronisation des données de votre application ownCloud News avec votre équipement.</translation>
+        <translation>ocNews a besoin de vos identifiants de connexion pour se connecter à votre serveur ownCloud. Vos identifiants de connection sont utilisés pour se connecter à votre serveur ownCloud pour réaliser la synchronisation des données de votre application ownCloud News avec votre appareil.</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="78"/>
@@ -727,7 +727,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="79"/>
         <source>Open account manager</source>
-        <translation>Ouvrir le gestionnaire de comptes</translation>
+        <translation>Gestion du compte</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="79"/>
@@ -889,17 +889,17 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="370"/>
         <source>Select feeds for the event view</source>
-        <translation>Selectionnez les flux pour la page des évènements</translation>
+        <translation>Selection des flux</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="400"/>
         <source>Select event view feeds</source>
-        <translation>Selectionner les flux de la page des évènements</translation>
+        <translation>Selection des flux</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="413"/>
         <source>Click the button to select the feeds that you want to aggregate to the Event screen. Only newly downloaded items will be added to the Events screen.</source>
-        <translation>Cliquez sur le bouton pour sélectionner les flux que vous voulez afficher sur la page des évènements. Seul les nouveaux articles téléchargés seront ajoutés.</translation>
+        <translation>Cliquez sur le bouton pour sélectionner les flux que vous voulez afficher sur l&apos;écran de notifications. Seul les nouveaux articles téléchargés seront ajoutés.</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="425"/>
@@ -934,7 +934,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="491"/>
         <source>d. MMMM yyyy, hh:mm</source>
-        <translation>d/MMMM/yyyy, hh:mm</translation>
+        <translation>d MMMM yyyy, hh:mm</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="499"/>
@@ -959,7 +959,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="550"/>
         <source>Event Feed Integration</source>
-        <translation>Intégration du flux d&apos;évènements</translation>
+        <translation>Intégration des notifications</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="555"/>
