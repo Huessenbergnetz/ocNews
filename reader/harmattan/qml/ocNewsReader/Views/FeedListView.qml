@@ -46,15 +46,15 @@ Page {
     }
     Connections {
         target: feedListViewAddFeed
-        onAccepted: if (feedListViewAddFeed.feedAddressText !== "") feedListViewHeader.indicatorState = "RUNNING"
+        onAccepted: if (feedListViewAddFeed.feedAddressText !== "") operationRunning = true
     }
     Connections {
         target: feedListViewMoveFeed
-        onAccepted: feedListViewHeader.indicatorState = "RUNNING"
+        onAccepted: operationRunning = true
     }
     Connections {
         target: feedListViewRenameFolder
-        onAccepted: if (feedListViewRenameFolder.folderName !== feedListViewRenameFolder.newFolderName && feedListViewRenameFolder.newFolderName !== "") feedListViewHeader.indicatorState = "RUNNING"
+        onAccepted: if (feedListViewRenameFolder.folderName !== feedListViewRenameFolder.newFolderName && feedListViewRenameFolder.newFolderName !== "") operationRunning = true
     }
 
 // ------------- Header Start ----------------
@@ -111,33 +111,11 @@ Page {
         }
         ToolIcon {
             id: updaterIcon
-            platformIconId: "toolbar-refresh"
-            state: updater.isUpdateRunning() ? "RUNNING" : "NORMAL"
-            states: [
-                State {
-                    name: "NORMAL"
-                    PropertyChanges { target: updaterIcon; enabled: true; visible: true; }
-                },
-                State {
-                    name: "RUNNING"
-                    PropertyChanges { target: updaterIcon; enabled: false; visible: false; }
-                }
-            ]
+            platformIconId: operationRunning ? "toolbar-refresh-dimmed" : "toolbar-refresh"
+            enabled: !operationRunning
             onClicked: {
-                feedListViewHeader.indicatorState = "RUNNING"
-                updaterIcon.state = "RUNNING"
+                operationRunning = true
                 items.updateItems("0", "1", feedListView.folderId);
-            }
-            Connections {
-                target: items
-                onUpdatedItemsSuccess: updaterIcon.state = "NORMAL"
-                onUpdatedItemsError: updaterIcon.state = "NORMAL"
-            }
-            Connections {
-                target: updater
-                onUpdateFinished: updaterIcon.state = "NORMAL"
-                onUpdateError: updaterIcon.state = "NORMAL"
-                onUpdateStarted: updaterIcon.state = "RUNNING";
             }
         }
         ToolIcon {
@@ -153,6 +131,7 @@ Page {
         MenuLayout {
             MenuItem {
                 text: qsTr("Add feed")
+                enabled: !operationRunning
                 onClicked: {
                     feedListViewAddFeed.folderId = feedListView.folderId
                     feedListViewAddFeed.folderName = feedListView.folderName
@@ -161,10 +140,12 @@ Page {
             }
             MenuItem {
                 text: qsTr("Mark folder as read")
+                enabled: !operationRunning
                 onClicked: feedListViewMarkFolderReadQuery.open()
             }
             MenuItem {
                 text: qsTr("Rename folder ")
+                enabled: !operationRunning
                 onClicked: {
                     feedListViewRenameFolder.folderId = feedListView.folderId
                     feedListViewRenameFolder.folderName = feedListView.folderName
@@ -173,6 +154,7 @@ Page {
             }
             MenuItem {
                 text: qsTr("Delete folder")
+                enabled: !operationRunning
                 onClicked: feedListViewDeleteFolderQuery.open()
             }
         }
@@ -192,20 +174,23 @@ Page {
         MenuLayout {
             MenuItem {
                 text: qsTr("Mark feed as read")
+                enabled: !operationRunning
                 onClicked: {
-                    feedListViewHeader.indicatorState = "RUNNING"
+                    operationRunning = true
                     feeds.markFeedRead(feedsContextMenu.feedId);
                 }
             }
             MenuItem {
                 text: qsTr("Update feed")
+                enabled: !operationRunning
                 onClicked: {
-                    feedListViewHeader.indicatorState = "RUNNING"
+                    operationRunning = true
                     items.updateItems("0", "0", feedsContextMenu.feedId)
                 }
             }
             MenuItem {
                 text: qsTr("Move feed")
+                enabled: !operationRunning
                 onClicked: {
                     feedListViewMoveFeed.feedId = feedsContextMenu.feedId
                     feedListViewMoveFeed.feedName = feedsContextMenu.feedName
@@ -215,6 +200,7 @@ Page {
             }
             MenuItem {
                 text: qsTr("Delete feed")
+                enabled: !operationRunning
                 onClicked: {
                     feedListViewDeleteFeedQuery.feedId = feedsContextMenu.feedId
                     feedListViewDeleteFeedQuery.feedName = feedsContextMenu.feedName
@@ -255,7 +241,7 @@ Page {
         message: qsTr("Do you really want to delete this folder? All feeds and posts in this folder will then be deleted, too.")
         titleText: qsTr("Delete folder %1?").arg(folderName)
         onAccepted: {
-            feedListViewHeader.indicatorState = "RUNNING"
+            operationRunning = true
             folders.deleteFolder(folderId)
         }
     }
@@ -268,7 +254,7 @@ Page {
         message: qsTr("Do you really want to mark the whole content of this folder as read?")
         titleText: qsTr("Mark folder %1 as read?").arg(folderName)
         onAccepted: {
-            feedListViewHeader.indicatorState = "RUNNING"
+            operationRunning = true
             folders.markFolderRead(folderId)
         }
     }
@@ -282,7 +268,7 @@ Page {
         rejectButtonText: qsTr("Cancel")
         titleText: qsTr("Delete feed %1?").arg(feedName)
         onAccepted: {
-            feedListViewHeader.indicatorState = "RUNNING"
+            operationRunning = true
             feeds.deleteFeed(feedId)
         }
     }

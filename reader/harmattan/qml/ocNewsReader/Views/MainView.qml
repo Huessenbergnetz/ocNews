@@ -34,19 +34,19 @@ Page {
 
     Connections {
         target: mainViewAddFeed
-        onAccepted: if (mainViewAddFeed.feedAddressText !== "") mainViewHeader.indicatorState = "RUNNING"
+        onAccepted: if (mainViewAddFeed.feedAddressText !== "") operationRunning = true
     }
     Connections {
         target: mainViewAddFolder
-        onAccepted: if (mainViewAddFolder.folderNameText !== "") mainViewHeader.indicatorState = "RUNNING"
+        onAccepted: if (mainViewAddFolder.folderNameText !== "") operationRunning = true
     }
     Connections {
         target: mainViewRenameFolder
-        onAccepted: if (mainViewRenameFolder.folderName !== mainViewRenameFolder.newFolderName && mainViewRenameFolder.newFolderName !== "") mainViewHeader.indicatorState = "RUNNING"
+        onAccepted: if (mainViewRenameFolder.folderName !== mainViewRenameFolder.newFolderName && mainViewRenameFolder.newFolderName !== "") operationRunning = true
     }
     Connections {
         target: mainViewMoveFeed
-        onAccepted: mainViewHeader.indicatorState = "RUNNING"
+        onAccepted: operationRunning = true
     }
     Connections {
         target: dbus
@@ -124,22 +124,6 @@ Page {
             onClicked: launcher.launch("/usr/bin/invoker", "-w,--type=d,--single-instance,/usr/lib/AccountSetup/bin/ocnewsplugin")
         }
 
-//        Image {
-//            id: ocnewsLogo
-//            anchors { horizontalCenter: parent.horizontalCenter; top: setupAccountButton.bottom; topMargin: 30 }
-//            asynchronous: true
-//            width: 256
-//            height: 256
-//            sourceSize.width: 256
-//            sourceSize.height: 256
-//            source: "/opt/ocNewsReader/images/ocNews256.png"
-
-//            MouseArea {
-//                id: mouseAreaLogo;
-//                anchors.fill: parent
-//                onClicked: openFile("../Pages/About.qml")
-//            }
-//        }
     }
 // ------------- Welcome Text End ---------------
 
@@ -229,44 +213,12 @@ Page {
             platformIconId: "toolbar-add"
             anchors.left: (parent === undefined) ? undefined : parent.left
             onClicked: { (addMenu.status === DialogStatus.Closed) ? addMenu.open() : addMenu.close(); settingsMenu.close(); }
-            visible: updater.isUpdateRunning() == false
-            Connections {
-                target: updater
-                onUpdateFinished: addIcon.visible = true
-                onUpdateError: addIcon.visible = true
-                onUpdateStarted: addIcon.visible = false
-            }
         }
         ToolIcon {
             id: updaterIcon
-            platformIconId: "toolbar-refresh"
-            state: updater.isUpdateRunning() ? "RUNNING" : "NORMAL"
-            states: [
-                State {
-                    name: "NORMAL"
-                    PropertyChanges { target: updaterIcon; visible: true; enabled: true; }
-                },
-                State {
-                    name: "RUNNING"
-                    PropertyChanges { target: updaterIcon; visible: false; enabled: false; }
-                }
-            ]
-            onClicked: {
-                updaterIcon.state = "RUNNING";
-                mainViewHeader.indicatorState = "RUNNING";
-                dbus.initConnection();
-            }
-            Connections {
-                target: dbus
-                onInitError: updaterIcon.state = "NORMAL"
-                onInitSuccess: updater.startUpdate();
-            }
-            Connections {
-                target: updater
-                onUpdateFinished: updaterIcon.state = "NORMAL"
-                onUpdateError: updaterIcon.state = "NORMAL"
-                onUpdateStarted: updaterIcon.state = "RUNNING";
-            }
+            platformIconId: operationRunning ? "toolbar-refresh-dimmed" : "toolbar-refresh"
+            enabled: !operationRunning
+            onClicked: { operationRunning = true; updater.startUpdate(); }
         }
         ToolIcon {
             platformIconId: "toolbar-view-menu"
@@ -301,10 +253,12 @@ Page {
         MenuLayout {
             MenuItem {
                 text: qsTr("Add Folder")
+                enabled: !operationRunning
                 onClicked: mainViewAddFolder.open()
             }
             MenuItem {
                 text: qsTr("Add Feed")
+                enabled: !operationRunning
                 onClicked: {
                     mainViewAddFeed.buildFolderList()
                     mainViewAddFeed.open()
@@ -325,6 +279,7 @@ Page {
         MenuLayout {
             MenuItem {
                 text: qsTr("Mark folder as read")
+                enabled: !operationRunning
                 onClicked: {
                     markReadQuery.id = folderContextMenu.folderId
                     markReadQuery.name = folderContextMenu.folderName
@@ -333,6 +288,7 @@ Page {
             }
             MenuItem {
                 text: qsTr("Update folder")
+                enabled: !operationRunning
                 onClicked: {
                     items.updateItems("0", "1", folderContextMenu.folderId)
                     mainViewHeader.indicatorState = "RUNNING"
@@ -340,6 +296,7 @@ Page {
             }
             MenuItem {
                 text: qsTr("Rename folder")
+                enabled: !operationRunning
                 onClicked: {
                     mainViewRenameFolder.folderId = folderContextMenu.folderId
                     mainViewRenameFolder.folderName = folderContextMenu.folderName
@@ -348,6 +305,7 @@ Page {
             }
             MenuItem {
                 text: qsTr("Delete folder")
+                enabled: !operationRunning
                 onClicked: {
                     deleteQuery.id = folderContextMenu.folderId
                     deleteQuery.name = folderContextMenu.folderName
@@ -365,20 +323,23 @@ Page {
         MenuLayout {
             MenuItem {
                 text: qsTr("Mark feed as read")
+                enabled: !operationRunning
                 onClicked: {
+                    operationRunning = true
                     feeds.markFeedRead(feedsContextMenu.feedId)
-                    mainViewHeader.indicatorState = "RUNNING"
                 }
             }
             MenuItem {
                 text: qsTr("Update feed")
+                enabled: !operationRunning
                 onClicked: {
+                    operationRunning = true
                     items.updateItems("0", "0", feedsContextMenu.feedId)
-                    mainViewHeader.indicatorState = "RUNNING"
                 }
             }
             MenuItem {
                 text: qsTr("Move feed")
+                enabled: !operationRunning
                 onClicked: {
                     mainViewMoveFeed.feedId = feedsContextMenu.feedId
                     mainViewMoveFeed.feedName = feedsContextMenu.feedName
@@ -388,6 +349,7 @@ Page {
             }
             MenuItem {
                 text: qsTr("Delete feed")
+                enabled: !operationRunning
                 onClicked: {
                     deleteQuery.id = feedsContextMenu.feedId
                     deleteQuery.name = feedsContextMenu.feedName
@@ -438,7 +400,7 @@ Page {
         message: type === "1" ? qsTr("Do you really want to delete this folder? All feeds and posts in this folder will then be deleted, too.") : ""
         titleText: type === "1" ? qsTr("Delete folder %1?").arg(name) : qsTr("Delete feed %1?").arg(name)
         onAccepted: {
-            mainViewHeader.indicatorState = "RUNNING"
+            operationRunning = true
             type === "1" ? folders.deleteFolder(id) : feeds.deleteFeed(id)
         }
     }
@@ -453,7 +415,7 @@ Page {
         message: qsTr("Do you really want to mark the whole content of this folder as read?")
         titleText: qsTr("Mark folder %1 as read?").arg(name)
         onAccepted: {
-            mainViewHeader.indicatorState = "RUNNING"
+            operationRunning = true
             folders.markFolderRead(id)
         }
     }

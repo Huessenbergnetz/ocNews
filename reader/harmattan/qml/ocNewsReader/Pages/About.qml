@@ -7,7 +7,7 @@ import "../Sheets"
 Page {
     id: about
 
-    tools: commonTools
+    tools: aboutTools
 
     orientationLock: PageOrientation.LockPortrait
 
@@ -24,82 +24,169 @@ Page {
 
     // ------------- Header End ----------------
 
+    TabGroup {
+        id: tabgroup
+        currentTab: aboutTab
+        anchors { top: aboutPageHeader.bottom; topMargin: 5 }
 
-    Image {
-        id: ocnewsLogo
-        anchors { horizontalCenter: parent.horizontalCenter; top: parent.top; topMargin: 120 }
-        asynchronous: true
-        width: 256
-        height: 256
-        sourceSize.width: 256
-        sourceSize.height: 256
-        source: "/opt/ocNewsReader/images/ocNews256.png"
-    }
+        Page {
+            id: aboutTab
+            orientationLock: PageOrientation.LockPortrait
 
-    Label {
-        id: labelName
-        anchors { horizontalCenter: parent.horizontalCenter; top: ocnewsLogo.bottom; topMargin: 5 }
-        textFormat: Text.PlainText
-        text: "ocNews " + versionString
-    }
+            Image {
+                id: ocnewsLogo
+                anchors { horizontalCenter: parent.horizontalCenter; top: parent.top; topMargin: 10 }
+                asynchronous: true
+                width: 256
+                height: 256
+                sourceSize.width: 256
+                sourceSize.height: 256
+                source: "/opt/ocNewsReader/images/ocNews256.png"
+            }
 
-    Text {
-        id: description
-        anchors { horizontalCenter: parent.horizontalCenter; top: labelName.bottom; topMargin: 5 }
-        text: qsTr("The ownCloud News App client for Harmattan")
-        width: parent.width
-        font.pointSize: 17
-        font.weight: Font.Light
-        wrapMode: Text.WordWrap
-        horizontalAlignment: Text.AlignHCenter
-        textFormat: Text.PlainText
-        color: theme.inverted ? "white" : "black"
-    }
+            Label {
+                id: labelName
+                anchors { horizontalCenter: parent.horizontalCenter; top: ocnewsLogo.bottom; topMargin: 5 }
+                textFormat: Text.PlainText
+                text: "ocNews " + versionString
+            }
 
-    Text {
-        id: copyright
-        anchors { horizontalCenter: parent.horizontalCenter; top: description.bottom; topMargin: 5 }
-        font.pointSize: 17
-        font.weight: Font.Light
-        text: "© 2013-2014, Buschtrommel"
-        textFormat: Text.PlainText
-        color: theme.inverted ? "white" : "black"
-    }
+            Text {
+                id: description
+                anchors { horizontalCenter: parent.horizontalCenter; top: labelName.bottom; topMargin: 5 }
+                text: qsTr("The ownCloud News App client for Harmattan")
+                width: parent.width
+                font.pointSize: 17
+                font.weight: Font.Light
+                wrapMode: Text.WordWrap
+                horizontalAlignment: Text.AlignHCenter
+                textFormat: Text.PlainText
+                color: theme.inverted ? "white" : "black"
+            }
 
-    Text {
-        id: license
-        anchors { horizontalCenter: parent.horizontalCenter; top: copyright.bottom; topMargin: 5 }
-        font.pointSize: 17
-        font.weight: Font.Light
-        text: _RICHTEXT_STYLESHEET_PREAMBLE + qsTr("Licensed under the <a href='http://www.gnu.org/licenses/gpl-2.0.en.html'>GNU GPL v2</a>") + _RICHTEXT_STYLESHEET_APPENDIX
-        textFormat: Text.RichText
-        color: theme.inverted ? "white" : "black"
-        onLinkActivated: { Qt.openUrlExternally(link) }
-    }
+            Text {
+                id: copyright
+                anchors { horizontalCenter: parent.horizontalCenter; top: description.bottom; topMargin: 5 }
+                font.pointSize: 17
+                font.weight: Font.Light
+                text: "© 2013-2014, Buschtrommel"
+                textFormat: Text.PlainText
+                color: theme.inverted ? "white" : "black"
+            }
 
-    Button {
-        id: privacyPolicyButton
-        anchors { horizontalCenter: parent.horizontalCenter; top: license.bottom; topMargin: 30 }
-        text: qsTr("Privacy policy")
-        onClicked: {
-            aboutPrivacySheet.policy = dbus.getSetting("display/privacypolicy", false) == "true" ? true : false;
-            aboutPrivacySheet.open();
+            Text {
+                id: license
+                anchors { horizontalCenter: parent.horizontalCenter; top: copyright.bottom; topMargin: 5 }
+                font.pointSize: 17
+                font.weight: Font.Light
+                text: _RICHTEXT_STYLESHEET_PREAMBLE + qsTr("Licensed under the <a href='http://www.gnu.org/licenses/gpl-2.0.en.html'>GNU GPL v2</a>") + _RICHTEXT_STYLESHEET_APPENDIX
+                textFormat: Text.RichText
+                color: theme.inverted ? "white" : "black"
+                onLinkActivated: { Qt.openUrlExternally(link) }
+            }
+
+            Button {
+                id: privacyPolicyButton
+                anchors { horizontalCenter: parent.horizontalCenter; top: license.bottom; topMargin: 30 }
+                text: qsTr("Privacy policy")
+                onClicked: {
+                    aboutPrivacySheet.policy = dbus.getSetting("display/privacypolicy", false) == "true" ? true : false;
+                    aboutPrivacySheet.open();
+                }
+            }
+
+            Button {
+                id: websiteLink
+                anchors { horizontalCenter: parent.horizontalCenter; top: privacyPolicyButton.bottom; topMargin: 10 }
+                text: qsTr("Visit website")
+                onClicked: Qt.openUrlExternally("http://ocnews.buschmann23.de")
+            }
+
+            Button {
+                id: licenseLink
+                anchors { horizontalCenter: parent.horizontalCenter; top: websiteLink.bottom; topMargin: 10 }
+                text: qsTr("Donate")
+                onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDZAG64WD34PL")
+            }
+        }
+
+        Page {
+            id: contributorsTab
+            orientationLock: PageOrientation.LockPortrait
+
+            Flickable {
+                id: contributorsContent
+                anchors { right: parent.right; rightMargin: 15; left: parent.left; leftMargin: 15; top: parent.top; topMargin: 10; bottom: aboutTools.top }
+                width: parent.width
+                height: parent.height
+                contentHeight: contentCol.height
+                flickableDirection:  Flickable.VerticalFlick
+
+
+                Column {
+                    id: contentCol
+                    spacing: 7
+
+                    Label {
+                        text: qsTr("Main developer")
+                    }
+
+                    Text {
+                        text: _RICHTEXT_STYLESHEET_PREAMBLE + "<a href='http://www.buschmann32.de'>Matthias Fehring (Buschmann)</a>" + _RICHTEXT_STYLESHEET_APPENDIX
+                        width: contributorsContent.width
+                        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                        font.pointSize: 17
+                        font.weight: Font.Light
+                        onLinkActivated: { Qt.openUrlExternally(link) }
+                        textFormat: Text.RichText
+                        color: theme.inverted ? "white" : "black"
+                    }
+
+                    Label {
+                        text: qsTr("Translators")
+                    }
+
+                    Text {
+                        text: _RICHTEXT_STYLESHEET_PREAMBLE + "Antoine Vacher (tigre-bleu)<br><em>French translation</em>" + _RICHTEXT_STYLESHEET_APPENDIX
+                        width: contributorsContent.width
+                        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                        font.pointSize: 17
+                        font.weight: Font.Light
+                        onLinkActivated: { Qt.openUrlExternally(link) }
+                        textFormat: Text.RichText
+                        color: theme.inverted ? "white" : "black"
+                    }
+                }
+            }
         }
     }
 
-    Button {
-        id: websiteLink
-        anchors { horizontalCenter: parent.horizontalCenter; top: privacyPolicyButton.bottom; topMargin: 10 }
-        text: qsTr("Visit website")
-        onClicked: Qt.openUrlExternally("http://ocnews.buschmann23.de")
-    }
 
-    Button {
-        id: licenseLink
-        anchors { horizontalCenter: parent.horizontalCenter; top: websiteLink.bottom; topMargin: 10 }
-        text: qsTr("Donate")
-        onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDZAG64WD34PL")
-    }
+    // ----------------- Toolbar Start --------------------
+
+        ToolBarLayout {
+            id: aboutTools
+            visible: true
+            ToolIcon {
+                platformIconId: "toolbar-back"
+                anchors.left: (parent === undefined) ? undefined : parent.left
+                onClicked: { pageStack.pop(); }
+            }
+            ButtonRow {
+                style: TabButtonStyle { }
+                TabButton {
+                    iconSource: "image://theme/icon-m-toolbar-application"
+                    tab: aboutTab
+                    onClicked: aboutPageHeader.text = qsTr("About")
+                }
+                TabButton {
+                    iconSource: "image://theme/icon-m-toolbar-contact"
+                    tab: contributorsTab
+                    onClicked: aboutPageHeader.text = qsTr("Contributors")
+                }
+            }
+        }
+    // ----------------- Toolbar End --------------------
 
 
     PrivacySheet {

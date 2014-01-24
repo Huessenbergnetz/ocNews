@@ -1,6 +1,9 @@
-  Sailfish OS:
-  * Changed: use a centralized property do indicate if an operaton is running
-  * Changed: go back, after last item was removed from favourites list
+Version 1.5.2, 2013-01-24
+
+  General:
+  * NEW: french translation by Antoine Vacher aka. tigre-bleu
+  * NEW: contributors page
+  * Changed: use a centralized property to indicate if an operaton is running
 
 Version 1.5.1, 2013-01-21 14:00:00 +0100
 

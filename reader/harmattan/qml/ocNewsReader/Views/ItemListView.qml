@@ -163,34 +163,12 @@ Page {
         }
         ToolIcon {
             id: updaterIcon
-            platformIconId: "toolbar-refresh"
-            state: updater.isUpdateRunning() ? "RUNNING" : "NORMAL"
-            states: [
-                State {
-                    name: "NORAML"
-                    PropertyChanges { target: updaterIcon; visible: true; enabled: true; }
-                },
-                State {
-                    name: "RUNNING"
-                    PropertyChanges { target: updaterIcon; visible: false; enabled: false; }
-                }
-            ]
+            platformIconId: operationRunning ? "toolbar-refresh-dimmed" : "toolbar-refresh"
+            enabled: !operationRunning
             onClicked: {
                 GLOBALS.previousContentY = itemsList.contentY
-                itemListViewHeader.indicatorState = "RUNNING"
-                updaterIcon.state = "RUNNING"
+                operationRunning = true
                 items.updateItems("0", "0", itemListView.feedId);
-            }
-            Connections {
-                target: items
-                onUpdatedItemsSuccess: updaterIcon.state = "NORMAL"
-                onUpdatedItemsError: updaterIcon.state = "NORMAL"
-            }
-            Connections {
-                target: updater
-                onUpdateFinished: updaterIcon.state = "NORMAL"
-                onUpdateError: updaterIcon.state = "NORMAL"
-                onUpdateStarted: updaterIcon.state = "RUNNING";
             }
         }
         ToolIcon {
@@ -206,14 +184,16 @@ Page {
         MenuLayout {
             MenuItem {
                 text: qsTr("Mark feed as read")
+                enabled: !operationRunning
                 onClicked: {
+                    operationRunning = true
                     GLOBALS.previousContentY = itemsList.contentY
-                    itemListViewHeader.indicatorState = "RUNNING"
                     feeds.markFeedRead(feedId)
                 }
             }
             MenuItem {
                 text: qsTr("Delete feed")
+                enabled: !operationRunning
                 onClicked: itemListViewDeleteFeedQuery.open()
             }
             MenuItem {
@@ -277,37 +257,41 @@ Page {
         MenuLayout {
             MenuItem {
                 text: itemContextMenu.starred === false ? qsTr("Add to favourites") : qsTr("Remove from favourites")
+                enabled: !operationRunning
                 onClicked: {
+                    operationRunning = true
                     GLOBALS.previousContentY = itemsList.contentY
                     itemContextMenu.starred === false ?
                                 items.starItems("star", itemContextMenu.starParams() ) :
                                items.starItems("unstar", itemContextMenu.starParams() )
-                    itemListViewHeader.indicatorState = "RUNNING"
                 }
 
             }
             MenuItem {
                 text: itemContextMenu.unread ? qsTr("Mark as read") : qsTr("Mark as unread")
+                enabled: !operationRunning
                 onClicked: {
+                    operationRunning = true
                     GLOBALS.previousContentY = itemsList.contentY
                     itemContextMenu.unread ? items.markItems("read", itemContextMenu.markParams()) : items.markItems("unread", itemContextMenu.markParams())
-                    itemListViewHeader.indicatorState = "RUNNING"
                 }
             }
             MenuItem {
                 text: qsTr("Mark as read up to this point")
+                enabled: !operationRunning
                 onClicked: {
+                    operationRunning = true
                     GLOBALS.previousContentY = itemsList.contentY
                     items.markItemsTillThis("read", itemContextMenu.pubDateInt, itemListView.feedId)
-                    itemListViewHeader.indicatorState = "RUNNING"
                 }
             }
             MenuItem {
                 text: qsTr("Mark as unread up to this point")
+                enabled: !operationRunning
                 onClicked: {
+                    operationRunning = true
                     GLOBALS.previousContentY = itemsList.contentY
                     items.markItemsTillThis("unread", itemContextMenu.pubDateInt, itemListView.feedId)
-                    itemListViewHeader.indicatorState = "RUNNING"
                 }
             }
             MenuItem {
@@ -331,7 +315,7 @@ Page {
         rejectButtonText: qsTr("Cancel")
         titleText: qsTr("Delete feed %1?").arg(feedName)
         onAccepted: {
-            itemListViewHeader.indicatorState = "RUNNING"
+            operationRunning = true
         }
     }
 

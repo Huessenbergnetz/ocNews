@@ -1,3 +1,11 @@
+buschtrommel-ocnews (1.5.2) stable; urgency=low
+
+  * NEW: french translation by Antoine Vacher aka. tigre-bleu
+  * NEW: contributors page
+  * Changed: use a centralized property do indicate if an operaton is running
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Fri, 24 Jan 2014 12:34:14 +0100
+
 buschtrommel-ocnews (1.5.1) stable; urgency=low
 
   * Changed: check for non existing database tables on every daemon start

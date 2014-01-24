@@ -71,18 +71,17 @@ Page {
 
     Component.onCompleted: {
         getItemData(showImgsDefault);
-//        unread ? items.markItems("read", markParams()) : "";
     }
 
     onStatusChanged: {
         if (status == PageStatus.Active) {
-            if (unread) items.markItems("read", markParams())
+            if (unread) { operationRunning = true; items.markItems("read", markParams()) }
         }
     }
 
     Connections {
         target: items
-        onStarredItemsSuccess: { getItemData(); headerBusyIndicator.running = false; headerBusyIndicator.visible = false; }
+        onStarredItemsSuccess: starred = !starred
     }
 
 
@@ -112,8 +111,8 @@ Page {
             BusyIndicator {
                 id: headerBusyIndicator
                 platformStyle: BusyIndicatorStyle { id: headerBusyIndicatorStyle; size: "small"; inverted: theme.inverted }
-                visible: false
-                running: false
+                visible: operationRunning
+                running: operationRunning
             }
         }
 
@@ -211,12 +210,12 @@ Page {
             onClicked: directOpening ? openFile("MainView.qml") : pageStack.pop()
         }
         ToolIcon {
-            platformIconId: starred ? "toolbar-favorite-mark" : "toolbar-favorite-unmark"
+            platformIconId: starred ? operationRunning ? "toolbar-favorite-mark-dimmed" : "toolbar-favorite-mark" : operationRunning ? "toolbar-favorite-unmark-dimmed" : "toolbar-favorite-unmark"
+            enabled: !operationRunning
             onClicked: {
+                operationRunning = true
                 starred ? items.starItems("unstar", starParams() ) :
-                          items.starItems("star", starParams() );
-                headerBusyIndicator.running = true;
-                headerBusyIndicator.visible = true;
+                          items.starItems("star", starParams() )
             }
         }
         ToolIcon {

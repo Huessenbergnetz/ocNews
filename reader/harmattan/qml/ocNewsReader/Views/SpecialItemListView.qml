@@ -209,9 +209,10 @@ Page {
             MenuItem {
                 text: feedType === "folder" ? qsTr("Mark folder as read") : qsTr("Mark all as read")
                 visible: feedType != "starred"
+                enabled: !operationRunning
                 onClicked: {
+                    operationRunning = true
                     GLOBALS.previousContentY = itemsList.contentY;
-                    specialItemListViewHeader.indicatorState = "RUNNING"
                     feedType === "folder" ? folders.markFolderRead(id) : items.markAllItemsRead()
                 }
             }
@@ -277,22 +278,24 @@ Page {
         MenuLayout {
             MenuItem {
                 text: itemContextMenu.starred === false ? qsTr("Add to favourites") : qsTr("Remove from favourites")
+                enabled: !operationRunning
                 onClicked: {
+                    operationRunning = true
                     GLOBALS.previousContentY = itemsList.contentY;
                     itemContextMenu.starred === false ?
                                     items.starItems("star", itemContextMenu.starParams() ) :
                                     items.starItems("unstar", itemContextMenu.starParams() )
-                    specialItemListViewHeader.indicatorState = "RUNNING"
                 }
             }
             MenuItem {
                 text: itemContextMenu.unread ? qsTr("Mark as read") : qsTr("Mark as unread")
+                enabled: !operationRunning
                 onClicked: {
+                    operationRunning = true
                     GLOBALS.previousContentY = itemsList.contentY;
                     itemContextMenu.unread ?
                                 items.markItems("read", itemContextMenu.markParams()) :
                                 items.markItems("unread", itemContextMenu.markParams());
-                    specialItemListViewHeader.indicatorState = "RUNNING"
                 }
             }
             MenuItem {

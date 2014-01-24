@@ -5,31 +5,47 @@
     <name>About</name>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="22"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="180"/>
         <source>About</source>
         <translation>Über</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="49"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="57"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>Der ownCloud News App Client für Harmattan</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="74"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="82"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
         <translation>Lizensiert unter der &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="93"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="101"/>
         <source>Visit website</source>
         <translation>Webseite besuchen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="100"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="108"/>
         <source>Donate</source>
         <translation>Spenden</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="83"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="131"/>
+        <source>Main developer</source>
+        <translation>Hauptentwickler</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="146"/>
+        <source>Translators</source>
+        <translation>Übersetzer</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="185"/>
+        <source>Contributors</source>
+        <translation>Mitwirkende</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="91"/>
         <source>Privacy policy</source>
         <translation>Datenschutzerklärung</translation>
     </message>
@@ -118,89 +134,89 @@
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="155"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="133"/>
         <source>Add feed</source>
         <translation>Feed hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="163"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="142"/>
         <source>Mark folder as read</source>
         <translation>Ordner als gelesen markieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="167"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="147"/>
         <source>Rename folder </source>
         <translation>Ordner umbenennen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="175"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="156"/>
         <source>Delete folder</source>
         <translation>Ordner löschen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="194"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="176"/>
         <source>Mark feed as read</source>
         <translation>Feed als gelesen markieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="201"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="184"/>
         <source>Update feed</source>
         <translation>Feed aktualisieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="208"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="192"/>
         <source>Move feed</source>
         <translation>Feed verschieben</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="217"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="202"/>
         <source>Delete feed</source>
         <translation>Feed löschen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="253"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="281"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="239"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="267"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="254"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="282"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="240"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="268"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="255"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="241"/>
         <source>Do you really want to delete this folder? All feeds and posts in this folder will then be deleted, too.</source>
         <translation>Wollen Sie diesen Ordner wirklich löschen? Alle darin enthaltenen Feeds und Nachrichten werden ebenfalls gelöscht.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="256"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="242"/>
         <source>Delete folder %1?</source>
         <translation>Ordner %1 löschen?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="266"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="252"/>
         <source>Yes</source>
         <translation>Ja</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="267"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="253"/>
         <source>No</source>
         <translation>Nein</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="268"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="254"/>
         <source>Do you really want to mark the whole content of this folder as read?</source>
         <translation>Wollen Sie wirklich den gesamten Inhalt dieses Ordners als gelesen markieren?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="269"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="255"/>
         <source>Mark folder %1 as read?</source>
         <translation>Ordner %1 als gelesen markieren?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="283"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="269"/>
         <source>Delete feed %1?</source>
         <translation>Feed %1 löschen?</translation>
     </message>
@@ -234,92 +250,92 @@
         <translation>Suche...</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="208"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="186"/>
         <source>Mark feed as read</source>
         <translation>Feed als gelesen markieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="216"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="195"/>
         <source>Delete feed</source>
         <translation>Feed löschen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="220"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="200"/>
         <source>Show newest on top</source>
         <translation>Neueste zuerst anzeigen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="220"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="200"/>
         <source>Show oldest on top</source>
         <translation>Älteste zuerst anzeigen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="229"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="209"/>
         <source>Read articles</source>
         <translation>Gelesene Artikel</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="244"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="224"/>
         <source>Show</source>
         <translation>Anzeigen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="245"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="225"/>
         <source>Hide</source>
         <translation>Verbergen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="246"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="226"/>
         <source>Show after unread</source>
         <translation>Nach ungelesenen anzeigen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="279"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="259"/>
         <source>Add to favourites</source>
         <translation>Zu Favoriten hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="279"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="259"/>
         <source>Remove from favourites</source>
         <translation>Aus Favoriten entfernen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="290"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="271"/>
         <source>Mark as read</source>
         <translation>Als gelesen markieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="290"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="271"/>
         <source>Mark as unread</source>
         <translation>Als ungelesen markieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="298"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="280"/>
         <source>Mark as read up to this point</source>
         <translation>Bis hier als gelesen markieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="306"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="289"/>
         <source>Mark as unread up to this point</source>
         <translation>Bis hier als ungelesen markieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="314"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="298"/>
         <source>Share</source>
         <translation>Teilen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="330"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="314"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="331"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="315"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="332"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="316"/>
         <source>Delete feed %1?</source>
         <translation>Feed %1 löschen?</translation>
     </message>
@@ -348,134 +364,134 @@
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="122"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="169"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="153"/>
         <source>Setup account</source>
         <translation>Benutzerkonto einrichten</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="157"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="141"/>
         <source>Your ocNews account is currently disabled. In order to use ocNews you have to enable your account.</source>
         <translation>Ihr Benutzerkonto ist zur Zeit deaktiviert. Um ocNews nutzen zu können müssen Sie es aktivieren.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="284"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="236"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="288"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="240"/>
         <source>About</source>
         <translation>Über</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="292"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="244"/>
         <source>Quit completely</source>
         <translation>Komplett beenden</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="303"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="255"/>
         <source>Add Folder</source>
         <translation>Ordner hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="307"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="260"/>
         <source>Add Feed</source>
         <translation>Feed hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="327"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="281"/>
         <source>Mark folder as read</source>
         <translation>Ordner als gelesen markieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="335"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="290"/>
         <source>Update folder</source>
         <translation>Ordner aktualisieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="342"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="298"/>
         <source>Rename folder</source>
         <translation>Ordner umbenennen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="350"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="307"/>
         <source>Delete folder</source>
         <translation>Ordner löschen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="367"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="325"/>
         <source>Mark feed as read</source>
         <translation>Feed als gelesen markieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="374"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="333"/>
         <source>Update feed</source>
         <translation>Feed aktualisieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="381"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="341"/>
         <source>Move feed</source>
         <translation>Feed verschieben</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="390"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="351"/>
         <source>Delete feed</source>
         <translation>Feed löschen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="436"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="398"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="437"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="399"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="438"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="400"/>
         <source>Do you really want to delete this folder? All feeds and posts in this folder will then be deleted, too.</source>
         <translation>Wollen Sie diesen Ordner wirklich Löschen? Alle darin enthaltenen Feeds und Nachrichten werden ebenfalls gelöscht.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="439"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="401"/>
         <source>Delete folder %1?</source>
         <translation>Ordner %1 löschen?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="439"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="401"/>
         <source>Delete feed %1?</source>
         <translation>Feed %1 löschen?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="451"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="464"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="413"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="426"/>
         <source>Yes</source>
         <translation>Ja</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="452"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="465"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="414"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="427"/>
         <source>No</source>
         <translation>Nein</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="453"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="415"/>
         <source>Do you really want to mark the whole content of this folder as read?</source>
         <translation>Wollen Sie wirklich den gesamten Inhalt dieses Ordners als gelesen markieren?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="454"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="416"/>
         <source>Mark folder %1 as read?</source>
         <translation>Ordner %1 als gelesen markieren?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="466"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="428"/>
         <source>If you quit both, reader and daemon/engine, there are no updates in the background anymore.</source>
         <translation>Wenn Sie beides komplett beenden, diese Anwendung und den Hintergrunddienst, werden keine Aktualisierungen im Hintergund mehr durchgeführt.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="467"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="429"/>
         <source>Quit completely?</source>
         <translation>Komplett beenden?</translation>
     </message>
@@ -1026,12 +1042,12 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="183"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="182"/>
         <source>Open website</source>
         <translation>Artikel öffnen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="191"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="190"/>
         <source>Load images</source>
         <translation>Bilder laden</translation>
     </message>
@@ -1054,57 +1070,57 @@
         <translation>Alle als gelesen markieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="219"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="220"/>
         <source>Show newest on top</source>
         <translation>Neueste zuerst anzeigen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="219"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="220"/>
         <source>Show oldest on top</source>
         <translation>Älteste zuerst anzeigen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="228"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="229"/>
         <source>Read articles</source>
         <translation>Gelesene Artikel</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="243"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="244"/>
         <source>Show</source>
         <translation>Anzeigen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="244"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="245"/>
         <source>Hide</source>
         <translation>Verbergen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="245"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="246"/>
         <source>Show after unread</source>
         <translation>Nach ungelesenen anzeigen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="279"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="280"/>
         <source>Add to favourites</source>
         <translation>Zu Favoriten hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="279"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="280"/>
         <source>Remove from favourites</source>
         <translation>Von Favoriten entfernen</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="289"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="291"/>
         <source>Mark as read</source>
         <translation>Als gelesen markieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="289"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="291"/>
         <source>Mark as unread</source>
         <translation>Als ungelesen markieren</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="299"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="302"/>
         <source>Share</source>
         <translation>Teilen</translation>
     </message>
@@ -1112,47 +1128,47 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="61"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="32"/>
         <source>Created folder %1</source>
         <translation>Ordner %1 erstellt</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="63"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="34"/>
         <source>Renamed folder to %1</source>
         <translation>Ordner in %1 umbenannt</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="65"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="36"/>
         <source>Deleted Folder.</source>
         <translation>Ordner gelöscht.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="71"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="44"/>
         <source>Created feed %1</source>
         <translation>Feed %1 erstellt</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="73"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="46"/>
         <source>Moved feed.</source>
         <translation>Feed verschoben.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="75"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="48"/>
         <source>Deleted feed.</source>
         <translation>Feed gelöscht.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="89"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="72"/>
         <source>Found ownCloud News Version %1</source>
         <translation>ownCloud News Version %1 gefunden</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="92"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="75"/>
         <source>Deleted complete database</source>
         <translation>Komplette Datenbank gelöscht</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="93"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="76"/>
         <source>Removed trusted certificates. The changes take effect after an application restart.</source>
         <translation>Vertraute Zertifikate entfernt. Die Änderungen werden nach einem Neustart der Anwendung wirksam.</translation>
     </message>
