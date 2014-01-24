@@ -131,7 +131,7 @@ Dialog {
 
             Text {
                 id: text7
-                text: _RICHTEXT_STYLESHEET_PREAMBLE + "<a href='http://ocnews.buschmann23.de'>ocnews.buschmann23.de</a>" + _RICHTEXT_STYLESHEET_APPENDIX
+                text: _RICHTEXT_STYLESHEET_PREAMBLE + "<a href='http://ocnews.buschmann23.de'>http://ocnews.buschmann23.de</a>" + _RICHTEXT_STYLESHEET_APPENDIX
                 anchors { left: parent.left; leftMargin: Theme.paddingLarge; right: parent.right; rightMargin: Theme.paddingLarge }
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap

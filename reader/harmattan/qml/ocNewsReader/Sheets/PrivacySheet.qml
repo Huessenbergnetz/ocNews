@@ -168,7 +168,7 @@ Sheet {
 
             Text {
                 id: text7
-                text: _RICHTEXT_STYLESHEET_PREAMBLE + "<a href='http://ocnews.buschmann23.de'>ocnews.buschmann23.de</a>" + _RICHTEXT_STYLESHEET_APPENDIX
+                text: _RICHTEXT_STYLESHEET_PREAMBLE + "<a href='http://ocnews.buschmann23.de'>http://ocnews.buschmann23.de</a>" + _RICHTEXT_STYLESHEET_APPENDIX
                 anchors { top: label7.bottom; topMargin: 10 }
                 textFormat: Text.RichText
                 width: parent.width
