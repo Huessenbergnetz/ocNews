@@ -11,7 +11,6 @@ Rectangle {
 
     height: 70
     width: parent.width
-//    color: "#1d2d44"
     color: theme.inverted ? "black" : "#f78500"
     anchors.top: parent.top
     z: 1
@@ -39,59 +38,7 @@ Rectangle {
         id: headerBusyIndicator
         platformStyle: BusyIndicatorStyle { id: headerBusyIndicatorStyle; size: "small"; inverted: true }
         anchors { verticalCenter: parent.verticalCenter; right: parent.right; rightMargin: 20 }
-        state: operationRunning ? "RUNNING" : "NORMAL"
-        states: [
-            State {
-                name: "NORMAL"
-                PropertyChanges { target: headerBusyIndicator; running: false; visible: false }
-            },
-            State {
-                name: "RUNNING"
-                PropertyChanges { target: headerBusyIndicator; running: true; visible: true }
-            }
-        ]
-//        Connections {
-//            target: updater
-//            onUpdateStarted: headerBusyIndicator.state = "RUNNING"
-//            onUpdateFinished: headerBusyIndicator.state = "NORMAL"
-//            onUpdateError: headerBusyIndicator.state = "NORMAL"
-//        }
-//        Connections {
-//            target: items
-//            onUpdatedItemsSuccess: headerBusyIndicator.state = "NORMAL"
-//            onUpdatedItemsError: headerBusyIndicator.state = "NORMAL"
-//            onStarredItemsError: headerBusyIndicator.state = "NORMAL"
-//            onStarredItemsSuccess: headerBusyIndicator.state = "NORMAL"
-//            onMarkedItemsSuccess: headerBusyIndicator.state = "NORMAL"
-//            onMarkedItemsError: headerBusyIndicator.state = "NORMAL"
-//            onMarkedAllItemsReadSuccess: headerBusyIndicator.state = "NORMAL"
-//            onMarkedAllItemsReadError: headerBusyIndicator.state = "NORMAL"
-//        }
-//        Connections {
-//            target: folders
-//            onMarkedReadFolderSuccess: headerBusyIndicator.state = "NORMAL"
-//            onMarkedReadFolderError: headerBusyIndicator.state = "NORMAL"
-//            onDeletedFolderSuccess: headerBusyIndicator.state = "NORMAL"
-//            onDeletedFolderError: headerBusyIndicator.state = "NORMAL"
-//            onRenamedFolderSuccess: headerBusyIndicator.state = "NORMAL"
-//            onRenamedFolderError: headerBusyIndicator.state = "NORMAL"
-//            onCreatedFolderSuccess: headerBusyIndicator.state = "NORMAL"
-//            onCreatedFolderError: headerBusyIndicator.state = "NORMAL"
-//        }
-//        Connections {
-//            target: feeds
-//            onDeletedFeedSuccess: headerBusyIndicator.state = "NORMAL"
-//            onDeletedFeedError: headerBusyIndicator.state = "NORMAL"
-//            onCreatedFeedSuccess: headerBusyIndicator.state = "NORMAL"
-//            onCreatedFeedError: headerBusyIndicator.state = "NORMAL"
-//            onMovedFeedSuccess: headerBusyIndicator.state = "NORMAL"
-//            onMovedFeedError: headerBusyIndicator.state = "NORMAL"
-//            onMarkedReadFeedSuccess: headerBusyIndicator.state = "NORMAL"
-//            onMarkedReadFeedError: headerBusyIndicator.state = "NORMAL"
-//        }
-//        Connections {
-//            target: dbus
-//            onInitError: headerBusyIndicator.state = "NORMAL";
-//        }
+        visible: operationRunning
+        running: operationRunning
     }
 }
