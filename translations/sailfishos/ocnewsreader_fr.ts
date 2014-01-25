@@ -351,6 +351,11 @@
 <context>
     <name>ItemListView</name>
     <message>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="43"/>
+        <source>Update running...</source>
+        <translation>Mise à jour en cours...</translation>
+    </message>
+    <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="51"/>
         <source>Search</source>
         <translation>Rechercher</translation>

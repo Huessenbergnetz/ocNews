@@ -40,7 +40,7 @@ Page {
 
         PageHeader {
             id: pHeader
-            title: operationRunning ? "Update running..." : itemListView.feedName
+            title: operationRunning ? qsTr("Update running...") : itemListView.feedName
         }
 
         SearchField {

@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file alias="ocnewsreader_de.qm">ocnewsreader_de.qm</file>
         <file alias="ocnewsreader_fr.qm">ocnewsreader_fr.qm</file>
+        <file alias="ocnewsreader_cn.qm">ocnewsreader_cn.qm</file>
     </qresource>
 </RCC>

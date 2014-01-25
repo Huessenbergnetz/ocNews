@@ -426,6 +426,11 @@
         <translation>Nach oben</translation>
     </message>
     <message>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="43"/>
+        <source>Update running...</source>
+        <translation>Aktualisiere...</translation>
+    </message>
+    <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="136"/>
         <source>Deleting feed %1</source>
         <translation>Lösche Feed %1</translation>
