@@ -74,6 +74,14 @@ Page {
                 text: qsTr("Update all")
                 onClicked: { updater.startUpdate(); operationRunning = true }
             }
+            MenuLabel {
+                id: lastUpdated
+                visible: configState === 0 && !operationRunning
+                Connections {
+                    target: dbus
+                    onGotStatistics: lastUpdated.text = qsTr("Last update: ") + Qt.formatDateTime(new Date(stats["lastFullUpdate"]), Qt.DefaultLocaleShortDate);
+                }
+            }
         }
 
         ViewPlaceholder {
