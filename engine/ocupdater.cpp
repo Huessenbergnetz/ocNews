@@ -19,12 +19,19 @@ OcUpdater::OcUpdater(QObject *parent) :
 {
     updateRunning = false;
 
+    connect(&config, SIGNAL(savedConfig()), this, SLOT(handleNetworkAndConfigChanges()));
+
 #if defined(MEEGO_EDITION_HARMATTAN)
+    networkInfo = new QSystemNetworkInfo();
+    batteryInfo = new QSystemBatteryInfo();
     timer = new QSystemAlignedTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(startUpdateTimed()));
     timer->setMinimumInterval(0);
     timer->setMaximumInterval(config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt() + TIMER_DELTA);
     timer->start();
+
+//    connect(networkInfo, SIGNAL(networkModeChanged(QSystemNetworkInfo::NetworkMode)), this, SLOT(handleNetworkChanges()));
+    connect(networkInfo, SIGNAL(networkStatusChanged(QSystemNetworkInfo::NetworkMode,QSystemNetworkInfo::NetworkStatus)), this, SLOT(handleNetworkChanges()));
 #else
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(startUpdateTimed()));
@@ -33,6 +40,40 @@ OcUpdater::OcUpdater(QObject *parent) :
     timer->start();
 #endif
 }
+
+
+
+
+/*!
+ * \fn void OcUpdater::handleNetworkAndConfigChanges()
+ * \brief Is called after a change in the network connection
+ *
+ * This internal slot is connected to the networkStatusChanged signal of QSystemNetworkInfo
+ * and the savedConfig signal of OcConfiguration to check, if an update should be performed
+ * after something changed in the network or application config.
+ */
+
+void OcUpdater::handleNetworkAndConfigChanges()
+{
+
+#ifdef QT_DEBUG
+    qDebug() << "Networkmode changed to: " << networkInfo->currentMode();
+#endif
+
+    QDateTime ts;
+
+    uint lastFullUpdate = config.getSetting(QString("storage/lastFullUpdate"), QDBusVariant(0)).variant().toUInt();
+    uint currentTime = ts.currentDateTimeUtc().toTime_t();
+
+    uint timeDiff = currentTime - lastFullUpdate;
+    uint triggerTime = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toUInt();
+
+    if (timeDiff >= triggerTime)
+        startUpdateTimed();
+
+}
+
+
 
 
 
@@ -59,8 +100,8 @@ void OcUpdater::startUpdateTimed()
     if (timer->maximumInterval() != intervall + TIMER_DELTA)
         timer->setMaximumInterval(intervall + TIMER_DELTA);
 
-    networkInfo = new QSystemNetworkInfo();
-    batteryInfo = new QSystemBatteryInfo();
+//    networkInfo = new QSystemNetworkInfo();
+//    batteryInfo = new QSystemBatteryInfo();
 
     if (batteryInfo->remainingCapacityPercent() >= MINIMUM_BATTERY || batteryInfo->chargingState() == QSystemBatteryInfo::Charging )
     {
@@ -88,10 +129,10 @@ void OcUpdater::startUpdateTimed()
 //    networkInfo = new QNetworkInfo();
 //    batteryInfo = new QBatteryInfo();
 
-    int intervall = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt() * 1000;
+    int interval = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt() * 1000;
 
-    if (timer->interval() != intervall)
-        timer->setInterval(intervall);
+    if (timer->interval() != interval)
+        timer->setInterval(interval);
 
     if ((updateBehavior == 1 && network.bearerType() == 1) || updateBehavior == 2)
     {
@@ -146,6 +187,7 @@ void OcUpdater::startUpdate()
         emit updateError(tr("Your account is disabled or you have not created an account yet."));
     }
 }
+
 
 
 

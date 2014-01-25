@@ -50,6 +50,7 @@ private slots:
     void updateItems();
     void endUpdate();
     void errorInUpdate(QString errorMessage);
+    void handleNetworkAndConfigChanges();
 
 private:
     OcFolders folders;
