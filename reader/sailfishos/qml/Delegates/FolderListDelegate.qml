@@ -59,7 +59,7 @@ ListItem {
             Label {
                 id: itemTitle
                 text: model.title
-                color: folderListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                color: if (model.unreadCount > 0) { folderListItem.highlighted ? Theme.highlightColor : Theme.primaryColor } else { folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor }
                 maximumLineCount: 1
                 truncationMode: TruncationMode.Fade
                 textFormat: Text.PlainText

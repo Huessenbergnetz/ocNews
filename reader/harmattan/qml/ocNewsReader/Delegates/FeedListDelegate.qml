@@ -58,7 +58,7 @@ Item {
                 font.family: feedListItem.titleFont
                 font.weight: feedListItem.titleWeight
                 font.pixelSize: feedListItem.titleSize
-                color: mouseArea.pressed ? feedListItem.titleColorPressed : feedListItem.titleColor
+                color: if (model.unreadCount > 0) { mouseArea.pressed ? feedListItem.titleColorPressed : feedListItem.titleColor } else { mouseArea.pressed ? feedListItem.subtitleColorPressed : feedListItem.subtitleColor }
                 maximumLineCount: 1
                 elide: Text.ElideRight
                 textFormat: Text.PlainText

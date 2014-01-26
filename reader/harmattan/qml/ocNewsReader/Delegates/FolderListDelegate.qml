@@ -60,7 +60,7 @@ Item {
                 font.family: folderListItem.titleFont
                 font.weight: folderListItem.titleWeight
                 font.pixelSize: folderListItem.titleSize
-                color: mouseArea.pressed ? folderListItem.titleColorPressed : folderListItem.titleColor
+                color: if (model.unreadCount > 0) { mouseArea.pressed ? folderListItem.titleColorPressed : folderListItem.titleColor } else { mouseArea.pressed ? folderListItem.subtitleColorPressed : folderListItem.subtitleColor }
                 maximumLineCount: 1
                 elide: Text.ElideRight
                 textFormat: Text.PlainText

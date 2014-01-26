@@ -58,8 +58,10 @@ OcUpdater::OcUpdater(QObject *parent) :
 void OcUpdater::handleNetworkAndConfigChanges()
 {
 
+#if defined(MEEGO_EDITION_HARMATTAN)
 #ifdef QT_DEBUG
     qDebug() << "Networkmode changed to: " << networkInfo->currentMode();
+#endif
 #endif
 
     QDateTime ts;

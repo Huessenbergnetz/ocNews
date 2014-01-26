@@ -52,7 +52,7 @@ ListItem {
             Label {
                 id: itemTitle
                 text: model.title
-                color: feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                color: if (model.unreadCount > 0) { feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor } else { feedListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor }
                 maximumLineCount: 1
                 truncationMode: TruncationMode.Fade
                 textFormat: Text.PlainText
@@ -63,7 +63,7 @@ ListItem {
                 id: subText
                 text: model.feedCount == 0 ? qsTr("Empty folder") : qsTr("%1 unread posts in %2 feeds").arg(model.unreadCount).arg(model.feedCount);
                 color: feedListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                visible: model.type === "1" ? true : false
+                visible: false
                 textFormat: Text.PlainText
                 font.pixelSize: Theme.fontSizeSmall
             }
