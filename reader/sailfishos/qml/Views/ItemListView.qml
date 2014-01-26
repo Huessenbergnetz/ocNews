@@ -144,8 +144,7 @@ Page {
         id: sortingPanel
         width: parent.width
         height: actCol.height + Theme.paddingLarge
-        visible: searchField.visible
-        z: 10
+        visible: open
 
         dock: Dock.Bottom
 

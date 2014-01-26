@@ -149,7 +149,7 @@ Page {
         id: sortingPanel
         width: parent.width
         height: actCol.height + Theme.paddingLarge
-        z: 10
+        visible: open
 
         dock: Dock.Bottom
 
