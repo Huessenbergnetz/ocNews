@@ -88,37 +88,37 @@
 <context>
     <name>OcUpdater</name>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="146"/>
+        <location filename="../../engine/ocupdater.cpp" line="191"/>
         <source>Your account is disabled or you have not created an account yet.</source>
         <translation>Votre compte est désactivé ou bien vous n&apos;avez pas encore créé de compte.</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="181"/>
+        <location filename="../../engine/ocupdater.cpp" line="227"/>
         <source>Synchronizing ownCloud News</source>
         <translation>Synchronisation de ownCloud News</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="184"/>
+        <location filename="../../engine/ocupdater.cpp" line="230"/>
         <source>Updating Folders</source>
         <translation>Mise à jour des dossiers</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="234"/>
+        <location filename="../../engine/ocupdater.cpp" line="280"/>
         <source>Updating Feeds</source>
         <translation>Mise à jour des flux</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="260"/>
+        <location filename="../../engine/ocupdater.cpp" line="306"/>
         <source>Updating Items</source>
         <translation>Mise à jour des articles</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="301"/>
+        <location filename="../../engine/ocupdater.cpp" line="347"/>
         <source>Update Finished</source>
         <translation>Mise à jour terminée</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="331"/>
+        <location filename="../../engine/ocupdater.cpp" line="377"/>
         <source>Update Failed</source>
         <translation>Echec de la mise à jour</translation>
     </message>

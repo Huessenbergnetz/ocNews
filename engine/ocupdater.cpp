@@ -18,6 +18,7 @@ OcUpdater::OcUpdater(QObject *parent) :
     QObject(parent)
 {
     updateRunning = false;
+    int initUpdateBehavior = config.getSetting(QString("update/behavior"), QDBusVariant(0)).variant().toInt();
 
     connect(&config, SIGNAL(savedConfig()), this, SLOT(handleNetworkAndConfigChanges()));
 
@@ -28,7 +29,7 @@ OcUpdater::OcUpdater(QObject *parent) :
     connect(timer, SIGNAL(timeout()), this, SLOT(startUpdateTimed()));
     timer->setMinimumInterval(0);
     timer->setMaximumInterval(config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt() + TIMER_DELTA);
-    timer->start();
+//    timer->start();
 
 //    connect(networkInfo, SIGNAL(networkModeChanged(QSystemNetworkInfo::NetworkMode)), this, SLOT(handleNetworkChanges()));
     connect(networkInfo, SIGNAL(networkStatusChanged(QSystemNetworkInfo::NetworkMode,QSystemNetworkInfo::NetworkStatus)), this, SLOT(handleNetworkChanges()));
@@ -37,8 +38,11 @@ OcUpdater::OcUpdater(QObject *parent) :
     connect(timer, SIGNAL(timeout()), this, SLOT(startUpdateTimed()));
     timer->setInterval(config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt() * 1000);
     timer->setTimerType(Qt::CoarseTimer);
-    timer->start();
+//    timer->start();
 #endif
+
+//    if (initUpdateBehavior != 0)
+        timer->start();
 }
 
 

@@ -469,32 +469,37 @@
         <translation>Alles aktualisieren</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="81"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="82"/>
+        <source>Last update: </source>
+        <translation>Letzte Aktualisierung: </translation>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="89"/>
         <source>With these app you can synchronize and view your ownCloud News App content on your smartphone. Before you can start, you have to setup your ownCloud server account in the settings.</source>
         <translation>Mit dieser Anwendung können Sie die Inhalte ihrer ownCloud News App mit ihrem Smartphone synchronisieren und dort ansehen. Bevor Sie allerdings loslegen können, müssen Sie in den Einstellungen Ihre Zugangsdaten einrichten.</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="86"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="94"/>
         <source>The local database is empty. Please make an update or add new feeds and folders.</source>
         <translation>Die lokale Datenbank ist leer. Führen Sie bitte eine Aktualisierung durch oder fügen Sie neue Ordner und Feeds hinzu.</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="103"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="111"/>
         <source>Scroll to top</source>
         <translation>Nach oben</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="120"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="128"/>
         <source>Add feed</source>
         <translation>Feed hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="131"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="139"/>
         <source>Add folder</source>
         <translation>Ordner hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="144"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="152"/>
         <source>Quit reader and engine</source>
         <translation>Beende ocNews komplett</translation>
     </message>
