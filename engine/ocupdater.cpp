@@ -18,7 +18,6 @@ OcUpdater::OcUpdater(QObject *parent) :
     QObject(parent)
 {
     updateRunning = false;
-    int initUpdateBehavior = config.getSetting(QString("update/behavior"), QDBusVariant(0)).variant().toInt();
 
     connect(&config, SIGNAL(savedConfig()), this, SLOT(handleNetworkAndConfigChanges()));
 
@@ -41,8 +40,7 @@ OcUpdater::OcUpdater(QObject *parent) :
 //    timer->start();
 #endif
 
-//    if (initUpdateBehavior != 0)
-        timer->start();
+    timer->start();
 }
 
 
@@ -73,7 +71,16 @@ void OcUpdater::handleNetworkAndConfigChanges()
     uint triggerTime = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toUInt();
 
     if (timeDiff >= triggerTime)
+    {
+
+#if defined(MEEGO_EDITION_HARMATTAN)
+        timer->wokeUp();
+#else
+        timer->start();
+#endif
+
         startUpdateTimed();
+    }
 
 }
 
