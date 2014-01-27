@@ -42,6 +42,7 @@ Q_SIGNALS: // SIGNALS
     void updateStarted();
     
 public slots:
+    void handleNetAndConfChanges();
 
 private slots:
     void startUpdateTimed();
@@ -50,7 +51,6 @@ private slots:
     void updateItems();
     void endUpdate();
     void errorInUpdate(QString errorMessage);
-    void handleNetworkAndConfigChanges();
 
 private:
     OcFolders folders;

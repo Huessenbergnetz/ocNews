@@ -112,6 +112,10 @@ void OcConfiguration::saveConfig(const QVariantMap &config)
     settings.sync();
 
     emit savedConfig();
+
+#ifdef QT_DEBUG
+        qDebug() << "Saved configuration";
+#endif
 }
 
 
@@ -153,7 +157,7 @@ void OcConfiguration::setSetting(const QString &entry, const QDBusVariant &value
 {
     QVariant setvalue = value.variant();
 #ifdef QT_DEBUG
-        qDebug() << "Set Setting: " << setvalue;
+        qDebug() << "Set Setting: " << entry << " : " << setvalue;
 #endif
     settings.setValue(entry, setvalue);
 

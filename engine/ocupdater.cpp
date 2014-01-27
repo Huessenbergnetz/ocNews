@@ -19,8 +19,6 @@ OcUpdater::OcUpdater(QObject *parent) :
 {
     updateRunning = false;
 
-    connect(&config, SIGNAL(savedConfig()), this, SLOT(handleNetworkAndConfigChanges()));
-
 #if defined(MEEGO_EDITION_HARMATTAN)
     networkInfo = new QSystemNetworkInfo();
     batteryInfo = new QSystemBatteryInfo();
@@ -30,8 +28,8 @@ OcUpdater::OcUpdater(QObject *parent) :
     timer->setMaximumInterval(config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt() + TIMER_DELTA);
 //    timer->start();
 
-//    connect(networkInfo, SIGNAL(networkModeChanged(QSystemNetworkInfo::NetworkMode)), this, SLOT(handleNetworkChanges()));
-    connect(networkInfo, SIGNAL(networkStatusChanged(QSystemNetworkInfo::NetworkMode,QSystemNetworkInfo::NetworkStatus)), this, SLOT(handleNetworkChanges()));
+//    connect(networkInfo, SIGNAL(networkModeChanged(QSystemNetworkInfo::NetworkMode)), this, SLOT(handleNetAndConfChanges()));
+    connect(networkInfo, SIGNAL(networkStatusChanged(QSystemNetworkInfo::NetworkMode,QSystemNetworkInfo::NetworkStatus)), this, SLOT(handleNetAndConfChanges()));
 #else
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(startUpdateTimed()));
@@ -47,7 +45,7 @@ OcUpdater::OcUpdater(QObject *parent) :
 
 
 /*!
- * \fn void OcUpdater::handleNetworkAndConfigChanges()
+ * \fn void OcUpdater::handleNetAndConfChanges()
  * \brief Is called after a change in the network connection
  *
  * This internal slot is connected to the networkStatusChanged signal of QSystemNetworkInfo
@@ -55,7 +53,7 @@ OcUpdater::OcUpdater(QObject *parent) :
  * after something changed in the network or application config.
  */
 
-void OcUpdater::handleNetworkAndConfigChanges()
+void OcUpdater::handleNetAndConfChanges()
 {
 
 #if defined(MEEGO_EDITION_HARMATTAN)
@@ -64,24 +62,34 @@ void OcUpdater::handleNetworkAndConfigChanges()
 #endif
 #endif
 
-    QDateTime ts;
+    if (!updateRunning) {
 
-    uint lastFullUpdate = config.getSetting(QString("storage/lastFullUpdate"), QDBusVariant(0)).variant().toUInt();
-    uint currentTime = ts.currentDateTimeUtc().toTime_t();
+        QDateTime ts;
 
-    uint timeDiff = currentTime - lastFullUpdate;
-    uint triggerTime = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toUInt();
+        uint lastFullUpdate = config.getSetting(QString("storage/lastFullUpdate"), QDBusVariant(0)).variant().toUInt();
+        uint currentTime = ts.currentDateTimeUtc().toTime_t();
 
-    if (timeDiff >= triggerTime)
-    {
+        uint timeDiff = currentTime - lastFullUpdate;
+        uint triggerTime = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toUInt();
 
-#if defined(MEEGO_EDITION_HARMATTAN)
-        timer->wokeUp();
-#else
-        timer->start();
+#ifdef QT_DEBUG
+    qDebug() << "Last full update: " << lastFullUpdate;
+    qDebug() << "Current time: " << currentTime;
+    qDebug() << "Time difference: " << timeDiff;
+    qDebug() << "Trigger time: " << triggerTime;
 #endif
 
-        startUpdateTimed();
+        if (timeDiff >= triggerTime)
+        {
+
+#if defined(MEEGO_EDITION_HARMATTAN)
+            timer->wokeUp();
+#else
+            timer->start();
+#endif
+
+            startUpdateTimed();
+        }
     }
 
 }
@@ -105,13 +113,13 @@ void OcUpdater::startUpdateTimed()
 
 #if defined(MEEGO_EDITION_HARMATTAN)
 
-    int intervall = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt();
+    int interval = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt();
 
-    if (timer->minimumInterval() != intervall - TIMER_DELTA)
-        timer->setMinimumInterval(intervall - TIMER_DELTA);
+    if (timer->minimumInterval() != interval - TIMER_DELTA)
+        timer->setMinimumInterval(interval - TIMER_DELTA);
 
-    if (timer->maximumInterval() != intervall + TIMER_DELTA)
-        timer->setMaximumInterval(intervall + TIMER_DELTA);
+    if (timer->maximumInterval() != interval + TIMER_DELTA)
+        timer->setMaximumInterval(interval + TIMER_DELTA);
 
 //    networkInfo = new QSystemNetworkInfo();
 //    batteryInfo = new QSystemBatteryInfo();

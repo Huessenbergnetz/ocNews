@@ -154,6 +154,8 @@ int main(int argc, char *argv[])
     new OcAccountAdaptor(account);
 #endif
 
+    QObject::connect(configuration, SIGNAL(savedConfig()), updater, SLOT(handleNetAndConfChanges()));
+
 
     QDBusConnection connection = QDBusConnection::sessionBus();
     bool ret = connection.registerService("de.buschmann23.ocNewsEngine");
