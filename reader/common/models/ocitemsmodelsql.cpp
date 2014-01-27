@@ -65,6 +65,11 @@ QVariant OcItemsModelSql::data(const QModelIndex &index, int role) const
 
                 value = date + " | " + time;
             }
+#if !defined(MEEGO_EDITION_HARMATTAN)
+            else if (columnIdx == 0) {
+                value = value.toString().toHtmlEscaped();
+            }
+#endif
         }
         return value;
 }
@@ -77,36 +82,6 @@ void OcItemsModelSql::refresh(const QString &feedId, int handleRead, bool sortAs
 #endif
 
     QString queryString;
-
-//    if (search == "")
-//    {
-//        this->setQuery(QString("SELECT it.title, "
-//                                      "it.id AS itemId, "
-//                                      "it.pubDate, "
-//                                      "it.pubDate AS pubDateInt, "
-//                                      "it.enclosureLink, "
-//                                      "it.enclosureMime, "
-//                                      "it.unread, "
-//                                      "it.starred, "
-//                                      "it.url, "
-//                                      "it.guidHash "
-//                               "FROM items it WHERE feedId = %1 ORDER BY pubDate DESC;").arg(feedId.toInt()));
-//    } else {
-//        QString t_search = search;
-//        t_search.prepend("%");
-//        t_search.append("%");
-//        this->setQuery(QString("SELECT it.title, "
-//                                      "it.id AS itemId, "
-//                                      "it.pubDate, "
-//                                      "it.pubDate AS pubDateInt, "
-//                                      "it.enclosureLink, "
-//                                      "it.enclosureMime, "
-//                                      "it.unread, "
-//                                      "it.starred, "
-//                                      "it.url, "
-//                                      "it.guidHash "
-//                               "FROM items it WHERE feedId = %1 AND title LIKE \"%2%\" ORDER BY pubDate DESC;").arg(feedId.toInt()).arg(t_search));
-//    }
 
     // handleRead 0: show read, 1: hide read, 2: show after unread
     queryString = QString("SELECT it.title, "

@@ -65,6 +65,11 @@ QVariant OcSpecialItemsModelSql::data(const QModelIndex &index, int role) const
 
                     value = date + " | " + time;
                 }
+#if !defined(MEEGO_EDITION_HARMATTAN)
+                else if (columnIdx == 0) {
+                    value = value.toString().toHtmlEscaped();
+                }
+#endif
             }
             return value;
 }
