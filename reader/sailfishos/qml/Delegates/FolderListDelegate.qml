@@ -17,7 +17,7 @@ ListItem {
 
     onClicked: {
         if (type === "1")  {
-            GLOBALS.previousFlatContentY = ListView.view.contentY; ageStack.push(Qt.resolvedUrl("../Views/FeedListView.qml"), {folderId: model.id, folderName: model.title})
+            GLOBALS.previousFlatContentY = ListView.view.contentY; pageStack.push(Qt.resolvedUrl("../Views/FeedListView.qml"), {folderId: model.id, folderName: model.title})
         } else if (type === "0") {
             GLOBALS.previousFlatContentY = ListView.view.contentY; pageStack.push(Qt.resolvedUrl("../Views/ItemListView.qml"), {feedId: id, feedName: title})
         } else if (type === "-1" && id === "0") {
@@ -133,7 +133,7 @@ ListItem {
             MenuItem {
                 text: qsTr("Update folder")
                 enabled: !operationRunning
-                onClicked: { GLOBALS.previousFlatContentY = ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; items.updateItems("0", "1", model.id) }
+                onClicked: { GLOBALS.previousFlatContentY = folderListItem.ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; items.updateItems("0", "1", model.id) }
             }
             MenuItem {
                 text: qsTr("Mark folder as read")
@@ -145,7 +145,7 @@ ListItem {
                 enabled: !operationRunning
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/RenameFolder.qml"), {folderId: model.id, folderName: model.title})
-                    dialog.accepted.connect(function() { GLOBALS.previousFlatContentY = ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; })
+                    dialog.accepted.connect(function() { GLOBALS.previousFlatContentY = folderListItem.ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; })
                 }
             }
             MenuItem {
@@ -162,19 +162,19 @@ ListItem {
             MenuItem {
                 text: qsTr("Update feed")
                 enabled: !operationRunning
-                onClicked: { GLOBALS.previousFlatContentY = ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; items.updateItems("0", "0", model.id) }
+                onClicked: { GLOBALS.previousFlatContentY = folderListItem.ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; items.updateItems("0", "0", model.id) }
             }
             MenuItem {
                 text: qsTr("Mark feed as read")
                 enabled: !operationRunning
-                onClicked: { GLOBALS.previousFlatContentY = ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; feeds.markFeedRead(model.id) }
+                onClicked: { GLOBALS.previousFlatContentY = folderListItem.ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; feeds.markFeedRead(model.id) }
             }
             MenuItem {
                 text: qsTr("Move feed")
                 enabled: !operationRunning
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/MoveFeed.qml"), {feedId: model.id, feedName: model.title, folderId: "0"})
-                    dialog.accepted.connect(function() { GLOBALS.previousFlatContentY = ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; })
+                    dialog.accepted.connect(function() { GLOBALS.previousFlatContentY = folderListItem.ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; })
                 }
             }
             MenuItem {
@@ -186,15 +186,15 @@ ListItem {
     }
 
     function removeFeed(feedId, feedName) {
-        remorse.execute(folderListItem, qsTr("Deleting feed %1").arg(feedName), function() { GLOBALS.previousFlatContentY = ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; feeds.deleteFeed(feedId) } );
+        remorse.execute(folderListItem, qsTr("Deleting feed %1").arg(feedName), function() { GLOBALS.previousFlatContentY = folderListItem.ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; feeds.deleteFeed(feedId) } );
     }
 
     function removeFolder(folderId, folderName) {
-        remorse.execute(folderListItem, qsTr("Deleting folder %1").arg(folderName), function() { GLOBALS.previousFlatContentY = ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; folders.deleteFolder(folderId) } );
+        remorse.execute(folderListItem, qsTr("Deleting folder %1").arg(folderName), function() { GLOBALS.previousFlatContentY = folderListItem.ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; folders.deleteFolder(folderId) } );
     }
 
     function markFolderRead(folderId, folderName) {
-        remorse.execute(folderListItem, qsTr("Mark folder %1 as read").arg(folderName), function() { GLOBALS.previousFlatContentY = ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; folders.markFolderRead(folderId) } );
+        remorse.execute(folderListItem, qsTr("Mark folder %1 as read").arg(folderName), function() { GLOBALS.previousFlatContentY = folderListItem.ListView.view.contentY; busyIndicator.state = "RUNNING"; operationRunning = true; folders.markFolderRead(folderId) } );
     }
 
     RemorseItem {

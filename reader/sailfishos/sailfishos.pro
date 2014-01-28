@@ -73,7 +73,9 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Pages/images/buschmann.png \
     qml/Pages/icons/github.png \
     qml/Pages/icons/linkedin.png \
-    qml/Pages/icons/weibo.png
+    qml/Pages/icons/weibo.png \
+    qml/Pages/images/tigre-bleu.png \
+    qml/Common/ImageButton.qml
 
 HEADERS += \
     ../common/ocdbmanager.h \

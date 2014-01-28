@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import "../Common"
 
 Row {
     spacing: 10
@@ -39,7 +40,7 @@ Row {
             id: imageLinks
             spacing: 10
 
-            Image {
+            ImageButton {
                 id: browserIcon
                 source: "image://theme/icon-l-browser"
                 sourceSize.height: 80
@@ -48,13 +49,10 @@ Row {
                 height: 48
                 smooth: true
                 visible: website ? true : false
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Qt.openUrlExternally(website)
-                }
+                onClicked: Qt.openUrlExternally(website)
             }
 
-            Image {
+            ImageButton {
                 id: twitterIcon
                 source: "image://theme/icon-l-twitter"
                 sourceSize.height: 80
@@ -63,13 +61,10 @@ Row {
                 width: 48
                 smooth: true
                 visible: twitter ? true : false
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Qt.openUrlExternally("https://twitter.com/" + twitter)
-                }
+                onClicked: Qt.openUrlExternally("https://twitter.com/" + twitter)
             }
 
-            Image {
+            ImageButton {
                 id: githubIcon
                 source: "icons/github.png"
                 sourceSize.height: 50
@@ -78,13 +73,10 @@ Row {
                 width: 48
                 smooth: true
                 visible: github ? true : false
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Qt.openUrlExternally("https://github.com/" + github)
-                }
+                onClicked: Qt.openUrlExternally("https://github.com/" + github)
             }
 
-            Image {
+            ImageButton {
                 id: linkedinIcon
                 source: "icons/linkedin.png"
                 sourceSize.height: 50
@@ -93,13 +85,10 @@ Row {
                 width: 48
                 smooth: true
                 visible: linkedin ? true : false
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Qt.openUrlExternally("http://www.linkedin.com/profile/view?id=" + linkedin)
-                }
+                onClicked: Qt.openUrlExternally("http://www.linkedin.com/profile/view?id=" + linkedin)
             }
 
-            Image {
+            ImageButton {
                 id: weiboIcon
                 source: "icons/weibo.png"
                 sourceSize.height: 48
@@ -107,10 +96,7 @@ Row {
                 height: 48
                 width: 48
                 visible: weibo ? true : false
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Qt.openUrlExternally("http://www.weibo.com/" + weibo)
-                }
+                onClicked: Qt.openUrlExternally("http://www.weibo.com/" + weibo)
             }
 
         }

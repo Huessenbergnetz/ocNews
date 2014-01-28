@@ -147,6 +147,7 @@ Page {
                     ContributorItem {
                         name: "Tigre-Bleu (Antoine Vacher)"
                         role: qsTr("UI, French translation")
+                        image: "tigre-bleu.png"
                         twitter: "tigre_bleu"
                     }
 

@@ -85,23 +85,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     OcSingleItemModelSql *singleItemModelSql = new OcSingleItemModelSql();
 
 
-    QObject::connect(&updater, SIGNAL(updateFinished()), folderModelSql, SLOT(refresh()), Qt::UniqueConnection);
-    QObject::connect(&folders, SIGNAL(createdFolderSuccess(QString)), folderModelSql, SLOT(refresh()), Qt::UniqueConnection);
-    QObject::connect(&folders, SIGNAL(renamedFolderSuccess(QString)), folderModelSql, SLOT(refresh()), Qt::UniqueConnection);
-    QObject::connect(&folders, SIGNAL(deletedFolderSuccess()), folderModelSql, SLOT(refresh()), Qt::UniqueConnection);
-    QObject::connect(&folders, SIGNAL(markedReadFolderSuccess()), folderModelSql, SLOT(refresh()), Qt::UniqueConnection);
-    QObject::connect(&feeds, SIGNAL(requestedFeedsSuccess()), folderModelSql, SLOT(refresh()));
-    QObject::connect(&feeds, SIGNAL(createdFeedSuccess(QString)), folderModelSql, SLOT(refresh()), Qt::UniqueConnection);
-    QObject::connect(&feeds, SIGNAL(movedFeedSuccess()), folderModelSql, SLOT(refresh()));
-    QObject::connect(&feeds, SIGNAL(deletedFeedSuccess()), folderModelSql, SLOT(refresh()));
-    QObject::connect(&feeds, SIGNAL(markedReadFeedSuccess()), folderModelSql, SLOT(refresh()));
-    QObject::connect(&items, SIGNAL(updatedItemsSuccess()), folderModelSql, SLOT(refresh()));
-    QObject::connect(&items, SIGNAL(starredItemsSuccess()), folderModelSql, SLOT(refresh()));
-    QObject::connect(&items, SIGNAL(markedItemsSuccess()), folderModelSql, SLOT(refresh()));
-    QObject::connect(&items, SIGNAL(markedAllItemsReadSuccess()), folderModelSql, SLOT(refresh()));
-    QObject::connect(&dbus, SIGNAL(cleanedDatabase()), folderModelSql, SLOT(refresh()));
-    QObject::connect(&dbus, SIGNAL(savedConfig()), folderModelSql, SLOT(refresh()));
-
     QDBusConnection connection = QDBusConnection::sessionBus();
     bool ret = connection.registerService("de.buschmann23.ocNewsReader");
     ret = connection.registerObject("/", dbusproxy);

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../Common"
 
 Row {
     spacing: 10
@@ -40,7 +41,7 @@ Row {
             id: imageLinks
             spacing: 10
 
-            Image {
+            ImageButton {
                 id: browserIcon
                 source: "icons/browser.png"
                 sourceSize.height: 48
@@ -48,13 +49,10 @@ Row {
                 width: 48
                 height: 48
                 visible: website ? true : false
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Qt.openUrlExternally(website)
-                }
+                onClicked: Qt.openUrlExternally(website)
             }
 
-            Image {
+            ImageButton {
                 id: twitterIcon
                 source: "icons/twitter.png"
                 sourceSize.height: 48
@@ -62,13 +60,10 @@ Row {
                 height: 48
                 width: 59
                 visible: twitter ? true : false
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Qt.openUrlExternally("https://twitter.com/" + twitter)
-                }
+                onClicked: Qt.openUrlExternally("https://twitter.com/" + twitter)
             }
 
-            Image {
+            ImageButton {
                 id: githubIcon
                 source: "icons/github.png"
                 sourceSize.height: 48
@@ -76,13 +71,10 @@ Row {
                 height: 48
                 width: 48
                 visible: github ? true : false
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Qt.openUrlExternally("https://github.com/" + github)
-                }
+                onClicked: Qt.openUrlExternally("https://github.com/" + github)
             }
 
-            Image {
+            ImageButton {
                 id: linkedinIcon
                 source: "icons/linkedin.png"
                 sourceSize.height: 48
@@ -90,13 +82,10 @@ Row {
                 height: 48
                 width: 48
                 visible: linkedin ? true : false
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Qt.openUrlExternally("http://www.linkedin.com/profile/view?id=" + linkedin)
-                }
+                onClicked: Qt.openUrlExternally("http://www.linkedin.com/profile/view?id=" + linkedin)
             }
 
-            Image {
+            ImageButton {
                 id: weiboIcon
                 source: "icons/weibo.png"
                 sourceSize.height: 48
@@ -104,12 +93,8 @@ Row {
                 height: 48
                 width: 60
                 visible: weibo ? true : false
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Qt.openUrlExternally("http://www.weibo.com/" + weibo)
-                }
+                onClicked: Qt.openUrlExternally("http://www.weibo.com/" + weibo)
             }
-
         }
     }
 }

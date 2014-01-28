@@ -231,7 +231,7 @@ Page {
                 ListElement { name: ""; value: 1 }
                 Component.onCompleted: {
                     viewModeModel.get(0).name = qsTr("Folders")
-                    viewModeModel.get(1).name = qsTr("Flat")
+                    viewModeModel.get(1).name = qsTr("Feeds")
                 }
             }
 
