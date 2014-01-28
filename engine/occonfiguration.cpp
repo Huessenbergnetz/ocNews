@@ -54,6 +54,7 @@ QVariantMap OcConfiguration::getConfig()
     QVariantMap config;
 
     config["maxitems"] = settings.value("storage/maxitems", "100");
+    config["viewmode"] = settings.value("display/viewmode", 0).toInt();
     config["orderby"] = settings.value("display/orderby", "id");
     config["textformat"] = settings.value("display/textformat", "rich");
     config["themecolor"] = settings.value("display/themecolor", "white");
@@ -92,6 +93,7 @@ QVariantMap OcConfiguration::getConfig()
 void OcConfiguration::saveConfig(const QVariantMap &config)
 {
     settings.setValue("storage/maxitems", config["maxitems"]);
+    settings.setValue("display/viewmode", config["viewmode"]);
     settings.setValue("display/orderby", config["orderby"]);
     settings.setValue("display/textformat", config["textformat"]);
     settings.setValue("display/themecolor", config["themecolor"]);

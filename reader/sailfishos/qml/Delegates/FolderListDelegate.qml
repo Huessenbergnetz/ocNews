@@ -55,6 +55,7 @@ ListItem {
 
         Column {
             anchors.verticalCenter: parent.verticalCenter
+            width: parent.width
 
             Label {
                 id: itemTitle
@@ -63,6 +64,7 @@ ListItem {
                 maximumLineCount: 1
                 truncationMode: TruncationMode.Fade
                 textFormat: Text.PlainText
+                width: parent.width - 130
             }
 
             Text {

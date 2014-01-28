@@ -9,6 +9,7 @@
 #include "../../common/globals.h"
 #include "../common/ocdbmanager.h"
 #include "../common/models/ocfoldermodelsql.h"
+#include "../common/models/occombinedmodelsql.h"
 #include "../common/models/ocfeedsmodelsql.h"
 #include "../common/models/ocitemsmodelsql.h"
 #include "../common/models/ocspecialitemsmodelsql.h"
@@ -77,6 +78,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 
     OcFolderModelSql *folderModelSql = new OcFolderModelSql();
+    OcCombinedModelSql *combinedModelSql = new OcCombinedModelSql();
     OcFeedsModelSql *feedsModelSql = new OcFeedsModelSql();
     OcItemsModelSql *itemsModelSql = new OcItemsModelSql();
     OcSpecialItemsModelSql *specialItemsModelSql = new OcSpecialItemsModelSql();
@@ -111,6 +113,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("items", &items);
     viewer.rootContext()->setContextProperty("updater", &updater);
     viewer.rootContext()->setContextProperty("folderModelSql", folderModelSql);
+    viewer.rootContext()->setContextProperty("combinedModelSql", combinedModelSql);
     viewer.rootContext()->setContextProperty("feedsModelSql", feedsModelSql);
     viewer.rootContext()->setContextProperty("itemsModelSql", itemsModelSql);
     viewer.rootContext()->setContextProperty("specialItemsModelSql", specialItemsModelSql);

@@ -19,6 +19,7 @@
 #include "../common/models/ocitemsmodelsql.h"
 #include "../common/models/ocsingleitemmodelsql.h"
 #include "../common/models/ocspecialitemsmodelsql.h"
+#include "../common/models/occombinedmodelsql.h"
 #include "../common/dbus/interfaces/ocdbusfolders.h"
 #include "../common/dbus/interfaces/ocdbusfeeds.h"
 #include "../common/dbus/interfaces/ocdbusitems.h"
@@ -57,6 +58,7 @@ int main(int argc, char *argv[])
     OcDBusUpdater updater;
 
     OcFolderModelSql *folderModelSql = new OcFolderModelSql();
+    OcCombinedModelSql *combinedModelSql = new OcCombinedModelSql();
     OcFeedsModelSql *feedsModelSql = new OcFeedsModelSql();
     OcItemsModelSql *itemsModelSql = new OcItemsModelSql();
     OcSpecialItemsModelSql *specialItemsModelSql = new OcSpecialItemsModelSql();
@@ -85,6 +87,7 @@ int main(int argc, char *argv[])
     QObject::connect(view->engine(), SIGNAL(quit()), QCoreApplication::instance(), SLOT(quit()));
 
     view->rootContext()->setContextProperty("folderModelSql", folderModelSql);
+    view->rootContext()->setContextProperty("combinedModelSql", combinedModelSql);
     view->rootContext()->setContextProperty("feedsModelSql", feedsModelSql);
     view->rootContext()->setContextProperty("itemsModelSql", itemsModelSql);
     view->rootContext()->setContextProperty("specialItemsModelSql", specialItemsModelSql);

@@ -6,6 +6,7 @@ import QtMobility.feedback 1.1
 import "../Common"
 import "../Delegates"
 import "../Sheets"
+import "../JS/globals.js" as GLOBALS
 
 Page {
     id: mainView
@@ -59,6 +60,33 @@ Page {
                 configState = 2
             }
         }
+        onSavedConfig: { if (viewMode !== 0 ) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+    }
+    Connections {
+        target: updater
+        onUpdateFinished: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+    }
+    Connections {
+        target: folders
+        onCreatedFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+        onDeletedFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+        onMarkedReadFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+        onRenamedFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+    }
+    Connections {
+        target: feeds
+        onCreatedFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+        onDeletedFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+        onMarkedReadFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+        onMovedFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+    }
+    Connections {
+        target: items
+        onMarkedAllItemsReadSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+        onMarkedItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+        onStarredItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+        onUpdatedItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
+        onRequestedItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
     }
 
 
@@ -163,34 +191,59 @@ Page {
     ListView {
         id: folderList
         anchors { fill: parent; topMargin: 71; leftMargin: 20; rightMargin: 20 }
-        model: folderModelSql
+        model: viewMode === 0 ? folderModelSql : combinedModelSql
         visible: configState === 0
         delegate: FolderListDelegate {
-                 subtitleColor: "grey"
-                 onClicked: {
-                     if (type === "1")  {
-                         openFile("FeedListView.qml", {folderId: id, folderName: title})
-                     } else if (type === "0") {
-                         openFile("ItemListView.qml", {feedId: id, feedName: title})
-                     } else if (type === "-1" && id === "0") {
-                         openFile("SpecialItemListView.qml", { pageName: title, feedType: "all" })
-                     } else if (type === "-1" && id === "1") {
-                         openFile("SpecialItemListView.qml", { pageName: title, feedType: "starred" })
-                     }
-                 }
-                 onPressAndHold: {
-                     contextMenuEffect.play();
-                     if (type === "1") {
-                         folderContextMenu.folderId = id
-                         folderContextMenu.folderName = title
-                         folderContextMenu.open()
-                     } else if (type === "0") {
-                         feedsContextMenu.feedId = id
-                         feedsContextMenu.feedName = title
-                         feedsContextMenu.open()
-                     }
-                 }
+            subtitleColor: "grey"
+            onClicked: {
+                if (type === "1")  {
+                    if (viewMode !== 0) GLOBALS.previousFlatContentY = folderList.contentY; openFile("FeedListView.qml", {folderId: id, folderName: title})
+                } else if (type === "0") {
+                    if (viewMode !== 0) GLOBALS.previousFlatContentY = folderList.contentY; openFile("ItemListView.qml", {feedId: id, feedName: title})
+                } else if (type === "-1" && id === "0") {
+                    if (viewMode !== 0) GLOBALS.previousFlatContentY = folderList.contentY; openFile("SpecialItemListView.qml", { pageName: title, feedType: "all" })
+                } else if (type === "-1" && id === "1") {
+                    if (viewMode !== 0) GLOBALS.previousFlatContentY = folderList.contentY; openFile("SpecialItemListView.qml", { pageName: title, feedType: "starred" })
+                }
+            }
+            onPressAndHold: {
+                contextMenuEffect.play();
+                if (type === "1") {
+                    folderContextMenu.folderId = id
+                    folderContextMenu.folderName = title
+                    folderContextMenu.open()
+                } else if (type === "0") {
+                    feedsContextMenu.feedId = id
+                    feedsContextMenu.feedName = title
+                    feedsContextMenu.open()
+                }
              }
+        }
+        section.property: "folderName"
+        section.delegate: Item {
+           // "GroupHeader" component?
+            visible: headerLabel.text != ""
+            width: parent.width
+            height: 40
+            Text {
+               id: headerLabel
+               anchors.right: parent.right
+               anchors.bottom: parent.bottom
+               anchors.rightMargin: 8
+               anchors.bottomMargin: 2
+               text: section
+               font.bold: true
+               font.pointSize: 18
+               color: theme.inverted ? "#4D4D4D" : "#3C3C3C";
+            }
+            Image {
+               anchors.right: headerLabel.left
+               anchors.left: parent.left
+               anchors.verticalCenter: headerLabel.verticalCenter
+               anchors.rightMargin: 24
+               source: "image://theme/meegotouch-groupheader" + (theme.inverted ? "-inverted" : "") + "-background"
+            }
+        }
     }
 
     ScrollDecorator {
@@ -234,11 +287,11 @@ Page {
         MenuLayout {
             MenuItem {
                 text: qsTr("Settings")
-                onClicked: openFile("../Pages/Settings.qml")
+                onClicked: { if (viewMode !== 0) GLOBALS.previousFlatContentY = folderList.contentY; openFile("../Pages/Settings.qml") }
             }
             MenuItem {
                 text: qsTr("About")
-                onClicked: openFile("../Pages/About.qml")
+                onClicked: { if (viewMode !== 0) GLOBALS.previousFlatContentY = folderList.contentY; openFile("../Pages/About.qml") }
             }
             MenuItem {
                 text: qsTr("Quit completely")

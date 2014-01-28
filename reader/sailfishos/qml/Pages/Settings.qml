@@ -21,6 +21,7 @@ Page {
             updateBehavior.initialValue = config["updatebehavior"]
             updateInterval.initialValue = config["updateinterval"]
             chooseMaxItems.initialValue = config["maxitems"]
+            chooseViewMode.initialValue = config["viewmode"]
             chooseOrderBy.initialValue = config["orderby"]
             textFormatSelection.initialValue = config["textformat"]
             showImgsSelection.initialValue = config["showimgs"]
@@ -40,6 +41,7 @@ Page {
             updatebehavior:updateBehaviorModel.get(updateBehavior.currentIndex).value,
             updateinterval:updateIntervalModel.get(updateInterval.currentIndex).value,
             maxitems:maxItemModel.get(chooseMaxItems.currentIndex).value,
+            viewmode:viewModeModel.get(chooseViewMode.currentIndex).value,
             orderby:orderByModel.get(chooseOrderBy.currentIndex).value,
             textformat:textFormatModel.get(textFormatSelection.currentIndex).value,
             showimgs:showImgsModel.get(showImgsSelection.currentIndex).value,
@@ -221,6 +223,23 @@ Page {
                 anchors { left: parent.left; right: parent.right }
                 label: qsTr("Number of items to keep")
                 model: maxItemModel
+            }
+
+            ListModel {
+                id: viewModeModel
+                ListElement { name: ""; value: 0 }
+                ListElement { name: ""; value: 1 }
+                Component.onCompleted: {
+                    viewModeModel.get(0).name = qsTr("Folders")
+                    viewModeModel.get(1).name = qsTr("Flat")
+                }
+            }
+
+            ComboBoxList {
+                id: chooseViewMode
+                anchors { left: parent.left; right: parent.right }
+                label: qsTr("Main view layout")
+                model: viewModeModel
             }
 
             ListModel {

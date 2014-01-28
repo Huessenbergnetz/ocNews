@@ -4,6 +4,7 @@ import Sailfish.Silica 1.0
 import "../Delegates"
 import "../Dialogs"
 import "../Common"
+import "../JS/globals.js" as GLOBALS
 
 
 Page {
@@ -31,7 +32,35 @@ Page {
             } else if (dbus.isConfigSet() && !dbus.isAccountEnabled()) {
                 configState = 2
             }
+            if (viewMode !== 0 ) { combinedModelSql.refresh() }
         }
+    }
+
+    Connections {
+        target: updater
+        onUpdateFinished: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+    }
+    Connections {
+        target: folders
+        onCreatedFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+        onDeletedFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+        onMarkedReadFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+        onRenamedFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+    }
+    Connections {
+        target: feeds
+        onCreatedFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+        onDeletedFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+        onMarkedReadFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+        onMovedFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+    }
+    Connections {
+        target: items
+        onMarkedAllItemsReadSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+        onMarkedItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+        onStarredItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+        onUpdatedItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
+        onRequestedItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
     }
 
     SilicaListView {
@@ -43,6 +72,16 @@ Page {
             id: pHeader
             title: operationRunning ? qsTr("Update running...") : "ocNews"
         }
+
+        section {
+            property: 'folderName'
+            delegate: SectionHeader {
+                visible: text != ""
+                text: section
+                height: Theme.itemSizeExtraSmall
+            }
+        }
+
 
         PullDownMenu {
             id: mainViewPully
@@ -94,7 +133,7 @@ Page {
             text: qsTr("The local database is empty. Please make an update or add new feeds and folders.")
         }
 
-        model: folderModelSql
+        model: viewMode === 0 ? folderModelSql : combinedModelSql
 
         delegate: FolderListDelegate { visible: configState === 0 && mainViewList.count > 1 }
 
@@ -113,6 +152,7 @@ Page {
             }
         }
     }
+
 
     DockedPanel {
         id: addActionsDock

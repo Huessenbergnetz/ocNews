@@ -56,7 +56,7 @@ Item {
             Label {
                 id: mainText
                 text: model.title
-                width: folderListItem.width - 60
+                width: folderListItem.width - 70
                 font.family: folderListItem.titleFont
                 font.weight: folderListItem.titleWeight
                 font.pixelSize: folderListItem.titleSize
@@ -105,6 +105,7 @@ Item {
     Image {
        height: 2
        width: parent.width
+       visible: viewMode === 0
        anchors.top: parent.bottom
        source: "image://theme/meegotouch-separator" + (theme.inverted? "-inverted" : "") + "-background-horizontal"
        fillMode: Image.TileHorizontally

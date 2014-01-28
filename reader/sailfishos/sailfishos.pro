@@ -26,6 +26,7 @@ SOURCES += main.cpp \
     ../common/models/ocsingleitemmodelsql.cpp \
     ../common/models/ocfoldermodelsql.cpp \
     ../common/models/ocfeedsmodelsql.cpp \
+    ../common/models/occombinedmodelsql.cpp \
     ../common/dbus/interfaces/ocupdaterif.cpp \
     ../common/dbus/interfaces/ocitemsif.cpp \
     ../common/dbus/interfaces/ocgenericif.cpp \
@@ -73,6 +74,7 @@ HEADERS += \
     ../common/models/ocfoldermodelsql.h \
     ../common/models/ocsingleitemmodelsql.h \
     ../common/models/ocfeedsmodelsql.h \
+    ../common/models/occombinedmodelsql.h \
     ../common/dbus/interfaces/ocupdaterif.h \
     ../common/dbus/interfaces/ocitemsif.h \
     ../common/dbus/interfaces/ocgenericif.h \

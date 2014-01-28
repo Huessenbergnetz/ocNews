@@ -27,6 +27,7 @@ Page {
 
         var saveConf={
             maxitems:chooseMaxItems.currentValue,
+            viewmode:chooseViewMode.currentValue,
             orderby:chooseOrderBy.currentValue,
             textformat:textFormatSelection.valueChoosen,
             themecolor:invertThemeSelection.choosenValue,
@@ -101,7 +102,7 @@ Page {
                 id: tab2Content
                 anchors { right: parent.right; left: parent.left; top: parent.top; bottom: parent.bottom; bottomMargin: 90 }
                 contentWidth: parent.width
-                contentHeight: chooseMaxItems.height + chooseOrderBy.height + updateBehavior.height + updateInterval.height + textFormatLabel.height + textFormatSelection.height + invertThemeLabel.height + invertThemeSelection.height + showImgByDefaultLabel.height + showImgByDefaultSelection.height + handleRead.height + sortAsc.height + 100
+                contentHeight: chooseMaxItems.height + chooseViewMode.height + chooseOrderBy.height + updateBehavior.height + updateInterval.height + textFormatLabel.height + textFormatSelection.height + invertThemeLabel.height + invertThemeSelection.height + showImgByDefaultLabel.height + showImgByDefaultSelection.height + handleRead.height + sortAsc.height + 100
 
                 Component.onCompleted: console.log(tab2Content.contentHeight)
 
@@ -129,6 +130,29 @@ Page {
                 }
 
                 ListModel {
+                    id: viewModeModel
+                    ListElement { name: ""; value: 0 }
+                    ListElement { name: ""; value: 1 }
+                    Component.onCompleted: {
+                        viewModeModel.get(0).name = qsTr("Folders")
+                        viewModeModel.get(1).name = qsTr("Flat")
+                    }
+                }
+
+                SelectionItem {
+                    id: chooseViewMode
+                    title: qsTr("Main view layout")
+                    width: (parent.width - 40)
+                    anchors { top: chooseMaxItems.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
+                    model: viewModeModel
+                    initialValue: "0"
+                    Connections {
+                        target: dbus
+                        onGotConfig: chooseViewMode.initialValue = config["viewmode"]
+                    }
+                }
+
+                ListModel {
                     id: orderByModel
                     ListElement { name: ""; value: "id" }
                     ListElement { name: ""; value: "title" }
@@ -144,7 +168,7 @@ Page {
                     id: chooseOrderBy
                     title: qsTr("Order feeds and folders by")
                     width: parent.width - 40
-                    anchors { top: chooseMaxItems.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
+                    anchors { top: chooseViewMode.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
                     model: orderByModel
                     initialValue: "id"
                     Connections {

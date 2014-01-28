@@ -87,7 +87,8 @@ SOURCES += main.cpp \
     ../common/dbus/adaptor/ocdbusproxy.cpp \
     ../common/oclauncher.cpp \
     ../common/dbus/interfaces/ocaccountif.cpp \
-    ../common/dbus/interfaces/ocdbusaccount.cpp
+    ../common/dbus/interfaces/ocdbusaccount.cpp \
+    ../common/models/occombinedmodelsql.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -117,7 +118,8 @@ HEADERS += \
     ../common/oclauncher.h \
     ../common/dbus/interfaces/ocaccountif.h \
     ../common/dbus/interfaces/ocdbusaccount.h \
-    ../../common/globals.h
+    ../../common/globals.h \
+    ../common/models/occombinedmodelsql.h
 
 OTHER_FILES += \
     ../common/dbus/adaptor/de.buschmann23.ocNewsReader.xml \
