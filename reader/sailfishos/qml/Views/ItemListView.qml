@@ -29,6 +29,11 @@ Page {
         onStarredItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
         onMarkedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
     }
+    Connections {
+        target: updater
+        onUpdateStarted: if(GLOBALS.previousContentY === 0) GLOBALS.previousContentY = itemList.contentY
+        onUpdateFinished: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY }
+    }
 
     onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc)
     onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc)

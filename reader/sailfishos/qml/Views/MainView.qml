@@ -38,6 +38,7 @@ Page {
 
     Connections {
         target: updater
+        onUpdateStarte: if(GLOBALS.previousFlatContentY === 0) GLOBALS.previousFlatContentY = mainViewList.contentY
         onUpdateFinished: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } }
     }
     Connections {

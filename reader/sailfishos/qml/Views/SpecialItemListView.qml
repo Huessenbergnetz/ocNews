@@ -32,7 +32,8 @@ Page {
     }
     Connections {
         target: updater
-        onUpdateFinished: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
+        onUpdateStarted: if(GLOBALS.previousContentY === 0) GLOBALS.previousContentY = specialItemList.contentY
+        onUpdateFinished: { GLOBALS.previousContentY = specialItemList.contentY; GLOBALS.previousContentY = specialItemList.contentYspecialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
     }
 
     onHandleReadChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)

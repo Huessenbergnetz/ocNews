@@ -44,6 +44,11 @@ Page {
         onMarkedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); itemsList.contentY = GLOBALS.previousContentY; }
         onMarkedAllItemsReadSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); itemsList.contentY = GLOBALS.previousContentY; }
     }
+    Connections {
+        target: updater
+        onUpdateStarted: if (GLOBALS.previousContentY === 0) GLOBALS.previousContentY = itemsList.contentY
+        onUpdateFinished: { GLOBALS.previousContentY = itemsList.contentY; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); itemsList.contentY = GLOBALS.previousContentY }
+    }
 
     onHandleReadChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
     onSortAscChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)

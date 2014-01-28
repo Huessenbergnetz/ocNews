@@ -64,6 +64,7 @@ Page {
     }
     Connections {
         target: updater
+        onUpdateStarted: if (GLOBALS.previousFlatContentY === 0) GLOBALS.previousFlatContentY = folderList.contentY
         onUpdateFinished: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } }
     }
     Connections {

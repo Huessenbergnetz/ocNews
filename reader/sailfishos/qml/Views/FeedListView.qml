@@ -33,6 +33,10 @@ Page {
         onMarkedReadFolderSuccess: feedsModelSql.refresh(folderId)
         onRenamedFolderSuccess: feedListView.folderName = newfoldername
     }
+    Connections {
+        target: updater
+        onUpdateFinished: feedsModelSql.refresh(folderId)
+    }
 
     SilicaListView {
         id: feedList
