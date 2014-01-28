@@ -13,37 +13,34 @@ Page {
         contentHeight: aboutCol.height
         VerticalScrollDecorator {}
 
-    Column {
-        id: aboutCol
-        anchors { left: parent.left; leftMargin: Theme.paddingLarge; right: parent.right }
-        spacing: 5
-        PageHeader { title: qsTr("Contributors") }
+        Column {
+            id: aboutCol
+            anchors { left: parent.left; leftMargin: Theme.paddingLarge; right: parent.right }
+            spacing: 5
+            PageHeader { title: qsTr("Contributors") }
 
-        SectionHeader { text: qsTr("Main developer") }
+            SectionHeader { text: qsTr("Upstream author") }
 
-        Text {
-            text: _RICHTEXT_STYLESHEET_PREAMBLE + "<a href='http://www.buschmann32.de'>Matthias Fehring (Buschmann)</a>" + _RICHTEXT_STYLESHEET_APPENDIX
-            width: parent.width
-            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-            font.weight: Font.Light
-            onLinkActivated: { Qt.openUrlExternally(link) }
-            textFormat: Text.RichText
-            color: Theme.primaryColor
+            ContributorItem {
+                name: "Buschmann (Matthias Fehring)"
+                role: qsTr("Main developer, ocNews creator")
+                image: "buschmann.png"
+                website: "http://www.buschmann23.de"
+                twitter: "buschmann23"
+                github: "buschmann23"
+            }
+
+            SectionHeader { text: qsTr("Major contributors") }
+
+            ContributorItem {
+                name: "Tigre-Bleu (Antoine Vacher)"
+                role: qsTr("UI, French translation")
+                twitter: "tigre_bleu"
+            }
+
+            SectionHeader { text: qsTr("Thanks to") }
+
         }
-
-        SectionHeader { text: qsTr("Translators") }
-
-        Text {
-            text:  _RICHTEXT_STYLESHEET_PREAMBLE + "Antoine Vacher (tigre-bleu)<br><em>French translation</em>" + _RICHTEXT_STYLESHEET_APPENDIX
-            width: parent.width
-            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-            font.weight: Font.Light
-            onLinkActivated: { Qt.openUrlExternally(link) }
-            textFormat: Text.RichText
-            color: Theme.primaryColor
-        }
-
-    }
 
     }
 }

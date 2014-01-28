@@ -65,7 +65,15 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Pages/About.qml \
     qml/Dialogs/PrivacyPolicy.qml \
     qml/Common/FancyScroller.qml \
-    qml/Pages/Contributors.qml
+    qml/Pages/Contributors.qml \
+    qml/Pages/ContributorItem.qml \
+    qml/Pages/images/placeholder.png \
+    qml/Pages/icons/browser.png \
+    qml/Pages/icons/twitter.png \
+    qml/Pages/images/buschmann.png \
+    qml/Pages/icons/github.png \
+    qml/Pages/icons/linkedin.png \
+    qml/Pages/icons/weibo.png
 
 HEADERS += \
     ../common/ocdbmanager.h \

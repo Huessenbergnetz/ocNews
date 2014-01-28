@@ -116,7 +116,7 @@ Page {
 
             Flickable {
                 id: contributorsContent
-                anchors { right: parent.right; rightMargin: 15; left: parent.left; leftMargin: 15; top: parent.top; topMargin: 10; bottom: aboutTools.top }
+                anchors { right: parent.right; rightMargin: 15; left: parent.left; leftMargin: 15; top: parent.top; topMargin: 10; bottomMargin: aboutTools.height }
                 width: parent.width
                 height: parent.height
                 contentHeight: contentCol.height
@@ -127,34 +127,31 @@ Page {
                     id: contentCol
                     spacing: 7
 
-                    Label {
-                        text: qsTr("Main developer")
+                    GroupHeader {
+                        text: qsTr("Upstream author")
                     }
 
-                    Text {
-                        text: _RICHTEXT_STYLESHEET_PREAMBLE + "<a href='http://www.buschmann32.de'>Matthias Fehring (Buschmann)</a>" + _RICHTEXT_STYLESHEET_APPENDIX
-                        width: contributorsContent.width
-                        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                        font.pointSize: 17
-                        font.weight: Font.Light
-                        onLinkActivated: { Qt.openUrlExternally(link) }
-                        textFormat: Text.RichText
-                        color: theme.inverted ? "white" : "black"
+                    ContributorItem {
+                        name: "Buschmann (Matthias Fehring)"
+                        role: qsTr("Main developer, ocNews creator")
+                        image: "buschmann.png"
+                        website: "http://www.buschmann23.de"
+                        twitter: "buschmann23"
+                        github: "buschmann23"
                     }
 
-                    Label {
-                        text: qsTr("Translators")
+                    GroupHeader {
+                        text: qsTr("Major contributors")
                     }
 
-                    Text {
-                        text: _RICHTEXT_STYLESHEET_PREAMBLE + "Antoine Vacher (tigre-bleu)<br><em>French translation</em>" + _RICHTEXT_STYLESHEET_APPENDIX
-                        width: contributorsContent.width
-                        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                        font.pointSize: 17
-                        font.weight: Font.Light
-                        onLinkActivated: { Qt.openUrlExternally(link) }
-                        textFormat: Text.RichText
-                        color: theme.inverted ? "white" : "black"
+                    ContributorItem {
+                        name: "Tigre-Bleu (Antoine Vacher)"
+                        role: qsTr("UI, French translation")
+                        twitter: "tigre_bleu"
+                    }
+
+                    GroupHeader {
+                        text: qsTr("Thanks to")
                     }
                 }
             }
