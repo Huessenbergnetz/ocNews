@@ -24,6 +24,7 @@ public:
     Q_INVOKABLE void cleanCertificates();
     Q_INVOKABLE bool isConfigSet();
     Q_INVOKABLE bool isAccountEnabled();
+    Q_INVOKABLE QVariant getStat(int stat);
     
 signals:
     // generic

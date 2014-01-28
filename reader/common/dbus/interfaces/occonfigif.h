@@ -67,6 +67,13 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QLatin1String("getStatistics"), argumentList);
     }
 
+    inline QDBusPendingReply<QDBusVariant> getStat(const int stat)
+    {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(stat);
+        return asyncCallWithArgumentList(QLatin1String("getStat"), argumentList);
+    }
+
     inline QDBusPendingReply<bool> isAccountEnabled()
     {
         QList<QVariant> argumentList;

@@ -6,11 +6,9 @@ CoverBackground {
 
     property bool active: status == Cover.Active
 
-    Component.onCompleted: dbus.getStatistics()
-
     Connections {
         target: updater
-        onUpdateFinished: dbus.getStatistics()
+        onUpdateFinished: lastUpdText.text = defCover.calcLastUpd(dbus.getStat(1));
     }
 
     Timer {
@@ -18,7 +16,7 @@ CoverBackground {
         repeat: true
         triggeredOnStart: true
         running: defCover.active
-        onTriggered: dbus.getStatistics()
+        onTriggered: lastUpdText.text = defCover.calcLastUpd(dbus.getStat(1));
     }
 
     function calcLastUpd(lastDate)
@@ -67,10 +65,7 @@ CoverBackground {
             font.pixelSize: Theme.fontSizeHuge
             font.weight: Font.Light
             textFormat: Text.PlainText
-            Connections {
-                target: dbus
-                onGotStatistics: count.text = stats["unreadCount"]
-            }
+            text: unreadItems
         }
 
         Text {
@@ -90,17 +85,12 @@ CoverBackground {
         color: Theme.highlightColor
         anchors { top: countColumn.bottom; left: parent.left; right: parent.right; topMargin: Theme.paddingLarge * 1.5; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
         font.pixelSize: Theme.fontSizeLarge
+        text: defCover.calcLastUpd(dbus.getStat(1));
         width: parent.width
-//        maximumLineCount: 1
-//        truncationMode: TruncationMode.Fade
         textFormat: Text.PlainText
         visible: !updateRunning.visible
         wrapMode: Text.WordWrap
         lineHeight: 0.7
-        Connections {
-            target: dbus
-            onGotStatistics: lastUpdText.text = defCover.calcLastUpd(stats["lastFullUpdate"]);
-        }
     }
 
     Label {

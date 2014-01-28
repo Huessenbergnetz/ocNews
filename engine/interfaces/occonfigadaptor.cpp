@@ -69,6 +69,14 @@ QVariantMap OcConfigAdaptor::getStatistics()
     return stats;
 }
 
+QDBusVariant OcConfigAdaptor::getStat(const int stat)
+{
+    // handle method call de.buschmann23.ocNewsEngine.Configuration.getStat
+    QDBusVariant result;
+    QMetaObject::invokeMethod(parent(), "getStat", Q_RETURN_ARG(QDBusVariant, result), Q_ARG(int, stat));
+    return result;
+}
+
 bool OcConfigAdaptor::isAccountEnabled()
 {
     // handle method call de.buschmann23.ocNewsEngine.Configuration.isAccountEnabled

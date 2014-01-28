@@ -108,6 +108,14 @@ void OcDBusInterface::getStatistics()
     configuration->getStatistics();
 }
 
+QVariant OcDBusInterface::getStat(int stat)
+{
+    QDBusVariant dbvResult;
+    dbvResult = configuration->getStat(stat);
+    QVariant result = dbvResult.variant();
+    return result;
+}
+
 void OcDBusInterface::cleanCertificates()
 {
     configuration->cleanCertificates();

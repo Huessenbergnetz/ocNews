@@ -117,9 +117,10 @@ Page {
             MenuLabel {
                 id: lastUpdated
                 visible: configState === 0 && !operationRunning
+                text: qsTr("Last update: ") + Qt.formatDateTime(new Date(dbus.getStat(1)), Qt.DefaultLocaleShortDate)
                 Connections {
-                    target: dbus
-                    onGotStatistics: lastUpdated.text = qsTr("Last update: ") + Qt.formatDateTime(new Date(stats["lastFullUpdate"]), Qt.DefaultLocaleShortDate);
+                    target: updater
+                    onUpdateFinished: lastUpdated.text = qsTr("Last update: ") + Qt.formatDateTime(new Date(dbus.getStat(1)), Qt.DefaultLocaleShortDate);
                 }
             }
         }

@@ -59,6 +59,10 @@ class OcConfigAdaptor: public QDBusAbstractAdaptor
 "      <annotation value=\"QVariantMap\" name=\"com.trolltech.QtDBus.QtTypeName.Out0\"/>\n"
 "      <arg direction=\"out\" type=\"a{sv}\" name=\"stats\"/>\n"
 "    </method>\n"
+"    <method name=\"getStat\">\n"
+"      <arg direction=\"in\" type=\"i\" name=\"stat\"/>\n"
+"      <arg direction=\"out\" type=\"v\" name=\"result\"/>\n"
+"    </method>\n"
 "    <signal name=\"gotStatistics\">\n"
 "      <annotation value=\"QVariantMap\" name=\"com.trolltech.QtDBus.QtTypeName.In0\"/>\n"
 "      <arg direction=\"out\" type=\"a{sv}\" name=\"stats\"/>\n"
@@ -85,6 +89,7 @@ public Q_SLOTS: // METHODS
     QVariantMap getConfig();
     QDBusVariant getSetting(const QString &entry, const QDBusVariant &defaultValue);
     QVariantMap getStatistics();
+    QDBusVariant getStat(const int stat);
     bool isAccountEnabled();
     bool isConfigSet();
     void resetConfig();

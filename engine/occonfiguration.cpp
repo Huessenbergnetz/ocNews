@@ -219,6 +219,45 @@ void OcConfiguration::cleanDatabase()
 
 
 
+
+/*!
+ * \fn QDBusVariant OcConfiguration::getStat(const int stat)
+ * \brief Calculates a single statistic
+ *
+ * This function calculates a single statistic out of the database
+ *
+ * \param stat      int that indicates the value to retrieve, 0 for unread items, 1 for last full update
+ * \return the statistical value as QDBusVariant
+ */
+
+QDBusVariant OcConfiguration::getStat(const int stat)
+{
+    QDBusVariant result;
+    QVariant qvResult = 0;
+
+    if (stat == 0) {
+        QSqlQuery query;
+#if defined(MEEGO_EDITION_HARMATTAN)
+        query.exec("SELECT COUNT(id) FROM items WHERE unread = \"true\"");
+#else
+        query.exec("SELECT COUNT(id) FROM items WHERE unread = 1");
+#endif
+        if(query.next())
+            qvResult = query.value(0);
+    } else if (stat == 1) {
+        qvResult = settings.value("storage/lastFullUpdate", 0) == 0 ? 0 :
+                   QDateTime::fromTime_t(settings.value("storage/lastFullUpdate",0).toInt()).toLocalTime().toMSecsSinceEpoch();
+    }
+
+    result.setVariant(qvResult);
+
+    return result;
+
+}
+
+
+
+
 /*!
  * \fn QVariantMap OcConfiguration::getStatistics()
  * \brief Retrieves statistic information about the database.

@@ -29,6 +29,7 @@ public Q_SLOTS: // METHODS
     void saveConfig(const QVariantMap &config);
     void cleanDatabase();
     QVariantMap getStatistics();
+    QDBusVariant getStat(const int stat);
     void cleanCertificates();
     bool isConfigSet();
     bool isAccountEnabled();
