@@ -60,36 +60,35 @@ Page {
                 configState = 2
             }
         }
-        onSavedConfig: { if (viewMode !== 0 ) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onCleanedDatabase: { if (viewMode !== 0) { combinedModelSql.refresh() } else { folderModelSql.refresh() } }
+        onSavedConfig: folderList.model.refresh()
+        onCleanedDatabase: folderList.model.refresh()
     }
     Connections {
         target: updater
-        onUpdateStarted: if (GLOBALS.previousFlatContentY === 0) GLOBALS.previousFlatContentY = folderList.contentY
-        onUpdateFinished: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
+        onUpdateFinished: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
     }
     Connections {
         target: folders
-        onCreatedFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onDeletedFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onMarkedReadFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onRenamedFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
+        onCreatedFolderSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
+        onDeletedFolderSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
+        onMarkedReadFolderSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
+        onRenamedFolderSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
     }
     Connections {
         target: feeds
-        onCreatedFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onDeletedFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onMarkedReadFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onMovedFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onRequestedFeedsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
+        onCreatedFeedSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
+        onDeletedFeedSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
+        onMarkedReadFeedSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
+        onMovedFeedSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
+        onRequestedFeedsSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
     }
     Connections {
         target: items
-        onMarkedAllItemsReadSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onMarkedItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onStarredItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onUpdatedItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onRequestedItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); folderList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
+        onMarkedAllItemsReadSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
+        onMarkedItemsSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
+        onStarredItemsSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
+        onUpdatedItemsSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY}
+        onRequestedItemsSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
     }
 
 
@@ -200,13 +199,13 @@ Page {
             subtitleColor: "grey"
             onClicked: {
                 if (type === "1")  {
-                    if (viewMode !== 0) GLOBALS.previousFlatContentY = folderList.contentY; openFile("FeedListView.qml", {folderId: id, folderName: title})
+                    openFile("FeedListView.qml", {folderId: id, folderName: title})
                 } else if (type === "0") {
-                    if (viewMode !== 0) GLOBALS.previousFlatContentY = folderList.contentY; openFile("ItemListView.qml", {feedId: id, feedName: title})
+                    openFile("ItemListView.qml", {feedId: id, feedName: title})
                 } else if (type === "-1" && id === "0") {
-                    if (viewMode !== 0) GLOBALS.previousFlatContentY = folderList.contentY; openFile("SpecialItemListView.qml", { pageName: title, feedType: "all" })
+                    openFile("SpecialItemListView.qml", { pageName: title, feedType: "all" })
                 } else if (type === "-1" && id === "1") {
-                    if (viewMode !== 0) GLOBALS.previousFlatContentY = folderList.contentY; openFile("SpecialItemListView.qml", { pageName: title, feedType: "starred" })
+                    openFile("SpecialItemListView.qml", { pageName: title, feedType: "starred" })
                 }
             }
             onPressAndHold: {
@@ -224,6 +223,7 @@ Page {
         }
         section.property: "folderName"
         section.delegate: GroupHeader { text: section }
+        onModelChanged: model.refresh()
     }
 
     ScrollDecorator {
@@ -267,11 +267,11 @@ Page {
         MenuLayout {
             MenuItem {
                 text: qsTr("Settings")
-                onClicked: { if (viewMode !== 0) GLOBALS.previousFlatContentY = folderList.contentY; openFile("../Pages/Settings.qml") }
+                onClicked: openFile("../Pages/Settings.qml")
             }
             MenuItem {
                 text: qsTr("About")
-                onClicked: { if (viewMode !== 0) GLOBALS.previousFlatContentY = folderList.contentY; openFile("../Pages/About.qml") }
+                onClicked: openFile("../Pages/About.qml")
             }
             MenuItem {
                 text: qsTr("Quit completely")
