@@ -45,7 +45,6 @@ Page {
     }
     Connections {
         target: updater
-        onUpdateStarted: if (GLOBALS.previousContentY === 0) GLOBALS.previousContentY = itemsList.contentY
         onUpdateFinished: { GLOBALS.previousContentY = itemsList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc); itemsList.contentY = GLOBALS.previousContentY; }
     }
 

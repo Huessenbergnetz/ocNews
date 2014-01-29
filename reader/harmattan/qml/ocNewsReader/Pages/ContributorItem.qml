@@ -17,7 +17,7 @@ Row {
 
     Image {
         id:contribImage
-        source: image ? "images/" + image : "image://theme/icon-l-content-avatar-placeholder"
+        source: image ? "images/" + image : "images/placeholder.png"
         sourceSize.height: image ? 86 : 80
         sourceSize.width: image ? 86 : 80
         smooth: image ? false : true

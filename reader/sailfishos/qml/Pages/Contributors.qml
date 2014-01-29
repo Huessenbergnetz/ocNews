@@ -41,7 +41,12 @@ Page {
 
             SectionHeader { text: qsTr("Thanks to") }
 
+            ContributorItem {
+                name: "Finalmix (太空飞瓜)"
+                role: qsTr("Chinese (China) translation")
+                image: "finalmix.png"
+                weibo: "finalmix"
+            }
         }
-
     }
 }

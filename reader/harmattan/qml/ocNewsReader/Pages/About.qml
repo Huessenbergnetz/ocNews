@@ -154,6 +154,20 @@ Page {
                     GroupHeader {
                         text: qsTr("Thanks to")
                     }
+
+                    ContributorItem {
+                        name: "Finalmix (太空飞瓜)"
+                        role: qsTr("Chinese (China) translation")
+                        image: "finalmix.png"
+                        weibo: "finalmix"
+                    }
+
+//                    ContributorItem {
+//                        name: "Lorenzo Facca"
+//                        role: qsTr("Italian translation")
+//                        twitter: "LorenzoFacca"
+//                        website: "http://jollacommunity.altervista.org/"
+//                    }
                 }
             }
         }
