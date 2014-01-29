@@ -3,7 +3,6 @@ import Sailfish.Silica 1.0
 
 import "../Common"
 import "../Views"
-import "../JS/globals.js" as GLOBALS
 
 ListItem {
     id: itemListItem
@@ -16,7 +15,6 @@ ListItem {
 
     onClicked: {
         if (model.unread) busyIndicator.state = "RUNNING"
-        GLOBALS.previousContentY = ListView.view.contentY
         pageStack.push(Qt.resolvedUrl("../Views/SingleItemView.qml"), {itemId: model.itemId})
     }
 
@@ -107,22 +105,22 @@ ListItem {
             MenuItem {
                 text: model.unread ? qsTr("Mark as read") : qsTr("Mark as unread")
                 enabled: !operationRunning
-                onClicked: { GLOBALS.previousContentY = itemListItem.ListView.view.contentY; operationRunning = true; busyIndicator.state = "RUNNING"; model.unread ? items.markItems("read", itemListItem.markParams()) : items.markItems("unread", itemListItem.markParams()) }
+                onClicked: { operationRunning = true; busyIndicator.state = "RUNNING"; model.unread ? items.markItems("read", itemListItem.markParams()) : items.markItems("unread", itemListItem.markParams()) }
             }
             MenuItem {
                 text: model.starred ? qsTr("Remove from favorites") : qsTr("Add to favorites")
                 enabled: !operationRunning
-                onClicked: { GLOBALS.previousContentY = itemListItem.ListView.view.contentY; operationRunning = true; busyIndicator.state = "RUNNING"; model.starred ? items.starItems("unstar", itemListItem.starParams() ) : items.starItems("star", itemListItem.starParams() ) }
+                onClicked: { operationRunning = true; busyIndicator.state = "RUNNING"; model.starred ? items.starItems("unstar", itemListItem.starParams() ) : items.starItems("star", itemListItem.starParams() ) }
             }
             MenuItem {
                 text: qsTr("Mark as read up to this point")
                 enabled: !operationRunning
-                onClicked: { GLOBALS.previousContentY = itemListItem.ListView.view.contentY; operationRunning = true; busyIndicator.state = "RUNNING"; items.markItemsTillThis("read", model.pubDateInt, itemListItem.feedId) }
+                onClicked: { operationRunning = true; busyIndicator.state = "RUNNING"; items.markItemsTillThis("read", model.pubDateInt, itemListItem.feedId) }
             }
             MenuItem {
                 text: qsTr("Mark as unread up to this point")
                 enabled: !operationRunning
-                onClicked: { GLOBALS.previousContentY = itemListItem.ListView.view.contentY; operationRunning = true; busyIndicator.state = "RUNNING"; items.markItemsTillThis("unread", model.pubDateInt, itemListItem.feedId) }
+                onClicked: { operationRunning = true; busyIndicator.state = "RUNNING"; items.markItemsTillThis("unread", model.pubDateInt, itemListItem.feedId) }
             }
         }
     }

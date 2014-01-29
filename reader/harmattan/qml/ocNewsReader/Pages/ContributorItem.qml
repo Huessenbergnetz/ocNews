@@ -4,6 +4,7 @@ import "../Common"
 
 Row {
     spacing: 10
+    width: parent.width
 
     property string image
     property alias name: contribName.text
@@ -27,13 +28,18 @@ Row {
 
     Column {
         spacing: 1
+        width: parent.width - contribImage.width
 
         Label {
             id: contribName
+            width: parent.width
+            wrapMode: Text.WordWrap
         }
 
         Label {
             id: contribRole
+            width: parent.width
+            wrapMode: Text.WordWrap
         }
 
         Row {

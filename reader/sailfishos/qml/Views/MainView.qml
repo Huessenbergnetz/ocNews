@@ -32,38 +32,37 @@ Page {
             } else if (dbus.isConfigSet() && !dbus.isAccountEnabled()) {
                 configState = 2
             }
-            if (viewMode !== 0 ) { combinedModelSql.refresh() } else { folderModelSql.refresh() }
+            mainViewList.model.refresh()
         }
-        onCleanedDatabase: { if (viewMode !== 0) { combinedModelSql.refresh() } else { folderModelSql.refresh() } }
+        onCleanedDatabase: mainViewList.model.refresh()
     }
 
     Connections {
         target: updater
-        onUpdateStarted: if(GLOBALS.previousFlatContentY === 0) GLOBALS.previousFlatContentY = mainViewList.contentY
-        onUpdateFinished: { if (viewMode !== 0) { GLOBALS.previousFlatContentY = mainViewList.contentY; combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
+        onUpdateFinished: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
     }
     Connections {
         target: folders
-        onCreatedFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onDeletedFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onMarkedReadFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onRenamedFolderSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
+        onCreatedFolderSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+        onDeletedFolderSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+        onMarkedReadFolderSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+        onRenamedFolderSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
     }
     Connections {
         target: feeds
-        onCreatedFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onDeletedFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onMarkedReadFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onMovedFeedSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onRequestedFeedsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
+        onCreatedFeedSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+        onDeletedFeedSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+        onMarkedReadFeedSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+        onMovedFeedSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+        onRequestedFeedsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
     }
     Connections {
         target: items
-        onMarkedAllItemsReadSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onMarkedItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onStarredItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onUpdatedItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
-        onRequestedItemsSuccess: { if (viewMode !== 0) { combinedModelSql.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY } else { folderModelSql.refresh() } }
+        onMarkedAllItemsReadSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+        onMarkedItemsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+        onStarredItemsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+        onUpdatedItemsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+        onRequestedItemsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
     }
 
     SilicaListView {
@@ -138,6 +137,7 @@ Page {
         }
 
         model: viewMode === 0 ? folderModelSql : combinedModelSql
+        onModelChanged: model.refresh();
 
         delegate: FolderListDelegate { visible: configState === 0 && mainViewList.count > 1 }
 

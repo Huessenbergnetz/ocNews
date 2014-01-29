@@ -16,44 +16,44 @@ ApplicationWindow
 
     Connections {
         target: updater
-        onUpdateFinished: { operationRunning = false; unreadItems = dbus.getStat(0); lastFullUpdateTime = dbus.getStat(1); if (viewMode !== 0) combinedModelSql.refresh() }
+        onUpdateFinished: { operationRunning = false; unreadItems = dbus.getStat(0); lastFullUpdateTime = dbus.getStat(1) }
         onUpdateError: operationRunning = false
         onUpdateStarted: operationRunning = true
     }
     Connections {
         target: folders
         onCreatedFolderError: operationRunning = false
-        onCreatedFolderSuccess: { operationRunning = false; if (viewMode !== 0) combinedModelSql.refresh() }
+        onCreatedFolderSuccess: operationRunning = false
         onDeletedFolderError: operationRunning = false
-        onDeletedFolderSuccess: { operationRunning = false; unreadItems = dbus.getStat(0); if (viewMode !== 0) combinedModelSql.refresh() }
+        onDeletedFolderSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
         onMarkedReadFolderError: operationRunning = false
-        onMarkedReadFolderSuccess: { operationRunning = false; unreadItems = dbus.getStat(0); if (viewMode !== 0) combinedModelSql.refresh() }
+        onMarkedReadFolderSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
         onRenamedFolderError: operationRunning = false
-        onRenamedFolderSuccess: { operationRunning = false; if (viewMode !== 0) combinedModelSql.refresh() }
+        onRenamedFolderSuccess: operationRunning = false
     }
     Connections {
         target: feeds
         onCreatedFeedError: operationRunning = false
-        onCreatedFeedSuccess: { operationRunning = false; unreadItems = dbus.getStat(0); if (viewMode !== 0) combinedModelSql.refresh() }
+        onCreatedFeedSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
         onDeletedFeedError: operationRunning = false
-        onDeletedFeedSuccess: { operationRunning = false; unreadItems = dbus.getStat(0); if (viewMode !== 0) combinedModelSql.refresh() }
+        onDeletedFeedSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
         onMarkedReadFeedError: operationRunning = false
-        onMarkedReadFeedSuccess: { operationRunning = false; unreadItems = dbus.getStat(0); if (viewMode !== 0) combinedModelSql.refresh() }
+        onMarkedReadFeedSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
         onMovedFeedError: operationRunning = false
-        onMovedFeedSuccess: { operationRunning = false; if (viewMode !== 0) combinedModelSql.refresh() }
+        onMovedFeedSuccess: operationRunning = false
     }
     Connections {
         target: items
         onMarkedAllItemsReadError: operationRunning = false
-        onMarkedAllItemsReadSuccess: { operationRunning = false; unreadItems = dbus.getStat(0); if (viewMode !== 0) combinedModelSql.refresh() }
+        onMarkedAllItemsReadSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
         onMarkedItemsError: operationRunning = false
-        onMarkedItemsSuccess: { operationRunning = false; unreadItems = dbus.getStat(0); if (viewMode !== 0) combinedModelSql.refresh() }
+        onMarkedItemsSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
         onStarredItemsError: operationRunning = false
-        onStarredItemsSuccess: { operationRunning = false; if (viewMode !== 0) combinedModelSql.refresh() }
+        onStarredItemsSuccess: operationRunning = false
         onUpdatedItemsError: operationRunning = false
-        onUpdatedItemsSuccess: { operationRunning = false; unreadItems = dbus.getStat(0); if (viewMode !== 0) combinedModelSql.refresh() }
+        onUpdatedItemsSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
         onRequestedItemsError: operationRunning = false
-        onRequestedItemsSuccess: { operationRunning = false; unreadItems = dbus.getStat(0); if (viewMode !== 0) combinedModelSql.refresh() }
+        onRequestedItemsSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
     }
     Connections {
         target: dbus

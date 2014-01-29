@@ -76,6 +76,11 @@
         <source>Chinese (China) translation</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="53"/>
+        <source>Italian translation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>

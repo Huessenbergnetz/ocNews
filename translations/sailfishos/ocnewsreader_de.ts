@@ -74,6 +74,11 @@
         <source>Chinese (China) translation</source>
         <translation>Chinesische (China) Übersetzung</translation>
     </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="53"/>
+        <source>Italian translation</source>
+        <translation>Italienische Übersetzung</translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>

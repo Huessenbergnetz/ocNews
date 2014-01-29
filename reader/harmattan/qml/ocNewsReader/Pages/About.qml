@@ -126,6 +126,7 @@ Page {
                 Column {
                     id: contentCol
                     spacing: 7
+                    width: parent.width
 
                     GroupHeader {
                         text: qsTr("Upstream author")
