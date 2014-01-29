@@ -47,26 +47,31 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="22"/>
         <source>Upstream author</source>
-        <translation type="unfinished"/>
+        <translation>Autor upstream</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="26"/>
         <source>Main developer, ocNews creator</source>
-        <translation type="unfinished"/>
+        <translation>Desarrollador principal, creador de ocNews</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="33"/>
         <source>Major contributors</source>
-        <translation type="unfinished"/>
+        <translation>Mayores aportadores</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="37"/>
         <source>UI, French translation</source>
-        <translation type="unfinished"/>
+        <translation>Interfaz de usuario, traducción al Francés</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="42"/>
         <source>Thanks to</source>
+        <translation>Gracias a</translation>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="46"/>
+        <source>Chinese (China) translation</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -541,18 +546,18 @@
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="77"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Sin categoría</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="79"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Todas las publicaciones</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="96"/>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="98"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Publicaciones favoritas</translation>
     </message>
 </context>
 <context>
@@ -844,17 +849,17 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="233"/>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Carpetas</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="234"/>
         <source>Feeds</source>
-        <translation type="unfinished"/>
+        <translation>Feeds</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="241"/>
         <source>Main view layout</source>
-        <translation type="unfinished"/>
+        <translation>Vista principal del ezquema</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="251"/>

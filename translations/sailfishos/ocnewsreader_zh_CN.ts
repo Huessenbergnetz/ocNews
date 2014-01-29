@@ -47,26 +47,31 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="22"/>
         <source>Upstream author</source>
-        <translation type="unfinished"/>
+        <translation>核心作者</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="26"/>
         <source>Main developer, ocNews creator</source>
-        <translation type="unfinished"/>
+        <translation>主要开发者，ocNews的创建者</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="33"/>
         <source>Major contributors</source>
-        <translation type="unfinished"/>
+        <translation>主要贡献者</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="37"/>
         <source>UI, French translation</source>
-        <translation type="unfinished"/>
+        <translation>UI，法语翻译</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="42"/>
         <source>Thanks to</source>
+        <translation>鸣谢</translation>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="46"/>
+        <source>Chinese (China) translation</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -541,18 +546,18 @@
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="77"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>未分类</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="79"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>全部条目</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="96"/>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="98"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>最爱条目</translation>
     </message>
 </context>
 <context>
@@ -844,17 +849,17 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="233"/>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>文件夹</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="234"/>
         <source>Feeds</source>
-        <translation type="unfinished"/>
+        <translation>订阅</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="241"/>
         <source>Main view layout</source>
-        <translation type="unfinished"/>
+        <translation>整体视图布局</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="251"/>

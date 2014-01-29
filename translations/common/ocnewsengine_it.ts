@@ -53,7 +53,7 @@
         <location filename="../../engine/ocgeneric.cpp" line="68"/>
         <location filename="../../engine/ocgeneric.cpp" line="132"/>
         <source>Remote host not found</source>
-        <translation type="unfinished"/>
+        <translation>Host remoto non trovato</translation>
     </message>
     <message>
         <location filename="../../engine/ocgeneric.cpp" line="70"/>

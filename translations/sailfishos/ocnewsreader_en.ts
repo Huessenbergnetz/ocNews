@@ -69,6 +69,11 @@
         <source>Thanks to</source>
         <translation>Thanks to</translation>
     </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="46"/>
+        <source>Chinese (China) translation</source>
+        <translation>Chinese (China) translation</translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
