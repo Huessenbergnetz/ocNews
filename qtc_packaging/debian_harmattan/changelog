@@ -1,3 +1,13 @@
+buschtrommel-ocnews (1.6.0) stable; urgency=low
+
+  * NEW: second mode for the main view, choose between folders or all feeds (issue #10)
+  * NEW: the daemon is now reactinng to network and config changes (issue #17)
+  * NEW: translations for Spanish and Chinese(China)
+  * Changed: nicer contributors page (issue #18)
+  * Changed: better indication for feeds and folders with no unread articles (issue #23)
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Wed, 29 Jan 2014 18:58:58 +0100
+
 buschtrommel-ocnews (1.5.2) stable; urgency=low
 
   * NEW: french translation by Antoine Vacher aka. tigre-bleu

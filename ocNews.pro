@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 
-VERSION = 1.5.2
+VERSION = 1.6.0
 
 !isEmpty(MEEGO_VERSION_MAJOR) {
 OTHER_FILES += \

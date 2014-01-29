@@ -1,3 +1,22 @@
+Version 1.6.0, 2013-01-29 18:58:58 +0100
+
+  General:
+  * NEW: second mode for the main view, choose between folders or all feeds (issue #10)
+  * NEW: the daemon is now reacting to network (only on Harmattan) and config changes
+    (on both) (issue #17)
+  * Changed: nicer contributors page (issue #18)
+  * Changed: better indication for feeds and folders with no unread articles (issue #23)
+  
+  Harmattan:
+  * NEW: translations for Spanish and Chinese(China)
+  
+  Sailfish:
+  * NEW: display last refresh date in pulley menu (issu #9)
+  * NEW: translations for Spanish, Italian and Chinese(China)
+  * Fixed: unread count on cover is not updated when the app is displayed (issue #13)
+  * Fixed: if title contains an ampersand, the part after it was not shown (issue #22)
+  * Fixed: on hiding virtual keyboard, docked sorting panel was shown shortly (issue #24)
+
 Version 1.5.2, 2013-01-24 14:50:00 +0100
 
   General:
