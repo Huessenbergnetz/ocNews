@@ -1,40 +1,40 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.0">
 <context>
     <name>About</name>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/About.qml" line="20"/>
         <source>About</source>
-        <translation>Über</translation>
+        <translation>Sobre</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/About.qml" line="42"/>
         <source>The ownCloud News App client for Sailfish OS</source>
-        <translation>Der ownCloud News App Client für Sailfish OS</translation>
+        <translation>El cliente ownCloud News app para Sailfish OS</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/About.qml" line="67"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
-        <translation>Lizensiert unter der &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.de.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
+        <translation>Liciencia bajo &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/About.qml" line="76"/>
         <source>Privacy policy</source>
-        <translation>Datenschutzerklärung</translation>
+        <translation>Política de privacidad</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/About.qml" line="86"/>
         <source>Visit website</source>
-        <translation>Webseite besuchen</translation>
+        <translation>Visitar sitio web</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/About.qml" line="93"/>
         <source>Make a donation</source>
-        <translation>Spenden</translation>
+        <translation>Haz una donación</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/About.qml" line="100"/>
         <source>Contributors</source>
-        <translation>Mitwirkende</translation>
+        <translation>Contribuidores</translation>
     </message>
 </context>
 <context>
@@ -42,32 +42,32 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="20"/>
         <source>Contributors</source>
-        <translation>Mitwirkende</translation>
+        <translation>Contribuidores</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="22"/>
         <source>Upstream author</source>
-        <translation>Urheber</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="26"/>
         <source>Main developer, ocNews creator</source>
-        <translation>Hauptentwickler, ocNews-Urheber</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="33"/>
         <source>Major contributors</source>
-        <translation>Hauptmitwirkende</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="37"/>
         <source>UI, French translation</source>
-        <translation>UI, Französische Übersetzung</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="42"/>
         <source>Thanks to</source>
-        <translation>Dank an</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -75,52 +75,52 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/CoverPage.qml" line="36"/>
         <source>Never</source>
-        <translation>Nie</translation>
+        <translation>Nunca</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/CoverPage.qml" line="38"/>
         <source>%1 days ago</source>
-        <translation>Vor %1 Tagen</translation>
+        <translation>Hace %1 días</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/CoverPage.qml" line="38"/>
         <source>1 day ago</source>
-        <translation>Vor 1 Tag</translation>
+        <translation>Hace 1 día</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/CoverPage.qml" line="40"/>
         <source>%1 hours ago</source>
-        <translation>Vor %1 Stunden</translation>
+        <translation>Hace %1 horas</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/CoverPage.qml" line="40"/>
         <source>1 hour ago</source>
-        <translation>Vor 1 Stunde</translation>
+        <translation>Hace 1 hora</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/CoverPage.qml" line="42"/>
         <source>%1 minutes ago</source>
-        <translation>Vor %1 Minuten</translation>
+        <translation>Hace %1 minutos</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/CoverPage.qml" line="42"/>
         <source>1 minute ago</source>
-        <translation>Vor 1 Minute</translation>
+        <translation>Hace 1 minuto</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/CoverPage.qml" line="44"/>
         <source>Just now</source>
-        <translation>Gerade eben</translation>
+        <translation>Ahora mismo</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/CoverPage.qml" line="72"/>
         <source>Unread news</source>
-        <translation>Ungelesene Nachrichten</translation>
+        <translation>Noticias sin leer</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/CoverPage.qml" line="99"/>
         <source>Updating</source>
-        <translation>Aktualisiere</translation>
+        <translation>Actualizando</translation>
     </message>
 </context>
 <context>
@@ -128,27 +128,27 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/CreateFeed.qml" line="25"/>
         <source>Root</source>
-        <translation>Oberste Ebene</translation>
+        <translation>Raíz</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/CreateFeed.qml" line="40"/>
         <source>Add feed</source>
-        <translation>Feed hinzufügen</translation>
+        <translation>Añadir feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/CreateFeed.qml" line="46"/>
         <source>Feed address</source>
-        <translation>Feed-Adresse</translation>
+        <translation>Dirección de Feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/CreateFeed.qml" line="68"/>
         <source>Add feed to folder</source>
-        <translation>Feed zu Ordner hinzufügen</translation>
+        <translation>Añadir feed a la carpeta</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/CreateFeed.qml" line="83"/>
         <source>Show feed in event view</source>
-        <translation>Feed in der Startansicht anzeigen</translation>
+        <translation>Mostrar feed en la pantalla de eventos</translation>
     </message>
 </context>
 <context>
@@ -156,12 +156,12 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/CreateFolder.qml" line="14"/>
         <source>Add folder</source>
-        <translation>Ordner hinzufügen</translation>
+        <translation>Añadir directorio</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/CreateFolder.qml" line="20"/>
         <source>Folder name</source>
-        <translation>Ordnername</translation>
+        <translation>Nombre de la carpeta</translation>
     </message>
 </context>
 <context>
@@ -169,42 +169,42 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FeedListDelegate.qml" line="20"/>
         <source>All</source>
-        <translation>Alle</translation>
+        <translation>Todos</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FeedListDelegate.qml" line="64"/>
         <source>Empty folder</source>
-        <translation>Leerer Ordner</translation>
+        <translation>Vaciar carpeta</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FeedListDelegate.qml" line="64"/>
         <source>%1 unread posts in %2 feeds</source>
-        <translation>%1 ungelesene Nachrichten in %2 Feeds</translation>
+        <translation>%1 noticias no leídas en %2 feeds</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FeedListDelegate.qml" line="117"/>
         <source>Update feed</source>
-        <translation>Feed aktualisieren</translation>
+        <translation>Actualizar feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FeedListDelegate.qml" line="122"/>
         <source>Mark feed as read</source>
-        <translation>Feed als gelesen markieren</translation>
+        <translation>Marcar feed como leído</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FeedListDelegate.qml" line="127"/>
         <source>Move feed</source>
-        <translation>Feed verschieben</translation>
+        <translation>Mover feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FeedListDelegate.qml" line="135"/>
         <source>Delete feed</source>
-        <translation>Feed löschen</translation>
+        <translation>Suprimir feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FeedListDelegate.qml" line="143"/>
         <source>Deleting feed %1</source>
-        <translation>Lösche Feed %1</translation>
+        <translation>Suprimiendo feed %1</translation>
     </message>
 </context>
 <context>
@@ -212,52 +212,52 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Views/FeedListView.qml" line="49"/>
         <source>Delete Folder</source>
-        <translation>Ordner löschen</translation>
+        <translation>Suprimir carpeta</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/FeedListView.qml" line="55"/>
         <source>Rename folder</source>
-        <translation>Ordner umbenennen</translation>
+        <translation>Renombrar carpeta</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/FeedListView.qml" line="64"/>
         <source>Add feed</source>
-        <translation>Feed hinzufügen</translation>
+        <translation>Añadir feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/FeedListView.qml" line="73"/>
         <source>Mark folder as read</source>
-        <translation>Ordner als gelesen markieren</translation>
+        <translation>Marcar carpeta como leída</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/FeedListView.qml" line="79"/>
         <source>Update folder</source>
-        <translation>Ordner aktualisieren</translation>
+        <translation>Actualizar carpeta</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/FeedListView.qml" line="87"/>
         <source>This folder is empty. Add some feeds to it.</source>
-        <translation>Dieser Ordner ist leer. Fügen Sie einige Feeds hinzu.</translation>
+        <translation>Esta carpeta está vacía. Agrega algunos feeds dentro.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/FeedListView.qml" line="92"/>
         <source>Update running...</source>
-        <translation>Aktualisiere...</translation>
+        <translation>Actualización en ejecución...</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/FeedListView.qml" line="108"/>
         <source>Scroll to top</source>
-        <translation>Nach oben</translation>
+        <translation>Volver arriba</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/FeedListView.qml" line="117"/>
         <source>Deleting folder %1</source>
-        <translation>Lösche Ordner %1</translation>
+        <translation>Suprimiendo carpeta %1</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/FeedListView.qml" line="122"/>
         <source>Marking folder %1 as read</source>
-        <translation>Markiere Ordner %1 als gelesen</translation>
+        <translation>Marcando carpeta %1 como leído</translation>
     </message>
 </context>
 <context>
@@ -265,67 +265,67 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="73"/>
         <source>Empty folder</source>
-        <translation>Leerer Ordner</translation>
+        <translation>Carpeta vacía</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="73"/>
         <source>%1 unread posts in %2 feeds</source>
-        <translation>%1 ungelesene Nachrichten in %2 Feeds</translation>
+        <translation>%1 noticias no leídas en %2 feeds</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="134"/>
         <source>Update folder</source>
-        <translation>Ordner aktualisieren</translation>
+        <translation>Actualizar carpeta</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="139"/>
         <source>Mark folder as read</source>
-        <translation>Ordner als gelesen markieren</translation>
+        <translation>Marcar carpeta como leída</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="144"/>
         <source>Rename folder</source>
-        <translation>Ordner umbenennen</translation>
+        <translation>Renombrar carpeta</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="152"/>
         <source>Delete folder</source>
-        <translation>Ordner löschen</translation>
+        <translation>Suprimir carpeta</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="163"/>
         <source>Update feed</source>
-        <translation>Feed aktualisieren</translation>
+        <translation>Actualizar feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="168"/>
         <source>Mark feed as read</source>
-        <translation>Feed als gelesen markieren</translation>
+        <translation>Marcar feed como leído</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="173"/>
         <source>Move feed</source>
-        <translation>Feed verschieben</translation>
+        <translation>Mover feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="181"/>
         <source>Delete feed</source>
-        <translation>Feed löschen</translation>
+        <translation>Suprimir feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="189"/>
         <source>Deleting feed %1</source>
-        <translation>Lösche Feed %1</translation>
+        <translation>Suprimiendo feed %1</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="193"/>
         <source>Deleting folder %1</source>
-        <translation>Lösche Ordner %1</translation>
+        <translation>Suprimiendo carpeta %1</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="197"/>
         <source>Mark folder %1 as read</source>
-        <translation>Markiere Ordner %1 als gelesen</translation>
+        <translation>Marcar carpeta %1 como leída</translation>
     </message>
 </context>
 <context>
@@ -333,32 +333,32 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="108"/>
         <source>Mark as read</source>
-        <translation>Als gelesen markieren</translation>
+        <translation>Marcar como leído</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="108"/>
         <source>Mark as unread</source>
-        <translation>Als ungelesen markieren</translation>
+        <translation>Marcar como no leído</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="113"/>
         <source>Remove from favorites</source>
-        <translation>Von Favoriten entfernen</translation>
+        <translation>Suprimir de los favoritos</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="113"/>
         <source>Add to favorites</source>
-        <translation>Zu Favoriten hinzufügen</translation>
+        <translation>Añadir en los favoritos</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="118"/>
         <source>Mark as read up to this point</source>
-        <translation>Bis hier als gelesen markieren</translation>
+        <translation>Marcar como leído hasta este punto</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="123"/>
         <source>Mark as unread up to this point</source>
-        <translation>Bis hier als ungelesen markieren</translation>
+        <translation>Marcar como no leído hasta este punto</translation>
     </message>
 </context>
 <context>
@@ -366,87 +366,87 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="48"/>
         <source>Update running...</source>
-        <translation>Aktualisiere...</translation>
+        <translation>Actualización en ejecución...</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="56"/>
         <source>Search</source>
-        <translation>Suche</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="86"/>
         <source>Delete feed</source>
-        <translation>Feed löschen</translation>
+        <translation>Suprimir feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="91"/>
         <source>Hide sorting options</source>
-        <translation>Sortieroptionen verbergen</translation>
+        <translation>Ocultar las opciones de orden</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="91"/>
         <source>Show sorting options</source>
-        <translation>Sortieroptionen anzeigen</translation>
+        <translation>Mostrar las opciones de orden</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="97"/>
         <source>Mark feed as read</source>
-        <translation>Feed als gelesen markieren</translation>
+        <translation>Marcar feed como leído</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="103"/>
         <source>Update feed</source>
-        <translation>Feed aktualisieren</translation>
+        <translation>Actualizar feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="108"/>
         <source>Hide search</source>
-        <translation>Suchfeld verbergen</translation>
+        <translation>Ocultar búsqueda</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="108"/>
         <source>Show search</source>
-        <translation>Suche anzeigen</translation>
+        <translation>Mostrar búsqueda</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="133"/>
         <source>Scroll to top</source>
-        <translation>Nach oben</translation>
+        <translation>Volver arriba</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="141"/>
         <source>Deleting feed %1</source>
-        <translation>Lösche Feed %1</translation>
+        <translation>Suprimendo feed %1</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="162"/>
         <source>Show newest on top</source>
-        <translation>Neueste zuert anzeigen</translation>
+        <translation>Mostrar el mas nuevo arriba</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="162"/>
         <source>Show oldest on top</source>
-        <translation>Älteste zuerst anzeigen</translation>
+        <translation>Mostrar el mas viejo arriba</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="172"/>
         <source>Show</source>
-        <translation>Anzeigen</translation>
+        <translation>Mostrar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="173"/>
         <source>Hide</source>
-        <translation>Verbergen</translation>
+        <translation>Ocultar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="174"/>
         <source>Show after unread</source>
-        <translation>Nach ungelesenen anzeigen</translation>
+        <translation>Mostrar despues los no leídos</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="181"/>
         <source>Read articles</source>
-        <translation>Gelesene Artikel</translation>
+        <translation>Leer noticias</translation>
     </message>
 </context>
 <context>
@@ -454,68 +454,68 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="76"/>
         <source>Update running...</source>
-        <translation>Aktualisiere...</translation>
+        <translation>Actualización en ejecución...</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="94"/>
         <source>Quit</source>
-        <translation>Beenden</translation>
+        <translation>Abandonar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="99"/>
         <source>About</source>
-        <translation>Über</translation>
+        <translation>Sobre</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="104"/>
         <source>Settings</source>
-        <translation>Einstellungen</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="110"/>
         <source>Add</source>
-        <translation>Hinzufügen</translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="116"/>
         <source>Update all</source>
-        <translation>Alles aktualisieren</translation>
+        <translation>Actualizar todo</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="122"/>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="125"/>
         <source>Last update: </source>
-        <translation>Letzte Aktualisierung: </translation>
+        <translation>Última actualización :</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="132"/>
         <source>With these app you can synchronize and view your ownCloud News App content on your smartphone. Before you can start, you have to setup your ownCloud server account in the settings.</source>
-        <translation>Mit dieser Anwendung können Sie die Inhalte ihrer ownCloud News App mit ihrem Smartphone synchronisieren und dort ansehen. Bevor Sie allerdings loslegen können, müssen Sie in den Einstellungen Ihre Zugangsdaten einrichten.</translation>
+        <translation>Con esta aplicación usted puede sincronizar y ver su contenido ownCloud News en el teléfono. Antes de empezar, usted debe que configurar su cuenta de servidor ownCloud en la configuración.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="137"/>
         <source>The local database is empty. Please make an update or add new feeds and folders.</source>
-        <translation>Die lokale Datenbank ist leer. Führen Sie bitte eine Aktualisierung durch oder fügen Sie neue Ordner und Feeds hinzu.</translation>
+        <translation>La base de datos local está vacía. Por favor, haga una actualización o agregue nuevos feeds y carpetas.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="154"/>
         <source>Scroll to top</source>
-        <translation>Nach oben</translation>
+        <translation>Volver arriba</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="172"/>
         <source>Add feed</source>
-        <translation>Feed hinzufügen</translation>
+        <translation>Añadir feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="183"/>
         <source>Add folder</source>
-        <translation>Ordner hinzufügen</translation>
+        <translation>Añadir carpeta</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="196"/>
         <source>Quit reader and engine</source>
-        <translation>Beende ocNews komplett</translation>
+        <translation>Abandonar lector y núcleo</translation>
     </message>
 </context>
 <context>
@@ -523,17 +523,17 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/MoveFeed.qml" line="26"/>
         <source>Root</source>
-        <translation>Oberste Ebene</translation>
+        <translation>Raíz</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/MoveFeed.qml" line="41"/>
         <source>Move feed</source>
-        <translation>Feed verschieben</translation>
+        <translation>Mover feed</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/MoveFeed.qml" line="53"/>
         <source>Move feed to folder</source>
-        <translation>Verschiebe Feed in Ordner</translation>
+        <translation>Mover feed a la carpeta</translation>
     </message>
 </context>
 <context>
@@ -541,18 +541,18 @@
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="77"/>
         <source>Uncategorized</source>
-        <translation>Unkategorisiert</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="79"/>
         <source>All posts</source>
-        <translation>Alle Nachrichten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="96"/>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="98"/>
         <source>Favourite posts</source>
-        <translation>Favoriten</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -560,7 +560,7 @@
     <message>
         <location filename="../../reader/common/models/ocfeedsmodelsql.cpp" line="71"/>
         <source>All posts</source>
-        <translation>Alle Nachrichten</translation>
+        <translation>Todas las noticias</translation>
     </message>
 </context>
 <context>
@@ -568,13 +568,13 @@
     <message>
         <location filename="../../reader/common/models/ocfoldermodelsql.cpp" line="73"/>
         <source>All posts</source>
-        <translation>Alle Nachrichten</translation>
+        <translation>Todas las noticias</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/ocfoldermodelsql.cpp" line="90"/>
         <location filename="../../reader/common/models/ocfoldermodelsql.cpp" line="92"/>
         <source>Favourite posts</source>
-        <translation>Favoriten</translation>
+        <translation>Noticias favoritas</translation>
     </message>
 </context>
 <context>
@@ -582,7 +582,7 @@
     <message>
         <location filename="../../reader/common/models/ocitemsmodelsql.cpp" line="62"/>
         <source>Today</source>
-        <translation>Heute</translation>
+        <translation>Hoy</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/ocitemsmodelsql.cpp" line="63"/>
@@ -600,7 +600,7 @@
     <message>
         <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="26"/>
         <source>Today</source>
-        <translation>Heute</translation>
+        <translation>Hoy</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="27"/>
@@ -618,7 +618,7 @@
     <message>
         <location filename="../../reader/common/models/ocspecialitemsmodelsql.cpp" line="62"/>
         <source>Today</source>
-        <translation>Heute</translation>
+        <translation>Hoy</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/ocspecialitemsmodelsql.cpp" line="63"/>
@@ -636,72 +636,72 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="14"/>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="14"/>
         <source>Accept</source>
-        <translation>Annehmen</translation>
+        <translation>Aceptar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="27"/>
         <source>Privacy Policy</source>
-        <translation>Datenschutzerklärung</translation>
+        <translation>Política de privacidad</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="35"/>
         <source>What information does ocNews collect?</source>
-        <translation>Welche Informationen sammelt ocNews?</translation>
+        <translation>Que información ocNews recolecta?</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="44"/>
         <source>In order to log in to your ownCloud server, ocNews collects the server address, your user name and your password. These information is not given to the author of ocNews or other third parties.</source>
-        <translation>Um sich an Ihrem ownCloud-Server anzumelden benötigt ocNews die Server-Adresse, Ihren Benutzernamen und Ihr Passwort. Diese Informationen werden weder an den Autor von ocNews noch an Dritte weitergegeben.</translation>
+        <translation>Con el objeto de acceder a su servidor ownCloud, ocNews toma la dirección del servidor, su usuario y su contraseña. Esta información no es distribuida ni al autor de ocNews ni a algún tercero.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="54"/>
         <source>What does ocNews use your information for?</source>
-        <translation>Wofür benötigt ocNews Ihre Informationen?</translation>
+        <translation>Para que fin ocNews utiliza su información?</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="62"/>
         <source>ocNews needs your log in data to connect to your ownCloud server. Your log in data is used to log in to your ownCloud server to perform the tasks of synchronizing your ownCloud News App data with your device.</source>
-        <translation>ocNews benötigt Ihre Informationen, um sich mit Ihrem ownCloud-Server zu verbinden. Ihre Anmeldedaten werden dazu genutzt, sich an ihrem ownCloud-Server anzumelden und die Synchronisierung der ownCloud News App-Daten mit Ihrem Gerät durchzuführen. </translation>
+        <translation>ocNews necesita sus datos de acceso para poder acceder a su servidor ownCloud. Sus datos de acceso se usan para poder acceder a su servidor ownCloud para así poder sincronizar los datos de su ownCloud News app con su dispositivo</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="72"/>
         <source>Does ocNews disclose any information to outside parties?</source>
-        <translation>Teilt ocNews irgendeine Information mit Dritten?</translation>
+        <translation>ocNews revela algún tipo de información a algún tercero?</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="80"/>
         <source>ocNews only uses your data for the log in process into the server that you configure in the settings. ocNews does not send these data to the author of ocNews or other third parties. For questions concerning the privacy on the server side, you have to contact your ownCloud service provider.</source>
-        <translation>ocNews nutzt Ihre Daten nur zur Anmeldung an dem Server, den Sie in den Einstellungen angeben. ocNews sendet diese Daten weder an den Autoren von ocNews noch an irgendeinen anderen Dritten. Fragen zum Datenschutz auf ihrem ownCloud-Server richten Sie bitten an Ihren Server-Betreiber.</translation>
+        <translation>ocNews solo utiliza sus datos para acceder al servidor que haya configurado en la opciones. ocNews no envía estos datos al autor de ocNews ni a terceros. Para preguntas o inquietudes sobre privacidad con respecto al servidor, usted debe contactar a su proveedor de servicio ownCloud.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="90"/>
         <source>Third party links</source>
-        <translation>Links zu Dritten</translation>
+        <translation>Enlaces de terceros</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="98"/>
         <source>ocNews is a cloud based RSS/Atom feed reader. It has no preinstalled third party links other than the own application website links on the About page and on this page. Showing feed content and/or opening feed link addresses is in the user&apos;s responsibility. For questions concerning the privacy of the used feed content and/or website content you have to contact the feed provider.</source>
-        <translation>ocNews ist ein Cloud-basierter RSS/Atom Feed Reader. Es bringt keine vorinstallierten Links zu anderen Internetseiten mit als die zur eigenen Internetseite auf der Seite &quot;Über&quot; und auf dieser. Das Hinzufügen von Feeds und/oder das Öffnen darin enthaltener Links liegt im Verantwortungsbereich des Nutzers. Fragen zum Datenschutz bezüglich der abonnierten Feeds und ihrer Inhalte richten Sie bitte an den Anbieter des jeweiligen Feeds. </translation>
+        <translation>ocNews es un lector feed RSS/ATOM basado en la nube. No posee pre-instalado enlaces de terceros, excepto los de la página de la misma aplicación o de la página de &quot;Sobre&quot; aquí. Mostrar contenido de feed y/o abrir un feed con direcciones de enlace está bajo la responsabilidad del usuario. Por preguntas o inquietudes de privacidad de los contenidos de los feed y/o contenidos de las páginas, usted debe contactar al proveedor del feed.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="108"/>
         <source>Your consent</source>
-        <translation>Ihr Einverständnis</translation>
+        <translation>Su consentimiento</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="116"/>
         <source>By using ocNews, you consent to this privacy policy.</source>
-        <translation>Indem Sie ocNews benutzen willigen Sie in diese Datenschutzerklärung ein.</translation>
+        <translation>Usando ocNews, usted acepta esta política de privacidad</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="126"/>
         <source>Contact</source>
-        <translation>Kontakt</translation>
+        <translation>Contacto</translation>
     </message>
 </context>
 <context>
@@ -709,12 +709,12 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/RenameFolder.qml" line="17"/>
         <source>Rename folder</source>
-        <translation>Ordner umbenennen</translation>
+        <translation>Renombrar carpeta</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/RenameFolder.qml" line="24"/>
         <source>Folder name</source>
-        <translation>Ordnername</translation>
+        <translation>Nombre de la carpeta</translation>
     </message>
 </context>
 <context>
@@ -722,244 +722,244 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="86"/>
         <source>Settings</source>
-        <translation>Einstellungen</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="88"/>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="110"/>
         <source>Server</source>
-        <translation>Server</translation>
+        <translation>Servidor</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="93"/>
         <source>User name</source>
-        <translation>Benutzername</translation>
+        <translation>Usuario</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="101"/>
         <source>Password</source>
-        <translation>Passwort</translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="110"/>
         <source>Server: e.g. cloud.example.com</source>
-        <translation>Server: bspw. wolke.beispiel.de</translation>
+        <translation>Servidor: ej. cloud.ejemplo.com</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="118"/>
         <source>Test connection</source>
-        <translation>Verbindung testen</translation>
+        <translation>Probar conexión</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="146"/>
         <source>Found ownCloud News Version %1</source>
-        <translation>ownCloud News Version %1 gefunden</translation>
+        <translation>ownCloud News Versión encontrada %1</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="152"/>
         <source>Use HTTPS (SSL/TLS) connection</source>
-        <translation>HTTPS-Verbindung nutzen (SSL)</translation>
+        <translation>Usar conexión HTTPS (SSL/TLS)</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="154"/>
         <source>Because ownCloud News requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption.</source>
-        <translation>Da ownCloud News die Übertragung von Benutzername und Passwort bei jeder Anfrage erfordert, sollten Sie eine verschlüsselte Verbindung nutzen wenn Ihr Server dies unterstützt oder womöglich sogar erfordert.</translation>
+        <translation>Como ownCloud News requiere enviar su nombre de usuario y contraseña en cada pedido, usted debería mantener esto habilitado para usar conexión encriptada, cuando su servidor lo soporte o requiera encriptación.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="158"/>
         <source>Ignore SSL errors</source>
-        <translation>SSL-Fehler ingnorieren</translation>
+        <translation>Ignorar errores SSL</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="160"/>
         <source>Only ignore SSL errors when you really know what you are doing. (Currently there is no system service for handling SSL certificates. ocNews will implement it&apos;s own in the future, but for now you have to ignore SSL errors when you are using a self signed certificate.)</source>
-        <translation>Ignorieren Sie SSL-Fehler nur, wenn Sie wissen was Sie tun. (Zur Zeit gibt es noch keinen Systemdienst zur Verwaltung von SSL-Zertifikaten. ocNews wird in naher Zukunft eine provisorische eigene Implementierung bieten. Zur Zeit müssen Sie allerdings SSL-Fehler ignorieren, wenn Sie ein selbst signiertes Zertifikat nutzen.)</translation>
+        <translation>Solo ignorar errores SSL cuando usted realmente sepa lo que está haciendo. (Actualmente no hay servicio de sistema para manejar certificados SSL. ocNews lo implementará por su cuenta en el futuro, pero por ahora debe ignorar los errores SSL cuando usted use un certificado auto firmado.)</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="164"/>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="181"/>
         <source>Updating</source>
-        <translation>Aktualisierung</translation>
+        <translation>Actualizando</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="172"/>
         <source>Only manually</source>
-        <translation>Nur manuell</translation>
+        <translation>Solo manualmente</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="173"/>
         <source>Automatic on Wi-Fi</source>
-        <translation>Automatisch bei WLAN</translation>
+        <translation>Automático en Wi-Fi</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="174"/>
         <source>Always automatic</source>
-        <translation>Immer automatisch</translation>
+        <translation>Siempre automático</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="194"/>
         <source>15 Minutes</source>
-        <translation>15 Minuten</translation>
+        <translation>15 Minutos</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="195"/>
         <source>30 Minutes</source>
-        <translation>30 Minuten</translation>
+        <translation>30 Minutos</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="196"/>
         <source>1 Hour</source>
-        <translation>1 Stunde</translation>
+        <translation>1 Hora</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="197"/>
         <source>3 Hours</source>
-        <translation>3 Stunden</translation>
+        <translation>3 Horas</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="198"/>
         <source>6 Hours</source>
-        <translation>6 Stunden</translation>
+        <translation>6 Horas</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="199"/>
         <source>12 Hours</source>
-        <translation>12 Stunden</translation>
+        <translation>12 Horas</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="207"/>
         <source>Update interval</source>
-        <translation>Aktualisierungsintervall</translation>
+        <translation>Intervalo de actualización</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="211"/>
         <source>Appearance</source>
-        <translation>Darstellung</translation>
+        <translation>Apariencia</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="224"/>
         <source>Number of items to keep</source>
-        <translation>Anzahl aufzubewahrender Nachrichten</translation>
+        <translation>Número de items que guardar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="233"/>
         <source>Folders</source>
-        <translation>Ordner</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="234"/>
         <source>Feeds</source>
-        <translation>Feeds</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="241"/>
         <source>Main view layout</source>
-        <translation>Aufbau der Hauptansicht</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="251"/>
         <source>Added (like on server)</source>
-        <translation>Hinzugefügt (wie auf dem Server)</translation>
+        <translation>Añadido (como en el servidor)</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="252"/>
         <source>Title</source>
-        <translation>Titel</translation>
+        <translation>Título</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="253"/>
         <source>Unread count</source>
-        <translation>Anzahl ungelesener Nachrichten</translation>
+        <translation>Cantidad sin leer</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="260"/>
         <source>Order feeds and folders by</source>
-        <translation>Feeds und Ordner sortieren nach</translation>
+        <translation>Ordenar feeds y carpetas por</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="269"/>
         <source>Full</source>
-        <translation>Voll</translation>
+        <translation>Completo</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="270"/>
         <source>Limited</source>
-        <translation>Eingeschränkt</translation>
+        <translation>Limitado</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="277"/>
         <source>Display post content format</source>
-        <translation>Textformat für Nachrichtentexte</translation>
+        <translation>Mostrar el formato del contenido de la publicación</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="286"/>
         <source>On request</source>
-        <translation>Auf Anfrage</translation>
+        <translation>En pedido</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="287"/>
         <source>Automatically</source>
-        <translation>Automatisch</translation>
+        <translation>Automaticamente</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="294"/>
         <source>Load content images</source>
-        <translation>Bilder im Inhalt laden</translation>
+        <translation>Cargar imágenes del contenido</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="304"/>
         <source>Show</source>
-        <translation>Anzeigen</translation>
+        <translation>Mostrar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="305"/>
         <source>Hide</source>
-        <translation>Verbergen</translation>
+        <translation>Ocultar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="306"/>
         <source>Show after unread</source>
-        <translation>Nach ungelesenen anzeigen</translation>
+        <translation>Mostrar después no leído</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="313"/>
         <source>Read articles</source>
-        <translation>Gelesene Artikel</translation>
+        <translation>Leer articulos</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="319"/>
         <source>Show oldest items on top</source>
-        <translation>Älteste Artikel zuerst anzeigen</translation>
+        <translation>Mostrar items antiguos arriba</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="321"/>
         <source>Set the default order of the news items to show the oldest at the top. You can still change it in the pully menu.</source>
-        <translation>Zeigt die ältesten Einträge standardmäßig zuerst an. Sie können dies danach noch jeweils im Menü der Liste ändern.</translation>
+        <translation>Aplicar el orden predeterminado de las noticias para mostrar los antiguos arriba. Igualmente puede cambiarlo jalando el menú superior.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="324"/>
         <source>Maintenance</source>
-        <translation>Wartung</translation>
+        <translation>Mantenimiento</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="328"/>
         <source>Reset configuration</source>
-        <translation>Konfiguration zurücksetzen</translation>
+        <translation>Restaurar configuración</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="335"/>
         <source>Delete database</source>
-        <translation>Datanbank löschen</translation>
+        <translation>Borrar base de datos</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="344"/>
         <source>Deleting database</source>
-        <translation>Lösche Datenbank</translation>
+        <translation>Borrando base de datos</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="349"/>
         <source>Resetting configuration</source>
-        <translation>Setze Konfiguration zurück</translation>
+        <translation>Restaurando configuración</translation>
     </message>
 </context>
 <context>
@@ -968,27 +968,27 @@
         <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="88"/>
         <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="191"/>
         <source>Open in Browser</source>
-        <translation>Im Browser öffnen</translation>
+        <translation>Abrir en navegador</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="92"/>
         <source>Remove from favourites</source>
-        <translation>Von Favoriten entfernen</translation>
+        <translation>Quitar de favoritos</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="92"/>
         <source>Mark as favourite</source>
-        <translation>Zu Favoriten hinzufügen</translation>
+        <translation>Marcar como favorito</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="100"/>
         <source>Show images</source>
-        <translation>Bilder anzeigen</translation>
+        <translation>Mostrar imágenes</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="187"/>
         <source>Scroll to top</source>
-        <translation>Nach oben</translation>
+        <translation>Ir arriba</translation>
     </message>
 </context>
 <context>
@@ -996,17 +996,17 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="47"/>
         <source>Reload</source>
-        <translation>Neu laden</translation>
+        <translation>Recargar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="51"/>
         <source>Open in browser</source>
-        <translation>Im Browser öffnen</translation>
+        <translation>Abrir en navegador</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="55"/>
         <source>Back</source>
-        <translation>Zurück</translation>
+        <translation>Volver</translation>
     </message>
 </context>
 <context>
@@ -1014,22 +1014,22 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/SpecialItemListDelegate.qml" line="117"/>
         <source>Mark as read</source>
-        <translation>Als gelesen markieren</translation>
+        <translation>Marcar como leído</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/SpecialItemListDelegate.qml" line="117"/>
         <source>Mark as unread</source>
-        <translation>Als ungelesen markieren</translation>
+        <translation>Marcar como no leído</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/SpecialItemListDelegate.qml" line="126"/>
         <source>Remove from favourites</source>
-        <translation>Von Favoriten entfernen</translation>
+        <translation>Suprimir de los favoritos</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/SpecialItemListDelegate.qml" line="126"/>
         <source>Add to favourites</source>
-        <translation>Zu Favoriten hinzufügen</translation>
+        <translation>Añadir en los favoritos</translation>
     </message>
 </context>
 <context>
@@ -1037,97 +1037,97 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="49"/>
         <source>Update running...</source>
-        <translation>Aktualisiere...</translation>
+        <translation>Actualización en ejecución...</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="57"/>
         <source>Search</source>
-        <translation>Suche</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="86"/>
         <source>Hide sorting options</source>
-        <translation>Sortieroptionen verbergen</translation>
+        <translation>Ocultar les opciones de orden</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="86"/>
         <source>Show sorting options</source>
-        <translation>Sortieroptionen anzeigen</translation>
+        <translation>Mostrar les opciones de orden</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="93"/>
         <source>Mark folder as read</source>
-        <translation>Ordner als gelesen markieren</translation>
+        <translation>Marcar carpeta como leída</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="93"/>
         <source>Mark all as read</source>
-        <translation>Alle als gelesen markieren</translation>
+        <translation>Marcar todo como leído</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="100"/>
         <source>Update folder</source>
-        <translation>Ordner aktualisieren</translation>
+        <translation>Actualizar carpeta</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="100"/>
         <source>Update all</source>
-        <translation>Alle aktualisieren</translation>
+        <translation>Actualizar todo</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="105"/>
         <source>Hide search</source>
-        <translation>Suchfeld verbergen</translation>
+        <translation>Ocultar búsqueda</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="105"/>
         <source>Show search</source>
-        <translation>Suchfeld anzeigen</translation>
+        <translation>Mostrar búsqueda</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="128"/>
         <source>Scroll to top</source>
-        <translation>Nach oben</translation>
+        <translation>Volver arriba</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="137"/>
         <source>Marking %1 as read</source>
-        <translation>Markiere %1 als gelesen</translation>
+        <translation>Marcar %1 como leído</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="142"/>
         <source>Marking all entries as read</source>
-        <translation>Markiere alle Einträge als gelesen</translation>
+        <translation>Marcando todas las entradas como leídas</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="163"/>
         <source>Show newest on top</source>
-        <translation>Neueste zuert anzeigen</translation>
+        <translation>Mostrar el mas nuevo arriba</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="163"/>
         <source>Show oldest on top</source>
-        <translation>Älteste zuerst anzeigen</translation>
+        <translation>Mostrar el mas viejo arriba</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="173"/>
         <source>Show</source>
-        <translation>Anzeigen</translation>
+        <translation>Mostrar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="174"/>
         <source>Hide</source>
-        <translation>Verbergen</translation>
+        <translation>Ocultar</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="175"/>
         <source>Show after unread</source>
-        <translation>Nach ungelesenen anzeigen</translation>
+        <translation>Mostrar después de los no leídos </translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="182"/>
         <source>Read articles</source>
-        <translation>Gelesene Artikel</translation>
+        <translation>Leer artículos</translation>
     </message>
 </context>
 </TS>

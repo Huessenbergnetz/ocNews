@@ -88,37 +88,37 @@
 <context>
     <name>OcUpdater</name>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="191"/>
+        <location filename="../../engine/ocupdater.cpp" line="210"/>
         <source>Your account is disabled or you have not created an account yet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="227"/>
+        <location filename="../../engine/ocupdater.cpp" line="246"/>
         <source>Synchronizing ownCloud News</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="230"/>
+        <location filename="../../engine/ocupdater.cpp" line="249"/>
         <source>Updating Folders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="280"/>
+        <location filename="../../engine/ocupdater.cpp" line="299"/>
         <source>Updating Feeds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="306"/>
+        <location filename="../../engine/ocupdater.cpp" line="325"/>
         <source>Updating Items</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="347"/>
+        <location filename="../../engine/ocupdater.cpp" line="366"/>
         <source>Update Finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="377"/>
+        <location filename="../../engine/ocupdater.cpp" line="396"/>
         <source>Update Failed</source>
         <translation type="unfinished"></translation>
     </message>

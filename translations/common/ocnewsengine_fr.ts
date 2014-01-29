@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="fr_FR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.0">
 <context>
     <name>OcFeeds</name>
     <message>
@@ -88,37 +86,37 @@
 <context>
     <name>OcUpdater</name>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="191"/>
+        <location filename="../../engine/ocupdater.cpp" line="210"/>
         <source>Your account is disabled or you have not created an account yet.</source>
         <translation>Votre compte est désactivé ou bien vous n&apos;avez pas encore créé de compte.</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="227"/>
+        <location filename="../../engine/ocupdater.cpp" line="246"/>
         <source>Synchronizing ownCloud News</source>
         <translation>Synchronisation de ownCloud News</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="230"/>
+        <location filename="../../engine/ocupdater.cpp" line="249"/>
         <source>Updating Folders</source>
         <translation>Mise à jour des dossiers</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="280"/>
+        <location filename="../../engine/ocupdater.cpp" line="299"/>
         <source>Updating Feeds</source>
         <translation>Mise à jour des flux</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="306"/>
+        <location filename="../../engine/ocupdater.cpp" line="325"/>
         <source>Updating Items</source>
         <translation>Mise à jour des articles</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="347"/>
+        <location filename="../../engine/ocupdater.cpp" line="366"/>
         <source>Update Finished</source>
         <translation>Mise à jour terminée</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="377"/>
+        <location filename="../../engine/ocupdater.cpp" line="396"/>
         <source>Update Failed</source>
         <translation>Echec de la mise à jour</translation>
     </message>

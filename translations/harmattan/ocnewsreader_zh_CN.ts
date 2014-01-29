@@ -1,53 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.0">
 <context>
     <name>About</name>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="22"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="180"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="178"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>关于</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="57"/>
         <source>The ownCloud News App client for Harmattan</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;OwnCloud News&lt;/b&gt; For Harmattan</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="82"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>授权许可基于：&lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.de.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="91"/>
         <source>Privacy policy</source>
-        <translation type="unfinished"></translation>
+        <translation>隐私政策</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="101"/>
         <source>Visit website</source>
-        <translation type="unfinished"></translation>
+        <translation>访问项目主页</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="108"/>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>捐赠</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="131"/>
-        <source>Main developer</source>
-        <translation type="unfinished"></translation>
+        <source>Upstream author</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="146"/>
-        <source>Translators</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="136"/>
+        <source>Main developer, ocNews creator</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="185"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="144"/>
+        <source>Major contributors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="149"/>
+        <source>UI, French translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="155"/>
+        <source>Thanks to</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="183"/>
         <source>Contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>项目贡献者</translation>
     </message>
 </context>
 <context>
@@ -55,47 +68,47 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="8"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="9"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="25"/>
         <source>Root</source>
-        <translation type="unfinished"></translation>
+        <translation>根目录</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="41"/>
         <source>Add Feed</source>
-        <translation type="unfinished"></translation>
+        <translation>添加订阅源</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="41"/>
         <source>Add Feed to Folder&lt;br /&gt;%1</source>
-        <translation type="unfinished"></translation>
+        <translation>订阅到&lt;br /&gt;%1文件夹</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="58"/>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>地址</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="68"/>
         <source>Enter new feed address</source>
-        <translation type="unfinished"></translation>
+        <translation>请输入新的订阅源地址</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="75"/>
         <source>Select folder</source>
-        <translation type="unfinished"></translation>
+        <translation>选择文件夹</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="89"/>
         <source>Show feed in event view</source>
-        <translation type="unfinished"></translation>
+        <translation>事件视窗显示订阅源</translation>
     </message>
 </context>
 <context>
@@ -103,27 +116,27 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFolderSheet.qml" line="5"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFolderSheet.qml" line="6"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFolderSheet.qml" line="15"/>
         <source>Add Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>添加文件夹</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFolderSheet.qml" line="29"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>文件名</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/AddFolderSheet.qml" line="38"/>
         <source>Enter folder name</source>
-        <translation type="unfinished"></translation>
+        <translation>请输入文件名</translation>
     </message>
 </context>
 <context>
@@ -131,94 +144,94 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="82"/>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>全部</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="133"/>
         <source>Add feed</source>
-        <translation type="unfinished"></translation>
+        <translation>添加订阅</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="142"/>
         <source>Mark folder as read</source>
-        <translation type="unfinished"></translation>
+        <translation>将文件夹中的订阅标记为已读</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="147"/>
         <source>Rename folder </source>
-        <translation type="unfinished"></translation>
+        <translation>重命名文件夹</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="156"/>
         <source>Delete folder</source>
-        <translation type="unfinished"></translation>
+        <translation>删除文件夹</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="176"/>
         <source>Mark feed as read</source>
-        <translation type="unfinished"></translation>
+        <translation>标记为已读</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="184"/>
         <source>Update feed</source>
-        <translation type="unfinished"></translation>
+        <translation>更新订阅源</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="192"/>
         <source>Move feed</source>
-        <translation type="unfinished"></translation>
+        <translation>移动订阅源</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="202"/>
         <source>Delete feed</source>
-        <translation type="unfinished"></translation>
+        <translation>删除订阅源</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="239"/>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="267"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="240"/>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="268"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="241"/>
         <source>Do you really want to delete this folder? All feeds and posts in this folder will then be deleted, too.</source>
-        <translation type="unfinished"></translation>
+        <translation>确定删除?将会删除文件夹下所有子项.</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="242"/>
         <source>Delete folder %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>删除%1文件夹?</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="252"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="253"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="254"/>
         <source>Do you really want to mark the whole content of this folder as read?</source>
-        <translation type="unfinished"></translation>
+        <translation>确定将当前文件夹标记为已读?</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="255"/>
         <source>Mark folder %1 as read?</source>
-        <translation type="unfinished"></translation>
+        <translation>将%1文件夹标记为已读?</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="269"/>
         <source>Delete feed %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>删除%1订阅源?</translation>
     </message>
 </context>
 <context>
@@ -226,12 +239,12 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="71"/>
         <source>Empty folder</source>
-        <translation type="unfinished"></translation>
+        <translation>空文件夹</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="71"/>
         <source>%1 unread posts in %2 feeds</source>
-        <translation type="unfinished"></translation>
+        <translation>在%2个订阅中有%1个未读条目</translation>
     </message>
 </context>
 <context>
@@ -239,261 +252,261 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Common/Header.qml" line="20"/>
         <source>ocNews</source>
-        <translation type="unfinished"></translation>
+        <translation>OcNews</translation>
     </message>
 </context>
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="83"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="88"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>正在搜索...</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="186"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="191"/>
         <source>Mark feed as read</source>
-        <translation type="unfinished"></translation>
+        <translation>将订阅标记为已读</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="195"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="200"/>
         <source>Delete feed</source>
-        <translation type="unfinished"></translation>
+        <translation>删除订阅</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="200"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="205"/>
         <source>Show newest on top</source>
-        <translation type="unfinished"></translation>
+        <translation>在顶部显示最新条目</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="200"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="205"/>
         <source>Show oldest on top</source>
-        <translation type="unfinished"></translation>
+        <translation>在顶部显示最旧条目</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="209"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="214"/>
         <source>Read articles</source>
-        <translation type="unfinished"></translation>
+        <translation>阅读文章</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="224"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="229"/>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>显示</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="225"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="230"/>
         <source>Hide</source>
-        <translation type="unfinished"></translation>
+        <translation>隐藏</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="226"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="231"/>
         <source>Show after unread</source>
-        <translation type="unfinished"></translation>
+        <translation>标为未读后显示</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="259"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="264"/>
         <source>Add to favourites</source>
-        <translation type="unfinished"></translation>
+        <translation>添加到收藏</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="259"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="264"/>
         <source>Remove from favourites</source>
-        <translation type="unfinished"></translation>
+        <translation>从收藏中移除</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="271"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="276"/>
         <source>Mark as read</source>
-        <translation type="unfinished"></translation>
+        <translation>标记为已读</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="271"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="276"/>
         <source>Mark as unread</source>
-        <translation type="unfinished"></translation>
+        <translation>标记为未读</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="280"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="285"/>
         <source>Mark as read up to this point</source>
-        <translation type="unfinished"></translation>
+        <translation>将帖子标记为已读</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="289"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="294"/>
         <source>Mark as unread up to this point</source>
-        <translation type="unfinished"></translation>
+        <translation>将帖子标记为未读</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="298"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="303"/>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>分享</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="314"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="319"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="315"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="320"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="316"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/ItemListView.qml" line="321"/>
         <source>Delete feed %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>删除%1订阅源?</translation>
     </message>
 </context>
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="69"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="100"/>
         <source>ocNews</source>
-        <translation type="unfinished"></translation>
+        <translation>OcNews</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="86"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="117"/>
         <source>&lt;b&gt;Welcome to ocNews&lt;/b&gt;&lt;br /&gt;With these app you can synchronize and view your ownCloud News App content on your smartphone. Before you can start, you have to setup your ownCloud server account.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;ocNews欢迎你&lt;/b&gt;&lt;br /&gt;本程序支持你的智能设备同步或查看&lt;b&gt;ownCloud News&lt;/b&gt;的内容,使用前请先设置你的&lt;b&gt;ownCloud server&lt;/b&gt;账号.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="99"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="130"/>
         <source>&lt;i&gt;If you have updated ocNews from a version prior to 1.3.0, you have to resetup your account and resync your data, because of changed storage locations.&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;i&gt;由于修改了存储位置,如果你已更新到了v1.3.0,你需要重置你的账号,并重新同步数据.&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="111"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="142"/>
         <source>Privacy policy</source>
-        <translation type="unfinished"></translation>
+        <translation>隐私政策</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="122"/>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="153"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="184"/>
         <source>Setup account</source>
-        <translation type="unfinished"></translation>
+        <translation>账号设置</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="141"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="172"/>
         <source>Your ocNews account is currently disabled. In order to use ocNews you have to enable your account.</source>
-        <translation type="unfinished"></translation>
+        <translation>账号已停用,使用本程序需要开启账号.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="236"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="269"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="240"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="273"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="244"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="277"/>
         <source>Quit completely</source>
-        <translation type="unfinished"></translation>
+        <translation>完全退出</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="255"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="288"/>
         <source>Add Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>添加文件夹</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="260"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="293"/>
         <source>Add Feed</source>
-        <translation type="unfinished"></translation>
+        <translation>添加订阅源</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="281"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="314"/>
         <source>Mark folder as read</source>
-        <translation type="unfinished"></translation>
+        <translation>标记文件夹为已读</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="290"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="323"/>
         <source>Update folder</source>
-        <translation type="unfinished"></translation>
+        <translation>更新文件夹</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="298"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="331"/>
         <source>Rename folder</source>
-        <translation type="unfinished"></translation>
+        <translation>重命名文件夹</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="307"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="340"/>
         <source>Delete folder</source>
-        <translation type="unfinished"></translation>
+        <translation>删除文件夹</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="325"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="358"/>
         <source>Mark feed as read</source>
-        <translation type="unfinished"></translation>
+        <translation>标记订阅源为已读</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="333"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="366"/>
         <source>Update feed</source>
-        <translation type="unfinished"></translation>
+        <translation>更新订阅源</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="341"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="374"/>
         <source>Move feed</source>
-        <translation type="unfinished"></translation>
+        <translation>移动订阅源</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="351"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="384"/>
         <source>Delete feed</source>
-        <translation type="unfinished"></translation>
+        <translation>删除订阅源</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="398"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="431"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="399"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="432"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="400"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="433"/>
         <source>Do you really want to delete this folder? All feeds and posts in this folder will then be deleted, too.</source>
-        <translation type="unfinished"></translation>
+        <translation>确定删除?将会删除文件夹下所有子项.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="401"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="434"/>
         <source>Delete folder %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>删除%1文件夹?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="401"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="434"/>
         <source>Delete feed %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>删除%1订阅源?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="413"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="426"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="446"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="459"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="414"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="427"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="447"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="460"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="415"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="448"/>
         <source>Do you really want to mark the whole content of this folder as read?</source>
-        <translation type="unfinished"></translation>
+        <translation>确定将当前文件夹标记为已读?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="416"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="449"/>
         <source>Mark folder %1 as read?</source>
-        <translation type="unfinished"></translation>
+        <translation>将%1文件夹标记为已读?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="428"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="461"/>
         <source>If you quit both, reader and daemon/engine, there are no updates in the background anymore.</source>
-        <translation type="unfinished"></translation>
+        <translation>完全退出后,将不会自动后台更新订阅源.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="429"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="462"/>
         <source>Quit completely?</source>
-        <translation type="unfinished"></translation>
+        <translation>继续退出?</translation>
     </message>
 </context>
 <context>
@@ -501,27 +514,46 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/MoveFeedSheet.qml" line="8"/>
         <source>Move</source>
-        <translation type="unfinished"></translation>
+        <translation>移动</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/MoveFeedSheet.qml" line="9"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/MoveFeedSheet.qml" line="24"/>
         <source>Root</source>
-        <translation type="unfinished"></translation>
+        <translation>根目录</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/MoveFeedSheet.qml" line="40"/>
         <source>Move feed to another folder</source>
-        <translation type="unfinished"></translation>
+        <translation>移动到其他文件夹</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/MoveFeedSheet.qml" line="66"/>
         <source>Select folder</source>
-        <translation type="unfinished"></translation>
+        <translation>选择文件夹</translation>
+    </message>
+</context>
+<context>
+    <name>OcCombinedModelSql</name>
+    <message>
+        <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="77"/>
+        <source>Uncategorized</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="79"/>
+        <source>All posts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="96"/>
+        <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="98"/>
+        <source>Favourite posts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -529,7 +561,7 @@
     <message>
         <location filename="../../reader/common/models/ocfeedsmodelsql.cpp" line="71"/>
         <source>All posts</source>
-        <translation type="unfinished"></translation>
+        <translation>全部条目</translation>
     </message>
 </context>
 <context>
@@ -537,13 +569,13 @@
     <message>
         <location filename="../../reader/common/models/ocfoldermodelsql.cpp" line="73"/>
         <source>All posts</source>
-        <translation type="unfinished"></translation>
+        <translation>全部条目</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/ocfoldermodelsql.cpp" line="90"/>
         <location filename="../../reader/common/models/ocfoldermodelsql.cpp" line="92"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"></translation>
+        <translation>最爱条目</translation>
     </message>
 </context>
 <context>
@@ -551,17 +583,17 @@
     <message>
         <location filename="../../reader/common/models/ocitemsmodelsql.cpp" line="62"/>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>今天</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/ocitemsmodelsql.cpp" line="63"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"></translation>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/ocitemsmodelsql.cpp" line="64"/>
         <source>hh:mm</source>
-        <translation type="unfinished"></translation>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -569,17 +601,17 @@
     <message>
         <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="26"/>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>今天</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="27"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"></translation>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="28"/>
         <source>hh:mm</source>
-        <translation type="unfinished"></translation>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -587,17 +619,17 @@
     <message>
         <location filename="../../reader/common/models/ocspecialitemsmodelsql.cpp" line="62"/>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>今天</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/ocspecialitemsmodelsql.cpp" line="63"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"></translation>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/ocspecialitemsmodelsql.cpp" line="64"/>
         <source>hh:mm</source>
-        <translation type="unfinished"></translation>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -605,87 +637,87 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="10"/>
         <source>Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>接受</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="11"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="11"/>
         <source>Reject</source>
-        <translation type="unfinished"></translation>
+        <translation>拒绝</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="19"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>隐私政策</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="36"/>
         <source>What information does ocNews collect?</source>
-        <translation type="unfinished"></translation>
+        <translation>ocNews会收集什么内容?</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="45"/>
         <source>In order to log in to your ownCloud server, ocNews collects the server address, your user name and your password. These data is stored in a protected/private folder on your device. The data is not given to the author of ocNews or other third parties.</source>
-        <translation type="unfinished"></translation>
+        <translation>ocNews需要收集你的用户名和密码以使你登陆到ocNews服务器,收集到的数据将会以隐私文件存储在你的设备中,ocNews不会将数据发送给其他第三方.</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="57"/>
         <source>What does ocNews use your information for?</source>
-        <translation type="unfinished"></translation>
+        <translation>ocNews收集的数据有什么用?</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="66"/>
         <source>ocNews needs your log in data to connect to your ownCloud server. Your log in data is used to log in to your ownCloud server to perform the tasks of synchronizing your ownCloud News App data with your device.</source>
-        <translation type="unfinished"></translation>
+        <translation>ocNews会收集你程序日志文件以连接ownCloud服务器,并以此日志文件将ownCloud服务器中的信息同步到你的设备上.</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="78"/>
         <source>How does ocNews protects your data?</source>
-        <translation type="unfinished"></translation>
+        <translation>ocNews如何保护你的数据?</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="87"/>
         <source>Your data is stored in the protected private folder in your Home directory. Only ocNews has the rights to access these data.</source>
-        <translation type="unfinished"></translation>
+        <translation>你的数据将会以隐私文件存储于设备中,只有ocNews有访问权限.</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="99"/>
         <source>Does ocNews disclose any information to outside parties?</source>
-        <translation type="unfinished"></translation>
+        <translation>ocNews会将你的资料透漏给外界吗?</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="108"/>
         <source>ocNews only uses your data for the log in process into the server that you configure in the settings. ocNews does not send these data to the author of ocNews or other third parties. For questions concerning the privacy on the server side, you have to contact your ownCloud service provider.</source>
-        <translation type="unfinished"></translation>
+        <translation>登陆服务器时,ocNews会使用你配置程序后的日志文件,ocNews不会将这些数据发送给其他第三方.有关服务器隐私问题处理,你可以联系你的ocNews服务器提供商.</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="120"/>
         <source>Third party links</source>
-        <translation type="unfinished"></translation>
+        <translation>第三方链接</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="129"/>
         <source>ocNews is a cloud based RSS/Atom feed reader. It has no preinstalled third party links other than the own application website link on the About page. Showing feed content and/or opening feed link addresses is in the user&apos;s responsibility. For questions concerning the privacy of the used feed content and/or website content you have to contact the feed provider.</source>
-        <translation type="unfinished"></translation>
+        <translation>ocNews是一个基于云端的RSS/Atom阅读器。它除了本页和关于页面中含有的项目主页链接，没有内置任何第三方链接。用户对自己阅读订阅内容和打开订阅中的链接内容负责。如果你对订阅的内容或相关网页内容的隐私政策有疑问，你需要联系内容提供商.</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="141"/>
         <source>Your consent</source>
-        <translation type="unfinished"></translation>
+        <translation>你的意见</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="150"/>
         <source>By using ocNews, you consent to this privacy policy.</source>
-        <translation type="unfinished"></translation>
+        <translation>使用ocNews,表示你同意该隐私政策.</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/PrivacySheet.qml" line="162"/>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>联系</translation>
     </message>
 </context>
 <context>
@@ -693,350 +725,365 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/RenameFolderSheet.qml" line="9"/>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>重命名</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/RenameFolderSheet.qml" line="10"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/RenameFolderSheet.qml" line="17"/>
         <source>Rename Folder&lt;br /&gt;%1</source>
-        <translation type="unfinished"></translation>
+        <translation>重命名%1文件夹</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/RenameFolderSheet.qml" line="31"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>文件夹名</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/RenameFolderSheet.qml" line="41"/>
         <source>Enter new folder name</source>
-        <translation type="unfinished"></translation>
+        <translation>请输入文件夹名</translation>
     </message>
 </context>
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="60"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="540"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="61"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="564"/>
         <source>Account Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>账号设置</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="79"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="80"/>
         <source>Open account manager</source>
-        <translation type="unfinished"></translation>
+        <translation>账号管理</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="79"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="80"/>
         <source>Create new account</source>
-        <translation type="unfinished"></translation>
+        <translation>创建新账号</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="92"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="93"/>
         <source>Your account is successfully set. You can configure it in the account manager.</source>
-        <translation type="unfinished"></translation>
+        <translation>账号创建成功.你可以在账号管理中管理账号.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="92"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="93"/>
         <source>You need to create an account for your ownCloud server. Click the button above to create a new account in the account manager.</source>
-        <translation type="unfinished"></translation>
+        <translation>你需要创建自己的ownCloud server账号,点击上面按钮跳转到账号管理中创建.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="120"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="121"/>
         <source>Number of items to keep</source>
-        <translation type="unfinished"></translation>
+        <translation>保留的条目数量</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="137"/>
-        <source>Added (like on server)</source>
-        <translation type="unfinished"></translation>
+        <source>Folders</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="138"/>
-        <source>Title</source>
-        <translation type="unfinished"></translation>
+        <source>Feeds</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="139"/>
-        <source>Unread count</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="144"/>
+        <source>Main view layout</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="145"/>
-        <source>Order feeds and folders by</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="161"/>
+        <source>Added (like on server)</source>
+        <translation>已添加（在服务器上）</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="162"/>
-        <source>Only manually</source>
-        <translation type="unfinished"></translation>
+        <source>Title</source>
+        <translation>标题</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="163"/>
+        <source>Unread count</source>
+        <translation>未读数目</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="169"/>
+        <source>Order feeds and folders by</source>
+        <translation>将订阅和文件夹排序以</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="186"/>
+        <source>Only manually</source>
+        <translation>手动</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="187"/>
         <source>Automatic on Wi-Fi</source>
-        <translation type="unfinished"></translation>
+        <translation>WiFi连接时自动</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="164"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="188"/>
         <source>Always automatic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="170"/>
-        <source>Updating</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="190"/>
-        <source>15 Minutes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="191"/>
-        <source>30 Minutes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="192"/>
-        <source>1 Hour</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="193"/>
-        <source>3 Hours</source>
-        <translation type="unfinished"></translation>
+        <translation>自动</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="194"/>
-        <source>6 Hours</source>
-        <translation type="unfinished"></translation>
+        <source>Updating</source>
+        <translation>更新</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="195"/>
-        <source>12 Hours</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="214"/>
+        <source>15 Minutes</source>
+        <translation>15分钟</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="202"/>
-        <source>Update interval</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="215"/>
+        <source>30 Minutes</source>
+        <translation>30分钟</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="216"/>
-        <source>Display post content format</source>
-        <translation type="unfinished"></translation>
+        <source>1 Hour</source>
+        <translation>1小时</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="217"/>
+        <source>3 Hours</source>
+        <translation>3小时</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="218"/>
+        <source>6 Hours</source>
+        <translation>6小时</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="219"/>
+        <source>12 Hours</source>
+        <translation>12小时</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="226"/>
+        <source>Update interval</source>
+        <translation>更新间隔</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="240"/>
+        <source>Display post content format</source>
+        <translation>显示帖子内容格式</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="250"/>
         <source>Full</source>
-        <translation type="unfinished"></translation>
+        <translation>满</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="232"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="256"/>
         <source>Limited</source>
-        <translation type="unfinished"></translation>
+        <translation>有限</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="246"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="270"/>
         <source>Theme color</source>
-        <translation type="unfinished"></translation>
+        <translation>主题风格</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="255"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="279"/>
         <source>White</source>
-        <translation type="unfinished"></translation>
+        <translation>亮</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="261"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="285"/>
         <source>Black</source>
-        <translation type="unfinished"></translation>
+        <translation>暗</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="275"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="299"/>
         <source>Show images by default</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="286"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="309"/>
-        <source>Hide</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="292"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="308"/>
-        <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>默认显示图片</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="310"/>
-        <source>Show after unread</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="333"/>
+        <source>Hide</source>
+        <translation>隐藏</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="316"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="332"/>
+        <source>Show</source>
+        <translation>显示</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="334"/>
+        <source>Show after unread</source>
+        <translation>标为未读后显示</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="340"/>
         <source>Read articles</source>
-        <translation type="unfinished"></translation>
+        <translation>阅读文章</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="331"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="355"/>
         <source>Show oldest items on top</source>
-        <translation type="unfinished"></translation>
+        <translation>在顶部显示最旧条目</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="370"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="394"/>
         <source>Select feeds for the event view</source>
-        <translation type="unfinished"></translation>
+        <translation>选择事件视窗订阅源</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="400"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="424"/>
         <source>Select event view feeds</source>
-        <translation type="unfinished"></translation>
+        <translation>选择事件视窗订阅源</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="413"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="437"/>
         <source>Click the button to select the feeds that you want to aggregate to the Event screen. Only newly downloaded items will be added to the Events screen.</source>
-        <translation type="unfinished"></translation>
+        <translation>点击按钮选择你要添加到事件视窗的订阅源.只有最新地内容才会显示.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="425"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="449"/>
         <source>Database statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>数据库统计</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="439"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="463"/>
         <source>Folders: </source>
-        <translation type="unfinished"></translation>
+        <translation>文件夹:</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="452"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="476"/>
         <source>Feeds: </source>
-        <translation type="unfinished"></translation>
+        <translation>订阅源:</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="465"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="489"/>
         <source>Posts: </source>
-        <translation type="unfinished"></translation>
+        <translation>帖子:</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="478"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="502"/>
         <source>Unread: </source>
-        <translation type="unfinished"></translation>
+        <translation>未读:</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="491"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="515"/>
         <source>Last full update:&lt;br /&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>最后全部更新:&lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="491"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="515"/>
         <source>d. MMMM yyyy, hh:mm</source>
-        <translation type="unfinished"></translation>
+        <translation>d. MMMM yyyy, hh:mm</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="499"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="523"/>
         <source>Reset configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>重置设定</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="506"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="530"/>
         <source>Delete database</source>
-        <translation type="unfinished"></translation>
+        <translation>删除数据库</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="517"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="541"/>
         <source>Remove certificates</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="545"/>
-        <source>Display &amp; Update Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="550"/>
-        <source>Event Feed Integration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="555"/>
-        <source>Maintenance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="568"/>
-        <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>删除证书</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="569"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="580"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="590"/>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <source>Display &amp; Update Settings</source>
+        <translation>显示 &amp; 更新设置</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="570"/>
-        <source>Do you really want reset your configuration?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="571"/>
-        <source>Reset configuration?</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="574"/>
+        <source>Event Feed Integration</source>
+        <translation>订阅源整合</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="579"/>
-        <source>Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="581"/>
-        <source>Do you really want delete your complete database?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="582"/>
-        <source>Delete database?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="589"/>
-        <source>Remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="591"/>
-        <source>Do you really want remove your trustet SSL certificates (only for this application)?</source>
-        <translation type="unfinished"></translation>
+        <source>Maintenance</source>
+        <translation>维护</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="592"/>
+        <source>Reset</source>
+        <translation>重置</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="593"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="604"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="614"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="594"/>
+        <source>Do you really want reset your configuration?</source>
+        <translation>是否重置?</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="595"/>
+        <source>Reset configuration?</source>
+        <translation>重置设置?</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="603"/>
+        <source>Delete</source>
+        <translation>删除</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="605"/>
+        <source>Do you really want delete your complete database?</source>
+        <translation>确定删除数据库?</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="606"/>
+        <source>Delete database?</source>
+        <translation>删除数据库?</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="613"/>
+        <source>Remove</source>
+        <translation>移除</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="615"/>
+        <source>Do you really want remove your trustet SSL certificates (only for this application)?</source>
+        <translation>确定移除已认证的SSL证书(仅移除本设备)?</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="616"/>
         <source>Remove trusted certificates?</source>
-        <translation type="unfinished"></translation>
+        <translation>移除已认证的证书?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="599"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="623"/>
         <source>Disable</source>
-        <translation type="unfinished"></translation>
+        <translation>禁用</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="600"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="624"/>
         <source>Keep activated</source>
-        <translation type="unfinished"></translation>
+        <translation>激活状态</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="601"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="625"/>
         <source>It is not a good idea to disable HTTPS (SSL), because your username and password then will be sent unencrypted with every request.</source>
-        <translation type="unfinished"></translation>
+        <translation>禁用HTTPS(SSL),程序的每一次操作将不加密直接发送.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="602"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="626"/>
         <source>Disable HTTPS?</source>
-        <translation type="unfinished"></translation>
+        <translation>禁用HTTPS?</translation>
     </message>
 </context>
 <context>
@@ -1044,133 +1091,133 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="182"/>
         <source>Open website</source>
-        <translation type="unfinished"></translation>
+        <translation>打开网址</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="190"/>
         <source>Load images</source>
-        <translation type="unfinished"></translation>
+        <translation>读取图片</translation>
     </message>
 </context>
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="86"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="91"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>正在搜索...</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="210"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="215"/>
         <source>Mark folder as read</source>
-        <translation type="unfinished"></translation>
+        <translation>将文件夹中的订阅标记为已读</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="210"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="215"/>
         <source>Mark all as read</source>
-        <translation type="unfinished"></translation>
+        <translation>全部设为已读</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="220"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="225"/>
         <source>Show newest on top</source>
-        <translation type="unfinished"></translation>
+        <translation>在顶部显示最新条目</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="220"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="225"/>
         <source>Show oldest on top</source>
-        <translation type="unfinished"></translation>
+        <translation>在顶部显示最旧条目</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="229"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="234"/>
         <source>Read articles</source>
-        <translation type="unfinished"></translation>
+        <translation>阅读文章</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="244"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="249"/>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>显示</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="245"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="250"/>
         <source>Hide</source>
-        <translation type="unfinished"></translation>
+        <translation>隐藏</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="246"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="251"/>
         <source>Show after unread</source>
-        <translation type="unfinished"></translation>
+        <translation>标为未读后显示</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="280"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="285"/>
         <source>Add to favourites</source>
-        <translation type="unfinished"></translation>
+        <translation>添加到收藏</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="280"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="285"/>
         <source>Remove from favourites</source>
-        <translation type="unfinished"></translation>
+        <translation>从收藏里删除</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="291"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="296"/>
         <source>Mark as read</source>
-        <translation type="unfinished"></translation>
+        <translation>标记为已读</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="291"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="296"/>
         <source>Mark as unread</source>
-        <translation type="unfinished"></translation>
+        <translation>标记为未读</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="302"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="307"/>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>分享</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="32"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="33"/>
         <source>Created folder %1</source>
-        <translation type="unfinished"></translation>
+        <translation>创建%1文件夹</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="34"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="35"/>
         <source>Renamed folder to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>已重命名为%1</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="36"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="37"/>
         <source>Deleted Folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>已删除文件夹.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="44"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="45"/>
         <source>Created feed %1</source>
-        <translation type="unfinished"></translation>
+        <translation>已创建%1订阅源</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="46"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="47"/>
         <source>Moved feed.</source>
-        <translation type="unfinished"></translation>
+        <translation>已移动订阅源.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="48"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="49"/>
         <source>Deleted feed.</source>
-        <translation type="unfinished"></translation>
+        <translation>已删除订阅源.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="72"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="73"/>
         <source>Found ownCloud News Version %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="75"/>
-        <source>Deleted complete database</source>
-        <translation type="unfinished"></translation>
+        <translation>发现新版本%1</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="76"/>
+        <source>Deleted complete database</source>
+        <translation>已完整删除数据库</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/main.qml" line="77"/>
         <source>Removed trusted certificates. The changes take effect after an application restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>已移除认证的证书.将会在下次启动程序生效.</translation>
     </message>
 </context>
 </TS>
