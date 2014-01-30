@@ -13,7 +13,6 @@ ApplicationWindow
     property int unreadItems: dbus.getStat(0)
     property int lastFullUpdateTime: dbus.getStat(1)
 
-
     Connections {
         target: updater
         onUpdateFinished: { operationRunning = false; unreadItems = dbus.getStat(0); lastFullUpdateTime = dbus.getStat(1) }

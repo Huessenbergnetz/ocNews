@@ -1,4 +1,5 @@
 #include <QtNetwork>
+#include <QWebFrame>
 #include "ocitems.h"
 
 OcItems::OcItems(QObject *parent) :
@@ -1200,4 +1201,20 @@ void OcItems::updateEventFeed(const QList<int> &newsFeedItems)
 #endif
         }
     }
+}
+
+QString OcItems::cacheImages(const QString &bodyText, int id, int feedId)
+{
+    QWebFrame *body;
+    body->setHtml(bodyText);
+    QWebElement doc = body->documentElement();
+    QWebElementCollection imgCollection = doc.findAll("img");
+
+    foreach (QWebElement imgElement, imgCollection)
+    {
+        QUrl imgSrc(imgElement.attribute("href"));
+        QFileInfo fileInfo = imgSrc.path();
+        qDebug() << "Image source: " << imgSrc.toString();
+    }
+
 }

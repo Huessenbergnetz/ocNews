@@ -10,7 +10,7 @@ Version 1.6.0, 2013-01-29 18:58:58 +0100
   Harmattan:
   * NEW: translations for Spanish and Chinese(China)
   
-  Sailfish:
+  Sailfish OS:
   * NEW: display last refresh date in pulley menu (issu #9)
   * NEW: translations for Spanish, Italian and Chinese(China)
   * Fixed: unread count on cover is not updated when the app is displayed (issue #13)

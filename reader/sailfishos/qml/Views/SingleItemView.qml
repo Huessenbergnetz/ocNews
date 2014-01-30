@@ -70,7 +70,7 @@ Page {
 
     Connections {
         target: items
-        onStarredItemsSuccess: { getItemData(showImgsDefault); }
+        onStarredItemsSuccess: starred = !starred
     }
 
     SilicaFlickable {
