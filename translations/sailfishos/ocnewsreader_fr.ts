@@ -52,32 +52,32 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="26"/>
         <source>Main developer, ocNews creator</source>
-        <translation type="unfinished"/>
+        <translation>Développeur principal, créateur de ocNews</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="33"/>
         <source>Major contributors</source>
-        <translation type="unfinished"/>
+        <translation>Contributeurs principaux</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="37"/>
         <source>UI, French translation</source>
-        <translation type="unfinished"/>
+        <translation>IHM, traduction française</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="42"/>
         <source>Thanks to</source>
-        <translation type="unfinished"/>
+        <translation>Remerciements à</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="46"/>
         <source>Chinese (China) translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduction chinoise (Chine)</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="53"/>
         <source>Italian translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduction italienne</translation>
     </message>
 </context>
 <context>
@@ -273,67 +273,67 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="73"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="72"/>
         <source>Empty folder</source>
         <translation>Dossier vide</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="73"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="72"/>
         <source>%1 unread posts in %2 feeds</source>
         <translation>%1 articles non lus dans %2 flux</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="134"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="133"/>
         <source>Update folder</source>
         <translation>Mettre à jour le dossier</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="139"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="138"/>
         <source>Mark folder as read</source>
         <translation>Marquer le dossier comme lu</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="144"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="143"/>
         <source>Rename folder</source>
         <translation>Renommer le dossier</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="152"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="151"/>
         <source>Delete folder</source>
         <translation>Supprimer le dossier</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="163"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="162"/>
         <source>Update feed</source>
         <translation>Mettre à jour le flux</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="168"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="167"/>
         <source>Mark feed as read</source>
         <translation>Marquer le flux comme lu</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="173"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="172"/>
         <source>Move feed</source>
         <translation>Déplacer le flux</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="181"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="180"/>
         <source>Delete feed</source>
         <translation>Supprimer le flux</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="189"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="188"/>
         <source>Deleting feed %1</source>
         <translation>Suppression du flux %1</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="193"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="192"/>
         <source>Deleting folder %1</source>
         <translation>Suppression du dossier %1</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="197"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/FolderListDelegate.qml" line="196"/>
         <source>Mark folder %1 as read</source>
         <translation>Marquer le dossier %1 comme lu</translation>
     </message>
@@ -341,32 +341,32 @@
 <context>
     <name>ItemListDelegate</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="108"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="106"/>
         <source>Mark as read</source>
         <translation>Marquer comme lu</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="108"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="106"/>
         <source>Mark as unread</source>
         <translation>Marquer comme non lu</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="113"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="111"/>
         <source>Remove from favorites</source>
         <translation>Supprimer des favoris</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="113"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="111"/>
         <source>Add to favorites</source>
         <translation>Ajouter aux favoris</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="118"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="116"/>
         <source>Mark as read up to this point</source>
         <translation>Marquer comme lu jusqu&apos;ici</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="123"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="121"/>
         <source>Mark as unread up to this point</source>
         <translation>Marquer comme non lu jusqu&apos;ici</translation>
     </message>
@@ -374,87 +374,87 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="48"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="47"/>
         <source>Update running...</source>
         <translation>Mise à jour en cours...</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="56"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="55"/>
         <source>Search</source>
         <translation>Rechercher</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="86"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="85"/>
         <source>Delete feed</source>
         <translation>Supprimer le flux</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="91"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="90"/>
         <source>Hide sorting options</source>
         <translation>Masquer les options de tri</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="91"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="90"/>
         <source>Show sorting options</source>
         <translation>Afficher les options de tri</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="97"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="96"/>
         <source>Mark feed as read</source>
         <translation>Marquer le flux comme lu</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="103"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="102"/>
         <source>Update feed</source>
         <translation>Mettre à jour le flux</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="108"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="107"/>
         <source>Hide search</source>
         <translation>Masquer la recherche</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="108"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="107"/>
         <source>Show search</source>
         <translation>Montrer la recherche</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="133"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="132"/>
         <source>Scroll to top</source>
         <translation>Remonter au début</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="141"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="140"/>
         <source>Deleting feed %1</source>
         <translation>Suppression du flux %1</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="162"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="161"/>
         <source>Show newest on top</source>
         <translation>Afficher le plus récent en premier</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="162"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="161"/>
         <source>Show oldest on top</source>
         <translation>Afficher le plus vieux en premier</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="172"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="171"/>
         <source>Show</source>
         <translation>Afficher</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="173"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="172"/>
         <source>Hide</source>
         <translation>Masquer</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="174"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="173"/>
         <source>Show after unread</source>
         <translation>Montrer après les non lus</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="181"/>
+        <location filename="../../reader/sailfishos/qml/Views/ItemListView.qml" line="180"/>
         <source>Read articles</source>
         <translation>Articles lus</translation>
     </message>
@@ -462,48 +462,52 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="76"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="75"/>
         <source>Update running...</source>
         <translation>Mise à jour en cours...</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="94"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="93"/>
         <source>Quit</source>
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="99"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="98"/>
         <source>About</source>
         <translation>A propos</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="104"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="103"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="110"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="109"/>
         <source>Add</source>
         <translation>Ajouter</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="116"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="115"/>
         <source>Update all</source>
         <translation>Tout mettre à jour</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="122"/>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="125"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="121"/>
+        <source>Last update:</source>
+        <translation>Dernière mise à jour:</translation>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="124"/>
         <source>Last update: </source>
         <translation>Dernière mise à jour:</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="132"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="131"/>
         <source>With these app you can synchronize and view your ownCloud News App content on your smartphone. Before you can start, you have to setup your ownCloud server account in the settings.</source>
         <translation>Avec cette application, vous pouvez synchroniser et voir le contenu de votre application ownCLoud News sur votre smartphone. Avant de commencer, vous devez configurer votre compte ownCloud dans les paramètres.</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="137"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="136"/>
         <source>The local database is empty. Please make an update or add new feeds and folders.</source>
         <translation>La base de donnée locale est vide. Veuillez mettre à jour ou ajouter des flux et des dossiers.</translation>
     </message>
@@ -551,18 +555,18 @@
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="77"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Sans catégorie</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="79"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tous les articles</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="96"/>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="98"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Articles favoris</translation>
     </message>
 </context>
 <context>
@@ -854,17 +858,17 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="233"/>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Dossiers</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="234"/>
         <source>Feeds</source>
-        <translation type="unfinished"/>
+        <translation>Flux</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="241"/>
         <source>Main view layout</source>
-        <translation type="unfinished"/>
+        <translation>Organisation de la page principale</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="251"/>
@@ -1045,97 +1049,97 @@
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="49"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="48"/>
         <source>Update running...</source>
         <translation>Mise à jour en cours...</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="57"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="56"/>
         <source>Search</source>
         <translation>Rechercher</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="86"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="85"/>
         <source>Hide sorting options</source>
         <translation>Masquer les options de tri</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="86"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="85"/>
         <source>Show sorting options</source>
         <translation>Afficher les options de tri</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="93"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="92"/>
         <source>Mark folder as read</source>
         <translation>Marquer le dossier comme lu</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="93"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="92"/>
         <source>Mark all as read</source>
         <translation>Marquer tout comme lu</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="100"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="99"/>
         <source>Update folder</source>
         <translation>Mettre à jour le dossier</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="100"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="99"/>
         <source>Update all</source>
         <translation>Tout mettre à jour</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="105"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="104"/>
         <source>Hide search</source>
         <translation>Masquer la recherche</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="105"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="104"/>
         <source>Show search</source>
         <translation>Montrer la recherche</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="128"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="127"/>
         <source>Scroll to top</source>
         <translation>Remonter au début</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="137"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="136"/>
         <source>Marking %1 as read</source>
         <translation>Marquage de %1 comme lu</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="142"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="141"/>
         <source>Marking all entries as read</source>
         <translation>Marquage de tous les articles comme lus</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="163"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="162"/>
         <source>Show newest on top</source>
         <translation>Afficher le plus récent en premier</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="163"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="162"/>
         <source>Show oldest on top</source>
         <translation>Afficher le plus vieux en premier</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="173"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="172"/>
         <source>Show</source>
         <translation>Afficher</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="174"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="173"/>
         <source>Hide</source>
         <translation>Masquer</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="175"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="174"/>
         <source>Show after unread</source>
         <translation>Montrer après les non lus</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="182"/>
+        <location filename="../../reader/sailfishos/qml/Views/SpecialItemListView.qml" line="181"/>
         <source>Read articles</source>
         <translation>Articles lus</translation>
     </message>

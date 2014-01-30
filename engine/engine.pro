@@ -12,7 +12,6 @@ isEmpty(MEEGO_VERSION_MAJOR) {
 #QT       += systeminfo
 }
 QT       += gui
-QT       += webkit
 
 !isEmpty(MEEGO_VERSION_MAJOR) {
 TARGET = ocNewsEngine

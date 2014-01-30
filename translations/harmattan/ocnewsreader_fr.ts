@@ -3,7 +3,7 @@
     <name>About</name>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="22"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="192"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="193"/>
         <source>About</source>
         <translation>A Propos</translation>
     </message>
@@ -33,37 +33,37 @@
         <translation>Faire un don</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="131"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="132"/>
         <source>Upstream author</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="136"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="137"/>
         <source>Main developer, ocNews creator</source>
-        <translation type="unfinished"/>
+        <translation>Développeur principal, créateur de ocNews</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="144"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="145"/>
         <source>Major contributors</source>
-        <translation type="unfinished"/>
+        <translation>Contributeurs principaux</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="149"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="150"/>
         <source>UI, French translation</source>
-        <translation type="unfinished"/>
+        <translation>IHM, traduction française</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="155"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="156"/>
         <source>Thanks to</source>
-        <translation type="unfinished"/>
+        <translation>Remerciements à</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="160"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="161"/>
         <source>Chinese (China) translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduction chinoise (Chine)</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="197"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="198"/>
         <source>Contributors</source>
         <translation>Contributeurs</translation>
     </message>
@@ -547,18 +547,18 @@
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="77"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Sans catégorie</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="79"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tous les articles</translation>
     </message>
     <message>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="96"/>
         <location filename="../../reader/common/models/occombinedmodelsql.cpp" line="98"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Articles favoris</translation>
     </message>
 </context>
 <context>
@@ -789,17 +789,17 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="137"/>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Dossiers</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="138"/>
         <source>Feeds</source>
-        <translation type="unfinished"/>
+        <translation>Flux</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="144"/>
         <source>Main view layout</source>
-        <translation type="unfinished"/>
+        <translation>Organisation de la page principale</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="161"/>

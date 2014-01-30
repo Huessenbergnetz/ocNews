@@ -3,7 +3,7 @@
     <name>About</name>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="22"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="192"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="193"/>
         <source>About</source>
         <translation>Sobre</translation>
     </message>
@@ -33,37 +33,37 @@
         <translation>Donar</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="131"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="132"/>
         <source>Upstream author</source>
         <translation>Autor upstream</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="136"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="137"/>
         <source>Main developer, ocNews creator</source>
         <translation>Desarrollador principal, creador de ocNews</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="144"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="145"/>
         <source>Major contributors</source>
         <translation>Mayores aportadores</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="149"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="150"/>
         <source>UI, French translation</source>
         <translation>Interfaz de usuario, traducción al Francés</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="155"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="156"/>
         <source>Thanks to</source>
         <translation>Gracias a</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="160"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="161"/>
         <source>Chinese (China) translation</source>
-        <translation type="unfinished"/>
+        <translation>Chino (China) traducción</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="197"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="198"/>
         <source>Contributors</source>
         <translation>Contribuidores</translation>
     </message>

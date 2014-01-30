@@ -1,6 +1,6 @@
 #include <QtNetwork>
-#include <QWebFrame>
 #include "ocitems.h"
+#include "../common/globals.h"
 
 OcItems::OcItems(QObject *parent) :
     QObject(parent)
@@ -414,7 +414,6 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
                               "title = :title, "
                               "author = :author, "
                               "pubDate = :pubDate, "
-                              "body = :body, "
                               "enclosureMime = :enclosureMime, "
                               "enclosureLink = :enclosureLink, "
                               "feedId = :feedId, "
@@ -429,7 +428,7 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
                 query.bindValue(":title", map["title"].toString());
                 query.bindValue(":author", map["author"].toString());
                 query.bindValue(":pubDate", map["pubDate"].toInt());
-                query.bindValue(":body", map["body"].toString());
+//                query.bindValue(":body", map["body"].toString());
                 query.bindValue(":enclosureMime", map["enclosureMime"].toString());
                 query.bindValue(":enclosureLink", map["enclosureLink"].toString());
                 query.bindValue(":feedId", map["feedId"].toInt());
@@ -465,6 +464,7 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
             query.bindValue(":author", map["author"].toString());
             query.bindValue(":pubDate", map["pubDate"].toInt());
             query.bindValue(":body", map["body"].toString());
+//            query.bindValue(":body", cacheImages(map["body"].toString(), map["id"].toInt()));
             query.bindValue(":enclosureMime", map["enclosureMime"].toString());
             query.bindValue(":enclosureLink", map["enclosureLink"].toString());
             query.bindValue(":feedId", map["feedId"].toInt());
@@ -1203,18 +1203,79 @@ void OcItems::updateEventFeed(const QList<int> &newsFeedItems)
     }
 }
 
-QString OcItems::cacheImages(const QString &bodyText, int id, int feedId)
+QString OcItems::cacheImages(const QString &bodyText, int id)
 {
-    QWebFrame *body;
-    body->setHtml(bodyText);
-    QWebElement doc = body->documentElement();
-    QWebElementCollection imgCollection = doc.findAll("img");
+    QString newBodyText = bodyText;
+    QRegExp findImg("<img[^>]*>");
+    QStringList foundImages;
+    int pos = 0;
 
-    foreach (QWebElement imgElement, imgCollection)
+    while((pos = findImg.indexIn(bodyText, pos)) != -1)
     {
-        QUrl imgSrc(imgElement.attribute("href"));
-        QFileInfo fileInfo = imgSrc.path();
-        qDebug() << "Image source: " << imgSrc.toString();
+        foundImages << findImg.cap(0);
+        pos += findImg.matchedLength();
     }
 
+    qDebug() << "Found img: " << foundImages;
+
+    if (!foundImages.isEmpty())
+    {
+        QRegExp findSrc("(http|ftp)[^\"]*");
+
+        for (int i = 0; i < foundImages.size(); ++i) {
+
+            foundImages.at(i).contains(findSrc);
+            qDebug() << "found src: " << findSrc.cap(0);
+
+            QUrl fileUrl(findSrc.cap(0));
+            QFileInfo fileInfo = fileUrl.path();
+            QString fileName("_image_");
+            fileName.prepend(QString::number(id));
+            fileName.append(QString::number(i)).append(".");
+            fileName.append(fileInfo.suffix());
+
+            QString storagePath(QDir::homePath());
+            storagePath.append(IMAGE_CACHE);
+            storagePath.append(QDir::separator()).append(fileName);
+            storagePath = QDir::toNativeSeparators(storagePath);
+            qDebug() << storagePath;
+
+            QEventLoop dlLoop;
+
+            QNetworkRequest request(findSrc.cap(0));
+
+            QNetworkReply *replyGetImage = network.get(request);
+
+            connect(replyGetImage, SIGNAL(finished()), &dlLoop, SLOT(quit()));
+            dlLoop.exec();
+
+            if (replyGetImage->error() == QNetworkReply::NoError)
+            {
+
+                QFile imageFile(storagePath);
+                imageFile.open(QIODevice::WriteOnly);
+
+                if (imageFile.write(replyGetImage->readAll()) != -1)
+                {
+
+                    replyGetImage->deleteLater();
+                    newBodyText.replace(findSrc.cap(0), storagePath, Qt::CaseSensitive);
+
+                } else {
+
+                    qDebug() << "Failed to save image";
+                    replyGetImage->deleteLater();
+
+                }
+            }
+            else
+            {
+                qDebug() << "Can not download file.";
+                replyGetImage->deleteLater();
+            }
+        }
+
+    }
+
+    return newBodyText;
 }

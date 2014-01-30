@@ -11,10 +11,12 @@
 #define SETTINGS_PATH "/private"
 #define BASE_PATH "/.local/share/data/ocNews"
 #define GLOBAL_CERTS_PATH "/etc/ssl/certs"
+#define IMAGE_CACHE "/MyDocs/.ocNews/imageCache"
 #else
 #define SETTINGS_PATH "/.config/harbour-ocnews"
 #define BASE_PATH "/.local/share/data/harbour-ocnews"
 #define GLOBAL_CERTS_PATH "/etc/ssl/certs"
+#define IMAGE_CACHE "/.local/share/data/harbour-ocnews/imageCache"
 #endif
 
 

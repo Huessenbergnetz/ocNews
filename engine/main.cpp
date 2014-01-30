@@ -81,12 +81,14 @@ int main(int argc, char *argv[])
     QString basePath(QDir::homePath().append(BASE_PATH));
     QString faviconsPath = basePath.append("/favicons");
     QString enclosuresPath = basePath.append("/enclosures");
+    QString imgCache(QDir::homePath().append(IMAGE_CACHE));
     QString localCertsPath = basePath.append("/certs");
     QString globalCertsPath = QString(GLOBAL_CERTS_PATH);
 
     // create storage dirs
     QDir().mkpath(faviconsPath);
     QDir().mkpath(enclosuresPath);
+    QDir().mkpath(imgCache);
     QDir().mkpath(localCertsPath);
 
 #if defined(MEEGO_EDITION_HARMATTAN)

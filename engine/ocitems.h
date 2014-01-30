@@ -3,9 +3,6 @@
 
 #include <QObject>
 #include <QUrl>
-#include <QWebElement>
-#include <QWebFrame>
-#include <QWebElementCollection>
 #if defined(MEEGO_EDITION_HARMATTAN)
 #include <meventfeed.h>
 #endif
@@ -91,7 +88,7 @@ private:
     void updateEventFeed(const QList<int> &newsFeedItems);
 
     // cache images
-    QString cacheImages(const QString &bodyText, int id, int feedId);
+    QString cacheImages(const QString &bodyText, int id);
 };
 
 #endif // OCITEMS_H

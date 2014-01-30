@@ -45,6 +45,10 @@ Page {
         onMarkedReadFolderSuccess: feedsModelSql.refresh(folderId)
     }
     Connections {
+        target: updater
+        onUpdateFinished: feedsModelSql.refresh(folderId)
+    }
+    Connections {
         target: feedListViewAddFeed
         onAccepted: if (feedListViewAddFeed.feedAddressText !== "") operationRunning = true
     }

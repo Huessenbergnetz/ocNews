@@ -72,15 +72,15 @@
 <context>
     <name>OcItems</name>
     <message>
-        <location filename="../../engine/ocitems.cpp" line="14"/>
-        <location filename="../../engine/ocitems.cpp" line="254"/>
-        <location filename="../../engine/ocitems.cpp" line="911"/>
+        <location filename="../../engine/ocitems.cpp" line="15"/>
+        <location filename="../../engine/ocitems.cpp" line="255"/>
+        <location filename="../../engine/ocitems.cpp" line="912"/>
         <source>Device is in flight mode.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../engine/ocitems.cpp" line="72"/>
-        <location filename="../../engine/ocitems.cpp" line="361"/>
+        <location filename="../../engine/ocitems.cpp" line="73"/>
+        <location filename="../../engine/ocitems.cpp" line="362"/>
         <source>Server reply was empty.</source>
         <translation type="unfinished"></translation>
     </message>
