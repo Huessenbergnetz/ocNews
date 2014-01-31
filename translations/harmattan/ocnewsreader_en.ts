@@ -3,7 +3,7 @@
     <name>About</name>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="22"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="192"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="193"/>
         <source>About</source>
         <translation>About</translation>
     </message>
@@ -33,37 +33,37 @@
         <translation>Donate</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="131"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="132"/>
         <source>Upstream author</source>
         <translation>Upstream author</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="136"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="137"/>
         <source>Main developer, ocNews creator</source>
         <translation>Main developer, ocNews creator</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="144"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="145"/>
         <source>Major contributors</source>
         <translation>Major contributors</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="149"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="150"/>
         <source>UI, French translation</source>
         <translation>UI, French translation</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="155"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="156"/>
         <source>Thanks to</source>
         <translation>Thanks to</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="160"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="161"/>
         <source>Chinese (China) translation</source>
         <translation>Chinese (China) translation</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="197"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="198"/>
         <source>Contributors</source>
         <translation>Contributors</translation>
     </message>
@@ -147,94 +147,94 @@
 <context>
     <name>FeedListView</name>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="82"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="86"/>
         <source>All</source>
         <translation>All</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="133"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="137"/>
         <source>Add feed</source>
         <translation>Add feed</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="142"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="146"/>
         <source>Mark folder as read</source>
         <translation>Mark folder as read</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="147"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="151"/>
         <source>Rename folder </source>
         <translation>Rename folder </translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="156"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="160"/>
         <source>Delete folder</source>
         <translation>Delete folder</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="176"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="180"/>
         <source>Mark feed as read</source>
         <translation>Mark feed as read</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="184"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="188"/>
         <source>Update feed</source>
         <translation>Update feed</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="192"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="196"/>
         <source>Move feed</source>
         <translation>Move feed</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="202"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="206"/>
         <source>Delete feed</source>
         <translation>Delete feed</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="239"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="267"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="243"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="271"/>
         <source>Delete</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="240"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="268"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="244"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="272"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="241"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="245"/>
         <source>Do you really want to delete this folder? All feeds and posts in this folder will then be deleted, too.</source>
         <translation>Do you really want to delete this folder? All feeds and posts in this folder will then be deleted, too.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="242"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="246"/>
         <source>Delete folder %1?</source>
         <translation>Delete folder %1?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="252"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="256"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="253"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="257"/>
         <source>No</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="254"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="258"/>
         <source>Do you really want to mark the whole content of this folder as read?</source>
         <translation>Do you really want to mark the whole content of this folder as read?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="255"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="259"/>
         <source>Mark folder %1 as read?</source>
         <translation>Mark folder %1 as read?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="269"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="273"/>
         <source>Delete feed %1?</source>
         <translation>Delete feed %1?</translation>
     </message>
@@ -604,17 +604,17 @@
 <context>
     <name>OcSingleItemModelSql</name>
     <message>
-        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="26"/>
+        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="28"/>
         <source>Today</source>
         <translation>Today</translation>
     </message>
     <message>
-        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="27"/>
+        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="29"/>
         <source>d. MMMM</source>
         <translation>d. MMMM</translation>
     </message>
     <message>
-        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="28"/>
+        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="30"/>
         <source>hh:mm</source>
         <translation>hh:mm</translation>
     </message>
@@ -757,7 +757,7 @@
     <name>Settings</name>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="61"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="564"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="591"/>
         <source>Account Settings</source>
         <translation>Account Settings</translation>
     </message>
@@ -907,186 +907,199 @@
         <translation>Black</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="299"/>
-        <source>Show images by default</source>
-        <translation>Show images by default</translation>
-    </message>
-    <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="310"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="333"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="360"/>
         <source>Hide</source>
         <translation>Hide</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="316"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="332"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="359"/>
         <source>Show</source>
         <translation>Show</translation>
     </message>
     <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="332"/>
+        <source>On request</source>
+        <translation>On request</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="333"/>
+        <source>When item loads</source>
+        <translation>When item loads</translation>
+    </message>
+    <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="334"/>
+        <source>At updating</source>
+        <translation>At updating</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="340"/>
+        <source>Load content images</source>
+        <translation>Load content images</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="361"/>
         <source>Show after unread</source>
         <translation>Show after unread</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="340"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="367"/>
         <source>Read articles</source>
         <translation>Read articles</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="355"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="382"/>
         <source>Show oldest items on top</source>
         <translation>Show oldest items on top</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="394"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="421"/>
         <source>Select feeds for the event view</source>
         <translation>Select feeds for the event view</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="424"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="451"/>
         <source>Select event view feeds</source>
         <translation>Select event view feeds</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="437"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="464"/>
         <source>Click the button to select the feeds that you want to aggregate to the Event screen. Only newly downloaded items will be added to the Events screen.</source>
         <translation>Click the button to select the feeds that you want to aggregate to the Event screen. Only newly downloaded items will be added to the Events screen.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="449"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="476"/>
         <source>Database statistics</source>
         <translation>Database statistics</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="463"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="490"/>
         <source>Folders: </source>
         <translation>Folders: </translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="476"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="503"/>
         <source>Feeds: </source>
         <translation>Feeds: </translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="489"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="516"/>
         <source>Posts: </source>
         <translation>Posts: </translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="502"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="529"/>
         <source>Unread: </source>
         <translation>Unread: </translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="515"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="542"/>
         <source>Last full update:&lt;br /&gt;</source>
         <translation>Last full update:&lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="515"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="542"/>
         <source>d. MMMM yyyy, hh:mm</source>
         <translation>d. MMMM yyyy, hh:mm</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="523"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="550"/>
         <source>Reset configuration</source>
         <translation>Reset configuration</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="530"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="557"/>
         <source>Delete database</source>
         <translation>Delete database</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="541"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="568"/>
         <source>Remove certificates</source>
         <translation>Remove certificates</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="569"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="596"/>
         <source>Display &amp; Update Settings</source>
         <translation>Display &amp; Update Settings</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="574"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="601"/>
         <source>Event Feed Integration</source>
         <translation>Event Feed Integration</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="579"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="606"/>
         <source>Maintenance</source>
         <translation>Maintenance</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="592"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="619"/>
         <source>Reset</source>
         <translation>Reset</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="593"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="604"/>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="614"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="620"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="631"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="641"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="594"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="621"/>
         <source>Do you really want reset your configuration?</source>
         <translation>Do you really want reset your configuration?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="595"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="622"/>
         <source>Reset configuration?</source>
         <translation>Reset configuration?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="603"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="630"/>
         <source>Delete</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="605"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="632"/>
         <source>Do you really want delete your complete database?</source>
         <translation>Do you really want delete your complete database?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="606"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="633"/>
         <source>Delete database?</source>
         <translation>Delete database?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="613"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="640"/>
         <source>Remove</source>
         <translation>Remove</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="615"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="642"/>
         <source>Do you really want remove your trustet SSL certificates (only for this application)?</source>
         <translation>Do you really want remove your trustet SSL certificates (only for this application)?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="616"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="643"/>
         <source>Remove trusted certificates?</source>
         <translation>Remove trusted certificates?</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="623"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="650"/>
         <source>Disable</source>
         <translation>Disable</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="624"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="651"/>
         <source>Keep activated</source>
         <translation>Keep activated</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="625"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="652"/>
         <source>It is not a good idea to disable HTTPS (SSL), because your username and password then will be sent unencrypted with every request.</source>
         <translation>It is not a good idea to disable HTTPS (SSL), because your username and password then will be sent unencrypted with every request.</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="626"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="653"/>
         <source>Disable HTTPS?</source>
         <translation>Disable HTTPS?</translation>
     </message>
@@ -1107,72 +1120,72 @@
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="91"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="90"/>
         <source>Search...</source>
         <translation>Search...</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="215"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="214"/>
         <source>Mark folder as read</source>
         <translation>Mark folder as read</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="215"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="214"/>
         <source>Mark all as read</source>
         <translation>Mark all as read</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="225"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="224"/>
         <source>Show newest on top</source>
         <translation>Show newest on top</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="225"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="224"/>
         <source>Show oldest on top</source>
         <translation>Show oldest on top</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="234"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="233"/>
         <source>Read articles</source>
         <translation>Read articles</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="249"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="248"/>
         <source>Show</source>
         <translation>Show</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="250"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="249"/>
         <source>Hide</source>
         <translation>Hide</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="251"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="250"/>
         <source>Show after unread</source>
         <translation>Show after unread</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="285"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="284"/>
         <source>Add to favourites</source>
         <translation>Add to favourites</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="285"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="284"/>
         <source>Remove from favourites</source>
         <translation>Remove from favourites</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="296"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="295"/>
         <source>Mark as read</source>
         <translation>Mark as read</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="296"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="295"/>
         <source>Mark as unread</source>
         <translation>Mark as unread</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="307"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SpecialItemListView.qml" line="306"/>
         <source>Share</source>
         <translation>Share</translation>
     </message>

@@ -12,7 +12,9 @@ QVariantMap OcSingleItemModelSql::getItemData(const QString &itemId, bool showIm
     QVariantMap itemresult;
     QSqlQuery query;
     query.exec(QString("SELECT it.id, it.guidHash, it.url, it.title, it.author, it.pubDate, it.body, it.enclosureMime, it.enclosureLink, it.unread, it.starred, it.feedId, "
-                       "(SELECT title FROM feeds WHERE id = it.feedId) AS feedName "
+                       "(SELECT title FROM feeds WHERE id = it.feedId) AS feedName, "
+                       "IFNULL((SELECT id FROM items WHERE pubDate > it.pubDate AND feedId = it.feedId ORDER BY pubDate ASC LIMIT 1),0) AS previous, "
+                       "IFNULL((SELECT id FROM items WHERE pubDate < it.pubDate AND feedId = it.feedId ORDER BY pubDate DESC LIMIT 1),0) AS next "
                        "FROM items it WHERE id = %1").arg(itemId.toInt()));
 
     if (query.next())
@@ -34,6 +36,8 @@ QVariantMap OcSingleItemModelSql::getItemData(const QString &itemId, bool showIm
         itemresult["starred"] = query.value(10).toBool();
         itemresult["feedId"] = query.value(11).toString();
         itemresult["feedName"] = query.value(12).toString();
+        itemresult["previous"] = query.value(13).toString();
+        itemresult["next"] = query.value(14).toString();
         itemresult["containsImg"] = showImg ? false : query.value(6).toString().contains(QRegExp("<img[^>]*>"));
     }
 

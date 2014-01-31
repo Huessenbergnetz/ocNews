@@ -24,7 +24,7 @@ Page {
             chooseViewMode.initialValue = config["viewmode"]
             chooseOrderBy.initialValue = config["orderby"]
             textFormatSelection.initialValue = config["textformat"]
-            showImgsSelection.initialValue = config["showimgs"]
+            showImgsSelection.initialValue = config["handleimgs"]
             handleReadSelection.initialValue = config["handleread"]
             sortAsc.checked = config["sortasc"]
             isConfigSet = dbus.isConfigSet()
@@ -44,7 +44,7 @@ Page {
             viewmode:viewModeModel.get(chooseViewMode.currentIndex).value,
             orderby:orderByModel.get(chooseOrderBy.currentIndex).value,
             textformat:textFormatModel.get(textFormatSelection.currentIndex).value,
-            showimgs:showImgsModel.get(showImgsSelection.currentIndex).value,
+            handleimgs:showImgsModel.get(showImgsSelection.currentIndex).value,
             handleread:handleReadModel.get(handleReadSelection.currentIndex).value,
             sortasc:sortAsc.checked,
             eventfeeds:"",
@@ -280,11 +280,13 @@ Page {
 
             ListModel {
                 id: showImgsModel
-                ListElement { name: ""; value: "hide" }
-                ListElement { name: ""; value: "show" }
+                ListElement { name: ""; value: 0 }
+                ListElement { name: ""; value: 1 }
+                ListElement { name: ""; value: 2 }
                 Component.onCompleted: {
                     showImgsModel.get(0).name = qsTr("On request")
-                    showImgsModel.get(1).name = qsTr("Automatically")
+                    showImgsModel.get(1).name = qsTr("When item loads")
+                    showImgsModel.get(2).name = qsTr("At updating")
                 }
             }
 
@@ -292,6 +294,7 @@ Page {
                 id: showImgsSelection
                 anchors { left: parent.left; right: parent.right }
                 label: qsTr("Load content images")
+                enabled: textFormatSelection.currentIndex === 0
                 model: showImgsModel
             }
 

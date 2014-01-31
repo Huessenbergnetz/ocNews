@@ -58,7 +58,7 @@ QVariantMap OcConfiguration::getConfig()
     config["orderby"] = settings.value("display/orderby", "id");
     config["textformat"] = settings.value("display/textformat", "rich");
     config["themecolor"] = settings.value("display/themecolor", "white");
-    config["showimgs"] = settings.value("display/showimgs", "hide");
+    config["handleimgs"] = settings.value("display/handleimgs", 0).toInt();
     config["handleread"] = settings.value("display/handleread", 0).toInt();
     config["sortasc"] = settings.value("display/sortasc", false).toBool();
     config["updatebehavior"] = settings.value("update/behavior", "0");
@@ -97,7 +97,7 @@ void OcConfiguration::saveConfig(const QVariantMap &config)
     settings.setValue("display/orderby", config["orderby"]);
     settings.setValue("display/textformat", config["textformat"]);
     settings.setValue("display/themecolor", config["themecolor"]);
-    settings.setValue("display/showimgs", config["showimgs"]);
+    settings.setValue("display/handleimgs", config["handleimgs"]);
     settings.setValue("display/handleread", config["handleread"]);
     settings.setValue("display/sortasc", config["sortasc"]);
     settings.setValue("update/behavior", config["updatebehavior"]);

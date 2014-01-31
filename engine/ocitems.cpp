@@ -89,6 +89,7 @@ void OcItems::itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString typ
     qDebug() << "Start updating items database.";
 #endif
 
+    int imgHandling = config.getSetting(QString("display/handleimgs"), QDBusVariant(0)).variant().toInt();
     QList<int> newItems; // list for the new items, for sending to event feed
     QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
     QStringList feedsForEventsList = feedsForEventView.split(",");
@@ -171,7 +172,11 @@ void OcItems::itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString typ
             query.bindValue(":title", map["title"].toString());
             query.bindValue(":author", map["author"].toString());
             query.bindValue(":pubDate", map["pubDate"].toInt());
-            query.bindValue(":body", map["body"].toString());
+            if (imgHandling == 2) {
+                query.bindValue(":body", cacheImages(map["body"].toString(), map["id"].toInt()));
+            } else {
+                query.bindValue(":body", map["body"].toString());
+            }
             query.bindValue(":enclosureMime", map["enclosureMime"].toString());
             query.bindValue(":enclosureLink", map["enclosureLink"].toString());
             query.bindValue(":feedId", map["feedId"].toInt());
@@ -381,6 +386,7 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
 #endif
 
     QList<int> newItems; // list for the new items, for sending to event feed
+    int imgHandling = config.getSetting(QString("display/handleimgs"), QDBusVariant(0)).variant().toInt();
     QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
     QStringList feedsForEventsList = feedsForEventView.split(",");
 #ifdef QT_DEBUG
@@ -463,8 +469,11 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
             query.bindValue(":title", map["title"].toString());
             query.bindValue(":author", map["author"].toString());
             query.bindValue(":pubDate", map["pubDate"].toInt());
-            query.bindValue(":body", map["body"].toString());
-//            query.bindValue(":body", cacheImages(map["body"].toString(), map["id"].toInt()));
+            if (imgHandling == 2) {
+                query.bindValue(":body", cacheImages(map["body"].toString(), map["id"].toInt()));
+            } else {
+                query.bindValue(":body", map["body"].toString());
+            }
             query.bindValue(":enclosureMime", map["enclosureMime"].toString());
             query.bindValue(":enclosureLink", map["enclosureLink"].toString());
             query.bindValue(":feedId", map["feedId"].toInt());
@@ -515,10 +524,21 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
         QSqlDatabase::database().transaction();
         for (int i = 0; i < feedIds.size(); ++i)
         {
-            query.exec(QString("SELECT MIN(id) FROM "
-                               "(SELECT id FROM items WHERE feedId = %1 ORDER BY id DESC LIMIT %2);").arg(feedIds.at(i)).arg(config.getSetting(QString("storage/maxitems"), QDBusVariant(100)).variant().toInt()));
+            query.exec(QString("SELECT MIN(id) FROM (SELECT id FROM items WHERE feedId = %1 ORDER BY id DESC LIMIT %2);").arg(feedIds.at(i)).arg(config.getSetting(QString("storage/maxitems"), QDBusVariant(100)).variant().toInt()));
             if (query.next())
                 lowestId = query.value(0).toInt();
+
+
+            // get item ids to delte cached image files
+#if defined(MEEGO_EDITION_HARMATTAN)
+            query.exec(QString("SELECT id FROM items WHERE starred = \"false\" AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)));
+#else
+            query.exec(QString("SELECT id FROM items WHERE starred = 0 AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)));
+#endif
+            while(query.next())
+                deleteCachedImages(query.value(0).toInt());
+
+
 
 #if defined(MEEGO_EDITION_HARMATTAN)
             query.exec(QString("DELETE FROM items WHERE starred = \"false\" AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)));
@@ -1215,8 +1235,9 @@ QString OcItems::cacheImages(const QString &bodyText, int id)
         foundImages << findImg.cap(0);
         pos += findImg.matchedLength();
     }
-
+#ifdef QT_DEBUG
     qDebug() << "Found img: " << foundImages;
+#endif
 
     if (!foundImages.isEmpty())
     {
@@ -1225,7 +1246,9 @@ QString OcItems::cacheImages(const QString &bodyText, int id)
         for (int i = 0; i < foundImages.size(); ++i) {
 
             foundImages.at(i).contains(findSrc);
+#ifdef QT_DEBUG
             qDebug() << "found src: " << findSrc.cap(0);
+#endif
 
             QUrl fileUrl(findSrc.cap(0));
             QFileInfo fileInfo = fileUrl.path();
@@ -1238,7 +1261,9 @@ QString OcItems::cacheImages(const QString &bodyText, int id)
             storagePath.append(IMAGE_CACHE);
             storagePath.append(QDir::separator()).append(fileName);
             storagePath = QDir::toNativeSeparators(storagePath);
+#ifdef QT_DEBUG
             qDebug() << storagePath;
+#endif
 
             QEventLoop dlLoop;
 
@@ -1274,8 +1299,29 @@ QString OcItems::cacheImages(const QString &bodyText, int id)
                 replyGetImage->deleteLater();
             }
         }
-
     }
 
     return newBodyText;
+}
+
+void OcItems::deleteCachedImages(int id)
+{
+    QStringList nameFilter;
+    QString fileFilter("_*");
+    fileFilter.prepend(QString::number(id));
+    nameFilter << fileFilter;
+    QString storagePath(QDir::homePath());
+    storagePath.append(IMAGE_CACHE);
+    QDir directory(storagePath);
+    QStringList imgs = directory.entryList(nameFilter);
+
+#ifdef QT_DEBUG
+    qDebug() << "Images to delete: " << imgs;
+#endif
+
+    for (int i = 0; i < imgs.size(); ++i)
+    {
+        directory.remove(imgs.at(i));
+    }
+
 }

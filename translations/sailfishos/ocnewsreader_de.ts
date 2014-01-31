@@ -612,17 +612,17 @@
 <context>
     <name>OcSingleItemModelSql</name>
     <message>
-        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="26"/>
+        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="28"/>
         <source>Today</source>
         <translation>Heute</translation>
     </message>
     <message>
-        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="27"/>
+        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="29"/>
         <source>d. MMMM</source>
         <translation>d. MMMM</translation>
     </message>
     <message>
-        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="28"/>
+        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="30"/>
         <source>hh:mm</source>
         <translation>hh:mm</translation>
     </message>
@@ -906,72 +906,77 @@
         <translation>Textformat für Nachrichtentexte</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="286"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="287"/>
         <source>On request</source>
         <translation>Auf Anfrage</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="287"/>
-        <source>Automatically</source>
-        <translation>Automatisch</translation>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="288"/>
+        <source>When item loads</source>
+        <translation>Beim Laden des Artikels</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="294"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="289"/>
+        <source>At updating</source>
+        <translation>Beim Aktualisieren</translation>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="296"/>
         <source>Load content images</source>
         <translation>Bilder im Inhalt laden</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="304"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="307"/>
         <source>Show</source>
         <translation>Anzeigen</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="305"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="308"/>
         <source>Hide</source>
         <translation>Verbergen</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="306"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="309"/>
         <source>Show after unread</source>
         <translation>Nach ungelesenen anzeigen</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="313"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="316"/>
         <source>Read articles</source>
         <translation>Gelesene Artikel</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="319"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="322"/>
         <source>Show oldest items on top</source>
         <translation>Älteste Artikel zuerst anzeigen</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="321"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="324"/>
         <source>Set the default order of the news items to show the oldest at the top. You can still change it in the pully menu.</source>
         <translation>Zeigt die ältesten Einträge standardmäßig zuerst an. Sie können dies danach noch jeweils im Menü der Liste ändern.</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="324"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="327"/>
         <source>Maintenance</source>
         <translation>Wartung</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="328"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="331"/>
         <source>Reset configuration</source>
         <translation>Konfiguration zurücksetzen</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="335"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="338"/>
         <source>Delete database</source>
         <translation>Datanbank löschen</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="344"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="347"/>
         <source>Deleting database</source>
         <translation>Lösche Datenbank</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="349"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="352"/>
         <source>Resetting configuration</source>
         <translation>Setze Konfiguration zurück</translation>
     </message>

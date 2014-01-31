@@ -89,6 +89,7 @@ private:
 
     // cache images
     QString cacheImages(const QString &bodyText, int id);
+    void deleteCachedImages(int id);
 };
 
 #endif // OCITEMS_H

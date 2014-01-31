@@ -31,7 +31,7 @@ Page {
             orderby:chooseOrderBy.currentValue,
             textformat:textFormatSelection.valueChoosen,
             themecolor:invertThemeSelection.choosenValue,
-            showimgs:showImgByDefaultSelection.choosenValue,
+            handleimgs:handleImgs.currentValue,
             updatebehavior:updateBehavior.currentValue,
             updateinterval:updateInterval.currentValue,
             eventfeeds:selFed.toString(),
@@ -102,7 +102,7 @@ Page {
                 id: tab2Content
                 anchors { right: parent.right; left: parent.left; top: parent.top; bottom: parent.bottom; bottomMargin: 90 }
                 contentWidth: parent.width
-                contentHeight: chooseMaxItems.height + chooseViewMode.height + chooseOrderBy.height + updateBehavior.height + updateInterval.height + textFormatLabel.height + textFormatSelection.height + invertThemeLabel.height + invertThemeSelection.height + showImgByDefaultLabel.height + showImgByDefaultSelection.height + handleRead.height + sortAsc.height + 100
+                contentHeight: chooseMaxItems.height + chooseViewMode.height + chooseOrderBy.height + updateBehavior.height + updateInterval.height + textFormatLabel.height + textFormatSelection.height + invertThemeLabel.height + invertThemeSelection.height + handleImgs.height + handleRead.height + sortAsc.height + 100
 
                 Component.onCompleted: console.log(tab2Content.contentHeight)
 
@@ -293,35 +293,62 @@ Page {
                 }
 
 
-                Label {
-                    id: showImgByDefaultLabel
-                    anchors { top: invertThemeSelection.bottom; topMargin: 15; left: parent.left; leftMargin: 20 }
-                    text: qsTr("Show images by default")
-                    visible: textFormatSelection.valueChoosen === "rich"
+//                Label {
+//                    id: showImgByDefaultLabel
+//                    anchors { top: invertThemeSelection.bottom; topMargin: 15; left: parent.left; leftMargin: 20 }
+//                    text: qsTr("Show images by default")
+//                    visible: textFormatSelection.valueChoosen === "rich"
+//                }
+
+//                ButtonRow {
+//                    id: showImgByDefaultSelection
+//                    property string choosenValue
+//                    anchors { top: showImgByDefaultLabel.bottom; horizontalCenter: parent.horizontalCenter }
+//                    visible: textFormatSelection.valueChoosen === "rich"
+//                    Button {
+//                        id: hide
+//                        text: qsTr("Hide")
+//                        checked: showImgByDefaultSelection.choosenValue == "hide"
+//                        onClicked: { showImgByDefaultSelection.choosenValue = "hide" }
+//                    }
+//                    Button {
+//                        id: show
+//                        text: qsTr("Show")
+//                        checked: showImgByDefaultSelection.choosenValue == "show"
+//                        onClicked: { showImgByDefaultSelection.choosenValue = "show" }
+//                    }
+//                    Connections {
+//                        target: dbus
+//                        onGotConfig: showImgByDefaultSelection.choosenValue = config["showimgs"]
+//                    }
+//                }
+
+                ListModel {
+                    id: handleImgsModel
+                    ListElement { name: ""; value: 0 }
+                    ListElement { name: ""; value: 1 }
+                    ListElement { name: ""; value: 2 }
+                    Component.onCompleted: {
+                        handleImgsModel.get(0).name = qsTr("On request")
+                        handleImgsModel.get(1).name = qsTr("When item loads")
+                        handleImgsModel.get(2).name = qsTr("At updating")
+                    }
                 }
 
-                ButtonRow {
-                    id: showImgByDefaultSelection
-                    property string choosenValue
-                    anchors { top: showImgByDefaultLabel.bottom; horizontalCenter: parent.horizontalCenter }
-                    visible: textFormatSelection.valueChoosen === "rich"
-                    Button {
-                        id: hide
-                        text: qsTr("Hide")
-                        checked: showImgByDefaultSelection.choosenValue == "hide"
-                        onClicked: { showImgByDefaultSelection.choosenValue = "hide" }
-                    }
-                    Button {
-                        id: show
-                        text: qsTr("Show")
-                        checked: showImgByDefaultSelection.choosenValue == "show"
-                        onClicked: { showImgByDefaultSelection.choosenValue = "show" }
-                    }
+                SelectionItem {
+                    id: handleImgs
+                    title: qsTr("Load content images")
+                    width: parent.width - 40
+                    anchors { top: invertThemeSelection.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
+                    enabled: textFormatSelection.valueChoosen === "rich"
+                    model: handleImgsModel
+                    initialValue: "0"
                     Connections {
                         target: dbus
-                        onGotConfig: showImgByDefaultSelection.choosenValue = config["showimgs"]
+                        onGotConfig: handleImgs.initialValue = config["handleimgs"]
                     }
                 }
+
 
                 ListModel {
                     id: handleReadModel
@@ -339,7 +366,7 @@ Page {
                    id: handleRead
                    title: qsTr("Read articles")
                    width: parent.width - 40
-                   anchors { top: showImgByDefaultSelection.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
+                   anchors { top: handleImgs.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
                    model: handleReadModel
                    initialValue: "0"
                    Connections {

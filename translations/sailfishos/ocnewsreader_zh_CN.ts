@@ -612,17 +612,17 @@
 <context>
     <name>OcSingleItemModelSql</name>
     <message>
-        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="26"/>
+        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="28"/>
         <source>Today</source>
         <translation>今天</translation>
     </message>
     <message>
-        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="27"/>
+        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="29"/>
         <source>d. MMMM</source>
         <translation>d. MMMM</translation>
     </message>
     <message>
-        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="28"/>
+        <location filename="../../reader/common/models/ocsingleitemmodelsql.cpp" line="30"/>
         <source>hh:mm</source>
         <translation>hh:mm</translation>
     </message>
@@ -906,72 +906,77 @@
         <translation>显示帖子内容格式</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="286"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="287"/>
         <source>On request</source>
         <translation>根据要求</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="287"/>
-        <source>Automatically</source>
-        <translation>全自动</translation>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="288"/>
+        <source>When item loads</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="294"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="289"/>
+        <source>At updating</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="296"/>
         <source>Load content images</source>
         <translation>读取内容图片</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="304"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="307"/>
         <source>Show</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="305"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="308"/>
         <source>Hide</source>
         <translation>隐藏</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="306"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="309"/>
         <source>Show after unread</source>
         <translation>标为未读后显示</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="313"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="316"/>
         <source>Read articles</source>
         <translation>阅读文章</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="319"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="322"/>
         <source>Show oldest items on top</source>
         <translation>在顶部显示最旧条目</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="321"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="324"/>
         <source>Set the default order of the news items to show the oldest at the top. You can still change it in the pully menu.</source>
         <translation>设置在顶部显示最旧条目的新闻默认排序。当然你后续还可以在下滑菜单中更改。</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="324"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="327"/>
         <source>Maintenance</source>
         <translation>维护</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="328"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="331"/>
         <source>Reset configuration</source>
         <translation>重置设定</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="335"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="338"/>
         <source>Delete database</source>
         <translation>删除数据库</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="344"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="347"/>
         <source>Deleting database</source>
         <translation>正在删除数据库</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="349"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="352"/>
         <source>Resetting configuration</source>
         <translation>正在重置设置</translation>
     </message>
