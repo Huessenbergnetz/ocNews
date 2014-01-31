@@ -1,3 +1,11 @@
+buschtrommel-ocnews (1.6.1) stable; urgency=low
+
+  * Fixed: all posts view not refreshed after complete sync update (issue #26)
+  * Fixed: feed list view was not refreshed after complete sync update
+  * Fixed: minor stuff in translation
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Fri, 31 Jan 2014 01:51:27 +0100
+
 buschtrommel-ocnews (1.6.0) stable; urgency=low
 
   * NEW: second mode for the main view, choose between folders or all feeds (issue #10)

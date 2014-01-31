@@ -1,3 +1,12 @@
+Version 1.6.1, 2013-01-31 01:51:27 +0100
+
+  General:
+  * Fixed: minor stuff in translations
+  * Fixed: feed list view was not refreshed after complete sync update
+  
+  Sailfish OS:
+  * Fixed: all posts view not refreshed after complete sync update (issue #26)
+
 Version 1.6.0, 2013-01-29 18:58:58 +0100
 
   General:
