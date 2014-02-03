@@ -77,6 +77,12 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QLatin1String("updateItems"), argumentList);
     }
 
+    inline QDBusPendingReply<int> isFetchImagesRunning()
+    {
+        QList<QVariant> argumentList;
+        return asyncCallWithArgumentList(QLatin1String("isFetchImagesRunning"), argumentList);
+    }
+
 Q_SIGNALS: // SIGNALS
     void markedAllItemsReadError(const QString &markedAllItemsReadErrorString);
     void markedAllItemsReadSuccess();
@@ -88,6 +94,9 @@ Q_SIGNALS: // SIGNALS
     void starredItemsSuccess();
     void updatedItemsError(const QString &updateItemsErrorString);
     void updatedItemsSuccess();
+    void startedFetchingImages(const int &numberOfItems);
+    void finishedFetchingImages();
+    void fetchingImages(const int &currentItem);
 };
 
 namespace de {

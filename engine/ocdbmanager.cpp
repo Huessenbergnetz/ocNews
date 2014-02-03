@@ -116,6 +116,13 @@ bool OcDbManager::createTables()
         qDebug() << "Created Table queue.";
 #endif
 
+        build.exec(QString("CREATE TABLE IF NOT EXISTS images "
+                           "(id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                           "parentId INTEGER NOT NULL, "
+                           "path TEXT, "
+                           "width INT, "
+                           "height INT);"));
+
         build.exec(QString("CREATE INDEX IF NOT EXISTS feeds_folder_id_index ON feeds (folderId)"));
 
         build.exec(QString("CREATE INDEX IF NOT EXISTS folders_parent_id_index ON folders (parent_id)"));

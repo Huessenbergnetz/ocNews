@@ -7,6 +7,9 @@ OcDBusUpdater::OcDBusUpdater(QObject *parent) :
     connect(updater, SIGNAL(updateError(QString)), this, SLOT(dbusUpdateError(QString)));
     connect(updater, SIGNAL(updateFinished()), this, SLOT(dbusUpdateFinished()));
     connect(updater, SIGNAL(updateStarted()), this, SLOT(dbusUpdateStarted()));
+    connect(updater, SIGNAL(startedFetchingImages(int)), this, SLOT(dbusStartedFetchingImages(int)));
+    connect(updater, SIGNAL(finishedFetchingImages()), this, SLOT(dbusFinishedFetchingImages()));
+    connect(updater, SIGNAL(fetchingImages(int)), this, SLOT(dbusFetchingImages(int)));
 }
 
 void OcDBusUpdater::startUpdate()
@@ -17,6 +20,11 @@ void OcDBusUpdater::startUpdate()
 bool OcDBusUpdater::isUpdateRunning()
 {
     return updater->isUpdateRunning();
+}
+
+int OcDBusUpdater::isFetchImagesRunning()
+{
+    return updater->isFetchImagesRunning();
 }
 
 void OcDBusUpdater::dbusUpdateError(QString updateErrorMessage)
@@ -32,4 +40,19 @@ void OcDBusUpdater::dbusUpdateFinished()
 void OcDBusUpdater::dbusUpdateStarted()
 {
     emit updateStarted();
+}
+
+void OcDBusUpdater::dbusFetchingImages(const int &currentItem)
+{
+    emit fetchingImages(currentItem);
+}
+
+void OcDBusUpdater::dbusFinishedFetchingImages()
+{
+    emit finishedFetchingImages();
+}
+
+void OcDBusUpdater::dbusStartedFetchingImages(const int &numberOfItems)
+{
+    emit startedFetchingImages(numberOfItems);
 }

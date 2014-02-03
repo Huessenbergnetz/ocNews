@@ -1,5 +1,6 @@
 #include <QDebug>
 #include "ocdbmanager.h"
+#include "../../common/globals.h"
 
 OcDbManager::OcDbManager(QObject *parent) :
     QObject(parent)
@@ -11,11 +12,7 @@ bool OcDbManager::openDB()
     db = QSqlDatabase::addDatabase("QSQLITE");
 
     QString path(QDir::homePath());
-#if defined(MEEGO_EDITION_HARMATTAN)
-    path.append(QDir::separator()).append(".local").append(QDir::separator()).append("share").append(QDir::separator()).append("data").append(QDir::separator()).append("ocNews").append(QDir::separator()).append("database.sqlite");
-#else
-    path.append(QDir::separator()).append(".local").append(QDir::separator()).append("share").append(QDir::separator()).append("data").append(QDir::separator()).append("harbour-ocnews").append(QDir::separator()).append("database.sqlite");
-#endif
+    path.append(BASE_PATH).append("/database.sqlite");
     path = QDir::toNativeSeparators(path);
 
     // check if database file exists before database will be opened

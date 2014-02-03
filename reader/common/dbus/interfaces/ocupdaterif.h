@@ -48,10 +48,19 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QLatin1String("startUpdate"), argumentList);
     }
 
+    inline QDBusPendingReply<int> isFetchImagesRunning()
+    {
+        QList<QVariant> argumentList;
+        return asyncCallWithArgumentList(QLatin1String("isFetchImagesRunning"), argumentList);
+    }
+
 Q_SIGNALS: // SIGNALS
     void updateError(const QString &updateErrorMessage);
     void updateFinished();
     void updateStarted();
+    void startedFetchingImages(const int &numberOfItems);
+    void finishedFetchingImages();
+    void fetchingImages(const int &currentItem);
 };
 
 namespace de {

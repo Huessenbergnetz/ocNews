@@ -5,6 +5,7 @@
 OcItems::OcItems(QObject *parent) :
     QObject(parent)
 {
+    itemsToFetchImages = 0;
 }
 
 
@@ -90,7 +91,8 @@ void OcItems::itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString typ
 #endif
 
     int imgHandling = config.getSetting(QString("display/handleimgs"), QDBusVariant(0)).variant().toInt();
-    QList<int> newItems; // list for the new items, for sending to event feed
+    QList<int> newEventItems; // list for the new items, for sending to event feed
+    QList<int> newItems; // list for fetching images
     QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
     QStringList feedsForEventsList = feedsForEventView.split(",");
 
@@ -125,7 +127,6 @@ void OcItems::itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString typ
                               "title = :title, "
                               "author = :author, "
                               "pubDate = :pubDate, "
-                              "body = :body, "
                               "enclosureMime = :enclosureMime, "
                               "enclosureLink = :enclosureLink, "
                               "feedId = :feedId, "
@@ -140,7 +141,7 @@ void OcItems::itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString typ
                 query.bindValue(":title", map["title"].toString());
                 query.bindValue(":author", map["author"].toString());
                 query.bindValue(":pubDate", map["pubDate"].toInt());
-                query.bindValue(":body", map["body"].toString());
+//                query.bindValue(":body", map["body"].toString());
                 query.bindValue(":enclosureMime", map["enclosureMime"].toString());
                 query.bindValue(":enclosureLink", map["enclosureLink"].toString());
                 query.bindValue(":feedId", map["feedId"].toInt());
@@ -155,12 +156,14 @@ void OcItems::itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString typ
 #ifdef QT_DEBUG
             qDebug() << "Create ID:" << map["id"].toInt();
 #endif
-            // collect ids of new items for the event feed
+
+            newItems.append(map["id"].toInt());
+
             // collect ids of new items for the event feed
             if (!feedsForEventsList.isEmpty())
             {
                 if (feedsForEventsList.contains(map["feedId"].toString()))
-                    newItems.append(map["id"].toInt());
+                    newEventItems.append(map["id"].toInt());
             }
 
             query.prepare("INSERT INTO items (id, guid, guidHash, url, title, author, pubDate, body, enclosureMime, enclosureLink, feedId, unread, starred, lastModified) "
@@ -172,10 +175,11 @@ void OcItems::itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString typ
             query.bindValue(":title", map["title"].toString());
             query.bindValue(":author", map["author"].toString());
             query.bindValue(":pubDate", map["pubDate"].toInt());
-            if (imgHandling == 2) {
-                query.bindValue(":body", cacheImages(map["body"].toString(), map["id"].toInt()));
-            } else {
+            if (imgHandling == 2)
+            {
                 query.bindValue(":body", map["body"].toString());
+            } else {
+                query.bindValue(":body", cacheImages(map["body"].toString(), map["id"].toInt(), imgHandling));
             }
             query.bindValue(":enclosureMime", map["enclosureMime"].toString());
             query.bindValue(":enclosureLink", map["enclosureLink"].toString());
@@ -190,7 +194,7 @@ void OcItems::itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString typ
     QSqlDatabase::database().commit();
 
 #ifdef QT_DEBUG
-    qDebug() << "New Items for EventView:" << newItems;
+    qDebug() << "New Items for EventView:" << newEventItems;
 #endif
 
 
@@ -246,8 +250,11 @@ void OcItems::itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString typ
 #endif
     emit requestedItemsSuccess();
 
-    if (!newItems.isEmpty())
-        updateEventFeed(newItems);
+    if (!newEventItems.isEmpty())
+        updateEventFeed(newEventItems);
+
+    if (imgHandling == 2 && !newItems.isEmpty())
+        fetchImages(newItems);
 }
 
 
@@ -385,7 +392,8 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
     qDebug() << "Start updating database.";
 #endif
 
-    QList<int> newItems; // list for the new items, for sending to event feed
+    QList<int> newEventItems; // list for the new items, for sending to event feed
+    QList<int> newItems; // list for fetching images
     int imgHandling = config.getSetting(QString("display/handleimgs"), QDBusVariant(0)).variant().toInt();
     QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
     QStringList feedsForEventsList = feedsForEventView.split(",");
@@ -397,6 +405,7 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
     QSqlQuery query;
 
     QSqlDatabase::database().transaction();
+
     foreach (QVariant item, updateItemsResult["items"].toList())
     {
 
@@ -450,14 +459,16 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
             qDebug() << "Create Item ID:" << map["id"].toInt();
 #endif
 
+            newItems.append(map["id"].toInt());
+
             // collect ids of new items for the event feed
             if (!feedsForEventsList.isEmpty())
             {
                 if (feedsForEventsList.contains(map["feedId"].toString()))
-                    newItems.append(map["id"].toInt());
+                    newEventItems.append(map["id"].toInt());
             }
 #ifdef QT_DEBUG
-            qDebug() << "New Items for EventView:" << newItems;
+            qDebug() << "New Items for EventView:" << newEventItems;
 #endif
 
             query.prepare("INSERT INTO items (id, guid, guidHash, url, title, author, pubDate, body, enclosureMime, enclosureLink, feedId, unread, starred, lastModified) "
@@ -469,10 +480,11 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
             query.bindValue(":title", map["title"].toString());
             query.bindValue(":author", map["author"].toString());
             query.bindValue(":pubDate", map["pubDate"].toInt());
-            if (imgHandling == 2) {
-                query.bindValue(":body", cacheImages(map["body"].toString(), map["id"].toInt()));
-            } else {
+            if (imgHandling == 2)
+            {
                 query.bindValue(":body", map["body"].toString());
+            } else {
+                query.bindValue(":body", cacheImages(map["body"].toString(), map["id"].toInt(), imgHandling));
             }
             query.bindValue(":enclosureMime", map["enclosureMime"].toString());
             query.bindValue(":enclosureLink", map["enclosureLink"].toString());
@@ -484,6 +496,7 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
         }
 
     }
+
     QSqlDatabase::database().commit();
 
 
@@ -505,6 +518,7 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
     if (type != "2")
     {
         QList<int> feedIds;
+        QList<int> imageItemIds;
         int lowestId = 0;
 
         if (type == "0")
@@ -536,8 +550,9 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
             query.exec(QString("SELECT id FROM items WHERE starred = 0 AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)));
 #endif
             while(query.next())
-                deleteCachedImages(query.value(0).toInt());
-
+            {
+                imageItemIds << query.value(0).toInt();
+            }
 
 
 #if defined(MEEGO_EDITION_HARMATTAN)
@@ -545,16 +560,22 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
 #else
             query.exec(QString("DELETE FROM items WHERE starred = 0 AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)));
 #endif
+
         }
         QSqlDatabase::database().commit();
+
+        deleteCachedImages(imageItemIds);
     }
 #ifdef QT_DEBUG
     qDebug() << "Emit updatedItemsSuccess";
 #endif
     emit updatedItemsSuccess();
 
-    if (!newItems.isEmpty())
-        updateEventFeed(newItems);
+    if (!newEventItems.isEmpty())
+        updateEventFeed(newEventItems);
+
+    if (imgHandling == 2 && !newItems.isEmpty())
+        fetchImages(newItems);
 }
 
 
@@ -1009,7 +1030,17 @@ void OcItems::itemsMarkedAllReadUpdateDb(QString newestItemId)
 void OcItems::cleanItems(int id)
 {
     QSqlQuery query;
+    query.exec(QString("SELECT id FROM items WHERE feedId = %1;").arg(id));
+
+    QList<int> imageIdsToDelete;
+    while(query.next())
+    {
+        imageIdsToDelete << query.value(0).toInt();
+    }
+
     query.exec(QString("DELETE FROM items WHERE feedId = %1;").arg(id));
+
+    deleteCachedImages(imageIdsToDelete);
 
 #if defined(MEEGO_EDITION_HARMATTAN)
     // remove items from event feed
@@ -1199,7 +1230,6 @@ void OcItems::updateEventFeed(const QList<int> &newsFeedItems)
         if (query.next())
         {
             QString bodyText(query.value(0).toString() + ": " + query.value(1).toString().remove(QRegExp("<[^>]*>")));
-//            bodyText = bodyText.leftJustified(250, '.', true);
             QString authorInFooter = "";
             if (query.value(6).toString() != "")
                 authorInFooter = query.value(6).toString();
@@ -1223,7 +1253,53 @@ void OcItems::updateEventFeed(const QList<int> &newsFeedItems)
     }
 }
 
-QString OcItems::cacheImages(const QString &bodyText, int id)
+
+
+void OcItems::fetchImages(const QList<int> &newItems)
+{
+
+#ifdef QT_DEBUG
+    qDebug() << "Start fetching images.";
+#endif
+
+
+    itemsToFetchImages = newItems.size();
+    emit startedFetchingImages(itemsToFetchImages);
+
+    for (int i = 0; i < newItems.size(); ++i)
+    {
+        emit fetchingImages(i);
+        QString body = QString("");
+
+        QSqlQuery query;
+        query.exec(QString("SELECT body FROM items WHERE id = %1").arg(newItems.at(i)));
+
+        if (query.next())
+            body = cacheImages(query.value(0).toString(), newItems.at(i), 2);
+
+        if (body != "")
+        {
+            QSqlQuery query2;
+            query2.prepare("UPDATE items SET body = :body WHERE id = :id;");
+            query2.bindValue(":body", body);
+            query2.bindValue(":id", newItems.at(i));
+            query2.exec();
+        }
+
+    }
+
+    itemsToFetchImages = 0;
+    emit finishedFetchingImages();
+
+#ifdef QT_DEBUG
+    qDebug() << "Finished fetching images.";
+#endif
+
+}
+
+
+
+QString OcItems::cacheImages(const QString &bodyText, int id, int imageHandling)
 {
     QString newBodyText = bodyText;
     QRegExp findImg("<img[^>]*>");
@@ -1236,92 +1312,193 @@ QString OcItems::cacheImages(const QString &bodyText, int id)
         pos += findImg.matchedLength();
     }
 #ifdef QT_DEBUG
-    qDebug() << "Found img: " << foundImages;
+    qDebug() << "Found imgs: " << foundImages;
 #endif
 
     if (!foundImages.isEmpty())
     {
-        QRegExp findSrc("(http|ftp)[^\"]*");
+        QSqlQuery query;
 
-        for (int i = 0; i < foundImages.size(); ++i) {
+        for (int i = 0; i < foundImages.size(); ++i)
+        {
+            QVariantMap imageInfo;
 
-            foundImages.at(i).contains(findSrc);
-#ifdef QT_DEBUG
-            qDebug() << "found src: " << findSrc.cap(0);
-#endif
-
-            QUrl fileUrl(findSrc.cap(0));
-            QFileInfo fileInfo = fileUrl.path();
-            QString fileName("_image_");
-            fileName.prepend(QString::number(id));
-            fileName.append(QString::number(i)).append(".");
-            fileName.append(fileInfo.suffix());
-
-            QString storagePath(QDir::homePath());
-            storagePath.append(IMAGE_CACHE);
-            storagePath.append(QDir::separator()).append(fileName);
-            storagePath = QDir::toNativeSeparators(storagePath);
-#ifdef QT_DEBUG
-            qDebug() << storagePath;
-#endif
-
-            QEventLoop dlLoop;
-
-            QNetworkRequest request(findSrc.cap(0));
-
-            QNetworkReply *replyGetImage = network.get(request);
-
-            connect(replyGetImage, SIGNAL(finished()), &dlLoop, SLOT(quit()));
-            dlLoop.exec();
-
-            if (replyGetImage->error() == QNetworkReply::NoError)
+            if (imageHandling != 2)
             {
-
-                QFile imageFile(storagePath);
-                imageFile.open(QIODevice::WriteOnly);
-
-                if (imageFile.write(replyGetImage->readAll()) != -1)
-                {
-
-                    replyGetImage->deleteLater();
-                    newBodyText.replace(findSrc.cap(0), storagePath, Qt::CaseSensitive);
-
-                } else {
-
-                    qDebug() << "Failed to save image";
-                    replyGetImage->deleteLater();
-
-                }
+                imageInfo = extractImgData(foundImages.at(i), false);
             }
             else
             {
-                qDebug() << "Can not download file.";
-                replyGetImage->deleteLater();
+                imageInfo = extractImgData(foundImages.at(i), true);
+
+                QUrl fileUrl(imageInfo["src"].toString());
+                QFileInfo fileInfo = fileUrl.path();
+                QString fileName("_image_");
+                fileName.prepend(QString::number(id));
+                fileName.append(QString::number(i)).append(".");
+                fileName.append(fileInfo.suffix());
+
+                QString storagePath(QDir::homePath());
+                storagePath.append(IMAGE_CACHE);
+                storagePath.append(QDir::separator()).append(fileName);
+                storagePath = QDir::toNativeSeparators(storagePath);
+    #ifdef QT_DEBUG
+                qDebug() << storagePath;
+    #endif
+
+                QEventLoop dlLoop;
+
+                QNetworkRequest request(fileUrl);
+
+                QNetworkReply *replyGetImage = network.get(request);
+
+                connect(replyGetImage, SIGNAL(finished()), &dlLoop, SLOT(quit()));
+                dlLoop.exec();
+
+                if (replyGetImage->error() == QNetworkReply::NoError)
+                {
+
+                    QImage image;
+                    if (image.loadFromData(replyGetImage->readAll()))
+                    {
+
+                        imageInfo["width"] = image.width();
+                        imageInfo["height"] = image.height();
+
+#ifdef QT_DEBUG
+                        qDebug() << "Image Seize: " << imageInfo["width"].toInt() << " x " << imageInfo["height"].toInt();
+#endif
+
+                        if (image.save(storagePath))
+                        {
+                            qDebug() << "Replacing body text.";
+                            newBodyText.replace(imageInfo["src"].toString(), storagePath, Qt::CaseSensitive);
+                            imageInfo["src"] = storagePath;
+                            replyGetImage->deleteLater();
+                        }
+                        else
+                        {
+
+                            qDebug() << "Try to save image with QFile method.";
+
+                            QFile file(storagePath);
+                            file.open(QIODevice::WriteOnly);
+
+                            if (file.write(replyGetImage->readAll()) != -1)
+                            {
+
+                                newBodyText.replace(imageInfo["src"].toString(), storagePath, Qt::CaseSensitive);
+                                imageInfo["src"] = storagePath;
+                                replyGetImage->deleteLater();
+
+                            } else {
+
+                                qDebug() << "Failed to save image";
+                                imageInfo = extractImgData(foundImages.at(i), false);
+                                replyGetImage->deleteLater();
+
+                            }
+
+                        }
+
+                    }
+                    else
+                    {
+                        qDebug() << "Can not load image data.";
+                        imageInfo = extractImgData(foundImages.at(i), false);
+                        replyGetImage->deleteLater();
+                    }
+                }
+                else
+                {
+                    qDebug() << "Can not download image file.";
+                    imageInfo = extractImgData(foundImages.at(i), false);
+                    replyGetImage->deleteLater();
+                }
             }
+
+            query.prepare("INSERT INTO images (parentId, path, width, height) VALUES (:parentId, :path, :width, :height);");
+            query.bindValue(":parentId", id);
+            query.bindValue(":path", imageInfo["src"]);
+            query.bindValue(":width", imageInfo["width"]);
+            query.bindValue(":height", imageInfo["height"]);
+            query.exec();
         }
     }
 
     return newBodyText;
 }
 
-void OcItems::deleteCachedImages(int id)
+
+QVariantMap OcItems::extractImgData(const QString &imgStr, bool srcOnly)
 {
-    QStringList nameFilter;
-    QString fileFilter("_*");
-    fileFilter.prepend(QString::number(id));
-    nameFilter << fileFilter;
-    QString storagePath(QDir::homePath());
-    storagePath.append(IMAGE_CACHE);
-    QDir directory(storagePath);
-    QStringList imgs = directory.entryList(nameFilter);
+    QVariantMap result;
 
-#ifdef QT_DEBUG
-    qDebug() << "Images to delete: " << imgs;
-#endif
+    QRegExp findSrc("(http|ftp)[^\"]*");
+    imgStr.contains(findSrc);
+    result["src"] =  findSrc.cap(0);
 
-    for (int i = 0; i < imgs.size(); ++i)
+    if (!srcOnly)
     {
-        directory.remove(imgs.at(i));
+        QRegExp findWidth("width=\"\\d+\"");
+        QRegExp findHeight("height=\"\\d+\"");
+
+        imgStr.contains(findWidth);
+        imgStr.contains(findHeight);
+
+        QString widthString = findWidth.cap(0);
+        QString heightString = findHeight.cap(0);
+
+        widthString.chop(1);
+        widthString.remove(0, 7);
+        heightString.chop(1);
+        heightString.remove(0, 8);
+
+        result["width"] = widthString.toInt();
+        result["height"] = heightString.toInt();
     }
 
+#ifdef QT_DEBUG
+    qDebug() << "Image information: " << result;
+#endif
+
+    return result;
+}
+
+
+void OcItems::deleteCachedImages(const QList<int> &idsToDelte)
+{
+    for (int d = 0; d < idsToDelte.size(); ++d)
+    {
+
+        QStringList nameFilter;
+        QString fileFilter("_*");
+        fileFilter.prepend(QString::number(idsToDelte.at(d)));
+        nameFilter << fileFilter;
+        QString storagePath(QDir::homePath());
+        storagePath.append(IMAGE_CACHE);
+        QDir directory(storagePath);
+        QStringList imgs = directory.entryList(nameFilter);
+
+    #ifdef QT_DEBUG
+        qDebug() << "Images to delete: " << imgs;
+    #endif
+
+        for (int i = 0; i < imgs.size(); ++i)
+        {
+            directory.remove(imgs.at(i));
+        }
+
+        QSqlQuery query;
+        query.exec(QString("DELETE FROM images WHERE parentId = %1").arg(idsToDelte.at(d)));
+
+    }
+
+}
+
+
+int OcItems::isFetchImagesRunning()
+{
+    qDebug() << "Items is fetching images: " << itemsToFetchImages;
+    return itemsToFetchImages;
 }

@@ -47,3 +47,11 @@ void OcUpdaterAdaptor::startUpdate()
     QMetaObject::invokeMethod(parent(), "startUpdate");
 }
 
+int OcUpdaterAdaptor::isFetchImagesRunning()
+{
+    // handle method call de.buschmann23.ocNewsEngine.Updater.isFetchImagesRunning
+    int out0;
+    QMetaObject::invokeMethod(parent(), "isFetchImagesRunning", Q_RETURN_ARG(int, out0));
+    return out0;
+}
+

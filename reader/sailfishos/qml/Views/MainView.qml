@@ -67,8 +67,11 @@ Page {
 
     SilicaListView {
         id: mainViewList
-        anchors.fill: parent
         anchors.bottomMargin: addActionsDock.open ? addActionsDock.height * 1.5 : 0
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.left: parent.left
+        anchors.bottom: fetchIndicator.visible ? fetchIndicator.top : parent.bottom
 
         header: PageHeader {
             id: pHeader
@@ -84,6 +87,13 @@ Page {
             }
         }
 
+        Behavior on anchors.bottomMargin {
+            NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
+        }
+
+        Behavior on height {
+            NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
+        }
 
         PullDownMenu {
             id: mainViewPully
@@ -155,6 +165,10 @@ Page {
                 onClicked: mainViewList.scrollToTop()
             }
         }
+    }
+
+    FetchImagesIndicator {
+        id: fetchIndicator
     }
 
 

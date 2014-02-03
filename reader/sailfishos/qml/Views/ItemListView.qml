@@ -65,7 +65,10 @@ Page {
 
     SilicaListView {
         id: itemList
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.left: parent.left
+        anchors.bottom: itemListFetchIndicator.visible ? itemListFetchIndicator.top : parent.bottom
         anchors.bottomMargin: sortingPanel.open ? sortingPanel.height * 1.5 : 0
         currentIndex: -1
 
@@ -74,6 +77,14 @@ Page {
             width: headerContainer.width
             height: headerContainer.height
             Component.onCompleted: headerContainer.parent = header
+        }
+
+        Behavior on anchors.bottomMargin {
+            NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
+        }
+
+        Behavior on height {
+            NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
         }
 
         PullDownMenu {
@@ -133,6 +144,10 @@ Page {
                 onClicked: itemList.scrollToTop()
             }
         }
+    }
+
+    FetchImagesIndicator {
+        id: itemListFetchIndicator
     }
 
     function removeFeed(feedId, feedName)

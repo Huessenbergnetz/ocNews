@@ -48,5 +48,15 @@
         <arg name="starredItemsErrorString" type="s" direction="out"/>
     </signal>
     <signal name="starredItemsSuccess"/>
+    <signal name="startedFetchingImages">
+        <arg name="numberOfItems" type="i" direction="out"/>
+    </signal>
+    <signal name="finishedFetchingImages"/>
+    <signal name="fetchingImages">
+        <arg name="currentItem" type="i" direction="out"/>
+    </signal>
+    <method name="isFetchImagesRunning">
+        <arg type="i" direction="out"/>
+    </mehod>
   </interface>
 </node>

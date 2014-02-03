@@ -77,6 +77,16 @@ class OcItemsAdaptor: public QDBusAbstractAdaptor
 "      <arg direction=\"out\" type=\"s\" name=\"starredItemsErrorString\"/>\n"
 "    </signal>\n"
 "    <signal name=\"starredItemsSuccess\"/>\n"
+"    <signal name=\"startedFetchingImages\">\n"
+"      <arg name=\"numberOfItems\" type=\"i\" direction=\"out\"/>\n"
+"    </signal>\n"
+"    <signal name=\"finishedFetchingImages\"/>\n"
+"    <signal name=\"fetchingImages\">\n"
+"      <arg name=\"currentItem\" type=\"i\" direction=\"out\"/>\n"
+"    </signal>\n"
+"    <method name=\"isFetchImagesRunning\">\n"
+"      <arg type=\"i\" direction=\"out\"/>\n"
+"    </mehod>\n"
 "  </interface>\n"
         "")
 public:
@@ -91,6 +101,7 @@ public Q_SLOTS: // METHODS
     void requestItems(const QString &batchSize, const QString &offset, const QString &type, const QString &id, const QString &getRead);
     void starItems(const QString &action, const QVariantMap &itemIds);
     void updateItems(const QString &lastModified, const QString &type, const QString &id);
+    int isFetchImagesRunning();
 Q_SIGNALS: // SIGNALS
     void markedAllItemsReadError(const QString &markedAllItemsReadErrorString);
     void markedAllItemsReadSuccess();
@@ -102,6 +113,9 @@ Q_SIGNALS: // SIGNALS
     void starredItemsSuccess();
     void updatedItemsError(const QString &updateItemsErrorString);
     void updatedItemsSuccess();
+    void startedFetchingImages(const int &numberOfItems);
+    void finishedFetchingImages();
+    void fetchingImages(const int &currentItem);
 };
 
 #endif

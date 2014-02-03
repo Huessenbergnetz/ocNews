@@ -286,7 +286,7 @@ Page {
                 Component.onCompleted: {
                     showImgsModel.get(0).name = qsTr("On request")
                     showImgsModel.get(1).name = qsTr("When item loads")
-                    showImgsModel.get(2).name = qsTr("At updating")
+                    showImgsModel.get(2).name = qsTr("Prefetch at updating")
                 }
             }
 

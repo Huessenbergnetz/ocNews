@@ -41,6 +41,17 @@ Page {
     SilicaListView {
         id: feedList
 
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.left: parent.left
+        anchors.bottom: feedListFetchIndicator.visible ? feedListFetchIndicator.top : parent.bottom
+
+        header: PageHeader { id: header; title: operationRunning ? qsTr("Update running...") : feedListView.folderName }
+
+        Behavior on height {
+            NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
+        }
+
         PullDownMenu {
             id: feedListViewPully
             busy: operationRunning
@@ -87,10 +98,6 @@ Page {
             text: qsTr("This folder is empty. Add some feeds to it.")
         }
 
-        anchors.fill: parent
-
-        header: PageHeader { id: header; title: operationRunning ? qsTr("Update running...") : feedListView.folderName }
-
         model: feedsModelSql
 
         delegate: FeedListDelegate { folderId: feedListView.folderId; folderName: feedListView.folderName; }
@@ -110,6 +117,10 @@ Page {
             }
         }
 
+    }
+
+    FetchImagesIndicator {
+        id: feedListFetchIndicator
     }
 
     function removeFolder(folderId, folderName)

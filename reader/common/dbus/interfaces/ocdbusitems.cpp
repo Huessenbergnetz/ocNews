@@ -14,6 +14,9 @@ OcDBusItems::OcDBusItems(QObject *parent) :
     connect(items, SIGNAL(starredItemsSuccess()), this, SLOT(dbusStarredItemsSuccess()));
     connect(items, SIGNAL(updatedItemsError(QString)), this, SLOT(dbusUpdatedItemsError(QString)));
     connect(items, SIGNAL(updatedItemsSuccess()), this, SLOT(dbusUpdatedItemsSuccess()));
+    connect(items, SIGNAL(startedFetchingImages(int)), this, SLOT(dbusStartedFetchingImages(int)));
+    connect(items, SIGNAL(finishedFetchingImages()), this, SLOT(dbusFinishedFetchingImages()));
+    connect(items, SIGNAL(fetchingImages(int)), this, SLOT(dbusFetchingImages(int)));
 }
 
 void OcDBusItems::markAllItemsRead()
@@ -49,6 +52,11 @@ void OcDBusItems::starItems(const QString &action, const QVariantMap &itemIds)
 void OcDBusItems::updateItems(const QString &lastModified, const QString &type, const QString &id)
 {
     items->updateItems(lastModified, type, id);
+}
+
+int OcDBusItems::isFetchImagesRunning()
+{
+    return items->isFetchImagesRunning();
 }
 
 void OcDBusItems::dbusMarkedAllItemsReadError(const QString &markedAllItemsReadErrorString)
@@ -99,4 +107,19 @@ void OcDBusItems::dbusUpdatedItemsError(const QString &updateItemsErrorString)
 void OcDBusItems::dbusUpdatedItemsSuccess()
 {
     emit updatedItemsSuccess();
+}
+
+void OcDBusItems::dbusStartedFetchingImages(const int &numberOfItems)
+{
+    emit startedFetchingImages(numberOfItems);
+}
+
+void OcDBusItems::dbusFinishedFetchingImages()
+{
+    emit finishedFetchingImages();
+}
+
+void OcDBusItems::dbusFetchingImages(const int &currentItem)
+{
+    emit fetchingImages(currentItem);
 }

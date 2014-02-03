@@ -39,6 +39,16 @@ class OcUpdaterAdaptor: public QDBusAbstractAdaptor
 "    <method name=\"isUpdateRunning\">\n"
 "      <arg direction=\"out\" type=\"b\"/>\n"
 "    </method>\n"
+"    <method name=\"isFetchImagesRunning\">\n"
+"      <arg type=\"i\" direction=\"out\"/>\n"
+"    </method>\n"
+"    <signal name=\"startedFetchingImages\">\n"
+"      <arg name=\"numberOfItems\" type=\"i\" direction=\"out\"/>\n"
+"    </signal>\n"
+"    <signal name=\"finishedFetchingImages\"/>\n"
+"    <signal name=\"fetchingImages\">\n"
+"      <arg name=\"currentItem\" type=\"i\" direction=\"out\"/>\n"
+"    </signal>\n"
 "  </interface>\n"
         "")
 public:
@@ -49,10 +59,14 @@ public: // PROPERTIES
 public Q_SLOTS: // METHODS
     bool isUpdateRunning();
     void startUpdate();
+    int isFetchImagesRunning();
 Q_SIGNALS: // SIGNALS
     void updateError(const QString &updateErrorMessage);
     void updateFinished();
     void updateStarted();
+    void startedFetchingImages(const int &numberOfItems);
+    void finishedFetchingImages();
+    void fetchingImages(const int &currentItem);
 };
 
 #endif

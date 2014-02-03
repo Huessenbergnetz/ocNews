@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../Common"
 
 Page {
     id: singleItemView
@@ -76,7 +77,10 @@ Page {
     SilicaFlickable {
         id: singleItem
         PageHeader { title: feedName }
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.left: parent.left
+        anchors.bottom: itemViewFetchIndicator.visible ? itemViewFetchIndicator.top : parent.bottom
         VerticalScrollDecorator {}
 
         contentHeight: headerRow.height + pubInfos.height + sep.height + bodyText.height + 5 * Theme.paddingLarge
@@ -193,5 +197,9 @@ Page {
             }
         }
 
+    }
+
+    FetchImagesIndicator {
+        id: itemViewFetchIndicator
     }
 }

@@ -35,11 +35,15 @@ public:
 public Q_SLOTS: // METHODS
     void startUpdate();
     bool isUpdateRunning();
+    int isFetchImagesRunning();
 
 Q_SIGNALS: // SIGNALS
     void updateError(const QString &updateErrorMessage);
     void updateFinished();
     void updateStarted();
+    void startedFetchingImages(const int &numberOfItems);
+    void finishedFetchingImages();
+    void fetchingImages(const int &currentItem);
     
 public slots:
     void handleNetAndConfChanges();
@@ -51,6 +55,9 @@ private slots:
     void updateItems();
     void endUpdate();
     void errorInUpdate(QString errorMessage);
+    void itemsStartedFetchingImages(const int &numberOfItems);
+    void itemsFinishedFetchingImages();
+    void itemsFetchingImages(const int &currentItem);
 
 private:
     OcFolders folders;
@@ -59,6 +66,7 @@ private:
     OcNetwork network;
     OcConfiguration config;
     bool updateRunning;
+    int itemsToFetchImages;
 #if defined(MEEGO_EDITION_HARMATTAN)
     TransferUI::Client *transferClient;
     TransferUI::Transfer *transferItem;

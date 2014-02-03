@@ -18,6 +18,7 @@ OcUpdater::OcUpdater(QObject *parent) :
     QObject(parent)
 {
     updateRunning = false;
+    itemsToFetchImages = 0;
 
 #if defined(MEEGO_EDITION_HARMATTAN)
     networkInfo = new QSystemNetworkInfo();
@@ -325,6 +326,11 @@ void OcUpdater::updateItems()
     transferItem->setName(tr("Updating Items"));
 #endif
 
+
+    QObject::connect(&items, SIGNAL(startedFetchingImages(int)), this, SLOT(itemsStartedFetchingImages(int)));
+    QObject::connect(&items, SIGNAL(finishedFetchingImages()), this, SLOT(itemsFinishedFetchingImages()));
+    QObject::connect(&items, SIGNAL(fetchingImages(int)), this, SLOT(itemsFetchingImages(int)));
+
     QSqlQuery query;
     query.exec("SELECT id FROM items LIMIT 1;");
     if (query.next())
@@ -412,10 +418,81 @@ void OcUpdater::errorInUpdate(QString errorMessage)
  *
  * This function checks if an update is running and returns true if one is running.
  *
- * \return
+ * \return bool true if update is running
  */
 
 bool OcUpdater::isUpdateRunning()
 {
     return updateRunning;
 }
+
+
+
+/*!
+ * \fn int OcUpdater::isFetchImagesRunning()
+ * \brief Returns the number of items where images are to fetch
+ *
+ * This function checks if there are currently operationis running to prefetch images.
+ *
+ * \return int 0 if it is not running, otherwise the count of items to prefetch images for
+ */
+
+int OcUpdater::isFetchImagesRunning()
+{
+    qDebug() << "Updater is fetching images: " << itemsToFetchImages;
+    return itemsToFetchImages;
+}
+
+
+
+
+/*!
+ * \fn void OcUpdater::itemsStartedFetchingImages(const int &numberOfItems)
+ * \brief Slot for receiving the startedFetchingImages signal from items
+ * \param numberOfItems
+ *
+ * This private slot receives the startedFetchingImages signal from items class
+ * and reemits it as an own signal.
+ *
+ */
+
+void OcUpdater::itemsStartedFetchingImages(const int &numberOfItems)
+{
+    itemsToFetchImages = numberOfItems;
+    emit startedFetchingImages(numberOfItems);
+}
+
+
+
+/*!
+ * \fn void OcUpdater::itemsFinishedFetchingImages()
+ * \brief Slot for receiving the finishedFetchingImages signal from items
+ *
+ * This private slot receives the finishedFetchingImages signal from items class
+ * and reemits it as an own signal.
+ *
+ */
+
+void OcUpdater::itemsFinishedFetchingImages()
+{
+    itemsToFetchImages = 0;
+    emit finishedFetchingImages();
+}
+
+
+
+/*!
+ * \fn void OcUpdater::itemsFetchingImages(const int &currentItem)
+ * \brief Slot for receiving the fethcingImags signal from items
+ * \param currentItem
+ *
+ * This private slot receives the fetchingImages signal from items class
+ * and reemits it as an own signal.
+ *
+ */
+
+void OcUpdater::itemsFetchingImages(const int &currentItem)
+{
+    emit fetchingImages(currentItem);
+}
+

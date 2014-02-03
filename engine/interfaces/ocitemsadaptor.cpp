@@ -69,3 +69,10 @@ void OcItemsAdaptor::updateItems(const QString &lastModified, const QString &typ
     QMetaObject::invokeMethod(parent(), "updateItems", Q_ARG(QString, lastModified), Q_ARG(QString, type), Q_ARG(QString, id));
 }
 
+int OcItemsAdaptor::isFetchImagesRunning()
+{
+    // handle method cal de.buschmann23.ocNewsEngine.Items.isFetchImagesRunning()
+    int out0;
+    QMetaObject::invokeMethod(parent(), "isFetchImagesRunning", Q_RETURN_ARG(int, out0));
+    return out0;
+}

@@ -10,5 +10,15 @@
     <method name="isUpdateRunning">
         <arg type="b" direction="out"/>
     </mehod>
+    <method name="isFetchImagesRunning">
+        <arg type="i" direction="out"/>
+    </method>
+    <signal name="startedFetchingImages">
+        <arg name="numberOfItems" type="i" direction="out"/>
+    </signal>
+    <signal name="finishedFetchingImages"/>
+    <signal name="fetchingImages">
+        <arg name="currentItem" type="i" direction="out"/>
+    </signal>
   </interface>
 </node>

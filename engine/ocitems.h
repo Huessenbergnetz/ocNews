@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QUrl>
+#include <QImage>
 #if defined(MEEGO_EDITION_HARMATTAN)
 #include <meventfeed.h>
 #endif
@@ -26,6 +27,7 @@ public Q_SLOTS: // METHODS
     void requestItems(const QString &batchSize, const QString &offset, const QString &type, const QString &id, const QString &getRead); // default: "1000", "0", "3", "0", "true"
     void starItems(const QString &action, const QVariantMap &itemIds);
     void updateItems(const QString &lastModified, const QString &type, const QString &id); // default: "0", "3", "0"
+    int isFetchImagesRunning();
 
 signals:
     void requestedItems(QVariantMap requestItemsResult, QString type, QString fid);
@@ -51,6 +53,9 @@ Q_SIGNALS: // SIGNALS
     void starredItemsSuccess();
     void updatedItemsError(const QString &updateItemsErrorString);
     void updatedItemsSuccess();
+    void startedFetchingImages(const int &numberOfItems);
+    void finishedFetchingImages();
+    void fetchingImages(const int &currentItem);
 
 private slots:
     void itemsRequested();
@@ -88,8 +93,11 @@ private:
     void updateEventFeed(const QList<int> &newsFeedItems);
 
     // cache images
-    QString cacheImages(const QString &bodyText, int id);
-    void deleteCachedImages(int id);
+    void fetchImages(const QList<int> &newItems);
+    QString cacheImages(const QString &bodyText, int id, int imageHandling);
+    QVariantMap extractImgData(const QString &imgStr, bool srcOnly);
+    void deleteCachedImages(const QList<int> &idsToDelte);
+    int itemsToFetchImages;
 };
 
 #endif // OCITEMS_H

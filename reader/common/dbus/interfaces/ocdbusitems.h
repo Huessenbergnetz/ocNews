@@ -20,6 +20,7 @@ public slots:
     void requestItems(const QString &batchSize, const QString &offset, const QString &type, const QString &id, const QString &getRead); // default: "1000", "0", "3", "0", "true"
     void starItems(const QString &action, const QVariantMap &itemIds);
     void updateItems(const QString &lastModified, const QString &type, const QString &id); // default: "0", "3", "0"
+    int isFetchImagesRunning();
 
 signals:
     void markedAllItemsReadError(const QString &markedAllItemsReadErrorString);
@@ -32,6 +33,9 @@ signals:
     void starredItemsSuccess();
     void updatedItemsError(const QString &updateItemsErrorString);
     void updatedItemsSuccess();
+    void startedFetchingImages(const int &numberOfItems);
+    void finishedFetchingImages();
+    void fetchingImages(const int &currentItem);
 
 private slots:
     void dbusMarkedAllItemsReadError(const QString &markedAllItemsReadErrorString);
@@ -44,6 +48,9 @@ private slots:
     void dbusStarredItemsSuccess();
     void dbusUpdatedItemsError(const QString &updateItemsErrorString);
     void dbusUpdatedItemsSuccess();
+    void dbusStartedFetchingImages(const int &numberOfItems);
+    void dbusFinishedFetchingImages();
+    void dbusFetchingImages(const int &currentItem);
 
 private:
     de::buschmann23::ocNewsEngine::Items *items;

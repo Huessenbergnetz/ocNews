@@ -210,13 +210,14 @@ void OcFeeds::feedsRequestedUpdateDb(QVariantMap feedsresult)
     }
 
     // delete the serverside deleted ids in the database
-    QSqlDatabase::database().transaction();
+//    QSqlDatabase::database().transaction();
     for (int i = 0; i < idListDeleted.size(); ++i) {
         query.exec(QString("DELETE FROM feeds WHERE id = %1").arg(idListDeleted.at(i)));
-        query.exec(QString("DELETE FROM items WHERE feedId = %1").arg(idListDeleted.at(i)));
+//        query.exec(QString("DELETE FROM items WHERE feedId = %1").arg(idListDeleted.at(i)));
+        items.cleanItems(idListDeleted.at(i));
         qDebug() << "Deleted Feed ID: " << idListDeleted.at(i);
     }
-    QSqlDatabase::database().commit();
+//    QSqlDatabase::database().commit();
 
 #ifdef QT_DEBUG
     qDebug() << "Emit requestedFeedsSuccess signal";
