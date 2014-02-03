@@ -27,7 +27,7 @@ Page {
     property bool containsImg
 
     property string textFormatType: dbus.getSetting("display/textformat", "rich")
-    property bool showImgsDefault: dbus.getSetting("display/showimgs", "hide") === "show"
+    property bool showImgsDefault: dbus.getSetting("display/handleimgs", 0) > 0
     property string _RICHTEXT_STYLESHEET_PREAMBLE: "<html><style>a { text-decoration: none; color: '" + theme.selectionColor + "' }</style><body>";
     property string _RICHTEXT_STYLESHEET_APPENDIX: "</body></html>";
 

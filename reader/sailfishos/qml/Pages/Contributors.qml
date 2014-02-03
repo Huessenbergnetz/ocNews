@@ -16,7 +16,7 @@ Page {
         Column {
             id: aboutCol
             anchors { left: parent.left; leftMargin: Theme.paddingLarge; right: parent.right }
-            spacing: 5
+            spacing: 10
             PageHeader { title: qsTr("Contributors") }
 
             SectionHeader { text: qsTr("Upstream author") }
