@@ -1468,6 +1468,14 @@ QVariantMap OcItems::extractImgData(const QString &imgStr, bool srcOnly)
 
 void OcItems::deleteCachedImages(const QList<int> &idsToDelte)
 {
+    QSqlQuery query;
+    QSqlDatabase::database().transaction();
+    for (int i = 0; i < idsToDelte.size(); ++i)
+    {
+        query.exec(QString("DELETE FROM images WHERE parentId = %1").arg(idsToDelte.at(i)));
+    }
+    QSqlDatabase::database().commit();
+
     for (int d = 0; d < idsToDelte.size(); ++d)
     {
 
@@ -1488,12 +1496,7 @@ void OcItems::deleteCachedImages(const QList<int> &idsToDelte)
         {
             directory.remove(imgs.at(i));
         }
-
-        QSqlQuery query;
-        query.exec(QString("DELETE FROM images WHERE parentId = %1").arg(idsToDelte.at(d)));
-
     }
-
 }
 
 

@@ -119,7 +119,8 @@ Page {
 
     ListView {
         id: itemsList
-        anchors { fill: parent; topMargin: searchFieldBox.height + 71; leftMargin: 0; rightMargin: 16 }
+//        anchors { fill: parent; topMargin: searchFieldBox.height + 71; leftMargin: 0; rightMargin: 16 }
+        anchors { top: parent.top; topMargin: searchFieldBox.height + 71; left: parent.left; leftMargin: 0; right: parent.right; rightMargin: 16; bottom: ivFetchImagesIndicator.visible ? ivFetchImagesIndicator.top : parent.bottom }
         model: itemsModelSql
         delegate: ItemListDelegate {
             onClicked: { GLOBALS.previousContentY = itemsList.contentY; openFile("SingleItemView.qml", {itemId: itemId}); }
@@ -142,6 +143,14 @@ Page {
                 searchFieldTimer.running = true;
             }
         }
+
+        Behavior on height {
+            NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
+        }
+    }
+
+    FetchImagesIndicator {
+        id: ivFetchImagesIndicator
     }
 
     ScrollDecorator {

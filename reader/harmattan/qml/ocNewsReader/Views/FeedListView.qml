@@ -76,7 +76,7 @@ Page {
 
     ListView {
         id: feedList
-        anchors { fill: parent; topMargin: 71; leftMargin: 20; rightMargin: 20 }
+        anchors { top: parent.top; topMargin: 71; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; bottom: fvFetchImagesIndicator.visible ? fvFetchImagesIndicator.top : parent.bottom }
         model: feedsModelSql
         delegate: FeedListDelegate {
                  subtitleColor: "grey"
@@ -94,6 +94,14 @@ Page {
                      }
                  }
              }
+
+        Behavior on height {
+            NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
+        }
+    }
+
+    FetchImagesIndicator {
+        id: fvFetchImagesIndicator
     }
 
     ScrollDecorator {

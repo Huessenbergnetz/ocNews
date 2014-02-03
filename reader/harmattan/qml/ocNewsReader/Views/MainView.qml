@@ -192,7 +192,7 @@ Page {
 // ------------- Main View Start ---------------
     ListView {
         id: folderList
-        anchors { fill: parent; topMargin: 71; leftMargin: 20; rightMargin: 20 }
+        anchors { top: parent.top; topMargin: 71; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; bottom: mvFetchImagesIndicator.visible ? mvFetchImagesIndicator.top : parent.bottom }
         model: viewMode === 0 ? folderModelSql : combinedModelSql
         visible: configState === 0
         delegate: FolderListDelegate {
@@ -224,6 +224,14 @@ Page {
         section.property: "folderName"
         section.delegate: GroupHeader { text: section }
         onModelChanged: model.refresh()
+
+        Behavior on height {
+            NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
+        }
+    }
+
+    FetchImagesIndicator {
+        id: mvFetchImagesIndicator
     }
 
     ScrollDecorator {

@@ -374,6 +374,7 @@ void OcUpdater::endUpdate()
     transferClient->removeTransfer(transferItem->transferId());
     delete transferItem;
     transferItem = 0;
+    transferClient->deleteLater();
 #else
 //    notification->remove();
 //    notificationGroup->remove();
@@ -458,6 +459,26 @@ int OcUpdater::isFetchImagesRunning()
 
 void OcUpdater::itemsStartedFetchingImages(const int &numberOfItems)
 {
+
+#if defined(MEEGO_EDITION_HARMATTAN)
+        transferClient = new TransferUI::Client();
+
+        if(!transferClient->init()) {
+            qDebug()<<"Cannot initialize TUIClient";//error
+            delete transferClient;
+        }
+
+        transferItem = transferClient->registerTransfer(tr("ocNews Image Fetcher"), TransferUI::Client::TRANSFER_TYPES_DOWNLOAD);
+        transferItem->waitForCommit();
+        transferItem->setTargetName(config.getSetting(QString("server/domain"), QDBusVariant("")).variant().toString());
+        transferItem->setName(tr("Fetching images"));
+        transferItem->setSize(0);
+        transferItem->setCanPause(false);
+        transferItem->setIcon("icon-m-ocnews");
+        transferItem->setActive(0);
+        transferItem->commit();
+#endif
+
     itemsToFetchImages = numberOfItems;
     emit startedFetchingImages(numberOfItems);
 }
@@ -475,6 +496,17 @@ void OcUpdater::itemsStartedFetchingImages(const int &numberOfItems)
 
 void OcUpdater::itemsFinishedFetchingImages()
 {
+
+#if defined(MEEGO_EDITION_HARMATTAN)
+    transferItem->setProgress(1.0);
+    transferItem->setName(tr("Fetching images finished"));
+    transferItem->markDone();
+    transferClient->removeTransfer(transferItem->transferId());
+    delete transferItem;
+    transferItem = 0;
+    transferClient->deleteLater();
+#endif
+
     itemsToFetchImages = 0;
     emit finishedFetchingImages();
 }
@@ -493,6 +525,9 @@ void OcUpdater::itemsFinishedFetchingImages()
 
 void OcUpdater::itemsFetchingImages(const int &currentItem)
 {
+#if defined(MEEGO_EDITION_HARMATTAN)
+    transferItem->setProgress((float)currentItem/itemsToFetchImages);
+#endif
     emit fetchingImages(currentItem);
 }
 

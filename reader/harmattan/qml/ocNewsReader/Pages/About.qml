@@ -125,7 +125,7 @@ Page {
 
                 Column {
                     id: contentCol
-                    spacing: 7
+                    spacing: 10
                     width: parent.width
 
                     GroupHeader {

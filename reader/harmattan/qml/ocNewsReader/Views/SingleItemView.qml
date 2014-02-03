@@ -95,6 +95,10 @@ Page {
         contentHeight: header.height + feedNameText.height + pubDateText.height + headerSeperator.height + bodyText.height + openUrlButtonStyle.buttonHeight + showImgButtonStyle.buttonHeight + 20
         flickableDirection:  Flickable.VerticalFlick
 
+        Behavior on height {
+            NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
+        }
+
         Row {
             id: header
 
