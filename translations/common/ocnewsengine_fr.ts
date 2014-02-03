@@ -3,16 +3,16 @@
     <name>OcFeeds</name>
     <message>
         <location filename="../../engine/ocfeeds.cpp" line="33"/>
-        <location filename="../../engine/ocfeeds.cpp" line="246"/>
-        <location filename="../../engine/ocfeeds.cpp" line="420"/>
-        <location filename="../../engine/ocfeeds.cpp" line="545"/>
-        <location filename="../../engine/ocfeeds.cpp" line="732"/>
+        <location filename="../../engine/ocfeeds.cpp" line="247"/>
+        <location filename="../../engine/ocfeeds.cpp" line="421"/>
+        <location filename="../../engine/ocfeeds.cpp" line="546"/>
+        <location filename="../../engine/ocfeeds.cpp" line="733"/>
         <source>Device is in flight mode.</source>
         <translation>L&apos;appareil est en mode avion.</translation>
     </message>
     <message>
         <location filename="../../engine/ocfeeds.cpp" line="73"/>
-        <location filename="../../engine/ocfeeds.cpp" line="311"/>
+        <location filename="../../engine/ocfeeds.cpp" line="312"/>
         <source>Server reply was empty.</source>
         <translation>La réponse du serveur était vide.</translation>
     </message>
@@ -70,15 +70,15 @@
 <context>
     <name>OcItems</name>
     <message>
-        <location filename="../../engine/ocitems.cpp" line="14"/>
-        <location filename="../../engine/ocitems.cpp" line="254"/>
-        <location filename="../../engine/ocitems.cpp" line="911"/>
+        <location filename="../../engine/ocitems.cpp" line="16"/>
+        <location filename="../../engine/ocitems.cpp" line="267"/>
+        <location filename="../../engine/ocitems.cpp" line="953"/>
         <source>Device is in flight mode.</source>
         <translation>L&apos;appareil est en mode avion.</translation>
     </message>
     <message>
-        <location filename="../../engine/ocitems.cpp" line="72"/>
-        <location filename="../../engine/ocitems.cpp" line="361"/>
+        <location filename="../../engine/ocitems.cpp" line="74"/>
+        <location filename="../../engine/ocitems.cpp" line="374"/>
         <source>Server reply was empty.</source>
         <translation>La réponse du serveur était vide.</translation>
     </message>
@@ -86,39 +86,54 @@
 <context>
     <name>OcUpdater</name>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="210"/>
+        <location filename="../../engine/ocupdater.cpp" line="211"/>
         <source>Your account is disabled or you have not created an account yet.</source>
         <translation>Votre compte est désactivé ou bien vous n&apos;avez pas encore créé de compte.</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="246"/>
+        <location filename="../../engine/ocupdater.cpp" line="247"/>
         <source>Synchronizing ownCloud News</source>
         <translation>Synchronisation de ownCloud News</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="249"/>
+        <location filename="../../engine/ocupdater.cpp" line="250"/>
         <source>Updating Folders</source>
         <translation>Mise à jour des dossiers</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="299"/>
+        <location filename="../../engine/ocupdater.cpp" line="300"/>
         <source>Updating Feeds</source>
         <translation>Mise à jour des flux</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="325"/>
+        <location filename="../../engine/ocupdater.cpp" line="326"/>
         <source>Updating Items</source>
         <translation>Mise à jour des articles</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="366"/>
+        <location filename="../../engine/ocupdater.cpp" line="372"/>
         <source>Update Finished</source>
         <translation>Mise à jour terminée</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="396"/>
+        <location filename="../../engine/ocupdater.cpp" line="403"/>
         <source>Update Failed</source>
         <translation>Echec de la mise à jour</translation>
+    </message>
+    <message>
+        <location filename="../../engine/ocupdater.cpp" line="471"/>
+        <source>ocNews Image Fetcher</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../engine/ocupdater.cpp" line="474"/>
+        <source>Fetching images</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../engine/ocupdater.cpp" line="502"/>
+        <source>Fetching images finished</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
