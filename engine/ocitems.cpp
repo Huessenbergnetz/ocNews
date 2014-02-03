@@ -1365,6 +1365,12 @@ QString OcItems::cacheImages(const QString &bodyText, int id, int imageHandling)
                         imageInfo["width"] = image.width();
                         imageInfo["height"] = image.height();
 
+                        QString oldSrc = imageInfo["src"].toString();
+                        QString newSrc = storagePath;
+
+                        oldSrc.prepend("src=\"");
+                        newSrc.prepend("src=\"");
+
 #ifdef QT_DEBUG
                         qDebug() << "Image Seize: " << imageInfo["width"].toInt() << " x " << imageInfo["height"].toInt();
 #endif
@@ -1372,7 +1378,7 @@ QString OcItems::cacheImages(const QString &bodyText, int id, int imageHandling)
                         if (image.save(storagePath))
                         {
                             qDebug() << "Replacing body text.";
-                            newBodyText.replace(imageInfo["src"].toString(), storagePath, Qt::CaseSensitive);
+                            newBodyText.replace(oldSrc, newSrc, Qt::CaseSensitive);
                             imageInfo["src"] = storagePath;
                             replyGetImage->deleteLater();
                         }
@@ -1387,7 +1393,7 @@ QString OcItems::cacheImages(const QString &bodyText, int id, int imageHandling)
                             if (file.write(replyGetImage->readAll()) != -1)
                             {
 
-                                newBodyText.replace(imageInfo["src"].toString(), storagePath, Qt::CaseSensitive);
+                                newBodyText.replace(oldSrc, newSrc, Qt::CaseSensitive);
                                 imageInfo["src"] = storagePath;
                                 replyGetImage->deleteLater();
 

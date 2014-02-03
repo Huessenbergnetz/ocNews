@@ -58,6 +58,8 @@ Page {
         return params;
     }
 
+    allowedOrientations: Orientation.Landscape | Orientation.Portrait
+
     Component.onCompleted: {
         getItemData(showImgsDefault);
     }

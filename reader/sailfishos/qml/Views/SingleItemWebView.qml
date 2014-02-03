@@ -7,6 +7,8 @@ Page {
 
     property string itemUrl
 
+    allowedOrientations: Orientation.Landscape | Orientation.Portrait
+
     onStatusChanged: {
         if (status == PageStatus.Active) {
             webView.url = itemUrl
