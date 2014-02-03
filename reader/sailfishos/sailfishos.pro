@@ -77,7 +77,8 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Pages/images/tigre-bleu.png \
     qml/Common/ImageButton.qml \
     qml/Pages/images/finalmix.png \
-    qml/Common/FetchImagesIndicator.qml
+    qml/Common/FetchImagesIndicator.qml \
+    qml/Dialogs/OpenLink.qml
 
 HEADERS += \
     ../common/ocdbmanager.h \

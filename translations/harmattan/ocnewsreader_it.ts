@@ -1115,13 +1115,23 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="186"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="203"/>
         <source>Open website</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="194"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="211"/>
         <source>Load images</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="229"/>
+        <source>Write to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="229"/>
+        <source>Open %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

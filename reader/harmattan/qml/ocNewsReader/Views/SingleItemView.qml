@@ -31,6 +31,22 @@ Page {
     property string _RICHTEXT_STYLESHEET_PREAMBLE: "<html><style>a { text-decoration: none; color: '" + theme.selectionColor + "' }</style><body>";
     property string _RICHTEXT_STYLESHEET_APPENDIX: "</body></html>";
 
+    function isMailTo(url) {
+        var string = url;
+        if (string.indexOf("mailto") !== -1)
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function stripMailTo(url)
+    {
+        var string = url;
+        return string.replace("mailto:","");
+    }
+
     function getItemData(showImgs)
     {
         var itemData = singleItemModelSql.getItemData(itemId, showImgs);
@@ -90,9 +106,9 @@ Page {
         id: itemContent
         anchors { right: parent.right; rightMargin: 15; left: parent.left; leftMargin: 15; top: parent.top; topMargin: 10; bottom: singleItemViewTools.top }
         width: parent.width
-        height: parent.height - singleItemViewTools.height
+        height: parent.height
         contentWidth: parent.width - 30
-        contentHeight: header.height + feedNameText.height + pubDateText.height + headerSeperator.height + bodyText.height + openUrlButtonStyle.buttonHeight + showImgButtonStyle.buttonHeight + 20
+        contentHeight: header.height + feedNameText.height + pubDateText.height + headerSeperator.height + bodyText.height + openUrlButtonStyle.buttonHeight + showImgButtonStyle.buttonHeight + 50
         flickableDirection:  Flickable.VerticalFlick
 
         Behavior on height {
@@ -175,7 +191,7 @@ Page {
             font.pointSize: 17
             font.weight: Font.Light
             anchors { top: headerSeperator.bottom; topMargin: 12 }
-            onLinkActivated: { Qt.openUrlExternally(link) }
+            onLinkActivated: { linkContextMenu.link = link; linkContextMenu.open() }
             smooth: false
             textFormat: textFormatType == "rich" ? Text.RichText : Text.StyledText
             color: theme.inverted ? "white" : "black"
@@ -202,6 +218,19 @@ Page {
     ScrollDecorator {
         flickableItem: itemContent
         anchors { right: parent.right; rightMargin: -itemContent.anchors.rightMargin }
+    }
+
+    ContextMenu {
+        id: linkContextMenu
+        property string link
+        MenuLayout {
+            MenuItem {
+                text: isMailTo(linkContextMenu.link) ? qsTr("Write to %1").arg(stripMailTo(linkContextMenu.link))  : qsTr("Open %1").arg(linkContextMenu.link)
+                onClicked: {
+                    Qt.openUrlExternally(linkContextMenu.link)
+                }
+            }
+        }
     }
 
 // ------------- ToolBar Start -------------

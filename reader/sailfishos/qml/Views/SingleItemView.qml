@@ -170,13 +170,12 @@ Page {
         Text {
             id: bodyText
             text: textFormatType === "rich" ? _RICHTEXT_STYLESHEET_PREAMBLE + body + _RICHTEXT_STYLESHEET_APPENDIX : body
-//            text: body
             width: singleItem.width
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             font.pixelSize: Theme.fontSizeSmall
             font.weight: Font.Light
             anchors { top: sep.bottom; topMargin: 12; left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
-            onLinkActivated: { Qt.openUrlExternally(link) }
+            onLinkActivated: pageStack.push(Qt.resolvedUrl("../Dialogs/OpenLink.qml"), {link: link})
             smooth: true
             textFormat: textFormatType == "rich" ? Text.RichText : Text.StyledText
             color: Theme.primaryColor

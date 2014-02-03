@@ -654,6 +654,19 @@
     </message>
 </context>
 <context>
+    <name>OpenLink</name>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="25"/>
+        <source>Write e-mail</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="25"/>
+        <source>Open in browser</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PrivacyPolicy</name>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/PrivacyPolicy.qml" line="14"/>
@@ -993,7 +1006,7 @@
     <name>SingleItemView</name>
     <message>
         <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="92"/>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="195"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="194"/>
         <source>Open in Browser</source>
         <translation>Ouvrir dans le navigateur</translation>
     </message>
@@ -1013,7 +1026,7 @@
         <translation>Afficher les images</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="191"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="190"/>
         <source>Scroll to top</source>
         <translation>Remonter au début</translation>
     </message>
