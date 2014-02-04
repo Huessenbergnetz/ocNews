@@ -445,8 +445,8 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="325"/>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="328"/>
-        <source>Last update:</source>
-        <translation>Letzte Aktualisierung:</translation>
+        <source>Last:</source>
+        <translation>Zuletzt:</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="346"/>

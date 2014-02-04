@@ -322,10 +322,10 @@ Page {
             MenuItem {
                 id: lastUpdated
                 enabled: false
-                text: qsTr("Last update:") + " " + Qt.formatDateTime(new Date(dbus.getStat(1)), Qt.DefaultLocaleShortDate)
+                text: qsTr("Last:") + " " + Qt.formatDateTime(new Date(dbus.getStat(1)), Qt.DefaultLocaleShortDate)
                 Connections {
                     target: updater
-                    onUpdateFinished: lastUpdated.text = qsTr("Last update:") + " " + Qt.formatDateTime(new Date(dbus.getStat(1)), Qt.DefaultLocaleShortDate);
+                    onUpdateFinished: lastUpdated.text = qsTr("Last:") + " " + Qt.formatDateTime(new Date(dbus.getStat(1)), Qt.DefaultLocaleShortDate);
                 }
             }
         }

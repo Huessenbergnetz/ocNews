@@ -1377,7 +1377,6 @@ QString OcItems::cacheImages(const QString &bodyText, int id, int imageHandling)
 
                         if (image.save(storagePath))
                         {
-                            qDebug() << "Replacing body text.";
                             newBodyText.replace(oldSrc, newSrc, Qt::CaseSensitive);
                             imageInfo["src"] = storagePath;
                             replyGetImage->deleteLater();
@@ -1508,6 +1507,8 @@ void OcItems::deleteCachedImages(const QList<int> &idsToDelte)
 
 int OcItems::isFetchImagesRunning()
 {
+#ifdef QT_DEBUG
     qDebug() << "Items is fetching images: " << itemsToFetchImages;
+#endif
     return itemsToFetchImages;
 }
