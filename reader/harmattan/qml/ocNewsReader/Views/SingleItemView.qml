@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import "../Sheets"
 //import com.nokia.extras 1.0
 
 //import "../JS/globals.js" as GLOBALS
@@ -45,6 +46,22 @@ Page {
     {
         var string = url;
         return string.replace("mailto:","");
+    }
+
+    function isImageLink(url) {
+        var string = url;
+        if (string.indexOf(".jpeg") !== -1 || string.indexOf(".JPEG") !== -1)
+        {
+            return true;
+        } else if (string.indexOf(".jpg") !== -1 || string.indexOf(".JPG") !== -1) {
+            return true;
+        } else if (string.indexOf(".png") !== -1 || string.indexOf(".PNG") !== -1) {
+            return true;
+        } else if (string.indexOf(".gif") !== -1 || string.indexOf(".GIF") !== -1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     function getItemData(showImgs)
@@ -191,7 +208,7 @@ Page {
             font.pointSize: 17
             font.weight: Font.Light
             anchors { top: headerSeperator.bottom; topMargin: 12 }
-            onLinkActivated: { linkContextMenu.link = link; linkContextMenu.open() }
+            onLinkActivated: if (isImageLink(link)) {imagePreview.link = link; imagePreview.open()} else {linkContextMenu.link = link; linkContextMenu.open()}
             smooth: false
             textFormat: textFormatType == "rich" ? Text.RichText : Text.StyledText
             color: theme.inverted ? "white" : "black"
@@ -225,7 +242,7 @@ Page {
         property string link
         MenuLayout {
             MenuItem {
-                text: isMailTo(linkContextMenu.link) ? qsTr("Write to %1").arg(stripMailTo(linkContextMenu.link))  : qsTr("Open %1").arg(linkContextMenu.link)
+                text: isMailTo(linkContextMenu.link) ? qsTr("Write to %1").arg(stripMailTo(linkContextMenu.link)) : qsTr("Open %1").arg(linkContextMenu.link)
                 onClicked: {
                     Qt.openUrlExternally(linkContextMenu.link)
                 }
@@ -259,5 +276,15 @@ Page {
 
 
 // ----------------- ToolBar End -------------
+
+
+// ----------------- Start Image Preview Sheet -----------------
+
+    ImagePreviewSheet {
+        id: imagePreview
+    }
+
+
+// ----------------- End Image Preview Sheet -----------------
 
 }
