@@ -44,22 +44,27 @@ Dialog {
     }
 
     Image {
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
+        id: image
+        anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
         fillMode: Image.PreserveAspectFit
         visible: isImageLink(link)
         source: isImageLink(link) ? link : ""
     }
 
+    Slider {
+        anchors { verticalCenter: parent.verticalCenter; horizontalCenter: parent.horizontalCenter }
+        value: image.progress
+        minimumValue: 0
+        maximumValue: 1.0
+        enabled: false
+        width: parent.width
+        handleVisible: false
+        valueText: ""
+        visible: image.status != Image.Ready && image.visible
+    }
+
     Label {
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.leftMargin: Theme.paddingLarge
-        anchors.rightMargin: Theme.paddingLarge
-        anchors.verticalCenter: !isImageLink(link) ? parent.verticalCenter : ""
-        anchors.bottom: isImageLink(link) ? parent.bottom : ""
-        anchors.bottomMargin: isImageLink(link) ? Theme.paddingLarge : ""
+        anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge; verticalCenter: !isImageLink(link) ? parent.verticalCenter : ""; bottom: isImageLink(link) ? parent.bottom : ""; bottomMargin: isImageLink(link) ? Theme.paddingLarge : ""}
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: Theme.fontSizeMedium
         color: Theme.highlightColor
