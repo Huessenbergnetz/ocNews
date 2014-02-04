@@ -658,12 +658,12 @@
 <context>
     <name>OpenLink</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="25"/>
+        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="43"/>
         <source>Write e-mail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="25"/>
+        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="43"/>
         <source>Open in browser</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1007,28 +1007,28 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="92"/>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="194"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="94"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="196"/>
         <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="96"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="98"/>
         <source>Remove from favourites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="96"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="98"/>
         <source>Mark as favourite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="104"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="106"/>
         <source>Show images</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="190"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="192"/>
         <source>Scroll to top</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1036,17 +1036,17 @@
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="47"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="49"/>
         <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="51"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="53"/>
         <source>Open in browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="55"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="57"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>

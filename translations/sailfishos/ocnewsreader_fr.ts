@@ -47,7 +47,7 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="22"/>
         <source>Upstream author</source>
-        <translation type="unfinished"/>
+        <translation>Auteur upstream</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="26"/>
@@ -275,7 +275,7 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Common/FetchImagesIndicator.qml" line="39"/>
         <source>Fetching images</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement des images</translation>
     </message>
 </context>
 <context>
@@ -656,14 +656,14 @@
 <context>
     <name>OpenLink</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="25"/>
+        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="43"/>
         <source>Write e-mail</source>
-        <translation type="unfinished"/>
+        <translation>Ecrire un courriel</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="25"/>
+        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="43"/>
         <source>Open in browser</source>
-        <translation type="unfinished"/>
+        <translation>Ouvrir dans le navigateur</translation>
     </message>
 </context>
 <context>
@@ -939,7 +939,7 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="289"/>
         <source>Prefetch at updating</source>
-        <translation type="unfinished"/>
+        <translation>Pré-télécharger lors de la mise à jour</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="296"/>
@@ -1005,28 +1005,28 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="92"/>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="194"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="94"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="196"/>
         <source>Open in Browser</source>
         <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="96"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="98"/>
         <source>Remove from favourites</source>
         <translation>Supprimer des favoris</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="96"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="98"/>
         <source>Mark as favourite</source>
         <translation>Marquer comme favori</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="104"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="106"/>
         <source>Show images</source>
         <translation>Afficher les images</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="190"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="192"/>
         <source>Scroll to top</source>
         <translation>Remonter au début</translation>
     </message>
@@ -1034,17 +1034,17 @@
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="47"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="49"/>
         <source>Reload</source>
         <translation>Recharger</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="51"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="53"/>
         <source>Open in browser</source>
         <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="55"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="57"/>
         <source>Back</source>
         <translation>Retour</translation>
     </message>

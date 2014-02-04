@@ -123,17 +123,17 @@
     <message>
         <location filename="../../engine/ocupdater.cpp" line="471"/>
         <source>ocNews Image Fetcher</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargeur d&apos;images ocNews</translation>
     </message>
     <message>
         <location filename="../../engine/ocupdater.cpp" line="474"/>
         <source>Fetching images</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement des images</translation>
     </message>
     <message>
         <location filename="../../engine/ocupdater.cpp" line="502"/>
         <source>Fetching images finished</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement des images terminé</translation>
     </message>
 </context>
 </TS>
