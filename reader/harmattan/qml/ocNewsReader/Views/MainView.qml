@@ -253,18 +253,19 @@ Page {
             id: addIcon
             platformIconId: "toolbar-add"
             anchors.left: (parent === undefined) ? undefined : parent.left
-            onClicked: { (addMenu.status === DialogStatus.Closed) ? addMenu.open() : addMenu.close(); settingsMenu.close(); }
+            onClicked: { (addMenu.status === DialogStatus.Closed) ? addMenu.open() : addMenu.close(); settingsMenu.close(); updateMenu.close() }
         }
         ToolIcon {
             id: updaterIcon
             platformIconId: operationRunning ? "toolbar-refresh-dimmed" : "toolbar-refresh"
             enabled: !operationRunning
-            onClicked: { operationRunning = true; updater.startUpdate(); }
+//            onClicked: { operationRunning = true; updater.startUpdate(); }
+            onClicked: { (updateMenu.status === DialogStatus.Closed) ? updateMenu.open() : updateMenu.close(); settingsMenu.close(); addMenu.close() }
         }
         ToolIcon {
             platformIconId: "toolbar-view-menu"
             anchors.right: (parent === undefined) ? undefined : parent.right
-            onClicked: { (settingsMenu.status === DialogStatus.Closed) ? settingsMenu.open() : settingsMenu.close(); addMenu.close(); }
+            onClicked: { (settingsMenu.status === DialogStatus.Closed) ? settingsMenu.open() : settingsMenu.close(); addMenu.close(); updateMenu.close() }
         }
     }
 
@@ -307,6 +308,29 @@ Page {
             }
         }
     }
+
+    Menu {
+        id: updateMenu
+        property int lastUpdTime
+        visualParent: pageStack
+        MenuLayout {
+            MenuItem {
+                text: qsTr("Update all")
+                onClicked: { operationRunning = true; updater.startUpdate(); }
+                enabled: !operationRunning
+            }
+            MenuItem {
+                id: lastUpdated
+                enabled: false
+                text: qsTr("Last update:") + " " + Qt.formatDateTime(new Date(dbus.getStat(1)), Qt.DefaultLocaleShortDate)
+                Connections {
+                    target: updater
+                    onUpdateFinished: lastUpdated.text = qsTr("Last update:") + " " + Qt.formatDateTime(new Date(dbus.getStat(1)), Qt.DefaultLocaleShortDate);
+                }
+            }
+        }
+    }
+
 // ----------------- ToolBar End -------------
 
 
