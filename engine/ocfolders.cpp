@@ -291,7 +291,8 @@ void OcFolders::folderDeletedUpdateDb(int id)
 
     // delete the serverside deleted item ids in the database
     for (int i = 0; i < idListFeeds.size(); ++i) {
-        query.exec(QString("DELETE FROM items WHERE feedId = %1").arg(idListFeeds.at(i)));
+//        query.exec(QString("DELETE FROM items WHERE feedId = %1").arg(idListFeeds.at(i)));
+        feeds.feedDeletedCleanItems(idListFeeds.at(i));
     }
 
 #ifdef QT_DEBUG

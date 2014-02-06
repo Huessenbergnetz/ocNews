@@ -84,6 +84,28 @@ Page {
         downloads.abortDownload(itemId);
     }
 
+    function openEnclosureDirect()
+    {
+        var ret;
+        switch(enclosureType) {
+        case 1:
+            launcher.playAudio(enclosureLink);
+            break;
+        case 2:
+            launcher.playVideo(enclosureLink);
+            break;
+        case 3:
+            ret = "image://theme/icon-m-content-pdf"
+            break;
+        case 4:
+            ret = "image://theme/icon-m-content-image"
+            break;
+        default:
+            ret = "image://theme/icon-m-content-attachment";
+            break;
+        }
+    }
+
     function getItemData(showImgs)
     {
         var itemData = singleItemModelSql.getItemData(itemId, showImgs);
@@ -305,7 +327,7 @@ Page {
         MenuLayout {
             MenuItem {
                 text: enclosureExists ? qsTr("Open enclosure") : qsTr("Open enclosure directly")
-                onClicked: enclosureExists ? Qt.openUrlExternally(downloads.itemExists(enclosureLink)) : ""
+                onClicked: enclosureExists ? Qt.openUrlExternally(downloads.itemExists(enclosureLink)) : singleItemView.openEnclosureDirect()
                 enabled: !enclosureDownloading && !enclosureInQueue
             }
             MenuItem {

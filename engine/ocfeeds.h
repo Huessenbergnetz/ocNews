@@ -26,6 +26,9 @@ public Q_SLOTS: // METHODS
     void moveFeed(const QString &id, const QString &folderId);
     void requestFeeds();
 
+public slots:
+    void feedDeletedCleanItems(int id);
+
 signals:
     void requestedFeeds(QVariantMap feedsresult);
     void createdFeed(QVariantMap createFeedResult);
@@ -54,7 +57,7 @@ private slots:
     void feedCreatedFetchItems(QVariantMap createFeedResult, QString feedName);
     void feedDeleted();
     void feedDeletedUpdateDb(int id);
-    void feedDeletedCleanItems(int id);
+//    void feedDeletedCleanItems(int id);
     void feedMoved(QString folderId);
     void feedMovedUpdateDb(int id, QString folderId);
     void feedMarkedRead();

@@ -10,6 +10,8 @@ class OcLauncher : public QObject
 public:
     explicit OcLauncher(QObject *parent = 0);
     Q_INVOKABLE void launch(const QString &executable, const QString &arguments);
+    Q_INVOKABLE void playAudio(const QString &playList);
+    Q_INVOKABLE void playVideo(const QString &playList);
     
 signals:
     
