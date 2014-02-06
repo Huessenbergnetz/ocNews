@@ -21,6 +21,13 @@ OcUpdater::OcUpdater(QObject *parent) :
     itemsToFetchImages = 0;
 
 #if defined(MEEGO_EDITION_HARMATTAN)
+    transferClient = new TransferUI::Client();
+
+    if(!transferClient->init()) {
+        qDebug()<<"Cannot initialize TUIClient";//error
+        delete transferClient;
+    }
+
     networkInfo = new QSystemNetworkInfo();
     batteryInfo = new QSystemBatteryInfo();
     timer = new QSystemAlignedTimer(this);
@@ -237,13 +244,6 @@ void OcUpdater::startUpdatePrivate()
 
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-        transferClient = new TransferUI::Client();
-
-        if(!transferClient->init()) {
-            qDebug()<<"Cannot initialize TUIClient";//error
-            delete transferClient;
-        }
-
         transferItem = transferClient->registerTransfer(tr("Synchronizing ownCloud News"), TransferUI::Client::TRANSFER_TYPES_SYNC);
         transferItem->waitForCommit();
         transferItem->setTargetName(config.getSetting(QString("server/domain"), QDBusVariant("")).variant().toString());
@@ -369,11 +369,11 @@ void OcUpdater::endUpdate()
 
 #if defined(MEEGO_EDITION_HARMATTAN)
     transferItem->setProgress(1.0);
-    transferItem->setName(tr("Update Finished"));
-    transferItem->markDone();
+//    transferItem->setName(tr("Update Finished"));
+    transferItem->markDone(tr("Update Finished"));
     transferClient->removeTransfer(transferItem->transferId());
-    transferItem->deleteLater();
-    transferClient->deleteLater();
+    delete transferItem;
+    transferItem = 0;
 #else
 //    notification->remove();
 //    notificationGroup->remove();
@@ -460,16 +460,9 @@ void OcUpdater::itemsStartedFetchingImages(const int &numberOfItems)
 {
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-        transferClient = new TransferUI::Client();
-
-        if(!transferClient->init()) {
-            qDebug()<<"Cannot initialize TUIClient";//error
-            delete transferClient;
-        }
-
         transferItem = transferClient->registerTransfer(tr("ocNews Image Fetcher"), TransferUI::Client::TRANSFER_TYPES_DOWNLOAD);
         transferItem->waitForCommit();
-//        transferItem->setTargetName(config.getSetting(QString("server/domain"), QDBusVariant("")).variant().toString());
+        transferItem->setTargetName("ocNews");
         transferItem->setName(tr("Fetching images"));
         transferItem->setSize(0);
         transferItem->setCanPause(false);
@@ -501,8 +494,8 @@ void OcUpdater::itemsFinishedFetchingImages()
     transferItem->setName(tr("Fetching images finished"));
     transferItem->markDone();
     transferClient->removeTransfer(transferItem->transferId());
-    transferItem->deleteLater();
-    transferClient->deleteLater();
+    delete transferItem;
+    transferItem = 0;
 #endif
 
     itemsToFetchImages = 0;
