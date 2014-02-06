@@ -132,7 +132,8 @@ CoverBackground {
         CoverAction {
             iconSource: "image://theme/icon-cover-new"
             onTriggered: {
-                pageStack.push(Qt.resolvedUrl("../Dialogs/CreateFeed.qml"))
+                var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/CreateFeed.qml"))
+                dialog.accepted.connect(function() {operationRunning = true })
                 ocNewsReader.activate()
             }
         }

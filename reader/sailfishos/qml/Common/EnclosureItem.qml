@@ -15,12 +15,6 @@ Item {
 
     property alias name: name.text
     property alias host: host.text
-//    property alias showHost: host.visible
-//    property alias exists: exists.visible
-//    property alias inQueue: inQueue.visible
-//    property alias showProgress: downloadBar.visible
-//    property alias value: downloadBar.value
-//    property alias maxValue: downloadBar.maximumValue
 
     property bool enclosureDownloading: downloads.getCurrentItem() === enclosureItemId
     property bool enclosureInQueue: downloads.itemInQueue(enclosureItemId)
