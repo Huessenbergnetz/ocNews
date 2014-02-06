@@ -20,6 +20,7 @@
 #include "../common/dbus/interfaces/ocdbusitems.h"
 #include "../common/dbus/interfaces/ocdbusupdater.h"
 #include "../common/dbus/interfaces/ocdbusaccount.h"
+#include "../common/dbus/interfaces/ocdbusdownloads.h"
 #include "../common/dbus/adaptor/ocdbusadaptor.h"
 #include "../common/dbus/adaptor/ocdbusproxy.h"
 #include "../common/oclauncher.h"
@@ -72,6 +73,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     OcDBusItems items;
     OcDBusUpdater updater;
     OcDBusAccount account;
+    OcDBusDownloads downloads;
     OcShareUi shareUi;
     OcLauncher launcher;
 
@@ -95,6 +97,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("feeds", &feeds);
     viewer.rootContext()->setContextProperty("items", &items);
     viewer.rootContext()->setContextProperty("updater", &updater);
+    viewer.rootContext()->setContextProperty("downloads", &downloads);
     viewer.rootContext()->setContextProperty("folderModelSql", folderModelSql);
     viewer.rootContext()->setContextProperty("combinedModelSql", combinedModelSql);
     viewer.rootContext()->setContextProperty("feedsModelSql", feedsModelSql);

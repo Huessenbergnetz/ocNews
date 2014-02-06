@@ -1,4 +1,4 @@
-Version 1.6.1, 2013-01-31 01:51:27 +0100
+Version 1.6.1, 2014-01-31 01:51:27 +0100
 
   General:
   * Fixed: minor stuff in translations
@@ -7,7 +7,7 @@ Version 1.6.1, 2013-01-31 01:51:27 +0100
   Sailfish OS:
   * Fixed: all posts view not refreshed after complete sync update (issue #26)
 
-Version 1.6.0, 2013-01-29 18:58:58 +0100
+Version 1.6.0, 2014-01-29 18:58:58 +0100
 
   General:
   * NEW: second mode for the main view, choose between folders or all feeds (issue #10)
@@ -26,14 +26,14 @@ Version 1.6.0, 2013-01-29 18:58:58 +0100
   * Fixed: if title contains an ampersand, the part after it was not shown (issue #22)
   * Fixed: on hiding virtual keyboard, docked sorting panel was shown shortly (issue #24)
 
-Version 1.5.2, 2013-01-24 14:50:00 +0100
+Version 1.5.2, 2014-01-24 14:50:00 +0100
 
   General:
   * NEW: french translation by Antoine Vacher aka. tigre-bleu
   * NEW: contributors page
   * Changed: use a centralized property to indicate if an operaton is running
 
-Version 1.5.1, 2013-01-21 14:00:00 +0100
+Version 1.5.1, 2014-01-21 14:00:00 +0100
 
   Sailfish OS:
   * NEW: add maintenance options (delete database, reset configuration)

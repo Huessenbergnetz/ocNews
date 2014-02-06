@@ -39,7 +39,35 @@ QVariantMap OcSingleItemModelSql::getItemData(const QString &itemId, bool showIm
         itemresult["previous"] = query.value(13).toString();
         itemresult["next"] = query.value(14).toString();
         itemresult["containsImg"] = showImg ? false : query.value(6).toString().contains(QRegExp("<img[^>]*>"));
+        if (itemresult["enclosureLink"] == "") {
+            itemresult["enclosureType"] = 0;
+            itemresult["enclosureHost"] = "";
+            itemresult["enclosureName"] = "";
+        } else {
+            itemresult["enclosureType"] = getEnclosureType(query.value(7).toString());
+            itemresult["enclosureHost"] = QUrl(query.value(8).toString()).host();
+            itemresult["enclosureName"] = QFileInfo(query.value(8).toString()).fileName();
+        }
     }
 
     return itemresult;
+}
+
+
+int OcSingleItemModelSql::getEnclosureType(const QString &encMime)
+{
+
+    if (encMime.contains("audio", Qt::CaseInsensitive)) {
+        return 1;
+    } else if (encMime.contains("video", Qt::CaseInsensitive)) {
+        return 2;
+    } else if (encMime.contains("pdf", Qt::CaseInsensitive)) {
+        return 3;
+    } else if (encMime.contains("image", Qt::CaseInsensitive)) {
+        return 4;
+    } else {
+        return 0;
+    }
+
+
 }

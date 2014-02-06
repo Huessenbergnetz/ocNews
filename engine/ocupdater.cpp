@@ -372,8 +372,7 @@ void OcUpdater::endUpdate()
     transferItem->setName(tr("Update Finished"));
     transferItem->markDone();
     transferClient->removeTransfer(transferItem->transferId());
-    delete transferItem;
-    transferItem = 0;
+    transferItem->deleteLater();
     transferClient->deleteLater();
 #else
 //    notification->remove();
@@ -470,7 +469,7 @@ void OcUpdater::itemsStartedFetchingImages(const int &numberOfItems)
 
         transferItem = transferClient->registerTransfer(tr("ocNews Image Fetcher"), TransferUI::Client::TRANSFER_TYPES_DOWNLOAD);
         transferItem->waitForCommit();
-        transferItem->setTargetName(config.getSetting(QString("server/domain"), QDBusVariant("")).variant().toString());
+//        transferItem->setTargetName(config.getSetting(QString("server/domain"), QDBusVariant("")).variant().toString());
         transferItem->setName(tr("Fetching images"));
         transferItem->setSize(0);
         transferItem->setCanPause(false);
@@ -502,8 +501,7 @@ void OcUpdater::itemsFinishedFetchingImages()
     transferItem->setName(tr("Fetching images finished"));
     transferItem->markDone();
     transferClient->removeTransfer(transferItem->transferId());
-    delete transferItem;
-    transferItem = 0;
+    transferItem->deleteLater();
     transferClient->deleteLater();
 #endif
 

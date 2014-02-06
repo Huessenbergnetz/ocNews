@@ -19,6 +19,8 @@
 #include "interfaces/ocitemsadaptor.h"
 #include "ocupdater.h"
 #include "interfaces/ocupdateradaptor.h"
+#include "ocdownloadmanager.h"
+#include "interfaces/ocdownloadsadaptor.h"
 #if defined(MEEGO_EDITION_HARMATTAN)
 #include "ocaccount.h"
 #include "interfaces/ocaccountadaptor.h"
@@ -84,12 +86,14 @@ int main(int argc, char *argv[])
     QString imgCache(QDir::homePath().append(IMAGE_CACHE));
     QString localCertsPath = basePath.append("/certs");
     QString globalCertsPath = QString(GLOBAL_CERTS_PATH);
+    QString mediaPath(QDir::homePath().append(MEDIA_PATH));
 
     // create storage dirs
     QDir().mkpath(faviconsPath);
     QDir().mkpath(enclosuresPath);
     QDir().mkpath(imgCache);
     QDir().mkpath(localCertsPath);
+    QDir().mkpath(mediaPath);
 
 #if defined(MEEGO_EDITION_HARMATTAN)
     // set credential for ssl domain
@@ -151,6 +155,8 @@ int main(int argc, char *argv[])
     new OcItemsAdaptor(items);
     OcUpdater* updater = new OcUpdater;
     new OcUpdaterAdaptor(updater);
+    OcDownloadManager* dManager = new OcDownloadManager;
+    new OcDownloadManagerAdaptor(dManager);
 #if defined(MEEGO_EDITION_HARMATTAN)
     OcAccount* account = new OcAccount;
     new OcAccountAdaptor(account);
@@ -167,6 +173,7 @@ int main(int argc, char *argv[])
     ret = connection.registerObject("/Feeds", feeds);
     ret = connection.registerObject("/Items", items);
     ret = connection.registerObject("/Updater", updater);
+    ret = connection.registerObject("/Downloads", dManager);
 #if defined(MEEGO_EDITION_HARMATTAN)
     ret = connection.registerObject("/Account", account);
 #endif

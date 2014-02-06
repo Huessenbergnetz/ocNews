@@ -70,7 +70,9 @@ SOURCES += main.cpp \
     interfaces/ocfeedsadaptor.cpp \
     interfaces/ocitemsadaptor.cpp \
     interfaces/ocupdateradaptor.cpp \
-    interfaces/ocaccountadaptor.cpp
+    interfaces/ocaccountadaptor.cpp \
+    ocdownloadmanager.cpp \
+    interfaces/ocdownloadsadaptor.cpp
 
 !isEmpty(MEEGO_VERSION_MAJOR) {
 SOURCES += ocaccount.cpp
@@ -100,7 +102,9 @@ HEADERS += \
     interfaces/ocitemsadaptor.h \
     interfaces/ocupdateradaptor.h \
     interfaces/ocaccountadaptor.h \
-    ../common/globals.h
+    ../common/globals.h \
+    ocdownloadmanager.h \
+    interfaces/ocdownloadsadaptor.h
 
 !isEmpty(MEEGO_VERSION_MAJOR) {
 HEADERS += ocaccount.h
@@ -129,7 +133,8 @@ OTHER_FILES += \
     interfaces/de.buschmann23.ocNewsEngine.Updater.xml \
     harmattan/de.buschmann23.ocNewsEngine.service \
     sailfishos/de.buschmann23.ocNewsEngine.service \
-    interfaces/de.buschmann23.ocNewsEngine.Account.xml
+    interfaces/de.buschmann23.ocNewsEngine.Account.xml \
+    interfaces/de.buschmann23.ocNewsEngine.Downloads.xml
 
 RESOURCES += \
     ../translations/common/translations.qrc

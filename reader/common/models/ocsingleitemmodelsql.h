@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QtSql>
+#include <QUrl>
 
 class OcSingleItemModelSql : public QObject
 {
@@ -17,6 +18,7 @@ signals:
 public slots:
 
 private:
+    int getEnclosureType(const QString &encMime);
 
     
 };

@@ -1474,33 +1474,52 @@ QVariantMap OcItems::extractImgData(const QString &imgStr, bool srcOnly)
 void OcItems::deleteCachedImages(const QList<int> &idsToDelte)
 {
     QSqlQuery query;
+
+//    for (int d = 0; d < idsToDelte.size(); ++d)
+//    {
+
+//        QStringList nameFilter;
+//        QString fileFilter("_*");
+//        fileFilter.prepend(QString::number(idsToDelte.at(d)));
+//        nameFilter << fileFilter;
+//        QString storagePath(QDir::homePath());
+//        storagePath.append(IMAGE_CACHE);
+//        QDir directory(storagePath);
+//        QStringList imgs = directory.entryList(nameFilter);
+
+//    #ifdef QT_DEBUG
+//        qDebug() << "Images to delete: " << imgs;
+//    #endif
+
+//        for (int i = 0; i < imgs.size(); ++i)
+//        {
+//            directory.remove(imgs.at(i));
+//        }
+//    }
+
+    QStringList imagesToDelete;
+
+//    for (int d = 0; d < idsToDelte.size(); ++d)
+//    {
+//        query.exec(QString("SELECT path FROM images WHERE parentId = %1").arg(idsToDelte.at(d)));
+//        while(query.next())
+//            imagesToDelete << query.value(0).toString();
+//    }
+
     QSqlDatabase::database().transaction();
     for (int i = 0; i < idsToDelte.size(); ++i)
     {
+        query.exec(QString("SELECT path FROM images WHERE parentId = %1").arg(idsToDelte.at(i)));
+        while(query.next())
+            imagesToDelete << query.value(0).toString();
+
         query.exec(QString("DELETE FROM images WHERE parentId = %1").arg(idsToDelte.at(i)));
     }
     QSqlDatabase::database().commit();
 
-    for (int d = 0; d < idsToDelte.size(); ++d)
+    for (int f = 0; f < imagesToDelete.size(); ++f)
     {
-
-        QStringList nameFilter;
-        QString fileFilter("_*");
-        fileFilter.prepend(QString::number(idsToDelte.at(d)));
-        nameFilter << fileFilter;
-        QString storagePath(QDir::homePath());
-        storagePath.append(IMAGE_CACHE);
-        QDir directory(storagePath);
-        QStringList imgs = directory.entryList(nameFilter);
-
-    #ifdef QT_DEBUG
-        qDebug() << "Images to delete: " << imgs;
-    #endif
-
-        for (int i = 0; i < imgs.size(); ++i)
-        {
-            directory.remove(imgs.at(i));
-        }
+        QFile::remove(imagesToDelete.at(f));
     }
 }
 

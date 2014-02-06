@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import "../Sheets"
+import "../Common"
 //import com.nokia.extras 1.0
 
 //import "../JS/globals.js" as GLOBALS
@@ -26,6 +27,13 @@ Page {
     property string feedName
     property string feedId
     property bool containsImg
+    property int enclosureType
+    property string enclosureHost
+    property string enclosureName
+
+    property bool enclosureDownloading: downloads.getCurrentItem() === itemId
+    property bool enclosureInQueue: downloads.itemInQueue(itemId)
+    property bool enclosureExists: downloads.itemExists(enclosureLink) !== "" && !enclosureDownloading && !enclosureInQueue
 
     property string textFormatType: dbus.getSetting("display/textformat", "rich")
     property bool showImgsDefault: dbus.getSetting("display/handleimgs", 0) > 0
@@ -64,6 +72,18 @@ Page {
         }
     }
 
+    function downloadEnclosure()
+    {
+        enclosureInQueue = true;
+        downloads.append(itemId);
+    }
+
+    function abortEnclosureDownload()
+    {
+        enclosureInQueue = false;
+        downloads.abortDownload(itemId);
+    }
+
     function getItemData(showImgs)
     {
         var itemData = singleItemModelSql.getItemData(itemId, showImgs);
@@ -79,7 +99,10 @@ Page {
         starred = itemData["starred"];
         feedName = itemData["feedName"];
         feedId= itemData["feedId"];
-        containsImg = itemData["containsImg"]
+        containsImg = itemData["containsImg"];
+        enclosureType = itemData["enclosureType"];
+        enclosureHost = itemData["enclosureHost"];
+        enclosureName = itemData["enclosureName"];
     }
 
     function starParams() {
@@ -115,6 +138,13 @@ Page {
     Connections {
         target: items
         onStarredItemsSuccess: starred = !starred
+    }
+
+
+    Connections {
+        target: downloads
+        onStarted: if(startedFileId === itemId) { enclosureDownloading = true; enclosureInQueue = false }
+        onFinishedFile: if(finishedFileId === itemId) { enclosureDownloading = false; enclosureExists = downloads.itemExists(enclosureLink) !== "" }
     }
 
 
@@ -214,10 +244,29 @@ Page {
             color: theme.inverted ? "white" : "black"
         }
 
+        EnclosureItem {
+            id: enclosure
+            anchors { top: bodyText.bottom; topMargin: 20 }
+            width: itemContent.width
+            visible: enclosureLink != ""
+            name: enclosureName
+            host: enclosureHost
+            showHost: !enclosureExists && !enclosureInQueue
+            exists: enclosureExists
+            inQueue: enclosureInQueue
+            showProgress: enclosureDownloading
+            encType: enclosureType
+            Connections {
+                target: downloads
+                onProgress: if(enclosureDownloading) { enclosure.maxValue = tot; enclosure.value = rec }
+            }
+            onClicked: downloadContextMenu.open()
+        }
+
         Button {
             id: openUrlButton
             text: qsTr("Open website")
-            anchors { top: bodyText.bottom; topMargin: 20; horizontalCenter: parent.horizontalCenter }
+            anchors { top: enclosure.visible ? enclosure.bottom : bodyText.bottom; topMargin: 20; horizontalCenter: parent.horizontalCenter }
             onClicked: Qt.openUrlExternally(url)
             platformStyle: ButtonStyle { id: openUrlButtonStyle }
         }
@@ -246,6 +295,22 @@ Page {
                 onClicked: {
                     Qt.openUrlExternally(linkContextMenu.link)
                 }
+            }
+        }
+    }
+
+    ContextMenu {
+        id: downloadContextMenu
+        property int state
+        MenuLayout {
+            MenuItem {
+                text: enclosureExists ? qsTr("Open enclosure") : qsTr("Open enclosure directly")
+                onClicked: enclosureExists ? Qt.openUrlExternally(downloads.itemExists(enclosureLink)) : ""
+                enabled: !enclosureDownloading && !enclosureInQueue
+            }
+            MenuItem {
+                text: enclosureDownloading || enclosureInQueue ? qsTr("Abort download") : enclosureExists ? qsTr("Delete enclosure") : qsTr("Download enclosure")
+                onClicked: enclosureDownloading || enclosureInQueue ? singleItemView.abortEnclosureDownload() : enclosureExists ? enclosureExists = !downloads.deleteFile(enclosureLink) : singleItemView.downloadEnclosure()
             }
         }
     }

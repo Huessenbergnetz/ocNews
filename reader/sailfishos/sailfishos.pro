@@ -39,7 +39,9 @@ SOURCES += main.cpp \
     ../common/dbus/interfaces/ocdbusfeeds.cpp \
     ../common/dbus/interfaces/ocdbusaccount.cpp \
     ../common/dbus/interfaces/occonfigif.cpp \
-    ../common/dbus/interfaces/ocaccountif.cpp
+    ../common/dbus/interfaces/ocaccountif.cpp \
+    ../common/dbus/interfaces/ocdownloadsif.cpp \
+    ../common/dbus/interfaces/ocdbusdownloads.cpp
 
 OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Views/MainView.qml \
@@ -101,7 +103,9 @@ HEADERS += \
     ../common/dbus/interfaces/ocdbusaccount.h \
     ../common/dbus/interfaces/occonfigif.h \
     ../common/dbus/interfaces/ocaccountif.h \
-    ../../common/globals.h
+    ../../common/globals.h \
+    ../common/dbus/interfaces/ocdownloadsif.h \
+    ../common/dbus/interfaces/ocdbusdownloads.h
 
 RESOURCES += \
     ../../translations/sailfishos/ocnewsreader.qrc

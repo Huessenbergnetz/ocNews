@@ -1,0 +1,41 @@
+
+<node>
+    <interface name="de.buschmann23.ocNewsEngine.Downloads">
+        <method name="append">
+            <arg name="id" type="s" direction="in"/>
+        </method>
+        <method name="getCurrentItem">
+            <arg type="s" direction="out"/>
+        </method>
+        <method name="itemExists">
+            <arg name="link" type="s" direction="in"/>
+            <arg type="s" direction="out"/>
+        </method>
+        <method name="itemInQueue">
+            <arg name="id" type="s" direction="in"/>
+            <arg type="b" direction="out"/>
+        </method>
+        <method name="abortDownload">
+            <arg name="id" type="s" direction="in"/>
+            <arg type="b" direction="out"/>
+        </method>
+        <method name="deleteFile">
+            <arg name="link" type="s" direction="in"/>
+            <arg type="b" direction="out"/>
+        </method>
+        <signal name="finished"/>
+        <signal name="finishedFile">
+            <arg name="finishedFileId" type="s" direction="out"/>
+        </signal>
+        <signal name="started">
+            <arg name="startedFileId" type="s" direction="out"/>
+        </signal>
+        <signal name="progress">
+            <arg name="rec" type="i" direction="out"/>
+            <arg name="tot" type="i" direction="out"/>
+        </signal>
+        <signal name="enqueued">
+            <arg name="enqueuedId" type="s" direction="out"/>
+        </signal>
+    </interface>
+</node>
