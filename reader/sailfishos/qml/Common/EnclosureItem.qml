@@ -66,6 +66,10 @@ Item {
         downloads.abortDownload(enclosureItemId);
     }
 
+    function removeFile(src, mime) {
+        remorse.execute(bgItem, qsTr("Deleting %1").arg(name.text),  function() { enclosureExists = !downloads.deleteFile(src, mime) } );
+    }
+
     SectionHeader { id: header; text: qsTr("Enclosure") }
 
     BackgroundItem {
@@ -153,6 +157,10 @@ Item {
                 }
             }
         }
+
+        RemorseItem {
+            id: remorse
+        }
     }
 
     Component {
@@ -167,7 +175,7 @@ Item {
             }
             MenuItem {
                 text: enclosureDownloading || enclosureInQueue ? qsTr("Abort download") : enclosureExists ? qsTr("Delete enclosure") : qsTr("Download enclosure")
-                onClicked: enclosureDownloading || enclosureInQueue ? root.abortEnclosureDownload() : enclosureExists ? enclosureExists = !downloads.deleteFile(encSrc, encMime) : root.downloadEnclosure()
+                onClicked: enclosureDownloading || enclosureInQueue ? root.abortEnclosureDownload() : enclosureExists ? root.removeFile(encSrc, encMime) : root.downloadEnclosure()
             }
         }
     }

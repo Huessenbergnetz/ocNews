@@ -332,7 +332,7 @@ Page {
             }
             MenuItem {
                 text: enclosureDownloading || enclosureInQueue ? qsTr("Abort download") : enclosureExists ? qsTr("Delete enclosure") : qsTr("Download enclosure")
-                onClicked: enclosureDownloading || enclosureInQueue ? singleItemView.abortEnclosureDownload() : enclosureExists ? enclosureExists = !downloads.deleteFile(enclosureLink, enclosureMime) : singleItemView.downloadEnclosure()
+                onClicked: enclosureDownloading || enclosureInQueue ? singleItemView.abortEnclosureDownload() : enclosureExists ? deleteQuery.open() : singleItemView.downloadEnclosure()
             }
         }
     }
@@ -373,5 +373,18 @@ Page {
 
 
 // ----------------- End Image Preview Sheet -----------------
+
+
+    QueryDialog {
+        id: deleteQuery
+        icon: "image://theme/icon-m-bootloader-warning"
+        acceptButtonText: qsTr("Delete")
+        rejectButtonText: qsTr("Cancel")
+        message: qsTr("Do you really want to delete this file?")
+        titleText: qsTr("Delete %1?").arg(enclosureName)
+        onAccepted: {
+            enclosureExists = !downloads.deleteFile(enclosureLink, enclosureMime)
+        }
+    }
 
 }
