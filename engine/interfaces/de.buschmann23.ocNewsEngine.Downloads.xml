@@ -9,6 +9,7 @@
         </method>
         <method name="itemExists">
             <arg name="link" type="s" direction="in"/>
+            <arg name="mime" type="s" direction="in"/>
             <arg type="s" direction="out"/>
         </method>
         <method name="itemInQueue">
@@ -21,6 +22,7 @@
         </method>
         <method name="deleteFile">
             <arg name="link" type="s" direction="in"/>
+            <arg name="mime" type="s" direction="in"/>
             <arg type="b" direction="out"/>
         </method>
         <signal name="finished"/>

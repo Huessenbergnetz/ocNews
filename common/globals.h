@@ -12,7 +12,13 @@
 #define BASE_PATH "/.local/share/data/ocNews"
 #define GLOBAL_CERTS_PATH "/etc/ssl/certs"
 #define IMAGE_CACHE "/MyDocs/.ocNews/imageCache"
+
 #define MEDIA_PATH "/MyDocs/ocNews/media"
+#define MEDIA_PATH_AUDIO "/MyDocs/ocNews/media/audio"
+#define MEDIA_PATH_IMAGE "/MyDocs/ocNews/media/images"
+#define MEDIA_PATH_PDF "/MyDocs/ocNews/media/documents"
+#define MEDIA_PATH_VIDEO "/MyDocs/ocNews/media/videos"
+
 #define MIME_ICON_GENERAL "icon-m-content-attachment"
 #define MIME_ICON_AUDIO "icon-m-content-audio"
 #define MIME_ICON_IMAGE "icon-m-content-image"
@@ -23,6 +29,18 @@
 #define BASE_PATH "/.local/share/data/harbour-ocnews"
 #define GLOBAL_CERTS_PATH "/etc/ssl/certs"
 #define IMAGE_CACHE "/.local/share/data/harbour-ocnews/imageCache"
+
+#define MEDIA_PATH "/Downloads"
+#define MEDIA_PATH_AUDIO "/Music/ocNews"
+#define MEDIA_PATH_IMAGE "/Pictures/ocNews"
+#define MEDIA_PATH_PDF "/Documents/ocNews"
+#define MEDIA_PATH_VIDEO "/Videos/ocNews"
+
+#define MIME_ICON_GENERAL "icon-m-attach"
+#define MIME_ICON_AUDIO "icon-m-music"
+#define MIME_ICON_IMAGE "icon-m-image"
+#define MIME_ICON_PDF "icon-m-document"
+#define MIME_ICON_VIDEO "icon-m-video"
 #endif
 
 

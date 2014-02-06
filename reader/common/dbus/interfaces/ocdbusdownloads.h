@@ -14,9 +14,9 @@ public slots:
     bool abortDownload(const QString &id);
     void append(const QString &id);
     QString getCurrentItem();
-    QString itemExists(const QString &link);
+    QString itemExists(const QString &link, const QString &mime);
     bool itemInQueue(const QString &id);
-    bool deleteFile(const QString &link);
+    bool deleteFile(const QString &link, const QString &mime);
     
 signals:
     void finished();

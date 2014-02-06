@@ -38,6 +38,7 @@ class OcDownloadManagerAdaptor: public QDBusAbstractAdaptor
 "    </method>\n"
 "    <method name=\"itemExists\">\n"
 "      <arg direction=\"in\" type=\"s\" name=\"link\"/>\n"
+"      <arg direction=\"in\" type=\"s\" name=\"mime\"/>\n"
 "      <arg direction=\"out\" type=\"s\"/>\n"
 "    </method>\n"
 "    <method name=\"itemInQueue\">\n"
@@ -50,6 +51,7 @@ class OcDownloadManagerAdaptor: public QDBusAbstractAdaptor
 "    </method>\n"
 "    <method name=\"deleteFile\">\n"
 "      <arg direction=\"in\" type=\"s\" name=\"link\"/>\n"
+"      <arg direction=\"in\" type=\"s\" name=\"mime\"/>\n"
 "      <arg direction=\"out\" type=\"b\"/>\n"
 "    </method>\n"
 "    <signal name=\"finished\"/>\n"
@@ -76,9 +78,9 @@ public: // PROPERTIES
 public Q_SLOTS: // METHODS
     bool abortDownload(const QString &id);
     void append(const QString &id);
-    bool deleteFile(const QString &link);
+    bool deleteFile(const QString &link, const QString &mime);
     QString getCurrentItem();
-    QString itemExists(const QString &link);
+    QString itemExists(const QString &link, const QString &mime);
     bool itemInQueue(const QString &id);
 Q_SIGNALS: // SIGNALS
     void enqueued(const QString &enqueuedId);

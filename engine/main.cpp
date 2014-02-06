@@ -76,24 +76,27 @@ int main(int argc, char *argv[])
     if ((translator.load("ocnewsengine_"+locale, ":/")))
         a.installTranslator(&translator);
 
-    QString settingsPath(QDir::homePath().append(SETTINGS_PATH));
-    QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, settingsPath);
+//    QString settingsPath(QDir::homePath().append(SETTINGS_PATH));
+    QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath().append(SETTINGS_PATH));
 
     // set paths
     QString basePath(QDir::homePath().append(BASE_PATH));
-    QString faviconsPath = basePath.append("/favicons");
-    QString enclosuresPath = basePath.append("/enclosures");
-    QString imgCache(QDir::homePath().append(IMAGE_CACHE));
-    QString localCertsPath = basePath.append("/certs");
-    QString globalCertsPath = QString(GLOBAL_CERTS_PATH);
-    QString mediaPath(QDir::homePath().append(MEDIA_PATH));
+//    QString faviconsPath = basePath.append("/favicons");
+//    QString enclosuresPath = basePath.append("/enclosures");
+//    QString localCertsPath = basePath.append("/certs");
+//    QString globalCertsPath = QString(GLOBAL_CERTS_PATH);
+//    QString mediaPath(QDir::homePath().append(MEDIA_PATH));
+//    QString imgCache(QDir::homePath().append(IMAGE_CACHE));
 
     // create storage dirs
-    QDir().mkpath(faviconsPath);
-    QDir().mkpath(enclosuresPath);
-    QDir().mkpath(imgCache);
-    QDir().mkpath(localCertsPath);
-    QDir().mkpath(mediaPath);
+    QDir().mkpath(basePath.append("/favicons"));
+    QDir().mkpath(basePath.append("/enclosures"));
+    QDir().mkpath(QDir::homePath().append(IMAGE_CACHE));
+    QDir().mkpath(basePath.append("/certs"));
+    QDir().mkpath(QDir::homePath().append(MEDIA_PATH_AUDIO));
+    QDir().mkpath(QDir::homePath().append(MEDIA_PATH_IMAGE));
+    QDir().mkpath(QDir::homePath().append(MEDIA_PATH_PDF));
+    QDir().mkpath(QDir::homePath().append(MEDIA_PATH_VIDEO));
 
 #if defined(MEEGO_EDITION_HARMATTAN)
     // set credential for ssl domain
@@ -125,8 +128,8 @@ int main(int argc, char *argv[])
 
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-    QList<QSslCertificate> certs = QSslCertificate::fromPath(globalCertsPath.append(QDir::separator()).append("*.pem"), QSsl::Pem, QRegExp::Wildcard);
-    certs += QSslCertificate::fromPath(globalCertsPath.append(QDir::separator()).append("*.crt"), QSsl::Pem, QRegExp::Wildcard);
+    QList<QSslCertificate> certs = QSslCertificate::fromPath(QString(GLOBAL_CERTS_PATH).append(QDir::separator()).append("*.pem"), QSsl::Pem, QRegExp::Wildcard);
+    certs += QSslCertificate::fromPath(QString(GLOBAL_CERTS_PATH).append(QDir::separator()).append("*.crt"), QSsl::Pem, QRegExp::Wildcard);
 
     certs += localCerts;
     QSslSocket::setDefaultCaCertificates(certs);

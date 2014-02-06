@@ -47,11 +47,11 @@ void OcDownloadManagerAdaptor::append(const QString &id)
     QMetaObject::invokeMethod(parent(), "append", Q_ARG(QString, id));
 }
 
-bool OcDownloadManagerAdaptor::deleteFile(const QString &link)
+bool OcDownloadManagerAdaptor::deleteFile(const QString &link, const QString &mime)
 {
     // handle method call de.buschmann23.ocNewsEngine.Downloads.deleteFile
     bool out0;
-    QMetaObject::invokeMethod(parent(), "deleteFile", Q_RETURN_ARG(bool, out0), Q_ARG(QString, link));
+    QMetaObject::invokeMethod(parent(), "deleteFile", Q_RETURN_ARG(bool, out0), Q_ARG(QString, link), Q_ARG(QString, mime));
     return out0;
 }
 
@@ -63,11 +63,11 @@ QString OcDownloadManagerAdaptor::getCurrentItem()
     return out0;
 }
 
-QString OcDownloadManagerAdaptor::itemExists(const QString &link)
+QString OcDownloadManagerAdaptor::itemExists(const QString &link, const QString &mime)
 {
     // handle method call de.buschmann23.ocNewsEngine.Downloads.itemExists
     QString out0;
-    QMetaObject::invokeMethod(parent(), "itemExists", Q_RETURN_ARG(QString, out0), Q_ARG(QString, link));
+    QMetaObject::invokeMethod(parent(), "itemExists", Q_RETURN_ARG(QString, out0), Q_ARG(QString, link), Q_ARG(QString, mime));
     return out0;
 }
 

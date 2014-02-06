@@ -80,7 +80,8 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Common/ImageButton.qml \
     qml/Pages/images/finalmix.png \
     qml/Common/FetchImagesIndicator.qml \
-    qml/Dialogs/OpenLink.qml
+    qml/Dialogs/OpenLink.qml \
+    qml/Common/EnclosureItem.qml
 
 HEADERS += \
     ../common/ocdbmanager.h \

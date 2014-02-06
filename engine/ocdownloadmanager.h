@@ -24,9 +24,9 @@ public Q_SLOTS: // METHODS
     bool abortDownload(const QString &id);
     void append(const QString &id);
     QString getCurrentItem();
-    QString itemExists(const QString &link);
+    QString itemExists(const QString &link, const QString &mime);
     bool itemInQueue(const QString &id);
-    bool deleteFile(const QString &link);
+    bool deleteFile(const QString &link, const QString &mime);
     
 Q_SIGNALS: // SIGNALS
     void finished();
@@ -55,7 +55,7 @@ private:
     QFile output;
     int getEnclosureType(const QString &encMime);
     QString getMimeIcon(int type);
-    QString saveFileName(const QString &url);
+    QString saveFileName(const QString &url, const QString &mime);
 #if defined(MEEGO_EDITION_HARMATTAN)
     TransferUI::Client *transferClient;
     TransferUI::Transfer *transferItem;

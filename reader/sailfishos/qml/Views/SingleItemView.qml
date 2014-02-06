@@ -21,6 +21,9 @@ Page {
     property string feedName
     property string feedId
     property bool containsImg
+    property int enclosureType
+    property string enclosureHost
+    property string enclosureName
 
     property string textFormatType: dbus.getSetting("display/textformat", "rich")
     property bool showImgsDefault: dbus.getSetting("display/handleimgs", 0) > 0
@@ -43,7 +46,10 @@ Page {
         starred = itemData["starred"];
         feedName = itemData["feedName"];
         feedId= itemData["feedId"];
-        containsImg = itemData["containsImg"]
+        containsImg = itemData["containsImg"];
+        enclosureType = itemData["enclosureType"];
+        enclosureHost = itemData["enclosureHost"];
+        enclosureName = itemData["enclosureName"];
     }
 
     function starParams() {
@@ -85,7 +91,7 @@ Page {
         anchors.bottom: itemViewFetchIndicator.visible ? itemViewFetchIndicator.top : parent.bottom
         VerticalScrollDecorator {}
 
-        contentHeight: headerRow.height + pubInfos.height + sep.height + bodyText.height + 5 * Theme.paddingLarge
+        contentHeight: headerRow.height + pubInfos.height + sep.height + bodyText.height + enclosure.height + 5 * Theme.paddingLarge
 
         PullDownMenu {
             id: singleItemPully
@@ -145,7 +151,6 @@ Page {
                 id: pubDateText
                 text: pubDate
                 font.pixelSize: Theme.fontSizeExtraSmall
-//                font.weight: Font.Light
                 textFormat: Text.PlainText
                 color: Theme.highlightColor
             }
@@ -154,7 +159,6 @@ Page {
                 id: authorText
                 text: author != "" ? " | " + author : ""
                 font.pixelSize: Theme.fontSizeExtraSmall
-//                font.weight: Font.Light
                 width: parent.width - pubDateText.width
                 truncationMode: TruncationMode.Fade
                 textFormat: Text.PlainText
@@ -181,6 +185,19 @@ Page {
             smooth: true
             textFormat: textFormatType == "rich" ? Text.RichText : Text.StyledText
             color: Theme.primaryColor
+        }
+
+        EnclosureItem {
+            id: enclosure
+            anchors { top: bodyText.bottom; topMargin: 20 }
+            width: singleItem.width
+            visible: enclosureLink != ""
+            enclosureItemId: itemId
+            name: enclosureName
+            host: enclosureHost
+            encType: enclosureType
+            encSrc: enclosureLink
+            encMime: enclosureMime
         }
 
         PushUpMenu {

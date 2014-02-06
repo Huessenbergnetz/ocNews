@@ -25,9 +25,9 @@ QString OcDBusDownloads::getCurrentItem()
     return downloads->getCurrentItem();
 }
 
-QString OcDBusDownloads::itemExists(const QString &link)
+QString OcDBusDownloads::itemExists(const QString &link, const QString &mime)
 {
-    return downloads->itemExists(link);
+    return downloads->itemExists(link, mime);
 }
 
 bool OcDBusDownloads::itemInQueue(const QString &id)
@@ -35,9 +35,9 @@ bool OcDBusDownloads::itemInQueue(const QString &id)
     return downloads->itemInQueue(id);
 }
 
-bool OcDBusDownloads::deleteFile(const QString &link)
+bool OcDBusDownloads::deleteFile(const QString &link, const QString &mime)
 {
-    return downloads->deleteFile(link);
+    return downloads->deleteFile(link, mime);
 }
 
 void OcDBusDownloads::dbusFinished()

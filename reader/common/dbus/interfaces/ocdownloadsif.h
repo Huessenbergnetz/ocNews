@@ -50,10 +50,10 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QLatin1String("append"), argumentList);
     }
 
-    inline QDBusPendingReply<bool> deleteFile(const QString &link)
+    inline QDBusPendingReply<bool> deleteFile(const QString &link, const QString &mime)
     {
         QList<QVariant> argumentList;
-        argumentList << QVariant::fromValue(link);
+        argumentList << QVariant::fromValue(link) << QVariant::fromValue(mime);
         return asyncCallWithArgumentList(QLatin1String("deleteFile"), argumentList);
     }
 
@@ -63,10 +63,10 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QLatin1String("getCurrentItem"), argumentList);
     }
 
-    inline QDBusPendingReply<QString> itemExists(const QString &link)
+    inline QDBusPendingReply<QString> itemExists(const QString &link, const QString &mime)
     {
         QList<QVariant> argumentList;
-        argumentList << QVariant::fromValue(link);
+        argumentList << QVariant::fromValue(link) << QVariant::fromValue(mime);
         return asyncCallWithArgumentList(QLatin1String("itemExists"), argumentList);
     }
 

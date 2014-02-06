@@ -24,6 +24,7 @@
 #include "../common/dbus/interfaces/ocdbusfeeds.h"
 #include "../common/dbus/interfaces/ocdbusitems.h"
 #include "../common/dbus/interfaces/ocdbusupdater.h"
+#include "../common/dbus/interfaces/ocdbusdownloads.h"
 
 int main(int argc, char *argv[])
 {
@@ -56,6 +57,7 @@ int main(int argc, char *argv[])
     OcDBusFeeds feeds;
     OcDBusItems items;
     OcDBusUpdater updater;
+    OcDBusDownloads downloads;
 
     OcFolderModelSql *folderModelSql = new OcFolderModelSql();
     OcCombinedModelSql *combinedModelSql = new OcCombinedModelSql();
@@ -79,6 +81,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("items", &items);
     view->rootContext()->setContextProperty("updater", &updater);
     view->rootContext()->setContextProperty("dbus", &dbus);
+    view->rootContext()->setContextProperty("downloads", &downloads);
     view->rootContext()->setContextProperty("versionString", VERSION_STRING);
 
     view->setSource(QUrl::fromLocalFile("/usr/share/harbour-ocnews-reader/qml/harbour-ocnews-reader.qml"));

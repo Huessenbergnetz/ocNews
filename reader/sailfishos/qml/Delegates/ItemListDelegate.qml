@@ -38,55 +38,19 @@ ListItem {
         spacing: 8
 
         Column {
-            anchors { verticalCenter: parent.verticalCenter; top: parent.top; topMargin: 12 }
+            id: textCol
+            width: parent.width - iconCol.width
 
-            Row {
-                Text {
-                    id: mainText
-                    text: Theme.highlightText(model.title, searchString, model.unread ? Theme.highlightColor : Theme.secondaryHighlightColor)
-    //                width: itemListItem.width - 60
-                    width: mainRow.width - starImage.width
-                    color: if (model.unread) { itemListItem.highlighted ? Theme.highlightColor : Theme.primaryColor } else { itemListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor }
-                    maximumLineCount: 2
-                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                    elide: Text.ElideRight
-                    textFormat: Text.StyledText
-                    font.pixelSize: Theme.fontSizeSmall
-                }
-
-                Image {
-                    id: starImage
-                    visible: model.starred && !busyIndicator.visible
-                    width: 32
-                    height: 32
-                    sourceSize.width: 32
-                    sourceSize.height: 32
-                    source: "image://theme/icon-s-favorite"
-                }
-
-                BusyIndicator {
-                    id: busyIndicator
-                    size: BusyIndicatorSize.Small
-                    state: "NORMAL"
-                    states: [
-                        State {
-                            name: "RUNNING"
-                            PropertyChanges { target: busyIndicator; visible: true; running: true; }
-                        },
-                        State {
-                            name: "NORMAL"
-                            PropertyChanges { target: busyIndicator; visible: false; running: false; }
-                        }
-                    ]
-                    Connections {
-                        target: items
-                        onMarkedItemsError: busyIndicator.state = "NORMAL"
-                        onMarkedItemsSuccess: busyIndicator.state = "NORMAL"
-                        onStarredItemsError: busyIndicator.state = "NORMAL"
-                        onStarredItemsSuccess: busyIndicator.state = "NORMAL"
-                    }
-                }
-
+            Text {
+                id: mainText
+                text: Theme.highlightText(model.title, searchString, model.unread ? Theme.highlightColor : Theme.secondaryHighlightColor)
+                width: parent.width
+                color: if (model.unread) { itemListItem.highlighted ? Theme.highlightColor : Theme.primaryColor } else { itemListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor }
+                maximumLineCount: 2
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                elide: Text.ElideRight
+                textFormat: Text.StyledText
+                font.pixelSize: Theme.fontSizeSmall
             }
 
             Text {
@@ -95,6 +59,54 @@ ListItem {
                 textFormat: Text.PlainText
                 color: itemListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 font.pixelSize: Theme.fontSizeTiny
+            }
+        }
+
+        Column {
+            id: iconCol
+            width: 32
+
+            Image {
+                id: starImage
+                visible: model.starred && !busyIndicator.visible
+                width: 32
+                height: 32
+                sourceSize.width: 32
+                sourceSize.height: 32
+                source: "image://theme/icon-s-favorite"
+            }
+
+            BusyIndicator {
+                id: busyIndicator
+                size: BusyIndicatorSize.Small
+                state: "NORMAL"
+                states: [
+                    State {
+                        name: "RUNNING"
+                        PropertyChanges { target: busyIndicator; visible: true; running: true; }
+                    },
+                    State {
+                        name: "NORMAL"
+                        PropertyChanges { target: busyIndicator; visible: false; running: false; }
+                    }
+                ]
+                Connections {
+                    target: items
+                    onMarkedItemsError: busyIndicator.state = "NORMAL"
+                    onMarkedItemsSuccess: busyIndicator.state = "NORMAL"
+                    onStarredItemsError: busyIndicator.state = "NORMAL"
+                    onStarredItemsSuccess: busyIndicator.state = "NORMAL"
+                }
+            }
+
+            Image {
+                id: enclosureImage
+                visible: model.enclosureLink !== ""
+                width: 32
+                height: 32
+                sourceSize.width: 32
+                sourceSize.height: 32
+                source: "image://theme/icon-s-attach"
             }
         }
     }

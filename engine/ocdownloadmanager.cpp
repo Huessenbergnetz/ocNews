@@ -37,7 +37,7 @@ void OcDownloadManager::append(const QString &id)
 }
 
 
-QString OcDownloadManager::saveFileName(const QString &url)
+QString OcDownloadManager::saveFileName(const QString &url, const QString &mime)
 {
     QString basename = QFileInfo(url).fileName();
 
@@ -45,7 +45,28 @@ QString OcDownloadManager::saveFileName(const QString &url)
         basename = "download";
 
     QString storagePath(QDir::homePath());
-    storagePath.append(MEDIA_PATH).append("/").append(basename);
+//    storagePath.append(MEDIA_PATH);
+
+    switch(getEnclosureType(mime))
+    {
+    case 1:
+        storagePath.append(MEDIA_PATH_AUDIO);
+        break;
+    case 2:
+        storagePath.append(MEDIA_PATH_VIDEO);
+        break;
+    case 3:
+        storagePath.append(MEDIA_PATH_PDF);
+        break;
+    case 4:
+        storagePath.append(MEDIA_PATH_IMAGE);
+        break;
+    default:
+        storagePath.append(MEDIA_PATH);
+        break;
+    }
+
+    storagePath.append("/").append(basename);
 
     return storagePath;
 }
@@ -80,7 +101,7 @@ void OcDownloadManager::startNextDownload()
 
     QUrl url(link);
 //    QString fileName = saveFileName(link);
-    currentFile = saveFileName(link);
+    currentFile = saveFileName(link, mime);
     currentType = getEnclosureType(mime);
 
     output.setFileName(currentFile);
@@ -197,9 +218,9 @@ QString OcDownloadManager::getCurrentItem()
 }
 
 
-QString OcDownloadManager::itemExists(const QString &link)
+QString OcDownloadManager::itemExists(const QString &link, const QString &mime)
 {
-    QFile file(saveFileName(link));
+    QFile file(saveFileName(link, mime));
     QString result = "";
 
     if (file.exists())
@@ -211,11 +232,11 @@ QString OcDownloadManager::itemExists(const QString &link)
 }
 
 
-bool OcDownloadManager::deleteFile(const QString &link)
+bool OcDownloadManager::deleteFile(const QString &link, const QString &mime)
 {
-    QString fileName = saveFileName(link);
+    QString fileName = saveFileName(link, mime);
 
-    if (fileName == currentFile || !fileName.contains(MEDIA_PATH))
+    if (fileName == currentFile)
     {
         return false;
     } else {

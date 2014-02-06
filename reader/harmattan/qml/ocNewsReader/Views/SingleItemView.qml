@@ -33,7 +33,7 @@ Page {
 
     property bool enclosureDownloading: downloads.getCurrentItem() === itemId
     property bool enclosureInQueue: downloads.itemInQueue(itemId)
-    property bool enclosureExists: downloads.itemExists(enclosureLink) !== "" && !enclosureDownloading && !enclosureInQueue
+    property bool enclosureExists: downloads.itemExists(enclosureLink, enclosureMime) !== "" && !enclosureDownloading && !enclosureInQueue
 
     property string textFormatType: dbus.getSetting("display/textformat", "rich")
     property bool showImgsDefault: dbus.getSetting("display/handleimgs", 0) > 0
@@ -166,7 +166,7 @@ Page {
     Connections {
         target: downloads
         onStarted: if(startedFileId === itemId) { enclosureDownloading = true; enclosureInQueue = false }
-        onFinishedFile: if(finishedFileId === itemId) { enclosureDownloading = false; enclosureExists = downloads.itemExists(enclosureLink) !== "" }
+        onFinishedFile: if(finishedFileId === itemId) { enclosureDownloading = false; enclosureExists = downloads.itemExists(enclosureLink, enclosureMime) !== "" }
     }
 
 
@@ -327,12 +327,12 @@ Page {
         MenuLayout {
             MenuItem {
                 text: enclosureExists ? qsTr("Open enclosure") : qsTr("Open enclosure directly")
-                onClicked: enclosureExists ? Qt.openUrlExternally(downloads.itemExists(enclosureLink)) : singleItemView.openEnclosureDirect()
+                onClicked: enclosureExists ? Qt.openUrlExternally(downloads.itemExists(enclosureLink, enclosureMime)) : singleItemView.openEnclosureDirect()
                 enabled: !enclosureDownloading && !enclosureInQueue
             }
             MenuItem {
                 text: enclosureDownloading || enclosureInQueue ? qsTr("Abort download") : enclosureExists ? qsTr("Delete enclosure") : qsTr("Download enclosure")
-                onClicked: enclosureDownloading || enclosureInQueue ? singleItemView.abortEnclosureDownload() : enclosureExists ? enclosureExists = !downloads.deleteFile(enclosureLink) : singleItemView.downloadEnclosure()
+                onClicked: enclosureDownloading || enclosureInQueue ? singleItemView.abortEnclosureDownload() : enclosureExists ? enclosureExists = !downloads.deleteFile(enclosureLink, enclosureMime) : singleItemView.downloadEnclosure()
             }
         }
     }
