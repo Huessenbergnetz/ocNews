@@ -119,7 +119,9 @@ CoverBackground {
 
             onTriggered: {
                 var a = angle;
-                parent.opacity = 0.5 + 0.5 * Math.sin(angle * (Math.PI / 180.0));
+                var opacity = 0.5 + 0.5 * Math.sin(angle * (Math.PI / 180.0));
+                // Workaround for Silica's bug on opacity != 0 on cover page when label is truncated with fading
+                parent.color = Theme.rgba(Theme.highlightColor, opacity)
                 angle = (angle + 10) % 360;
             }
         }
