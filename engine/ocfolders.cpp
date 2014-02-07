@@ -479,11 +479,7 @@ void OcFolders::folderMarkedReadUpdateDb(int id)
 
     QSqlDatabase::database().transaction();
     for (int i = 0; i < feedIds.size(); ++i) {
-#if defined(MEEGO_EDITION_HARMATTAN)
-        query.exec(QString("UPDATE items SET unread = \"false\", lastModified = %2 WHERE unread = \"true\" AND feedId = %1").arg(feedIds.at(i)).arg(ts.currentDateTimeUtc().toTime_t()));
-#else
-        query.exec(QString("UPDATE items SET unread = 0, lastModified = %2 WHERE unread = 1 AND feedId = %1").arg(feedIds.at(i)).arg(ts.currentDateTimeUtc().toTime_t()));
-#endif
+        query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE unread = %4 AND feedId = %1").arg(feedIds.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE).arg(SQL_TRUE));
     }
     QSqlDatabase::database().commit();
 

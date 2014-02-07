@@ -1,5 +1,6 @@
 #include <QDebug>
 #include "occonfiguration.h"
+#include "../common/globals.h"
 
 #if defined(MEEGO_EDITION_HARMATTAN)
 QStringList certsToDelete;
@@ -237,11 +238,9 @@ QDBusVariant OcConfiguration::getStat(const int stat)
 
     if (stat == 0) {
         QSqlQuery query;
-#if defined(MEEGO_EDITION_HARMATTAN)
-        query.exec("SELECT COUNT(id) FROM items WHERE unread = \"true\"");
-#else
-        query.exec("SELECT COUNT(id) FROM items WHERE unread = 1");
-#endif
+
+        query.exec(QString("SELECT COUNT(id) FROM items WHERE unread = ").append(SQL_TRUE));
+
         if(query.next())
             qvResult = query.value(0);
     } else if (stat == 1) {
@@ -274,17 +273,12 @@ QVariantMap OcConfiguration::getStatistics()
 {
     QVariantMap stats;
     QSqlQuery query;
-#if defined(MEEGO_EDITION_HARMATTAN)
-    query.exec("SELECT (SELECT COUNT(id) FROM items) AS items, "
-               "(SELECT COUNT(id) FROM items WHERE unread = \"true\") AS unreadItems, "
+
+    query.exec(QString("SELECT (SELECT COUNT(id) FROM items) AS items, "
+               "(SELECT COUNT(id) FROM items WHERE unread = %1) AS unreadItems, "
                "(SELECT COUNT(id) FROM folders) AS folders, "
-               "(SELECT COUNT(id) FROM feeds) AS feeds");
-#else
-    query.exec("SELECT (SELECT COUNT(id) FROM items) AS items, "
-               "(SELECT COUNT(id) FROM items WHERE unread = 1) AS unreadItems, "
-               "(SELECT COUNT(id) FROM folders) AS folders, "
-               "(SELECT COUNT(id) FROM feeds) AS feeds");
-#endif
+               "(SELECT COUNT(id) FROM feeds) AS feeds").arg(SQL_TRUE));
+
     if(query.next())
     {
         stats["itemCount"] = query.value(0);

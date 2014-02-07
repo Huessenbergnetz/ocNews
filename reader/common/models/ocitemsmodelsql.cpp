@@ -1,6 +1,7 @@
 #include <QDebug>
 #include <QDateTime>
 #include "ocitemsmodelsql.h"
+#include "../../../common/globals.h"
 
 
 const char* OcItemsModelSql::COLUMN_NAMES[] = {
@@ -96,11 +97,8 @@ void OcItemsModelSql::refresh(const QString &feedId, int handleRead, bool sortAs
                                  "it.guidHash "
                           "FROM items it WHERE feedId = %1").arg(feedId.toInt());
 
-#if defined(MEEGO_EDITION_HARMATTAN)
-    if (handleRead == 1) queryString.append(" AND it.unread = \"true\"");
-#else
-    if (handleRead == 1) queryString.append(" AND it.unread = 1");
-#endif
+
+    if (handleRead == 1) queryString.append(" AND it.unread = ").append(SQL_TRUE);
 
     if (search != "")
     {

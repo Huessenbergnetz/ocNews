@@ -210,14 +210,11 @@ void OcFeeds::feedsRequestedUpdateDb(QVariantMap feedsresult)
     }
 
     // delete the serverside deleted ids in the database
-//    QSqlDatabase::database().transaction();
     for (int i = 0; i < idListDeleted.size(); ++i) {
         query.exec(QString("DELETE FROM feeds WHERE id = %1").arg(idListDeleted.at(i)));
-//        query.exec(QString("DELETE FROM items WHERE feedId = %1").arg(idListDeleted.at(i)));
         items.cleanItems(idListDeleted.at(i));
         qDebug() << "Deleted Feed ID: " << idListDeleted.at(i);
     }
-//    QSqlDatabase::database().commit();
 
 #ifdef QT_DEBUG
     qDebug() << "Emit requestedFeedsSuccess signal";
@@ -449,7 +446,6 @@ void OcFeeds::deleteFeed(const QString &id)
 void OcFeeds::feedDeleted()
 {
     connect(this,SIGNAL(deletedFeed(int)),this,SLOT(feedDeletedUpdateDb(int)));
-//    connect(this,SIGNAL(deletedFeed(int)),this,SLOT(feedDeletedCleanItems(int)));
 
     if (replyDeleteFeed->error() == QNetworkReply::NoError)
     {
@@ -836,11 +832,7 @@ void OcFeeds::feedMarkedReadUpdateDb(int id)
     QDateTime ts;
     QSqlQuery query;
     QSqlDatabase::database().transaction();
-#if defined(MEEGO_EDITION_HARMATTAN)
-    query.exec(QString("UPDATE items SET unread = \"false\", lastModified = %2 WHERE unread = \"true\" AND feedId = %1").arg(id).arg(ts.currentDateTimeUtc().toTime_t()));
-#else
-    query.exec(QString("UPDATE items SET unread = 0, lastModified = %2 WHERE unread = 1 AND feedId = %1").arg(id).arg(ts.currentDateTimeUtc().toTime_t()));
-#endif
+    query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE unread = %4 AND feedId = %1").arg(id).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE).arg(SQL_TRUE));
     QSqlDatabase::database().commit();
 
     emit markedReadFeedSuccess();

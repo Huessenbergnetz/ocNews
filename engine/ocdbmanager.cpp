@@ -54,7 +54,6 @@ bool OcDbManager::openDB()
 bool OcDbManager::createTables()
 {
     bool ret = true;
-//    if (db.isOpen() && db.tables(QSql::Tables).isEmpty())
     if (db.isOpen())
     {
         QSqlQuery build;
@@ -137,30 +136,18 @@ bool OcDbManager::createTables()
 
         build.exec(QString("CREATE TRIGGER IF NOT EXISTS feeds_localUnread_update_item AFTER UPDATE OF unread ON items "
                            "BEGIN "
-#if defined(MEEGO_EDITION_HARMATTAN)
-                           "UPDATE feeds SET localUnreadCount = (SELECT COUNT(id) FROM items WHERE unread = \"true\" AND feedId = old.feedId) WHERE id = old.feedId; "
-#else
-                           "UPDATE feeds SET localUnreadCount = (SELECT COUNT(id) FROM items WHERE unread = 1 AND feedId = old.feedId) WHERE id = old.feedId; "
-#endif
-                           "END;"));
+                           "UPDATE feeds SET localUnreadCount = (SELECT COUNT(id) FROM items WHERE unread = %1 AND feedId = old.feedId) WHERE id = old.feedId; "
+                           "END;").arg(SQL_TRUE));
 
         build.exec(QString("CREATE TRIGGER IF NOT EXISTS feeds_localUnread_delete_item AFTER DELETE ON items "
                            "BEGIN "
-#if defined(MEEGO_EDITION_HARMATTAN)
-                           "UPDATE feeds SET localUnreadCount = (SELECT COUNT(id) FROM items WHERE unread = \"true\" AND feedId = old.feedId) WHERE id = old.feedId; "
-#else
-                           "UPDATE feeds SET localUnreadCount = (SELECT COUNT(id) FROM items WHERE unread = 1 AND feedId = old.feedId) WHERE id = old.feedId; "
-#endif
-                           "END;"));
+                           "UPDATE feeds SET localUnreadCount = (SELECT COUNT(id) FROM items WHERE unread = %1 AND feedId = old.feedId) WHERE id = old.feedId; "
+                           "END;").arg(SQL_TRUE));
 
         build.exec(QString("CREATE TRIGGER IF NOT EXISTS feeds_localUnread_add_item AFTER INSERT ON items "
                            "BEGIN "
-#if defined(MEEGO_EDITION_HARMATTAN)
-                           "UPDATE feeds SET localUnreadCount = (SELECT COUNT(id) FROM items WHERE unread = \"true\" AND feedId = new.feedId) WHERE id = new.feedId; "
-#else
-                           "UPDATE feeds SET localUnreadCount = (SELECT COUNT(id) FROM items WHERE unread = 1 AND feedId = new.feedId) WHERE id = new.feedId; "
-#endif
-                           "END;"));
+                           "UPDATE feeds SET localUnreadCount = (SELECT COUNT(id) FROM items WHERE unread = %1 AND feedId = new.feedId) WHERE id = new.feedId; "
+                           "END;").arg(SQL_TRUE));
 
         build.exec(QString("CREATE TRIGGER IF NOT EXISTS folders_localUnread_update_feed AFTER UPDATE OF localUnreadCount ON feeds "
                            "BEGIN "

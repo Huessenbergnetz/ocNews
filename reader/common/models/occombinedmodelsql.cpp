@@ -1,4 +1,5 @@
 #include "occombinedmodelsql.h"
+#include "../../../common/globals.h"
 
 const char* OcCombinedModelSql::COLUMN_NAMES[] = {
     "title",
@@ -58,6 +59,10 @@ QVariant OcCombinedModelSql::data(const QModelIndex &index, int role) const
         int columnIdx = role - Qt::UserRole - 1;
         QModelIndex modelIndex = this->index(index.row(), columnIdx);
         value = QSqlQueryModel::data(modelIndex, Qt::DisplayRole);
+        if (columnIdx == 4 && value != "") {
+            QString iconSrcPath = QDir::homePath() + BASE_PATH + "/favicons/" + value.toString();
+            value = iconSrcPath;
+        }
     }
     return value;
 }
@@ -73,30 +78,22 @@ void OcCombinedModelSql::refresh()
     QSqlQuery query;
 
     QString querystring("SELECT fe.title, fe.id AS id, fe.localUnreadCount AS unreadCount, '0' AS type, fe.iconSource, fe.iconWidth, fe.iconHeight, fe.folderId, (SELECT name FROM folders WHERE id = fe.folderId) AS folderName FROM feeds fe WHERE fe.folderId > 0 ");
+
     querystring.append("UNION ");
+
     querystring.append(QString("SELECT fe.title, fe.id AS id, fe.localUnreadCount AS unreadCount, '0' AS type, fe.iconSource, fe.iconWidth, fe.iconHeight, fe.folderId, '%1' AS folderName FROM feeds fe WHERE fe.folderId = 0 ").arg(tr("Uncategorized")));
+
     querystring.append("UNION ");
+
     querystring.append(QString("SELECT '%1' AS title, '0' AS id, ((SELECT IFNULL(SUM(localUnreadCount),0) FROM feeds WHERE folderId = 0) + (SELECT SUM(localUnreadCount) FROM folders)) AS unreadCount, '-1' AS type, '' AS iconSource, '' AS iconWidth, '' AS iconHeight, 0 AS folderId, '' AS folderName ").arg(tr("All posts")));
 
-#if defined(MEEGO_EDITION_HARMATTAN)
-    query.exec("SELECT id FROM items WHERE starred = \"true\" LIMIT 1;");
-#else
-    query.exec("SELECT id FROM items WHERE starred = 1 LIMIT 1;");
-#endif
+    query.exec(QString("SELECT id FROM items WHERE starred = %1 LIMIT 1").arg(SQL_TRUE));
     if (query.next())
     {
-#if defined(MEEGO_EDITION_HARMATTAN)
-        QString iconSource = (dbus.getSetting("display/themecolor", "white").toString() == "white") ? "image://theme/icon-m-content-favourites" : "image://theme/icon-m-content-favourites-inverse";
-#else
-        QString iconSource = "image://theme/icon-m-favorite-selected";
-#endif
 
         querystring.append("UNION ");
-#if defined(MEEGO_EDITION_HARMATTAN)
-        querystring.append(QString("SELECT '%1' AS title, '1' AS id, (SELECT COUNT(id) FROM items WHERE starred = \"true\") AS unreadCount, '-1' AS type, '%2' AS iconSource, '64' AS iconWidth, '64' AS iconHeight, 0 AS folderId, '' AS folderName ").arg(tr("Favourite posts")).arg(iconSource));
-#else
-        querystring.append(QString("SELECT '%1' AS title, '1' AS id, (SELECT COUNT(id) FROM items WHERE starred = 1) AS unreadCount, '-1' AS type, '%2' AS iconSource, '64' AS iconWidth, '64' AS iconHeight, 0 AS folderId, '' AS folderName ").arg(tr("Favourite posts")).arg(iconSource));
-#endif
+
+        querystring.append(QString("SELECT '%1' AS title, '1' AS id, (SELECT COUNT(id) FROM items WHERE starred = %2) AS unreadCount, '-1' AS type, '' AS iconSource, '' AS iconWidth, '' AS iconHeight, 0 AS folderId, '' AS folderName ").arg(tr("Favourite posts")).arg(SQL_TRUE));
     }
 
     QString itemOrder = dbus.getSetting("display/orderby", "id").toString();

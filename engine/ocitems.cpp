@@ -215,11 +215,7 @@ void OcItems::itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString typ
     if (type == "3") {
         query.exec(QString("SELECT id FROM items;"));
     } else if (type == "2") {
-#if defined(MEEGO_EDITION_HARMATTAN)
-        query.exec(QString("SELECT id FROM items where starred = \"true\";"));
-#else
-        query.exec(QString("SELECT id FROM items where starred = 1;"));
-#endif
+        query.exec(QString("SELECT id FROM items where starred = ").append(SQL_TRUE));
     } else if (type == "1") {
         query.exec(QString("SELECT id FROM items WHERE feedId IN (SELECT id FROM feeds WHERE folderId = %1);").arg(fId.toInt()));
     } else if (type == "0") {
@@ -303,11 +299,7 @@ void OcItems::updateItems(const QString &lastModified, const QString &type, cons
                                                             "GROUP BY feedId) q "
                                                 "ON it.id = q.id AND it.lastModified = q.MaxLastMod);").arg(id.toInt());
                 } else if (type == "2") {
-#if defined(MEEGO_EDITION_HARMATTAN)
-                    querystring = QString("SELECT MAX(lastModified) FROM items WHERE starred = \"true\";");
-#else
-                    querystring = QString("SELECT MAX(lastModified) FROM items WHERE starred = 1;");
-#endif
+                    querystring = QString("SELECT MAX(lastModified) FROM items WHERE starred = ").append(SQL_TRUE);
                 } else if (type == "3") {
                     t_lastModified = config.getSetting(QString("storage/lastFullUpdate"), QDBusVariant("")).variant().toString();
                     if (t_lastModified == "")
@@ -403,6 +395,7 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
     int imgHandling = config.getSetting(QString("display/handleimgs"), QDBusVariant(0)).variant().toInt();
     QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
     QStringList feedsForEventsList = feedsForEventView.split(",");
+
 #ifdef QT_DEBUG
     qDebug() << "EventViewString: " << feedsForEventView;
     qDebug() << "EventViewList: " << feedsForEventsList;
@@ -550,22 +543,13 @@ void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, 
 
 
             // get item ids to delte cached image files
-#if defined(MEEGO_EDITION_HARMATTAN)
-            query.exec(QString("SELECT id FROM items WHERE starred = \"false\" AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)));
-#else
-            query.exec(QString("SELECT id FROM items WHERE starred = 0 AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)));
-#endif
+            query.exec(QString("SELECT id FROM items WHERE starred = %3 AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)).arg(SQL_FALSE));
             while(query.next())
             {
                 imageItemIds << query.value(0).toInt();
             }
 
-
-#if defined(MEEGO_EDITION_HARMATTAN)
-            query.exec(QString("DELETE FROM items WHERE starred = \"false\" AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)));
-#else
-            query.exec(QString("DELETE FROM items WHERE starred = 0 AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)));
-#endif
+            query.exec(QString("DELETE FROM items WHERE starred = %3 AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)).arg(SQL_FALSE));
 
         }
         QSqlDatabase::database().commit();
@@ -620,11 +604,7 @@ void OcItems::markItemsTillThis(const QString &action, const QDBusVariant &pubDa
 #endif
 
     QSqlQuery query;
-#if defined(MEEGO_EDITION_HARMATTAN)
-    query.exec(QString("SELECT id FROM items WHERE pubDate <= %1 AND feedId = %2 AND unread = \"%3\"").arg(t_pubDate.toInt()).arg(t_feedId.toInt()).arg(readStatus));
-#else
     query.exec(QString("SELECT id FROM items WHERE pubDate <= %1 AND feedId = %2 AND unread = %3").arg(t_pubDate.toInt()).arg(t_feedId.toInt()).arg(readStatus));
-#endif
 
 #ifdef QT_DEBUG
     qDebug() << query.lastError();
@@ -780,18 +760,11 @@ void OcItems::itemsMarkedUpdateDb(QStringList ids)
     if (action == "read")
     {
         for (int i = 0; i < ids.size(); ++i)
-#if defined(MEEGO_EDITION_HARMATTAN)
-            query.exec(QString("UPDATE items SET unread = \"false\", lastModified = %2 WHERE id = %1;").arg(ids.at(i)).arg(ts.currentDateTimeUtc().toTime_t()));
-#else
-            query.exec(QString("UPDATE items SET unread = 0, lastModified = %2 WHERE id = %1;").arg(ids.at(i)).arg(ts.currentDateTimeUtc().toTime_t()));
-#endif
+            query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE id = %1;").arg(ids.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE));
+
     } else {
         for (int i = 0; i < ids.size(); ++i)
-#if defined(MEEGO_EDITION_HARMATTAN)
-            query.exec(QString("UPDATE items SET unread = \"true\", lastModified = %2 WHERE id = %1;").arg(ids.at(i)).arg(ts.currentDateTimeUtc().toTime_t()));
-#else
-            query.exec(QString("UPDATE items SET unread = 1, lastModified = %2 WHERE id = %1;").arg(ids.at(i)).arg(ts.currentDateTimeUtc().toTime_t()));
-#endif
+            query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE id = %1;").arg(ids.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_TRUE));
     }
 
     QSqlDatabase::database().commit();
@@ -941,18 +914,11 @@ void OcItems::itemsStarredUpdateDb(QStringList hashes)
     if (action == "star")
     {
         for (int i = 0; i < hashes.size(); ++i)
-#if defined(MEEGO_EDITION_HARMATTAN)
-            query.exec(QString("UPDATE items SET starred = \"true\", lastModified = %2  WHERE guidHash = \"%1\";").arg(hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()));
-#else
-            query.exec(QString("UPDATE items SET starred = 1, lastModified = %2  WHERE guidHash = \"%1\";").arg(hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()));
-#endif
+            query.exec(QString("UPDATE items SET starred = %3, lastModified = %2  WHERE guidHash = \"%1\";").arg(hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_TRUE));
+
     } else {
         for (int i = 0; i < hashes.size(); ++i)
-#if defined(MEEGO_EDITION_HARMATTAN)
-            query.exec(QString("UPDATE items SET starred = \"false\", lastModified = %2 WHERE guidHash = \"%1\";").arg(hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()));
-#else
-            query.exec(QString("UPDATE items SET starred = 0, lastModified = %2 WHERE guidHash = \"%1\";").arg(hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()));
-#endif
+            query.exec(QString("UPDATE items SET starred = %3, lastModified = %2 WHERE guidHash = \"%1\";").arg(hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE));
     }
 
     emit starredItemsSuccess();
@@ -1030,11 +996,7 @@ void OcItems::itemsMarkedAllReadUpdateDb(QString newestItemId)
 {
     QDateTime ts;
     QSqlQuery query;
-#if defined(MEEGO_EDITION_HARMATTAN)
-    query.exec(QString("UPDATE items SET unread = \"false\", lastModified = %2 WHERE id <= %1 AND unread = \"true\";").arg(newestItemId.toInt()).arg(ts.currentDateTimeUtc().toTime_t()));
-#else
-    query.exec(QString("UPDATE items SET unread = 0, lastModified = %2 WHERE id <= %1 AND unread = 1;").arg(newestItemId.toInt()).arg(ts.currentDateTimeUtc().toTime_t()));
-#endif
+    query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE id <= %1 AND unread = %4;").arg(newestItemId.toInt()).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE).arg(SQL_TRUE));
 
     emit markedAllItemsReadSuccess();
 }

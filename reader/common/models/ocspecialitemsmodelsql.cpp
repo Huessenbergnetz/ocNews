@@ -1,6 +1,7 @@
 #include <QDebug>
 #include <QDateTime>
 #include "ocspecialitemsmodelsql.h"
+#include "../../../common/globals.h"
 
 const char* OcSpecialItemsModelSql::COLUMN_NAMES[] = {
     "title",
@@ -89,11 +90,8 @@ void OcSpecialItemsModelSql::refresh(const QString &type, const QString &folderI
     {
         querystring.append(QString("FROM items it WHERE feedId IN (SELECT id FROM feeds WHERE folderId = %1)").arg(folderId.toInt()));
 
-#if defined(MEEGO_EDITION_HARMATTAN)
-        if (handleRead == 1) querystring.append(" AND it.unread = \"true\"");
-#else
-        if (handleRead == 1) querystring.append(" AND it.unread = 1");
-#endif
+        if (handleRead == 1) querystring.append(" AND it.unread = ").append(SQL_TRUE);
+
         if (search != "")
         {
             QString t_search = search;
@@ -102,13 +100,10 @@ void OcSpecialItemsModelSql::refresh(const QString &type, const QString &folderI
             querystring.append(QString(" AND it.title LIKE \"%1\"").arg(t_search));
         }
     } else if (type == "starred") {
-#if defined(MEEGO_EDITION_HARMATTAN)
-        querystring.append("FROM items it WHERE starred = \"true\"");
-        if (handleRead == 1) querystring.append(" AND it.unread = \"true\"");
-#else
-        querystring.append("FROM items it WHERE starred = 1");
-        if (handleRead == 1) querystring.append(" AND it.unread = 1");
-#endif
+
+        querystring.append("FROM items it WHERE starred = ").append(SQL_TRUE);
+        if (handleRead == 1) querystring.append(" AND it.unread = ").append(SQL_TRUE);
+
         if (search != "")
         {
             QString t_search = search;
@@ -125,11 +120,7 @@ void OcSpecialItemsModelSql::refresh(const QString &type, const QString &folderI
 
             querystring.append(" WHERE");
 
-#if defined(MEEGO_EDITION_HARMATTAN)
-            if (handleRead == 1) querystring.append(" it.unread = \"true\"");
-#else
-            if (handleRead == 1) querystring.append(" it.unread = 1");
-#endif
+            if (handleRead == 1) querystring.append(" it.unread = ").append(SQL_TRUE);
 
             if (search != "")
             {
