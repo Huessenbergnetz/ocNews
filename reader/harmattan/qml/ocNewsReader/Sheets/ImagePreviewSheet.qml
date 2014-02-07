@@ -17,7 +17,16 @@ Sheet {
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             fillMode: Image.PreserveAspectFit
+            opacity: status === Image.Ready ? 1 : 0
             source: link
+            Behavior on opacity {
+                NumberAnimation {
+                    duration: 200
+                    easing.type: Easing.InOutQuad
+                    property: "opacity"
+                }
+
+            }
         }
 
         ProgressBar {

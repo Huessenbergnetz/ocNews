@@ -48,7 +48,9 @@ Dialog {
         anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
         fillMode: Image.PreserveAspectFit
         visible: isImageLink(link)
+        opacity: status === Image.Ready ? 1 : 0
         source: isImageLink(link) ? link : ""
+        Behavior on opacity { FadeAnimation {} }
     }
 
     Slider {
