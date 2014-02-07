@@ -1,5 +1,6 @@
 #include <QDebug>
 #include "ocfeedsmodelsql.h"
+#include "../../../common/globals.h"
 
 const char* OcFeedsModelSql::COLUMN_NAMES[] = {
     "title",
@@ -54,6 +55,10 @@ QVariant OcFeedsModelSql::data(const QModelIndex &index, int role) const
         int columnIdx = role - Qt::UserRole - 1;
         QModelIndex modelIndex = this->index(index.row(), columnIdx);
         value = QSqlQueryModel::data(modelIndex, Qt::DisplayRole);
+        if (columnIdx == 2 && value != "") {
+            QString iconSrcPath = QDir::homePath() + BASE_PATH + "/favicons/" + value.toString();
+            value = iconSrcPath;
+        }
     }
     return value;
 }

@@ -54,6 +54,13 @@ INSTALLS += dbusservice
 #}
 
 
+isEmpty(MEEGO_VERSION_MAJOR) {
+supportfiles.path = /usr/share/harbour-ocnews-reader
+supportfiles.files = sailfishos/*.sh
+INSTALLS += supportfiles
+}
+
+
 SOURCES += main.cpp \
     ocnetwork.cpp \
     ochelper.cpp \
@@ -72,7 +79,8 @@ SOURCES += main.cpp \
     interfaces/ocupdateradaptor.cpp \
     interfaces/ocaccountadaptor.cpp \
     ocdownloadmanager.cpp \
-    interfaces/ocdownloadsadaptor.cpp
+    interfaces/ocdownloadsadaptor.cpp \
+    ocupgradehelper.cpp
 
 !isEmpty(MEEGO_VERSION_MAJOR) {
 SOURCES += ocaccount.cpp
@@ -104,7 +112,8 @@ HEADERS += \
     interfaces/ocaccountadaptor.h \
     ../common/globals.h \
     ocdownloadmanager.h \
-    interfaces/ocdownloadsadaptor.h
+    interfaces/ocdownloadsadaptor.h \
+    ocupgradehelper.h
 
 !isEmpty(MEEGO_VERSION_MAJOR) {
 HEADERS += ocaccount.h

@@ -30,7 +30,6 @@ Item {
     BorderImage {
             id: background
             anchors.fill: parent
-            // Fill page porders
             anchors { leftMargin: -UI.MARGIN_XLARGE; rightMargin: -UI.MARGIN_XLARGE }
             visible: mouseArea.pressed
             source: theme.inverted ? "image://theme/meegotouch-panel-inverted-background-pressed" : "image://theme/meegotouch-panel-background-pressed"

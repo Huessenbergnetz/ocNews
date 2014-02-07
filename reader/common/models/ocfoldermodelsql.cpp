@@ -1,5 +1,6 @@
 #include <QDebug>
 #include "ocfoldermodelsql.h"
+#include "../../../common/globals.h"
 
 const char* OcFolderModelSql::COLUMN_NAMES[] = {
     "title",
@@ -54,6 +55,10 @@ QVariant OcFolderModelSql::data(const QModelIndex &index, int role) const
         int columnIdx = role - Qt::UserRole - 1;
         QModelIndex modelIndex = this->index(index.row(), columnIdx);
         value = QSqlQueryModel::data(modelIndex, Qt::DisplayRole);
+        if (columnIdx == 5 && value != "") {
+            QString iconSrcPath = QDir::homePath() + BASE_PATH + "/favicons/" + value.toString();
+            value = iconSrcPath;
+        }
     }
     return value;
 }
@@ -73,23 +78,24 @@ void OcFolderModelSql::refresh()
     querystring.append(QString("SELECT '%1' AS title, '0' AS id, '0' AS feedCount, ((SELECT IFNULL(SUM(localUnreadCount),0) FROM feeds WHERE folderId = 0) + (SELECT SUM(localUnreadCount) FROM folders)) AS unreadCount, '-1' AS type, '' AS iconSource, '' AS iconWidth, '' AS iconHeight ").arg(tr("All posts")));
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-    query.exec("SELECT id FROM items WHERE starred = \"true\" LIMIT 1;");
+//    query.exec("SELECT id FROM items WHERE starred = \"true\" LIMIT 1;");
 #else
-    query.exec("SELECT id FROM items WHERE starred = 1 LIMIT 1;");
+//    query.exec("SELECT id FROM items WHERE starred = 1 LIMIT 1;");
 #endif
+    query.exec(QString("SELECT id FROM items WHERE starred = %1 LIMIT 1;").arg(SQL_TRUE));
     if (query.next())
     {
 #if defined(MEEGO_EDITION_HARMATTAN)
-        QString iconSource = (dbus.getSetting("display/themecolor", "white").toString() == "white") ? "image://theme/icon-m-content-favourites" : "image://theme/icon-m-content-favourites-inverse";
+//        QString iconSource = (dbus.getSetting("display/themecolor", "white").toString() == "white") ? "image://theme/icon-m-content-favourites" : "image://theme/icon-m-content-favourites-inverse";
 #else
-        QString iconSource = "image://theme/icon-m-favorite-selected";
+//        QString iconSource = "image://theme/icon-m-favorite-selected";
 #endif
 
         querystring.append("UNION ");
 #if defined(MEEGO_EDITION_HARMATTAN)
-        querystring.append(QString("SELECT '%1' AS title, '1' AS id, '0' AS feedCount, (SELECT COUNT(id) FROM items WHERE starred = \"true\") AS unreadCount, '-1' AS type, '%2' AS iconSource, '64' AS iconWidth, '64' AS iconHeight ").arg(tr("Favourite posts")).arg(iconSource));
+        querystring.append(QString("SELECT '%1' AS title, '1' AS id, '0' AS feedCount, (SELECT COUNT(id) FROM items WHERE starred = \"true\") AS unreadCount, '-1' AS type, '' AS iconSource, '' AS iconWidth, '' AS iconHeight ").arg(tr("Favourite posts")));
 #else
-        querystring.append(QString("SELECT '%1' AS title, '1' AS id, '0' AS feedCount, (SELECT COUNT(id) FROM items WHERE starred = 1) AS unreadCount, '-1' AS type, '%2' AS iconSource, '64' AS iconWidth, '64' AS iconHeight ").arg(tr("Favourite posts")).arg(iconSource));
+        querystring.append(QString("SELECT '%1' AS title, '1' AS id, '0' AS feedCount, (SELECT COUNT(id) FROM items WHERE starred = 1) AS unreadCount, '-1' AS type, '' AS iconSource, '' AS iconWidth, '' AS iconHeight ").arg(tr("Favourite posts")));
 #endif
     }
 

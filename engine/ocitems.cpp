@@ -1417,6 +1417,8 @@ QString OcItems::cacheImages(const QString &bodyText, int id, int imageHandling)
 
                             }
 
+                            file.close();
+
                         }
 
                     }

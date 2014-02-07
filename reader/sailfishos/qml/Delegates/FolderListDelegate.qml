@@ -26,6 +26,21 @@ ListItem {
         }
     }
 
+    function getIconSource()
+    {
+        if (model.type === "1") {
+            return "image://theme/icon-m-folder";
+        } else if (model.type === "0") {
+            return "/usr/share/harbour-ocnews-reader/icons/icon-m-rss.png";
+        } else if (model.type === "-1") {
+            if (model.id === "0") {
+                return "/usr/share/harbour-ocnews-reader/icons/icon-m-rss.png";
+            } else {
+                return "image://theme/icon-m-favorite-selected";
+            }
+        }
+    }
+
     Row {
         id: mainRow
         anchors.fill: parent
@@ -49,7 +64,8 @@ ListItem {
                 height: 32
                 sourceSize.width: model.iconSource ? parseInt(model.iconWidth, 10) : 64
                 sourceSize.height: model.iconSource ? parseInt(model.iconHeight, 10) : 64
-                source: model.iconSource ? model.iconSource : (model.type === "1") ? "image://theme/icon-m-folder" : "/usr/share/harbour-ocnews-reader/icons/icon-m-rss.png"
+//                source: model.iconSource ? model.iconSource : (model.type === "1") ? "image://theme/icon-m-folder" : "/usr/share/harbour-ocnews-reader/icons/icon-m-rss.png"
+                source: model.iconSource ? model.iconSource : getIconSource()
             }
         }
 

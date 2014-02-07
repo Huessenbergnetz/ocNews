@@ -24,6 +24,21 @@ Item {
     property color subtitleColor: theme.inverted ? UI.LIST_SUBTITLE_COLOR_INVERTED : UI.LIST_SUBTITLE_COLOR
     property color subtitleColorPressed: theme.inverted ? UI.LIST_SUBTITLE_COLOR_PRESSED_INVERTED : UI.LIST_SUBTITLE_COLOR_PRESSED
 
+    function getIconSource()
+    {
+        if (model.type === "1") {
+            return theme.inverted ? "/opt/ocNewsReader/images/directory-inverse.png" : "image://theme/icon-m-common-directory"
+        } else if (model.type === "0") {
+            return "image://theme/icon-m-content-feed" + (theme.inverted? "-inverse" : "")
+        } else if (model.type === "-1") {
+            if (model.id === "0") {
+                return "image://theme/icon-m-content-feed" + (theme.inverted? "-inverse" : "")
+            } else {
+                return "image://theme/icon-m-content-favourites" + (theme.inverted? "-inverse" : "")
+            }
+        }
+    }
+
     height: UI.LIST_ITEM_HEIGHT
     width: parent.width
 
@@ -47,7 +62,7 @@ Item {
             height: 32
             sourceSize.width: model.iconSource ? parseInt(model.iconWidth, 10) : 64
             sourceSize.height: model.iconSource ? parseInt(model.iconHeight, 10) : 64
-            source: model.iconSource ? model.iconSource : (model.type === "1") ? theme.inverted ? "/opt/ocNewsReader/images/directory-inverse.png" : "image://theme/icon-m-common-directory" : "image://theme/icon-m-content-feed" + (theme.inverted? "-inverse" : "")
+            source: model.iconSource ? model.iconSource : getIconSource()
         }
 
         Column {

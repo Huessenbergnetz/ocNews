@@ -682,9 +682,13 @@ void OcFeeds::getFavicon(QString feedId, QString faviconLink)
         QUrl fileUrl(faviconLink);
         QFileInfo fileInfo = fileUrl.path();
 
+        QString fileName(feedId);
+        fileName += "_";
+        fileName += fileInfo.fileName();
+
         QString storagePath(QDir::homePath());
         storagePath.append(BASE_PATH).append("/favicons");
-        storagePath.append(QDir::separator()).append(feedId).append("_").append(fileInfo.fileName());
+        storagePath.append(QDir::separator()).append(fileName);
         storagePath = QDir::toNativeSeparators(storagePath);
         QImage favicon;
         if(favicon.loadFromData(replyGetFavicon->readAll()))
@@ -694,7 +698,7 @@ void OcFeeds::getFavicon(QString feedId, QString faviconLink)
                 QSqlQuery query;
 
                 query.prepare("UPDATE feeds SET iconSource = :source, iconWidth = :width, iconHeight = :height WHERE id = :id;");
-                query.bindValue(":source", storagePath);
+                query.bindValue(":source", fileName);
                 query.bindValue(":width", favicon.width());
                 query.bindValue(":height", favicon.height());
                 query.bindValue(":id", feedId.toInt());

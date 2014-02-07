@@ -7,6 +7,7 @@
 
 #include "../common/globals.h"
 #include "ocdbmanager.h"
+#include "ocupgradehelper.h"
 #include "occonfiguration.h"
 #include "interfaces/occonfigadaptor.h"
 #include "ocgeneric.h"
@@ -76,27 +77,34 @@ int main(int argc, char *argv[])
     if ((translator.load("ocnewsengine_"+locale, ":/")))
         a.installTranslator(&translator);
 
-//    QString settingsPath(QDir::homePath().append(SETTINGS_PATH));
-    QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath().append(SETTINGS_PATH));
-
     // set paths
     QString basePath(QDir::homePath().append(BASE_PATH));
-//    QString faviconsPath = basePath.append("/favicons");
-//    QString enclosuresPath = basePath.append("/enclosures");
-//    QString localCertsPath = basePath.append("/certs");
-//    QString globalCertsPath = QString(GLOBAL_CERTS_PATH);
-//    QString mediaPath(QDir::homePath().append(MEDIA_PATH));
-//    QString imgCache(QDir::homePath().append(IMAGE_CACHE));
+
+#if !defined(MEEGO_EDITION_HARMATTAN)
+    // move directories to to new pathes on SailfishOS
+    if (QDir(QDir::homePath().append(OLD_BASE_PATH)).exists() && !QDir(basePath).exists())
+    {
+        qDebug() << "Moving Data Dir";
+        QProcess::execute("/bin/sh /usr/share/harbour-ocnews-reader/moveDataDir.sh");
+    }
+
+    if (QDir(QDir::homePath().append(OLD_SETTINGS_PATH)).exists() && !QDir(QDir::homePath().append(SETTINGS_PATH)).exists())
+    {
+        qDebug() << "Moving Settings Dir";
+        QProcess::execute("/bin/sh /usr/share/harbour-ocnews-reader/moveSettingsDir.sh");
+    }
+#endif
+
+    QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath().append(SETTINGS_PATH));
 
     // create storage dirs
-    QDir().mkpath(basePath.append("/favicons"));
-    QDir().mkpath(basePath.append("/enclosures"));
-    QDir().mkpath(QDir::homePath().append(IMAGE_CACHE));
-    QDir().mkpath(basePath.append("/certs"));
-    QDir().mkpath(QDir::homePath().append(MEDIA_PATH_AUDIO));
-    QDir().mkpath(QDir::homePath().append(MEDIA_PATH_IMAGE));
-    QDir().mkpath(QDir::homePath().append(MEDIA_PATH_PDF));
-    QDir().mkpath(QDir::homePath().append(MEDIA_PATH_VIDEO));
+    QDir().mkpath(basePath + "/favicons");
+    QDir().mkpath(basePath + "/certs");
+    QDir().mkpath(QDir::homePath() + IMAGE_CACHE);
+    QDir().mkpath(QDir::homePath() + MEDIA_PATH_AUDIO);
+    QDir().mkpath(QDir::homePath() + MEDIA_PATH_IMAGE);
+    QDir().mkpath(QDir::homePath() + MEDIA_PATH_PDF);
+    QDir().mkpath(QDir::homePath() + MEDIA_PATH_VIDEO);
 
 #if defined(MEEGO_EDITION_HARMATTAN)
     // set credential for ssl domain
@@ -148,6 +156,17 @@ int main(int argc, char *argv[])
 
     OcConfiguration* configuration = new OcConfiguration;
     new OcConfigAdaptor(configuration);
+
+    int oldVersion = configuration->getSetting("system/version", QDBusVariant(0)).variant().toInt();
+    if (oldVersion > 0 && oldVersion < VERSION)
+    {
+        qDebug() << "Performing internal updrades.";
+        OcUpgradeHelper upHelper;
+        upHelper.init(oldVersion, VERSION);
+        upHelper.deleteLater();
+    }
+
+
     OcGeneric* generic = new OcGeneric;
     new OcGenericAdaptor(generic);
     OcFolders* folders = new OcFolders;
@@ -169,16 +188,16 @@ int main(int argc, char *argv[])
 
 
     QDBusConnection connection = QDBusConnection::sessionBus();
-    bool ret = connection.registerService("de.buschmann23.ocNewsEngine");
-    ret = connection.registerObject("/", generic);
-    ret = connection.registerObject("/Configuration", configuration);
-    ret = connection.registerObject("/Folders", folders);
-    ret = connection.registerObject("/Feeds", feeds);
-    ret = connection.registerObject("/Items", items);
-    ret = connection.registerObject("/Updater", updater);
-    ret = connection.registerObject("/Downloads", dManager);
+    connection.registerService("de.buschmann23.ocNewsEngine");
+    connection.registerObject("/", generic);
+    connection.registerObject("/Configuration", configuration);
+    connection.registerObject("/Folders", folders);
+    connection.registerObject("/Feeds", feeds);
+    connection.registerObject("/Items", items);
+    connection.registerObject("/Updater", updater);
+    connection.registerObject("/Downloads", dManager);
 #if defined(MEEGO_EDITION_HARMATTAN)
-    ret = connection.registerObject("/Account", account);
+    connection.registerObject("/Account", account);
 #endif
 
     configuration->setSetting("system/version", QDBusVariant(VERSION));
