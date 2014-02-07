@@ -27,15 +27,13 @@ Item {
         NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
     }
 
-    Slider {
+    ProgressBar {
         id: fetchImagesSlider
         value: currentItemFetching
         minimumValue: 0
         maximumValue: itemsToFetchImages
         enabled: false
         width: parent.width
-        handleVisible: false
-        valueText: ""
         label: qsTr("Fetching images")
     }
 }

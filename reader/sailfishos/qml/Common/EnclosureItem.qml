@@ -106,6 +106,7 @@ Item {
                     font.weight: Font.Light
                     textFormat: Text.PlainText
                     color: Theme.primaryColor
+                    visible: !downloadBar.visible
                 }
 
                 Text {
@@ -116,7 +117,7 @@ Item {
                     font.weight: Font.Light
                     textFormat: Text.PlainText
                     color: Theme.secondaryColor
-                    visible: !enclosureExists && !enclosureInQueue
+                    visible: !enclosureExists && !enclosureInQueue && !downloadBar.visible
                 }
 
                 Text {
@@ -143,13 +144,13 @@ Item {
                     visible: enclosureInQueue
                 }
 
-                Slider {
+                ProgressBar {
                     id: downloadBar
                     minimumValue: 0
                     enabled: false
                     width: parent.width
-                    handleVisible: false
                     visible: enclosureDownloading
+                    label: name.text
                     Connections {
                         target: downloads
                         onProgress: if(enclosureDownloading) { downloadBar.maximumValue = tot; downloadBar.value = rec }
