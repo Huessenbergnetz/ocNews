@@ -145,6 +145,24 @@
     </message>
 </context>
 <context>
+    <name>EnclosureItem</name>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Common/EnclosureItem.qml" line="48"/>
+        <source>Enclosure</source>
+        <translation>Enclosure</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Common/EnclosureItem.qml" line="101"/>
+        <source>Download finished</source>
+        <translation>Download finished</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Common/EnclosureItem.qml" line="112"/>
+        <source>In queue</source>
+        <translation>In queue</translation>
+    </message>
+</context>
+<context>
     <name>FeedListView</name>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/FeedListView.qml" line="86"/>
@@ -1139,24 +1157,69 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="219"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="290"/>
         <source>Open website</source>
         <translation>Open website</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="227"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="298"/>
         <source>Load images</source>
         <translation>Load images</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="245"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="316"/>
         <source>Write to %1</source>
         <translation>Write to %1</translation>
     </message>
     <message>
-        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="245"/>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="316"/>
         <source>Open %1</source>
         <translation>Open %1</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="329"/>
+        <source>Open enclosure</source>
+        <translation>Open enclosure</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="329"/>
+        <source>Open enclosure directly</source>
+        <translation>Open enclosure directly</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="334"/>
+        <source>Abort download</source>
+        <translation>Abort download</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="334"/>
+        <source>Delete enclosure</source>
+        <translation>Delete enclosure</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="334"/>
+        <source>Download enclosure</source>
+        <translation>Download enclosure</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="381"/>
+        <source>Delete</source>
+        <translation>Delete</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="382"/>
+        <source>Cancel</source>
+        <translation>Cancel</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="383"/>
+        <source>Do you really want to delete this file?</source>
+        <translation>Do you really want to delete this file?</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="384"/>
+        <source>Delete %1?</source>
+        <translation>Delete %1?</translation>
     </message>
 </context>
 <context>

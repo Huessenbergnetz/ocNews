@@ -122,7 +122,7 @@ void OcDownloadManager::startNextDownload()
     }
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-    transferItem = transferClient->registerTransfer(tr("Downloading enclosed "), TransferUI::Client::TRANSFER_TYPES_DOWNLOAD);
+    transferItem = transferClient->registerTransfer(tr("Downloading enclosure "), TransferUI::Client::TRANSFER_TYPES_DOWNLOAD);
     transferItem->waitForCommit();
     transferItem->setTargetName(QFileInfo(link).fileName());
     transferItem->setName(url.host());

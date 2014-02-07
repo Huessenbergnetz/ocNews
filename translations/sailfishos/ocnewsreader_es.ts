@@ -175,6 +175,49 @@
     </message>
 </context>
 <context>
+    <name>EnclosureItem</name>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="70"/>
+        <source>Deleting %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="73"/>
+        <source>Enclosure</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="124"/>
+        <source>Download finished</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="136"/>
+        <source>In queue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="171"/>
+        <source>Open enclosure</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="177"/>
+        <source>Abort download</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="177"/>
+        <source>Delete enclosure</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="177"/>
+        <source>Download enclosure</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FeedListDelegate</name>
     <message>
         <location filename="../../reader/sailfishos/qml/Delegates/FeedListDelegate.qml" line="20"/>
@@ -349,32 +392,32 @@
 <context>
     <name>ItemListDelegate</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="106"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="118"/>
         <source>Mark as read</source>
         <translation>Marcar como leído</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="106"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="118"/>
         <source>Mark as unread</source>
         <translation>Marcar como no leído</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="111"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="123"/>
         <source>Remove from favorites</source>
         <translation>Suprimir de los favoritos</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="111"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="123"/>
         <source>Add to favorites</source>
         <translation>Añadir en los favoritos</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="116"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="128"/>
         <source>Mark as read up to this point</source>
         <translation>Marcar como leído hasta este punto</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="121"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/ItemListDelegate.qml" line="133"/>
         <source>Mark as unread up to this point</source>
         <translation>Marcar como no leído hasta este punto</translation>
     </message>
@@ -656,12 +699,12 @@
 <context>
     <name>OpenLink</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="25"/>
+        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="43"/>
         <source>Write e-mail</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="25"/>
+        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="43"/>
         <source>Open in browser</source>
         <translation type="unfinished"/>
     </message>
@@ -1005,28 +1048,28 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="92"/>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="194"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="100"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="213"/>
         <source>Open in Browser</source>
         <translation>Abrir en navegador</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="96"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="104"/>
         <source>Remove from favourites</source>
         <translation>Quitar de favoritos</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="96"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="104"/>
         <source>Mark as favourite</source>
         <translation>Marcar como favorito</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="104"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="112"/>
         <source>Show images</source>
         <translation>Mostrar imágenes</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="190"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemView.qml" line="209"/>
         <source>Scroll to top</source>
         <translation>Ir arriba</translation>
     </message>
@@ -1034,17 +1077,17 @@
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="47"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="49"/>
         <source>Reload</source>
         <translation>Recargar</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="51"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="53"/>
         <source>Open in browser</source>
         <translation>Abrir en navegador</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="55"/>
+        <location filename="../../reader/sailfishos/qml/Views/SingleItemWebView.qml" line="57"/>
         <source>Back</source>
         <translation>Volver</translation>
     </message>
@@ -1052,22 +1095,22 @@
 <context>
     <name>SpecialItemListDelegate</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/SpecialItemListDelegate.qml" line="117"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/SpecialItemListDelegate.qml" line="129"/>
         <source>Mark as read</source>
         <translation>Marcar como leído</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/SpecialItemListDelegate.qml" line="117"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/SpecialItemListDelegate.qml" line="129"/>
         <source>Mark as unread</source>
         <translation>Marcar como no leído</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/SpecialItemListDelegate.qml" line="126"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/SpecialItemListDelegate.qml" line="138"/>
         <source>Remove from favourites</source>
         <translation>Suprimir de los favoritos</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Delegates/SpecialItemListDelegate.qml" line="126"/>
+        <location filename="../../reader/sailfishos/qml/Delegates/SpecialItemListDelegate.qml" line="138"/>
         <source>Add to favourites</source>
         <translation>Añadir en los favoritos</translation>
     </message>

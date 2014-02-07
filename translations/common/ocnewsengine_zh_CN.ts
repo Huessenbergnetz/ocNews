@@ -1,12 +1,20 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.0">
 <context>
+    <name>OcDownloadManager</name>
+    <message>
+        <location filename="../../engine/ocdownloadmanager.cpp" line="125"/>
+        <source>Downloading enclosure </source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OcFeeds</name>
     <message>
         <location filename="../../engine/ocfeeds.cpp" line="33"/>
         <location filename="../../engine/ocfeeds.cpp" line="247"/>
         <location filename="../../engine/ocfeeds.cpp" line="421"/>
-        <location filename="../../engine/ocfeeds.cpp" line="546"/>
-        <location filename="../../engine/ocfeeds.cpp" line="733"/>
+        <location filename="../../engine/ocfeeds.cpp" line="548"/>
+        <location filename="../../engine/ocfeeds.cpp" line="735"/>
         <source>Device is in flight mode.</source>
         <translation>设备处于飞行模式。</translation>
     </message>
@@ -23,8 +31,8 @@
         <location filename="../../engine/ocfolders.cpp" line="13"/>
         <location filename="../../engine/ocfolders.cpp" line="149"/>
         <location filename="../../engine/ocfolders.cpp" line="228"/>
-        <location filename="../../engine/ocfolders.cpp" line="309"/>
-        <location filename="../../engine/ocfolders.cpp" line="389"/>
+        <location filename="../../engine/ocfolders.cpp" line="310"/>
+        <location filename="../../engine/ocfolders.cpp" line="390"/>
         <source>Device is in flight mode.</source>
         <translation>设备处于飞行模式。</translation>
     </message>
@@ -71,14 +79,14 @@
     <name>OcItems</name>
     <message>
         <location filename="../../engine/ocitems.cpp" line="16"/>
-        <location filename="../../engine/ocitems.cpp" line="267"/>
-        <location filename="../../engine/ocitems.cpp" line="953"/>
+        <location filename="../../engine/ocitems.cpp" line="273"/>
+        <location filename="../../engine/ocitems.cpp" line="966"/>
         <source>Device is in flight mode.</source>
         <translation>设备处于飞行模式。</translation>
     </message>
     <message>
         <location filename="../../engine/ocitems.cpp" line="74"/>
-        <location filename="../../engine/ocitems.cpp" line="374"/>
+        <location filename="../../engine/ocitems.cpp" line="380"/>
         <source>Server reply was empty.</source>
         <translation>服务器返回为空。</translation>
     </message>
@@ -86,7 +94,7 @@
 <context>
     <name>OcUpdater</name>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="211"/>
+        <location filename="../../engine/ocupdater.cpp" line="218"/>
         <source>Your account is disabled or you have not created an account yet.</source>
         <translation>你的账户被禁用或你还没有创建账户。</translation>
     </message>
@@ -111,29 +119,29 @@
         <translation>正在更新条目</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="372"/>
+        <location filename="../../engine/ocupdater.cpp" line="373"/>
         <source>Update Finished</source>
         <translation>更新完成</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="403"/>
+        <location filename="../../engine/ocupdater.cpp" line="402"/>
         <source>Update Failed</source>
         <translation>更新失败</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="471"/>
+        <location filename="../../engine/ocupdater.cpp" line="463"/>
         <source>ocNews Image Fetcher</source>
-        <translation type="unfinished"/>
+        <translation>ocNews图片捕获器</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="474"/>
+        <location filename="../../engine/ocupdater.cpp" line="466"/>
         <source>Fetching images</source>
-        <translation type="unfinished"/>
+        <translation>正在捕获图片</translation>
     </message>
     <message>
-        <location filename="../../engine/ocupdater.cpp" line="502"/>
+        <location filename="../../engine/ocupdater.cpp" line="494"/>
         <source>Fetching images finished</source>
-        <translation type="unfinished"/>
+        <translation>图片捕获完成</translation>
     </message>
 </context>
 </TS>
