@@ -104,7 +104,7 @@ void OcSpecialItemsModelSql::refresh(const QString &type, const QString &folderI
         querystring.append("FROM items it WHERE starred = ").append(SQL_TRUE);
         if (handleRead == 1) querystring.append(" AND it.unread = ").append(SQL_TRUE);
 
-        if (search != "")
+        if (!search.isEmpty())
         {
             QString t_search = search;
             t_search.prepend("%");

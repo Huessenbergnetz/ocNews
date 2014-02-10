@@ -18,28 +18,28 @@ Page {
 
     onSearchStringChanged: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString) }
 
-    Component.onCompleted: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
+    Component.onCompleted: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
     Component.onDestruction: GLOBALS.previousContentY = 0;
 
     Connections {
         target: folders
-        onMarkedReadFolderSuccess: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
+        onMarkedReadFolderSuccess: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
     }
     Connections {
         target: items
-        onUpdatedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
-        onRequestedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
-        onStarredItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
-        onMarkedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
-        onMarkedAllItemsReadSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
+        onUpdatedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
+        onRequestedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
+        onStarredItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
+        onMarkedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
+        onMarkedAllItemsReadSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
     }
     Connections {
         target: updater
-        onUpdateFinished: { GLOBALS.previousContentY = specialItemList.contentY; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc); specialItemList.contentY = GLOBALS.previousContentY }
+        onUpdateFinished: { GLOBALS.previousContentY = specialItemList.contentY; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
     }
 
-    onHandleReadChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
-    onSortAscChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
+    onHandleReadChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
+    onSortAscChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
 
 
 

@@ -100,7 +100,7 @@ void OcItemsModelSql::refresh(const QString &feedId, int handleRead, bool sortAs
 
     if (handleRead == 1) queryString.append(" AND it.unread = ").append(SQL_TRUE);
 
-    if (search != "")
+    if (!search.isEmpty())
     {
         QString t_search = search;
         t_search.prepend("%");

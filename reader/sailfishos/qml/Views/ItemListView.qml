@@ -17,28 +17,28 @@ Page {
 
     onSearchStringChanged: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
 
-    Component.onCompleted: { console.log(handleRead); itemsModelSql.refresh(feedId, handleRead, sortAsc) }
+    Component.onCompleted: { console.log(handleRead); itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
     Component.onDestruction: GLOBALS.previousContentY = 0
 
     Connections {
         target: feeds
-        onMarkedReadFeedSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc) }
+        onMarkedReadFeedSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
         onDeletedFeedSuccess: pageStack.pop()
     }
     Connections {
         target: items
-        onUpdatedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY }
-        onRequestedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
-        onStarredItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
-        onMarkedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY; }
+        onUpdatedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY }
+        onRequestedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY; }
+        onStarredItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY; }
+        onMarkedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY; }
     }
     Connections {
         target: updater
-        onUpdateFinished: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc); itemList.contentY = GLOBALS.previousContentY }
+        onUpdateFinished: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY }
     }
 
-    onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc)
-    onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc)
+    onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString)
+    onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString)
 
 
     SilicaListView {
@@ -146,7 +146,7 @@ Page {
             EnterKey.iconSource: "image://theme/icon-m-enter-close"
 
             Binding {
-                target: specialItemListView
+                target: itemListView
                 property: "searchString"
                 value: searchField.text
             }
