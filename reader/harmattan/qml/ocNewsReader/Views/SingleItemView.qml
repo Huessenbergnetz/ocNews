@@ -249,20 +249,6 @@ Page {
             fillMode: Image.TileHorizontally
         }
 
-//        Text {
-//            id: bodyText
-//            text: textFormatType === "rich" ? _RICHTEXT_STYLESHEET_PREAMBLE + body + _RICHTEXT_STYLESHEET_APPENDIX : body
-//            width: itemContent.width
-//            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-//            font.pointSize: 17
-//            font.weight: Font.Light
-//            anchors { top: headerSeperator.bottom; topMargin: 12 }
-//            onLinkActivated: if (isImageLink(link)) {imagePreview.link = link; imagePreview.open()} else {linkContextMenu.link = link; linkContextMenu.open()}
-//            smooth: false
-//            textFormat: textFormatType == "rich" ? Text.RichText : Text.StyledText
-//            color: theme.inverted ? "white" : "black"
-//        }
-
         RescalingRichText {
             id: bodyText
             text: body

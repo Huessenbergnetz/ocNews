@@ -13,16 +13,16 @@
     <name>OcFeeds</name>
     <message>
         <location filename="../../engine/ocfeeds.cpp" line="33"/>
-        <location filename="../../engine/ocfeeds.cpp" line="247"/>
-        <location filename="../../engine/ocfeeds.cpp" line="421"/>
-        <location filename="../../engine/ocfeeds.cpp" line="548"/>
+        <location filename="../../engine/ocfeeds.cpp" line="244"/>
+        <location filename="../../engine/ocfeeds.cpp" line="418"/>
+        <location filename="../../engine/ocfeeds.cpp" line="544"/>
         <location filename="../../engine/ocfeeds.cpp" line="735"/>
         <source>Device is in flight mode.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../engine/ocfeeds.cpp" line="73"/>
-        <location filename="../../engine/ocfeeds.cpp" line="312"/>
+        <location filename="../../engine/ocfeeds.cpp" line="309"/>
         <source>Server reply was empty.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -81,14 +81,14 @@
     <name>OcItems</name>
     <message>
         <location filename="../../engine/ocitems.cpp" line="16"/>
-        <location filename="../../engine/ocitems.cpp" line="273"/>
-        <location filename="../../engine/ocitems.cpp" line="966"/>
+        <location filename="../../engine/ocitems.cpp" line="269"/>
+        <location filename="../../engine/ocitems.cpp" line="932"/>
         <source>Device is in flight mode.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../engine/ocitems.cpp" line="74"/>
-        <location filename="../../engine/ocitems.cpp" line="380"/>
+        <location filename="../../engine/ocitems.cpp" line="372"/>
         <source>Server reply was empty.</source>
         <translation type="unfinished"></translation>
     </message>

@@ -119,7 +119,7 @@ Page {
                 anchors { right: parent.right; rightMargin: 15; left: parent.left; leftMargin: 15; top: parent.top; topMargin: 10; bottomMargin: aboutTools.height }
                 width: parent.width
                 height: parent.height
-                contentHeight: contentCol.height
+                contentHeight: contentCol.height + aboutTools.height + 50
                 flickableDirection:  Flickable.VerticalFlick
 
 
@@ -169,7 +169,28 @@ Page {
 //                        twitter: "LorenzoFacca"
 //                        website: "http://jollacommunity.altervista.org/"
 //                    }
+
+                    ContributorItem {
+                        name: "Mariano Flotron"
+                        role: qsTr("Spanish translation")
+                    }
+
+                    GroupHeader {
+                        text: qsTr("Used third party elements")
+                    }
+
+                    ContributorItem {
+                        name: qsTr("Martin Grimme's Tidings Elements")
+                        role: "FancyScroller, RescalingRichText"
+                        website: "https://github.com/pycage/tidings"
+                        github: "pycage"
+                    }
                 }
+            }
+
+            ScrollDecorator {
+                flickableItem: contributorsContent
+                anchors { right: parent.right; rightMargin: -contributorsContent.anchors.rightMargin }
             }
         }
     }

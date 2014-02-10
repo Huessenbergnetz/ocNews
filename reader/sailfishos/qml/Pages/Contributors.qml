@@ -10,7 +10,7 @@ Page {
     SilicaFlickable {
         id: singleItem
         anchors.fill: parent
-        contentHeight: aboutCol.height
+        contentHeight: aboutCol.height + Theme.paddingLarge
         VerticalScrollDecorator {}
 
         Column {
@@ -53,6 +53,22 @@ Page {
                 role: qsTr("Italian translation")
                 twitter: "LorenzoFacca"
                 website: "http://jollacommunity.altervista.org/"
+            }
+
+            ContributorItem {
+                name: "Mariano Flotron"
+                role: qsTr("Spanish translation")
+            }
+
+            SectionHeader {
+                text: qsTr("Used third party elements")
+            }
+
+            ContributorItem {
+                name: qsTr("Martin Grimme's Tidings Elements")
+                role: "FancyScroller, RescalingRichText"
+                website: "https://github.com/pycage/tidings"
+                github: "pycage"
             }
         }
     }
