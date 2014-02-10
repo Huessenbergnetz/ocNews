@@ -25,7 +25,6 @@ Sheet {
                     easing.type: Easing.InOutQuad
                     property: "opacity"
                 }
-
             }
         }
 

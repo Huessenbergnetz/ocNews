@@ -13,6 +13,9 @@ Page {
 
     property int handleRead: dbus.getSetting("display/handleread", 0)
     property bool sortAsc: dbus.getSetting("display/sortasc", false) == "true"
+    property string searchString
+
+    onSearchStringChanged: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
 
     Component.onCompleted: { console.log(handleRead); itemsModelSql.refresh(feedId, handleRead, sortAsc) }
     Component.onDestruction: GLOBALS.previousContentY = 0
@@ -37,47 +40,13 @@ Page {
     onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc)
     onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc)
 
-    Column {
-        id: headerContainer
-
-        width: itemListView.width
-
-        PageHeader {
-            id: pHeader
-            title: operationRunning ? qsTr("Update running...") : itemListView.feedName
-        }
-
-        SearchField {
-            id: searchField
-            width: parent.width
-            visible: false
-            onTextChanged: { itemsModelSql.refresh(feedId, handleRead, sortAsc, text); searchFieldTimer.restart(); searchField.forceActiveFocus(); searchField.focus = true }
-            placeholderText: qsTr("Search")
-            EnterKey.onClicked: searchField.focus = false
-            EnterKey.iconSource: "image://theme/icon-m-enter-close"
-
-            Timer {
-                id: searchFieldTimer; running: false; interval: 7000; repeat: false
-                onTriggered: { if (searchField.text === "") { searchField.focus = false; searchField.visible = false; } }
-            }
-        }
-    }
 
     SilicaListView {
         id: itemList
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.left: parent.left
-        anchors.bottom: itemListFetchIndicator.visible ? itemListFetchIndicator.top : parent.bottom
-        anchors.bottomMargin: sortingPanel.open ? sortingPanel.height * 1.5 : 0
+        anchors { top: parent.top; right: parent.right; left: parent.left; bottom: itemListFetchIndicator.visible ? itemListFetchIndicator.top : parent.bottom; bottomMargin: sortingPanel.open || searchPanel.open ? sortingPanel.open ? sortingPanel.height * 1.5 : searchPanel.height * 1.5 : 0 }
         currentIndex: -1
 
-        header: Item {
-            id: header
-            width: headerContainer.width
-            height: headerContainer.height
-            Component.onCompleted: headerContainer.parent = header
-        }
+        header: PageHeader { title: operationRunning ? qsTr("Update running...") : itemListView.feedName }
 
         Behavior on anchors.bottomMargin {
             NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
@@ -99,7 +68,11 @@ Page {
             MenuItem {
                 id: menuSort
                 text: sortingPanel.open ? qsTr("Hide sorting options") : qsTr("Show sorting options")
-                onClicked: sortingPanel.open = !sortingPanel.open
+                onClicked: {
+                    searchPanel.open = false;
+                    searchField.focus = false;
+                    sortingPanel.open = !sortingPanel.open
+                }
             }
             MenuItem {
                 id: markFeedAsRead
@@ -115,16 +88,15 @@ Page {
             }
             MenuItem {
                 id: showSearch
-                text: searchField.visible ? qsTr("Hide search") : qsTr("Show search")
+                text: searchPanel.open ? qsTr("Hide search") : qsTr("Show search")
                 onClicked: {
-                    searchField.visible = !searchField.visible;
-                    searchFieldTimer.running = !searchFieldTimer.running;
-                    if (!searchField.visible) {searchField.text = ""; searchField.focus = false} else {searchField.focus = true}
+                    sortingPanel.open = false
+                    searchPanel.open = !searchPanel.open
+                    searchField.forceActiveFocus();
+                    if (!searchPanel.open) {specialItemListView.searchString = ""; searchField.focus = false } else {searchField.focus = true }
                 }
             }
         }
-
-//        header: PageHeader { id: header; title: updater.isUpdateRunning() ? qsTr("Update running...") : itemListView.feedName }
 
         model: itemsModelSql
 
@@ -157,6 +129,28 @@ Page {
 
     RemorsePopup {
         id: remorsePop
+    }
+
+    DockedPanel {
+        id: searchPanel
+        width: parent.width
+        height: searchField.height
+        visible: open
+        dock: Dock.Bottom
+
+        SearchField {
+            id: searchField
+            width: parent.width
+            placeholderText: qsTr("Search")
+            EnterKey.onClicked: searchField.focus = false
+            EnterKey.iconSource: "image://theme/icon-m-enter-close"
+
+            Binding {
+                target: specialItemListView
+                property: "searchString"
+                value: searchField.text
+            }
+        }
     }
 
     DockedPanel {

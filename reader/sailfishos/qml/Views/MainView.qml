@@ -67,11 +67,7 @@ Page {
 
     SilicaListView {
         id: mainViewList
-        anchors.bottomMargin: addActionsDock.open ? addActionsDock.height * 1.5 : 0
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.left: parent.left
-        anchors.bottom: fetchIndicator.visible ? fetchIndicator.top : parent.bottom
+        anchors { top: parent.top; right: parent.right; left: parent.left; bottom: fetchIndicator.visible ? fetchIndicator.top : parent.bottom; bottomMargin: addActionsDock.open ? addActionsDock.height * 1.5 : 0 }
 
         header: PageHeader {
             id: pHeader
