@@ -25,7 +25,6 @@ Page {
     property string enclosureHost
     property string enclosureName
 
-    property string textFormatType: dbus.getSetting("display/textformat", "rich")
     property bool showImgsDefault: dbus.getSetting("display/handleimgs", 0) > 0
 
     property string _RICHTEXT_STYLESHEET_PREAMBLE: "<html><style>a { text-decoration: none; color: '" + Theme.secondaryHighlightColor + "' }</style><body>";
@@ -173,18 +172,13 @@ Page {
             color: Theme.primaryColor
         }
 
-        Text {
+        RescalingRichText {
             id: bodyText
-            text: textFormatType === "rich" ? _RICHTEXT_STYLESHEET_PREAMBLE + body + _RICHTEXT_STYLESHEET_APPENDIX : body
-            width: singleItem.width
-            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-            font.pixelSize: Theme.fontSizeSmall
-            font.weight: Font.Light
+            text: body
+            fontSize: Theme.fontSizeSmall
+            color: Theme.primaryColor
             anchors { top: sep.bottom; topMargin: 12; left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
             onLinkActivated: pageStack.push(Qt.resolvedUrl("../Dialogs/OpenLink.qml"), {link: link})
-            smooth: true
-            textFormat: textFormatType == "rich" ? Text.RichText : Text.StyledText
-            color: Theme.primaryColor
         }
 
         EnclosureItem {

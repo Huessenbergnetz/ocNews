@@ -35,10 +35,7 @@ Page {
     property bool enclosureInQueue: downloads.itemInQueue(itemId)
     property bool enclosureExists: downloads.itemExists(enclosureLink, enclosureMime) !== "" && !enclosureDownloading && !enclosureInQueue
 
-    property string textFormatType: dbus.getSetting("display/textformat", "rich")
     property bool showImgsDefault: dbus.getSetting("display/handleimgs", 0) > 0
-    property string _RICHTEXT_STYLESHEET_PREAMBLE: "<html><style>a { text-decoration: none; color: '" + theme.selectionColor + "' }</style><body>";
-    property string _RICHTEXT_STYLESHEET_APPENDIX: "</body></html>";
 
     function isMailTo(url) {
         var string = url;
@@ -252,17 +249,26 @@ Page {
             fillMode: Image.TileHorizontally
         }
 
-        Text {
+//        Text {
+//            id: bodyText
+//            text: textFormatType === "rich" ? _RICHTEXT_STYLESHEET_PREAMBLE + body + _RICHTEXT_STYLESHEET_APPENDIX : body
+//            width: itemContent.width
+//            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+//            font.pointSize: 17
+//            font.weight: Font.Light
+//            anchors { top: headerSeperator.bottom; topMargin: 12 }
+//            onLinkActivated: if (isImageLink(link)) {imagePreview.link = link; imagePreview.open()} else {linkContextMenu.link = link; linkContextMenu.open()}
+//            smooth: false
+//            textFormat: textFormatType == "rich" ? Text.RichText : Text.StyledText
+//            color: theme.inverted ? "white" : "black"
+//        }
+
+        RescalingRichText {
             id: bodyText
-            text: textFormatType === "rich" ? _RICHTEXT_STYLESHEET_PREAMBLE + body + _RICHTEXT_STYLESHEET_APPENDIX : body
-            width: itemContent.width
-            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-            font.pointSize: 17
-            font.weight: Font.Light
-            anchors { top: headerSeperator.bottom; topMargin: 12 }
+            text: body
+            fontSize: 17
+            anchors { top: headerSeperator.bottom; topMargin: 12; left: parent.left; right: parent.right }
             onLinkActivated: if (isImageLink(link)) {imagePreview.link = link; imagePreview.open()} else {linkContextMenu.link = link; linkContextMenu.open()}
-            smooth: false
-            textFormat: textFormatType == "rich" ? Text.RichText : Text.StyledText
             color: theme.inverted ? "white" : "black"
         }
 

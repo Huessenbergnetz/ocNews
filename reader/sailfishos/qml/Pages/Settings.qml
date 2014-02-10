@@ -23,7 +23,6 @@ Page {
             chooseMaxItems.initialValue = config["maxitems"]
             chooseViewMode.initialValue = config["viewmode"]
             chooseOrderBy.initialValue = config["orderby"]
-            textFormatSelection.initialValue = config["textformat"]
             showImgsSelection.initialValue = config["handleimgs"]
             handleReadSelection.initialValue = config["handleread"]
             sortAsc.checked = config["sortasc"]
@@ -43,7 +42,6 @@ Page {
             maxitems:maxItemModel.get(chooseMaxItems.currentIndex).value,
             viewmode:viewModeModel.get(chooseViewMode.currentIndex).value,
             orderby:orderByModel.get(chooseOrderBy.currentIndex).value,
-            textformat:textFormatModel.get(textFormatSelection.currentIndex).value,
             handleimgs:showImgsModel.get(showImgsSelection.currentIndex).value,
             handleread:handleReadModel.get(handleReadSelection.currentIndex).value,
             sortasc:sortAsc.checked,
@@ -259,23 +257,6 @@ Page {
                 anchors { left: parent.left; right: parent.right }
                 label: qsTr("Order feeds and folders by")
                 model: orderByModel
-            }
-
-            ListModel {
-                id: textFormatModel
-                ListElement { name: ""; value: "rich" }
-                ListElement { name: ""; value: "styled" }
-                Component.onCompleted: {
-                    textFormatModel.get(0).name = qsTr("Full")
-                    textFormatModel.get(1).name = qsTr("Limited")
-                }
-            }
-
-            ComboBoxList {
-                id: textFormatSelection
-                anchors { left: parent.left; right: parent.right }
-                label: qsTr("Display post content format")
-                model: textFormatModel
             }
 
             ListModel {

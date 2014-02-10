@@ -16,9 +16,11 @@ PageStackWindow {
 
     property bool operationRunning: updater.isUpdateRunning()
     property int viewMode: dbus.getSetting("display/viewmode", 0)
+//    property string textFormatType: dbus.getSetting("display/textformat", "rich")
+    property bool useRichText: dbus.getSetting("display/textformat", "rich") === "rich"
 
     Component.onCompleted: {
-        theme.inverted = dbus.getSetting("display/themecolor", "white") == "black";
+        theme.inverted = dbus.getSetting("display/themecolor", "white") === "black";
         theme.colorScheme = 15;
         if (openItemId != "0")
             openFile("Views/SingleItemView.qml", {itemId: openItemId, directOpening: true});
@@ -75,7 +77,7 @@ PageStackWindow {
         onInitError: { infoMessages.show(); infoMessages.text = errorMessage; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
         onCleanedDatabase: { infoMessages.show(); infoMessages.text = qsTr("Deleted complete database"); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
         onCleanedCertificates: { infoMessages.show(); infoMessages.text = qsTr("Removed trusted certificates. The changes take effect after an application restart."); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
-        onSavedConfig: viewMode = dbus.getSetting("display/viewmode", 0)
+        onSavedConfig: { viewMode = dbus.getSetting("display/viewmode", 0); useRichText = dbus.getSetting("display/textformat", "rich") === "rich"}
     }
 
 

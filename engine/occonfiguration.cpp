@@ -57,7 +57,6 @@ QVariantMap OcConfiguration::getConfig()
     config["maxitems"] = settings.value("storage/maxitems", "100");
     config["viewmode"] = settings.value("display/viewmode", 0).toInt();
     config["orderby"] = settings.value("display/orderby", "id");
-    config["textformat"] = settings.value("display/textformat", "rich");
     config["themecolor"] = settings.value("display/themecolor", "white");
     config["handleimgs"] = settings.value("display/handleimgs", 0).toInt();
     config["handleread"] = settings.value("display/handleread", 0).toInt();
@@ -72,6 +71,8 @@ QVariantMap OcConfiguration::getConfig()
     config["server"] = settings.value("account/server", "").toString();
     config["usessl"] = settings.value("account/usessl", true).toBool();
     config["ignoresslerrors"] = settings.value("account/ignoresslerrors", false).toBool();
+#else
+    config["textformat"] = settings.value("display/textformat", "rich");
 #endif
 
     emit gotConfig(config);
@@ -96,7 +97,6 @@ void OcConfiguration::saveConfig(const QVariantMap &config)
     settings.setValue("storage/maxitems", config["maxitems"]);
     settings.setValue("display/viewmode", config["viewmode"]);
     settings.setValue("display/orderby", config["orderby"]);
-    settings.setValue("display/textformat", config["textformat"]);
     settings.setValue("display/themecolor", config["themecolor"]);
     settings.setValue("display/handleimgs", config["handleimgs"]);
     settings.setValue("display/handleread", config["handleread"]);
@@ -111,6 +111,8 @@ void OcConfiguration::saveConfig(const QVariantMap &config)
     settings.setValue("account/server", config["server"]);
     settings.setValue("account/usessl", config["usessl"]);
     settings.setValue("account/ignoresslerrors", config["ignoresslerrors"]);
+#else
+    settings.setValue("display/textformat", config["textformat"]);
 #endif
     settings.sync();
 
