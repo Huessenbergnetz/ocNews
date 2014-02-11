@@ -123,7 +123,7 @@ Page {
             }
             MenuLabel {
                 id: lastUpdated
-                visible: configState === 0 && !operationRunning
+                visible: configState === 0 && !operationRunning && dbus.getStat(1)
                 text: qsTr("Last update:") + " " + Qt.formatDateTime(new Date(dbus.getStat(1)), Qt.DefaultLocaleShortDate)
                 Connections {
                     target: updater
