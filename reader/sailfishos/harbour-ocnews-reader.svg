@@ -16,12 +16,36 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="single-shape2.svg"
-   inkscape:export-filename="C:\Users\Stephan\Desktop\double-shape.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   sodipodi:docname="harbour-ocnews-reader.svg"
+   inkscape:export-filename="/home/buschmann/Dokumente/Entwicklung/Projekte/ocNews/reader/sailfishos/icons/icon-ocnews-256.png"
+   inkscape:export-xdpi="267.90698"
+   inkscape:export-ydpi="267.90698">
   <defs
      id="defs4">
+    <linearGradient
+       id="linearGradient4339"
+       gradientUnits="userSpaceOnUse"
+       x1="38.9995"
+       y1="0"
+       x2="38.9995"
+       y2="78.000504">
+      <stop
+         offset="0"
+         style="stop-color:#FBC200"
+         id="stop4341" />
+      <stop
+         offset="0.33333334"
+         style="stop-color:#F9A900"
+         id="stop4343" />
+      <stop
+         offset="0.64285713"
+         style="stop-color:#F66B00"
+         id="stop4345" />
+      <stop
+         offset="0.8888889"
+         style="stop-color:#F45200"
+         id="stop4347" />
+    </linearGradient>
     <linearGradient
        id="linearGradient3789-6">
       <stop
@@ -35,14 +59,14 @@
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient5113-3-0-1-5"
+       xlink:href="#linearGradient4339"
        id="linearGradient3925"
        gradientUnits="userSpaceOnUse"
        spreadMethod="reflect"
-       x1="45"
-       y1="10"
-       x2="45"
-       y2="80"
+       x1="58.604652"
+       y1="6.2790699"
+       x2="11.511628"
+       y2="84.767441"
        gradientTransform="matrix(-0.95555556,0,0,0.95555556,86,4)" />
     <linearGradient
        osb:paint="gradient"
@@ -3290,7 +3314,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="5.6568542"
      inkscape:cx="67.468191"
-     inkscape:cy="36.776055"
+     inkscape:cy="36.864443"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="true"
@@ -3328,10 +3352,13 @@
      style="display:inline"
      transform="translate(0,-4)">
     <path
-       style="fill:url(#linearGradient3925);fill-opacity:1.0;stroke:none;display:inline"
+       style="fill:url(#linearGradient3925);fill-opacity:1;stroke:none;display:inline"
        d="m 43,4 c 23.748244,0 43,19.251756 43,43 l 0,40.790278 C 86,89.01865 85.01865,90 83.790278,90 L 43,90 C 19.251756,90 0,70.748244 0,47 0,23.251756 19.251756,4 43,4 z"
        id="rect3059"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/buschmann/Dokumente/Entwicklung/Projekte/ocNews/reader/sailfishos/icons/icon-ocnews-256.png"
+       inkscape:export-xdpi="267.91"
+       inkscape:export-ydpi="267.91" />
     <g
        id="layer5"
        inkscape:label="DO NOT EDIT -  Bounding Box"
