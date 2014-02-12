@@ -1,3 +1,18 @@
+Version 1.7.0, 2014-02-12 20:53:00 +0100
+
+  General:
+  * New: display and handle enclosures (attached files) (issue #28)
+  * New: option to download and cache images at updating (issue #16)
+  * New: dialog for opening links (issue #12)
+  * Fixed: resize pictures on item view (taken from Martin Grimme's Tidings RSS reader)
+    (issue #11)
+  
+  Sailfish OS:
+  * Fixed: search field was losing focus (issue #4)
+  * Fixed: updateFinished signal was sent before stats got updated (issue #30)
+  * Fixed: adding new feed from cover action did not activate busy state (issue #29)
+  * Fixed: update label on cover page is not pulsing during refresh (issue #27)
+
 Version 1.6.1, 2014-01-31 01:51:27 +0100
 
   General:

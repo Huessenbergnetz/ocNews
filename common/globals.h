@@ -1,11 +1,11 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
-#define VERSION_STRING "1.6.2"
-#define VERSION 162
+#define VERSION_STRING "1.7.0"
+#define VERSION 170
 #define VER_MAJ 1
-#define VER_MIN 6
-#define VER_PAT 2
+#define VER_MIN 7
+#define VER_PAT 0
 
 #if defined(MEEGO_EDITION_HARMATTAN)
 #define SETTINGS_PATH "/private"

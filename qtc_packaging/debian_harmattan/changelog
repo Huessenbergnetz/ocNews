@@ -1,8 +1,18 @@
+buschtrommel-ocnews (1.7.0) stable; urgency=low
+
+  * New: display and handle enclosures (attached files) (issue #28)
+  * New: option to download and cache images at updating (issue #16)
+  * New: dialog for opening links (issue #12)
+  * Fixed: resize pictures on item view (taken from Martin Grimme's Tidings RSS reader)
+    (issue #11)
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Wed, 12 Feb 2014 20:59:23 +0100
+
 buschtrommel-ocnews (1.6.1) stable; urgency=low
 
   * Fixed: all posts view not refreshed after complete sync update (issue #26)
   * Fixed: feed list view was not refreshed after complete sync update
-  * Fixed: minor stuff in translation
+  * Fixed: minor stuff in translations
 
  -- Buschtrommel <kontakt@buschmann23.de>  Fri, 31 Jan 2014 01:51:27 +0100
 

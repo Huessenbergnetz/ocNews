@@ -40,6 +40,11 @@ int main(int argc, char *argv[])
     QGuiApplication* app = SailfishApp::application(argc, argv);
 //    QScopedPointer<QGuiApplication>* app(SailfishApp::application(argc, argv));
 
+    app->setOrganizationName("Buschtrommel");
+    app->setOrganizationDomain("buschmann23.de");
+    app->setApplicationName("harbour-ocnews-reader");
+    app->setApplicationVersion(VERSION_STRING);
+
     QString locale = QLocale::system().name();
     QTranslator *translator = new QTranslator;
     if ((translator->load("ocnewsreader_"+locale, ":/")))
