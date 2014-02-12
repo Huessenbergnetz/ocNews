@@ -82,17 +82,17 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="60"/>
         <source>Spanish translation</source>
-        <translation type="unfinished"/>
+        <translation>西班牙语翻译</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="64"/>
         <source>Used third party elements</source>
-        <translation type="unfinished"/>
+        <translation>使用的第三方素材</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="68"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation type="unfinished"/>
+        <translation>Martin Grimme 的新闻素材</translation>
     </message>
 </context>
 <context>
@@ -720,6 +720,11 @@
         <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="43"/>
         <source>Open in browser</source>
         <translation>在浏览器中打开</translation>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="56"/>
+        <source>Click button to load image</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

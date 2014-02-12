@@ -313,6 +313,11 @@
         <source>Close</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/ImagePreviewSheet.qml" line="24"/>
+        <source>Load image</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ItemListView</name>

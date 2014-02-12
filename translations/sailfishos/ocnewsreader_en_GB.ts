@@ -723,6 +723,11 @@
         <source>Open in browser</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="56"/>
+        <source>Click button to load image</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PrivacyPolicy</name>

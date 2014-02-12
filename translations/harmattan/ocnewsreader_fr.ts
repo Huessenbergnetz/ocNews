@@ -50,7 +50,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="150"/>
         <source>UI, French translation</source>
-        <translation>IHM, traduction française</translation>
+        <translation>IHM, Traduction française</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="156"/>
@@ -65,17 +65,17 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="175"/>
         <source>Spanish translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduction espagnole</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="179"/>
         <source>Used third party elements</source>
-        <translation type="unfinished"/>
+        <translation>Éléments de tierces parties réutilisés</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="183"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation type="unfinished"/>
+        <translation>Éléments de l&apos;application Tidings par Martin Grimme</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="219"/>
@@ -164,17 +164,17 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Common/EnclosureItem.qml" line="48"/>
         <source>Enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Éléments attachés</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Common/EnclosureItem.qml" line="101"/>
         <source>Download finished</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement terminé</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Common/EnclosureItem.qml" line="112"/>
         <source>In queue</source>
-        <translation type="unfinished"/>
+        <translation>En file d&apos;attente</translation>
     </message>
 </context>
 <context>
@@ -306,11 +306,16 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/ImagePreviewSheet.qml" line="6"/>
         <source>Open in browser</source>
-        <translation type="unfinished"/>
+        <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/ImagePreviewSheet.qml" line="7"/>
         <source>Close</source>
+        <translation>Fermer</translation>
+    </message>
+    <message>
+        <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/ImagePreviewSheet.qml" line="24"/>
+        <source>Load image</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -473,13 +478,13 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="318"/>
         <source>Update all</source>
-        <translation type="unfinished"/>
+        <translation>Tout mettre à jour</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="325"/>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="328"/>
         <source>Last:</source>
-        <translation type="unfinished"/>
+        <translation>Dernier:</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="346"/>
@@ -1192,47 +1197,47 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="321"/>
         <source>Open enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Ouvrir les éléments attachés</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="321"/>
         <source>Open enclosure directly</source>
-        <translation type="unfinished"/>
+        <translation>Ouvrir les éléments attachés directement</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="326"/>
         <source>Abort download</source>
-        <translation type="unfinished"/>
+        <translation>Annuler le téléchargement</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="326"/>
         <source>Delete enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer les éléments attachés</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="326"/>
         <source>Download enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Télécharger les éléments attachés</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="373"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="374"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Annuler</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="375"/>
         <source>Do you really want to delete this file?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous vraiment supprimer ce fichier?</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="376"/>
         <source>Delete %1?</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer %1?</translation>
     </message>
 </context>
 <context>

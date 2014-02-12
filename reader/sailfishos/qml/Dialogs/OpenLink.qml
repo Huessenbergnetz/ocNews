@@ -43,25 +43,39 @@ Dialog {
         title: isMailTo(link) ? qsTr("Write e-mail") : qsTr("Open in browser")
     }
 
+    IconButton {
+        id: imgBut
+        icon.source: "image://theme/icon-l-image"
+        visible: isImageLink(link) && image.status != Image.Ready
+        anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
+        onClicked: { image.visible = true; image.source = link; visible = false; txtBut.visible = false }
+    }
+
+    Text {
+        id: txtBut
+        text: qsTr("Click button to load image")
+        color: Theme.secondaryColor
+        anchors { top: imgBut.bottom; topMargin: 5; horizontalCenter: parent.horizontalCenter}
+        visible: isImageLink(link) && image.status != Image.Ready
+        horizontalAlignment: Text.AlignHCenter
+    }
+
     Image {
         id: image
         anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
         fillMode: Image.PreserveAspectFit
-        visible: isImageLink(link)
+        visible: false
         opacity: status === Image.Ready ? 1 : 0
-        source: isImageLink(link) ? link : ""
         Behavior on opacity { FadeAnimation {} }
     }
 
-    Slider {
+    ProgressBar {
         anchors { verticalCenter: parent.verticalCenter; horizontalCenter: parent.horizontalCenter }
         value: image.progress
         minimumValue: 0
         maximumValue: 1.0
         enabled: false
         width: parent.width
-        handleVisible: false
-        valueText: ""
         visible: image.status != Image.Ready && image.visible
     }
 
@@ -72,6 +86,8 @@ Dialog {
         color: Theme.highlightColor
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         text: isMailTo(link) ? stripMailTo(link) : link
+        opacity: image.status != Image.Ready
+        Behavior on opacity { FadeAnimation {} }
     }
 
     onAccepted: {

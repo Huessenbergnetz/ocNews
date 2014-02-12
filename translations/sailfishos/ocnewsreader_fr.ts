@@ -82,17 +82,17 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="60"/>
         <source>Spanish translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduction espagnole</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="64"/>
         <source>Used third party elements</source>
-        <translation type="unfinished"/>
+        <translation>Éléments de tierces parties réutilisés</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Contributors.qml" line="68"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation type="unfinished"/>
+        <translation>Éléments de l&apos;application Tidings par Martin Grimme</translation>
     </message>
 </context>
 <context>
@@ -194,42 +194,42 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="70"/>
         <source>Deleting %1</source>
-        <translation type="unfinished"/>
+        <translation>Suppression de %1</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="73"/>
         <source>Enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Éléments attachés</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="125"/>
         <source>Download finished</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement terminé</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="137"/>
         <source>In queue</source>
-        <translation type="unfinished"/>
+        <translation>En file d&apos;attente</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="172"/>
         <source>Open enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Ouvrir les éléments attachés</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="178"/>
         <source>Abort download</source>
-        <translation type="unfinished"/>
+        <translation>Annuler le téléchargement</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="178"/>
         <source>Delete enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer les éléments attachés</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Common/EnclosureItem.qml" line="178"/>
         <source>Download enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Télécharger les éléments attachés</translation>
     </message>
 </context>
 <context>
@@ -720,6 +720,11 @@
         <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="43"/>
         <source>Open in browser</source>
         <translation>Ouvrir dans le navigateur</translation>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="56"/>
+        <source>Click button to load image</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
