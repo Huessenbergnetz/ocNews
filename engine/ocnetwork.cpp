@@ -20,6 +20,14 @@ OcNetwork::OcNetwork(QObject *parent) :
 
     connect(this, SIGNAL(sslErrors(QNetworkReply*,QList<QSslError>)),
                 this, SLOT(sslErrorHandler(QNetworkReply*,QList<QSslError>)));
+
+#if !defined(MEEGO_EDITION_HARMATTAN)
+    configurationManager = new QNetworkConfigurationManager(this);
+
+    connect(configurationManager, SIGNAL(onlineStateChanged(bool)), this, SLOT(networkStatusChanged(bool)), Qt::UniqueConnection);
+    connect(configurationManager, SIGNAL(configurationChanged(QNetworkConfiguration)), this, SLOT(networkConfigurationChanged()), Qt::UniqueConnection);
+#endif
+
 }
 
 
@@ -339,3 +347,31 @@ int OcNetwork::bearerType()
     return btNum;
 
 }
+
+
+#if !defined(MEEGO_EDITION_HARMATTAN)
+
+void OcNetwork::networkStatusChanged(bool isOnline)
+{
+
+#ifdef QT_DEBUG
+    qDebug() << "Network is online? " << isOnline;
+#endif
+
+    if (isOnline)
+        emit networkOnline();
+}
+
+
+void OcNetwork::networkConfigurationChanged()
+{
+
+#ifdef QT_DEBUG
+    qDebug() << "Network configuration changed.";
+#endif
+
+    emit networkConfigChanged();
+}
+
+#endif
+

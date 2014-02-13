@@ -50,8 +50,12 @@ OcUpdater::OcUpdater(QObject *parent) :
     timer->setTimerType(Qt::CoarseTimer);
     timer->start();
 
+
+    connect(&network, SIGNAL(networkOnline()), this, SLOT(handleNetAndConfChanges()));
+    connect(&network, SIGNAL(networkConfigChanged()), this, SLOT(handleNetAndConfChanges()));
+
     // after startup, check if an update should be performed
-    handleNetAndConfChanges();
+//    handleNetAndConfChanges();  // is currently anywayy called by network online check
 #endif
 
 }
@@ -135,9 +139,6 @@ void OcUpdater::startUpdateTimed()
 
     if (timer->maximumInterval() != interval + TIMER_DELTA)
         timer->setMaximumInterval(interval + TIMER_DELTA);
-
-//    networkInfo = new QSystemNetworkInfo();
-//    batteryInfo = new QSystemBatteryInfo();
 
 #ifdef QT_DEBUG
     qDebug() << "Settings before timed update start:";
