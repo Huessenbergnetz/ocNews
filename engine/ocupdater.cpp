@@ -36,7 +36,12 @@ OcUpdater::OcUpdater(QObject *parent) :
     timer->setMaximumInterval(config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt() + TIMER_DELTA);
     timer->start();
 
-//    connect(networkInfo, SIGNAL(networkModeChanged(QSystemNetworkInfo::NetworkMode)), this, SLOT(handleNetAndConfChanges()));
+#ifdef QT_DEBUG
+    qDebug() << "Initial update minimum interval: " << timer->minimumInterval();
+    qDebug() << "Initial update maximum interval: " << timer->maximumInterval();
+#endif
+
+    connect(batteryInfo, SIGNAL(chargingStateChanged(QSystemBatteryInfo::ChargingState)), this, SLOT(handleNetAndConfChanges()));
     connect(networkInfo, SIGNAL(networkStatusChanged(QSystemNetworkInfo::NetworkMode,QSystemNetworkInfo::NetworkStatus)), this, SLOT(handleNetAndConfChanges()));
 #else
     timer = new QTimer(this);
@@ -133,6 +138,18 @@ void OcUpdater::startUpdateTimed()
 
 //    networkInfo = new QSystemNetworkInfo();
 //    batteryInfo = new QSystemBatteryInfo();
+
+#ifdef QT_DEBUG
+    qDebug() << "Settings before timed update start:";
+    qDebug() << "-----------------------------------";
+    qDebug() << "Update behavior: " << updateBehavior;
+    qDebug() << "Mimimum interval: " << timer->minimumInterval();
+    qDebug() << "Maximum interval: " << timer->maximumInterval();
+    qDebug() << "Battery load in %: " << batteryInfo->remainingCapacityPercent();
+    qDebug() << "Battery charging state: " << batteryInfo->chargingState();
+    qDebug() << "Network mode: " << networkInfo->currentMode();
+    qDebug() << "Network status: " << networkInfo->networkStatus(networkInfo->currentMode());
+#endif
 
     if (batteryInfo->remainingCapacityPercent() >= MINIMUM_BATTERY || batteryInfo->chargingState() == QSystemBatteryInfo::Charging )
     {
