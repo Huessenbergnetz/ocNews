@@ -8,6 +8,7 @@
 #include "ocdbmanager.h"
 #include "ocgeneric.h"
 #include "ocfeeds.h"
+#include "../common/globals.h"
 
 class OcFolders : public QObject
 {

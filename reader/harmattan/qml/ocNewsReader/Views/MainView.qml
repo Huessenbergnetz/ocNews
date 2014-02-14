@@ -284,6 +284,7 @@ Page {
             }
             MenuItem {
                 text: qsTr("Quit completely")
+                visible: dbus.getSetting("engine/quitonclose", "false") == "false"
                 onClicked: quitCompletely.open()
             }
         }

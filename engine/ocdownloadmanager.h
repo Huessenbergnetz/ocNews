@@ -14,6 +14,8 @@
 #include <TransferUI/Transfer>
 #endif
 
+#include "../common/globals.h"
+
 class OcDownloadManager : public QObject
 {
     Q_OBJECT

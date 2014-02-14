@@ -1,5 +1,4 @@
 #include "ocdownloadmanager.h"
-#include "../common/globals.h"
 
 #include <QFileInfo>
 #include <QDir>

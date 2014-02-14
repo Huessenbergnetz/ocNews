@@ -11,6 +11,7 @@
 #include "ochelper.h"
 #include "ocnetwork.h"
 #include "ocdbmanager.h"
+#include "../common/globals.h"
 
 class OcItems : public QObject
 {

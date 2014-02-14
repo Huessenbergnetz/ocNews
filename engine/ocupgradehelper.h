@@ -6,6 +6,7 @@
 #include <QStringList>
 #include <QFileInfo>
 #include <QVariant>
+#include "../common/globals.h"
 
 class OcUpgradeHelper : public QObject
 {

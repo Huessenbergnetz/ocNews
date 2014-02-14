@@ -538,62 +538,62 @@
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="104"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="105"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="109"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="110"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="115"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="116"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="121"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="122"/>
         <source>Update all</source>
         <translation>更新全部</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="127"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="128"/>
         <source>Last update:</source>
         <translation>最后更新：</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="130"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="131"/>
         <source>Last update: </source>
         <translation>最后更新：</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="137"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="138"/>
         <source>With these app you can synchronize and view your ownCloud News App content on your smartphone. Before you can start, you have to setup your ownCloud server account in the settings.</source>
         <translation>通过这个app，你可以同步并在你的智能手机上查看ownCloud新闻的内容。在你开始使用之前，你需要到设置中设置你的ownCloud服务器账号。</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="142"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="143"/>
         <source>The local database is empty. Please make an update or add new feeds and folders.</source>
         <translation>本地数据库为空，请尝试更新或添加新的订阅。</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="160"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="161"/>
         <source>Scroll to top</source>
         <translation>回到顶部</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="182"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="183"/>
         <source>Add feed</source>
         <translation>添加订阅</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="193"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="194"/>
         <source>Add folder</source>
         <translation>添加文件夹</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="206"/>
+        <location filename="../../reader/sailfishos/qml/Views/MainView.qml" line="207"/>
         <source>Quit reader and engine</source>
         <translation>退出阅读器并关闭引擎</translation>
     </message>
@@ -724,7 +724,7 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="56"/>
         <source>Click button to load image</source>
-        <translation type="unfinished"/>
+        <translation>点击以载入图片</translation>
     </message>
 </context>
 <context>
@@ -816,234 +816,249 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="84"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="86"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="86"/>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="108"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="88"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="110"/>
         <source>Server</source>
         <translation>服务器</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="91"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="93"/>
         <source>User name</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="99"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="101"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="108"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="110"/>
         <source>Server: e.g. cloud.example.com</source>
         <translation>服务器：如 cloud.example.com</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="116"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="118"/>
         <source>Test connection</source>
         <translation>测试连接</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="144"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="146"/>
         <source>Found ownCloud News Version %1</source>
         <translation>找到ownCloud新闻版本%1</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="150"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="152"/>
         <source>Use HTTPS (SSL/TLS) connection</source>
         <translation>使用HTTPS(SSL/TLS)连接</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="152"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="154"/>
         <source>Because ownCloud News requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption.</source>
         <translation>因为ownCloud新闻的每个操作请求，都需要你发送你的用户名和密码，所以在你的服务器支持或者要求加密的情况下，你应该启用这个功能来使用加密连接。</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="156"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="158"/>
         <source>Ignore SSL errors</source>
         <translation>忽略SSL错误</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="158"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="160"/>
         <source>Only ignore SSL errors when you really know what you are doing. (Currently there is no system service for handling SSL certificates. ocNews will implement it&apos;s own in the future, but for now you have to ignore SSL errors when you are using a self signed certificate.)</source>
         <translation>只在你了解发生了什么的情况下忽略SSL错误（目前ocNews没有处理SSL证书的系统服务。ocNews将会在未来的版本加入这个功能，但目前你在使用自签名证书时，需要忽略SSL错误才行。）。</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="162"/>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="179"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="164"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="181"/>
         <source>Updating</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="170"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="172"/>
         <source>Only manually</source>
         <translation>手动</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="171"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="173"/>
         <source>Automatic on Wi-Fi</source>
         <translation>WiFi连接时自动</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="172"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="174"/>
         <source>Always automatic</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="192"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="194"/>
         <source>15 Minutes</source>
         <translation>15分钟</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="193"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="195"/>
         <source>30 Minutes</source>
         <translation>30分钟</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="194"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="196"/>
         <source>1 Hour</source>
         <translation>1小时</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="195"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="197"/>
         <source>3 Hours</source>
         <translation>3小时</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="196"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="198"/>
         <source>6 Hours</source>
         <translation>6小时</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="197"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="199"/>
         <source>12 Hours</source>
         <translation>12小时</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="205"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="207"/>
         <source>Update interval</source>
         <translation>更新间隔</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="209"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="211"/>
+        <source>Engine</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="230"/>
+        <source>Quit engine on closing reader</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="235"/>
         <source>Appearance</source>
         <translation>外观</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="222"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="224"/>
         <source>Number of items to keep</source>
         <translation>保留的条目数量</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="231"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="232"/>
+        <source>By default the engine daemon ist started on application startup and keeps running after closing the application to operate/synchronize in the background. This option needs an application restart.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="242"/>
         <source>Folders</source>
         <translation>文件夹</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="232"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="243"/>
         <source>Feeds</source>
         <translation>订阅</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="239"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="250"/>
         <source>Main view layout</source>
         <translation>整体视图布局</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="249"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="260"/>
         <source>Added (like on server)</source>
         <translation>已添加（在服务器上）</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="250"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="261"/>
         <source>Title</source>
         <translation>标题</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="251"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="262"/>
         <source>Unread count</source>
         <translation>未读数目</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="258"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="269"/>
         <source>Order feeds and folders by</source>
         <translation>将订阅和文件夹排序以</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="268"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="279"/>
         <source>On request</source>
         <translation>根据要求</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="269"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="280"/>
         <source>When item loads</source>
         <translation>当读取条目时</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="270"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="281"/>
         <source>Prefetch at updating</source>
         <translation>更新时预读</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="277"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="288"/>
         <source>Load content images</source>
         <translation>读取内容图片</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="288"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="299"/>
         <source>Show</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="289"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="300"/>
         <source>Hide</source>
         <translation>隐藏</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="290"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="301"/>
         <source>Show after unread</source>
         <translation>标为未读后显示</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="297"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="308"/>
         <source>Read articles</source>
         <translation>阅读文章</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="303"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="314"/>
         <source>Show oldest items on top</source>
         <translation>在顶部显示最旧条目</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="305"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="316"/>
         <source>Set the default order of the news items to show the oldest at the top. You can still change it in the pully menu.</source>
         <translation>设置在顶部显示最旧条目的新闻默认排序。当然你后续还可以在下滑菜单中更改。</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="308"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="319"/>
         <source>Maintenance</source>
         <translation>维护</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="312"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="323"/>
         <source>Reset configuration</source>
         <translation>重置设定</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="319"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="330"/>
         <source>Delete database</source>
         <translation>删除数据库</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="328"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="339"/>
         <source>Deleting database</source>
         <translation>正在删除数据库</translation>
     </message>
     <message>
-        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="333"/>
+        <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="344"/>
         <source>Resetting configuration</source>
         <translation>正在重置设置</translation>
     </message>

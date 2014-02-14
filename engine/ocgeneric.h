@@ -3,8 +3,13 @@
 
 #include <QObject>
 #include <QUrl>
+#include <QEventLoop>
+#include <QCoreApplication>
+#include <QTimer>
 #include "ochelper.h"
 #include "ocnetwork.h"
+#include "occonfiguration.h"
+#include "../common/globals.h"
 
 class OcGeneric : public QObject
 {
@@ -35,6 +40,7 @@ private:
     OcNetwork network;
     QNetworkReply *reply;
     OcHelper helper;
+    OcConfiguration configuration;
 
 };
 

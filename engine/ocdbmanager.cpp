@@ -1,6 +1,5 @@
 #include <QDebug>
 #include "ocdbmanager.h"
-#include "../common/globals.h"
 
 
 

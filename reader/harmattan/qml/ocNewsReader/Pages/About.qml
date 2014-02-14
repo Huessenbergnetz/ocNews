@@ -163,12 +163,12 @@ Page {
                         weibo: "finalmix"
                     }
 
-//                    ContributorItem {
-//                        name: "Lorenzo Facca"
-//                        role: qsTr("Italian translation")
-//                        twitter: "LorenzoFacca"
-//                        website: "http://jollacommunity.altervista.org/"
-//                    }
+                    ContributorItem {
+                        name: "Lorenzo Facca"
+                        role: qsTr("Italian translation")
+                        twitter: "LorenzoFacca"
+                        website: "http://jollacommunity.altervista.org/"
+                    }
 
                     ContributorItem {
                         name: "Mariano Flotron"

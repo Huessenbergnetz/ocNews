@@ -1,6 +1,5 @@
 #include <QtNetwork>
 #include "ocfeeds.h"
-#include "../common/globals.h"
 
 
 /*!

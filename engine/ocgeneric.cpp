@@ -1,7 +1,6 @@
-#include <QtNetwork>
-//#include <qjson/parser.h>
+//#include <QtNetwork>
+#include <QDebug>
 #include "ocgeneric.h"
-
 
 
 /*!
@@ -172,5 +171,11 @@ void OcGeneric::getVersionFinished()
 
 void OcGeneric::quitEngine()
 {
+    while(inOperation) {
+        qDebug() << "Operation running: " << inOperation;
+        QEventLoop loop;
+        QTimer::singleShot(1000, &loop, SLOT(quit()));
+        loop.exec();
+    }
     QCoreApplication::quit();
 }

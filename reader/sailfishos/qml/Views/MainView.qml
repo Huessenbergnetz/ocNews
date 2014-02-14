@@ -97,6 +97,7 @@ Page {
             MenuItem {
                 id: quit
                 text: qsTr("Quit")
+                visible: dbus.getSetting("engine/quitonclose", "false") == "false"
                 onClicked: quitEngine()
             }
             MenuItem {

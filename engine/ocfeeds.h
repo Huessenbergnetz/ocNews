@@ -9,6 +9,7 @@
 #include "ocdbmanager.h"
 #include "ocnetwork.h"
 #include "ocitems.h"
+#include "../common/globals.h"
 
 class OcFeeds : public QObject
 {

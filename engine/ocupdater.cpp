@@ -293,6 +293,7 @@ void OcUpdater::startUpdatePrivate()
         QObject::connect(&folders, SIGNAL(requestedFoldersSuccess()), this, SLOT(updateFeeds()), Qt::UniqueConnection);
         QObject::connect(&folders, SIGNAL(requestedFoldersError(QString)), this, SLOT(errorInUpdate(QString)), Qt::UniqueConnection);
         updateRunning = true;
+        inOperation = true;
         emit updateStarted();
         folders.requestFolders();
     }
@@ -398,6 +399,7 @@ void OcUpdater::endUpdate()
 #endif
 
     updateRunning = false;
+    inOperation = false;
     emit updateFinished();
 }
 
@@ -424,6 +426,7 @@ void OcUpdater::errorInUpdate(QString errorMessage)
 #endif
 
     updateRunning = false;
+    inOperation = false;
     emit updateError(errorMessage);
 }
 

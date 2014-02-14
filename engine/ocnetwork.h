@@ -18,6 +18,7 @@
 #endif
 
 #include "occonfiguration.h"
+#include "../common/globals.h"
 
 class OcNetwork : public QNetworkAccessManager
 {

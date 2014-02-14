@@ -1,7 +1,7 @@
 #include <QDebug>
 
 #include "ocnetwork.h"
-#include "../common/globals.h"
+
 
 
 /*!

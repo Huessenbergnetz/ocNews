@@ -36,7 +36,8 @@ Page {
             updateinterval:updateInterval.currentValue,
             eventfeeds:selFed.toString(),
             handleread:handleRead.currentValue,
-            sortasc:sortAsc.checked
+            sortasc:sortAsc.checked,
+            quitengine:quitEngine.checked
         };
 
         return saveConf;
@@ -100,11 +101,9 @@ Page {
 
             Flickable {
                 id: tab2Content
-                anchors { right: parent.right; left: parent.left; top: parent.top; bottom: parent.bottom; bottomMargin: 90 }
+                anchors { right: parent.right; left: parent.left; top: parent.top; bottom: parent.bottom; bottomMargin: 70 }
                 contentWidth: parent.width
-                contentHeight: chooseMaxItems.height + chooseViewMode.height + chooseOrderBy.height + updateBehavior.height + updateInterval.height + textFormatLabel.height + textFormatSelection.height + invertThemeLabel.height + invertThemeSelection.height + handleImgs.height + handleRead.height + sortAsc.height + 100
-
-                Component.onCompleted: console.log(tab2Content.contentHeight)
+                contentHeight: chooseMaxItems.height + chooseViewMode.height + chooseOrderBy.height + updateBehavior.height + updateInterval.height + textFormatLabel.height + textFormatSelection.height + invertThemeLabel.height + invertThemeSelection.height + handleImgs.height + handleRead.height + quitEngine.height + quitEngineDesc.height + sortAsc.height + 150
 
                 flickableDirection:  Flickable.VerticalFlick
 
@@ -293,36 +292,6 @@ Page {
                 }
 
 
-//                Label {
-//                    id: showImgByDefaultLabel
-//                    anchors { top: invertThemeSelection.bottom; topMargin: 15; left: parent.left; leftMargin: 20 }
-//                    text: qsTr("Show images by default")
-//                    visible: textFormatSelection.valueChoosen === "rich"
-//                }
-
-//                ButtonRow {
-//                    id: showImgByDefaultSelection
-//                    property string choosenValue
-//                    anchors { top: showImgByDefaultLabel.bottom; horizontalCenter: parent.horizontalCenter }
-//                    visible: textFormatSelection.valueChoosen === "rich"
-//                    Button {
-//                        id: hide
-//                        text: qsTr("Hide")
-//                        checked: showImgByDefaultSelection.choosenValue == "hide"
-//                        onClicked: { showImgByDefaultSelection.choosenValue = "hide" }
-//                    }
-//                    Button {
-//                        id: show
-//                        text: qsTr("Show")
-//                        checked: showImgByDefaultSelection.choosenValue == "show"
-//                        onClicked: { showImgByDefaultSelection.choosenValue = "show" }
-//                    }
-//                    Connections {
-//                        target: dbus
-//                        onGotConfig: showImgByDefaultSelection.choosenValue = config["showimgs"]
-//                    }
-//                }
-
                 ListModel {
                     id: handleImgsModel
                     ListElement { name: ""; value: 0 }
@@ -384,6 +353,29 @@ Page {
                         target: dbus
                         onGotConfig: sortAsc.checked = config["sortasc"]
                     }
+                }
+
+                LabeledSwitch {
+                    id: quitEngine
+                    width: parent.width - 40
+                    anchors { top: sortAsc.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
+                    text: qsTr("Quit engine on closing reader")
+                    Connections {
+                        target: dbus
+                        onGotConfig: quitEngine.checked = config["quitengine"]
+                    }
+                }
+
+                Text {
+                    id: quitEngineDesc
+                    text: qsTr("This option needs an application restart.")
+                    width: parent.width - 40
+                    anchors { top: quitEngine.bottom; topMargin: 3; left: parent.left; leftMargin: 20 }
+                    wrapMode: Text.WordWrap
+                    font.pointSize: 17
+                    font.weight: Font.Light
+                    color: theme.inverted ? "white" : "black"
+                    textFormat: Text.PlainText
                 }
             }
 

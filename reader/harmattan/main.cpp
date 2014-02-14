@@ -93,6 +93,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     QmlApplicationViewer viewer;
 
+    if (dbus.getSetting("engine/quitonclose", false).toBool())
+        QObject::connect(QCoreApplication::instance(), SIGNAL(aboutToQuit()), &dbus, SLOT(quitEngine()));
+
     viewer.rootContext()->setContextProperty("folders", &folders);
     viewer.rootContext()->setContextProperty("feeds", &feeds);
     viewer.rootContext()->setContextProperty("items", &items);

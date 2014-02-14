@@ -7,6 +7,7 @@
 #include "ocfeeds.h"
 #include "ocitems.h"
 #include "occonfiguration.h"
+#include "../common/globals.h"
 
 #if defined(MEEGO_EDITION_HARMATTAN)
 #include <TransferUI/Client>
@@ -25,6 +26,8 @@
 #if defined(MEEGO_EDITION_HARMATTAN)
 QTM_USE_NAMESPACE
 #endif
+
+
 
 class OcUpdater : public QObject
 {

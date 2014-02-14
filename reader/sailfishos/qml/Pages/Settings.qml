@@ -21,6 +21,7 @@ Page {
             updateBehavior.initialValue = config["updatebehavior"]
             updateInterval.initialValue = config["updateinterval"]
             chooseMaxItems.initialValue = config["maxitems"]
+            quitEngine.checked = config["quitengine"]
             chooseViewMode.initialValue = config["viewmode"]
             chooseOrderBy.initialValue = config["orderby"]
             showImgsSelection.initialValue = config["handleimgs"]
@@ -40,6 +41,7 @@ Page {
             updatebehavior:updateBehaviorModel.get(updateBehavior.currentIndex).value,
             updateinterval:updateIntervalModel.get(updateInterval.currentIndex).value,
             maxitems:maxItemModel.get(chooseMaxItems.currentIndex).value,
+            quitengine:quitEngine.checked,
             viewmode:viewModeModel.get(chooseViewMode.currentIndex).value,
             orderby:orderByModel.get(chooseOrderBy.currentIndex).value,
             handleimgs:showImgsModel.get(showImgsSelection.currentIndex).value,
@@ -206,7 +208,7 @@ Page {
                 model: updateIntervalModel
             }
 
-            SectionHeader { text: qsTr("Appearance") }
+            SectionHeader { text: qsTr("Engine") }
 
             ListModel {
                 id: maxItemModel
@@ -222,6 +224,15 @@ Page {
                 label: qsTr("Number of items to keep")
                 model: maxItemModel
             }
+
+            TextSwitch {
+                id: quitEngine
+                text: qsTr("Quit engine on closing reader")
+                anchors { left: parent.left; right: parent.right }
+                description: qsTr("By default the engine daemon ist started on application startup and keeps running after closing the application to operate/synchronize in the background. This option needs an application restart.")
+            }
+
+            SectionHeader { text: qsTr("Appearance") }
 
             ListModel {
                 id: viewModeModel

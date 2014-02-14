@@ -7,6 +7,8 @@
 #define VER_MIN 7
 #define VER_PAT 0
 
+extern bool inOperation;
+
 #if defined(MEEGO_EDITION_HARMATTAN)
 #define SETTINGS_PATH "/private"
 #define BASE_PATH "/.local/share/data/ocNews"

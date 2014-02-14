@@ -1,6 +1,5 @@
 #include <QtNetwork>
 #include "ocitems.h"
-#include "../common/globals.h"
 
 OcItems::OcItems(QObject *parent) :
     QObject(parent)

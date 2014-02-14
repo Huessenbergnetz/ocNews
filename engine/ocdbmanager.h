@@ -2,9 +2,9 @@
 #define OCDBMANAGER_H
 
 #include <QObject>
-//#include <QDesktopServices>
 #include <QtSql>
 #include <QFile>
+#include "../common/globals.h"
 
 class OcDbManager : public QObject
 {

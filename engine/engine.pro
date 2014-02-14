@@ -80,7 +80,8 @@ SOURCES += main.cpp \
     interfaces/ocaccountadaptor.cpp \
     ocdownloadmanager.cpp \
     interfaces/ocdownloadsadaptor.cpp \
-    ocupgradehelper.cpp
+    ocupgradehelper.cpp \
+    ../common/globals.cpp
 
 !isEmpty(MEEGO_VERSION_MAJOR) {
 SOURCES += ocaccount.cpp

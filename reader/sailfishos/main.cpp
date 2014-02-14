@@ -75,6 +75,9 @@ int main(int argc, char *argv[])
 
     QObject::connect(view->engine(), SIGNAL(quit()), QCoreApplication::instance(), SLOT(quit()));
 
+    if (dbus.getSetting("engine/quitonclose", false).toBool())
+        QObject::connect(QCoreApplication::instance(), SIGNAL(aboutToQuit()), &dbus, SLOT(quitEngine()));
+
     view->rootContext()->setContextProperty("folderModelSql", folderModelSql);
     view->rootContext()->setContextProperty("combinedModelSql", combinedModelSql);
     view->rootContext()->setContextProperty("feedsModelSql", feedsModelSql);

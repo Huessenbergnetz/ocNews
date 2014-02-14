@@ -1,6 +1,5 @@
 #include <QDebug>
 #include "occonfiguration.h"
-#include "../common/globals.h"
 
 #if defined(MEEGO_EDITION_HARMATTAN)
 QStringList certsToDelete;
@@ -64,6 +63,7 @@ QVariantMap OcConfiguration::getConfig()
     config["updatebehavior"] = settings.value("update/behavior", "0");
     config["updateinterval"] = settings.value("update/interval", "3600");
     config["eventfeeds"] = settings.value("event/feeds", "");
+    config["quitengine"] = settings.value("engine/quitonclose", false).toBool();
 #if !defined(MEEGO_EDITION_HARMATTAN)
     config["enabled"] = settings.value("account/enabled", true).toBool();
     config["uname"] = settings.value("account/user", "").toString();
@@ -104,6 +104,7 @@ void OcConfiguration::saveConfig(const QVariantMap &config)
     settings.setValue("update/behavior", config["updatebehavior"]);
     settings.setValue("update/interval", config["updateinterval"]);
     settings.setValue("event/feeds", config["eventfeeds"]);
+    settings.setValue("engine/quitonclose", config["quitengine"]);
 #if !defined(MEEGO_EDITION_HARMATTAN)
     settings.setValue("account/enabled", config["enabled"]);
     settings.setValue("account/user", config["uname"]);
