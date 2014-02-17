@@ -99,6 +99,7 @@ private:
     QVariantMap extractImgData(const QString &imgStr, bool srcOnly);
     void deleteCachedImages(const QList<int> &idsToDelte);
     int itemsToFetchImages;
+    QString getFileTypeSuffix(const QByteArray &data);
 };
 
 #endif // OCITEMS_H

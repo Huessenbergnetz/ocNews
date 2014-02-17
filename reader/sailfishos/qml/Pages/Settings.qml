@@ -286,7 +286,6 @@ Page {
                 id: showImgsSelection
                 anchors { left: parent.left; right: parent.right }
                 label: qsTr("Load content images")
-                enabled: textFormatSelection.currentIndex === 0
                 model: showImgsModel
             }
 

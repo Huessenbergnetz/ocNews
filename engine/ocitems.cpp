@@ -1306,19 +1306,14 @@ QString OcItems::cacheImages(const QString &bodyText, int id, int imageHandling)
                 imageInfo = extractImgData(foundImages.at(i), true);
 
                 QUrl fileUrl(imageInfo["src"].toString());
-                QFileInfo fileInfo = fileUrl.path();
                 QString fileName("_image_");
                 fileName.prepend(QString::number(id));
                 fileName.append(QString::number(i)).append(".");
-                fileName.append(fileInfo.suffix());
 
                 QString storagePath(QDir::homePath());
                 storagePath.append(IMAGE_CACHE);
                 storagePath.append(QDir::separator()).append(fileName);
                 storagePath = QDir::toNativeSeparators(storagePath);
-    #ifdef QT_DEBUG
-                qDebug() << storagePath;
-    #endif
 
                 QEventLoop dlLoop;
 
@@ -1332,12 +1327,21 @@ QString OcItems::cacheImages(const QString &bodyText, int id, int imageHandling)
                 if (replyGetImage->error() == QNetworkReply::NoError)
                 {
 
+                    QByteArray recData = replyGetImage->readAll();
+
                     QImage image;
-                    if (image.loadFromData(replyGetImage->readAll()))
+                    if (recData.size() > 0 && image.loadFromData(recData))
                     {
 
                         imageInfo["width"] = image.width();
                         imageInfo["height"] = image.height();
+
+                        storagePath.append(getFileTypeSuffix(recData));
+
+#ifdef QT_DEBUG
+            qDebug() << storagePath;
+#endif
+
 
                         QString oldSrc = imageInfo["src"].toString();
                         QString newSrc = storagePath;
@@ -1363,7 +1367,7 @@ QString OcItems::cacheImages(const QString &bodyText, int id, int imageHandling)
                             QFile file(storagePath);
                             file.open(QIODevice::WriteOnly);
 
-                            if (file.write(replyGetImage->readAll()) != -1)
+                            if (file.write(recData) != -1)
                             {
 
                                 newBodyText.replace(oldSrc, newSrc, Qt::CaseSensitive);
@@ -1472,6 +1476,32 @@ void OcItems::deleteCachedImages(const QList<int> &idsToDelte)
         }
     }
 }
+
+
+
+QString OcItems::getFileTypeSuffix(const QByteArray &data)
+{
+    QByteArray m_data = data.toHex().toUpper();
+    QString magic = m_data.left(16);
+    QString result;
+
+#ifdef QT_DEBUG
+    qDebug() << "Try to get suffix from: " << magic;
+#endif
+
+    if (magic.contains("474946383961") || magic.contains("474946383761")) {
+        result = "gif";
+    } else if (magic.contains("FFD8FF")) {
+        result = "jpg";
+    } else if (magic.contains("89504E470D0A1A0A")) {
+        result = "png";
+    } else {
+        result = "";
+    }
+
+    return result;
+}
+
 
 
 int OcItems::isFetchImagesRunning()
