@@ -35,7 +35,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="132"/>
         <source>Upstream author</source>
-        <translation>编程作者</translation>
+        <translation>核心作者</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="137"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="168"/>
         <source>Italian translation</source>
-        <translation type="unfinished"/>
+        <translation>意大利语翻译</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="175"/>
@@ -1027,12 +1027,12 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="362"/>
         <source>Quit engine on closing reader</source>
-        <translation type="unfinished"/>
+        <translation>关闭阅读器时退出ocNews引擎</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="371"/>
         <source>This option needs an application restart.</source>
-        <translation type="unfinished"/>
+        <translation>* 此操作需要重启程序</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="413"/>

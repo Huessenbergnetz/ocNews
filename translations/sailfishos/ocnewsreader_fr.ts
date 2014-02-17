@@ -714,7 +714,7 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="43"/>
         <source>Write e-mail</source>
-        <translation>Ecrire un courriel</translation>
+        <translation>Écrire un courriel</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="43"/>
@@ -724,7 +724,7 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Dialogs/OpenLink.qml" line="56"/>
         <source>Click button to load image</source>
-        <translation type="unfinished"/>
+        <translation>Cliquer sur le bouton pour charger l&apos;image</translation>
     </message>
 </context>
 <context>
@@ -930,12 +930,12 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="211"/>
         <source>Engine</source>
-        <translation type="unfinished"/>
+        <translation>Moteur</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="230"/>
         <source>Quit engine on closing reader</source>
-        <translation type="unfinished"/>
+        <translation>Quitter le moteur en fermant le lecteur</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="235"/>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="232"/>
         <source>By default the engine daemon ist started on application startup and keeps running after closing the application to operate/synchronize in the background. This option needs an application restart.</source>
-        <translation type="unfinished"/>
+        <translation>Par défaut, le moteur est démarré lors du lancement de l&apos;application et reste en cours d&apos;exécution après avoir fermé l&apos;application pour synchroniser en tâche de fond. Cette option nécessite de redémarrer l&apos;application.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="242"/>

@@ -930,12 +930,12 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="211"/>
         <source>Engine</source>
-        <translation type="unfinished"/>
+        <translation>Motore</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="230"/>
         <source>Quit engine on closing reader</source>
-        <translation type="unfinished"/>
+        <translation>Spegni motore alla chiusura</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="235"/>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="232"/>
         <source>By default the engine daemon ist started on application startup and keeps running after closing the application to operate/synchronize in the background. This option needs an application restart.</source>
-        <translation type="unfinished"/>
+        <translation>Di default il demone si avvia all&apos;apertura e rimane attivo anche dopo la chiusura e lavora in background. Riavvia l&apos;applicazione per applicare.</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="242"/>

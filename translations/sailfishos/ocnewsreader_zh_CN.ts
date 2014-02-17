@@ -930,12 +930,12 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="211"/>
         <source>Engine</source>
-        <translation type="unfinished"/>
+        <translation>引擎</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="230"/>
         <source>Quit engine on closing reader</source>
-        <translation type="unfinished"/>
+        <translation>关闭阅读器时退出ocNews引擎</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="235"/>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="232"/>
         <source>By default the engine daemon ist started on application startup and keeps running after closing the application to operate/synchronize in the background. This option needs an application restart.</source>
-        <translation type="unfinished"/>
+        <translation>默认情况下，引擎服务随程序启动；在程序关闭后引擎服务仍会持续后台运行以操作/同步数据。这个选项需要重启程序后生效。</translation>
     </message>
     <message>
         <location filename="../../reader/sailfishos/qml/Pages/Settings.qml" line="242"/>

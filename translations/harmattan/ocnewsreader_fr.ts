@@ -65,7 +65,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="168"/>
         <source>Italian translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduction italienne</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/About.qml" line="175"/>
@@ -321,7 +321,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Sheets/ImagePreviewSheet.qml" line="24"/>
         <source>Load image</source>
-        <translation type="unfinished"/>
+        <translation>Charger l&apos;image</translation>
     </message>
 </context>
 <context>
@@ -581,7 +581,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="494"/>
         <source>If you quit both, reader and daemon/engine, there are no updates in the background anymore.</source>
-        <translation>Si vous quittez les deux, le lecteur et le démon/moteur, il n&apos;y aura plus de mise à jour en tâche de fond.</translation>
+        <translation>Si vous quittez à la fois le lecteur et le démon/moteur, il n&apos;y aura plus de mise à jour en tâche de fond.</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/MainView.qml" line="495"/>
@@ -1027,12 +1027,12 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="362"/>
         <source>Quit engine on closing reader</source>
-        <translation type="unfinished"/>
+        <translation>Quitter le moteur en fermant le lecteur</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="371"/>
         <source>This option needs an application restart.</source>
-        <translation type="unfinished"/>
+        <translation>Cette option nécessite de redémarrer l&apos;application.</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Pages/Settings.qml" line="413"/>
@@ -1202,7 +1202,7 @@
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="308"/>
         <source>Write to %1</source>
-        <translation>Ecrire dans %1</translation>
+        <translation>Écrire dans %1</translation>
     </message>
     <message>
         <location filename="../../reader/harmattan/qml/ocNewsReader/Views/SingleItemView.qml" line="308"/>
