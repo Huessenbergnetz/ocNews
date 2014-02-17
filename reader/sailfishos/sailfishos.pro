@@ -19,7 +19,7 @@ INSTALLS += icons
 
 readerl10n.path = /usr/share/harbour-ocnews-reader/translations
 readerl10n.files = l10n/*.qm
-INSTALLS += enginel10n
+INSTALLS += readerl10n
 
 CONFIG += sailfishapp
 

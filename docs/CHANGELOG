@@ -1,3 +1,14 @@
+Version 1.7.1, 2014-02-17 23:36:00 +0100
+
+  General:
+  * New: add option to shut down engine together with reader app
+  * New: translation updates
+  * Changed: get image file type by magic bytes
+  * Fixed: remoe css classes from item body HTML text (issue #31)
+  
+  Sailfish OS:
+  * Fixed: listen and react to network access changes (issue #25)
+
 Version 1.7.0, 2014-02-12 20:53:00 +0100
 
   General:

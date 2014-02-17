@@ -1,3 +1,12 @@
+buschtrommel-ocnews (1.7.1) stable; urgency=low
+
+  * New: add option to shut down engine together with reader app
+  * New: translation updates
+  * Changed: get image file type by magic bytes
+  * Fixed: remoe css classes from item body HTML text (issue #31)
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Mon, 17 Feb 2014 23:41:44 +0100
+
 buschtrommel-ocnews (1.7.0) stable; urgency=low
 
   * New: display and handle enclosures (attached files) (issue #28)
