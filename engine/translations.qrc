@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file alias="tr_de.qm">i18n/tr_de.qm</file>
-    </qresource>
-</RCC>

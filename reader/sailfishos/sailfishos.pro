@@ -17,6 +17,10 @@ icons.path = /usr/share/harbour-ocnews-reader/icons
 icons.files = icons/*
 INSTALLS += icons
 
+readerl10n.path = /usr/share/harbour-ocnews-reader/translations
+readerl10n.files = l10n/*.qm
+INSTALLS += enginel10n
+
 CONFIG += sailfishapp
 
 SOURCES += main.cpp \
@@ -82,7 +86,8 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Common/FetchImagesIndicator.qml \
     qml/Dialogs/OpenLink.qml \
     qml/Common/EnclosureItem.qml \
-    qml/Common/RescalingRichText.qml
+    qml/Common/RescalingRichText.qml \
+    l10n/*.ts
 
 HEADERS += \
     ../common/ocdbmanager.h \
@@ -109,7 +114,6 @@ HEADERS += \
     ../common/dbus/interfaces/ocdownloadsif.h \
     ../common/dbus/interfaces/ocdbusdownloads.h
 
-RESOURCES += \
-    ../../translations/sailfishos/ocnewsreader.qrc
+RESOURCES +=
 
 

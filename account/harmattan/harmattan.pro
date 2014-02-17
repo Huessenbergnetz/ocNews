@@ -26,6 +26,10 @@ invoker.files = invoker/*
 invoker.path = /usr/lib/AccountSetup
 INSTALLS += invoker
 
+accountl10n.path = /usr/share/l10n/meegotouch
+accountl10n.files = l10n/*.qm
+INSTALLS += accountl10n
+
 # Register to accounts
 accountsprovider.files = *.provider
 accountsprovider.path = /usr/share/accounts/providers
@@ -40,7 +44,8 @@ OTHER_FILES += \
     qml/LabeledTextField.qml \
     qml/Title.qml \
     qml/MainPage.qml \
-    qml/HelpSheet.qml
+    qml/HelpSheet.qml \
+    l10n/*.ts
 
 
 

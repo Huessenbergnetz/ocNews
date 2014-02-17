@@ -29,6 +29,10 @@ desktopwrapper.path = /opt/ocNewsReader/bin
 desktopwrapper.files = misc/ocNewsReader_showContent_Wrapper.sh
 INSTALLS += desktopwrapper
 
+readerl10n.path = /usr/share/l10n/meegotouch
+readerl10n.files = l10n/*.qm
+INSTALLS += readerl10n
+
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
 
@@ -129,7 +133,7 @@ OTHER_FILES += \
     ../common/dbus/adaptor/de.buschmann23.ocNewsReader.xml \
     misc/ocNewsReader_showContent.desktop \
     misc/de.buschmann23.ocNewsReader.service \
-    misc/ocNewsReader_showContent_Wrapper.sh
+    misc/ocNewsReader_showContent_Wrapper.sh \
+    l10n/*.ts
 
-RESOURCES += \
-    ../../translations/harmattan/ocnewsreader.qrc
+RESOURCES +=

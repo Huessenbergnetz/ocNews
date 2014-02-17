@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file alias="ocnewsengine_de.qm">ocnewsengine_de.qm</file>
-	<file alias="ocnewsengine_es.qm">ocnewsengine_es.qm</file>
-        <file alias="ocnewsengine_fr.qm">ocnewsengine_fr.qm</file>
-	<file alias="ocnewsengine_it.qm">ocnewsengine_it.qm</file>
-	<file alias="ocnewsengine_zh_CN.qm">ocnewsengine_zh_CN.qm</file>
-    </qresource>
-</RCC>

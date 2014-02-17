@@ -22,11 +22,9 @@ OTHER_FILES += \
 SUBDIRS += \
     reader \
     engine \
-    account \
-    translations
+    account
 } else {
 SUBDIRS += \
     reader \
-#    account \
     engine
 }

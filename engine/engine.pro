@@ -53,6 +53,14 @@ INSTALLS += dbusservice
 #INSTALLS += daemonconf
 #}
 
+!isEmpty(MEEGO_VERSION_MAJOR) {
+enginel10n.path = /usr/share/l10n/meegotouch
+} else {
+enginel10n.path = /usr/share/harbour-ocnews-reader/translations
+}
+enginel10n.files = l10n/*.qm
+INSTALLS += enginel10n
+
 
 isEmpty(MEEGO_VERSION_MAJOR) {
 supportfiles.path = /usr/share/harbour-ocnews-reader
@@ -136,7 +144,6 @@ unix: PKGCONFIG += AccountSetup
 OTHER_FILES += \
     interfaces/de.buschmann23.ocNewsEngine.Generic.xml \
     interfaces/de.buschmann23.ocNewsEngine.Configuration.xml \
-#    ocnewsengine.conf \
     interfaces/de.buschmann23.ocNewsEngine.Folders.xml \
     interfaces/de.buschmann23.ocNewsEngine.Feeds.xml \
     interfaces/de.buschmann23.ocNewsEngine.Items.xml \
@@ -144,7 +151,5 @@ OTHER_FILES += \
     harmattan/de.buschmann23.ocNewsEngine.service \
     sailfishos/de.buschmann23.ocNewsEngine.service \
     interfaces/de.buschmann23.ocNewsEngine.Account.xml \
-    interfaces/de.buschmann23.ocNewsEngine.Downloads.xml
-
-RESOURCES += \
-    ../translations/common/translations.qrc
+    interfaces/de.buschmann23.ocNewsEngine.Downloads.xml \
+    l10n/*.ts

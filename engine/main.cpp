@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 
     QString locale = QLocale::system().name();
     QTranslator translator;
-    if ((translator.load("ocnewsengine_"+locale, ":/")))
+    if ((translator.load("ocnewsengine_"+locale, L10N_PATH)))
         a.installTranslator(&translator);
 
     // set paths

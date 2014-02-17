@@ -37,7 +37,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     QString locale = QLocale::system().name();
     QTranslator translator;
-    if ((translator.load("ocnewsreader_"+locale, ":/")))
+    if ((translator.load("ocnewsreader_"+locale, L10N_PATH)))
         app->installTranslator(&translator);
 
 #ifdef QT_DEBUG

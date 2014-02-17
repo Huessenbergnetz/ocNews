@@ -15,6 +15,8 @@ extern bool inOperation;
 #define GLOBAL_CERTS_PATH "/etc/ssl/certs"
 #define IMAGE_CACHE "/MyDocs/.ocNews/imageCache"
 
+#define L10N_PATH "/usr/share/l10n/meegotouch"
+
 #define MEDIA_PATH "/MyDocs/ocNews/media"
 #define MEDIA_PATH_AUDIO "/MyDocs/ocNews/media/audio"
 #define MEDIA_PATH_IMAGE "/MyDocs/ocNews/media/images"
@@ -36,6 +38,8 @@ extern bool inOperation;
 #define BASE_PATH "/.local/share/harbour-ocnews-reader"
 #define GLOBAL_CERTS_PATH "/etc/ssl/certs"
 #define IMAGE_CACHE "/.local/share/harbour-ocnews-reader/imageCache"
+
+#define L10N_PATH "/usr/share/harbour-ocnews-reader/translations"
 
 #define MEDIA_PATH "/Downloads"
 #define MEDIA_PATH_AUDIO "/Music/ocNews"
