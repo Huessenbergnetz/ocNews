@@ -15,7 +15,6 @@ lrelease -markuntranslated '' -idbased ocnewsaccount.ts
 for LANG in de es fr it zh_CN
 do
 lrelease -markuntranslated '' -idbased ocnewsaccount_$LANG.ts
-lrelease ocnewsreader_$LANG.ts
 done
 
 cd ../../../reader/harmattan/l10n
