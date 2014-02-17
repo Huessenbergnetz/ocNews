@@ -30,6 +30,9 @@ QVariantMap OcSingleItemModelSql::getItemData(const QString &itemId, bool showIm
         QString time = QDateTime::fromTime_t(query.value(5).toUInt()).toLocalTime().toString(tr("hh:mm"));
         itemresult["pubDate"] = date + " | " + time;
         itemresult["body"] = showImg ? query.value(6).toString() : query.value(6).toString().remove(QRegExp("<img[^>]*>"));
+
+        itemresult["body"] = itemresult["body"].toString().remove(QRegExp("class=\".*\"\s"));
+
         itemresult["enclosureMime"] = query.value(7).toString();
         itemresult["enclosureLink"] = query.value(8).toString();
         itemresult["unread"] = query.value(9).toBool();
