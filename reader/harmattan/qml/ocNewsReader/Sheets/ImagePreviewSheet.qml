@@ -55,5 +55,6 @@ Sheet {
 
     }
 
-    onAccepted: Qt.openUrlExternally(link)
+    onAccepted: { Qt.openUrlExternally(link); link = ""; image.source = ""; image.visible = false; icon.visible = true; openImg.visible = true }
+    onRejected: { link = ""; image.source = ""; image.visible = false; icon.visible = true; openImg.visible = true }
 }

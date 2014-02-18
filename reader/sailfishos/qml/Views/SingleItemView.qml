@@ -71,7 +71,7 @@ Page {
 
     onStatusChanged: {
         if (status == PageStatus.Active) {
-            if (unread) items.markItems("read", markParams())
+            if (unread) { items.markItems("read", markParams()); unread = false }
             pageStack.pushAttached(Qt.resolvedUrl("SingleItemWebView.qml"), {itemUrl: url})
         }
     }
@@ -83,14 +83,12 @@ Page {
 
     SilicaFlickable {
         id: singleItem
-        PageHeader { title: feedName }
         anchors.top: parent.top
         anchors.right: parent.right
         anchors.left: parent.left
         anchors.bottom: itemViewFetchIndicator.visible ? itemViewFetchIndicator.top : parent.bottom
         VerticalScrollDecorator {}
-
-        contentHeight: headerRow.height + pubInfos.height + sep.height + bodyText.height + enclosure.height + 5 * Theme.paddingLarge
+        contentHeight: contentCol.height + Theme.paddingLarge
 
         PullDownMenu {
             id: singleItemPully
@@ -114,85 +112,103 @@ Page {
             }
         }
 
-        Row {
-            id: headerRow
-            anchors { top: parent.top; left: parent.left; right: parent.right; topMargin: 4 * Theme.paddingLarge; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
-            spacing: 5
-
-            Label {
-                id: itemTitle
-                width: parent.width - starImage.width
-                text: title
-                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                textFormat: Text.PlainText
-                color: Theme.highlightColor
-            }
-
-
-            Image {
-                id: starImage
-                visible: starred
-                width: 32
-                height: 32
-                sourceSize.width: 32
-                sourceSize.height: 32
-                source: "image://theme/icon-s-favorite"
-            }
-
-        }
-
-        Row {
-            id: pubInfos
-            anchors { top: headerRow.bottom; topMargin: 2; left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+        Column {
+            id: contentCol
             width: parent.width
+            height: childrenRect.height
 
-            Label {
-                id: pubDateText
-                text: pubDate
-                font.pixelSize: Theme.fontSizeExtraSmall
-                textFormat: Text.PlainText
-                color: Theme.highlightColor
+            PageHeader { title: feedName }
+
+            Row {
+                id: headerRow
+                anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                spacing: 5
+
+                Label {
+                    id: itemTitle
+                    width: parent.width - starImage.width
+                    text: title
+                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                    textFormat: Text.PlainText
+                    color: Theme.highlightColor
+                }
+
+
+                Image {
+                    id: starImage
+                    visible: starred
+                    width: 32
+                    height: 32
+                    sourceSize.width: 32
+                    sourceSize.height: 32
+                    source: "image://theme/icon-s-favorite"
+                }
+
             }
 
-            Label {
-                id: authorText
-                text: author != "" ? " | " + author : ""
-                font.pixelSize: Theme.fontSizeExtraSmall
-                width: parent.width - pubDateText.width
-                truncationMode: TruncationMode.Fade
-                textFormat: Text.PlainText
-                color: Theme.highlightColor
+            Row {
+                id: pubInfos
+                anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                width: parent.width
+
+                Label {
+                    id: pubDateText
+                    text: pubDate
+                    font.pixelSize: Theme.fontSizeExtraSmall
+                    textFormat: Text.PlainText
+                    color: Theme.highlightColor
+                }
+
+                Label {
+                    id: authorText
+                    text: author != "" ? " | " + author : ""
+                    font.pixelSize: Theme.fontSizeExtraSmall
+                    width: parent.width - pubDateText.width
+                    truncationMode: TruncationMode.Fade
+                    textFormat: Text.PlainText
+                    color: Theme.highlightColor
+                }
+            }
+
+            Item {
+                width: 1
+                height: Theme.paddingSmall
+            }
+
+            Separator {
+                id: sep
+                anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                width: parent.width
+                color: Theme.primaryColor
+            }
+
+            Item {
+                width: 1
+                height: Theme.paddingSmall
+            }
+
+            RescalingRichText {
+                id: bodyText
+                text: body
+                fontSize: Theme.fontSizeSmall
+                color: Theme.primaryColor
+                anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                onLinkActivated: pageStack.push(Qt.resolvedUrl("../Dialogs/OpenLink.qml"), {link: link})
+            }
+
+            EnclosureItem {
+                id: enclosure
+                width: parent.width
+                visible: enclosureLink != ""
+                enclosureItemId: itemId
+                name: enclosureName
+                host: enclosureHost
+                encType: enclosureType
+                encSrc: enclosureLink
+                encMime: enclosureMime
             }
         }
 
-        Separator {
-            id: sep
-            anchors { top: pubInfos.bottom; topMargin: 5; left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
-            width: parent.width
-            color: Theme.primaryColor
-        }
-
-        RescalingRichText {
-            id: bodyText
-            text: body
-            fontSize: Theme.fontSizeSmall
-            color: Theme.primaryColor
-            anchors { top: sep.bottom; topMargin: 12; left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
-            onLinkActivated: pageStack.push(Qt.resolvedUrl("../Dialogs/OpenLink.qml"), {link: link})
-        }
-
-        EnclosureItem {
-            id: enclosure
-            anchors { top: bodyText.bottom; topMargin: 20 }
-            width: singleItem.width
-            visible: enclosureLink != ""
-            enclosureItemId: itemId
-            name: enclosureName
-            host: enclosureHost
-            encType: enclosureType
-            encSrc: enclosureLink
-            encMime: enclosureMime
-        }
 
         PushUpMenu {
             id: itemViewPushy

@@ -92,7 +92,7 @@ Page {
                 onClicked: {
                     sortingPanel.open = false
                     searchPanel.open = !searchPanel.open
-                    searchField.forceActiveFocus();
+//                    searchField.forceActiveFocus();
                     if (!searchPanel.open) {specialItemListView.searchString = ""; searchField.focus = false } else {searchField.focus = true }
                 }
             }

@@ -1,6 +1,5 @@
 #include "ocsingleitemmodelsql.h"
 
-
 OcSingleItemModelSql::OcSingleItemModelSql(QObject *parent) :
     QObject(parent)
 {
@@ -29,10 +28,7 @@ QVariantMap OcSingleItemModelSql::getItemData(const QString &itemId, bool showIm
                         QDateTime::fromTime_t(query.value(5).toUInt()).toLocalTime().toString(tr("d. MMMM"));
         QString time = QDateTime::fromTime_t(query.value(5).toUInt()).toLocalTime().toString(tr("hh:mm"));
         itemresult["pubDate"] = date + " | " + time;
-        itemresult["body"] = showImg ? query.value(6).toString() : query.value(6).toString().remove(QRegExp("<img[^>]*>"));
-
-        itemresult["body"] = itemresult["body"].toString().remove(QRegExp("class=\".*\"\s"));
-
+        itemresult["body"] = cleanHTML(query.value(6).toString(), showImg);
         itemresult["enclosureMime"] = query.value(7).toString();
         itemresult["enclosureLink"] = query.value(8).toString();
         itemresult["unread"] = query.value(9).toBool();
@@ -71,6 +67,40 @@ int OcSingleItemModelSql::getEnclosureType(const QString &encMime)
     } else {
         return 0;
     }
+}
 
 
+QString OcSingleItemModelSql::cleanHTML(const QString &html, bool showImg)
+{
+    QString m_html = html;
+
+    if (!showImg) {
+        m_html.remove(QRegExp("<img[^>]*>"));
+        m_html.remove(QRegExp("<a[^>]*>\\s*</a>"));
+    }
+
+    m_html.remove(QRegExp("class=\"[\\w\\s-]*\"")); // remove class statements
+
+//    if (showImg)
+//        m_html.remove(QRegExp("alt=\"[\\w\\s-\\.\\?=:~;&]*\""));
+
+//    m_html.remove(QRegExp("align=\"\\w*\""));
+
+//    m_html.remove(QRegExp("target=\"\\w*\""));
+
+//    m_html.remove(QRegExp("text-\\w*:[\\s\\w]*;?"));
+
+//    m_html.remove(QRegExp("clear:[\\s\\w]*;?"));
+
+//    m_html.remove(QRegExp("margin-\\w*:[\\s\\w]*;?"));
+
+//    m_html.remove(QRegExp("style=\"\\s*\""));
+
+//    m_html.replace(QRegExp("\\s+>"), ">");
+
+//    m_html.replace(QRegExp("\\s{2,}"), " ");
+
+//    m_html.remove(QRegExp("<table.*</table>"));
+
+    return m_html;
 }

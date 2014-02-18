@@ -35,11 +35,10 @@ Item {
     property alias color: contentText.color
     property real fontSize: Theme.fontSizeSmall
 
-    property string _RICHTEXT_STYLESHEET_PREAMBLE: "<html><style>a { text-decoration: none; color: '" + Theme.secondaryHighlightColor + "' }</style><body>";
+    property string _RICHTEXT_STYLESHEET_PREAMBLE: "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><style>a { text-decoration: none; color: '" + Theme.secondaryHighlightColor + "' }</style></head><body>";
     property string _RICHTEXT_STYLESHEET_APPENDIX: "</body></html>";
 
     property real scaling: 1
-    property bool isScaled
 
     signal linkActivated(string link)
 
@@ -47,8 +46,23 @@ Item {
     clip: true
 
     onWidthChanged: {
-        isScaled = false;
         rescaleTimer.restart();
+    }
+
+    Text {
+        id: layoutText
+
+        visible: false
+        width: parent.width
+        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+        textFormat: Text.RichText
+
+        text: "<style>* { font-size: 1px }</style>" + parent.text
+
+        onContentWidthChanged: {
+            console.log("contentWidth: " + contentWidth);
+            rescaleTimer.restart();
+        }
     }
 
     Text {
@@ -63,12 +77,7 @@ Item {
         textFormat: Text.RichText
         smooth: true
 
-        text: _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX
-
-        onContentWidthChanged: {
-            console.log("contentWidth: " + contentWidth);
-            rescaleTimer.restart();
-        }
+//        text: _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX
 
         onLinkActivated: {
             root.linkActivated(link);
@@ -80,13 +89,14 @@ Item {
         interval: 100
 
         onTriggered: {
-            var contentWidth = Math.floor(contentText.contentWidth);
-            if (! isScaled)
-            {
-                isScaled = true;
-                scaling = parent.width / (contentText.contentWidth + 0.0);
-                console.log("scaling: " + scaling);
-            }
+            var contentWidth = Math.floor(layoutText.contentWidth);
+            scaling = Math.min(1, parent.width / (layoutText.contentWidth + 0.0));
+            console.log("scaling: " + scaling);
+
+            // force reflow
+//            contentText.text = contentText.text + " ";
+            contentText.text = _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX
+
         }
     }
 }

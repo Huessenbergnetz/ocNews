@@ -19,6 +19,7 @@ public slots:
 
 private:
     int getEnclosureType(const QString &encMime);
+    QString cleanHTML(const QString &html, bool showImg);
 
     
 };

@@ -33,11 +33,10 @@ Item {
     property string text
     property alias color: contentText.color
     property real fontSize: 17
-    property string _RICHTEXT_STYLESHEET_PREAMBLE: "<html><style>a { text-decoration: none; color: '" + theme.selectionColor + "' }</style><body>";
+    property string _RICHTEXT_STYLESHEET_PREAMBLE: "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><style>a { text-decoration: none; color: '" + theme.selectionColor + "' }</style></head><body>";
     property string _RICHTEXT_STYLESHEET_APPENDIX: "</body></html>";
 
     property real scaling: 1
-    property bool isScaled
 
     signal linkActivated(string link)
 
@@ -45,8 +44,22 @@ Item {
     clip: true
 
     onWidthChanged: {
-        isScaled = false;
-        if (useRichText) rescaleTimer.restart();
+        rescaleTimer.restart();
+    }
+
+    Text {
+        id: layoutText
+        visible: false
+        width: parent.width
+        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+        textFormat: useRichText ? Text.RichText : Text.StyledText
+
+        text: useRichText ? "<style>* { font-size: 1px }</style>" + parent.text : parent.text
+
+        onPaintedWidthChanged: {
+            console.log("contentWidth: " + contentWidth)
+            rescaleTimer.restart()
+        }
     }
 
     Text {
@@ -62,12 +75,7 @@ Item {
         smooth: true
         font.weight: Font.Light
 
-        text: useRichText ? _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX : parent.text
-
-        onPaintedWidthChanged: {
-            console.log("contentWidth: " + paintedWidth);
-            if (useRichText) rescaleTimer.restart();
-        }
+//        text: useRichText ? _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX : parent.text
 
         onLinkActivated: {
             root.linkActivated(link);
@@ -79,13 +87,12 @@ Item {
         interval: 100
 
         onTriggered: {
-            var paintedWidth = Math.floor(contentText.paintedWidth);
-            if (! isScaled)
-            {
-                isScaled = true;
-                scaling = parent.width / (contentText.paintedWidth + 0.0);
-                console.log("scaling: " + scaling);
-            }
+            var paintedWidth = Math.floor(layoutText.paintedWidth);
+            scaling = Math.min(1, parent.width / (layoutText.paintedWidth + 0.0));
+            console.log("scaling: " + scaling);
+
+            // set text to content item
+            contentText.text = useRichText ? _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX : parent.text
         }
     }
 }
