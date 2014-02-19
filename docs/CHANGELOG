@@ -1,6 +1,11 @@
+Version 1.7.2, 2014-02-19 14:11:00 +0100
 
   Harmattan:
-  * Fixed: image link opener was shawing the same image every time after loading one
+  * Fixed: image link opener was showing the same image every time after loading one
+  
+  Sailfish OS:
+  * Fixed: reader crasehs when loading certain news (issue #31)
+  * Changed: improved web preview of items (should load mobile site if available)
 
 Version 1.7.1, 2014-02-17 23:36:00 +0100
 
@@ -8,7 +13,7 @@ Version 1.7.1, 2014-02-17 23:36:00 +0100
   * New: add option to shut down engine together with reader app
   * New: translation updates
   * Changed: get image file type by magic bytes
-  * Fixed: remoe css classes from item body HTML text (issue #31)
+  * Fixed: remove css classes from item body HTML text (issue #31)
   
   Sailfish OS:
   * Fixed: listen and react to network access changes (issue #25)

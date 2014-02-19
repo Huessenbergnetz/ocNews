@@ -1,3 +1,9 @@
+buschtrommel-ocnews (1.7.2) stable; urgency=low
+
+  * Fixed: image link opener was showing the same image every time after loading one
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Wed, 19 Feb 2014 14:44:49 +0100
+
 buschtrommel-ocnews (1.7.1) stable; urgency=low
 
   * New: add option to shut down engine together with reader app

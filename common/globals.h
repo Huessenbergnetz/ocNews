@@ -1,11 +1,11 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
-#define VERSION_STRING "1.7.1"
-#define VERSION 171
+#define VERSION_STRING "1.7.2"
+#define VERSION 172
 #define VER_MAJ 1
 #define VER_MIN 7
-#define VER_PAT 1
+#define VER_PAT 2
 
 extern bool inOperation;
 
