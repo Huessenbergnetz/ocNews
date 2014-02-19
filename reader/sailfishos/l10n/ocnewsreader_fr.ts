@@ -676,7 +676,7 @@
 <context>
     <name>OcSingleItemModelSql</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+28"/>
+        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+27"/>
         <source>Today</source>
         <translation>Aujourd&apos;hui</translation>
     </message>
@@ -1066,13 +1066,13 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/Views/SingleItemView.qml" line="+99"/>
-        <location line="+108"/>
+        <location filename="../qml/Views/SingleItemView.qml" line="+97"/>
+        <location line="+126"/>
         <source>Open in Browser</source>
         <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message>
-        <location line="-104"/>
+        <location line="-122"/>
         <source>Remove from favourites</source>
         <translation>Supprimer des favoris</translation>
     </message>
@@ -1087,7 +1087,7 @@
         <translation>Afficher les images</translation>
     </message>
     <message>
-        <location line="+92"/>
+        <location line="+110"/>
         <source>Scroll to top</source>
         <translation>Remonter au début</translation>
     </message>
@@ -1095,9 +1095,14 @@
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../qml/Views/SingleItemWebView.qml" line="+49"/>
+        <location filename="../qml/Views/SingleItemWebView.qml" line="+59"/>
         <source>Reload</source>
         <translation>Recharger</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Stop loading</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+4"/>

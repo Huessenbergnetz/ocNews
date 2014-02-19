@@ -677,7 +677,7 @@
 <context>
     <name>OcSingleItemModelSql</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+28"/>
+        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+27"/>
         <source>Today</source>
         <translation>Today</translation>
     </message>
