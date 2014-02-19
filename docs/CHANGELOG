@@ -1,3 +1,7 @@
+
+  Harmattan:
+  * Fixed: image link opener was shawing the same image every time after loading one
+
 Version 1.7.1, 2014-02-17 23:36:00 +0100
 
   General:
