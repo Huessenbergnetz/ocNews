@@ -56,8 +56,8 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Reload")
-                onClicked: webView.reload()
+                text: webView.loading ? qsTr("Stop loading") : qsTr("Reload")
+                onClicked: webView.loading ? webView.stop() : webView.reload()
             }
             MenuItem {
                 text: qsTr("Open in browser")
