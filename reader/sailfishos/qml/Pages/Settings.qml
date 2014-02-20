@@ -27,6 +27,7 @@ Page {
             showImgsSelection.initialValue = config["handleimgs"]
             handleReadSelection.initialValue = config["handleread"]
             sortAsc.checked = config["sortasc"]
+            fontSizeSlider.value = config["fontsize"]
             isConfigSet = dbus.isConfigSet()
         }
     }
@@ -47,6 +48,7 @@ Page {
             handleimgs:showImgsModel.get(showImgsSelection.currentIndex).value,
             handleread:handleReadModel.get(handleReadSelection.currentIndex).value,
             sortasc:sortAsc.checked,
+            fontsize:fontSizeSlider.value,
             eventfeeds:"",
             enabled:true,
             themecolor:"black"
@@ -95,6 +97,7 @@ Page {
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: password.focus = true
             }
+
             TextField {
                 id: password
                 anchors { left: parent.left; right: parent.right }
@@ -104,6 +107,7 @@ Page {
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: server.focus = true
             }
+
             TextField {
                 id: server
                 anchors { left: parent.left; right: parent.right }
@@ -113,6 +117,7 @@ Page {
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: server.focus = false
             }
+
             Button {
                 id: testConnectionButton
                 text: qsTr("Test connection")
@@ -124,6 +129,7 @@ Page {
                     onGotVersionError: testConnectionButton.visible = true
                 }
             }
+
             BusyIndicator {
                 id: testConnectionBusy
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -131,6 +137,7 @@ Page {
                 visible: !testConnectionButton.visible
                 running: testConnectionBusy.visible
             }
+
             Label {
                 id: testConnectionResult
                 visible: false
@@ -147,12 +154,14 @@ Page {
                     onGotVersionError: { testConnectionResult.visible = true; testConnectionResult.text = error }
                 }
             }
+
             TextSwitch {
                 id: usessl
                 text: qsTr("Use HTTPS (SSL/TLS) connection")
                 anchors { left: parent.left; right: parent.right }
                 description: qsTr("Because ownCloud News requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption.")
             }
+
             TextSwitch {
                 id: ignoresslerrors
                 text: qsTr("Ignore SSL errors")
@@ -313,6 +322,16 @@ Page {
                 text: qsTr("Show oldest items on top")
                 anchors { left: parent.left; right: parent.right }
                 description: qsTr("Set the default order of the news items to show the oldest at the top. You can still change it in the pully menu.")
+            }
+
+            Slider {
+                id: fontSizeSlider
+                anchors { left: parent.left; right: parent.right }
+                minimumValue: Theme.fontSizeTiny
+                maximumValue: Theme.fontSizeHuge
+                valueText: value + "px"
+                stepSize: 1
+                label: qsTr("Item view font size")
             }
 
             SectionHeader { text: qsTr("Maintenance") }

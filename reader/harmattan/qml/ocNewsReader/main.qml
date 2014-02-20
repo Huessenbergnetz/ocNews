@@ -10,14 +10,14 @@ import "Sheets"
 import "Views"
 
 PageStackWindow {
-    id: appWindow
+    id: ocNewsReader
 
     initialPage: mainView
 
     property bool operationRunning: updater.isUpdateRunning()
     property int viewMode: dbus.getSetting("display/viewmode", 0)
-//    property string textFormatType: dbus.getSetting("display/textformat", "rich")
     property bool useRichText: dbus.getSetting("display/textformat", "rich") === "rich"
+    property int fontSize: dbus.getSetting("display/fontsize", 17)
 
     Component.onCompleted: {
         theme.inverted = dbus.getSetting("display/themecolor", "white") === "black";
@@ -77,7 +77,7 @@ PageStackWindow {
         onInitError: { infoMessages.show(); infoMessages.text = errorMessage; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
         onCleanedDatabase: { infoMessages.show(); infoMessages.text = qsTr("Deleted complete database"); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
         onCleanedCertificates: { infoMessages.show(); infoMessages.text = qsTr("Removed trusted certificates. The changes take effect after an application restart."); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
-        onSavedConfig: { viewMode = dbus.getSetting("display/viewmode", 0); useRichText = dbus.getSetting("display/textformat", "rich") === "rich"}
+        onSavedConfig: { viewMode = dbus.getSetting("display/viewmode", 0); useRichText = dbus.getSetting("display/textformat", "rich") === "rich"; fontSize = dbus.getSetting("display/fontsize", 17) }
     }
 
 

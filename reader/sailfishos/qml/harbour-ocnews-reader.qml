@@ -12,6 +12,7 @@ ApplicationWindow
     property int viewMode: dbus.getSetting("display/viewmode", 0)
     property int unreadItems: dbus.getStat(0)
     property int lastFullUpdateTime: dbus.getStat(1)
+    property int fontSize: dbus.getSetting("display/fontsize", Theme.fontSizeSmall)
 
 
     Connections {
@@ -57,7 +58,7 @@ ApplicationWindow
     }
     Connections {
         target: dbus
-        onSavedConfig: viewMode = dbus.getSetting("display/viewmode", 0)
+        onSavedConfig: { viewMode = dbus.getSetting("display/viewmode", 0); fontSize = dbus.getSetting("display/fontsize", Theme.fontSizeSmall) }
     }
 
     initialPage: Component { MainView { } }

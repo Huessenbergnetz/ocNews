@@ -252,7 +252,7 @@ Page {
         RescalingRichText {
             id: bodyText
             text: body
-            fontSize: 17
+            fontSize: ocNewsReader.fontSize
             anchors { top: headerSeperator.bottom; topMargin: 12; left: parent.left; right: parent.right }
             onLinkActivated: if (isImageLink(link)) {imagePreview.link = link; imagePreview.open()} else {linkContextMenu.link = link; linkContextMenu.open()}
             color: theme.inverted ? "white" : "black"

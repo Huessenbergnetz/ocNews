@@ -190,7 +190,7 @@ Page {
             RescalingRichText {
                 id: bodyText
                 text: body
-                fontSize: Theme.fontSizeSmall
+                fontSize: ocNewsReader.fontSize
                 color: Theme.primaryColor
                 anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
                 onLinkActivated: pageStack.push(Qt.resolvedUrl("../Dialogs/OpenLink.qml"), {link: link})

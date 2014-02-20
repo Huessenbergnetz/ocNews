@@ -29,6 +29,8 @@ extern bool inOperation;
 #define MIME_ICON_PDF "icon-m-content-pdf"
 #define MIME_ICON_VIDEO "icon-m-content-videos"
 
+#define DEFAULT_FONT_SIZE 17
+
 #define SQL_TRUE "\"true\""
 #define SQL_FALSE "\"false\""
 #else
@@ -52,6 +54,8 @@ extern bool inOperation;
 #define MIME_ICON_IMAGE "icon-m-image"
 #define MIME_ICON_PDF "icon-m-document"
 #define MIME_ICON_VIDEO "icon-m-video"
+
+#define DEFAULT_FONT_SIZE 28
 
 #define SQL_TRUE "1"
 #define SQL_FALSE "0"

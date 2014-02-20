@@ -37,6 +37,7 @@ Page {
             eventfeeds:selFed.toString(),
             handleread:handleRead.currentValue,
             sortasc:sortAsc.checked,
+            fontsize:fontSizeSelector.value,
             quitengine:quitEngine.checked
         };
 
@@ -103,7 +104,7 @@ Page {
                 id: tab2Content
                 anchors { right: parent.right; left: parent.left; top: parent.top; bottom: parent.bottom; bottomMargin: 70 }
                 contentWidth: parent.width
-                contentHeight: chooseMaxItems.height + chooseViewMode.height + chooseOrderBy.height + updateBehavior.height + updateInterval.height + textFormatLabel.height + textFormatSelection.height + invertThemeLabel.height + invertThemeSelection.height + handleImgs.height + handleRead.height + quitEngine.height + quitEngineDesc.height + sortAsc.height + 150
+                contentHeight: chooseMaxItems.height + chooseViewMode.height + chooseOrderBy.height + updateBehavior.height + updateInterval.height + textFormatLabel.height + textFormatSelection.height + invertThemeLabel.height + invertThemeSelection.height + handleImgs.height + handleRead.height + fontSizeLabel.height + fontSizeSelector.height + quitEngine.height + quitEngineDesc.height + sortAsc.height + 150
 
                 flickableDirection:  Flickable.VerticalFlick
 
@@ -355,10 +356,30 @@ Page {
                     }
                 }
 
+                Label {
+                    id: fontSizeLabel
+                    anchors { top: sortAsc.bottom; topMargin: 15; left: parent.left; leftMargin: 20 }
+                    text: qsTr("Item view font size:") + " " + fontSizeSelector.value + "pt"
+                }
+
+                Slider {
+                    id: fontSizeSelector
+                    width: parent.width
+                    anchors { top: fontSizeLabel.bottom }
+                    minimumValue: 10;
+                    maximumValue: 40;
+                    valueIndicatorVisible: false
+                    stepSize: 1
+                    Connections {
+                        target: dbus
+                        onGotConfig: fontSizeSelector.value = config["fontsize"]
+                    }
+                }
+
                 LabeledSwitch {
                     id: quitEngine
                     width: parent.width - 40
-                    anchors { top: sortAsc.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
+                    anchors { top: fontSizeSelector.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
                     text: qsTr("Quit engine on closing reader")
                     Connections {
                         target: dbus
@@ -369,8 +390,8 @@ Page {
                 Text {
                     id: quitEngineDesc
                     text: qsTr("This option needs an application restart.")
-                    width: parent.width - 40
-                    anchors { top: quitEngine.bottom; topMargin: 3; left: parent.left; leftMargin: 20 }
+                    width: parent.width - 20
+                    anchors { top: quitEngine.bottom; topMargin: 7; left: parent.left; leftMargin: 20 }
                     wrapMode: Text.WordWrap
                     font.pointSize: 17
                     font.weight: Font.Light
