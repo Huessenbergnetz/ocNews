@@ -28,28 +28,28 @@ Page {
                  console.log("Error loading component:", component.errorString());
          }
 
-    Component.onCompleted: { itemsModelSql.refresh(feedId, handleRead, sortAsc); }
+    Component.onCompleted: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); }
     Component.onDestruction: GLOBALS.previousContentY = 0;
 
     Connections {
         target: feeds
-        onMarkedReadFeedSuccess: itemsModelSql.refresh(feedId, handleRead, sortAsc)
+        onMarkedReadFeedSuccess: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text)
         onDeletedFeedSuccess: pageStack.pop()
     }
     Connections {
         target: items
-        onUpdatedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemsList.contentY = GLOBALS.previousContentY; }
-        onRequestedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemsList.contentY = GLOBALS.previousContentY; }
-        onStarredItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemsList.contentY = GLOBALS.previousContentY; }
-        onMarkedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc); itemsList.contentY = GLOBALS.previousContentY; }
+        onUpdatedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
+        onRequestedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
+        onStarredItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
+        onMarkedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
     }
     Connections {
         target: updater
-        onUpdateFinished: { GLOBALS.previousContentY = itemsList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc); itemsList.contentY = GLOBALS.previousContentY; }
+        onUpdateFinished: { GLOBALS.previousContentY = itemsList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
     }
 
-    onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc)
-    onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc)
+    onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text)
+    onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text)
 
 // ------------- Header Start ----------------
 
@@ -123,7 +123,10 @@ Page {
         anchors { top: parent.top; topMargin: searchFieldBox.height + 71; left: parent.left; leftMargin: 0; right: parent.right; rightMargin: 16; bottom: ivFetchImagesIndicator.visible ? ivFetchImagesIndicator.top : parent.bottom }
         model: itemsModelSql
         delegate: ItemListDelegate {
-            onClicked: { GLOBALS.previousContentY = itemsList.contentY; openFile("SingleItemView.qml", {itemId: itemId}); }
+            onClicked: {
+                GLOBALS.previousContentY = itemsList.contentY
+                openFile("SingleItemView.qml", {itemId: itemId, searchString: searchTextField.text, handleRead: itemListView.handleRead, sortAsc: itemListView.sortAsc, feedType: "0", parentFeedId: itemListView.feedId})
+            }
             onPressAndHold: {
                      contextMenuEffect.play()
                      itemContextMenu.itemId = itemId

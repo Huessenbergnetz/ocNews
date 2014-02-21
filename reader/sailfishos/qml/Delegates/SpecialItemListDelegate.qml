@@ -8,7 +8,11 @@ import "../JS/globals.js" as GLOBALS
 ListItem {
     id: specialItemListItem
 
+    property string feedId
     property string searchString
+    property int handleRead
+    property bool sortAsc
+    property string feedType
 
     contentHeight: Theme.itemSizeExtraLarge
 
@@ -17,7 +21,7 @@ ListItem {
     onClicked: {
         if (model.unread) busyIndicator.state = "RUNNING"
         GLOBALS.previousContentY = ListView.view.contentY
-        pageStack.push(Qt.resolvedUrl("../Views/SingleItemView.qml"), {itemId: model.itemId})
+        pageStack.push(Qt.resolvedUrl("../Views/SingleItemView.qml"), {itemId: model.itemId, handleRead: specialItemListItem.handleRead, sortAsc: specialItemListItem.sortAsc, searchString: specialItemListItem.searchString, feedType: specialItemListItem.feedType, parentFeedId: specialItemListItem.feedId})
     }
 
     function starParams() {

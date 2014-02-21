@@ -99,7 +99,7 @@ Page {
 
         model: specialItemsModelSql
 
-        delegate: SpecialItemListDelegate { searchString: searchField.text }
+        delegate: SpecialItemListDelegate { feedId: specialItemListView.id; searchString: searchField.text; handleRead: specialItemListView.handleRead; sortAsc: specialItemListView.sortAsc; feedType: specialItemListView.feedType }
 
         VerticalScrollDecorator {}
 

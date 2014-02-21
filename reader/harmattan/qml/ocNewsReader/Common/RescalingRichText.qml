@@ -57,9 +57,11 @@ Item {
         text: useRichText ? "<style>* { font-size: 1px }</style>" + parent.text : parent.text
 
         onPaintedWidthChanged: {
-            console.log("contentWidth: " + contentWidth)
+            console.log("contentWidth: " + paintedWidth)
             rescaleTimer.restart()
         }
+
+        onTextChanged: rescaleTimer.restart()
     }
 
     Text {

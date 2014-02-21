@@ -8,6 +8,12 @@ Page {
     property string itemId
     property bool directOpening: false
 
+    property int handleRead
+    property bool sortAsc
+    property string searchString
+    property string feedType
+    property string parentFeedId
+
     property string guidHash
     property string url
     property string title
@@ -24,6 +30,8 @@ Page {
     property int enclosureType
     property string enclosureHost
     property string enclosureName
+    property string prevId
+    property string nextId
 
     property bool showImgsDefault: dbus.getSetting("display/handleimgs", 0) > 0
 
@@ -32,7 +40,7 @@ Page {
 
     function getItemData(showImgs)
     {
-        var itemData = singleItemModelSql.getItemData(itemId, showImgs);
+        var itemData = singleItemModelSql.getItemData(itemId, handleRead, sortAsc, searchString, feedType, parentFeedId, showImgs);
         guidHash = itemData["guidHash"];
         url = itemData["url"];
         title = itemData["title"];
@@ -49,6 +57,10 @@ Page {
         enclosureType = itemData["enclosureType"];
         enclosureHost = itemData["enclosureHost"];
         enclosureName = itemData["enclosureName"];
+        prevId = itemData["previous"];
+        nextId = itemData["next"];
+        console.log("Previous ID: " + prevId);
+        console.log("Next ID: " + nextId);
     }
 
     function starParams() {
@@ -109,6 +121,11 @@ Page {
                 text: qsTr("Show images")
                 visible: containsImg
                 onClicked: getItemData(true);
+            }
+            MenuItem {
+                text: prevId !== "0" ? qsTr("Previous in list") : qsTr("First in list")
+                enabled: prevId !== "0"
+                onClicked: pageStack.replace(Qt.resolvedUrl("SingleItemView.qml"), { itemId: prevId, searchString: searchString, handleRead: handleRead, sortAsc: sortAsc, feedType: feedType, parentFeedId: parentFeedId })
             }
         }
 
@@ -211,13 +228,17 @@ Page {
 
 
         PushUpMenu {
-            id: itemViewPushy
-            enabled: singleItem.contentHeight >= singleItem.height
-            visible: singleItem.contentHeight >= singleItem.height
+            id: itemViewPushy            
+            MenuItem {
+                text: nextId !== "0" ? qsTr("Next in list") : qsTr("Last in list")
+                onClicked: pageStack.replace(Qt.resolvedUrl("SingleItemView.qml"), { itemId: nextId, searchString: searchString, handleRead: handleRead, sortAsc: sortAsc, feedType: feedType, parentFeedId: parentFeedId })
+                enabled: nextId !== "0"
+            }
             MenuItem {
                 id: goToTop
                 text: qsTr("Scroll to top")
                 onClicked: singleItem.scrollToTop()
+                visible: singleItem.contentHeight >= singleItem.height
             }
             MenuItem {
                 text: qsTr("Open in Browser")

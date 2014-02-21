@@ -5,13 +5,14 @@
 #include <QtSql>
 #include <QUrl>
 
+
 class OcSingleItemModelSql : public QObject
 {
     Q_OBJECT
 public:
     explicit OcSingleItemModelSql(QObject *parent = 0);
 
-    Q_INVOKABLE QVariantMap getItemData(const QString &itemId, bool showImg = false);
+    Q_INVOKABLE QVariantMap getItemData(const QString &itemId, int handleRead, bool sortAsc, const QString &searchString, const QString &feedType, const QString &feedId, bool showImg = false);
     
 signals:
     

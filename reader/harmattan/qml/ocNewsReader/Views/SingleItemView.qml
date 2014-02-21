@@ -14,6 +14,12 @@ Page {
     property string itemId
     property bool directOpening: false
 
+    property int handleRead
+    property bool sortAsc
+    property string searchString
+    property string feedType
+    property string parentFeedId
+
     property string guidHash
     property string url
     property string title
@@ -30,6 +36,8 @@ Page {
     property int enclosureType
     property string enclosureHost
     property string enclosureName
+    property string prevId
+    property string nextId
 
     property bool enclosureDownloading: downloads.getCurrentItem() === itemId
     property bool enclosureInQueue: downloads.itemInQueue(itemId)
@@ -105,7 +113,7 @@ Page {
 
     function getItemData(showImgs)
     {
-        var itemData = singleItemModelSql.getItemData(itemId, showImgs);
+        var itemData = singleItemModelSql.getItemData(itemId, handleRead, sortAsc, searchString, feedType, parentFeedId, showImgs);
         guidHash = itemData["guidHash"];
         url = itemData["url"];
         title = itemData["title"];
@@ -122,6 +130,8 @@ Page {
         enclosureType = itemData["enclosureType"];
         enclosureHost = itemData["enclosureHost"];
         enclosureName = itemData["enclosureName"];
+        prevId = itemData["previous"];
+        nextId = itemData["next"];
     }
 
     function starParams() {
@@ -145,7 +155,7 @@ Page {
     }
 
     Component.onCompleted: {
-        getItemData(showImgsDefault);
+        getItemData(itemId, showImgsDefault);
     }
 
     onStatusChanged: {
@@ -175,10 +185,15 @@ Page {
         height: parent.height
         contentWidth: parent.width - 30
         contentHeight: header.height + feedNameText.height + pubDateText.height + headerSeperator.height + bodyText.height + openUrlButtonStyle.buttonHeight + showImgButtonStyle.buttonHeight + 50
+        opacity: 1
         flickableDirection:  Flickable.VerticalFlick
 
         Behavior on height {
             NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
+        }
+
+        Behavior on opacity {
+            NumberAnimation { target: itemContent; property: "opacity"; duration: itemContent.opacity === 1 ? 0 : 300; easing.type: Easing.InOutQuad }
         }
 
         Row {
@@ -291,7 +306,7 @@ Page {
             anchors { top: openUrlButton.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
             platformStyle: ButtonStyle { id: showImgButtonStyle }
             visible: containsImg
-            onClicked: getItemData(true);
+            onClicked: getItemData(itemId, true);
         }
     }
 
@@ -339,6 +354,18 @@ Page {
             onClicked: directOpening ? openFile("MainView.qml") : pageStack.pop()
         }
         ToolIcon {
+            platformIconId: prevId !== "0" ? "toolbar-previous" : "toolbar-previous-dimmed"
+            enabled: prevId !== "0"
+            onClicked: {
+                itemContent.opacity = 0
+                itemId = prevId
+                getItemData(showImgsDefault)
+                itemContent.contentY = 0
+                if (unread) { operationRunning = true; items.markItems("read", markParams()) }
+                backToNonOpaque.restart()
+            }
+        }
+        ToolIcon {
             platformIconId: starred ? operationRunning ? "toolbar-favorite-mark-dimmed" : "toolbar-favorite-mark" : operationRunning ? "toolbar-favorite-unmark-dimmed" : "toolbar-favorite-unmark"
             enabled: !operationRunning
             onClicked: {
@@ -351,6 +378,24 @@ Page {
             platformIconId: "toolbar-share"
             onClicked: shareUi.share(url, title, feedName)
         }
+        ToolIcon {
+            platformIconId: nextId !== "0" ? "toolbar-next" : "toolbar-next-dimmed"
+            enabled: nextId !== "0"
+            onClicked: {
+                itemContent.opacity = 0
+                itemId = nextId
+                getItemData(showImgsDefault)
+                itemContent.contentY = 0
+                if (unread) { operationRunning = true; items.markItems("read", markParams()) }
+                backToNonOpaque.restart()
+            }
+        }
+    }
+
+    Timer {
+        id: backToNonOpaque
+        interval: 200
+        onTriggered: itemContent.opacity = 1
     }
 
 

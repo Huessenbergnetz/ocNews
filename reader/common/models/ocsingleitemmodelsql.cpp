@@ -1,4 +1,6 @@
 #include "ocsingleitemmodelsql.h"
+#include "../../../common/globals.h"
+#include <QDebug>
 
 OcSingleItemModelSql::OcSingleItemModelSql(QObject *parent) :
     QObject(parent)
@@ -6,15 +8,122 @@ OcSingleItemModelSql::OcSingleItemModelSql(QObject *parent) :
 }
 
 
-QVariantMap OcSingleItemModelSql::getItemData(const QString &itemId, bool showImg)
+QVariantMap OcSingleItemModelSql::getItemData(const QString &itemId, int handleRead, bool sortAsc, const QString &searchString, const QString &feedType, const QString &feedId, bool showImg)
 {
     QVariantMap itemresult;
     QSqlQuery query;
-    query.exec(QString("SELECT it.id, it.guidHash, it.url, it.title, it.author, it.pubDate, it.body, it.enclosureMime, it.enclosureLink, it.unread, it.starred, it.feedId, "
-                       "(SELECT title FROM feeds WHERE id = it.feedId) AS feedName, "
-                       "IFNULL((SELECT id FROM items WHERE pubDate > it.pubDate AND feedId = it.feedId ORDER BY pubDate ASC LIMIT 1),0) AS previous, "
-                       "IFNULL((SELECT id FROM items WHERE pubDate < it.pubDate AND feedId = it.feedId ORDER BY pubDate DESC LIMIT 1),0) AS next "
-                       "FROM items it WHERE id = %1").arg(itemId.toInt()));
+//    query.exec(QString("SELECT it.id, it.guidHash, it.url, it.title, it.author, it.pubDate, it.body, it.enclosureMime, it.enclosureLink, it.unread, it.starred, it.feedId, "
+//                       "(SELECT title FROM feeds WHERE id = it.feedId) AS feedName, "
+//                       "IFNULL((SELECT id FROM items WHERE pubDate > it.pubDate AND feedId = it.feedId ORDER BY pubDate ASC LIMIT 1),0) AS previous, "
+//                       "IFNULL((SELECT id FROM items WHERE pubDate < it.pubDate AND feedId = it.feedId ORDER BY pubDate DESC LIMIT 1),0) AS next "
+//                       "FROM items it WHERE id = %1").arg(itemId.toInt()));
+
+
+    QString queryString = "SELECT it.id, it.guidHash, it.url, it.title, it.author, it.pubDate, it.body, it.enclosureMime, it.enclosureLink, it.unread, it.starred, it.feedId, "
+                          "(SELECT title FROM feeds WHERE id = it.feedId) AS feedName, ";
+
+
+    // get previous item based on sorting options
+
+    queryString.append("IFNULL((SELECT id FROM items ");
+
+    if (!sortAsc) {
+        queryString.append("WHERE pubDate > it.pubDate ");
+    } else {
+        queryString.append("WHERE pubDate < it.pubDate ");
+    }
+
+    if (feedType == "0") {
+        queryString.append(QString("AND feedId = %1 ").arg(feedId.toInt()));
+    } else if (feedType == "folder") {
+        queryString.append(QString("AND feedId IN (SELECT id FROM feeds WHERE folderId = %1) ").arg(feedId.toInt()));
+    } else if (feedType == "starred") {
+        queryString.append(QString("AND starred = %1 ").arg(SQL_TRUE));
+    }
+
+    if (handleRead == 1)
+        queryString.append(QString("AND unread = %1 ").arg(SQL_TRUE));
+
+    if (!searchString.isEmpty())
+    {
+        QString t_search = searchString;
+        t_search.prepend("%");
+        t_search.append("%");
+        queryString.append(QString(" AND title LIKE \"%1\"").arg(t_search));
+    }
+
+
+    queryString.append("ORDER BY ");
+
+    if (handleRead == 2)
+        queryString.append("unread DESC, ");
+
+    if (!sortAsc) {
+        queryString.append("pubDate ASC ");
+    } else {
+        queryString.append("pubDate DESC ");
+    }
+
+    queryString.append("LIMIT 1),0) AS previous, ");
+
+
+
+    // get next item based on sorting options
+
+    queryString.append("IFNULL((SELECT id FROM items ");
+
+    if (!sortAsc) {
+        queryString.append("WHERE pubDate < it.pubDate ");
+    } else {
+        queryString.append("WHERE pubDate > it.pubDate ");
+    }
+
+    if (feedType == "0") {
+        queryString.append(QString("AND feedId = %1 ").arg(feedId.toInt()));
+    } else if (feedType == "folder") {
+        queryString.append(QString("AND feedId IN (SELECT id FROM feeds WHERE folderId = %1) ").arg(feedId.toInt()));
+    } else if (feedType == "starred") {
+        queryString.append(QString("AND starred = %1 ").arg(SQL_TRUE));
+    }
+
+    if (handleRead == 1)
+        queryString.append(QString("AND unread = %1 ").arg(SQL_TRUE));
+
+    if (!searchString.isEmpty())
+    {
+        QString t_search = searchString;
+        t_search.prepend("%");
+        t_search.append("%");
+        queryString.append(QString(" AND title LIKE \"%1\"").arg(t_search));
+    }
+
+
+    queryString.append("ORDER BY ");
+
+    if (handleRead == 2)
+        queryString.append("unread DESC, ");
+
+    if (!sortAsc) {
+        queryString.append("pubDate DESC ");
+    } else {
+        queryString.append("pubDate ASC ");
+    }
+
+    queryString.append(" LIMIT 1),0) AS next ");
+
+    queryString.append(QString("FROM items it WHERE id = %1").arg(itemId.toInt()));
+
+    query.exec(queryString);
+
+
+    qDebug() << "Item ID: " << itemId;
+    qDebug() << "Show Img: " << showImg;
+    qDebug() << "Handle read: " << handleRead;
+    qDebug() << "Sort ascending: " << sortAsc;
+    qDebug() << "Search string: " << searchString;
+    qDebug() << "Feed type: " << feedType;
+    qDebug() << "Feed id: " << feedId;
+
 
     if (query.next())
     {

@@ -93,14 +93,14 @@ Page {
                     sortingPanel.open = false
                     searchPanel.open = !searchPanel.open
 //                    searchField.forceActiveFocus();
-                    if (!searchPanel.open) {specialItemListView.searchString = ""; searchField.focus = false } else {searchField.focus = true }
+                    if (!searchPanel.open) {itemListView.searchString = ""; searchField.focus = false } else {searchField.focus = true }
                 }
             }
         }
 
         model: itemsModelSql
 
-        delegate: ItemListDelegate { feedId: itemListView.feedId; searchString: searchField.text }
+        delegate: ItemListDelegate { feedId: itemListView.feedId; searchString: searchField.text; handleRead: itemListView.handleRead; sortAsc: itemListView.sortAsc; feedType: "0" }
 
         VerticalScrollDecorator {}
 
