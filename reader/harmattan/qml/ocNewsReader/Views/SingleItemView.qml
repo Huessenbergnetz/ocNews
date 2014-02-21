@@ -293,20 +293,21 @@ Page {
         }
 
         Button {
-            id: openUrlButton
-            text: qsTr("Open website")
-            anchors { top: enclosure.visible ? enclosure.bottom : bodyText.bottom; topMargin: 20; horizontalCenter: parent.horizontalCenter }
-            onClicked: Qt.openUrlExternally(url)
-            platformStyle: ButtonStyle { id: openUrlButtonStyle }
-        }
-
-        Button {
             id: showImgButton
             text: qsTr("Load images")
-            anchors { top: openUrlButton.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
+            anchors { top: enclosure.visible ? enclosure.bottom : bodyText.bottom; topMargin: 20; horizontalCenter: parent.horizontalCenter }
             platformStyle: ButtonStyle { id: showImgButtonStyle }
             visible: containsImg
             onClicked: getItemData(itemId, true);
+        }
+
+        Button {
+            id: openUrlButton
+            text: qsTr("Open website")
+            anchors { top: showImgButton.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
+            onClicked: Qt.openUrlExternally(url)
+            platformStyle: ButtonStyle { id: openUrlButtonStyle }
+            visible: false
         }
     }
 
@@ -377,6 +378,11 @@ Page {
         ToolIcon {
             platformIconId: "toolbar-share"
             onClicked: shareUi.share(url, title, feedName)
+        }
+        ToolIcon {
+            platformIconId: "toolbar-webview"
+//            onClicked: openFile("SingleItemWebView.qml", {url: singleItemView.url} )
+            onClicked: Qt.openUrlExternally(url)
         }
         ToolIcon {
             platformIconId: nextId !== "0" ? "toolbar-next" : "toolbar-next-dimmed"
