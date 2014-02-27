@@ -1040,7 +1040,7 @@
     <message>
         <location line="+10"/>
         <source>Item view font size</source>
-        <translation type="unfinished"/>
+        <translation>条目内容字体大小</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1094,22 +1094,22 @@
     <message>
         <location line="+5"/>
         <source>Previous in list</source>
-        <translation type="unfinished"/>
+        <translation>列表上一页</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>First in list</source>
-        <translation type="unfinished"/>
+        <translation>列表首页</translation>
     </message>
     <message>
         <location line="+107"/>
         <source>Next in list</source>
-        <translation type="unfinished"/>
+        <translation>列表下一页</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Last in list</source>
-        <translation type="unfinished"/>
+        <translation>列表末页</translation>
     </message>
     <message>
         <location line="+6"/>
