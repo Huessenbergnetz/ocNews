@@ -332,7 +332,7 @@
         <translation>正在搜索...</translation>
     </message>
     <message>
-        <location line="+112"/>
+        <location line="+115"/>
         <source>Mark feed as read</source>
         <translation>将订阅标记为已读</translation>
     </message>
@@ -677,7 +677,7 @@
 <context>
     <name>OcSingleItemModelSql</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+28"/>
+        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+136"/>
         <source>Today</source>
         <translation>今天</translation>
     </message>
@@ -829,13 +829,13 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+62"/>
-        <location line="+521"/>
+        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+63"/>
+        <location line="+541"/>
         <source>Account Settings</source>
         <translation>账号设置</translation>
     </message>
     <message>
-        <location line="-502"/>
+        <location line="-522"/>
         <source>Open account manager</source>
         <translation>账号管理</translation>
     </message>
@@ -1025,7 +1025,12 @@
         <translation>在顶部显示最旧条目</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
+        <source>Item view font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+21"/>
         <source>Quit engine on closing reader</source>
         <translation>关闭阅读器时退出ocNews引擎</translation>
     </message>
@@ -1190,17 +1195,17 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+282"/>
+        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+306"/>
         <source>Open website</source>
         <translation>打开网址</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="-9"/>
         <source>Load images</source>
         <translation>读取图片</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+27"/>
         <source>Write to %1</source>
         <translation>写入到 %1</translation>
     </message>
@@ -1235,7 +1240,7 @@
         <translation>下载附件</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+82"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>

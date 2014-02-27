@@ -407,7 +407,7 @@
 <context>
     <name>ItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+118"/>
+        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+121"/>
         <source>Mark as read</source>
         <translation>Marquer comme lu</translation>
     </message>
@@ -676,7 +676,7 @@
 <context>
     <name>OcSingleItemModelSql</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+27"/>
+        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+136"/>
         <source>Today</source>
         <translation>Aujourd&apos;hui</translation>
     </message>
@@ -816,43 +816,43 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/Pages/Settings.qml" line="+86"/>
+        <location filename="../qml/Pages/Settings.qml" line="+88"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
         <location line="+2"/>
-        <location line="+22"/>
+        <location line="+24"/>
         <source>Server</source>
         <translation>Serveur</translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="-19"/>
         <source>User name</source>
         <translation>Nom d&apos;utilisateur</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+9"/>
         <source>Password</source>
         <translation>Mot de passe</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+10"/>
         <source>Server: e.g. cloud.example.com</source>
         <translation>Serveur: par exemple cloud.example.com</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+9"/>
         <source>Test connection</source>
         <translation>Tester la connexion</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+30"/>
         <source>Found ownCloud News Version %1</source>
         <translation>Version %1 de ownCloud News détectée</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+7"/>
         <source>Use HTTPS (SSL/TLS) connection</source>
         <translation>Utiliser une connexion HTTPS (SSL/TLS)</translation>
     </message>
@@ -862,7 +862,7 @@
         <translation>Parce qu&apos;ownCloud News nécessite d&apos;envoyer votre nom d&apos;utilisateur et votre mot de passe avec chaque requête, vous devriez garder ceci activé et utiliser une connexion cryptée si votre serveur le supporte ou le nécessite.</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+5"/>
         <source>Ignore SSL errors</source>
         <translation>Ignorer les erreurs SSL</translation>
     </message>
@@ -1038,6 +1038,11 @@
         <translation>Configurer l&apos;ordre par défaut des articles pour avoir le plus vieux en premier. Vous pouvez toujours le changer via le pulley-menu.</translation>
     </message>
     <message>
+        <location line="+10"/>
+        <source>Item view font size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location line="+3"/>
         <source>Maintenance</source>
         <translation>Maintenance</translation>
@@ -1066,13 +1071,13 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/Views/SingleItemView.qml" line="+97"/>
-        <location line="+126"/>
+        <location filename="../qml/Views/SingleItemView.qml" line="+109"/>
+        <location line="+135"/>
         <source>Open in Browser</source>
         <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message>
-        <location line="-122"/>
+        <location line="-131"/>
         <source>Remove from favourites</source>
         <translation>Supprimer des favoris</translation>
     </message>
@@ -1087,7 +1092,27 @@
         <translation>Afficher les images</translation>
     </message>
     <message>
-        <location line="+110"/>
+        <location line="+5"/>
+        <source>Previous in list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>First in list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+107"/>
+        <source>Next in list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Last in list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Scroll to top</source>
         <translation>Remonter au début</translation>
     </message>
@@ -1118,7 +1143,7 @@
 <context>
     <name>SpecialItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+129"/>
+        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+133"/>
         <source>Mark as read</source>
         <translation>Marquer comme lu</translation>
     </message>

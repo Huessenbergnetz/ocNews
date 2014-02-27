@@ -332,7 +332,7 @@
         <translation>Suche...</translation>
     </message>
     <message>
-        <location line="+112"/>
+        <location line="+115"/>
         <source>Mark feed as read</source>
         <translation>Feed als gelesen markieren</translation>
     </message>
@@ -677,7 +677,7 @@
 <context>
     <name>OcSingleItemModelSql</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+28"/>
+        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+136"/>
         <source>Today</source>
         <translation>Heute</translation>
     </message>
@@ -829,13 +829,13 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+62"/>
-        <location line="+521"/>
+        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+63"/>
+        <location line="+541"/>
         <source>Account Settings</source>
         <translation>Benutzerkonto</translation>
     </message>
     <message>
-        <location line="-502"/>
+        <location line="-522"/>
         <source>Open account manager</source>
         <translation>Kontoverwaltung öffnen</translation>
     </message>
@@ -1025,7 +1025,12 @@
         <translation>Älteste Einträge zuerst anzeigen</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
+        <source>Item view font size:</source>
+        <translation>Schriftgröße in der Nachrichtenansicht</translation>
+    </message>
+    <message>
+        <location line="+21"/>
         <source>Quit engine on closing reader</source>
         <translation>Engine beim Schließen der Anwendung beenden</translation>
     </message>
@@ -1190,17 +1195,17 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+282"/>
+        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+306"/>
         <source>Open website</source>
         <translation>Artikel öffnen</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="-9"/>
         <source>Load images</source>
         <translation>Bilder laden</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+27"/>
         <source>Write to %1</source>
         <translation>Schreibe an %1</translation>
     </message>
@@ -1235,7 +1240,7 @@
         <translation>Anhang herunterladen</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+82"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>

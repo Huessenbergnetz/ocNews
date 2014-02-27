@@ -407,7 +407,7 @@
 <context>
     <name>ItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+118"/>
+        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+121"/>
         <source>Mark as read</source>
         <translation>标记为已读条目</translation>
     </message>
@@ -676,7 +676,7 @@
 <context>
     <name>OcSingleItemModelSql</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+27"/>
+        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+136"/>
         <source>Today</source>
         <translation>今天</translation>
     </message>
@@ -816,43 +816,43 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/Pages/Settings.qml" line="+86"/>
+        <location filename="../qml/Pages/Settings.qml" line="+88"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
         <location line="+2"/>
-        <location line="+22"/>
+        <location line="+24"/>
         <source>Server</source>
         <translation>服务器</translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="-19"/>
         <source>User name</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+9"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+10"/>
         <source>Server: e.g. cloud.example.com</source>
         <translation>服务器：如 cloud.example.com</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+9"/>
         <source>Test connection</source>
         <translation>测试连接</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+30"/>
         <source>Found ownCloud News Version %1</source>
         <translation>找到ownCloud新闻版本%1</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+7"/>
         <source>Use HTTPS (SSL/TLS) connection</source>
         <translation>使用HTTPS(SSL/TLS)连接</translation>
     </message>
@@ -862,7 +862,7 @@
         <translation>因为ownCloud新闻的每个操作请求，都需要你发送你的用户名和密码，所以在你的服务器支持或者要求加密的情况下，你应该启用这个功能来使用加密连接。</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+5"/>
         <source>Ignore SSL errors</source>
         <translation>忽略SSL错误</translation>
     </message>
@@ -1038,6 +1038,11 @@
         <translation>设置在顶部显示最旧条目的新闻默认排序。当然你后续还可以在下滑菜单中更改。</translation>
     </message>
     <message>
+        <location line="+10"/>
+        <source>Item view font size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location line="+3"/>
         <source>Maintenance</source>
         <translation>维护</translation>
@@ -1066,13 +1071,13 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/Views/SingleItemView.qml" line="+97"/>
-        <location line="+126"/>
+        <location filename="../qml/Views/SingleItemView.qml" line="+109"/>
+        <location line="+135"/>
         <source>Open in Browser</source>
         <translation>在浏览器中打开</translation>
     </message>
     <message>
-        <location line="-122"/>
+        <location line="-131"/>
         <source>Remove from favourites</source>
         <translation>从最爱条目中移除</translation>
     </message>
@@ -1087,7 +1092,27 @@
         <translation>显示图片</translation>
     </message>
     <message>
-        <location line="+110"/>
+        <location line="+5"/>
+        <source>Previous in list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>First in list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+107"/>
+        <source>Next in list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Last in list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Scroll to top</source>
         <translation>回到顶部</translation>
     </message>
@@ -1102,7 +1127,7 @@
     <message>
         <location line="+0"/>
         <source>Stop loading</source>
-        <translation type="unfinished"/>
+        <translation>停止读取</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -1118,7 +1143,7 @@
 <context>
     <name>SpecialItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+129"/>
+        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+133"/>
         <source>Mark as read</source>
         <translation>标记为已读条目</translation>
     </message>
