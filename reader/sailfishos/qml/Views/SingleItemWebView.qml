@@ -30,29 +30,6 @@ Page {
     SilicaWebView {
         id: webView
         anchors.fill: parent
-//        width: singleWebView.width
-//        height: singleWebView.height
-
-//        header: PageHeader { title: webView.title }
-
-//        opacity: 0
-//        onLoadingChanged: {
-//            switch (loadRequest.status)
-//            {
-//                case WebView.LoadSucceededStatus:
-//                    opacity = 1
-//                    break
-//                case WebView.LoadFailedStatus:
-//                    opacity = 0
-////                    viewPlaceHolder.errorString = loadRequest.errorString
-//                    break
-//                default:
-//                    opacity = 0
-//                    break
-//            }
-//        }
-
-//        FadeAnimation on opacity {}
 
         PullDownMenu {
             MenuItem {
@@ -70,14 +47,9 @@ Page {
         }
 
         experimental.userAgent: "Mozilla/5.0 (Maemo; Linux; Jolla; Sailfish; Mobile) AppleWebKit/534.13 (KHTML, like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13"
+        experimental.preferences.pluginsEnabled: true
+        experimental.preferences.javascriptEnabled: true
+        experimental.preferences.defaultFontSize: Theme.fontSizeSmall
 
-//        ViewPlaceholder {
-//            id: viewPlaceHolder
-//            property string errorString
-
-//            enabled: webView.opacity === 0 && !webView.loading
-//            text: "Web content load error: " + errorString
-//            hintText: "Check network connectivity and pull down to reload"
-//        }
     }
 }
