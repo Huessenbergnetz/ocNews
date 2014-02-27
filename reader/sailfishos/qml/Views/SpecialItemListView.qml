@@ -45,8 +45,9 @@ Page {
 
     SilicaListView {
         id: specialItemList
-        anchors { top: parent.top; right: parent.right; left: parent.left; bottom: specialItemListFetchIndicator.visible ? specialItemListFetchIndicator.top : parent.bottom; bottomMargin: sortingPanel.open || searchPanel.open ? sortingPanel.open ? sortingPanel.height * 1.5 : searchPanel.height * 1.5 : 0 }
+        anchors { top: parent.top; right: parent.right; left: parent.left; bottom: specialItemListFetchIndicator.visible ? specialItemListFetchIndicator.top : searchPanel.open ? searchPanel.top : sortingPanel.open ? sortingPanel.top : parent.bottom }
         currentIndex: -1
+        clip: true
 
         header: PageHeader { title: operationRunning ? qsTr("Update running...") : specialItemListView.pageName }
 
@@ -160,7 +161,7 @@ Page {
     DockedPanel {
         id: sortingPanel
         width: parent.width
-        height: actCol.height + Theme.paddingLarge
+        height: actCol.height
         visible: open
 
         dock: Dock.Bottom

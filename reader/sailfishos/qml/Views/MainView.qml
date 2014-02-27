@@ -67,7 +67,9 @@ Page {
 
     SilicaListView {
         id: mainViewList
-        anchors { top: parent.top; right: parent.right; left: parent.left; bottom: fetchIndicator.visible ? fetchIndicator.top : parent.bottom; bottomMargin: addActionsDock.open ? addActionsDock.height * 1.5 : 0 }
+//        anchors { top: parent.top; right: parent.right; left: parent.left; bottom: fetchIndicator.visible ? fetchIndicator.top : parent.bottom; bottomMargin: addActionsDock.open ? addActionsDock.height * 1.5 : 0 }
+        anchors { top: parent.top; right: parent.right; left: parent.left; bottom: fetchIndicator.visible ? fetchIndicator.top : addActionsDock.open ? addActionsDock.top : parent.bottom }
+        clip: true
 
         header: PageHeader {
             id: pHeader
@@ -172,7 +174,7 @@ Page {
     DockedPanel {
         id: addActionsDock
         width: parent.width
-        height: Theme.itemSizeExtraLarge + Theme.paddingLarge
+        height: Theme.itemSizeExtraLarge
         dock: Dock.bottom
 
         Row {

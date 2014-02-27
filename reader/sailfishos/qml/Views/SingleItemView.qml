@@ -99,6 +99,7 @@ Page {
         anchors.right: parent.right
         anchors.left: parent.left
         anchors.bottom: itemViewFetchIndicator.visible ? itemViewFetchIndicator.top : parent.bottom
+        clip: true
         VerticalScrollDecorator {}
         contentHeight: contentCol.height + Theme.paddingLarge
 
