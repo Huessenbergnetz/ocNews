@@ -5,6 +5,7 @@ Item {
     id: countBubble
 
     property int value: 0
+    property alias color: count.color
 
     function getBubbleWidth() {
         if (countBubble.value < 10)
