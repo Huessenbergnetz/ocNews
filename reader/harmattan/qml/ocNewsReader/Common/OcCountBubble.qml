@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import "../uiconstants.js" as UI
 
 
 /*
@@ -10,6 +11,9 @@ import com.nokia.meego 1.0
 
 ImplicitSizeItem {
     id: root
+
+    property color titleColor: theme.inverted ? UI.LIST_TITLE_COLOR_INVERTED : UI.LIST_TITLE_COLOR
+    property color subtitleColor: theme.inverted ? UI.LIST_SUBTITLE_COLOR_INVERTED : UI.LIST_SUBTITLE_COLOR
 
     /*
      * Property: largeSized
@@ -36,7 +40,8 @@ ImplicitSizeItem {
         id: text
         height: parent.height
         y:1
-        color: largeSized ? "#FFFFFF" : theme.inverted ? "white" : "black"
+//        color: largeSized ? "#FFFFFF" : theme.inverted ? "white" : "black"
+        color: value > 0 ? titleColor : subtitleColor
         font.family: "Nokia Pure Text"
         anchors.horizontalCenter: parent.horizontalCenter
         verticalAlignment: Text.AlignVCenter
