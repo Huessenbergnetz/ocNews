@@ -138,7 +138,7 @@
         <translation>Just now</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+33"/>
         <source>Unread news</source>
         <translation>Unread news</translation>
     </message>
@@ -1071,7 +1071,7 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/Views/SingleItemView.qml" line="+110"/>
+        <location filename="../qml/Views/SingleItemView.qml" line="+123"/>
         <location line="+146"/>
         <source>Open in Browser</source>
         <translation>Open in Browser</translation>
