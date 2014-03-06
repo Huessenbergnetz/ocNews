@@ -60,8 +60,6 @@ Page {
         enclosureName = itemData["enclosureName"];
         prevId = itemData["previous"];
         nextId = itemData["next"];
-//        console.log("Previous ID: " + prevId);
-//        console.log("Next ID: " + nextId);
     }
 
     function starParams() {
@@ -114,7 +112,7 @@ Page {
         anchors.bottom: itemViewFetchIndicator.visible ? itemViewFetchIndicator.top : parent.bottom
         clip: true
         VerticalScrollDecorator {}
-        contentHeight: contentCol.height + Theme.paddingLarge
+        contentHeight: contentCol.height
 
         PullDownMenu {
             id: singleItemPully
@@ -143,6 +141,27 @@ Page {
             }
         }
 
+
+        PushUpMenu {
+            id: itemViewPushy
+            MenuItem {
+                text: nextId !== "0" ? qsTr("Next in list") : qsTr("Last in list")
+                onClicked: pageStack.replace(Qt.resolvedUrl("SingleItemView.qml"), { itemId: nextId, searchString: searchString, handleRead: handleRead, sortAsc: sortAsc, feedType: feedType, parentFeedId: parentFeedId })
+                enabled: nextId !== "0"
+            }
+            MenuItem {
+                id: goToTop
+                text: qsTr("Scroll to top")
+                onClicked: singleItem.scrollToTop()
+                visible: singleItem.contentHeight >= singleItem.height
+            }
+            MenuItem {
+                text: qsTr("Open in Browser")
+                onClicked: Qt.openUrlExternally(url)
+            }
+        }
+
+
         Column {
             id: contentCol
             width: parent.width
@@ -167,12 +186,13 @@ Page {
 
                 Image {
                     id: starImage
-                    visible: starred
+                    opacity: starred ? 1 : 0
                     width: 32
                     height: 32
                     sourceSize.width: 32
                     sourceSize.height: 32
                     source: "image://theme/icon-s-favorite"
+                    Behavior on opacity { FadeAnimation{} }
                 }
 
             }
@@ -180,7 +200,6 @@ Page {
             Row {
                 id: pubInfos
                 anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
-                width: parent.width
 
                 Label {
                     id: pubDateText
@@ -227,17 +246,6 @@ Page {
                 onLinkActivated: pageStack.push(Qt.resolvedUrl("../Dialogs/OpenLink.qml"), {link: link})
             }
 
-//            Text {
-//                id: bodyText
-//                text: _RICHTEXT_STYLESHEET_PREAMBLE + body + _RICHTEXT_STYLESHEET_APPENDIX
-//                font.pixelSize: ocNewsReader.fontSize
-//                color: Theme.primaryColor
-//                anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
-//                onLinkActivated: pageStack.push(Qt.resolvedUrl("../Dialogs/OpenLink.qml"), {link: link})
-//                wrapMode: Text.WordWrap
-//                textFormat: Text.RichText
-//            }
-
             EnclosureItem {
                 id: enclosure
                 width: parent.width
@@ -249,28 +257,12 @@ Page {
                 encSrc: enclosureLink
                 encMime: enclosureMime
             }
-        }
 
-
-        PushUpMenu {
-            id: itemViewPushy            
-            MenuItem {
-                text: nextId !== "0" ? qsTr("Next in list") : qsTr("Last in list")
-                onClicked: pageStack.replace(Qt.resolvedUrl("SingleItemView.qml"), { itemId: nextId, searchString: searchString, handleRead: handleRead, sortAsc: sortAsc, feedType: feedType, parentFeedId: parentFeedId })
-                enabled: nextId !== "0"
-            }
-            MenuItem {
-                id: goToTop
-                text: qsTr("Scroll to top")
-                onClicked: singleItem.scrollToTop()
-                visible: singleItem.contentHeight >= singleItem.height
-            }
-            MenuItem {
-                text: qsTr("Open in Browser")
-                onClicked: Qt.openUrlExternally(url)
+            Item {
+                width: parent.width
+                height: Theme.paddingLarge
             }
         }
-
     }
 
     FetchImagesIndicator {

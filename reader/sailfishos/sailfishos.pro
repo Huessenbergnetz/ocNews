@@ -87,7 +87,10 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Dialogs/OpenLink.qml \
     qml/Common/EnclosureItem.qml \
     qml/Common/RescalingRichText.qml \
-    l10n/*.ts
+    l10n/*.ts \
+    qml/Pages/Changelog.qml \
+    qml/Pages/ClEntry.qml \
+    qml/Pages/ClHeader.qml
 
 HEADERS += \
     ../common/ocdbmanager.h \

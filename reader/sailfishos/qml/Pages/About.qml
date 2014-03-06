@@ -101,6 +101,13 @@ Page {
             onClicked: pageStack.push(Qt.resolvedUrl("Contributors.qml"))
         }
 
+        Button {
+            id: changelog
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: qsTr("Changelog")
+            onClicked: pageStack.push(Qt.resolvedUrl("Changelog.qml"))
+        }
+
     }
 
     }
