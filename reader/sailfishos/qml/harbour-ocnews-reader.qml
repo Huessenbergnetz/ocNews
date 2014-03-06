@@ -64,4 +64,26 @@ ApplicationWindow
     initialPage: Component { MainView { } }
 
     cover: CoverPage {}
+
+    QtObject {
+        id: coverConnector
+
+        property string feedName
+        property string title
+        property string itemId
+        property string searchString
+        property int handleRead
+        property bool sortAsc
+        property string feedType
+        property string parentFeedId
+        property string nextId
+        property string prevId
+        property bool loading: false
+        property string mode: "overview"
+    }
+
+    Connections {
+        target: pageStack
+        onCurrentPageChanged: coverConnector.mode = pageStack.currentPage.objectName === "ItemPage" ? "item" : "overview";
+    }
 }

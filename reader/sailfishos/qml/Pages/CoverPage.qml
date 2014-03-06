@@ -47,6 +47,11 @@ CoverBackground {
         return ret;
     }
 
+    function changeItem(id) {
+        coverConnector.loading = true
+        pageStack.replace(Qt.resolvedUrl("../Views/SingleItemView.qml"), { itemId: id, searchString: coverConnector.searchString, handleRead: coverConnector.handleRead, sortAsc: coverConnector.sortAsc, feedType: coverConnector.feedType, parentFeedId: coverConnector.parentFeedId })
+    }
+
     Image {
         source: "/usr/share/harbour-ocnews-reader/icons/graphic-cover-ocnews-background.png"
         x: 0; y: 0; z: -1
@@ -56,7 +61,7 @@ CoverBackground {
 
     Column {
         id: countColumn
-        visible: !updateRunning.visible
+        visible: !updateRunning.visible && coverConnector.mode === "overview"
         anchors { top: parent.top; left: parent.left; right: parent.right; topMargin: Theme.paddingLarge; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
 
         Text {
@@ -88,7 +93,7 @@ CoverBackground {
         text: defCover.calcLastUpd(dbus.getStat(1));
         width: parent.width
         textFormat: Text.PlainText
-        visible: !updateRunning.visible
+        visible: !updateRunning.visible && coverConnector.mode === "overview"
         wrapMode: Text.WordWrap
         lineHeight: 0.7
     }
@@ -127,9 +132,63 @@ CoverBackground {
         }
     }
 
+
+    BusyIndicator {
+        anchors.centerIn: parent
+        opacity: running ? 1 : 0
+        running: active && coverConnector.loading
+        Behavior on opacity { FadeAnimation{} }
+    }
+
+
+
+    Column {
+        visible: !updateRunning.visible && coverConnector.mode === "item" && !coverConnector.loading
+
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.leftMargin: Theme.paddingLarge
+        anchors.rightMargin: Theme.paddingLarge
+
+        Item {
+            width: parent.width
+            height: Theme.paddingLarge
+        }
+
+        Label {
+            width: parent.width
+            truncationMode: TruncationMode.Fade
+            font.pixelSize: Theme.fontSizeExtraSmall
+            color: Theme.secondaryColor
+            maximumLineCount: 1
+            text: coverConnector.feedName
+        }
+
+        Separator {
+            width: parent.width
+            color: Theme.secondaryColor
+        }
+
+        Item {
+            width: parent.width
+            height: Theme.paddingSmall
+        }
+
+        Label {
+            width: parent.width
+            color: Theme.primaryColor
+            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+            elide: Text.ElideRight
+            font.pixelSize: Theme.fontSizeSmall
+            maximumLineCount: 6
+            text: coverConnector.title
+            }
+        }
+
+
     CoverActionList {
         id: coverAction
-        enabled: !updateRunning.visible
+        enabled: !updateRunning.visible && coverConnector.mode === "overview"
 
         CoverAction {
             iconSource: "image://theme/icon-cover-new"
@@ -144,6 +203,40 @@ CoverBackground {
             iconSource: "image://theme/icon-cover-sync"
             onTriggered: { updateRunning.visible = true; updater.startUpdate(); }
         }
+    }
 
+
+    CoverActionList {
+        enabled: !updateRunning.visible && coverConnector.mode === "item" && coverConnector.prevId !== "0" && coverConnector.nextId !== "0"
+
+        CoverAction {
+            iconSource: "image://theme/icon-cover-previous"
+            onTriggered: changeItem(coverConnector.prevId)
+        }
+
+        CoverAction {
+            iconSource: "image://theme/icon-cover-next"
+            onTriggered: changeItem(coverConnector.nextId)
+        }
+    }
+
+
+    CoverActionList {
+        enabled: !updateRunning.visible && coverConnector.mode === "item" && coverConnector.prevId === "0" && coverConnector.nextId !== "0"
+
+        CoverAction {
+            iconSource: "image://theme/icon-cover-next"
+            onTriggered: changeItem(coverConnector.nextId)
+        }
+    }
+
+
+    CoverActionList {
+        enabled: !updateRunning.visible && coverConnector.mode === "item" && coverConnector.prevId !== "0" && coverConnector.nextId === "0"
+
+        CoverAction {
+            iconSource: "image://theme/icon-cover-previous"
+            onTriggered: changeItem(coverConnector.prevId)
+        }
     }
 }

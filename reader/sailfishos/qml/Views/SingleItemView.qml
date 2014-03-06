@@ -4,6 +4,7 @@ import "../Common"
 
 Page {
     id: singleItemView
+    objectName: "ItemPage"
 
     property string itemId
     property bool directOpening: false
@@ -85,6 +86,18 @@ Page {
         if (status == PageStatus.Active) {
             if (unread) { items.markItems("read", markParams()); unread = false }
             pageStack.pushAttached(Qt.resolvedUrl("SingleItemWebView.qml"), {itemUrl: url})
+
+            coverConnector.feedName = singleItemView.feedName
+            coverConnector.title = singleItemView.title
+            coverConnector.itemId = singleItemView.itemId
+            coverConnector.searchString = singleItemView.searchString
+            coverConnector.handleRead = singleItemView.handleRead
+            coverConnector.sortAsc = singleItemView.sortAsc
+            coverConnector.feedType = singleItemView.feedType
+            coverConnector.parentFeedId = singleItemView.parentFeedId
+            coverConnector.nextId = singleItemView.nextId
+            coverConnector.prevId = singleItemView.prevId
+            coverConnector.loading = false
         }
     }
 
