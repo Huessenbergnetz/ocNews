@@ -1027,7 +1027,7 @@
     <message>
         <location line="+10"/>
         <source>Item view font size:</source>
-        <translation type="unfinished"/>
+        <translation>条目内容字体大小：</translation>
     </message>
     <message>
         <location line="+21"/>

@@ -349,7 +349,7 @@
         <translation>%1 unread posts in %2 feeds</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+62"/>
         <source>Update folder</source>
         <translation>Update folder</translation>
     </message>
@@ -440,7 +440,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+49"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+50"/>
         <source>Update running...</source>
         <translation>Update running...</translation>
     </message>
@@ -480,7 +480,7 @@
         <translation>Show search</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+23"/>
         <source>Scroll to top</source>
         <translation>Scroll to top</translation>
     </message>
@@ -528,7 +528,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+74"/>
+        <location filename="../qml/Views/MainView.qml" line="+76"/>
         <source>Update running...</source>
         <translation>Update running...</translation>
     </message>
@@ -1071,13 +1071,13 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/Views/SingleItemView.qml" line="+109"/>
-        <location line="+135"/>
+        <location filename="../qml/Views/SingleItemView.qml" line="+110"/>
+        <location line="+146"/>
         <source>Open in Browser</source>
         <translation>Open in Browser</translation>
     </message>
     <message>
-        <location line="-131"/>
+        <location line="-142"/>
         <source>Remove from favourites</source>
         <translation>Remove from favourites</translation>
     </message>
@@ -1102,7 +1102,7 @@
         <translation>First in list</translation>
     </message>
     <message>
-        <location line="+107"/>
+        <location line="+118"/>
         <source>Next in list</source>
         <translation>Next in list</translation>
     </message>
@@ -1120,7 +1120,7 @@
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../qml/Views/SingleItemWebView.qml" line="+59"/>
+        <location filename="../qml/Views/SingleItemWebView.qml" line="+36"/>
         <source>Reload</source>
         <translation>Reload</translation>
     </message>
@@ -1166,7 +1166,7 @@
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../qml/Views/SpecialItemListView.qml" line="+51"/>
+        <location filename="../qml/Views/SpecialItemListView.qml" line="+52"/>
         <source>Update running...</source>
         <translation>Update running...</translation>
     </message>

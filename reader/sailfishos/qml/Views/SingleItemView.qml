@@ -59,8 +59,8 @@ Page {
         enclosureName = itemData["enclosureName"];
         prevId = itemData["previous"];
         nextId = itemData["next"];
-        console.log("Previous ID: " + prevId);
-        console.log("Next ID: " + nextId);
+//        console.log("Previous ID: " + prevId);
+//        console.log("Next ID: " + nextId);
     }
 
     function starParams() {
@@ -213,6 +213,17 @@ Page {
                 anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
                 onLinkActivated: pageStack.push(Qt.resolvedUrl("../Dialogs/OpenLink.qml"), {link: link})
             }
+
+//            Text {
+//                id: bodyText
+//                text: _RICHTEXT_STYLESHEET_PREAMBLE + body + _RICHTEXT_STYLESHEET_APPENDIX
+//                font.pixelSize: ocNewsReader.fontSize
+//                color: Theme.primaryColor
+//                anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+//                onLinkActivated: pageStack.push(Qt.resolvedUrl("../Dialogs/OpenLink.qml"), {link: link})
+//                wrapMode: Text.WordWrap
+//                textFormat: Text.RichText
+//            }
 
             EnclosureItem {
                 id: enclosure

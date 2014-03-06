@@ -115,7 +115,7 @@ QVariantMap OcSingleItemModelSql::getItemData(const QString &itemId, int handleR
 
     query.exec(queryString);
 
-
+#ifdef QT_DEBUG
     qDebug() << "Item ID: " << itemId;
     qDebug() << "Show Img: " << showImg;
     qDebug() << "Handle read: " << handleRead;
@@ -123,7 +123,7 @@ QVariantMap OcSingleItemModelSql::getItemData(const QString &itemId, int handleR
     qDebug() << "Search string: " << searchString;
     qDebug() << "Feed type: " << feedType;
     qDebug() << "Feed id: " << feedId;
-
+#endif
 
     if (query.next())
     {
