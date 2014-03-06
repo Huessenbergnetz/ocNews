@@ -171,6 +171,11 @@ Page {
                     }
 
                     ContributorItem {
+                        name: "Palacex"
+                        role: qsTr("Russian translation")
+                    }
+
+                    ContributorItem {
                         name: "Mariano Flotron"
                         role: qsTr("Spanish translation")
                     }
