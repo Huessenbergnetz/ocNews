@@ -1,3 +1,13 @@
+buschtrommel-ocnews (1.8.0) stable; urgency=low
+
+  * New: user selectable font size
+  * New: navigate between previous and next item through pulley menus
+  * New: changelog page
+  * Changed: change count bubble color according to item count
+  * Changed: open in web browser is no a button in toolbar
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Fri, 07 Mar 2014 13:36:51 +0100
+
 buschtrommel-ocnews (1.7.2) stable; urgency=low
 
   * Fixed: image link opener was showing the same image every time after loading one

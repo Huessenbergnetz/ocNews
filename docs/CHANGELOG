@@ -1,3 +1,19 @@
+Version 1.8.0, 2014-03-07 13:36:51 +0100
+
+  General:
+  * New: user selectable font size
+  * New: changelog page
+  
+  Harmattan:
+  * New: navigate between previous and next item through toolbar icons
+  * Changed: open in web browser is now a button in toolbar
+  
+  Sailfish OS:
+  * New: navigate between previous and next item through pulley menus
+  * New: navigate between items on cover
+  * Changed: change count bubble color according to item count
+  * Changed: improve web view
+
 Version 1.7.2, 2014-02-19 14:11:00 +0100
 
   Harmattan:

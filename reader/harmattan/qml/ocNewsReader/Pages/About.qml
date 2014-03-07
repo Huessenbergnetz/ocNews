@@ -221,13 +221,12 @@ Page {
 
                     CLItem {
                         version: "1.8.0"
-                        time: 0
+                        time: 1394195811000
                         text: "<ul>
                                 <li>New: user selectable font size</li>
-                                <li>New: navigate between previous and next item through pulley menus</li>
+                                <li>New: navigate between previous and next item through toolbar icons</li>
                                 <li>New: changelog page</li>
-                                <li>Changed: change count bubble color according to item count</li>
-                                <li>Changed: open in web browser is no a button in toolbar</li>
+                                <li>Changed: open in web browser is now a button in toolbar</li>
                                </ul>"
                     }
 
