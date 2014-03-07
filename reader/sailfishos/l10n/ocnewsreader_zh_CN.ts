@@ -36,6 +36,27 @@
         <source>Contributors</source>
         <translation>项目贡献者</translation>
     </message>
+    <message>
+        <location line="+7"/>
+        <source>Changelog</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Changelog</name>
+    <message>
+        <location filename="../qml/Pages/Changelog.qml" line="+18"/>
+        <source>Changelog</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ClHeader</name>
+    <message>
+        <location filename="../qml/Pages/ClHeader.qml" line="+21"/>
+        <source>Version</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Contributors</name>
@@ -138,7 +159,7 @@
         <translation>刚刚</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+33"/>
         <source>Unread news</source>
         <translation>未读条目</translation>
     </message>
@@ -349,7 +370,7 @@
         <translation>在%2个订阅中有%1个未读条目</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+62"/>
         <source>Update folder</source>
         <translation>更新文件夹中的订阅</translation>
     </message>
@@ -440,7 +461,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+49"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+50"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>
@@ -480,7 +501,7 @@
         <translation>显示搜索</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+23"/>
         <source>Scroll to top</source>
         <translation>回到顶部</translation>
     </message>
@@ -528,7 +549,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+74"/>
+        <location filename="../qml/Views/MainView.qml" line="+76"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>
@@ -1071,13 +1092,13 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/Views/SingleItemView.qml" line="+109"/>
-        <location line="+135"/>
+        <location filename="../qml/Views/SingleItemView.qml" line="+121"/>
+        <location line="+38"/>
         <source>Open in Browser</source>
         <translation>在浏览器中打开</translation>
     </message>
     <message>
-        <location line="-131"/>
+        <location line="-34"/>
         <source>Remove from favourites</source>
         <translation>从最爱条目中移除</translation>
     </message>
@@ -1102,7 +1123,7 @@
         <translation>列表首页</translation>
     </message>
     <message>
-        <location line="+107"/>
+        <location line="+10"/>
         <source>Next in list</source>
         <translation>列表下一页</translation>
     </message>
@@ -1120,7 +1141,7 @@
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../qml/Views/SingleItemWebView.qml" line="+59"/>
+        <location filename="../qml/Views/SingleItemWebView.qml" line="+36"/>
         <source>Reload</source>
         <translation>刷新</translation>
     </message>
@@ -1166,7 +1187,7 @@
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../qml/Views/SpecialItemListView.qml" line="+51"/>
+        <location filename="../qml/Views/SpecialItemListView.qml" line="+52"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>

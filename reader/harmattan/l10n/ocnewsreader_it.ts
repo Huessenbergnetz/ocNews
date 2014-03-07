@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+197"/>
+        <location line="+293"/>
         <source>About</source>
         <translation>Crediti</translation>
     </message>
     <message>
-        <location line="-162"/>
+        <location line="-258"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>Il client di Notizie ownClowd per Harmattan</translation>
     </message>
@@ -88,9 +88,14 @@
         <translation>Notizie di Martin Grimme</translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+132"/>
         <source>Contributors</source>
         <translation>Collaboratori</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Changelog</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -167,6 +172,14 @@
         <location line="+9"/>
         <source>Enter folder name</source>
         <translation>Inserisci il nome della cartella</translation>
+    </message>
+</context>
+<context>
+    <name>CLItem</name>
+    <message>
+        <location filename="../qml/ocNewsReader/Pages/CLItem.qml" line="+36"/>
+        <source>Version</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

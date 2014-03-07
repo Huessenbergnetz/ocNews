@@ -36,6 +36,27 @@
         <source>Contributors</source>
         <translation>Contributors</translation>
     </message>
+    <message>
+        <location line="+7"/>
+        <source>Changelog</source>
+        <translation>Changelog</translation>
+    </message>
+</context>
+<context>
+    <name>Changelog</name>
+    <message>
+        <location filename="../qml/Pages/Changelog.qml" line="+18"/>
+        <source>Changelog</source>
+        <translation>Changelog</translation>
+    </message>
+</context>
+<context>
+    <name>ClHeader</name>
+    <message>
+        <location filename="../qml/Pages/ClHeader.qml" line="+21"/>
+        <source>Version</source>
+        <translation>Version</translation>
+    </message>
 </context>
 <context>
     <name>Contributors</name>
@@ -1071,13 +1092,13 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/Views/SingleItemView.qml" line="+123"/>
-        <location line="+146"/>
+        <location filename="../qml/Views/SingleItemView.qml" line="+121"/>
+        <location line="+38"/>
         <source>Open in Browser</source>
         <translation>Open in Browser</translation>
     </message>
     <message>
-        <location line="-142"/>
+        <location line="-34"/>
         <source>Remove from favourites</source>
         <translation>Remove from favourites</translation>
     </message>
@@ -1102,7 +1123,7 @@
         <translation>First in list</translation>
     </message>
     <message>
-        <location line="+118"/>
+        <location line="+10"/>
         <source>Next in list</source>
         <translation>Next in list</translation>
     </message>

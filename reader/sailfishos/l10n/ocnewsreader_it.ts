@@ -36,6 +36,27 @@
         <source>Contributors</source>
         <translation>Collaboratori</translation>
     </message>
+    <message>
+        <location line="+7"/>
+        <source>Changelog</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Changelog</name>
+    <message>
+        <location filename="../qml/Pages/Changelog.qml" line="+18"/>
+        <source>Changelog</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ClHeader</name>
+    <message>
+        <location filename="../qml/Pages/ClHeader.qml" line="+21"/>
+        <source>Version</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Contributors</name>
@@ -138,7 +159,7 @@
         <translation>proprio ora</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+33"/>
         <source>Unread news</source>
         <translation>Notizie non lette</translation>
     </message>
@@ -349,7 +370,7 @@
         <translation>%1 post non letti in %2 feed</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+62"/>
         <source>Update folder</source>
         <translation>Aggiorna cartella</translation>
     </message>
@@ -440,7 +461,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+49"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+50"/>
         <source>Update running...</source>
         <translation>Aggiornamento in corso...</translation>
     </message>
@@ -480,7 +501,7 @@
         <translation>Mostra cerca</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+23"/>
         <source>Scroll to top</source>
         <translation>Torna in cima</translation>
     </message>
@@ -528,7 +549,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+74"/>
+        <location filename="../qml/Views/MainView.qml" line="+76"/>
         <source>Update running...</source>
         <translation>Aggiornamento in corso...</translation>
     </message>
@@ -1072,13 +1093,13 @@ Puoi comunque cambiarlo dal menu.</translation>
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/Views/SingleItemView.qml" line="+109"/>
-        <location line="+135"/>
+        <location filename="../qml/Views/SingleItemView.qml" line="+121"/>
+        <location line="+38"/>
         <source>Open in Browser</source>
         <translation>Apri nel Browser</translation>
     </message>
     <message>
-        <location line="-131"/>
+        <location line="-34"/>
         <source>Remove from favourites</source>
         <translation>Rimuovi dai preferiti</translation>
     </message>
@@ -1103,7 +1124,7 @@ Puoi comunque cambiarlo dal menu.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+107"/>
+        <location line="+10"/>
         <source>Next in list</source>
         <translation type="unfinished"/>
     </message>
@@ -1121,7 +1142,7 @@ Puoi comunque cambiarlo dal menu.</translation>
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../qml/Views/SingleItemWebView.qml" line="+59"/>
+        <location filename="../qml/Views/SingleItemWebView.qml" line="+36"/>
         <source>Reload</source>
         <translation>Ricarica</translation>
     </message>
@@ -1167,7 +1188,7 @@ Puoi comunque cambiarlo dal menu.</translation>
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../qml/Views/SpecialItemListView.qml" line="+51"/>
+        <location filename="../qml/Views/SpecialItemListView.qml" line="+52"/>
         <source>Update running...</source>
         <translation>Aggiornamento in corso...</translation>
     </message>

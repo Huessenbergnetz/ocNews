@@ -226,6 +226,7 @@ Page {
                                 <li>New: user selectable font size</li>
                                 <li>New: navigate between previous and next item through toolbar icons</li>
                                 <li>New: changelog page</li>
+                                <li>New: partly russian translation by palacex</li>
                                 <li>Changed: open in web browser is now a button in toolbar</li>
                                </ul>"
                     }
