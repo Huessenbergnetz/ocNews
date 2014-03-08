@@ -39,7 +39,7 @@
     <message>
         <location line="+7"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog</translation>
     </message>
 </context>
 <context>
@@ -47,7 +47,7 @@
     <message>
         <location filename="../qml/Pages/Changelog.qml" line="+18"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog</translation>
     </message>
 </context>
 <context>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../qml/Pages/ClHeader.qml" line="+21"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
 </context>
 <context>
@@ -1061,7 +1061,7 @@
     <message>
         <location line="+10"/>
         <source>Item view font size</source>
-        <translation type="unfinished"/>
+        <translation>taille de police des libellés</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1115,22 +1115,22 @@
     <message>
         <location line="+5"/>
         <source>Previous in list</source>
-        <translation type="unfinished"/>
+        <translation>précédent</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>First in list</source>
-        <translation type="unfinished"/>
+        <translation>haut de la liste</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Next in list</source>
-        <translation type="unfinished"/>
+        <translation>prochain</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Last in list</source>
-        <translation type="unfinished"/>
+        <translation>dernier de la liste</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1148,7 +1148,7 @@
     <message>
         <location line="+0"/>
         <source>Stop loading</source>
-        <translation type="unfinished"/>
+        <translation>arrêter le chargement</translation>
     </message>
     <message>
         <location line="+4"/>

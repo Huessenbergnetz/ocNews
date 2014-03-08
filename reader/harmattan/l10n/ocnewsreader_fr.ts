@@ -70,7 +70,7 @@
     <message>
         <location line="+7"/>
         <source>Russian translation</source>
-        <translation type="unfinished"/>
+        <translation>traduction russe</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -95,7 +95,7 @@
     <message>
         <location line="+5"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog</translation>
     </message>
 </context>
 <context>
@@ -179,7 +179,7 @@
     <message>
         <location filename="../qml/ocNewsReader/Pages/CLItem.qml" line="+36"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
 </context>
 <context>
@@ -1045,7 +1045,7 @@
     <message>
         <location line="+10"/>
         <source>Item view font size:</source>
-        <translation type="unfinished"/>
+        <translation>taille de police des libellés</translation>
     </message>
     <message>
         <location line="+21"/>
