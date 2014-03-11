@@ -38,6 +38,7 @@ Page {
             handleread:handleRead.currentValue,
             sortasc:sortAsc.checked,
             fontsize:fontSizeSelector.value,
+            hidereadfeeds:hideReadFeeds.checked,
             quitengine:quitEngine.checked
         };
 
@@ -104,7 +105,7 @@ Page {
                 id: tab2Content
                 anchors { right: parent.right; left: parent.left; top: parent.top; bottom: parent.bottom; bottomMargin: 70 }
                 contentWidth: parent.width
-                contentHeight: chooseMaxItems.height + chooseViewMode.height + chooseOrderBy.height + updateBehavior.height + updateInterval.height + textFormatLabel.height + textFormatSelection.height + invertThemeLabel.height + invertThemeSelection.height + handleImgs.height + handleRead.height + fontSizeLabel.height + fontSizeSelector.height + quitEngine.height + quitEngineDesc.height + sortAsc.height + 150
+                contentHeight: chooseMaxItems.height + chooseViewMode.height + chooseOrderBy.height + hideReadFeeds.height + updateBehavior.height + updateInterval.height + textFormatLabel.height + textFormatSelection.height + invertThemeLabel.height + invertThemeSelection.height + handleImgs.height + handleRead.height + fontSizeLabel.height + fontSizeSelector.height + quitEngine.height + quitEngineDesc.height + sortAsc.height + 150
 
                 flickableDirection:  Flickable.VerticalFlick
 
@@ -177,6 +178,17 @@ Page {
                     }
                 }
 
+                LabeledSwitch {
+                    id: hideReadFeeds
+                    width: parent.width - 40
+                    anchors { top: chooseOrderBy.bottom; horizontalCenter: parent.horizontalCenter }
+                    text: qsTr("Hide read feeds and folders")
+                    Connections {
+                        target: dbus
+                        onGotConfig: hideReadFeeds.checked = config["hidereadfeeds"]
+                    }
+                }
+
                 ListModel {
                     id: updateBehaviorModel
                     ListElement { name: ""; value: "0" }
@@ -193,7 +205,7 @@ Page {
                     id: updateBehavior
                     title: qsTr("Updating")
                     width: parent.width - 40
-                    anchors { top: chooseOrderBy.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
+                    anchors { top: hideReadFeeds.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
                     model: updateBehaviorModel
                     initialValue: "0"
                     Connections {
@@ -359,7 +371,9 @@ Page {
                 Label {
                     id: fontSizeLabel
                     anchors { top: sortAsc.bottom; topMargin: 15; left: parent.left; leftMargin: 20 }
+                    width: parent.width - 20
                     text: qsTr("Item view font size:") + " " + fontSizeSelector.value + "pt"
+                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 }
 
                 Slider {
