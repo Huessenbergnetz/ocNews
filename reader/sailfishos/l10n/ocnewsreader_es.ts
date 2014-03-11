@@ -271,7 +271,7 @@
         <translation>%1 noticias no leídas en %2 feeds</translation>
     </message>
     <message>
-        <location line="+53"/>
+        <location line="+54"/>
         <source>Update feed</source>
         <translation>Actualizar feed</translation>
     </message>
@@ -640,12 +640,12 @@
 <context>
     <name>OcCombinedModelSql</name>
     <message>
-        <location filename="../../common/models/occombinedmodelsql.cpp" line="+84"/>
+        <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
         <source>Uncategorized</source>
         <translation>Sin categoría</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+7"/>
         <source>All posts</source>
         <translation>Todas las publicaciones</translation>
     </message>
@@ -658,7 +658,7 @@
 <context>
     <name>OcFeedsModelSql</name>
     <message>
-        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+76"/>
+        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+83"/>
         <source>All posts</source>
         <translation>Todas las noticias</translation>
     </message>
@@ -666,7 +666,7 @@
 <context>
     <name>OcFolderModelSql</name>
     <message>
-        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+78"/>
+        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+88"/>
         <source>All posts</source>
         <translation>Todas las noticias</translation>
     </message>
@@ -837,7 +837,7 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/Pages/Settings.qml" line="+88"/>
+        <location filename="../qml/Pages/Settings.qml" line="+90"/>
         <source>Settings</source>
         <translation>Configuración</translation>
     </message>
@@ -989,7 +989,17 @@
         <translation>Vista principal del ezquema</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+6"/>
+        <source>Hide read feeds and folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Hide feeds and folders that do not contain unread items.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+9"/>
         <source>Added (like on server)</source>
         <translation>Añadido (como en el servidor)</translation>
     </message>

@@ -271,7 +271,7 @@
         <translation>%1 articles non lus dans %2 flux</translation>
     </message>
     <message>
-        <location line="+53"/>
+        <location line="+54"/>
         <source>Update feed</source>
         <translation>Mettre à jour le flux</translation>
     </message>
@@ -640,12 +640,12 @@
 <context>
     <name>OcCombinedModelSql</name>
     <message>
-        <location filename="../../common/models/occombinedmodelsql.cpp" line="+84"/>
+        <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
         <source>Uncategorized</source>
         <translation>Sans catégorie</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+7"/>
         <source>All posts</source>
         <translation>Tous les articles</translation>
     </message>
@@ -658,7 +658,7 @@
 <context>
     <name>OcFeedsModelSql</name>
     <message>
-        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+76"/>
+        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+83"/>
         <source>All posts</source>
         <translation>Tous les articles</translation>
     </message>
@@ -666,7 +666,7 @@
 <context>
     <name>OcFolderModelSql</name>
     <message>
-        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+78"/>
+        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+88"/>
         <source>All posts</source>
         <translation>Tous les articles</translation>
     </message>
@@ -837,7 +837,7 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/Pages/Settings.qml" line="+88"/>
+        <location filename="../qml/Pages/Settings.qml" line="+90"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
@@ -989,7 +989,17 @@
         <translation>Organisation de la page principale</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+6"/>
+        <source>Hide read feeds and folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Hide feeds and folders that do not contain unread items.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+9"/>
         <source>Added (like on server)</source>
         <translation>Ajouté (comme sur le serveur)</translation>
     </message>
@@ -1061,7 +1071,7 @@
     <message>
         <location line="+10"/>
         <source>Item view font size</source>
-        <translation>taille de police des libellés</translation>
+        <translation>Taille de police des libellés</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1115,22 +1125,22 @@
     <message>
         <location line="+5"/>
         <source>Previous in list</source>
-        <translation>précédent</translation>
+        <translation>Précédent de la liste</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>First in list</source>
-        <translation>haut de la liste</translation>
+        <translation>Premier de la liste</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Next in list</source>
-        <translation>prochain</translation>
+        <translation>Suivant de la liste</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Last in list</source>
-        <translation>dernier de la liste</translation>
+        <translation>Dernier de la liste</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1148,7 +1158,7 @@
     <message>
         <location line="+0"/>
         <source>Stop loading</source>
-        <translation>arrêter le chargement</translation>
+        <translation>Arrêter le chargement</translation>
     </message>
     <message>
         <location line="+4"/>

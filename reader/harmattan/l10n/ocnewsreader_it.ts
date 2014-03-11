@@ -638,12 +638,12 @@
 <context>
     <name>OcCombinedModelSql</name>
     <message>
-        <location filename="../../common/models/occombinedmodelsql.cpp" line="+84"/>
+        <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
         <source>Uncategorized</source>
         <translation>Senza categoria</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+7"/>
         <source>All posts</source>
         <translation>Tutti i post</translation>
     </message>
@@ -656,7 +656,7 @@
 <context>
     <name>OcFeedsModelSql</name>
     <message>
-        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+76"/>
+        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+83"/>
         <source>All posts</source>
         <translation>Tutti i post</translation>
     </message>
@@ -664,7 +664,7 @@
 <context>
     <name>OcFolderModelSql</name>
     <message>
-        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+78"/>
+        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+88"/>
         <source>All posts</source>
         <translation>Tutti i post</translation>
     </message>
@@ -847,13 +847,13 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+63"/>
-        <location line="+541"/>
+        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+64"/>
+        <location line="+554"/>
         <source>Account Settings</source>
         <translation>Impostazioni Account</translation>
     </message>
     <message>
-        <location line="-522"/>
+        <location line="-535"/>
         <source>Open account manager</source>
         <translation type="unfinished"/>
     </message>
@@ -913,7 +913,12 @@
         <translation>Ordina cartelle e feed per</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+15"/>
+        <source>Hide read feeds and folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+13"/>
         <source>Only manually</source>
         <translation>Solo manuale</translation>
     </message>
@@ -1043,12 +1048,12 @@
         <translation>Mostra elementi vecchi in cima</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+11"/>
         <source>Item view font size:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+22"/>
         <source>Quit engine on closing reader</source>
         <translation type="unfinished"/>
     </message>

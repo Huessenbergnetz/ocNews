@@ -39,7 +39,7 @@
     <message>
         <location line="+7"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>更新履历</translation>
     </message>
 </context>
 <context>
@@ -47,7 +47,7 @@
     <message>
         <location filename="../qml/Pages/Changelog.qml" line="+18"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>更新履历</translation>
     </message>
 </context>
 <context>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../qml/Pages/ClHeader.qml" line="+21"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>版本</translation>
     </message>
 </context>
 <context>
@@ -271,7 +271,7 @@
         <translation>在%2个订阅中有%1个未读条目</translation>
     </message>
     <message>
-        <location line="+53"/>
+        <location line="+54"/>
         <source>Update feed</source>
         <translation>更新订阅</translation>
     </message>
@@ -640,12 +640,12 @@
 <context>
     <name>OcCombinedModelSql</name>
     <message>
-        <location filename="../../common/models/occombinedmodelsql.cpp" line="+84"/>
+        <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
         <source>Uncategorized</source>
         <translation>未分类</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+7"/>
         <source>All posts</source>
         <translation>全部条目</translation>
     </message>
@@ -658,7 +658,7 @@
 <context>
     <name>OcFeedsModelSql</name>
     <message>
-        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+76"/>
+        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+83"/>
         <source>All posts</source>
         <translation>全部条目</translation>
     </message>
@@ -666,7 +666,7 @@
 <context>
     <name>OcFolderModelSql</name>
     <message>
-        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+78"/>
+        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+88"/>
         <source>All posts</source>
         <translation>全部条目</translation>
     </message>
@@ -837,7 +837,7 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/Pages/Settings.qml" line="+88"/>
+        <location filename="../qml/Pages/Settings.qml" line="+90"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -989,7 +989,17 @@
         <translation>整体视图布局</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+6"/>
+        <source>Hide read feeds and folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Hide feeds and folders that do not contain unread items.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+9"/>
         <source>Added (like on server)</source>
         <translation>已添加（在服务器上）</translation>
     </message>

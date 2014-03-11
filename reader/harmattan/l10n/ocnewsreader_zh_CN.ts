@@ -638,12 +638,12 @@
 <context>
     <name>OcCombinedModelSql</name>
     <message>
-        <location filename="../../common/models/occombinedmodelsql.cpp" line="+84"/>
+        <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
         <source>Uncategorized</source>
         <translation>未分类</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+7"/>
         <source>All posts</source>
         <translation>所有帖子</translation>
     </message>
@@ -656,7 +656,7 @@
 <context>
     <name>OcFeedsModelSql</name>
     <message>
-        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+76"/>
+        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+83"/>
         <source>All posts</source>
         <translation>全部条目</translation>
     </message>
@@ -664,7 +664,7 @@
 <context>
     <name>OcFolderModelSql</name>
     <message>
-        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+78"/>
+        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+88"/>
         <source>All posts</source>
         <translation>全部条目</translation>
     </message>
@@ -847,13 +847,13 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+63"/>
-        <location line="+541"/>
+        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+64"/>
+        <location line="+554"/>
         <source>Account Settings</source>
         <translation>账号设置</translation>
     </message>
     <message>
-        <location line="-522"/>
+        <location line="-535"/>
         <source>Open account manager</source>
         <translation>账号管理</translation>
     </message>
@@ -913,7 +913,12 @@
         <translation>将订阅和文件夹排序以</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+15"/>
+        <source>Hide read feeds and folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+13"/>
         <source>Only manually</source>
         <translation>手动</translation>
     </message>
@@ -1043,12 +1048,12 @@
         <translation>在顶部显示最旧条目</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+11"/>
         <source>Item view font size:</source>
         <translation>条目内容字体大小：</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+22"/>
         <source>Quit engine on closing reader</source>
         <translation>关闭阅读器时退出ocNews引擎</translation>
     </message>
