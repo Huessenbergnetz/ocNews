@@ -71,9 +71,19 @@ void OcFolderModelSql::refresh()
 
     QSqlQuery query;
 
+    bool hideReadFeeds = dbus.getSetting("display/hidereadfeeds", false).toBool();
+
     QString querystring("SELECT fo.name AS title, fo.id AS id, (SELECT COUNT(id) FROM feeds WHERE folderId = fo.id) AS feedCount, localUnreadCount AS unreadCount, '1' AS type, '' AS iconSource, '' AS iconWidth, '' AS iconHeight FROM folders fo ");
+
+    if (hideReadFeeds)
+        querystring.append("WHERE localUnreadCount > 0 ");
+
     querystring.append("UNION ");
     querystring.append("SELECT fe.title, fe.id AS id, '0' AS feedCount, fe.localUnreadCount AS unreadCount, '0' AS type, fe.iconSource, fe.iconWidth, fe.iconHeight FROM feeds fe WHERE folderId = 0 ");
+
+    if (hideReadFeeds)
+        querystring.append("AND fe.localUnreadCount > 0 ");
+
     querystring.append("UNION ");
     querystring.append(QString("SELECT '%1' AS title, '0' AS id, '0' AS feedCount, ((SELECT IFNULL(SUM(localUnreadCount),0) FROM feeds WHERE folderId = 0) + (SELECT SUM(localUnreadCount) FROM folders)) AS unreadCount, '-1' AS type, '' AS iconSource, '' AS iconWidth, '' AS iconHeight ").arg(tr("All posts")));
 

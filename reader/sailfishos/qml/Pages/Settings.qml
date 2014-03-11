@@ -28,6 +28,7 @@ Page {
             handleReadSelection.initialValue = config["handleread"]
             sortAsc.checked = config["sortasc"]
             fontSizeSlider.value = config["fontsize"]
+            hideReadFeeds.checked = config["hidereadfeeds"]
             isConfigSet = dbus.isConfigSet()
         }
     }
@@ -49,6 +50,7 @@ Page {
             handleread:handleReadModel.get(handleReadSelection.currentIndex).value,
             sortasc:sortAsc.checked,
             fontsize:fontSizeSlider.value,
+            hidereadfeeds:hideReadFeeds.checked,
             eventfeeds:"",
             enabled:true,
             themecolor:"black"
@@ -258,6 +260,13 @@ Page {
                 anchors { left: parent.left; right: parent.right }
                 label: qsTr("Main view layout")
                 model: viewModeModel
+            }
+
+            TextSwitch {
+                id: hideReadFeeds
+                text: qsTr("Hide read feeds and folders")
+                anchors { left: parent.left; right: parent.right }
+                description: qsTr("Hide feeds and folders that do not contain unread items.")
             }
 
             ListModel {

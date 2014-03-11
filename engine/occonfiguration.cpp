@@ -61,6 +61,7 @@ QVariantMap OcConfiguration::getConfig()
     config["handleread"] = settings.value("display/handleread", 0).toInt();
     config["sortasc"] = settings.value("display/sortasc", false).toBool();
     config["fontsize"] = settings.value("display/fontsize", DEFAULT_FONT_SIZE).toInt();
+    config["hidereadfeeds"] = settings.value("display/hidereadfeeds", false).toBool();
     config["updatebehavior"] = settings.value("update/behavior", "0");
     config["updateinterval"] = settings.value("update/interval", "3600");
     config["eventfeeds"] = settings.value("event/feeds", "");
@@ -103,6 +104,7 @@ void OcConfiguration::saveConfig(const QVariantMap &config)
     settings.setValue("display/handleread", config["handleread"]);
     settings.setValue("display/sortasc", config["sortasc"]);
     settings.setValue("display/fontsize", config["fontsize"]);
+    settings.setValue("display/hidereadfeeds", config["hidereadfeeds"]);
     settings.setValue("update/behavior", config["updatebehavior"]);
     settings.setValue("update/interval", config["updateinterval"]);
     settings.setValue("event/feeds", config["eventfeeds"]);

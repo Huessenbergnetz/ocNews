@@ -70,9 +70,16 @@ void OcFeedsModelSql::refresh(const QString &folderId)
     qDebug() << "Refresh Feeds Model";
 #endif
 
-    QString querystring(QString("SELECT title, id, iconSource, iconWidth, iconHeight, localUnreadCount AS unreadCount, '0' AS type FROM feeds WHERE folderId = %1 "
-                                "UNION "
-                                "SELECT '%2' AS title, '0' AS id, '' AS iconSource, '' AS iconWidth, '' AS iconHeight, (SELECT SUM(localUnreadCount) FROM feeds WHERE folderId = %1) AS unreadCount, '-1' AS type "
+    bool hideReadFeeds = dbus.getSetting("display/hidereadfeeds", false).toBool();
+
+    QString querystring(QString("SELECT title, id, iconSource, iconWidth, iconHeight, localUnreadCount AS unreadCount, '0' AS type FROM feeds WHERE folderId = %1 ").arg(folderId.toInt()));
+
+    if (hideReadFeeds)
+        querystring.append("AND localUnreadCount > 0 ");
+
+    querystring.append("UNION ");
+
+    querystring.append(QString("SELECT '%2' AS title, '0' AS id, '' AS iconSource, '' AS iconWidth, '' AS iconHeight, (SELECT SUM(localUnreadCount) FROM feeds WHERE folderId = %1) AS unreadCount, '-1' AS type "
                         ).arg(folderId.toInt()).arg(tr("All posts")));
 
     QString itemOrder = dbus.getSetting("display/orderby", "id").toString();

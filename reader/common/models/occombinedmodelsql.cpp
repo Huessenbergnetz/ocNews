@@ -75,13 +75,21 @@ void OcCombinedModelSql::refresh()
     qDebug() << "Refresh Combined Model";
 #endif
 
+    bool hideReadFeeds = dbus.getSetting("display/hidereadfeeds", false).toBool();
+
     QSqlQuery query;
 
     QString querystring("SELECT fe.title, fe.id AS id, fe.localUnreadCount AS unreadCount, '0' AS type, fe.iconSource, fe.iconWidth, fe.iconHeight, fe.folderId, (SELECT name FROM folders WHERE id = fe.folderId) AS folderName FROM feeds fe WHERE fe.folderId > 0 ");
 
+    if (hideReadFeeds)
+        querystring.append("AND fe.localUnreadCount > 0 ");
+
     querystring.append("UNION ");
 
     querystring.append(QString("SELECT fe.title, fe.id AS id, fe.localUnreadCount AS unreadCount, '0' AS type, fe.iconSource, fe.iconWidth, fe.iconHeight, fe.folderId, '%1' AS folderName FROM feeds fe WHERE fe.folderId = 0 ").arg(tr("Uncategorized")));
+
+    if (hideReadFeeds)
+        querystring.append("AND fe.localUnreadCount > 0 ");
 
     querystring.append("UNION ");
 
