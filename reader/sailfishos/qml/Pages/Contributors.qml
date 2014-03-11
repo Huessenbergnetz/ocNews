@@ -49,6 +49,13 @@ Page {
             }
 
             ContributorItem {
+                name: "Jean Clovis"
+                role: qsTr("French translation")
+                image: "jean-clovis.png"
+                github: "jean-clovis"
+            }
+
+            ContributorItem {
                 name: "Lorenzo Facca"
                 role: qsTr("Italian translation")
                 twitter: "LorenzoFacca"

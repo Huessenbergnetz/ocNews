@@ -164,6 +164,13 @@ Page {
                     }
 
                     ContributorItem {
+                        name: "Jean Clovis"
+                        role: qsTr("French translation")
+                        github: "jean-clovis"
+                        image: "jean-clovis.png"
+                    }
+
+                    ContributorItem {
                         name: "Lorenzo Facca"
                         role: qsTr("Italian translation")
                         twitter: "LorenzoFacca"
@@ -171,13 +178,13 @@ Page {
                     }
 
                     ContributorItem {
-                        name: "Palacex"
-                        role: qsTr("Russian translation")
+                        name: "Mariano Flotron"
+                        role: qsTr("Spanish translation")
                     }
 
                     ContributorItem {
-                        name: "Mariano Flotron"
-                        role: qsTr("Spanish translation")
+                        name: "Palacex"
+                        role: qsTr("Russian translation")
                     }
 
                     GroupHeader {
