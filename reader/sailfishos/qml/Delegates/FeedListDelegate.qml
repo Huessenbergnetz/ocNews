@@ -78,6 +78,7 @@ ListItem {
 //        visible: model.type !== "1" ? true : false
         visible: !busyIndicator.visible
         anchors { right: parent.right; rightMargin: Theme.paddingLarge; verticalCenter: parent.verticalCenter }
+        color: if (model.unreadCount > 0) { feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor } else { feedListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor }
     }
 
     BusyIndicator {
