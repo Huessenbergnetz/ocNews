@@ -97,6 +97,11 @@
     </message>
     <message>
         <location line="+7"/>
+        <source>French translation</source>
+        <translation>French translation</translation>
+    </message>
+    <message>
+        <location line="+7"/>
         <source>Italian translation</source>
         <translation>Italian translation</translation>
     </message>

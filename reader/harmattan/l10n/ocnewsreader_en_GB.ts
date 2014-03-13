@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+293"/>
+        <location line="+300"/>
         <source>About</source>
         <translation>About</translation>
     </message>
     <message>
-        <location line="-258"/>
+        <location line="-265"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>The ownCloud News App client for Harmattan</translation>
     </message>
@@ -64,21 +64,26 @@
     </message>
     <message>
         <location line="+7"/>
+        <source>French translation</source>
+        <translation>French translation</translation>
+    </message>
+    <message>
+        <location line="+7"/>
         <source>Italian translation</source>
         <translation>Italian translation</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+12"/>
         <source>Russian translation</source>
         <translation>Russian translation</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-5"/>
         <source>Spanish translation</source>
         <translation>Spanish translation</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+9"/>
         <source>Used third party elements</source>
         <translation>Used third party elements</translation>
     </message>
@@ -375,7 +380,7 @@
         <translation>Read articles</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+12"/>
         <source>Show</source>
         <translation>Show</translation>
     </message>
@@ -390,7 +395,7 @@
         <translation>Show after unread</translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+32"/>
         <source>Add to favourites</source>
         <translation>Add to favourites</translation>
     </message>
@@ -848,12 +853,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+64"/>
-        <location line="+554"/>
+        <location line="+527"/>
         <source>Account Settings</source>
         <translation>Account Settings</translation>
     </message>
     <message>
-        <location line="-535"/>
+        <location line="-508"/>
         <source>Open account manager</source>
         <translation>Open account manager</translation>
     </message>
@@ -878,7 +883,7 @@
         <translation>Number of items to keep</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+13"/>
         <source>Folders</source>
         <translation>Folders</translation>
     </message>
@@ -888,12 +893,12 @@
         <translation>Feeds</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+5"/>
         <source>Main view layout</source>
         <translation>Main view layout</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+14"/>
         <source>Added (like on server)</source>
         <translation>Added (like on server)</translation>
     </message>
@@ -908,17 +913,17 @@
         <translation>Unread count</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+5"/>
         <source>Order feeds and folders by</source>
         <translation>Order feeds and folders by</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+16"/>
         <source>Hide read feeds and folders</source>
         <translation>Hide read feeds and folders</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+9"/>
         <source>Only manually</source>
         <translation>Only manually</translation>
     </message>
@@ -933,12 +938,12 @@
         <translation>Always automatic</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+5"/>
         <source>Updating</source>
         <translation>Updating</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+14"/>
         <source>15 Minutes</source>
         <translation>15 Minutes</translation>
     </message>
@@ -968,12 +973,12 @@
         <translation>12 Hours</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+6"/>
         <source>Update interval</source>
         <translation>Update interval</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+15"/>
         <source>Display post content format</source>
         <translation>Display post content format</translation>
     </message>
@@ -1003,7 +1008,7 @@
         <translation>Black</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+13"/>
         <source>On request</source>
         <translation>On request</translation>
     </message>
@@ -1018,12 +1023,12 @@
         <translation>Prefetch at updating</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+5"/>
         <source>Load content images</source>
         <translation>Load content images</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+16"/>
         <source>Show</source>
         <translation>Show</translation>
     </message>
@@ -1038,7 +1043,7 @@
         <translation>Show after unread</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+5"/>
         <source>Read articles</source>
         <translation>Read articles</translation>
     </message>
@@ -1316,7 +1321,7 @@
         <translation>Read articles</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+12"/>
         <source>Show</source>
         <translation>Show</translation>
     </message>
@@ -1331,7 +1336,7 @@
         <translation>Show after unread</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+33"/>
         <source>Add to favourites</source>
         <translation>Add to favourites</translation>
     </message>

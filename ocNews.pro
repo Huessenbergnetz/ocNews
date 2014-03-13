@@ -1,7 +1,5 @@
 TEMPLATE = subdirs
 
-VERSION = 1.7.0
-
 !isEmpty(MEEGO_VERSION_MAJOR) {
 OTHER_FILES += \
     qtc_packaging/debian_harmattan/rules \

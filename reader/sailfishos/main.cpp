@@ -49,6 +49,9 @@ int main(int argc, char *argv[])
     QTranslator *translator = new QTranslator;
     if ((translator->load("ocnewsreader_"+locale, L10N_PATH)))
         app->installTranslator(translator);
+#ifdef QT_DEBUG
+    qDebug() << locale;
+#endif
 
     // start background daemon ocnews-engine via dbus
     QDBusConnectionInterface* qDbusConInf = QDBusConnection::sessionBus().interface();

@@ -132,12 +132,8 @@ Page {
 
                 ListModel {
                     id: viewModeModel
-                    ListElement { name: ""; value: 0 }
-                    ListElement { name: ""; value: 1 }
-                    Component.onCompleted: {
-                        viewModeModel.get(0).name = qsTr("Folders")
-                        viewModeModel.get(1).name = qsTr("Feeds")
-                    }
+                    ListElement { name: QT_TR_NOOP("Folders"); value: 0 }
+                    ListElement { name: QT_TR_NOOP("Feeds"); value: 1 }
                 }
 
                 SelectionItem {
@@ -147,6 +143,7 @@ Page {
                     anchors { top: chooseMaxItems.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
                     model: viewModeModel
                     initialValue: "0"
+                    tsBasename: "Settings"
                     Connections {
                         target: dbus
                         onGotConfig: chooseViewMode.initialValue = config["viewmode"]
@@ -155,14 +152,9 @@ Page {
 
                 ListModel {
                     id: orderByModel
-                    ListElement { name: ""; value: "id" }
-                    ListElement { name: ""; value: "title" }
-                    ListElement { name: ""; value: "unreadCount" }
-                    Component.onCompleted: {
-                        orderByModel.get(0).name = qsTr("Added (like on server)")
-                        orderByModel.get(1).name = qsTr("Title")
-                        orderByModel.get(2).name = qsTr("Unread count")
-                    }
+                    ListElement { name: QT_TR_NOOP("Added (like on server)"); value: "id" }
+                    ListElement { name: QT_TR_NOOP("Title"); value: "title" }
+                    ListElement { name: QT_TR_NOOP("Unread count"); value: "unreadCount" }
                 }
 
                 SelectionItem {
@@ -172,6 +164,7 @@ Page {
                     anchors { top: chooseViewMode.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
                     model: orderByModel
                     initialValue: "id"
+                    tsBasename: "Settings"
                     Connections {
                         target: dbus
                         onGotConfig: chooseOrderBy.initialValue = config["orderby"]
@@ -191,14 +184,9 @@ Page {
 
                 ListModel {
                     id: updateBehaviorModel
-                    ListElement { name: ""; value: "0" }
-                    ListElement { name: ""; value: "1" }
-                    ListElement { name: ""; value: "2" }
-                    Component.onCompleted: {
-                        updateBehaviorModel.get(0).name = qsTr("Only manually")
-                        updateBehaviorModel.get(1).name = qsTr("Automatic on Wi-Fi")
-                        updateBehaviorModel.get(2).name = qsTr("Always automatic")
-                    }
+                    ListElement { name: QT_TR_NOOP("Only manually"); value: "0" }
+                    ListElement { name: QT_TR_NOOP("Automatic on Wi-Fi"); value: "1" }
+                    ListElement { name: QT_TR_NOOP("Always automatic"); value: "2" }
                 }
 
                 SelectionItem {
@@ -208,6 +196,7 @@ Page {
                     anchors { top: hideReadFeeds.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
                     model: updateBehaviorModel
                     initialValue: "0"
+                    tsBasename: "Settings"
                     Connections {
                         target: dbus
                         onGotConfig: updateBehavior.initialValue = config["updatebehavior"]
@@ -216,20 +205,12 @@ Page {
 
                 ListModel {
                     id: updateIntervalModel
-                    ListElement { name: ""; value: "900" }
-                    ListElement { name: ""; value: "1800" }
-                    ListElement { name: ""; value: "3600" }
-                    ListElement { name: ""; value: "10800" }
-                    ListElement { name: ""; value: "21600" }
-                    ListElement { name: ""; value: "43200" }
-                    Component.onCompleted: {
-                        updateIntervalModel.get(0).name = qsTr("15 Minutes")
-                        updateIntervalModel.get(1).name = qsTr("30 Minutes")
-                        updateIntervalModel.get(2).name = qsTr("1 Hour")
-                        updateIntervalModel.get(3).name = qsTr("3 Hours")
-                        updateIntervalModel.get(4).name = qsTr("6 Hours")
-                        updateIntervalModel.get(5).name = qsTr("12 Hours")
-                    }
+                    ListElement { name: QT_TR_NOOP("15 Minutes"); value: "900" }
+                    ListElement { name: QT_TR_NOOP("30 Minutes"); value: "1800" }
+                    ListElement { name: QT_TR_NOOP("1 Hour"); value: "3600" }
+                    ListElement { name: QT_TR_NOOP("3 Hours"); value: "10800" }
+                    ListElement { name: QT_TR_NOOP("6 Hours"); value: "21600" }
+                    ListElement { name: QT_TR_NOOP("12 Hours"); value: "43200" }
                 }
 
                 SelectionItem {
@@ -240,6 +221,7 @@ Page {
                    anchors { top: updateBehavior.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
                    model: updateIntervalModel
                    initialValue: "3600"
+                   tsBasename: "Settings"
                    Connections {
                        target: dbus
                        onGotConfig: updateInterval.initialValue = config["updateinterval"]
@@ -307,14 +289,9 @@ Page {
 
                 ListModel {
                     id: handleImgsModel
-                    ListElement { name: ""; value: 0 }
-                    ListElement { name: ""; value: 1 }
-                    ListElement { name: ""; value: 2 }
-                    Component.onCompleted: {
-                        handleImgsModel.get(0).name = qsTr("On request")
-                        handleImgsModel.get(1).name = qsTr("When item loads")
-                        handleImgsModel.get(2).name = qsTr("Prefetch at updating")
-                    }
+                    ListElement { name: QT_TR_NOOP("On request"); value: 0 }
+                    ListElement { name: QT_TR_NOOP("When item loads"); value: 1 }
+                    ListElement { name: QT_TR_NOOP("Prefetch at updating"); value: 2 }
                 }
 
                 SelectionItem {
@@ -325,6 +302,7 @@ Page {
                     enabled: textFormatSelection.valueChoosen === "rich"
                     model: handleImgsModel
                     initialValue: "0"
+                    tsBasename: "Settings"
                     Connections {
                         target: dbus
                         onGotConfig: handleImgs.initialValue = config["handleimgs"]
@@ -334,14 +312,9 @@ Page {
 
                 ListModel {
                     id: handleReadModel
-                    ListElement { name: ""; value: 0 }
-                    ListElement { name: ""; value: 1 }
-                    ListElement { name: ""; value: 2 }
-                    Component.onCompleted: {
-                        handleReadModel.get(0).name = qsTr("Show")
-                        handleReadModel.get(1).name = qsTr("Hide")
-                        handleReadModel.get(2).name = qsTr("Show after unread")
-                    }
+                    ListElement { name: QT_TR_NOOP("Show"); value: 0 }
+                    ListElement { name: QT_TR_NOOP("Hide"); value: 1 }
+                    ListElement { name: QT_TR_NOOP("Show after unread"); value: 2 }
                 }
 
                 SelectionItem {

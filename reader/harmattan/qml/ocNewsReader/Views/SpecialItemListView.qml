@@ -243,6 +243,7 @@ Page {
                     model: handleReadModel
                     initialValue: handleRead
                     onCurrentValueChanged: handleRead = currentValue
+                    tsBasename: "SpecialItemListView"
                 }
             }
         }
@@ -250,14 +251,9 @@ Page {
 
     ListModel {
         id: handleReadModel
-        ListElement { name: ""; value: 0 }
-        ListElement { name: ""; value: 1 }
-        ListElement { name: ""; value: 2 }
-        Component.onCompleted: {
-            handleReadModel.get(0).name = qsTr("Show")
-            handleReadModel.get(1).name = qsTr("Hide")
-            handleReadModel.get(2).name = qsTr("Show after unread")
-        }
+        ListElement { name: QT_TR_NOOP("Show"); value: 0 }
+        ListElement { name: QT_TR_NOOP("Hide"); value: 1 }
+        ListElement { name: QT_TR_NOOP("Show after unread"); value: 2 }
     }
 
 

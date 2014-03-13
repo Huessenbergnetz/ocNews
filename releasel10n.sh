@@ -26,7 +26,7 @@ done
 
 cd ../../sailfishos/l10n
 
-for LANG in de es fr it zh_CN
+for LANG in de es fr it ru zh_CN
 do
 lrelease ocnewsreader_$LANG.ts
 done

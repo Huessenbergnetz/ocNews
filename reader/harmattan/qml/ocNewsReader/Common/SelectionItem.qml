@@ -7,6 +7,7 @@ Item {
     property string initialValue
     property string currentValue
     property alias model: selectionDialog.model
+    property string tsBasename
 
     signal valueChosen(string value)
 
@@ -47,7 +48,7 @@ Item {
             id: subTitle
             color: "gray"
             verticalAlignment: Text.AlignVCenter
-            text: qsTr(model.get(selectionDialog.selectedIndex).name)
+            text: qsTranslate(tsBasename, model.get(selectionDialog.selectedIndex).name)
             font.pixelSize: 22
             textFormat: Text.PlainText
         }
@@ -102,7 +103,7 @@ Item {
                 elide: Text.ElideRight
                 color: delegateItem.selected ? root.platformStyle.itemSelectedTextColor : root.platformStyle.itemTextColor
                 anchors { verticalCenter: delegateItem.verticalCenter; left: parent.left; right: parent.right; leftMargin: root.platformStyle.itemLeftMargin; rightMargin: root.platformStyle.itemRightMargin }
-                text: qsTr(name)
+                text: qsTranslate(tsBasename, name)
                 font: root.platformStyle.itemFont
                 textFormat: Text.PlainText
             }
