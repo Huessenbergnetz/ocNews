@@ -31,6 +31,7 @@ Page {
         onCreatedFeedSuccess: feedsModelSql.refresh(folderId)
         onDeletedFeedSuccess: feedsModelSql.refresh(folderId)
         onMarkedReadFeedSuccess: feedsModelSql.refresh(folderId)
+        onRenamedFeedSuccess: feedsModelSql.refresh(folderId)
     }
     Connections {
         target: items
@@ -59,6 +60,10 @@ Page {
     Connections {
         target: feedListViewRenameFolder
         onAccepted: if (feedListViewRenameFolder.folderName !== feedListViewRenameFolder.newFolderName && feedListViewRenameFolder.newFolderName !== "") operationRunning = true
+    }
+    Connections {
+        target: feedListViewRenameFeed
+        onAccepted: if (feedListViewRenameFeed.feedName !== feedListViewRenameFeed.newfeedName && feedListViewRenameFeed.newfeedName !== "") operationRunning = true
     }
 
 // ------------- Header Start ----------------
@@ -211,6 +216,15 @@ Page {
                 }
             }
             MenuItem {
+                text: qsTr("Rename feed")
+                enabled: !operationRunning
+                onClicked: {
+                    feedListViewRenameFeed.feedId = feedsContextMenu.feedId
+                    feedListViewRenameFeed.feedName = feedsContextMenu.feedName
+                    feedListViewRenameFeed.open()
+                }
+            }
+            MenuItem {
                 text: qsTr("Delete feed")
                 enabled: !operationRunning
                 onClicked: {
@@ -238,6 +252,10 @@ Page {
 
     RenameFolderSheet {
         id: feedListViewRenameFolder
+    }
+
+    RenameFeedSheet {
+        id: feedListViewRenameFeed
     }
 
 // ----------------- Sheets End --------------------

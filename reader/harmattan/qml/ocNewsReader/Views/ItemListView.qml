@@ -34,6 +34,7 @@ Page {
     Connections {
         target: feeds
         onMarkedReadFeedSuccess: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text)
+        onRenamedFeedSuccess: itemListView.feedName = newName
         onDeletedFeedSuccess: pageStack.pop()
     }
     Connections {
@@ -46,6 +47,11 @@ Page {
     Connections {
         target: updater
         onUpdateFinished: { GLOBALS.previousContentY = itemsList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
+    }
+
+    Connections {
+        target: itemListViewRenameFeed
+        onAccepted: if (itemListViewRenameFeed.feedName !== itemListViewRenameFeed.newfeedName && itemListViewRenameFeed.newfeedName !== "") operationRunning = true
     }
 
     onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text)
@@ -213,6 +219,15 @@ Page {
                 onClicked: itemListViewDeleteFeedQuery.open()
             }
             MenuItem {
+                text: qsTr("Rename feed")
+                enabled: !operationRunning
+                onClicked: {
+                    itemListViewRenameFeed.feedId = itemListView.feedId
+                    itemListViewRenameFeed.feedName = itemListView.feedName
+                    itemListViewRenameFeed.open()
+                }
+            }
+            MenuItem {
                 text: sortAsc ? qsTr("Show newest on top") : qsTr("Show oldest on top")
                 onClicked: sortAsc = !sortAsc
             }
@@ -241,6 +256,16 @@ Page {
 
 
 // ----------------- ToolBar End -------------
+
+
+
+// ----------------- Sheets Start --------------------
+
+    RenameFeedSheet {
+        id: itemListViewRenameFeed
+    }
+
+// ----------------- Sheets End --------------------
 
 
 

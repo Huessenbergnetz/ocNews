@@ -52,6 +52,8 @@ PageStackWindow {
         onDeletedFeedError: { infoMessages.show(); infoMessages.text = deleteFeedResultError; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
         onMarkedReadFeedError: operationRunning = false
         onMarkedReadFeedSuccess: operationRunning = false
+        onRenamedFeedSuccess: { infoMessages.show(); infoMessages.text = qsTr("Renamed feed to %1").arg(newName); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
+        onRenamedFeedError: { infoMessages.show(); infoMessages.text = renamedFeedErrorString; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
     }
     Connections {
         target: items

@@ -50,6 +50,10 @@ Page {
         onAccepted: operationRunning = true
     }
     Connections {
+        target: mainViewRenameFeed
+        onAccepted: if (mainViewRenameFeed.feedName !== mainViewRenameFeed.newfeedName && mainViewRenameFeed.newfeedName !== "") operationRunning = true
+    }
+    Connections {
         target: dbus
         onChangedConfig: {
             if (dbus.isConfigSet() && dbus.isAccountEnabled()) {
@@ -81,6 +85,7 @@ Page {
         onMarkedReadFeedSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
         onMovedFeedSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
         onRequestedFeedsSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
+        onRenamedFeedSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
     }
     Connections {
         target: items
@@ -414,6 +419,15 @@ Page {
                 }
             }
             MenuItem {
+                text: qsTr("Rename feed")
+                enabled: !operationRunning
+                onClicked: {
+                    mainViewRenameFeed.feedId = feedsContextMenu.feedId
+                    mainViewRenameFeed.feedName = feedsContextMenu.feedName
+                    mainViewRenameFeed.open()
+                }
+            }
+            MenuItem {
                 text: qsTr("Delete feed")
                 enabled: !operationRunning
                 onClicked: {
@@ -448,6 +462,10 @@ Page {
 
     PrivacySheet {
         id: mainViewPrivacySheet
+    }
+
+    RenameFeedSheet {
+        id: mainViewRenameFeed
     }
 
 // ----------------- Sheets End --------------------
