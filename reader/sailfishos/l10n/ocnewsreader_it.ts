@@ -39,7 +39,7 @@
     <message>
         <location line="+7"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog</translation>
     </message>
 </context>
 <context>
@@ -47,7 +47,7 @@
     <message>
         <location filename="../qml/Pages/Changelog.qml" line="+18"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog</translation>
     </message>
 </context>
 <context>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../qml/Pages/ClHeader.qml" line="+21"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versione</translation>
     </message>
 </context>
 <context>
@@ -97,8 +97,13 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>French translation</source>
+        <source>Danish translation</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>French translation</source>
+        <translation>Traduzione francese</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -292,6 +297,11 @@
     </message>
     <message>
         <location line="+8"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Delete feed</source>
         <translation>Elimina feed</translation>
     </message>
@@ -304,7 +314,7 @@
 <context>
     <name>FeedListView</name>
     <message>
-        <location filename="../qml/Views/FeedListView.qml" line="+49"/>
+        <location filename="../qml/Views/FeedListView.qml" line="+50"/>
         <source>Update running...</source>
         <translation>Aggiornamento in corso...</translation>
     </message>
@@ -411,6 +421,11 @@
     </message>
     <message>
         <location line="+8"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Delete feed</source>
         <translation>Elimina feed</translation>
     </message>
@@ -466,7 +481,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+50"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+51"/>
         <source>Update running...</source>
         <translation>Aggiornamento in corso...</translation>
     </message>
@@ -476,7 +491,12 @@
         <translation>Elimina feed</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+6"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+9"/>
         <source>Hide sorting options</source>
         <translation>Nascondi opzioni di classificazione</translation>
     </message>
@@ -554,7 +574,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+76"/>
+        <location filename="../qml/Views/MainView.qml" line="+77"/>
         <source>Update running...</source>
         <translation>Aggiornamento in corso...</translation>
     </message>
@@ -827,6 +847,19 @@
     </message>
 </context>
 <context>
+    <name>RenameFeed</name>
+    <message>
+        <location filename="../qml/Dialogs/RenameFeed.qml" line="+17"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Feed name</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>RenameFolder</name>
     <message>
         <location filename="../qml/Dialogs/RenameFolder.qml" line="+17"/>
@@ -996,12 +1029,12 @@
     <message>
         <location line="+6"/>
         <source>Hide read feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Nascondi cartelle e feed letti</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Hide feeds and folders that do not contain unread items.</source>
-        <translation type="unfinished"/>
+        <translation>Nascondi cartelle e feed che non contengono elementi non letti.</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1077,7 +1110,7 @@ Puoi comunque cambiarlo dal menu.</translation>
     <message>
         <location line="+10"/>
         <source>Item view font size</source>
-        <translation type="unfinished"/>
+        <translation>Dimensione testo vista elementi</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1131,22 +1164,22 @@ Puoi comunque cambiarlo dal menu.</translation>
     <message>
         <location line="+5"/>
         <source>Previous in list</source>
-        <translation type="unfinished"/>
+        <translation>Precedente in lista</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>First in list</source>
-        <translation type="unfinished"/>
+        <translation>Primo in lista</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Next in list</source>
-        <translation type="unfinished"/>
+        <translation>Prossimo in lista</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Last in list</source>
-        <translation type="unfinished"/>
+        <translation>Ultimo in lista</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1164,7 +1197,7 @@ Puoi comunque cambiarlo dal menu.</translation>
     <message>
         <location line="+0"/>
         <source>Stop loading</source>
-        <translation type="unfinished"/>
+        <translation>Blocca caricamento</translation>
     </message>
     <message>
         <location line="+4"/>

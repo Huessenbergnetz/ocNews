@@ -164,6 +164,11 @@ Page {
                     }
 
                     ContributorItem {
+                        name: "flywheeldk"
+                        role: qsTr("Danish translation")
+                    }
+
+                    ContributorItem {
                         name: "Jean Clovis"
                         role: qsTr("French translation")
                         github: "jean-clovis"

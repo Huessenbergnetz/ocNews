@@ -49,6 +49,11 @@ Page {
             }
 
             ContributorItem {
+                name: "flywheeldk"
+                role: qsTr("Danish translation")
+            }
+
+            ContributorItem {
                 name: "Jean Clovis"
                 role: qsTr("French translation")
                 image: "jean-clovis.png"

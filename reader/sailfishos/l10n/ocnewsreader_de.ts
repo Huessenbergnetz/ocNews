@@ -97,8 +97,13 @@
     </message>
     <message>
         <location line="+7"/>
+        <source>Danish translation</source>
+        <translation>Dänische Übersetzung</translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>French translation</source>
-        <translation type="unfinished"/>
+        <translation>Französische Übersetzung</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -292,6 +297,11 @@
     </message>
     <message>
         <location line="+8"/>
+        <source>Rename feed</source>
+        <translation>Feed umbenennen</translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Delete feed</source>
         <translation>Feed löschen</translation>
     </message>
@@ -304,7 +314,7 @@
 <context>
     <name>FeedListView</name>
     <message>
-        <location filename="../qml/Views/FeedListView.qml" line="+49"/>
+        <location filename="../qml/Views/FeedListView.qml" line="+50"/>
         <source>Update running...</source>
         <translation>Aktualisiere...</translation>
     </message>
@@ -411,6 +421,11 @@
     </message>
     <message>
         <location line="+8"/>
+        <source>Rename feed</source>
+        <translation>Feed umbenennen</translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Delete feed</source>
         <translation>Feed löschen</translation>
     </message>
@@ -466,7 +481,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+50"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+51"/>
         <source>Update running...</source>
         <translation>Aktualisiere...</translation>
     </message>
@@ -476,7 +491,12 @@
         <translation>Feed löschen</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+6"/>
+        <source>Rename feed</source>
+        <translation>Feed umbenennen</translation>
+    </message>
+    <message>
+        <location line="+9"/>
         <source>Hide sorting options</source>
         <translation>Sortieroptionen verbergen</translation>
     </message>
@@ -554,7 +574,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+76"/>
+        <location filename="../qml/Views/MainView.qml" line="+77"/>
         <source>Update running...</source>
         <translation>Aktualisiere...</translation>
     </message>
@@ -824,6 +844,19 @@
         <location line="+10"/>
         <source>Contact</source>
         <translation>Kontakt</translation>
+    </message>
+</context>
+<context>
+    <name>RenameFeed</name>
+    <message>
+        <location filename="../qml/Dialogs/RenameFeed.qml" line="+17"/>
+        <source>Rename feed</source>
+        <translation>Feed umbenennen</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Feed name</source>
+        <translation>Feed-Name</translation>
     </message>
 </context>
 <context>

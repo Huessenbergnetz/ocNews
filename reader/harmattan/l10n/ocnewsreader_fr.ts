@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+300"/>
+        <location line="+305"/>
         <source>About</source>
         <translation>A Propos</translation>
     </message>
     <message>
-        <location line="-265"/>
+        <location line="-270"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>L&apos;application client ownCloud News pour Harmattan</translation>
     </message>
@@ -64,8 +64,13 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>French translation</source>
+        <source>Danish translation</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>French translation</source>
+        <translation>Traduction française</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -208,7 +213,7 @@
 <context>
     <name>FeedListView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/FeedListView.qml" line="+86"/>
+        <location filename="../qml/ocNewsReader/Views/FeedListView.qml" line="+91"/>
         <source>All</source>
         <translation>Tous</translation>
     </message>
@@ -249,11 +254,16 @@
     </message>
     <message>
         <location line="+10"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+9"/>
         <source>Delete feed</source>
         <translation>Supprimer le flux</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+41"/>
         <location line="+28"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
@@ -350,7 +360,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/ItemListView.qml" line="+87"/>
+        <location filename="../qml/ocNewsReader/Views/ItemListView.qml" line="+93"/>
         <source>Search...</source>
         <translation>Recherche...</translation>
     </message>
@@ -366,6 +376,11 @@
     </message>
     <message>
         <location line="+5"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+9"/>
         <source>Show newest on top</source>
         <translation>Afficher le plus récent en premier</translation>
     </message>
@@ -395,7 +410,7 @@
         <translation>Montrer après les non lus</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+42"/>
         <source>Add to favourites</source>
         <translation>Ajouter aux favoris</translation>
     </message>
@@ -448,7 +463,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/MainView.qml" line="+99"/>
+        <location filename="../qml/ocNewsReader/Views/MainView.qml" line="+104"/>
         <source>ocNews</source>
         <translation>ocNews</translation>
     </message>
@@ -551,11 +566,16 @@
     </message>
     <message>
         <location line="+10"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+9"/>
         <source>Delete feed</source>
         <translation>Supprimer le flux</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+51"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
     </message>
@@ -822,6 +842,34 @@
     </message>
 </context>
 <context>
+    <name>RenameFeedSheet</name>
+    <message>
+        <location filename="../qml/ocNewsReader/Sheets/RenameFeedSheet.qml" line="+9"/>
+        <source>Rename</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Rename feed&lt;br /&gt;%1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Enter new feed name</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>RenameFolderSheet</name>
     <message>
         <location filename="../qml/ocNewsReader/Sheets/RenameFolderSheet.qml" line="+9"/>
@@ -920,7 +968,7 @@
     <message>
         <location line="+16"/>
         <source>Hide read feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Masquer les flux et dossiers lus</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1394,7 +1442,12 @@
         <translation>Flux Supprimé.</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+4"/>
+        <source>Renamed feed to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+22"/>
         <source>Found ownCloud News Version %1</source>
         <translation>Version %1 d&apos;ownCloud News détectée</translation>
     </message>

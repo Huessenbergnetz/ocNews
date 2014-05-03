@@ -15,11 +15,12 @@
         <location line="+174"/>
         <location line="+126"/>
         <location line="+191"/>
+        <location line="+142"/>
         <source>Device is in flight mode.</source>
         <translation>Device is in flight mode.</translation>
     </message>
     <message>
-        <location line="-662"/>
+        <location line="-804"/>
         <location line="+236"/>
         <source>Server reply was empty.</source>
         <translation>Server reply was empty.</translation>

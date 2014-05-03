@@ -38,7 +38,7 @@ Sheet {
                 height: 50
                 width: parent.width
                 text: renameFeedSheet.feedName
-                placeholderText: qsTr("Enter new folder name")
+                placeholderText: qsTr("Enter new feed name")
             }
     }
     onAccepted: {

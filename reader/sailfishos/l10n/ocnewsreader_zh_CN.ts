@@ -97,8 +97,13 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>French translation</source>
+        <source>Danish translation</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>French translation</source>
+        <translation>法语翻译</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -292,6 +297,11 @@
     </message>
     <message>
         <location line="+8"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Delete feed</source>
         <translation>删除订阅</translation>
     </message>
@@ -304,7 +314,7 @@
 <context>
     <name>FeedListView</name>
     <message>
-        <location filename="../qml/Views/FeedListView.qml" line="+49"/>
+        <location filename="../qml/Views/FeedListView.qml" line="+50"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>
@@ -411,6 +421,11 @@
     </message>
     <message>
         <location line="+8"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Delete feed</source>
         <translation>删除订阅</translation>
     </message>
@@ -466,7 +481,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+50"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+51"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>
@@ -476,7 +491,12 @@
         <translation>删除订阅</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+6"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+9"/>
         <source>Hide sorting options</source>
         <translation>隐藏排序选项</translation>
     </message>
@@ -554,7 +574,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+76"/>
+        <location filename="../qml/Views/MainView.qml" line="+77"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>
@@ -827,6 +847,19 @@
     </message>
 </context>
 <context>
+    <name>RenameFeed</name>
+    <message>
+        <location filename="../qml/Dialogs/RenameFeed.qml" line="+17"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Feed name</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>RenameFolder</name>
     <message>
         <location filename="../qml/Dialogs/RenameFolder.qml" line="+17"/>
@@ -996,12 +1029,12 @@
     <message>
         <location line="+6"/>
         <source>Hide read feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>隐藏已读订阅和文件夹</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Hide feeds and folders that do not contain unread items.</source>
-        <translation type="unfinished"/>
+        <translation>隐藏除未读条目以外的订阅和文件夹</translation>
     </message>
     <message>
         <location line="+9"/>

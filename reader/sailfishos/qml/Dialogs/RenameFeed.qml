@@ -21,7 +21,7 @@ Dialog {
             id: feedNewName
             anchors { left: parent.left; right: parent.right }
             text: feedName
-            focus: true; label: qsTr("Folder name"); placeholderText: label
+            focus: true; label: qsTr("Feed name"); placeholderText: label
             EnterKey.enabled: text !== feedName && text || inputMethodComposing
             EnterKey.iconSource: "image://theme/icon-m-enter-accept"
             EnterKey.onClicked: renameFeed.accept()

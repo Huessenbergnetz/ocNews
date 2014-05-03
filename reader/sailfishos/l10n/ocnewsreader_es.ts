@@ -39,7 +39,7 @@
     <message>
         <location line="+7"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Cambios</translation>
     </message>
 </context>
 <context>
@@ -47,7 +47,7 @@
     <message>
         <location filename="../qml/Pages/Changelog.qml" line="+18"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Cambios</translation>
     </message>
 </context>
 <context>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../qml/Pages/ClHeader.qml" line="+21"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versión</translation>
     </message>
 </context>
 <context>
@@ -97,8 +97,13 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>French translation</source>
+        <source>Danish translation</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>French translation</source>
+        <translation>Traducción al Francés</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -292,6 +297,11 @@
     </message>
     <message>
         <location line="+8"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Delete feed</source>
         <translation>Suprimir feed</translation>
     </message>
@@ -304,7 +314,7 @@
 <context>
     <name>FeedListView</name>
     <message>
-        <location filename="../qml/Views/FeedListView.qml" line="+49"/>
+        <location filename="../qml/Views/FeedListView.qml" line="+50"/>
         <source>Update running...</source>
         <translation>Actualización en ejecución...</translation>
     </message>
@@ -411,6 +421,11 @@
     </message>
     <message>
         <location line="+8"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Delete feed</source>
         <translation>Suprimir feed</translation>
     </message>
@@ -466,7 +481,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+50"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+51"/>
         <source>Update running...</source>
         <translation>Actualización en ejecución...</translation>
     </message>
@@ -476,7 +491,12 @@
         <translation>Suprimir feed</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+6"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+9"/>
         <source>Hide sorting options</source>
         <translation>Ocultar las opciones de orden</translation>
     </message>
@@ -554,7 +574,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+76"/>
+        <location filename="../qml/Views/MainView.qml" line="+77"/>
         <source>Update running...</source>
         <translation>Actualización en ejecución...</translation>
     </message>
@@ -827,6 +847,19 @@
     </message>
 </context>
 <context>
+    <name>RenameFeed</name>
+    <message>
+        <location filename="../qml/Dialogs/RenameFeed.qml" line="+17"/>
+        <source>Rename feed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Feed name</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>RenameFolder</name>
     <message>
         <location filename="../qml/Dialogs/RenameFolder.qml" line="+17"/>
@@ -956,7 +989,7 @@
     <message>
         <location line="+4"/>
         <source>Engine</source>
-        <translation type="unfinished"/>
+        <translation>Motor</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -966,12 +999,12 @@
     <message>
         <location line="+6"/>
         <source>Quit engine on closing reader</source>
-        <translation type="unfinished"/>
+        <translation>Desactivar motor al cerrar el lector</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>By default the engine daemon ist started on application startup and keeps running after closing the application to operate/synchronize in the background. This option needs an application restart.</source>
-        <translation type="unfinished"/>
+        <translation>El proceso del motor empieza de manera predeterminada al arrancar la aplicación y se mantiene corriendo después de cerrarla para operar/sincronizar en el fondo. Esta opción necesita que la aplicación reinicie</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -996,12 +1029,12 @@
     <message>
         <location line="+6"/>
         <source>Hide read feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Ocultar fuentes leídas y carpetas</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Hide feeds and folders that do not contain unread items.</source>
-        <translation type="unfinished"/>
+        <translation>Ocultar fuentes y carpetas que no contengan items sin leer.</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1076,7 +1109,7 @@
     <message>
         <location line="+10"/>
         <source>Item view font size</source>
-        <translation type="unfinished"/>
+        <translation>Vista del item tamaño de fuente</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1130,22 +1163,22 @@
     <message>
         <location line="+5"/>
         <source>Previous in list</source>
-        <translation type="unfinished"/>
+        <translation>Anterior en lista</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>First in list</source>
-        <translation type="unfinished"/>
+        <translation>Primero en lista</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Next in list</source>
-        <translation type="unfinished"/>
+        <translation>Próximo en lista</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Last in list</source>
-        <translation type="unfinished"/>
+        <translation>Último en lista</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1163,7 +1196,7 @@
     <message>
         <location line="+0"/>
         <source>Stop loading</source>
-        <translation type="unfinished"/>
+        <translation>Parar la carga</translation>
     </message>
     <message>
         <location line="+4"/>
