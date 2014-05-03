@@ -20,6 +20,19 @@ Page {
             add: Transition { AddAnimation {} }
 
             ClHeader {
+                version: "1.8.2"
+                time: 1399132800000
+                onExpand: v182.visible = !v182.visible
+            }
+
+            ClEntry {
+                id: v182
+                text: "<ul>
+                        <li>Improved: about page design</li>
+                      </ul>"
+            }
+
+            ClHeader {
                 version: "1.8.1"
                 time: 1399132800000
                 onExpand: v181.visible = !v181.visible

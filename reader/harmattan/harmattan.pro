@@ -14,7 +14,7 @@ folder_02.source = images
 DEPLOYMENTFOLDERS = folder_01 folder_02
 
 icons.path = /usr/share/themes/blanco/meegotouch/icons
-icons.files = icons/*.png
+icons.files = icons/*
 INSTALLS += icons
 
 dbusservice.path = /usr/share/dbus-1/services

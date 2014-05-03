@@ -10,105 +10,110 @@ Page {
     SilicaFlickable {
         id: singleItem
         anchors.fill: parent
-        contentHeight: aboutCol.height
+        contentHeight: imgCol.height + aboutCol.height + Theme.paddingLarge
         VerticalScrollDecorator {}
 
-    Column {
-        id: aboutCol
-        anchors { left: parent.left; right: parent.right }
-        spacing: 5
-        PageHeader { title: qsTr("About") }
-
-        Image {
-            anchors.horizontalCenter: parent.horizontalCenter
-            visible: true
-            width: 256
-            height: 256
-            sourceSize.width: 256
-            sourceSize.height: 256
-            source: "/usr/share/harbour-ocnews-reader/icons/icon-ocnews-256.png"
-        }
-
-        Label {
-            id: labelName
-            anchors.horizontalCenter: parent.horizontalCenter
-            textFormat: Text.PlainText
-            text: "ocNews " + versionString
-        }
-
-        Text {
-            id: description
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("The ownCloud News App client for Sailfish OS")
-            width: parent.width
-            font.weight: Font.Light
-            wrapMode: Text.WordWrap
-            textFormat: Text.PlainText
-            color: Theme.primaryColor
-            horizontalAlignment: Text.AlignHCenter
-        }
-
-        Text {
-            id: copyright
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: "© 2013-2014, Buschtrommel"
-            width: parent.width
-            font.weight: Font.Light
-            wrapMode: Text.WordWrap
-            textFormat: Text.PlainText
-            color: Theme.primaryColor
-            horizontalAlignment: Text.AlignHCenter
-        }
-
-        Text {
-            id: license
-            anchors.horizontalCenter: parent.horizontalCenter
-            font.weight: Font.Light
-            text: _RICHTEXT_STYLESHEET_PREAMBLE + qsTr("Licensed under the <a href='http://www.gnu.org/licenses/gpl-2.0.en.html'>GNU GPL v2</a>") + _RICHTEXT_STYLESHEET_APPENDIX
-            width: parent.width
-            textFormat: Text.RichText
-            color: Theme.primaryColor
-            onLinkActivated: { Qt.openUrlExternally(link) }
-            horizontalAlignment: Text.AlignHCenter
-        }
-
-        Button {
-            text: qsTr("Privacy policy")
-            anchors.horizontalCenter: parent.horizontalCenter
-            onClicked: {
-                var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/PrivacyPolicy.qml"))
+        PullDownMenu {
+            MenuItem {
+                text: qsTr("Homepage")
+                onClicked: Qt.openUrlExternally("http://ocnews.buschmann23.de")
+            }
+            MenuItem {
+                text: qsTr("Privacy Policy")
+                onClicked: { var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/PrivacyPolicy.qml")) }
+            }
+            MenuItem {
+                text: qsTr("Changelog")
+                onClicked: pageStack.push(Qt.resolvedUrl("Changelog.qml"))
+            }
+            MenuItem {
+                text: qsTr("Contributors")
+                onClicked: pageStack.push(Qt.resolvedUrl("Contributors.qml"))
             }
         }
 
-        Button {
-            id: websiteLink
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("Visit website")
-            onClicked: Qt.openUrlExternally("http://ocnews.buschmann23.de")
+        Column {
+            id: imgCol
+            anchors { left: parent.left; right: parent.right }
+            PageHeader { title: qsTr("About") }
+
+            Image {
+                visible: true
+                width: parent.width
+                smooth: true
+                sourceSize.width: 540
+                sourceSize.height: 270
+                source: "/usr/share/harbour-ocnews-reader/icons/ocNews-Sailfish-Cover.jpg"
+            }
+
         }
 
-        Button {
-            id: donationLink
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("Make a donation")
-            onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDZAG64WD34PL")
-        }
 
-        Button {
-            id: showContributors
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("Contributors")
-            onClicked: pageStack.push(Qt.resolvedUrl("Contributors.qml"))
-        }
+        Column {
+            id: aboutCol
+            anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; top: imgCol.bottom; topMargin: 10 }
+            spacing: 5
 
-        Button {
-            id: changelog
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("Changelog")
-            onClicked: pageStack.push(Qt.resolvedUrl("Changelog.qml"))
-        }
+            Label {
+                id: labelName
+                textFormat: Text.PlainText
+                text: "ocNews " + versionString
+                font.pixelSize: Theme.fontSizeLarge
+                color: Theme.highlightColor
+            }
 
-    }
+            Text {
+                id: description
+                text: qsTr("The ownCloud News App client for Sailfish OS")
+                width: parent.width
+                wrapMode: Text.WordWrap
+                textFormat: Text.PlainText
+                color: Theme.secondaryHighlightColor
+            }
+
+            Text {
+                id: copyright
+                text: "© 2013-2014, Buschtrommel"
+                width: parent.width
+                wrapMode: Text.WordWrap
+                textFormat: Text.PlainText
+                color: Theme.primaryColor
+            }
+
+            Text {
+                id: license
+                text: _RICHTEXT_STYLESHEET_PREAMBLE + qsTr("Licensed under the <a href='http://www.gnu.org/licenses/gpl-2.0.en.html'>GNU GPL v2</a>") + _RICHTEXT_STYLESHEET_APPENDIX
+                width: parent.width
+                textFormat: Text.RichText
+                color: Theme.primaryColor
+                onLinkActivated: { Qt.openUrlExternally(link) }
+            }
+
+            SectionHeader { text: qsTr("Contribute") }
+
+            Row {
+                width: parent.width - Theme.paddingLarge
+
+                Button {
+                    width: parent.width/2
+                    text: qsTr("Translate")
+                    onClicked: Qt.openUrlExternally("https://www.transifex.com/projects/p/ocnews/")
+                }
+
+                Button {
+                    width: parent.width/2
+                    text: qsTr("Report bugs")
+                    onClicked: Qt.openUrlExternally("https://github.com/Buschtrommel/ocNews/issues")
+                }
+            }
+
+            Button {
+                id: donationLink
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("Make a donation")
+                onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDZAG64WD34PL")
+            }
+        }
 
     }
 }
