@@ -24,6 +24,8 @@ signals:
     void movedFeedSuccess();
     void requestedFeedsError(const QString &requestedFeedsErrorString);
     void requestedFeedsSuccess();
+    void renamedFeedSuccess(const QString &newName);
+    void renamedFeedError(const QString &renamedFeedErrorString);
     
 public slots:
     void createFeed(const QString &url, const QString &folderId, bool eventView);
@@ -31,6 +33,7 @@ public slots:
     void markFeedRead(const QString &feedId);
     void moveFeed(const QString &id, const QString &folderId);
     void requestFeeds();
+    void renameFeed(const QString &id, const QString &newName);
 
 private slots:
     void dbusCreatedFeedError(const QString &createFeedResultError);
@@ -43,6 +46,8 @@ private slots:
     void dbusMovedFeedSuccess();
     void dbusRequestedFeedsError(const QString &requestedFeedsErrorString);
     void dbusRequestedFeedsSuccess();
+    void dbusRenamedFeedSuccess(const QString &newName);
+    void dbusRenamedFeedError(const QString &renamedFeedErrorString);
 
 private:
     de::buschmann23::ocNewsEngine::Feeds *feeds;

@@ -857,3 +857,114 @@ QVariantMap OcFeeds::getFeeds()
 
     return feeds;
 }
+
+
+
+/*!
+ * \fn void OcFeeds::renameFeed(const QString &id, const QString &newName)
+ * \brief Renames a feed
+ *
+ * Renames a feed on the server and on success also in the local database
+ *
+ * \param id ID of the feed to rename
+ * \param newName New name of the feed
+ */
+void OcFeeds::renameFeed(const QString &id, const QString &newName)
+{
+    if (network.isFlightMode())
+    {
+        emit renamedFeedError(tr("Device is in flight mode."));
+    } else {
+        // Create the API URL
+        QString feed = "feeds/";
+        feed.append(id);
+        feed.append("/rename");
+        urlRenameFeed = helper.buildUrl(feed);
+
+        // Create the JSON string
+        QByteArray parameters("{\"feedTitle\": \"");
+        parameters.append(newName);
+        parameters.append("\"}");
+
+        // Calculate content length header
+        QByteArray postDataSize = QByteArray::number(parameters.size());
+
+        // Building the request
+        QNetworkRequest request(urlRenameFeed);
+
+        // Add the headers
+        request.setRawHeader("Content-Type", "application/json; charset=utf-8");
+        request.setRawHeader("Content-Length", postDataSize);
+
+        replyRenameFeed = network.put(request, parameters);
+
+        // map the name into the signal
+        QSignalMapper *signalMapper = new QSignalMapper(this);
+        signalMapper->setMapping(replyRenameFeed, newName);
+
+        connect(replyRenameFeed, SIGNAL(finished()), signalMapper, SLOT(map()));
+
+        connect(signalMapper, SIGNAL(mapped(QString)), this, SLOT(feedRenamed(QString)));
+    }
+}
+
+
+/*!
+ * \fn OcFeeds::feedRenamed(QString name)
+ * \brief Handles network reply for feed rename
+ *
+ * This internal function handles the network reply for the feed rename request.
+ *
+ * \param name New name of the feed
+ */
+void OcFeeds::feedRenamed(QString name)
+{
+//    connect(this,SIGNAL(renamedFolder(int, QString)),this,SLOT(folderRenamedUpdateDb(int, QString)), Qt::UniqueConnection);
+
+    if (replyRenameFeed->error() == QNetworkReply::NoError)
+    {
+        // extract folder id out of URL
+        QString url = replyRenameFeed->url().toString();
+        QStringList urlParts = url.split("/");
+        urlParts.removeLast();
+        int id = urlParts.last().toInt();
+
+        replyRenameFeed->deleteLater();
+//        emit renamedFeed(id, name);
+        feedRenamedUpdateDb(id, name);
+
+    } else {
+        QVariantMap renameresult = helper.jsonToQt(replyRenameFeed->readAll());
+
+        QString renameresulterror = renameresult["message"].toString();
+
+        replyRenameFeed->deleteLater();
+#ifdef QT_DEBUG
+        qDebug() << renameresulterror;
+#endif
+
+        emit renamedFeedError(renameresulterror);
+    }
+}
+
+
+/*!
+ * \fn OcFeeds::feedRenamedUpdateDb(int id, const QString &name)
+ * \brief Updates database after feeed renamed
+ *
+ * This internal functions updates the local database after changing the feeds name on the server.
+ *
+ * \param id ID of the feed to rename
+ * \param name New name of the feed
+ */
+void OcFeeds::feedRenamedUpdateDb(int id, const QString &name)
+{
+    QSqlQuery query;
+
+    query.prepare("UPDATE feeds SET title = :name WHERE id = :id;");
+    query.bindValue(":name", name);
+    query.bindValue(":id", id);
+    query.exec();
+
+    emit renamedFeedSuccess(name);
+}

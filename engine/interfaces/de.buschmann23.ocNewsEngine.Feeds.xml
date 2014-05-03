@@ -21,6 +21,10 @@
             <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
             <arg name="feeds" type="a{sv}" direction="out"/>
         </method>
+        <method name="renameFeed">
+            <arg direction="in" type="s" name="id"/>
+            <arg direction="in" type="s" name="newName"/>
+        </method>
         <signal name="requestedFeedsError">
             <arg name="requestedFeedsErrorString" type="s" direction="out"/>
         </signal>
@@ -41,6 +45,12 @@
         <signal name="movedFeedSuccess"/>
         <signal name="markedReadFeedError">
             <arg name="markedReadFeedErrorResult" type="s" direction="out"/>
+        </signal>
+        <signal name="renamedFeedSuccess">
+            <arg direction="out" type="s" name="newName"/>
+        </signal>
+        <signal name="renamedFeedError">
+            <arg direction="out" type="s" name="renamedFeedErrorString"/>
         </signal>
         <signal name="markedReadFeedSuccess"/>
     </interface>

@@ -42,6 +42,8 @@ ApplicationWindow
         onMarkedReadFeedSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
         onMovedFeedError: operationRunning = false
         onMovedFeedSuccess: operationRunning = false
+        onRenamedFeedSuccess: operationRunning = false
+        onRenamedFeedError: operationRunning = false
     }
     Connections {
         target: items

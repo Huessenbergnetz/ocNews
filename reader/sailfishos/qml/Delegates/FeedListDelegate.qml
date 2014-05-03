@@ -133,6 +133,14 @@ ListItem {
                 }
             }
             MenuItem {
+                text: qsTr("Rename feed")
+                enabled: !operationRunning
+                onClicked: {
+                    var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/RenameFeed.qml"), {feedId: model.id, feedName: model.title})
+                    dialog.accepted.connect(function() { operationRunning = true })
+                }
+            }
+            MenuItem {
                 text: qsTr("Delete feed")
                 enabled: !operationRunning
                 onClicked: removeFeed(model.id, model.title)

@@ -25,6 +25,7 @@ public Q_SLOTS: // METHODS
     QVariantMap getFeeds();
     void markFeedRead(const QString &feedId);
     void moveFeed(const QString &id, const QString &folderId);
+    void renameFeed(const QString &id, const QString &newName);
     void requestFeeds();
 
 public slots:
@@ -37,6 +38,7 @@ signals:
     void deletedFeed(int id);
     void movedFeed(int id, QString folderId);
     void markedReadFeed(int id);
+    void renamedFeed(int id, QString name);
 
 Q_SIGNALS: // SIGNALS
     void createdFeedError(const QString &createFeedResultError);
@@ -49,6 +51,8 @@ Q_SIGNALS: // SIGNALS
     void movedFeedSuccess();
     void requestedFeedsError(const QString &requestedFeedsErrorString);
     void requestedFeedsSuccess();
+    void renamedFeedSuccess(const QString &newName);
+    void renamedFeedError(const QString &renamedFeedErrorString);
 
 private slots:
     void feedsRequested();
@@ -63,10 +67,12 @@ private slots:
     void feedMovedUpdateDb(int id, QString folderId);
     void feedMarkedRead();
     void feedMarkedReadUpdateDb(int id);
+    void feedRenamed(QString name);
+    void feedRenamedUpdateDb(int id, const QString &name);
 
 private:
-    QUrl urlRequestFeeds, urlCreateFeed, urlDeleteFeed, urlMoveFeed;
-    QNetworkReply *replyRequestFeeds, *replyCreateFeed, *replyDeleteFeed, *replyMoveFeed, *replyGetFavicon, *replyMarkFeedRead;
+    QUrl urlRequestFeeds, urlCreateFeed, urlDeleteFeed, urlMoveFeed, urlRenameFeed;
+    QNetworkReply *replyRequestFeeds, *replyCreateFeed, *replyDeleteFeed, *replyMoveFeed, *replyGetFavicon, *replyMarkFeedRead, *replyRenameFeed;
     OcHelper helper;
     OcDbManager database;
     OcItems items;

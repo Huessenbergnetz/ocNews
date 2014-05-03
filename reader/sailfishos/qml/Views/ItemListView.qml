@@ -24,6 +24,7 @@ Page {
         target: feeds
         onMarkedReadFeedSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
         onDeletedFeedSuccess: pageStack.pop()
+        onRenamedFeedSuccess: itemListView.feedName = newName
     }
     Connections {
         target: items
@@ -66,6 +67,16 @@ Page {
                 text: qsTr("Delete feed")
                 onClicked: removeFeed(itemListView.feedId, itemListView.feedName)
             }
+            MenuItem {
+                id: renameFeed
+                enabled: !operationRunning
+                text: qsTr("Rename feed")
+                onClicked: {
+                    var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/RenameFeed.qml"), {feedId: feedId, feedName: feedName})
+                    dialog.accepted.connect(function() { operationRunning = true })
+                }
+            }
+
             MenuItem {
                 id: menuSort
                 text: sortingPanel.open ? qsTr("Hide sorting options") : qsTr("Show sorting options")

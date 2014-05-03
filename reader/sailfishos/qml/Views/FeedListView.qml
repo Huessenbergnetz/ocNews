@@ -19,6 +19,7 @@ Page {
         onCreatedFeedSuccess: feedsModelSql.refresh(folderId)
         onDeletedFeedSuccess: feedsModelSql.refresh(folderId)
         onMarkedReadFeedSuccess: feedsModelSql.refresh(folderId)
+        onRenamedFeedSuccess: feedsModelSql.refresh(folderId)
     }
     Connections {
         target: items

@@ -71,3 +71,9 @@ void OcFeedsAdaptor::requestFeeds()
     QMetaObject::invokeMethod(parent(), "requestFeeds");
 }
 
+void OcFeedsAdaptor::renameFeed(const QString &id, const QString &newName)
+{
+    // handle method call de.buschmann23.ocNewsEngine.Feeds.renameFeed
+    QMetaObject::invokeMethod(parent(), "renameFeed", Q_ARG(QString, id), Q_ARG(QString, newName));
+}
+

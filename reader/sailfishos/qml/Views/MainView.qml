@@ -55,6 +55,7 @@ Page {
         onMarkedReadFeedSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
         onMovedFeedSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
         onRequestedFeedsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+        onRenamedFeedSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
     }
     Connections {
         target: items

@@ -14,6 +14,8 @@ OcDBusFeeds::OcDBusFeeds(QObject *parent) :
     connect(feeds, SIGNAL(movedFeedSuccess()), this, SLOT(dbusMovedFeedSuccess()));
     connect(feeds, SIGNAL(requestedFeedsError(QString)), this, SLOT(dbusRequestedFeedsError(QString)));
     connect(feeds, SIGNAL(requestedFeedsSuccess()), this, SLOT(dbusRequestedFeedsSuccess()));
+    connect(feeds, SIGNAL(renamedFeedError(QString)), this, SLOT(dbusRenamedFeedError(QString)));
+    connect(feeds, SIGNAL(renamedFeedSuccess(QString)), this, SLOT(dbusRenamedFeedSuccess(QString)));
 }
 
 void OcDBusFeeds::createFeed(const QString &url, const QString &folderId, bool eventView)
@@ -44,6 +46,11 @@ void OcDBusFeeds::requestFeeds()
 QVariantMap OcDBusFeeds::getFeeds()
 {
     return feeds->getFeeds();
+}
+
+void OcDBusFeeds::renameFeed(const QString &id, const QString &newName)
+{
+    feeds->renameFeed(id, newName);
 }
 
 void OcDBusFeeds::dbusCreatedFeedError(const QString &createFeedResultError)
@@ -96,3 +103,12 @@ void OcDBusFeeds::dbusRequestedFeedsSuccess()
     emit requestedFeedsSuccess();
 }
 
+void OcDBusFeeds::dbusRenamedFeedError(const QString &renamedFeedErrorString)
+{
+    emit renamedFeedError(renamedFeedErrorString);
+}
+
+void OcDBusFeeds::dbusRenamedFeedSuccess(const QString &newName)
+{
+    emit renamedFeedSuccess(newName);
+}

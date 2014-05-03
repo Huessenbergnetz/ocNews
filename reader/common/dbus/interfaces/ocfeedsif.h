@@ -76,6 +76,13 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QLatin1String("requestFeeds"), argumentList);
     }
 
+    inline QDBusPendingReply<> renameFeed(const QString &id, const QString &newName)
+    {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(id) << QVariant::fromValue(newName);
+        return asyncCallWithArgumentList(QLatin1String("renameFeed"), argumentList);
+    }
+
 Q_SIGNALS: // SIGNALS
     void createdFeedError(const QString &createFeedResultError);
     void createdFeedSuccess(const QString &feedname);
@@ -87,6 +94,8 @@ Q_SIGNALS: // SIGNALS
     void movedFeedSuccess();
     void requestedFeedsError(const QString &requestedFeedsErrorString);
     void requestedFeedsSuccess();
+    void renamedFeedSuccess(const QString &newName);
+    void renamedFeedError(const QString &renamedFeedErrorString);
 };
 
 namespace de {

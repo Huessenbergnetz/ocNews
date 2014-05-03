@@ -50,6 +50,10 @@ class OcFeedsAdaptor: public QDBusAbstractAdaptor
 "      <annotation value=\"QVariantMap\" name=\"com.trolltech.QtDBus.QtTypeName.Out0\"/>\n"
 "      <arg direction=\"out\" type=\"a{sv}\" name=\"feeds\"/>\n"
 "    </method>\n"
+"    <method name=\"renameFeed\">\n"
+"      <arg direction=\"in\" type=\"s\" name=\"id\"/>\n"
+"      <arg direction=\"in\" type=\"s\" name=\"newName\"/>\n"
+"    </method>\n"
 "    <signal name=\"requestedFeedsError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"requestedFeedsErrorString\"/>\n"
 "    </signal>\n"
@@ -71,6 +75,12 @@ class OcFeedsAdaptor: public QDBusAbstractAdaptor
 "    <signal name=\"markedReadFeedError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"markedReadFeedErrorResult\"/>\n"
 "    </signal>\n"
+"    <signal name=\"renamedFeedSuccess\">\n"
+"      <arg direction=\"out\" type=\"s\" name=\"newName\"/>\n"
+"    </signal>\n"
+"    <signal name=\"renamedFeedError\">\n"
+"      <arg direction=\"out\" type=\"s\" name=\"renamedFeedErrorString\"/>\n"
+"    </signal>\n"
 "    <signal name=\"markedReadFeedSuccess\"/>\n"
 "  </interface>\n"
         "")
@@ -85,6 +95,7 @@ public Q_SLOTS: // METHODS
     QVariantMap getFeeds();
     void markFeedRead(const QString &feedId);
     void moveFeed(const QString &id, const QString &folderId);
+    void renameFeed(const QString &id, const QString &newName);
     void requestFeeds();
 Q_SIGNALS: // SIGNALS
     void createdFeedError(const QString &createFeedResultError);
@@ -97,6 +108,8 @@ Q_SIGNALS: // SIGNALS
     void movedFeedSuccess();
     void requestedFeedsError(const QString &requestedFeedsErrorString);
     void requestedFeedsSuccess();
+    void renamedFeedSuccess(const QString &newName);
+    void renamedFeedError(const QString &renamedFeedErrorString);
 };
 
 #endif
