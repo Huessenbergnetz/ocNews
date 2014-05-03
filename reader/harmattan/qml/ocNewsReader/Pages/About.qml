@@ -35,13 +35,11 @@ Page {
 
             Image {
                 id: ocnewsLogo
-                anchors { horizontalCenter: parent.horizontalCenter; top: parent.top; topMargin: 10 }
+                anchors { top: parent.top; topMargin: 10 }
                 asynchronous: true
-                width: 256
-                height: 256
-                sourceSize.width: 256
-                sourceSize.height: 256
-                source: "/opt/ocNewsReader/images/ocNews256.png"
+                sourceSize.width: 540
+                sourceSize.height: 270
+                source: "/opt/ocNewsReader/images/ocNews-Harmattan-Cover.jpg"
             }
 
             Label {
