@@ -1,3 +1,16 @@
+Version 1.8.1, 2014-05-03 18:00:00 +0200
+
+  General:
+  * New: option for hiding read feeds and folders (issue #37)
+  * New: rename feeds
+  * New: partly danish translation by flywheeldk
+  
+  Harmattan:
+  * Fixed: broken russian translation for SelectionItem (issue #36)
+  
+  Sailfish OS:
+  * Improved: dim count bubble of feeds without unread entries when viewing a folder
+
 Version 1.8.0, 2014-03-07 13:36:51 +0100
 
   General:

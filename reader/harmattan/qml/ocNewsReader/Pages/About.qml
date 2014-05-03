@@ -232,6 +232,17 @@ Page {
                     move: Transition { NumberAnimation { properties: "y"; easing.type: Easing.InOutQuad } }
 
                     CLItem {
+                        version: "1.8.1"
+                        time: 1399132800000
+                        text: "<ul>
+                                <li>New: option for hiding read feeds and folders (issue #37)</li>
+                                <li>New: rename feeds</li>
+                                <li>New: partly danish translation by flywheeldk</li>
+                                <li>Fixed: broken russian translation for SelectionItem (issue #36)</li>
+                               </ul>"
+                    }
+
+                    CLItem {
                         version: "1.8.0"
                         time: 1394195811000
                         text: "<ul>

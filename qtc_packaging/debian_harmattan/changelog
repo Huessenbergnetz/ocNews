@@ -1,3 +1,12 @@
+buschtrommel-ocnews (1.8.1) stable; urgency=low
+
+  * New: option for hiding read feeds and folders (issue #37)
+  * New: rename feeds
+  * New: partly danish translation by flywheeldk
+  * Fixed: broken russian translation for SelectionItem (issue #36)
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Sat, 03 May 2014 18:00:00 +0200
+
 buschtrommel-ocnews (1.8.0) stable; urgency=low
 
   * New: user selectable font size

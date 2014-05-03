@@ -20,6 +20,22 @@ Page {
             add: Transition { AddAnimation {} }
 
             ClHeader {
+                version: "1.8.1"
+                time: 1399132800000
+                onExpand: v181.visible = !v181.visible
+            }
+
+            ClEntry {
+                id: v181
+                text: "<ul>
+                        <li>New: option for hiding read feeds and folders (issue #37)</li>
+                        <li>New: rename feeds</li>
+                        <li>New: partly danish translation by flywheeldk</li>
+                        <li>Improved: dim count bubble of feeds without unread entries when viewing a folder</li>
+                      </ul>"
+            }
+
+            ClHeader {
                 version: "1.8.0"
                 time: 1394195811000
                 onExpand: v180.visible = !v180.visible
