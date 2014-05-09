@@ -2,44 +2,59 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../qml/Pages/About.qml" line="+20"/>
+        <location filename="../qml/Pages/About.qml" line="+39"/>
         <source>About</source>
         <translation>Om</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+29"/>
         <source>The ownCloud News App client for Sailfish OS</source>
         <translation>OwnCloud News App klient til Sailfish OS</translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+18"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
         <translation>Licenseret under &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Privacy policy</source>
-        <translation>Fortrolighedspolitik</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Visit website</source>
-        <translation>Besøg hjemmeside</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Make a donation</source>
-        <translation>Lav en donation</translation>
-    </message>
-    <message>
-        <location line="+7"/>
+        <location line="-55"/>
         <source>Contributors</source>
         <translation>Bidragydere</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-12"/>
+        <source>Homepage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Changelog</source>
         <translation>Ændringslog</translation>
+    </message>
+    <message>
+        <location line="+66"/>
+        <source>Contribute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Translate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Report bugs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Message to Buschtrommel:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -88,7 +103,7 @@
     <message>
         <location line="+5"/>
         <source>Thanks to</source>
-        <translation type="unfinished"/>
+        <translation>Tak til</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -96,19 +111,19 @@
         <translation>Kinesisk (Kina) oversættelse</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+26"/>
         <source>Danish translation</source>
-        <translation type="unfinished"/>
+        <translation>Dansk oversættelse</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-19"/>
         <source>French translation</source>
         <translation>Fransk oversættesle</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Italian translation</source>
-        <translation type="unfinished"/>
+        <translation>Italiensk oversættelse</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -116,14 +131,14 @@
         <translation>Spansk oversættelse</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+14"/>
         <source>Used third party elements</source>
-        <translation type="unfinished"/>
+        <translation>Brugte elementer fra tredjepart</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation type="unfinished"/>
+        <translation>Martin Grimme&apos;s Tidings Elements</translation>
     </message>
 </context>
 <context>
@@ -221,6 +236,134 @@
     </message>
 </context>
 <context>
+    <name>DonationChooser</name>
+    <message>
+        <location filename="../qml/Common/DonationChooser.qml" line="+103"/>
+        <source>Currency</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Euro</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>US Dollar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Australian Dollar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Brazilian Real</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Pound Sterling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Danish Krone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Hong Kong Dollar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Israel New Shekel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Japanese Yen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Canadian Dollar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Mexican Peso</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>New Taiwan Dollar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>New Zealand Dollar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Norwegian Krone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Philippine Peso</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Polish ZÅoty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Russian Ruble</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Swedish Krone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Swiss Franc</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Singapore Dollar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Thai Baht</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Czech Koruna</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Hungarian Forint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Donate</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>EnclosureItem</name>
     <message>
         <location filename="../qml/Common/EnclosureItem.qml" line="+70"/>
@@ -240,7 +383,7 @@
     <message>
         <location line="+12"/>
         <source>In queue</source>
-        <translation type="unfinished"/>
+        <translation>Sat i kø</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -255,7 +398,7 @@
     <message>
         <location line="+0"/>
         <source>Delete enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Fjern</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -298,7 +441,7 @@
     <message>
         <location line="+8"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Omdøb feed</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -422,7 +565,7 @@
     <message>
         <location line="+8"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Omdøb feed</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -493,7 +636,7 @@
     <message>
         <location line="+6"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Omdøb feed</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -711,12 +854,12 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>tt:mm</translation>
     </message>
 </context>
 <context>
@@ -724,17 +867,17 @@
     <message>
         <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+136"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Idag</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>tt:mm</translation>
     </message>
 </context>
 <context>
@@ -747,12 +890,12 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>tt:mm</translation>
     </message>
 </context>
 <context>
@@ -770,7 +913,7 @@
     <message>
         <location line="+13"/>
         <source>Click button to load image</source>
-        <translation type="unfinished"/>
+        <translation>Klik på knappen for at hente billede</translation>
     </message>
 </context>
 <context>
@@ -833,7 +976,7 @@
     <message>
         <location line="+10"/>
         <source>Your consent</source>
-        <translation type="unfinished"/>
+        <translation>Dit samtykke</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -851,12 +994,12 @@
     <message>
         <location filename="../qml/Dialogs/RenameFeed.qml" line="+17"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Omdøb feed</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Feed name</source>
-        <translation type="unfinished"/>
+        <translation>Feednavn</translation>
     </message>
 </context>
 <context>
@@ -883,22 +1026,22 @@
         <location line="+2"/>
         <location line="+24"/>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Server</translation>
     </message>
     <message>
         <location line="-19"/>
         <source>User name</source>
-        <translation type="unfinished"/>
+        <translation>Brugernavn</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Kodeord</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Server: e.g. cloud.example.com</source>
-        <translation type="unfinished"/>
+        <translation>Server: f.eks. cloud.example.com</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -908,12 +1051,12 @@
     <message>
         <location line="+30"/>
         <source>Found ownCloud News Version %1</source>
-        <translation type="unfinished"/>
+        <translation>Fundet ownCloud News Version %1</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Use HTTPS (SSL/TLS) connection</source>
-        <translation type="unfinished"/>
+        <translation>Brug HTTPS (SSL/TLS) forbindelse</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1029,17 +1172,17 @@
     <message>
         <location line="+6"/>
         <source>Hide read feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Gem læste feeds og foldere</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Hide feeds and folders that do not contain unread items.</source>
-        <translation type="unfinished"/>
+        <translation>Gem feeds og foldere der ikke indeholder ulæste poster.</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Added (like on server)</source>
-        <translation type="unfinished"/>
+        <translation>Tilføjede (ligesom på server)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1074,7 +1217,7 @@
     <message>
         <location line="+7"/>
         <source>Load content images</source>
-        <translation type="unfinished"/>
+        <translation>Hent billedindhold</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1089,7 +1232,7 @@
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation type="unfinished"/>
+        <translation>Vis efter ulæste</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1143,7 +1286,7 @@
         <location filename="../qml/Views/SingleItemView.qml" line="+121"/>
         <location line="+38"/>
         <source>Open in Browser</source>
-        <translation type="unfinished"/>
+        <translation>Åben i netlæser</translation>
     </message>
     <message>
         <location line="-34"/>
@@ -1158,7 +1301,7 @@
     <message>
         <location line="+8"/>
         <source>Show images</source>
-        <translation type="unfinished"/>
+        <translation>Vis billeder</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1196,12 +1339,12 @@
     <message>
         <location line="+0"/>
         <source>Stop loading</source>
-        <translation type="unfinished"/>
+        <translation>Afbryd hentning</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Open in browser</source>
-        <translation type="unfinished"/>
+        <translation>Åben i netlæser</translation>
     </message>
     <message>
         <location line="+4"/>

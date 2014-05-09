@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+305"/>
+        <location line="+319"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location line="-270"/>
+        <location line="-286"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>&lt;b&gt;OwnCloud News&lt;/b&gt; For Harmattan</translation>
     </message>
@@ -64,11 +64,12 @@
     </message>
     <message>
         <location line="+7"/>
+        <location line="+29"/>
         <source>Danish translation</source>
-        <translation type="unfinished"/>
+        <translation>丹麦语翻译</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-24"/>
         <source>French translation</source>
         <translation>法语翻译</translation>
     </message>
@@ -88,7 +89,7 @@
         <translation>西班牙语翻译</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+19"/>
         <source>Used third party elements</source>
         <translation>使用的第三方素材</translation>
     </message>
@@ -98,7 +99,7 @@
         <translation>Martin Grimme 的新闻素材</translation>
     </message>
     <message>
-        <location line="+132"/>
+        <location line="+138"/>
         <source>Contributors</source>
         <translation>项目贡献者</translation>
     </message>
@@ -255,7 +256,7 @@
     <message>
         <location line="+10"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>重命名订阅</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -377,7 +378,7 @@
     <message>
         <location line="+5"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>重命名订阅</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -567,7 +568,7 @@
     <message>
         <location line="+10"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>重命名订阅</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -846,27 +847,27 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/RenameFeedSheet.qml" line="+9"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>重命名</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>取消</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Rename feed&lt;br /&gt;%1</source>
-        <translation type="unfinished"/>
+        <translation>重命名订阅&lt;br /&gt;%1</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>文件夹名</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Enter new feed name</source>
-        <translation type="unfinished"/>
+        <translation>请输入新名称</translation>
     </message>
 </context>
 <context>
@@ -1444,7 +1445,7 @@
     <message>
         <location line="+4"/>
         <source>Renamed feed to %1</source>
-        <translation type="unfinished"/>
+        <translation>重命名订阅为%1</translation>
     </message>
     <message>
         <location line="+22"/>

@@ -4,7 +4,7 @@
     <message>
         <location filename="../ocdownloadmanager.cpp" line="+124"/>
         <source>Downloading enclosure </source>
-        <translation type="unfinished"/>
+        <translation>Henter enclosure</translation>
     </message>
 </context>
 <context>
@@ -117,12 +117,12 @@
     <message>
         <location line="+26"/>
         <source>Updating Items</source>
-        <translation type="unfinished"/>
+        <translation>Ajourfører Poster</translation>
     </message>
     <message>
         <location line="+47"/>
         <source>Update Finished</source>
-        <translation type="unfinished"/>
+        <translation>Ajourføring Fuldført</translation>
     </message>
     <message>
         <location line="+30"/>
@@ -132,7 +132,7 @@
     <message>
         <location line="+62"/>
         <source>ocNews Image Fetcher</source>
-        <translation type="unfinished"/>
+        <translation>ocNews Billedhenter</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -142,7 +142,7 @@
     <message>
         <location line="+28"/>
         <source>Fetching images finished</source>
-        <translation type="unfinished"/>
+        <translation>Billeder hentet</translation>
     </message>
 </context>
 </TS>

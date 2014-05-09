@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+305"/>
+        <location line="+319"/>
         <source>About</source>
         <translation>A Propos</translation>
     </message>
     <message>
-        <location line="-270"/>
+        <location line="-286"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>L&apos;application client ownCloud News pour Harmattan</translation>
     </message>
@@ -64,11 +64,12 @@
     </message>
     <message>
         <location line="+7"/>
+        <location line="+29"/>
         <source>Danish translation</source>
-        <translation type="unfinished"/>
+        <translation>Translation danoise</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-24"/>
         <source>French translation</source>
         <translation>Traduction française</translation>
     </message>
@@ -88,7 +89,7 @@
         <translation>Traduction espagnole</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+19"/>
         <source>Used third party elements</source>
         <translation>Éléments de tierces parties réutilisés</translation>
     </message>
@@ -98,7 +99,7 @@
         <translation>Éléments de l&apos;application Tidings par Martin Grimme</translation>
     </message>
     <message>
-        <location line="+132"/>
+        <location line="+138"/>
         <source>Contributors</source>
         <translation>Contributeurs</translation>
     </message>
@@ -255,7 +256,7 @@
     <message>
         <location line="+10"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Renommer le flux</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -377,7 +378,7 @@
     <message>
         <location line="+5"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Renommer le flux</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -567,7 +568,7 @@
     <message>
         <location line="+10"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Renommer le flux</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -846,27 +847,27 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/RenameFeedSheet.qml" line="+9"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Renommer</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Annuler</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Rename feed&lt;br /&gt;%1</source>
-        <translation type="unfinished"/>
+        <translation>Renommer le flux&lt;br /&gt;%1</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Nom</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Enter new feed name</source>
-        <translation type="unfinished"/>
+        <translation>Entrer le nouveau nom de flux</translation>
     </message>
 </context>
 <context>
@@ -1444,7 +1445,7 @@
     <message>
         <location line="+4"/>
         <source>Renamed feed to %1</source>
-        <translation type="unfinished"/>
+        <translation>Renommer le flux en %1</translation>
     </message>
     <message>
         <location line="+22"/>

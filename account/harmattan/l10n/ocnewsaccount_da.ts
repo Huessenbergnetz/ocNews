@@ -4,7 +4,7 @@
     <message id="qtn_help_close">
         <location filename="../qml/HelpSheet.qml" line="+5"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Luk hjælp</translation>
     </message>
     <message id="qtn_help_username_label">
         <location line="+13"/>
@@ -59,73 +59,73 @@
     <message id="qtn_button_save">
         <location filename="../qml/main.qml" line="+31"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Gem</translation>
     </message>
     <message id="qtn_button_cancel">
         <location line="+5"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Annuller</translation>
     </message>
     <message id="qtn_account_help">
         <location line="+14"/>
         <location line="+9"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Hjælp</translation>
     </message>
     <message id="qtn_delete_account">
         <location line="-8"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Fjern konto</translation>
     </message>
     <message id="qtn_delete_title">
         <location line="+14"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Fjern titel</translation>
     </message>
     <message id="qtn_delete_message">
         <location line="+1"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Fjern besked</translation>
     </message>
     <message id="qtn_delete_accept">
         <location line="+1"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Ja</translation>
     </message>
     <message id="qtn_delete_reject">
         <location line="+1"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Nej</translation>
     </message>
     <message id="qtn_ocnews_setup">
         <location filename="../qml/MainPage.qml" line="+63"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>ocNews Setup</translation>
     </message>
     <message id="qtn_ocnews_username">
         <location line="+9"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>ocNews brugernavn</translation>
     </message>
     <message id="qtn_ocnews_set_username">
         <location line="+1"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>ocNews sæt brugernavn</translation>
     </message>
     <message id="qtn_password">
         <location line="+8"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Kodeord</translation>
     </message>
     <message id="qtn_set_password">
         <location line="+1"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Sæt kodeord</translation>
     </message>
     <message id="qtn_server">
         <location line="+8"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>owncloud Server</translation>
     </message>
     <message id="qtn_set_server">
         <location line="+1"/>

@@ -3,19 +3,19 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+305"/>
+        <location line="+319"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location line="-270"/>
+        <location line="-286"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+25"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Лицензия  &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -64,13 +64,14 @@
     </message>
     <message>
         <location line="+7"/>
+        <location line="+29"/>
         <source>Danish translation</source>
-        <translation type="unfinished"/>
+        <translation>Перевод на Датский язык</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-24"/>
         <source>French translation</source>
-        <translation type="unfinished"/>
+        <translation>Перевод на Французский язык</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -88,7 +89,7 @@
         <translation>Перевод на Испанский язык</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+19"/>
         <source>Used third party elements</source>
         <translation>Использует сторонние элементы</translation>
     </message>
@@ -98,7 +99,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+132"/>
+        <location line="+138"/>
         <source>Contributors</source>
         <translation>Участники</translation>
     </message>
@@ -245,22 +246,22 @@
     <message>
         <location line="+8"/>
         <source>Update feed</source>
-        <translation>Обновить ленту</translation>
+        <translation>Обновить</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Move feed</source>
-        <translation>Переместить ленту</translation>
+        <translation>Переместить</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Delete feed</source>
-        <translation>Удалить ленту</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location line="+41"/>
@@ -372,12 +373,12 @@
     <message>
         <location line="+9"/>
         <source>Delete feed</source>
-        <translation>Удалить ленту</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -557,22 +558,22 @@
     <message>
         <location line="+8"/>
         <source>Update feed</source>
-        <translation>Обновить ленту</translation>
+        <translation>Обновить</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Move feed</source>
-        <translation>Переместить ленту</translation>
+        <translation>Переместить</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Delete feed</source>
-        <translation>Удалить ленту</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location line="+51"/>
@@ -846,27 +847,27 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/RenameFeedSheet.qml" line="+9"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отмена</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Rename feed&lt;br /&gt;%1</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать ленту &lt;br /&gt;%1</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Название</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Enter new feed name</source>
-        <translation type="unfinished"/>
+        <translation>Введите название ленты</translation>
     </message>
 </context>
 <context>
@@ -1063,17 +1064,17 @@
     <message>
         <location line="+1"/>
         <source>When item loads</source>
-        <translation type="unfinished"/>
+        <translation>При открытии сообщения</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Prefetch at updating</source>
-        <translation type="unfinished"/>
+        <translation>При обновлении ленты</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Load content images</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка изображений</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -1444,7 +1445,7 @@
     <message>
         <location line="+4"/>
         <source>Renamed feed to %1</source>
-        <translation type="unfinished"/>
+        <translation>Лента переименована в %1</translation>
     </message>
     <message>
         <location line="+22"/>

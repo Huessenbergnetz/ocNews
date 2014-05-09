@@ -3,19 +3,19 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+305"/>
+        <location line="+319"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Om</translation>
     </message>
     <message>
-        <location line="-270"/>
+        <location line="-286"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>OwnCloud News App klient for Harmattan</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Licenseret under &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -25,7 +25,7 @@
     <message>
         <location line="+10"/>
         <source>Visit website</source>
-        <translation type="unfinished"/>
+        <translation>Besøg hjemmeside</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -64,11 +64,12 @@
     </message>
     <message>
         <location line="+7"/>
+        <location line="+29"/>
         <source>Danish translation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-24"/>
         <source>French translation</source>
         <translation type="unfinished"/>
     </message>
@@ -88,7 +89,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+19"/>
         <source>Used third party elements</source>
         <translation type="unfinished"/>
     </message>
@@ -98,7 +99,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+132"/>
+        <location line="+138"/>
         <source>Contributors</source>
         <translation>Bidragydere</translation>
     </message>
@@ -143,7 +144,7 @@
     <message>
         <location line="+10"/>
         <source>Enter new feed address</source>
-        <translation type="unfinished"/>
+        <translation>Indfør ny feed adresse</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -470,12 +471,12 @@
     <message>
         <location line="+17"/>
         <source>&lt;b&gt;Welcome to ocNews&lt;/b&gt;&lt;br /&gt;With these app you can synchronize and view your ownCloud News App content on your smartphone. Before you can start, you have to setup your ownCloud server account.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Velkommen til ocNews&lt;/b&gt;&lt;br /&gt;Med dette program kan du synkronisere og se ownCloud News App indhold på din smartphone. Før du kan begynde, skal du først sætte din ownCloud server konto op.</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>&lt;i&gt;If you have updated ocNews from a version prior to 1.3.0, you have to resetup your account and resync your data, because of changed storage locations.&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;i&gt;Med ocNews 1.3.0 er lageret der indeholder dine data blevet flyttet. Derfor er du nødt til at genopsætte og synkronisere dine data på ny, hvis du har opgraderet ocNews fra en ældre version end 1.3.0.&lt;/i&gt;</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -486,7 +487,7 @@
         <location line="+11"/>
         <location line="+31"/>
         <source>Setup account</source>
-        <translation type="unfinished"/>
+        <translation>Opsætning af konto</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -532,27 +533,27 @@
     <message>
         <location line="+18"/>
         <source>Mark folder as read</source>
-        <translation type="unfinished"/>
+        <translation>Marker folder som læst</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Update folder</source>
-        <translation type="unfinished"/>
+        <translation>Ajourfør folder</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Rename folder</source>
-        <translation type="unfinished"/>
+        <translation>Omdøb folder</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Fjern folder</translation>
     </message>
     <message>
         <location line="+18"/>
         <source>Mark feed as read</source>
-        <translation type="unfinished"/>
+        <translation>Marker feed som læst</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -562,7 +563,7 @@
     <message>
         <location line="+8"/>
         <source>Move feed</source>
-        <translation type="unfinished"/>
+        <translation>Flyt feed</translation>
     </message>
     <message>
         <location line="+10"/>
