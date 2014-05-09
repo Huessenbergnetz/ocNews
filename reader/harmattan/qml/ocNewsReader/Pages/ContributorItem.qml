@@ -14,6 +14,7 @@ Row {
     property string github
     property string linkedin
     property string weibo
+    property string bitbucket
 
 
     Image {
@@ -80,6 +81,18 @@ Row {
                 smooth: true
                 visible: github ? true : false
                 onClicked: Qt.openUrlExternally("https://github.com/" + github)
+            }
+            
+            ImageButton {
+                id: bitbucketIcon
+                source: "icons/bitbucket.png"
+                sourceSize.height: 48
+                sourceSize.width: 48
+                height: 48
+                width: 48
+                smooth: true
+                visible: bitbucket ? true : false
+                onClicked: Qt.openUrlExternally("https://bitbucket.org/" + bitbucket)
             }
 
             ImageButton {

@@ -49,8 +49,13 @@ Page {
             }
 
             ContributorItem {
-                name: "flywheeldk"
+                name: "Peter Jespersen (flywheeldk)"
                 role: qsTr("Danish translation")
+                image: "flywheeldk.png"
+                website: "http://illogical.dk/"
+                twitter: "myflywheel"
+                linkedin: "pjespersen"
+                bitbucket: "flywheel"
             }
 
             ContributorItem {
