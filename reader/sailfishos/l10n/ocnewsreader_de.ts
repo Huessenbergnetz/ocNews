@@ -238,7 +238,7 @@
 <context>
     <name>DonationChooser</name>
     <message>
-        <location filename="../qml/Common/DonationChooser.qml" line="+103"/>
+        <location filename="../qml/Common/DonationChooser.qml" line="+105"/>
         <source>Currency</source>
         <translation>Währung</translation>
     </message>
@@ -359,8 +359,8 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>Donate</source>
-        <translation>Spenden</translation>
+        <source>Donate via PayPal</source>
+        <translation>Über PayPal spenden</translation>
     </message>
 </context>
 <context>

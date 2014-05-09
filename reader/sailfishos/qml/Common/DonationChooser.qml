@@ -132,7 +132,7 @@ Item {
     ComboBoxList {
         id: donation
         anchors { left: parent.left; right: parent.right }
-        label: qsTr("Donate")
+        label: qsTr("Donate via PayPal")
         model: donationModel
         onChoosenValueChanged: openDonation(choosenValue)
     }
