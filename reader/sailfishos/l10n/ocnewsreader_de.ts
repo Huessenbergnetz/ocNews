@@ -236,134 +236,6 @@
     </message>
 </context>
 <context>
-    <name>DonationChooser</name>
-    <message>
-        <location filename="../qml/Common/DonationChooser.qml" line="+105"/>
-        <source>Currency</source>
-        <translation>Währung</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Euro</source>
-        <translation>Euro</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>US Dollar</source>
-        <translation>US Dollar</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Australian Dollar</source>
-        <translation>Australischer Dollar</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Brazilian Real</source>
-        <translation>Brasilianischer Real</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Pound Sterling</source>
-        <translation>Pfund Sterling</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Danish Krone</source>
-        <translation>Dänische Krone</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Hong Kong Dollar</source>
-        <translation>Hong Kong Dollar</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Israel New Shekel</source>
-        <translation>Israelischer Schekel</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Japanese Yen</source>
-        <translation>Japanischer Yen</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Canadian Dollar</source>
-        <translation>Kanadischer Dollar</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Mexican Peso</source>
-        <translation>Mexikanischer Peso</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>New Taiwan Dollar</source>
-        <translation>Neuer Taiwan Dollar</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>New Zealand Dollar</source>
-        <translation>Neuseeland Dollar</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Norwegian Krone</source>
-        <translation>Norwegische Krone</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Philippine Peso</source>
-        <translation>Philippinischer Peso</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Polish ZÅoty</source>
-        <translation>Polnischer Zloty</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Russian Ruble</source>
-        <translation>Russischer Rubel</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Swedish Krone</source>
-        <translation>Schwedische Krone</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Swiss Franc</source>
-        <translation>Schweizer Franken</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Singapore Dollar</source>
-        <translation>Singapur-Dollar</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Thai Baht</source>
-        <translation>Thai Baht</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Czech Koruna</source>
-        <translation>Tschechische Koruna</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Hungarian Forint</source>
-        <translation>Ungarischer Forint</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Donate via PayPal</source>
-        <translation>Über PayPal spenden</translation>
-    </message>
-</context>
-<context>
     <name>EnclosureItem</name>
     <message>
         <location filename="../qml/Common/EnclosureItem.qml" line="+70"/>
@@ -914,6 +786,134 @@
         <location line="+13"/>
         <source>Click button to load image</source>
         <translation>Knopf drücken um Bild zu laden</translation>
+    </message>
+</context>
+<context>
+    <name>PaypalChooser</name>
+    <message>
+        <location filename="../qml/Common/PaypalChooser.qml" line="+105"/>
+        <source>Currency</source>
+        <translation>Währung</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Euro</source>
+        <translation>Euro</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>US Dollar</source>
+        <translation>US Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Australian Dollar</source>
+        <translation>Australischer Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Brazilian Real</source>
+        <translation>Brasilianischer Real</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Pound Sterling</source>
+        <translation>Pfund Sterling</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Danish Krone</source>
+        <translation>Dänische Krone</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Hong Kong Dollar</source>
+        <translation>Hong Kong Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Israel New Shekel</source>
+        <translation>Israelischer Schekel</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Japanese Yen</source>
+        <translation>Japanischer Yen</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Canadian Dollar</source>
+        <translation>Kanadischer Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Mexican Peso</source>
+        <translation>Mexikanischer Peso</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>New Taiwan Dollar</source>
+        <translation>Neuer Taiwan Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>New Zealand Dollar</source>
+        <translation>Neuseeland Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Norwegian Krone</source>
+        <translation>Norwegische Krone</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Philippine Peso</source>
+        <translation>Philippinischer Peso</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Polish ZÅoty</source>
+        <translation>Polnischer Zloty</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Russian Ruble</source>
+        <translation>Russischer Rubel</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Swedish Krone</source>
+        <translation>Schwedische Krone</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Swiss Franc</source>
+        <translation>Schweizer Franken</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Singapore Dollar</source>
+        <translation>Singapur-Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Thai Baht</source>
+        <translation>Thai Baht</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Czech Koruna</source>
+        <translation>Tschechische Koruna</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Hungarian Forint</source>
+        <translation>Ungarischer Forint</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Donate via PayPal</source>
+        <translation>Über PayPal spenden</translation>
     </message>
 </context>
 <context>

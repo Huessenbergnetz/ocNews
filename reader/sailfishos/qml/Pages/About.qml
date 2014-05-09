@@ -108,7 +108,7 @@ Page {
                 }
             }
 
-            DonationChooser {
+            PaypalChooser {
                 id: donation
                 anchors { left: parent.left; leftMargin: -Theme.paddingLarge; right: parent.right }
                 organization: "Buschtrommel"
