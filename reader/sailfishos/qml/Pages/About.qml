@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../Common"
 
 Page {
     id: about
@@ -107,13 +108,14 @@ Page {
                 }
             }
 
-            Button {
-                id: donationLink
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Make a donation")
-                onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDZAG64WD34PL")
+            DonationChooser {
+                id: donation
+                anchors { left: parent.left; leftMargin: -Theme.paddingLarge; right: parent.right }
+                organization: "Buschtrommel"
+                item: "ocNews"
+                email: "kontakt@buschmann23.de"
+                message: qsTr("Message to Buschtrommel:")
             }
         }
-
     }
 }

@@ -1,45 +1,62 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="en">
 <context>
     <name>About</name>
     <message>
-        <location filename="../qml/Pages/About.qml" line="+20"/>
+        <location filename="../qml/Pages/About.qml" line="+39"/>
         <source>About</source>
         <translation>About</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+29"/>
         <source>The ownCloud News App client for Sailfish OS</source>
         <translation>The ownCloud News App client for Sailfish OS</translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+18"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
         <translation>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Privacy policy</source>
-        <translation>Privacy policy</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Visit website</source>
-        <translation>Visit website</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Make a donation</source>
-        <translation>Make a donation</translation>
-    </message>
-    <message>
-        <location line="+7"/>
+        <location line="-55"/>
         <source>Contributors</source>
         <translation>Contributors</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-12"/>
+        <source>Homepage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Privacy Policy</source>
+        <translation type="unfinished">Privacy Policy</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Changelog</source>
         <translation>Changelog</translation>
+    </message>
+    <message>
+        <location line="+66"/>
+        <source>Contribute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Translate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Report bugs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Message to Buschtrommel:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -96,12 +113,12 @@
         <translation>Chinese (China) translation</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+26"/>
         <source>Danish translation</source>
         <translation>Danish translation</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-19"/>
         <source>French translation</source>
         <translation>French translation</translation>
     </message>
@@ -116,7 +133,7 @@
         <translation>Spanish translation</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+14"/>
         <source>Used third party elements</source>
         <translation>Used third party elements</translation>
     </message>
@@ -218,6 +235,134 @@
         <location line="+6"/>
         <source>Folder name</source>
         <translation>Folder name</translation>
+    </message>
+</context>
+<context>
+    <name>DonationChooser</name>
+    <message>
+        <location filename="../qml/Common/DonationChooser.qml" line="+152"/>
+        <source>Currency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Euro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>US Dollar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Australian Dollar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Brazilian Real</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Pound Sterling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Danish Krone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Hong Kong Dollar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Israel New Shekel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Japanese Yen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Canadian Dollar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Mexican Peso</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>New Taiwan Dollar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>New Zealand Dollar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Norwegian Krone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Philippine Peso</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Polish ZÅoty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Russian Ruble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Swedish Krone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Swiss Franc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Singapore Dollar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Thai Baht</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Czech Koruna</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Hungarian Forint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

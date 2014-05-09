@@ -91,7 +91,8 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Pages/Changelog.qml \
     qml/Pages/ClEntry.qml \
     qml/Pages/ClHeader.qml \
-    qml/Dialogs/RenameFeed.qml
+    qml/Dialogs/RenameFeed.qml \
+    qml/Common/DonationChooser.qml
 
 HEADERS += \
     ../common/ocdbmanager.h \
