@@ -49,6 +49,16 @@ Page {
             }
 
             ContributorItem {
+                name: "Flywheeldk (Peter Jespersen)"
+                role: qsTr("Danish translation")
+                image: "flywheeldk.png"
+                website: "http://illogical.dk/"
+                twitter: "myflywheel"
+                linkedin: "pjespersen"
+                bitbucket: "flywheel"
+            }
+
+            ContributorItem {
                 name: "Jean Clovis"
                 role: qsTr("French translation")
                 image: "jean-clovis.png"
@@ -65,16 +75,6 @@ Page {
             ContributorItem {
                 name: "Mariano Flotron"
                 role: qsTr("Spanish translation")
-            }
-
-            ContributorItem {
-                name: "Peter Jespersen (flywheeldk)"
-                role: qsTr("Danish translation")
-                image: "flywheeldk.png"
-                website: "http://illogical.dk/"
-                twitter: "myflywheel"
-                linkedin: "pjespersen"
-                bitbucket: "flywheel"
             }
 
             SectionHeader {

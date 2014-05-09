@@ -162,8 +162,13 @@ Page {
                     }
 
                     ContributorItem {
-                        name: "flywheeldk"
+                        name: "Flywheeldk (Peter Jespersen)"
                         role: qsTr("Danish translation")
+                        image: "flywheeldk.png"
+                        website: "http://illogical.dk/"
+                        twitter: "myflywheel"
+                        linkedin: "pjespersen"
+                        bitbucket: "flywheel"
                     }
 
                     ContributorItem {
@@ -189,16 +194,6 @@ Page {
                         name: "Palacex"
                         role: qsTr("Russian translation")
                     }
-                    
-                    ContributorItem {
-			name: "Peter Jespersen (flywheeldk)"
-			role: qsTr("Danish translation")
-			image: "flywheeldk.png"
-			website: "http://illogical.dk/"
-			twitter: "myflywheel"
-			linkedin: "pjespersen"
-			bitbucket: "flywheel"
-		    }
 
                     GroupHeader {
                         text: qsTr("Used third party elements")

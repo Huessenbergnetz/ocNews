@@ -50,33 +50,21 @@ Row {
 
             ImageButton {
                 id: browserIcon
-                source: "icons/browser.png"
-                sourceSize.height: 48
-                sourceSize.width: 48
-                width: 48
-                height: 48
+                source: "icons/icon-m-browser.png"
                 visible: website ? true : false
                 onClicked: Qt.openUrlExternally(website)
             }
 
             ImageButton {
                 id: twitterIcon
-                source: "icons/twitter.png"
-                sourceSize.height: 48
-                sourceSize.width: 59
-                height: 48
-                width: 59
+                source: "icons/icon-m-twitter.png"
                 visible: twitter ? true : false
                 onClicked: Qt.openUrlExternally("https://twitter.com/" + twitter)
             }
 
             ImageButton {
                 id: githubIcon
-                source: "icons/github.png"
-                sourceSize.height: 48
-                sourceSize.width: 48
-                height: 48
-                width: 48
+                source: "icons/icon-m-github.png"
                 visible: github ? true : false
                 onClicked: Qt.openUrlExternally("https://github.com/" + github)
             }
@@ -84,32 +72,20 @@ Row {
             ImageButton {
                 id: bitbucketIcon
                 source: "icons/icon-m-bitbucket.png"
-                sourceSize.height: 48
-                sourceSize.width: 48
-                height: 48
-                width: 48
                 visible: bitbucket ? true : false
                 onClicked: Qt.openUrlExternally("https://bitbucket.org/" + bitbucket)
             }
 
             ImageButton {
                 id: linkedinIcon
-                source: "icons/linkedin.png"
-                sourceSize.height: 48
-                sourceSize.width: 48
-                height: 48
-                width: 48
+                source: "icons/icon-m-linkedin.png"
                 visible: linkedin ? true : false
                 onClicked: Qt.openUrlExternally("http://www.linkedin.com/profile/view?id=" + linkedin)
             }
 
             ImageButton {
                 id: weiboIcon
-                source: "icons/weibo.png"
-                sourceSize.height: 48
-                sourceSize.width: 60
-                height: 48
-                width: 60
+                source: "icons/icon-m-weibo.png"
                 visible: weibo ? true : false
                 onClicked: Qt.openUrlExternally("http://www.weibo.com/" + weibo)
             }
