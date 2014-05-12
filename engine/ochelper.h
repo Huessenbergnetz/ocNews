@@ -9,14 +9,18 @@
 #include <QJsonObject>
 #endif
 #include "occonfiguration.h"
+#include <QNetworkRequest>
+#include <QUrl>
+#include <QUrlQuery>
 
 class OcHelper : public QObject
 {
     Q_OBJECT
 public:
     explicit OcHelper(QObject *parent = 0);
-    QString buildUrl(QString apipart);
+    QUrl buildUrl(QString apipart);
     QVariantMap jsonToQt(QByteArray json);
+    QNetworkRequest buildRequest(const QString &apipart, const int &length = 0, const QList<QPair<QString, QString> > &queryItems = QList<QPair<QString, QString> >());
 
 signals:
 

@@ -19,25 +19,14 @@ void OcItems::requestItems(const QString &batchSize, const QString &offset, cons
         qDebug() << "Start to fetch items from server.";
 #endif
 
-        urlRequestItems = helper.buildUrl("items");
+        QList<QPair<QString, QString> > query;
+        query << qMakePair(QString("batchSize"), batchSize);
+        query << qMakePair(QString("offset"), offset);
+        query << qMakePair(QString("type"), type);
+        query << qMakePair(QString("id"), id);
+        query << qMakePair(QString("getRead"), getRead);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-        QUrlQuery query;
-        query.addQueryItem("batchSize", batchSize);
-        query.addQueryItem("offset", offset);
-        query.addQueryItem("type", type);
-        query.addQueryItem("id", id);
-        query.addQueryItem("getRead", getRead);
-        urlRequestItems.setQuery(query);
-#else
-        urlRequestItems.addQueryItem("batchSize", batchSize);
-        urlRequestItems.addQueryItem("offset", offset);
-        urlRequestItems.addQueryItem("type", type);
-        urlRequestItems.addQueryItem("id", id);
-        urlRequestItems.addQueryItem("getRead", getRead);
-#endif
-
-        replyRequestItems = network.get(QNetworkRequest(urlRequestItems));
+        replyRequestItems = network.get(helper.buildRequest("items", 0, query));
 
         connect(replyRequestItems,SIGNAL(finished()),this,SLOT(itemsRequested()));
     }
@@ -318,21 +307,12 @@ void OcItems::updateItems(const QString &lastModified, const QString &type, cons
         qDebug() << "Last Modified: " << t_lastModified;
     #endif
 
-        urlUpdateItems = helper.buildUrl("items/updated");
+        QList<QPair<QString, QString> > urlQuery;
+        urlQuery << qMakePair(QString("lastModified"), t_lastModified);
+        urlQuery << qMakePair(QString("type"), type);
+        urlQuery << qMakePair(QString("id"), id);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-        QUrlQuery urlQuery;
-        urlQuery.addQueryItem("lastModified", t_lastModified);
-        urlQuery.addQueryItem("type", type);
-        urlQuery.addQueryItem("id", id);
-        urlUpdateItems.setQuery(urlQuery);
-#else
-        urlUpdateItems.addQueryItem("lastModified", t_lastModified);
-        urlUpdateItems.addQueryItem("type", type);
-        urlUpdateItems.addQueryItem("id", id);
-#endif
-
-        replyUpdateItems = network.get(QNetworkRequest(QUrl(urlUpdateItems)));
+        replyUpdateItems = network.get(helper.buildRequest("items/updated", 0, urlQuery));
 
         connect(replyUpdateItems,SIGNAL(finished()),this,SLOT(itemsUpdated()));
     }
@@ -617,8 +597,11 @@ void OcItems::markItemsTillThis(const QString &action, const QDBusVariant &pubDa
     qDebug() << itemIds;
 #endif
 
-    if (!itemIds.isEmpty())
+    if (!itemIds.isEmpty()) {
         markItems(action, itemIds);
+    } else {
+        emit markedItemsSuccess();
+    }
 
 }
 
@@ -669,27 +652,14 @@ void OcItems::markItems(const QString &action, const QVariantList &ids)
 
     } else {
 
-        if (action == "read")
-        {
-            urlMarkItems = helper.buildUrl("items/read/multiple");
-        } else {
-            urlMarkItems = helper.buildUrl("items/unread/multiple");
-        }
-
-        // prepare ids and action for signal sending
         QString joinedIds = slIds.join(",");
 
-        // Calculate content length header
-        QByteArray postDataSize = QByteArray::number(parameters.size());
-
-        // Building the request
-        QNetworkRequest request(urlMarkItems);
-
-        // Add the headers
-        request.setRawHeader("Content-Type", "application/json; charset=utf-8");
-        request.setRawHeader("Content-Length", postDataSize);
-
-        replyMarkItems = network.put(request, parameters);
+        if (action == "read")
+        {
+            replyMarkItems = network.put(helper.buildRequest("items/read/multiple", parameters.size()), parameters);
+        } else {
+            replyMarkItems = network.put(helper.buildRequest("items/unread/multiple", parameters.size()), parameters);
+        }
 
         // map the name into the signal
         QSignalMapper *signalMapper = new QSignalMapper(this);
@@ -828,27 +798,14 @@ void OcItems::starItems(const QString &action, const QVariantMap &itemIds)
 
     } else {
 
-        if (action == "star")
-        {
-            urlStarItems = helper.buildUrl("items/star/multiple");
-        } else {
-            urlStarItems = helper.buildUrl("items/unstar/multiple");
-        }
-
-
         QString joinedHashes = guidHashes.join(",");
 
-        // Calculate content length header
-        QByteArray postDataSize = QByteArray::number(parameters.size());
-
-        // Building the request
-        QNetworkRequest request(urlStarItems);
-
-        // Add the headers
-        request.setRawHeader("Content-Type", "application/json; charset=utf-8");
-        request.setRawHeader("Content-Length", postDataSize);
-
-        replyStarItems = network.put(request, parameters);
+        if (action == "star")
+        {
+            replyStarItems = network.put(helper.buildRequest("items/star/multiple", parameters.length()), parameters);
+        } else {
+            replyStarItems = network.put(helper.buildRequest("items/unstar/multiple", parameters.length()), parameters);
+        }
 
         // map the hashes into the signal
         QSignalMapper *signalMapper = new QSignalMapper(this);
@@ -931,9 +888,6 @@ void OcItems::markAllItemsRead()
         emit markedAllItemsReadError(tr("Device is in flight mode."));
 
     } else {
-        // build request url
-        urlMarkAllItemsRead = helper.buildUrl("items/read");
-
         // get newest item id
         QSqlQuery query;
         QString newestItemId;
@@ -950,17 +904,7 @@ void OcItems::markAllItemsRead()
         qDebug() << parameters;
     #endif
 
-        // Calculate content length header
-        QByteArray postDataSize = QByteArray::number(parameters.size());
-
-        // Building the request
-        QNetworkRequest request(urlMarkAllItemsRead);
-
-        // Add the headers
-        request.setRawHeader("Content-Type", "application/json; charset=utf-8");
-        request.setRawHeader("Content-Length", postDataSize);
-
-        replyMarkAllItemsRead = network.put(request, parameters);
+        replyMarkAllItemsRead = network.put(helper.buildRequest("items/read", parameters.length()), parameters);
 
         // map the hashes into the signal
         QSignalMapper *signalMapper = new QSignalMapper(this);
@@ -1193,6 +1137,8 @@ void OcItems::dequeueFinish()
 
 void OcItems::updateEventFeed(const QList<int> &newsFeedItems)
 {
+
+#if defined(MEEGO_EDITION_HARMATTAN)
     QSqlQuery query;
 
     for (int i = 0; i < newsFeedItems.size(); ++i) {
@@ -1208,7 +1154,6 @@ void OcItems::updateEventFeed(const QList<int> &newsFeedItems)
             if (query.value(6).toString() != "")
                 authorInFooter = query.value(6).toString();
 
-#if defined(MEEGO_EDITION_HARMATTAN)
             qlonglong id  = MEventFeed::instance()->addItem(QString("icon-m-ocnews"),
                                             QString(query.value(4).toString()),
                                             bodyText,
@@ -1222,9 +1167,10 @@ void OcItems::updateEventFeed(const QList<int> &newsFeedItems)
 #ifdef QT_DEBUG
         qDebug() << "Event ID: " << id;
 #endif
-#endif
+
         }
     }
+#endif
 }
 
 

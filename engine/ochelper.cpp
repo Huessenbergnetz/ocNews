@@ -19,17 +19,17 @@ OcHelper::OcHelper(QObject *parent) :
 
 
 /*!
- * \fn QString OcHelper::buildUrl(QString apipart)
+ * \fn QUrl OcHelper::buildUrl(QString apipart)
  * \brief Return the API URL
  *
  * This function uses the stored server address and combines it with the
  * used API part and the used protocol to build the API URL.
  *
  * \param apipart       The part of the API that is used
- * \return              QString with the complete URL
+ * \return              QUrl the complete URL
  */
 
-QString OcHelper::buildUrl(QString apipart)
+QUrl OcHelper::buildUrl(QString apipart)
 {
     QString domain;
     QString url;
@@ -60,13 +60,59 @@ QString OcHelper::buildUrl(QString apipart)
     url.append("/index.php/apps/news/api/v1-2/");
     url.append(apipart);
 
-#ifdef QT_DEBUG
-    qDebug() << url;
-#endif
-
-    return url;
+    return QUrl(url);
 }
 
+
+/*!
+ * \fn QNetworkRequest OcHelper::buildRequest(const QUrl &url)
+ * \brief Builds the authorization header value
+ *
+ * This function build the authorization header value.
+ *
+ * \param url QUrl the url that should be requested
+ * \return
+ */
+QNetworkRequest OcHelper::buildRequest(const QString &apipart, const int &length, const QList<QPair<QString, QString> > &queryItems)
+{
+    QVariantMap account = config.getAccount();
+    QString auth(account["uname"].toString() + ":" + account["pword"].toString());
+
+    QUrl url = buildUrl(apipart);
+
+    if (!queryItems.isEmpty()) {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        QUrlQuery query;
+#endif
+        for (int i = 0; i < queryItems.length(); ++i)
+        {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        query.addQueryItem(queryItems.at(i).first, queryItems.at(i).second);
+#else
+        url.addQueryItem(queryItems.at(i).first, queryItems.at(i).second);
+#endif
+        }
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        url.setQuery(query);
+#endif
+    }
+
+#ifdef QT_DEBUG
+    qDebug() << url.toString();
+#endif
+
+    QNetworkRequest request;
+    request.setUrl(url);
+    request.setRawHeader("Authorization", "Basic " + auth.toUtf8().toBase64());
+
+    if (length > 0) {
+        request.setRawHeader("Content-Type", "application/json; charset=utf-8");
+        request.setRawHeader("Content-Length", QByteArray::number(length));
+    }
+
+    return request;
+}
 
 
 

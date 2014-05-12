@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="en">
 <context>
     <name>About</name>
     <message>
@@ -111,12 +113,12 @@
         <translation>Chinese (China) translation</translation>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+7"/>
         <source>Danish translation</source>
         <translation>Danish translation</translation>
     </message>
     <message>
-        <location line="-19"/>
+        <location line="+10"/>
         <source>French translation</source>
         <translation>French translation</translation>
     </message>
@@ -131,7 +133,7 @@
         <translation>Spanish translation</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+4"/>
         <source>Used third party elements</source>
         <translation>Used third party elements</translation>
     </message>

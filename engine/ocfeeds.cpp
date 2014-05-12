@@ -35,9 +35,7 @@ void OcFeeds::requestFeeds()
         qDebug() << "Start to fetch feeds from server.";
 #endif
 
-        urlRequestFeeds = helper.buildUrl("feeds");
-
-        replyRequestFeeds = network.get(QNetworkRequest(QUrl(urlRequestFeeds)));
+        replyRequestFeeds = network.get(helper.buildRequest("feeds"));
 
         connect(replyRequestFeeds,SIGNAL(finished()),this,SLOT(feedsRequested()));
     }
@@ -242,9 +240,6 @@ void OcFeeds::createFeed(const QString &url, const QString &folderId, bool event
     {
         emit createdFeedError(tr("Device is in flight mode."));
     } else {
-        // Create the API URL
-        urlCreateFeed = helper.buildUrl("feeds");
-
         QString t_folderId = folderId;
 
         // Create the JSON string
@@ -254,17 +249,7 @@ void OcFeeds::createFeed(const QString &url, const QString &folderId, bool event
         parameters.append(t_folderId.replace(QString("/"), QString("\\/")));
         parameters.append("}");
 
-        // Calculate content length header
-        QByteArray postDataSize = QByteArray::number(parameters.size());
-
-        // Building the request
-        QNetworkRequest request(urlCreateFeed);
-
-        // Add the headers
-        request.setRawHeader("Content-Type", "application/json; charset=utf-8");
-        request.setRawHeader("Content-Length", postDataSize);
-
-        replyCreateFeed = network.post(request, parameters);
+        replyCreateFeed = network.post(helper.buildRequest("feeds", parameters.size()), parameters);
 
         // check if feed should be added to the event view
         int ev = eventView ? 1 : 0;
@@ -419,12 +404,8 @@ void OcFeeds::deleteFeed(const QString &id)
         // Create the API URL
         QString feed = "feeds/";
         feed.append(id);
-        urlDeleteFeed = helper.buildUrl(feed);
 
-        // Building the request
-        QNetworkRequest request(urlDeleteFeed);
-
-        replyDeleteFeed = network.deleteResource(request);
+        replyDeleteFeed = network.deleteResource(helper.buildRequest(feed));
 
         connect(replyDeleteFeed,SIGNAL(finished()),this,SLOT(feedDeleted()));
     }
@@ -546,24 +527,13 @@ void OcFeeds::moveFeed(const QString &id, const QString &folderId)
         QString feed = "feeds/";
         feed.append(id);
         feed.append("/move");
-        urlMoveFeed = helper.buildUrl(feed);
 
         // Create the JSON string
         QByteArray parameters("{\"folderId\": ");
         parameters.append(folderId);
         parameters.append("}");
 
-        // Calculate content length header
-        QByteArray postDataSize = QByteArray::number(parameters.size());
-
-        // Building the request
-        QNetworkRequest request(urlMoveFeed);
-
-        // Add the headers
-        request.setRawHeader("Content-Type", "application/json; charset=utf-8");
-        request.setRawHeader("Content-Length", postDataSize);
-
-        replyMoveFeed = network.put(request, parameters);
+        replyMoveFeed = network.put(helper.buildRequest(feed, parameters.length()), parameters);
 
         // map the name into the signal
         QSignalMapper *signalMapper = new QSignalMapper(this);
@@ -736,7 +706,6 @@ void OcFeeds::markFeedRead(const QString &feedId)
         // Create API URL
         QString feed = "feeds/";
         feed.append(feedId).append("/read");
-        QUrl urlMarkFeedRead = helper.buildUrl(feed);
 
         // Determine newest item ID
         QSqlQuery query;
@@ -758,17 +727,7 @@ void OcFeeds::markFeedRead(const QString &feedId)
         qDebug() << __func__ << "- parameters: " << parameters;
 #endif
 
-        // Calculate content length header
-        QByteArray postDataSize = QByteArray::number(parameters.size());
-
-        // Building the request
-        QNetworkRequest request(urlMarkFeedRead);
-
-        // Add the headers
-        request.setRawHeader("Content-Type", "application/json; charset=utf-8");
-        request.setRawHeader("Content-Length", postDataSize);
-
-        replyMarkFeedRead = network.put(request, parameters);
+        replyMarkFeedRead = network.put(helper.buildRequest(feed, parameters.length()), parameters);
 
         connect(replyMarkFeedRead,SIGNAL(finished()),this,SLOT(feedMarkedRead()));
 
@@ -879,24 +838,13 @@ void OcFeeds::renameFeed(const QString &id, const QString &newName)
         QString feed = "feeds/";
         feed.append(id);
         feed.append("/rename");
-        urlRenameFeed = helper.buildUrl(feed);
 
         // Create the JSON string
         QByteArray parameters("{\"feedTitle\": \"");
         parameters.append(newName);
         parameters.append("\"}");
 
-        // Calculate content length header
-        QByteArray postDataSize = QByteArray::number(parameters.size());
-
-        // Building the request
-        QNetworkRequest request(urlRenameFeed);
-
-        // Add the headers
-        request.setRawHeader("Content-Type", "application/json; charset=utf-8");
-        request.setRawHeader("Content-Length", postDataSize);
-
-        replyRenameFeed = network.put(request, parameters);
+        replyRenameFeed = network.put(helper.buildRequest(feed, parameters.length()), parameters);
 
         // map the name into the signal
         QSignalMapper *signalMapper = new QSignalMapper(this);

@@ -497,11 +497,11 @@ QVariantMap OcConfiguration::getAccount()
             result["state"] = 3;
         } else if (isConfigSet() && enabled == true) {
             result["state"] = 0;
-            result["uname"] = uname;
-            result["pword"] = pword;
-            result["server"] = server;
-            result["usessl"] = usessl;
-            result["ignoresslerror"] = ignoresslerror;
+            result["uname"] = settings.value("account/user", "").toString();
+            result["pword"] = settings.value("account/password", "").toString();
+            result["server"] = settings.value("account/server", "").toString();
+            result["usessl"] = settings.value("account/usessl", true).toBool();
+            result["ignoresslerror"] = settings.value("account/ignoresslerrors", false).toBool();
         }
 
 #endif

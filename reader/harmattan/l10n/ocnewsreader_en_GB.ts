@@ -1,14 +1,16 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="en">
 <context>
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+319"/>
+        <location line="+314"/>
         <source>About</source>
         <translation>About</translation>
     </message>
     <message>
-        <location line="-286"/>
+        <location line="-281"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>The ownCloud News App client for Harmattan</translation>
     </message>
@@ -64,12 +66,11 @@
     </message>
     <message>
         <location line="+7"/>
-        <location line="+29"/>
         <source>Danish translation</source>
         <translation>Danish translation</translation>
     </message>
     <message>
-        <location line="-24"/>
+        <location line="+10"/>
         <source>French translation</source>
         <translation>French translation</translation>
     </message>
@@ -89,7 +90,7 @@
         <translation>Spanish translation</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+9"/>
         <source>Used third party elements</source>
         <translation>Used third party elements</translation>
     </message>

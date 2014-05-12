@@ -4,8 +4,8 @@
 #define VERSION_STRING "1.8.1"
 #define VERSION 181
 #define VER_MAJ 1
-#define VER_MIN 1
-#define VER_PAT 0
+#define VER_MIN 8
+#define VER_PAT 1
 
 extern bool inOperation;
 

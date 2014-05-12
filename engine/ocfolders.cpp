@@ -15,9 +15,8 @@ void OcFolders::requestFolders()
 #ifdef QT_DEBUG
         qDebug() << "Start to fetch folders from server";
 #endif
-        urlRequestFolders = helper.buildUrl("folders");
 
-        replyRequestFolders = network.get(QNetworkRequest(QUrl(urlRequestFolders)));
+        replyRequestFolders = network.get(helper.buildRequest("folders"));
 
         connect(replyRequestFolders,SIGNAL(finished()),this,SLOT(foldersRequested()));
     }
@@ -34,7 +33,6 @@ void OcFolders::foldersRequested()
     {
         QVariantMap foldersresult = helper.jsonToQt(replyRequestFolders->readAll());
 
-        replyRequestFolders->deleteLater();
 #ifdef QT_DEBUG
         qDebug() << foldersresult;
 #endif
@@ -56,6 +54,8 @@ void OcFolders::foldersRequested()
 #endif
         emit requestedFoldersError(replyRequestFolders->errorString());
     }
+
+    replyRequestFolders->deleteLater();
 
 }
 
@@ -148,25 +148,13 @@ void OcFolders::createFolder(const QString &name)
     {
         emit createdFolderError(tr("Device is in flight mode."));
     } else {
-        // Create the API URL
-        urlCreateFolder = helper.buildUrl("folders");
 
         // Create the JSON string
         QByteArray parameters("{\"name\": \"");
         parameters.append(name);
         parameters.append("\"}");
 
-        // Calculate content length header
-        QByteArray postDataSize = QByteArray::number(parameters.size());
-
-        // Building the request
-        QNetworkRequest request(urlCreateFolder);
-
-        // Add the headers
-        request.setRawHeader("Content-Type", "application/json; charset=utf-8");
-        request.setRawHeader("Content-Length", postDataSize);
-
-        replyCreateFolder = network.post(request, parameters);
+        replyCreateFolder = network.post(helper.buildRequest("folders", parameters.length()), parameters);
 
         connect(replyCreateFolder,SIGNAL(finished()),this,SLOT(folderCreated()));
     }
@@ -230,12 +218,8 @@ void OcFolders::deleteFolder(const QString &id)
         // Create the API URL
         QString folder = "folders/";
         folder.append(id);
-        urlDeleteFolder = helper.buildUrl(folder);
 
-        // Building the request
-        QNetworkRequest request(urlDeleteFolder);
-
-        replyDeleteFolder = network.deleteResource(request);
+        replyDeleteFolder = network.deleteResource(helper.buildRequest(folder));
 
         connect(replyDeleteFolder,SIGNAL(finished()),this,SLOT(folderDeleted()));
     }
@@ -305,6 +289,8 @@ void OcFolders::folderDeletedUpdateDb(int id)
 
 void OcFolders::renameFolder(const QString &id, const QString &name)
 {
+    qDebug() << name;
+
     if (network.isFlightMode())
     {
         emit renamedFolderError(tr("Device is in flight mode."));
@@ -312,24 +298,13 @@ void OcFolders::renameFolder(const QString &id, const QString &name)
         // Create the API URL
         QString folder = "folders/";
         folder.append(id);
-        urlRenameFolder = helper.buildUrl(folder);
 
         // Create the JSON string
         QByteArray parameters("{\"name\": \"");
         parameters.append(name);
         parameters.append("\"}");
 
-        // Calculate content length header
-        QByteArray postDataSize = QByteArray::number(parameters.size());
-
-        // Building the request
-        QNetworkRequest request(urlRenameFolder);
-
-        // Add the headers
-        request.setRawHeader("Content-Type", "application/json; charset=utf-8");
-        request.setRawHeader("Content-Length", postDataSize);
-
-        replyRenameFolder = network.put(request, parameters);
+        replyRenameFolder = network.put(helper.buildRequest(folder, parameters.length()), parameters);
 
         // map the name into the signal
         QSignalMapper *signalMapper = new QSignalMapper(this);
@@ -363,6 +338,8 @@ void OcFolders::folderRenamed(QString name)
         replyRenameFolder->deleteLater();
 #ifdef QT_DEBUG
         qDebug() << renameresulterror;
+        qDebug() << replyRenameFolder->error();
+        qDebug() << replyRenameFolder->errorString();
 #endif
 
         emit renamedFolderError(renameresulterror);
@@ -393,7 +370,6 @@ void OcFolders::markFolderRead(const QString &id)
         QString folder = "folders/";
         folder.append(id);
         folder.append("/read");
-        QUrl urlMarkFolderRead = helper.buildUrl(folder);
 
         // get newest item id
         QString newestItemId;
@@ -411,17 +387,7 @@ void OcFolders::markFolderRead(const QString &id)
         parameters.append(newestItemId);
         parameters.append("}");
 
-        // Calculate content length header
-        QByteArray postDataSize = QByteArray::number(parameters.size());
-
-        // Building the request
-        QNetworkRequest request(urlMarkFolderRead);
-
-        // Add the headers
-        request.setRawHeader("Content-Type", "application/json; charset=utf-8");
-        request.setRawHeader("Content-Length", postDataSize);
-
-        replyMarkFolderRead = network.put(request, parameters);
+        replyMarkFolderRead = network.put(helper.buildRequest(folder, parameters.length()), parameters);
 
         connect(replyMarkFolderRead, SIGNAL(finished()), this, SLOT(folderMarkedRead()));
     }
