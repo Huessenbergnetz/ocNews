@@ -201,7 +201,7 @@ Page {
 
                     ContributorItem {
                         name: qsTr("Martin Grimme's Tidings Elements")
-                        role: "FancyScroller, RescalingRichText"
+                        role: "RescalingRichText"
                         website: "https://github.com/pycage/tidings"
                         github: "pycage"
                     }

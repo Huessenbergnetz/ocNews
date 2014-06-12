@@ -3,6 +3,7 @@ import Sailfish.Silica 1.0
 
 import "../Delegates"
 import "../Common"
+import "../BTComponents"
 import "../JS/globals.js" as GLOBALS
 
 Page {
@@ -103,8 +104,6 @@ Page {
         delegate: SpecialItemListDelegate { feedId: specialItemListView.id; searchString: searchField.text; handleRead: specialItemListView.handleRead; sortAsc: specialItemListView.sortAsc; feedType: specialItemListView.feedType }
 
         VerticalScrollDecorator {}
-
-        FancyScroller {}
 
         PushUpMenu {
             id: specialItemListViewPushy

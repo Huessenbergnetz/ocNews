@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-import "../Common"
+import "../BTComponents"
 
 Dialog {
     id: createFeed
@@ -49,19 +49,6 @@ Dialog {
             EnterKey.iconSource: "image://theme/icon-m-enter-close"
         }
 
-//        ComboBox {
-//            id: folderChooser
-//            visible: folderId === ""
-//            anchors { left: parent.left; right: parent.right }
-//            label: qsTr("Add feed to folder")
-//            menu: ContextMenu {
-//                  Repeater {
-//                       model: folderModelData
-//                       MenuItem { text: model.name }
-//                  }
-//            }
-//        }
-
         ComboBoxList {
             id: folderChooser
             anchors { left: parent.left; right: parent.right }
@@ -70,20 +57,11 @@ Dialog {
             initialValue: folderId
         }
 
-//        Label {
-//            id: addToFolder
-//            visible: !folderChooser.visible
-//            anchors { left: parent.left; leftMargin: Theme.paddingLarge; right: parent.right; rightMargin: Theme.paddingLarge }
-//            text: qsTr("Add feed to folder<br />%1").arg(folderName)
-//            textFormat: Text.StyledText
-//        }
-
         TextSwitch {
             id: addToEventSwitch
             text: qsTr("Show feed in event view")
             visible: false
             anchors { left: parent.left; right: parent.right }
-//            description: qsTr("Only ignore SSL errors when you really know what you are doing.")
             checked: false
         }
     }

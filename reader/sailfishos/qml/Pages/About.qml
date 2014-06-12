@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "../Common"
+import "../BTComponents"
 
 Page {
     id: about
@@ -25,11 +25,11 @@ Page {
             }
             MenuItem {
                 text: qsTr("Changelog")
-                onClicked: pageStack.push(Qt.resolvedUrl("Changelog.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl("../BTComponents/Changelog.qml"))
             }
             MenuItem {
                 text: qsTr("Contributors")
-                onClicked: pageStack.push(Qt.resolvedUrl("Contributors.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl("../BTComponents/Contributors.qml"), {avatarBasePath: "/usr/share/harbour-ocnews-reader/icons/contributors", iconBasePath: "/usr/share/harbour-ocnews-reader/icons"})
             }
         }
 

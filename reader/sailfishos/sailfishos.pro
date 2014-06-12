@@ -17,6 +17,10 @@ icons.path = /usr/share/harbour-ocnews-reader/icons
 icons.files = icons/*
 INSTALLS += icons
 
+contributors.path = /usr/share/harbour-ocnews-reader/icons/contributors
+contributors.files = icons/contributors/*
+INSTALLS += contributors
+
 readerl10n.path = /usr/share/harbour-ocnews-reader/translations
 readerl10n.files = l10n/*.qm
 INSTALLS += readerl10n
@@ -64,35 +68,26 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Dialogs/CreateFolder.qml \
     qml/Dialogs/CreateFeed.qml \
     qml/Dialogs/RenameFolder.qml \
-    qml/Common/ComboBoxList.qml \
     qml/Dialogs/MoveFeed.qml \
     qml/Pages/Settings.qml \
     qml/Pages/CoverPage.qml \
     qml/Pages/About.qml \
     qml/Dialogs/PrivacyPolicy.qml \
-    qml/Common/FancyScroller.qml \
-    qml/Pages/Contributors.qml \
-    qml/Pages/ContributorItem.qml \
-    qml/Pages/images/placeholder.png \
-    qml/Pages/icons/browser.png \
-    qml/Pages/icons/twitter.png \
-    qml/Pages/images/buschmann.png \
-    qml/Pages/icons/github.png \
-    qml/Pages/icons/linkedin.png \
-    qml/Pages/icons/weibo.png \
-    qml/Pages/images/tigre-bleu.png \
-    qml/Common/ImageButton.qml \
     qml/Pages/images/finalmix.png \
     qml/Common/FetchImagesIndicator.qml \
     qml/Dialogs/OpenLink.qml \
     qml/Common/EnclosureItem.qml \
     qml/Common/RescalingRichText.qml \
     l10n/*.ts \
-    qml/Pages/Changelog.qml \
-    qml/Pages/ClEntry.qml \
-    qml/Pages/ClHeader.qml \
     qml/Dialogs/RenameFeed.qml \
-    qml/Common/PaypalChooser.qml
+    qml/BTComponents/FirstStartInfo.qml \
+    qml/BTComponents/ContributorsModel.qml \
+    qml/BTComponents/ContributorsDelegate.qml \
+    qml/BTComponents/Contributors.qml \
+    qml/BTComponents/ComboBoxList.qml \
+    qml/BTComponents/ChangelogModel.qml \
+    qml/BTComponents/Changelog.qml \
+    qml/BTComponents/PaypalChooser.qml
 
 HEADERS += \
     ../common/ocdbmanager.h \

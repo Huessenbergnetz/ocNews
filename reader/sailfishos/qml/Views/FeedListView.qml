@@ -105,8 +105,6 @@ Page {
 
         VerticalScrollDecorator {}
 
-        FancyScroller {}
-
         PushUpMenu {
             id: feedListViewPushy
             enabled: feedList.contentHeight >= feedList.height

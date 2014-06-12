@@ -153,8 +153,6 @@ Page {
 
         VerticalScrollDecorator {}
 
-        FancyScroller {}
-
         PushUpMenu {
             id: mainViewPushy
             enabled: mainViewList.contentHeight >= mainViewList.height
