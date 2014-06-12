@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.0">
 <context>
     <name>OcDownloadManager</name>
     <message>
@@ -13,17 +11,17 @@
     <name>OcFeeds</name>
     <message>
         <location filename="../ocfeeds.cpp" line="+32"/>
-        <location line="+211"/>
-        <location line="+174"/>
-        <location line="+126"/>
-        <location line="+191"/>
-        <location line="+142"/>
+        <location line="+209"/>
+        <location line="+161"/>
+        <location line="+122"/>
+        <location line="+180"/>
+        <location line="+131"/>
         <source>Device is in flight mode.</source>
         <translation>Device is in flight mode.</translation>
     </message>
     <message>
-        <location line="-804"/>
-        <location line="+236"/>
+        <location line="-765"/>
+        <location line="+223"/>
         <source>Server reply was empty.</source>
         <translation>Server reply was empty.</translation>
     </message>
@@ -33,15 +31,15 @@
     <message>
         <location filename="../ocfolders.cpp" line="+13"/>
         <location line="+136"/>
-        <location line="+79"/>
-        <location line="+82"/>
+        <location line="+67"/>
         <location line="+80"/>
+        <location line="+71"/>
         <source>Device is in flight mode.</source>
         <translation>Device is in flight mode.</translation>
     </message>
     <message>
-        <location line="-347"/>
-        <location line="+146"/>
+        <location line="-326"/>
+        <location line="+136"/>
         <source>Server reply was empty.</source>
         <translation>Server reply was empty.</translation>
     </message>
@@ -56,19 +54,19 @@
     </message>
     <message>
         <location line="-32"/>
-        <location line="+64"/>
+        <location line="+63"/>
         <source>Request canceled, maybe wrong username or password</source>
         <translation>Request canceled, maybe wrong username or password</translation>
     </message>
     <message>
-        <location line="-62"/>
-        <location line="+64"/>
+        <location line="-61"/>
+        <location line="+63"/>
         <source>Remote host not found</source>
         <translation>Remote host not found</translation>
     </message>
     <message>
-        <location line="-62"/>
-        <location line="+64"/>
+        <location line="-61"/>
+        <location line="+63"/>
         <source>Can not find ownCloud News, maybe wrong path or server</source>
         <translation>Can not find ownCloud News, maybe wrong path or server</translation>
     </message>
@@ -82,14 +80,14 @@
     <name>OcItems</name>
     <message>
         <location filename="../ocitems.cpp" line="+15"/>
-        <location line="+253"/>
-        <location line="+663"/>
+        <location line="+242"/>
+        <location line="+631"/>
         <source>Device is in flight mode.</source>
         <translation>Device is in flight mode.</translation>
     </message>
     <message>
-        <location line="-858"/>
-        <location line="+298"/>
+        <location line="-826"/>
+        <location line="+289"/>
         <source>Server reply was empty.</source>
         <translation>Server reply was empty.</translation>
     </message>

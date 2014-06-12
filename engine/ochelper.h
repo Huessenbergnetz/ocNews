@@ -7,11 +7,11 @@
 #else
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QUrlQuery>
 #endif
 #include "occonfiguration.h"
 #include <QNetworkRequest>
 #include <QUrl>
-#include <QUrlQuery>
 
 class OcHelper : public QObject
 {

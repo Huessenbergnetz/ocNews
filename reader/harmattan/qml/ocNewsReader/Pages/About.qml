@@ -235,6 +235,15 @@ Page {
                     move: Transition { NumberAnimation { properties: "y"; easing.type: Easing.InOutQuad } }
 
                     CLItem {
+                        version: "1.8.2"
+                        time: 1399932292000
+                        text: "<ul>
+                                <li>Improved: about page design</li>
+                                <li>Fixed: send user authentication directly in the request to adopt to latest News App changes, fixes issue #39<li>
+                               </ul>"
+                    }
+
+                    CLItem {
                         version: "1.8.1"
                         time: 1399132800000
                         text: "<ul>

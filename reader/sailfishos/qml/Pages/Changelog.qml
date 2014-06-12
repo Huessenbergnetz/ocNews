@@ -21,7 +21,7 @@ Page {
 
             ClHeader {
                 version: "1.8.2"
-                time: 1399132800000
+                time: 1399932292000
                 onExpand: v182.visible = !v182.visible
             }
 
@@ -29,6 +29,8 @@ Page {
                 id: v182
                 text: "<ul>
                         <li>Improved: about page design</li>
+                        <li>Improved: donation currency chooser</li>
+                        <li>Fixed: send user authentication directly in the request to adopt to latest News App changes, fixes issue #39<li>
                       </ul>"
             }
 

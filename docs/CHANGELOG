@@ -2,6 +2,10 @@ Version 1.8.2
 
   General
   * Improved: about page design
+  * Fixed: send user authentication directly in the request to adopt to latest News App changes, fixes issue #39
+  
+  Sailfish OS:
+  * Improved: donation currency chooser
 
 Version 1.8.1, 2014-05-03 18:00:00 +0200
 

@@ -1,3 +1,10 @@
+buschtrommel-ocnews (1.8.2) stable; urgency=low
+
+  * Improved: about page design
+  * Fixed: send user authentication directly in the request to adopt to latest News App changes, fixes issue #39
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Tue, 13 May 2014 00:04:00 +0200
+
 buschtrommel-ocnews (1.8.1) stable; urgency=low
 
   * New: option for hiding read feeds and folders (issue #37)
