@@ -59,7 +59,7 @@
     <message id="qtn_button_save">
         <location filename="../qml/main.qml" line="+31"/>
         <source/>
-        <translation>Gem</translation>
+        <translation type="unfinished"/>
     </message>
     <message id="qtn_button_cancel">
         <location line="+5"/>

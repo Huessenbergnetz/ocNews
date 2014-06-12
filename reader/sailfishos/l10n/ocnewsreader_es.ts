@@ -60,85 +60,85 @@
 <context>
     <name>Changelog</name>
     <message>
-        <location filename="../qml/Pages/Changelog.qml" line="+18"/>
+        <location filename="../qml/BTComponents/Changelog.qml" line="+35"/>
         <source>Changelog</source>
         <translation>Cambios</translation>
     </message>
-</context>
-<context>
-    <name>ClHeader</name>
     <message>
-        <location filename="../qml/Pages/ClHeader.qml" line="+21"/>
+        <location line="+7"/>
         <source>Version</source>
-        <translation>Versión</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Contributors</name>
     <message>
-        <location filename="../qml/Pages/Contributors.qml" line="+20"/>
+        <location filename="../qml/BTComponents/Contributors.qml" line="+34"/>
         <source>Contributors</source>
         <translation>Contribuidores</translation>
     </message>
+</context>
+<context>
+    <name>ContributorsModel</name>
     <message>
-        <location line="+2"/>
-        <source>Upstream author</source>
-        <translation>Autor upstream</translation>
+        <location filename="../qml/BTComponents/ContributorsModel.qml" line="+26"/>
+        <source>Main developer, ocNews creator</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+4"/>
-        <source>Main developer, ocNews creator</source>
-        <translation>Desarrollador principal, creador de ocNews</translation>
+        <location line="+1"/>
+        <source>Author</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>UI, French translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Major contributors</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
-        <source>Major contributors</source>
-        <translation>Mayores aportadores</translation>
+        <source>Chinese (China) translation</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+4"/>
-        <source>UI, French translation</source>
-        <translation>Interfaz de usuario, traducción al Francés</translation>
-    </message>
-    <message>
+        <location line="+1"/>
+        <location line="+8"/>
+        <location line="+11"/>
+        <location line="+8"/>
+        <location line="+8"/>
         <location line="+5"/>
         <source>Thanks to</source>
-        <translation>Gracias a</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+4"/>
-        <source>Chinese (China) translation</source>
-        <translation>Chino (China) traducción</translation>
-    </message>
-    <message>
-        <location line="+26"/>
+        <location line="-33"/>
         <source>Danish translation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-19"/>
+        <location line="+11"/>
         <source>French translation</source>
-        <translation>Traducción al Francés</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+8"/>
         <source>Italian translation</source>
-        <translation>Italiano traducción</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+8"/>
         <source>Spanish translation</source>
-        <translation>Traducción al español</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+14"/>
-        <source>Used third party elements</source>
-        <translation>Elementos ajenos usados</translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+5"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation>Martin Grimme&apos;s Anunciando Elementos</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -212,12 +212,12 @@
         <translation>Dirección de Feed</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+9"/>
         <source>Add feed to folder</source>
         <translation>Añadir feed a la carpeta</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+7"/>
         <source>Show feed in event view</source>
         <translation>Mostrar feed en la pantalla de eventos</translation>
     </message>
@@ -364,7 +364,7 @@
         <translation>Esta carpeta está vacía. Agrega algunos feeds dentro.</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+15"/>
         <source>Scroll to top</source>
         <translation>Volver arriba</translation>
     </message>
@@ -385,6 +385,41 @@
         <location filename="../qml/Common/FetchImagesIndicator.qml" line="+37"/>
         <source>Fetching images</source>
         <translation>Cargando imágenes</translation>
+    </message>
+</context>
+<context>
+    <name>FirstStartInfo</name>
+    <message>
+        <location filename="../qml/BTComponents/FirstStartInfo.qml" line="+73"/>
+        <source>Welcome to %1 %2</source>
+        <comment>First is app name, second is version number</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Last changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Donate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>If you like %1 and you want to support the development, consider a small donation.</source>
+        <comment>first is name of the application</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Help</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Close</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -496,7 +531,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+51"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+52"/>
         <source>Update running...</source>
         <translation>Actualización en ejecución...</translation>
     </message>
@@ -541,7 +576,7 @@
         <translation>Mostrar búsqueda</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+21"/>
         <source>Scroll to top</source>
         <translation>Volver arriba</translation>
     </message>
@@ -639,7 +674,7 @@
         <translation>La base de datos local está vacía. Por favor, haga una actualización o agregue nuevos feeds y carpetas.</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+16"/>
         <source>Scroll to top</source>
         <translation>Volver arriba</translation>
     </message>
@@ -791,7 +826,7 @@
 <context>
     <name>PaypalChooser</name>
     <message>
-        <location filename="../qml/Common/PaypalChooser.qml" line="+105"/>
+        <location filename="../qml/BTComponents/PaypalChooser.qml" line="+125"/>
         <source>Currency</source>
         <translation type="unfinished"/>
     </message>
@@ -872,7 +907,7 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Polish ZÅoty</source>
+        <source>Polish Zloty</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1378,7 +1413,7 @@
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../qml/Views/SpecialItemListView.qml" line="+52"/>
+        <location filename="../qml/Views/SpecialItemListView.qml" line="+53"/>
         <source>Update running...</source>
         <translation>Actualización en ejecución...</translation>
     </message>
@@ -1423,7 +1458,7 @@
         <translation>Mostrar búsqueda</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+22"/>
         <source>Scroll to top</source>
         <translation>Volver arriba</translation>
     </message>

@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+305"/>
+        <location line="+320"/>
         <source>About</source>
         <translation>Crediti</translation>
     </message>
     <message>
-        <location line="-270"/>
+        <location line="-287"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>Il client di Notizie ownClowd per Harmattan</translation>
     </message>
@@ -65,22 +65,22 @@
     <message>
         <location line="+7"/>
         <source>Danish translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduzione danese</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+10"/>
         <source>French translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduzione francese</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Italian translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduzione italiana</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Russian translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduzione russa</translation>
     </message>
     <message>
         <location line="-5"/>
@@ -98,14 +98,14 @@
         <translation>Notizie di Martin Grimme</translation>
     </message>
     <message>
-        <location line="+132"/>
+        <location line="+144"/>
         <source>Contributors</source>
         <translation>Collaboratori</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog</translation>
     </message>
 </context>
 <context>
@@ -189,7 +189,7 @@
     <message>
         <location filename="../qml/ocNewsReader/Pages/CLItem.qml" line="+36"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versione</translation>
     </message>
 </context>
 <context>
@@ -255,7 +255,7 @@
     <message>
         <location line="+10"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Rinomina feed</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -377,7 +377,7 @@
     <message>
         <location line="+5"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Rinomina feed</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -567,7 +567,7 @@
     <message>
         <location line="+10"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Rinomina feed</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -846,27 +846,27 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/RenameFeedSheet.qml" line="+9"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Rinomina</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Annulla</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Rename feed&lt;br /&gt;%1</source>
-        <translation type="unfinished"/>
+        <translation>Rinomnia feed&lt;br /&gt;%1</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Nome</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Enter new feed name</source>
-        <translation type="unfinished"/>
+        <translation>Inserisci nuovo nome del feed</translation>
     </message>
 </context>
 <context>
@@ -908,7 +908,7 @@
     <message>
         <location line="-508"/>
         <source>Open account manager</source>
-        <translation type="unfinished"/>
+        <translation>Apri il gestore account</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -968,7 +968,7 @@
     <message>
         <location line="+16"/>
         <source>Hide read feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Nascondi feed e cartelle lette</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1103,17 +1103,17 @@
     <message>
         <location line="+11"/>
         <source>Item view font size:</source>
-        <translation type="unfinished"/>
+        <translation>Dimensione testo vista elementi:</translation>
     </message>
     <message>
         <location line="+22"/>
         <source>Quit engine on closing reader</source>
-        <translation type="unfinished"/>
+        <translation>Spegni motore alla chiusura</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>This option needs an application restart.</source>
-        <translation type="unfinished"/>
+        <translation>Questa opzione necessita il riavvio dell&apos;app</translation>
     </message>
     <message>
         <location line="+42"/>
@@ -1123,7 +1123,7 @@
     <message>
         <location line="+30"/>
         <source>Select event view feeds</source>
-        <translation type="unfinished"/>
+        <translation>Seleziona feed nella schermata eventi</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1133,7 +1133,7 @@
     <message>
         <location line="+12"/>
         <source>Database statistics</source>
-        <translation type="unfinished"/>
+        <translation>Statistiche</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -1148,12 +1148,12 @@
     <message>
         <location line="+13"/>
         <source>Posts: </source>
-        <translation type="unfinished"/>
+        <translation>Post:</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Unread: </source>
-        <translation type="unfinished"/>
+        <translation>Non letti:</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1183,7 +1183,7 @@
     <message>
         <location line="+28"/>
         <source>Display &amp; Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Mostra &amp; Aggiorna Impostazioni</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1210,7 +1210,7 @@
     <message>
         <location line="-20"/>
         <source>Do you really want reset your configuration?</source>
-        <translation type="unfinished"/>
+        <translation>Sei sicuro di voler resettare la configurazione?</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1225,7 +1225,7 @@
     <message>
         <location line="+2"/>
         <source>Do you really want delete your complete database?</source>
-        <translation type="unfinished"/>
+        <translation>Sei sicuro di voler eliminare completamente il database?</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1240,12 +1240,12 @@
     <message>
         <location line="+2"/>
         <source>Do you really want remove your trustet SSL certificates (only for this application)?</source>
-        <translation type="unfinished"/>
+        <translation>Sei sicuro di voler rimuovere i certificati SSL attendibili (solo per questa app)?</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Remove trusted certificates?</source>
-        <translation type="unfinished"/>
+        <translation>Rimuovere i certificati attendibili?</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1260,7 +1260,7 @@
     <message>
         <location line="+1"/>
         <source>It is not a good idea to disable HTTPS (SSL), because your username and password then will be sent unencrypted with every request.</source>
-        <translation type="unfinished"/>
+        <translation>Non è una buona idea disabilitare HTTPS (SSL), in quanto i dati di accesso verranno inviati non criptati ad ogni richiesta.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1414,37 +1414,37 @@
     <message>
         <location filename="../qml/ocNewsReader/main.qml" line="+35"/>
         <source>Created folder %1</source>
-        <translation type="unfinished"/>
+        <translation>Creata cartella %1</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Renamed folder to %1</source>
-        <translation type="unfinished"/>
+        <translation>Cartella rinominata %1</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Deleted Folder.</source>
-        <translation type="unfinished"/>
+        <translation>Cartella eliminata</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Created feed %1</source>
-        <translation type="unfinished"/>
+        <translation>Feed %1 creato</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Moved feed.</source>
-        <translation type="unfinished"/>
+        <translation>Feed spostato.</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Deleted feed.</source>
-        <translation type="unfinished"/>
+        <translation>Feed eliminato.</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Renamed feed to %1</source>
-        <translation type="unfinished"/>
+        <translation>Feed rinominato %1</translation>
     </message>
     <message>
         <location line="+22"/>
@@ -1454,12 +1454,12 @@
     <message>
         <location line="+3"/>
         <source>Deleted complete database</source>
-        <translation type="unfinished"/>
+        <translation>Elimina completamente il database</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Removed trusted certificates. The changes take effect after an application restart.</source>
-        <translation type="unfinished"/>
+        <translation>Certificati attendibili rimossi. I cambiamenti avverranno al riavvio dell&apos;app</translation>
     </message>
 </context>
 </TS>

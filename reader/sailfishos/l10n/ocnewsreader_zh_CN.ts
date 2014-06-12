@@ -24,12 +24,12 @@
     <message>
         <location line="-12"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>主页</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>隐私政策</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -39,106 +39,106 @@
     <message>
         <location line="+66"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>贡献</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>翻译</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>报告Bug</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>Message to Buschtrommel:</source>
-        <translation type="unfinished"/>
+        <translation>给 Buschtrommel 发消息：</translation>
     </message>
 </context>
 <context>
     <name>Changelog</name>
     <message>
-        <location filename="../qml/Pages/Changelog.qml" line="+18"/>
+        <location filename="../qml/BTComponents/Changelog.qml" line="+35"/>
         <source>Changelog</source>
         <translation>更新履历</translation>
     </message>
-</context>
-<context>
-    <name>ClHeader</name>
     <message>
-        <location filename="../qml/Pages/ClHeader.qml" line="+21"/>
+        <location line="+7"/>
         <source>Version</source>
-        <translation>版本</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Contributors</name>
     <message>
-        <location filename="../qml/Pages/Contributors.qml" line="+20"/>
+        <location filename="../qml/BTComponents/Contributors.qml" line="+34"/>
         <source>Contributors</source>
         <translation>贡献者</translation>
     </message>
+</context>
+<context>
+    <name>ContributorsModel</name>
     <message>
-        <location line="+2"/>
-        <source>Upstream author</source>
-        <translation>核心作者</translation>
+        <location filename="../qml/BTComponents/ContributorsModel.qml" line="+26"/>
+        <source>Main developer, ocNews creator</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+4"/>
-        <source>Main developer, ocNews creator</source>
-        <translation>主要开发者，ocNews的创建者</translation>
+        <location line="+1"/>
+        <source>Author</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>UI, French translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Major contributors</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
-        <source>Major contributors</source>
-        <translation>主要贡献者</translation>
+        <source>Chinese (China) translation</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+4"/>
-        <source>UI, French translation</source>
-        <translation>UI，法语翻译</translation>
+        <location line="+1"/>
+        <location line="+8"/>
+        <location line="+11"/>
+        <location line="+8"/>
+        <location line="+8"/>
+        <location line="+5"/>
+        <source>Thanks to</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="-33"/>
+        <source>Danish translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>French translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Italian translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Spanish translation</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+5"/>
-        <source>Thanks to</source>
-        <translation>鸣谢</translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Chinese (China) translation</source>
-        <translation>中文（中国大陆）翻译</translation>
-    </message>
-    <message>
-        <location line="+26"/>
-        <source>Danish translation</source>
-        <translation>丹麦语翻译</translation>
-    </message>
-    <message>
-        <location line="-19"/>
-        <source>French translation</source>
-        <translation>法语翻译</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Italian translation</source>
-        <translation>意大利语翻译</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Spanish translation</source>
-        <translation>西班牙语翻译</translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Used third party elements</source>
-        <translation>使用的第三方素材</translation>
-    </message>
-    <message>
-        <location line="+4"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation>Martin Grimme 的新闻素材</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -212,12 +212,12 @@
         <translation>订阅地址</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+9"/>
         <source>Add feed to folder</source>
         <translation>添加订阅到文件夹</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+7"/>
         <source>Show feed in event view</source>
         <translation>在活动查看视图中显示订阅</translation>
     </message>
@@ -364,7 +364,7 @@
         <translation>文件夹为空，请添加订阅。</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+15"/>
         <source>Scroll to top</source>
         <translation>回到顶部</translation>
     </message>
@@ -385,6 +385,41 @@
         <location filename="../qml/Common/FetchImagesIndicator.qml" line="+37"/>
         <source>Fetching images</source>
         <translation>正在捕获图片</translation>
+    </message>
+</context>
+<context>
+    <name>FirstStartInfo</name>
+    <message>
+        <location filename="../qml/BTComponents/FirstStartInfo.qml" line="+73"/>
+        <source>Welcome to %1 %2</source>
+        <comment>First is app name, second is version number</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Last changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Donate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>If you like %1 and you want to support the development, consider a small donation.</source>
+        <comment>first is name of the application</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Help</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Close</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -496,7 +531,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+51"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+52"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>
@@ -541,7 +576,7 @@
         <translation>显示搜索</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+21"/>
         <source>Scroll to top</source>
         <translation>回到顶部</translation>
     </message>
@@ -639,7 +674,7 @@
         <translation>本地数据库为空，请尝试更新或添加新的订阅。</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+16"/>
         <source>Scroll to top</source>
         <translation>回到顶部</translation>
     </message>
@@ -791,129 +826,129 @@
 <context>
     <name>PaypalChooser</name>
     <message>
-        <location filename="../qml/Common/PaypalChooser.qml" line="+105"/>
+        <location filename="../qml/BTComponents/PaypalChooser.qml" line="+125"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>汇率</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Euro</source>
-        <translation type="unfinished"/>
+        <translation>欧元</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>US Dollar</source>
-        <translation type="unfinished"/>
+        <translation>美元</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Australian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>澳大利亚元</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Brazilian Real</source>
-        <translation type="unfinished"/>
+        <translation>巴西雷亚尔</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Pound Sterling</source>
-        <translation type="unfinished"/>
+        <translation>英镑</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish Krone</source>
-        <translation type="unfinished"/>
+        <translation>丹麦克朗</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hong Kong Dollar</source>
-        <translation type="unfinished"/>
+        <translation>港币</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Israel New Shekel</source>
-        <translation type="unfinished"/>
+        <translation>以色列新谢克尔</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Japanese Yen</source>
-        <translation type="unfinished"/>
+        <translation>日元</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Canadian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>加拿大元</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Mexican Peso</source>
-        <translation type="unfinished"/>
+        <translation>墨西哥比索</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Taiwan Dollar</source>
-        <translation type="unfinished"/>
+        <translation>新台币</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Zealand Dollar</source>
-        <translation type="unfinished"/>
+        <translation>新西兰元</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Norwegian Krone</source>
-        <translation type="unfinished"/>
+        <translation>挪威克朗</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Philippine Peso</source>
-        <translation type="unfinished"/>
+        <translation>菲律宾比索</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Polish ZÅoty</source>
+        <source>Polish Zloty</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian Ruble</source>
-        <translation type="unfinished"/>
+        <translation>俄罗斯卢布</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swedish Krone</source>
-        <translation type="unfinished"/>
+        <translation>瑞典克朗</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swiss Franc</source>
-        <translation type="unfinished"/>
+        <translation>瑞士法郎</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Singapore Dollar</source>
-        <translation type="unfinished"/>
+        <translation>新加坡元</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Thai Baht</source>
-        <translation type="unfinished"/>
+        <translation>泰国铢</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Czech Koruna</source>
-        <translation type="unfinished"/>
+        <translation>捷克克朗</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hungarian Forint</source>
-        <translation type="unfinished"/>
+        <translation>匈牙利福林</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>通过贝宝（PayPal）捐赠</translation>
     </message>
 </context>
 <context>
@@ -1378,7 +1413,7 @@
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../qml/Views/SpecialItemListView.qml" line="+52"/>
+        <location filename="../qml/Views/SpecialItemListView.qml" line="+53"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>
@@ -1423,7 +1458,7 @@
         <translation>显示搜索</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+22"/>
         <source>Scroll to top</source>
         <translation>回到顶部</translation>
     </message>

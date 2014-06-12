@@ -24,12 +24,12 @@
     <message>
         <location line="-12"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>Hjemmeside</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Privatlivspolitik</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -39,106 +39,106 @@
     <message>
         <location line="+66"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>Bidrag</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Oversæt</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>Indrapporter fejl</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>Message to Buschtrommel:</source>
-        <translation type="unfinished"/>
+        <translation>Besked til Buschtrommel:</translation>
     </message>
 </context>
 <context>
     <name>Changelog</name>
     <message>
-        <location filename="../qml/Pages/Changelog.qml" line="+18"/>
+        <location filename="../qml/BTComponents/Changelog.qml" line="+35"/>
         <source>Changelog</source>
         <translation>Ændringslog</translation>
     </message>
-</context>
-<context>
-    <name>ClHeader</name>
     <message>
-        <location filename="../qml/Pages/ClHeader.qml" line="+21"/>
+        <location line="+7"/>
         <source>Version</source>
-        <translation>Version</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Contributors</name>
     <message>
-        <location filename="../qml/Pages/Contributors.qml" line="+20"/>
+        <location filename="../qml/BTComponents/Contributors.qml" line="+34"/>
         <source>Contributors</source>
         <translation>Bidragydere</translation>
     </message>
+</context>
+<context>
+    <name>ContributorsModel</name>
     <message>
-        <location line="+2"/>
-        <source>Upstream author</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location filename="../qml/BTComponents/ContributorsModel.qml" line="+26"/>
         <source>Main developer, ocNews creator</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Major contributors</source>
-        <translation>Store bidragydere</translation>
+        <location line="+1"/>
+        <source>Author</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+10"/>
         <source>UI, French translation</source>
-        <translation>UI, Fransk oversættelse</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Major contributors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Chinese (China) translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <location line="+8"/>
+        <location line="+11"/>
+        <location line="+8"/>
+        <location line="+8"/>
+        <location line="+5"/>
+        <source>Thanks to</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="-33"/>
+        <source>Danish translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>French translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Italian translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Spanish translation</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+5"/>
-        <source>Thanks to</source>
-        <translation>Tak til</translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Chinese (China) translation</source>
-        <translation>Kinesisk (Kina) oversættelse</translation>
-    </message>
-    <message>
-        <location line="+26"/>
-        <source>Danish translation</source>
-        <translation>Dansk oversættelse</translation>
-    </message>
-    <message>
-        <location line="-19"/>
-        <source>French translation</source>
-        <translation>Fransk oversættesle</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Italian translation</source>
-        <translation>Italiensk oversættelse</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Spanish translation</source>
-        <translation>Spansk oversættelse</translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Used third party elements</source>
-        <translation>Brugte elementer fra tredjepart</translation>
-    </message>
-    <message>
-        <location line="+4"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation>Martin Grimme&apos;s Tidings Elements</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -199,7 +199,7 @@
     <message>
         <location filename="../qml/Dialogs/CreateFeed.qml" line="+25"/>
         <source>Root</source>
-        <translation type="unfinished"/>
+        <translation>Administrator</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -212,14 +212,14 @@
         <translation>Feed adresse</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+9"/>
         <source>Add feed to folder</source>
         <translation>Tilføj feed til folder</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+7"/>
         <source>Show feed in event view</source>
-        <translation type="unfinished"/>
+        <translation>Vis feed i element-visning</translation>
     </message>
 </context>
 <context>
@@ -240,17 +240,17 @@
     <message>
         <location filename="../qml/Common/EnclosureItem.qml" line="+70"/>
         <source>Deleting %1</source>
-        <translation type="unfinished"/>
+        <translation>Fjerner %1</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Vedhæftet multimedie</translation>
     </message>
     <message>
         <location line="+52"/>
         <source>Download finished</source>
-        <translation type="unfinished"/>
+        <translation>Nedhentning fuldført</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -260,22 +260,22 @@
     <message>
         <location line="+35"/>
         <source>Open enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Åben multimedie</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Abort download</source>
-        <translation type="unfinished"/>
+        <translation>Afbryd nedhentning</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Delete enclosure</source>
-        <translation>Fjern</translation>
+        <translation>Fjern hentet multimedie</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Download enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Hent multimedie</translation>
     </message>
 </context>
 <context>
@@ -364,7 +364,7 @@
         <translation>Denne folder er tom. Tilføj feeds til den.</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+15"/>
         <source>Scroll to top</source>
         <translation>Rul til toppen</translation>
     </message>
@@ -384,6 +384,41 @@
     <message>
         <location filename="../qml/Common/FetchImagesIndicator.qml" line="+37"/>
         <source>Fetching images</source>
+        <translation>Henter billeder</translation>
+    </message>
+</context>
+<context>
+    <name>FirstStartInfo</name>
+    <message>
+        <location filename="../qml/BTComponents/FirstStartInfo.qml" line="+73"/>
+        <source>Welcome to %1 %2</source>
+        <comment>First is app name, second is version number</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Last changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Donate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>If you like %1 and you want to support the development, consider a small donation.</source>
+        <comment>first is name of the application</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Help</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Close</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -422,7 +457,7 @@
     <message>
         <location line="+11"/>
         <source>Update feed</source>
-        <translation>Ajourfør folder</translation>
+        <translation>Ajourfør feed</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -480,23 +515,23 @@
     <message>
         <location line="+0"/>
         <source>Add to favorites</source>
-        <translation>Tilføj til favoritter</translation>
+        <translation>Tilføj favorit</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Mark as read up to this point</source>
-        <translation>Marker som læst på til denne post</translation>
+        <translation>Marker som læst op til denne post</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Mark as unread up to this point</source>
-        <translation>Marker som ulæst på til denne post</translation>
+        <translation>Marker som ulæst op til denne post</translation>
     </message>
 </context>
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+51"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+52"/>
         <source>Update running...</source>
         <translation>Ajourfører...</translation>
     </message>
@@ -513,7 +548,7 @@
     <message>
         <location line="+9"/>
         <source>Hide sorting options</source>
-        <translation>Gem sorteringsindstillinger</translation>
+        <translation>Skjul sorteringsindstillinger</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -533,7 +568,7 @@
     <message>
         <location line="+5"/>
         <source>Hide search</source>
-        <translation>Gem søgning</translation>
+        <translation>Skjul søgning</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -541,7 +576,7 @@
         <translation>Vis søgning</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+21"/>
         <source>Scroll to top</source>
         <translation>Rul til toppen</translation>
     </message>
@@ -573,7 +608,7 @@
     <message>
         <location line="+1"/>
         <source>Hide</source>
-        <translation>Gem</translation>
+        <translation>Skjul</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -583,7 +618,7 @@
     <message>
         <location line="+7"/>
         <source>Read articles</source>
-        <translation>Læs artikler</translation>
+        <translation>Læste artikler</translation>
     </message>
 </context>
 <context>
@@ -621,7 +656,7 @@
     <message>
         <location line="+6"/>
         <source>Last update:</source>
-        <translation type="unfinished"/>
+        <translation>Sidst ajourført:</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -639,7 +674,7 @@
         <translation>Den lokale database er tom. Foretag venligst en ajourføring, eller tilføj nye feeds eller foldere.</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+16"/>
         <source>Scroll to top</source>
         <translation>Rul til toppen</translation>
     </message>
@@ -664,7 +699,7 @@
     <message>
         <location filename="../qml/Dialogs/MoveFeed.qml" line="+26"/>
         <source>Root</source>
-        <translation type="unfinished"/>
+        <translation>Administrator</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -682,7 +717,7 @@
     <message>
         <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Ikke kategoriseret</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -692,7 +727,7 @@
     <message>
         <location line="+8"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Favorit poster</translation>
     </message>
 </context>
 <context>
@@ -780,7 +815,7 @@
     <message>
         <location line="+0"/>
         <source>Open in browser</source>
-        <translation type="unfinished"/>
+        <translation>Åben i netlæser</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -791,129 +826,129 @@
 <context>
     <name>PaypalChooser</name>
     <message>
-        <location filename="../qml/Common/PaypalChooser.qml" line="+105"/>
+        <location filename="../qml/BTComponents/PaypalChooser.qml" line="+125"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Valuta</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Euro</source>
-        <translation type="unfinished"/>
+        <translation>Euro</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>US Dollar</source>
-        <translation type="unfinished"/>
+        <translation>US Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Australian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Australsk Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Brazilian Real</source>
-        <translation type="unfinished"/>
+        <translation>Brasilianske Real</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Pound Sterling</source>
-        <translation type="unfinished"/>
+        <translation>Engelske Pund</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Dansk Krone</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hong Kong Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Hong Kong Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Israel New Shekel</source>
-        <translation type="unfinished"/>
+        <translation>Israelske Shekel</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Japanese Yen</source>
-        <translation type="unfinished"/>
+        <translation>Japanske Yen</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Canadian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Canadisk Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Mexican Peso</source>
-        <translation type="unfinished"/>
+        <translation>Mexikansk Peso</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Taiwan Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Ny Taiwansk Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Zealand Dollar</source>
-        <translation type="unfinished"/>
+        <translation>New Zealandsk Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Norwegian Krone</source>
-        <translation type="unfinished"/>
+        <translation>Norsk Krone</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Philippine Peso</source>
-        <translation type="unfinished"/>
+        <translation>Philippinsk Peso</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Polish ZÅoty</source>
+        <source>Polish Zloty</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian Ruble</source>
-        <translation type="unfinished"/>
+        <translation>Russiske Rubler</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swedish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Svensk Krone</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swiss Franc</source>
-        <translation type="unfinished"/>
+        <translation>Schweizerfranc</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Singapore Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Singapore Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Thai Baht</source>
-        <translation type="unfinished"/>
+        <translation>Thai Baht</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Czech Koruna</source>
-        <translation type="unfinished"/>
+        <translation>Tjekkisk Koruna</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hungarian Forint</source>
-        <translation type="unfinished"/>
+        <translation>Ungarnsk Forint</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Doner via PayPal</translation>
     </message>
 </context>
 <context>
@@ -951,27 +986,27 @@
     <message>
         <location line="+8"/>
         <source>ocNews needs your log in data to connect to your ownCloud server. Your log in data is used to log in to your ownCloud server to perform the tasks of synchronizing your ownCloud News App data with your device.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews bruger dine log in data til at forbinde til din ownCloud server, for at synkronisere dine ownCloud News App data med din Jolla.</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Does ocNews disclose any information to outside parties?</source>
-        <translation type="unfinished"/>
+        <translation>Videregiver ocNews nogen oplysninger til tredjepart?</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>ocNews only uses your data for the log in process into the server that you configure in the settings. ocNews does not send these data to the author of ocNews or other third parties. For questions concerning the privacy on the server side, you have to contact your ownCloud service provider.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews bruger kun dine brugerdata til at logge ind på den server, du angav i indstillingerne. ocNews sender ikke disse data, hverken til forfatteren af ​​ocNews eller nogen tredjepart. For spørgsmål om privatlivets fred på serveren, bliver du nødt til at kontakte din ownCloud tjenesteudbyder.</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Third party links</source>
-        <translation type="unfinished"/>
+        <translation>Tredjepart links</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>ocNews is a cloud based RSS/Atom feed reader. It has no preinstalled third party links other than the own application website links on the About page and on this page. Showing feed content and/or opening feed link addresses is in the user&apos;s responsibility. For questions concerning the privacy of the used feed content and/or website content you have to contact the feed provider.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews er en cloud baseret RSS / Atom-feed læser. De eneste preinstallerede link som programmet indeholder, er et link til programmets egen hjemmeside på denne side og på siden Om programmet. Visning af feed indhold og/eller åbning af link-adresser er på brugerens eget ansvar. For spørgsmål vedrørende privatlivets fred i forbindelse med feed og/eller indholde af hjemmesider, kontakt da venligst udbyderen af feed tjenesten og/eller den pågældene hjemmeside.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1061,7 +1096,7 @@
     <message>
         <location line="+2"/>
         <source>Because ownCloud News requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption.</source>
-        <translation type="unfinished"/>
+        <translation>Fordi ownCloud News kræver dit brugernavn og kodeord ved hver enkelt anmodning, bør aktivere brugen af krypteret forbindelse, når din server understøtter eller endog kræver kryptering.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1071,7 +1106,7 @@
     <message>
         <location line="+2"/>
         <source>Only ignore SSL errors when you really know what you are doing. (Currently there is no system service for handling SSL certificates. ocNews will implement it&apos;s own in the future, but for now you have to ignore SSL errors when you are using a self signed certificate.)</source>
-        <translation type="unfinished"/>
+        <translation>Ignorer kun SSL-fejl, når du virkelig ved hvad du gør. (I øjeblikket er der ikke nogen systemtjeneste til håndtering af SSL-certifikater. OcNews vil implementere sin egen på et tidspunkt, men for øjeblikket er du nødt til at ignorere SSL-fejl, når du bruger et selvsigneret certifikat.)</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -1087,7 +1122,7 @@
     <message>
         <location line="+1"/>
         <source>Automatic on Wi-Fi</source>
-        <translation type="unfinished"/>
+        <translation>Automatisk ved Wi-Fi</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1127,27 +1162,27 @@
     <message>
         <location line="+8"/>
         <source>Update interval</source>
-        <translation type="unfinished"/>
+        <translation>Ajourføringsinterval</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Engine</source>
-        <translation type="unfinished"/>
+        <translation>Motor</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Number of items to keep</source>
-        <translation type="unfinished"/>
+        <translation>Behold antal elementer</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Quit engine on closing reader</source>
-        <translation type="unfinished"/>
+        <translation>Afslut motor når læser lukkes</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>By default the engine daemon ist started on application startup and keeps running after closing the application to operate/synchronize in the background. This option needs an application restart.</source>
-        <translation type="unfinished"/>
+        <translation>Som standard startes ocNews baggrundstjeneste ved programopstart og bliver ved med at køre selv efter programmet bliver lukket. Ved ændring af denne indstilling skal programmet genstartes.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1167,17 +1202,17 @@
     <message>
         <location line="+7"/>
         <source>Main view layout</source>
-        <translation type="unfinished"/>
+        <translation>Hovedvisning layout</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Hide read feeds and folders</source>
-        <translation>Gem læste feeds og foldere</translation>
+        <translation>Skjul læste feeds og foldere</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Hide feeds and folders that do not contain unread items.</source>
-        <translation>Gem feeds og foldere der ikke indeholder ulæste poster.</translation>
+        <translation>Skjul feeds og foldere der ikke indeholder ulæste poster.</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1192,27 +1227,27 @@
     <message>
         <location line="+1"/>
         <source>Unread count</source>
-        <translation type="unfinished"/>
+        <translation>Antal ulæste</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Order feeds and folders by</source>
-        <translation type="unfinished"/>
+        <translation>Sorter feeds og foldere efter</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>On request</source>
-        <translation type="unfinished"/>
+        <translation>På forespørgsel</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>When item loads</source>
-        <translation type="unfinished"/>
+        <translation>Når poster hentes</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Prefetch at updating</source>
-        <translation type="unfinished"/>
+        <translation>Forhåndsvis</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1227,7 +1262,7 @@
     <message>
         <location line="+1"/>
         <source>Hide</source>
-        <translation>Gem</translation>
+        <translation>Skjul</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1237,22 +1272,22 @@
     <message>
         <location line="+7"/>
         <source>Read articles</source>
-        <translation>Læs artikler</translation>
+        <translation>Læste artikler</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Show oldest items on top</source>
-        <translation type="unfinished"/>
+        <translation>Vis ældste poster i toppen</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Set the default order of the news items to show the oldest at the top. You can still change it in the pully menu.</source>
-        <translation type="unfinished"/>
+        <translation>Sæt standard sorteringen af nyheder til at vise de ældste poster øverst. Du kan stadig ændre indstillingen via topmenuen.</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Item view font size</source>
-        <translation type="unfinished"/>
+        <translation>Skriftstørrelse for element-visning</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1291,7 +1326,7 @@
     <message>
         <location line="-34"/>
         <source>Remove from favourites</source>
-        <translation type="unfinished"/>
+        <translation>Fjern favorit</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1306,22 +1341,22 @@
     <message>
         <location line="+5"/>
         <source>Previous in list</source>
-        <translation type="unfinished"/>
+        <translation>Forrige post</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>First in list</source>
-        <translation type="unfinished"/>
+        <translation>Første post</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Next in list</source>
-        <translation type="unfinished"/>
+        <translation>Næste post</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Last in list</source>
-        <translation type="unfinished"/>
+        <translation>Sidste post</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1378,14 +1413,14 @@
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../qml/Views/SpecialItemListView.qml" line="+52"/>
+        <location filename="../qml/Views/SpecialItemListView.qml" line="+53"/>
         <source>Update running...</source>
         <translation>Ajourfører...</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Hide sorting options</source>
-        <translation>Gem søgeindstillinger</translation>
+        <translation>Skjul søgeindstillinger</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1415,7 +1450,7 @@
     <message>
         <location line="+5"/>
         <source>Hide search</source>
-        <translation>Gem sægning</translation>
+        <translation>Skjul søgning</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1423,7 +1458,7 @@
         <translation>Vis søgning</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+22"/>
         <source>Scroll to top</source>
         <translation>Rul til toppen</translation>
     </message>
@@ -1435,7 +1470,7 @@
     <message>
         <location line="+5"/>
         <source>Marking all entries as read</source>
-        <translation>Markerer alle indlæg som læst</translation>
+        <translation>Markerer alle poster som læst</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -1460,7 +1495,7 @@
     <message>
         <location line="+1"/>
         <source>Hide</source>
-        <translation>Gem</translation>
+        <translation>Skjul</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1470,7 +1505,7 @@
     <message>
         <location line="+7"/>
         <source>Read articles</source>
-        <translation>Læs artikler</translation>
+        <translation>Læste artikler</translation>
     </message>
 </context>
 </TS>

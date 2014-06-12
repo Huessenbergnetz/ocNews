@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+314"/>
+        <location line="+320"/>
         <source>About</source>
         <translation>About</translation>
     </message>
     <message>
-        <location line="-281"/>
+        <location line="-287"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>The ownCloud News App client for Harmattan</translation>
     </message>
@@ -98,7 +98,7 @@
         <translation>Martin Grimme&apos;s Tidings Elements</translation>
     </message>
     <message>
-        <location line="+138"/>
+        <location line="+144"/>
         <source>Contributors</source>
         <translation>Contributors</translation>
     </message>

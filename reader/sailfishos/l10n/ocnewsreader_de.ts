@@ -14,7 +14,7 @@
     <message>
         <location line="+18"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
-        <translation>Lizensiert unter der &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.de.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
+        <translation>Lizenziert unter der &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.de.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
         <location line="-55"/>
@@ -60,15 +60,12 @@
 <context>
     <name>Changelog</name>
     <message>
-        <location filename="../qml/Pages/Changelog.qml" line="+18"/>
+        <location filename="../qml/BTComponents/Changelog.qml" line="+35"/>
         <source>Changelog</source>
         <translation>Änderungsprotokoll</translation>
     </message>
-</context>
-<context>
-    <name>ClHeader</name>
     <message>
-        <location filename="../qml/Pages/ClHeader.qml" line="+21"/>
+        <location line="+7"/>
         <source>Version</source>
         <translation>Version</translation>
     </message>
@@ -76,67 +73,70 @@
 <context>
     <name>Contributors</name>
     <message>
-        <location filename="../qml/Pages/Contributors.qml" line="+20"/>
+        <location filename="../qml/BTComponents/Contributors.qml" line="+34"/>
         <source>Contributors</source>
         <translation>Mitwirkende</translation>
     </message>
+</context>
+<context>
+    <name>ContributorsModel</name>
     <message>
-        <location line="+2"/>
-        <source>Upstream author</source>
-        <translation>Urheber</translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location filename="../qml/BTComponents/ContributorsModel.qml" line="+26"/>
         <source>Main developer, ocNews creator</source>
         <translation>Hauptentwickler, ocNews-Urheber</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Major contributors</source>
-        <translation>Hauptmitwirkende</translation>
+        <location line="+1"/>
+        <source>Author</source>
+        <translation>Autor</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+10"/>
         <source>UI, French translation</source>
         <translation>UI, Französische Übersetzung</translation>
     </message>
     <message>
+        <location line="+1"/>
+        <source>Major contributors</source>
+        <translation>Hauptmitwirkende</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Chinese (China) translation</source>
+        <translation>Chinesische (China) Übersetzung</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <location line="+8"/>
+        <location line="+11"/>
+        <location line="+8"/>
+        <location line="+8"/>
         <location line="+5"/>
         <source>Thanks to</source>
         <translation>Dank an</translation>
     </message>
     <message>
-        <location line="+4"/>
-        <source>Chinese (China) translation</source>
-        <translation>Chinesische (China) Übersetzung</translation>
-    </message>
-    <message>
-        <location line="+26"/>
+        <location line="-33"/>
         <source>Danish translation</source>
         <translation>Dänische Übersetzung</translation>
     </message>
     <message>
-        <location line="-19"/>
+        <location line="+11"/>
         <source>French translation</source>
         <translation>Französische Übersetzung</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+8"/>
         <source>Italian translation</source>
         <translation>Italienische Übersetzung</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+8"/>
         <source>Spanish translation</source>
         <translation>Spanische Übersetzung</translation>
     </message>
     <message>
-        <location line="+14"/>
-        <source>Used third party elements</source>
-        <translation>Genutzte Drittelemente</translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+5"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
         <translation>Martin Grimmes Tidings-Elemente</translation>
     </message>
@@ -212,12 +212,12 @@
         <translation>Feed-Adresse</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+9"/>
         <source>Add feed to folder</source>
         <translation>Feed zu Ordner hinzufügen</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+7"/>
         <source>Show feed in event view</source>
         <translation>Feed in der Startansicht anzeigen</translation>
     </message>
@@ -364,7 +364,7 @@
         <translation>Dieser Ordner ist leer. Fügen Sie einige Feeds hinzu.</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+15"/>
         <source>Scroll to top</source>
         <translation>Nach oben</translation>
     </message>
@@ -385,6 +385,41 @@
         <location filename="../qml/Common/FetchImagesIndicator.qml" line="+37"/>
         <source>Fetching images</source>
         <translation>Lade Bilder</translation>
+    </message>
+</context>
+<context>
+    <name>FirstStartInfo</name>
+    <message>
+        <location filename="../qml/BTComponents/FirstStartInfo.qml" line="+73"/>
+        <source>Welcome to %1 %2</source>
+        <comment>First is app name, second is version number</comment>
+        <translation>Willkommen zu %1 %2</translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Last changes</source>
+        <translation>Letzte Änderungen</translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Donate</source>
+        <translation>Spenden</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>If you like %1 and you want to support the development, consider a small donation.</source>
+        <comment>first is name of the application</comment>
+        <translation>Wenn Sie %1 mögen und die Entwicklung unterstützen möchten, denken Sie über eine kleine Spende nach.</translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Help</source>
+        <translation>Hilfe</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Close</source>
+        <translation>Schließen</translation>
     </message>
 </context>
 <context>
@@ -496,7 +531,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+51"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+52"/>
         <source>Update running...</source>
         <translation>Aktualisiere...</translation>
     </message>
@@ -541,7 +576,7 @@
         <translation>Suche anzeigen</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+21"/>
         <source>Scroll to top</source>
         <translation>Nach oben</translation>
     </message>
@@ -639,7 +674,7 @@
         <translation>Die lokale Datenbank ist leer. Führen Sie bitte eine Aktualisierung durch oder fügen Sie neue Ordner und Feeds hinzu.</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+16"/>
         <source>Scroll to top</source>
         <translation>Nach oben</translation>
     </message>
@@ -791,7 +826,7 @@
 <context>
     <name>PaypalChooser</name>
     <message>
-        <location filename="../qml/Common/PaypalChooser.qml" line="+105"/>
+        <location filename="../qml/BTComponents/PaypalChooser.qml" line="+125"/>
         <source>Currency</source>
         <translation>Währung</translation>
     </message>
@@ -872,7 +907,7 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Polish ZÅoty</source>
+        <source>Polish Zloty</source>
         <translation>Polnischer Zloty</translation>
     </message>
     <message>
@@ -1378,7 +1413,7 @@
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../qml/Views/SpecialItemListView.qml" line="+52"/>
+        <location filename="../qml/Views/SpecialItemListView.qml" line="+53"/>
         <source>Update running...</source>
         <translation>Aktualisiere...</translation>
     </message>
@@ -1423,7 +1458,7 @@
         <translation>Suchfeld anzeigen</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+22"/>
         <source>Scroll to top</source>
         <translation>Nach oben</translation>
     </message>
