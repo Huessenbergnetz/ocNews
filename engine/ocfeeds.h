@@ -20,7 +20,7 @@ public:
     void getFavicon(QString feedId, QString faviconLink);
 
 public Q_SLOTS: // METHODS
-    void createFeed(const QString &url, const QString &folderId, bool eventView);
+    void createFeed(const QString &url, const QString &folderId, const bool &eventView);
     void deleteFeed(const QString &id);
     QVariantMap getFeeds();
     void markFeedRead(const QString &feedId);
@@ -30,15 +30,6 @@ public Q_SLOTS: // METHODS
 
 public slots:
     void feedDeletedCleanItems(int id);
-
-signals:
-    void requestedFeeds(QVariantMap feedsresult);
-    void createdFeed(QVariantMap createFeedResult);
-    void createdFeedUpdateDbSuccess(QVariantMap createFeedResult, QString feedname);
-    void deletedFeed(int id);
-    void movedFeed(int id, QString folderId);
-    void markedReadFeed(int id);
-    void renamedFeed(int id, QString name);
 
 Q_SIGNALS: // SIGNALS
     void createdFeedError(const QString &createFeedResultError);
@@ -56,28 +47,31 @@ Q_SIGNALS: // SIGNALS
 
 private slots:
     void feedsRequested();
-    void feedsRequestedUpdateDb(QVariantMap feedsresult);
-    void feedCreated(int eventView);
-    void feedCreatedUpdateDb(QVariantMap createFeedResult);
-    void feedCreatedFetchItems(QVariantMap createFeedResult, QString feedName);
+    void feedCreated();
     void feedDeleted();
-    void feedDeletedUpdateDb(int id);
-//    void feedDeletedCleanItems(int id);
-    void feedMoved(QString folderId);
-    void feedMovedUpdateDb(int id, QString folderId);
+    void feedMoved();
     void feedMarkedRead();
-    void feedMarkedReadUpdateDb(int id);
-    void feedRenamed(QString name);
-    void feedRenamedUpdateDb(int id, const QString &name);
+    void feedRenamed();
 
 private:
-    QUrl urlRequestFeeds, urlCreateFeed, urlDeleteFeed, urlMoveFeed, urlRenameFeed;
+    void feedsRequestedUpdateDb(const QVariantMap &feedsresult);
+    void feedCreatedUpdateDb(const QVariantMap &createFeedResult);
+    void feedCreatedFetchItems(const QVariantMap &createFeedResult, const QString &feedName);
+    void feedDeletedUpdateDb(const int &id);
+    void feedMovedUpdateDb(const int &id, const QString &folderId);
+    void feedMarkedReadUpdateDb(const int &id);
+    void feedRenamedUpdateDb(const int &id, const QString &name);
+
     QNetworkReply *replyRequestFeeds, *replyCreateFeed, *replyDeleteFeed, *replyMoveFeed, *replyGetFavicon, *replyMarkFeedRead, *replyRenameFeed;
     OcHelper helper;
     OcDbManager database;
     OcItems items;
     OcNetwork network;
     OcConfiguration config;
+
+    bool addFeedToEventView;
+    QString folderIdToMoveTo;
+    QString newFeedName;
 
 };
 

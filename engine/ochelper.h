@@ -22,10 +22,6 @@ public:
     QVariantMap jsonToQt(QByteArray json);
     QNetworkRequest buildRequest(const QString &apipart, const int &length = 0, const QList<QPair<QString, QString> > &queryItems = QList<QPair<QString, QString> >());
 
-signals:
-
-public slots:
-
 private:
     OcConfiguration config;
     QSettings settings;

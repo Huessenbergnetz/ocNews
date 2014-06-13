@@ -114,6 +114,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("account", &account);
     viewer.rootContext()->setContextProperty("launcher", &launcher);
     viewer.rootContext()->setContextProperty("versionString", VERSION_STRING);
+    viewer.rootContext()->setContextProperty("versionInt", VERSION);
 
 
 

@@ -235,6 +235,14 @@ Page {
                     move: Transition { NumberAnimation { properties: "y"; easing.type: Easing.InOutQuad } }
 
                     CLItem {
+                        version: "1.8.3"
+                        time: 1399932292000
+                        text: "<ul>
+                                <li>Improved: code cleanups</li>
+                               </ul>"
+                    }
+
+                    CLItem {
                         version: "1.8.2"
                         time: 1399932292000
                         text: "<ul>

@@ -13,6 +13,9 @@
 OcFeeds::OcFeeds(QObject *parent) :
     QObject(parent)
 {
+    addFeedToEventView = false;
+    folderIdToMoveTo = "0";
+    newFeedName = "";
 }
 
 
@@ -57,7 +60,6 @@ void OcFeeds::feedsRequested()
 #ifdef QT_DEBUG
     qDebug() << "Requested Feeds from Server";
 #endif
-    connect(this,SIGNAL(requestedFeeds(QVariantMap)),this,SLOT(feedsRequestedUpdateDb(QVariantMap)), Qt::UniqueConnection);
 
     if (replyRequestFeeds->error() == QNetworkReply::NoError)
     {
@@ -68,9 +70,10 @@ void OcFeeds::feedsRequested()
         if (feedsresult.isEmpty())
         {
             emit requestedFeedsError(tr("Server reply was empty."));
-        } else {
-            emit requestedFeeds(feedsresult);
+            return;
         }
+
+        feedsRequestedUpdateDb(feedsresult);
 
     } else {
 
@@ -92,10 +95,10 @@ void OcFeeds::feedsRequested()
  * This internal function updates the database with the result of a successlful
  * requestFeeds().
  *
- * \param feedsresult       QVariantMap sent from feedsRequested()
+ * \param feedsresult       QVariantMap given from feedsRequested()
  */
 
-void OcFeeds::feedsRequestedUpdateDb(QVariantMap feedsresult)
+void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
 {
 #ifdef QT_DEBUG
     qDebug() << "Start updating feeds database";
@@ -108,7 +111,7 @@ void OcFeeds::feedsRequestedUpdateDb(QVariantMap feedsresult)
         // remap QVariantMap
         QMap<QString, QVariant> map = feed.value<QVariantMap>();
 
-        // check if folder is already in database
+        // check if feed is already in database
         query.exec(QString("SELECT title, faviconLink, folderId, unreadCount, link FROM feeds WHERE id = %1").arg(map["id"].toInt()));
         if (query.next())
         {
@@ -234,13 +237,14 @@ void OcFeeds::feedsRequestedUpdateDb(QVariantMap feedsresult)
  * \param eventView     set to true if the feed should be shown in the event view
  */
 
-void OcFeeds::createFeed(const QString &url, const QString &folderId, bool eventView)
+void OcFeeds::createFeed(const QString &url, const QString &folderId, const bool &eventView)
 {
     if (network.isFlightMode())
     {
         emit createdFeedError(tr("Device is in flight mode."));
     } else {
         QString t_folderId = folderId;
+        addFeedToEventView = eventView;
 
         // Create the JSON string
         QByteArray parameters("{\"url\": \"");
@@ -251,16 +255,7 @@ void OcFeeds::createFeed(const QString &url, const QString &folderId, bool event
 
         replyCreateFeed = network.post(helper.buildRequest("feeds", parameters.size()), parameters);
 
-        // check if feed should be added to the event view
-        int ev = eventView ? 1 : 0;
-
-        // map the eventView decision into the signal
-        QSignalMapper *createFeedSignalMapper = new QSignalMapper(this);
-        createFeedSignalMapper->setMapping(replyCreateFeed, ev);
-
-        connect(replyCreateFeed, SIGNAL(finished()), createFeedSignalMapper, SLOT(map()));
-
-        connect(createFeedSignalMapper, SIGNAL(mapped(int)), this, SLOT(feedCreated(int)));
+        connect(replyCreateFeed, SIGNAL(finished()), this, SLOT(feedCreated()));
     }
 }
 
@@ -272,16 +267,12 @@ void OcFeeds::createFeed(const QString &url, const QString &folderId, bool event
  * \brief Handles the network reply of createFeed()
  *
  * This internal function handles the reply of the createFeed() network operation. If it was successful
- * the result will be emitted to feedCreatedUpdateDb(), otherwise the signal createdFeedError() will
+ * the result will be given to feedCreatedUpdateDb(), otherwise the signal createdFeedError() will
  * be emitted.
- *
- * \param eventView         1 if should be added to event view, 0 if not
  */
 
-void OcFeeds::feedCreated(int eventView)
+void OcFeeds::feedCreated()
 {
-    connect(this,SIGNAL(createdFeed(QVariantMap)),this,SLOT(feedCreatedUpdateDb(QVariantMap)));
-
     if (replyCreateFeed->error() == QNetworkReply::NoError)
     {
         QVariantMap createFeedResult = helper.jsonToQt(replyCreateFeed->readAll());
@@ -291,11 +282,10 @@ void OcFeeds::feedCreated(int eventView)
         if (createFeedResult.isEmpty())
         {
             emit createdFeedError(tr("Server reply was empty."));
-        } else {
-            // add event view decision to the result
-            createFeedResult["eventView"] = eventView;
-            emit createdFeed(createFeedResult);
+            return;
         }
+
+        feedCreatedUpdateDb(createFeedResult);
 
     } else {
         QVariantMap createFeedResult = helper.jsonToQt(replyCreateFeed->readAll());
@@ -322,10 +312,8 @@ void OcFeeds::feedCreated(int eventView)
  * \param createFeedResult      the result of the createFeedResult() post operation
  */
 
-void OcFeeds::feedCreatedUpdateDb(QVariantMap createFeedResult)
+void OcFeeds::feedCreatedUpdateDb(const QVariantMap &createFeedResult)
 {
-    connect(this,SIGNAL(createdFeedUpdateDbSuccess(QVariantMap, QString)),this,SLOT(feedCreatedFetchItems(QVariantMap, QString)));
-
     QSqlQuery query;
     foreach (QVariant feed, createFeedResult["feeds"].toList())
     {
@@ -343,15 +331,14 @@ void OcFeeds::feedCreatedUpdateDb(QVariantMap createFeedResult)
         getFavicon( map["id"].toString(), map["faviconLink"].toString());
 
         // check if the feed should be shown in the event view
-        if (createFeedResult["eventView"] == 1)
+        if (addFeedToEventView)
         {
             QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
-            feedsForEventView.append(",");
-            feedsForEventView.append(map["id"].toString());
+            feedsForEventView.append(",").append(map["id"].toString());
             config.setSetting(QString("event/feeds"), QDBusVariant(feedsForEventView));
         }
 
-        emit createdFeedUpdateDbSuccess(createFeedResult, map["title"].toString());
+        feedCreatedFetchItems(createFeedResult, map["title"].toString());
     }
 }
 
@@ -369,7 +356,7 @@ void OcFeeds::feedCreatedUpdateDb(QVariantMap createFeedResult)
  * \param feedName      the name of the feed
  */
 
-void OcFeeds::feedCreatedFetchItems(QVariantMap createFeedResult, QString feedName)
+void OcFeeds::feedCreatedFetchItems(const QVariantMap &createFeedResult, const QString &feedName)
 {
     QEventLoop loop;
     connect(&items,SIGNAL(requestedItemsSuccess()),&loop,SLOT(quit()));
@@ -419,23 +406,18 @@ void OcFeeds::deleteFeed(const QString &id)
  * \brief Handles the reply of delteFeed()
  *
  * This internal function handles the reply of the network delete request performed by deleteFeed().
- * If successfull it emits the answer to feedDeletedUpdateDb() and feedDeletedCleanItems(),
- * otherwise it emits the signal edeltedFeedError().
+ * If successfull it gives the answer to feedDeletedUpdateDb(), otherwise it emits the signal deletedFeedError().
  */
 
 void OcFeeds::feedDeleted()
 {
-    connect(this,SIGNAL(deletedFeed(int)),this,SLOT(feedDeletedUpdateDb(int)));
-
     if (replyDeleteFeed->error() == QNetworkReply::NoError)
     {
-        // extract folder id out of URL
-        QString url = replyDeleteFeed->url().toString();
-        QStringList urlParts = url.split("/");
-        int id = urlParts.last().toInt();
+        int id = replyDeleteFeed->url().toString().split("/").last().toInt();
 
         replyDeleteFeed->deleteLater();
-        emit deletedFeed(id);
+
+        feedDeletedUpdateDb(id);
 
     } else {
         QVariantMap deleteFeedResult;
@@ -466,7 +448,7 @@ void OcFeeds::feedDeleted()
  * \param id        feed ID to delete
  */
 
-void OcFeeds::feedDeletedUpdateDb(int id)
+void OcFeeds::feedDeletedUpdateDb(const int &id)
 {
     QSqlQuery query;
 
@@ -533,15 +515,11 @@ void OcFeeds::moveFeed(const QString &id, const QString &folderId)
         parameters.append(folderId);
         parameters.append("}");
 
+        folderIdToMoveTo = folderId;
+
         replyMoveFeed = network.put(helper.buildRequest(feed, parameters.length()), parameters);
 
-        // map the name into the signal
-        QSignalMapper *signalMapper = new QSignalMapper(this);
-        signalMapper->setMapping(replyMoveFeed, folderId);
-
-        connect(replyMoveFeed, SIGNAL(finished()), signalMapper, SLOT(map()));
-
-        connect(signalMapper, SIGNAL(mapped(QString)), this, SLOT(feedMoved(QString)));
+        connect(replyMoveFeed, SIGNAL(finished()), this, SLOT(feedMoved()));
     }
 }
 
@@ -555,14 +533,10 @@ void OcFeeds::moveFeed(const QString &id, const QString &folderId)
  * a feed to a different folder (executed in moveFeed()). If successful it emits
  * the signal movedFeed which is handled by feedMovedUpdateDb, otherwise it emits
  * the signal movedFeedError.
- *
- * \param folderId      ID of the target folder
  */
 
-void OcFeeds::feedMoved(QString folderId)
+void OcFeeds::feedMoved()
 {
-    connect(this,SIGNAL(movedFeed(int,QString)),this,SLOT(feedMovedUpdateDb(int, QString)), Qt::UniqueConnection);
-
     if (replyMoveFeed->error() == QNetworkReply::NoError)
     {
         // extract feed id out of URL
@@ -574,7 +548,7 @@ void OcFeeds::feedMoved(QString folderId)
 
         replyMoveFeed->deleteLater();
 
-        emit movedFeed(id, folderId);
+        feedMovedUpdateDb(id, folderIdToMoveTo);
 
     } else {
         QVariantMap moveresult;
@@ -605,7 +579,7 @@ void OcFeeds::feedMoved(QString folderId)
  * \param folderId      ID of the target folder
  */
 
-void OcFeeds::feedMovedUpdateDb(int id, QString folderId)
+void OcFeeds::feedMovedUpdateDb(const int &id, const QString &folderId)
 {
     QSqlQuery query;
 
@@ -747,8 +721,6 @@ void OcFeeds::markFeedRead(const QString &feedId)
 
 void OcFeeds::feedMarkedRead()
 {
-    connect(this,SIGNAL(markedReadFeed(int)),this,SLOT(feedMarkedReadUpdateDb(int)),Qt::UniqueConnection);
-
     if (replyMarkFeedRead->error() == QNetworkReply::NoError)
     {
         // extract feed id out of URL
@@ -762,13 +734,16 @@ void OcFeeds::feedMarkedRead()
 
         replyMarkFeedRead->deleteLater();
 
-        emit markedReadFeed(id);
+        feedMarkedReadUpdateDb(id);
+
     } else {
         QVariantMap markFeedReadResult = helper.jsonToQt(replyMarkFeedRead->readAll());
 
         QString markedReadFeedErrorResult = markFeedReadResult["message"].toString();
 
         emit markedReadFeedError(markedReadFeedErrorResult);
+
+        replyMarkFeedRead->deleteLater();
     }
 }
 
@@ -785,7 +760,7 @@ void OcFeeds::feedMarkedRead()
  * \param id    ID of the feed that was marked as read
  */
 
-void OcFeeds::feedMarkedReadUpdateDb(int id)
+void OcFeeds::feedMarkedReadUpdateDb(const int &id)
 {
     QDateTime ts;
     QSqlQuery query;
@@ -844,15 +819,11 @@ void OcFeeds::renameFeed(const QString &id, const QString &newName)
         parameters.append(newName);
         parameters.append("\"}");
 
+        newFeedName = newName;
+
         replyRenameFeed = network.put(helper.buildRequest(feed, parameters.length()), parameters);
 
-        // map the name into the signal
-        QSignalMapper *signalMapper = new QSignalMapper(this);
-        signalMapper->setMapping(replyRenameFeed, newName);
-
-        connect(replyRenameFeed, SIGNAL(finished()), signalMapper, SLOT(map()));
-
-        connect(signalMapper, SIGNAL(mapped(QString)), this, SLOT(feedRenamed(QString)));
+        connect(replyRenameFeed, SIGNAL(finished()), this, SLOT(feedRenamed()));
     }
 }
 
@@ -862,13 +833,9 @@ void OcFeeds::renameFeed(const QString &id, const QString &newName)
  * \brief Handles network reply for feed rename
  *
  * This internal function handles the network reply for the feed rename request.
- *
- * \param name New name of the feed
  */
-void OcFeeds::feedRenamed(QString name)
+void OcFeeds::feedRenamed()
 {
-//    connect(this,SIGNAL(renamedFolder(int, QString)),this,SLOT(folderRenamedUpdateDb(int, QString)), Qt::UniqueConnection);
-
     if (replyRenameFeed->error() == QNetworkReply::NoError)
     {
         // extract folder id out of URL
@@ -878,8 +845,8 @@ void OcFeeds::feedRenamed(QString name)
         int id = urlParts.last().toInt();
 
         replyRenameFeed->deleteLater();
-//        emit renamedFeed(id, name);
-        feedRenamedUpdateDb(id, name);
+
+        feedRenamedUpdateDb(id, newFeedName);
 
     } else {
         QVariantMap renameresult = helper.jsonToQt(replyRenameFeed->readAll());
@@ -905,7 +872,7 @@ void OcFeeds::feedRenamed(QString name)
  * \param id ID of the feed to rename
  * \param name New name of the feed
  */
-void OcFeeds::feedRenamedUpdateDb(int id, const QString &name)
+void OcFeeds::feedRenamedUpdateDb(const int &id, const QString &name)
 {
     QSqlQuery query;
 

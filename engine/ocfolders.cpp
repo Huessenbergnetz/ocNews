@@ -4,6 +4,7 @@
 OcFolders::OcFolders(QObject *parent) :
     QObject(parent)
 {
+    newFolderName = "";
 }
 
 void OcFolders::requestFolders()
@@ -27,7 +28,6 @@ void OcFolders::foldersRequested()
 #ifdef QT_DEBUG
     qDebug() << "Folders requested";
 #endif
-    connect(this,SIGNAL(requestedFolders(QVariantMap)),this,SLOT(foldersRequestedUpdateDb(QVariantMap)), Qt::UniqueConnection);
 
     if (replyRequestFolders->error() == QNetworkReply::NoError)
     {
@@ -39,13 +39,14 @@ void OcFolders::foldersRequested()
         if (foldersresult.isEmpty())
         {
             emit requestedFoldersError(tr("Server reply was empty."));
+
         } else {
 
-            emit requestedFolders(foldersresult);
+#ifdef QT_DEBUG
+            qDebug() << "Start updating DB with requested folders";
+#endif
+            foldersRequestedUpdateDb(foldersresult);
 
-    #ifdef QT_DEBUG
-            qDebug() << "emit requestedFolders";
-    #endif
         }
 
     } else {
@@ -59,7 +60,7 @@ void OcFolders::foldersRequested()
 
 }
 
-void OcFolders::foldersRequestedUpdateDb(QVariantMap foldersresult)
+void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
 {
 #ifdef QT_DEBUG
     qDebug() << "Update folder db";
@@ -142,6 +143,8 @@ void OcFolders::foldersRequestedUpdateDb(QVariantMap foldersresult)
 
 }
 
+
+
 void OcFolders::createFolder(const QString &name)
 {
     if (network.isFlightMode())
@@ -164,7 +167,6 @@ void OcFolders::createFolder(const QString &name)
 
 void OcFolders::folderCreated()
 {
-    connect(this,SIGNAL(createdFolder(QVariantMap)),this,SLOT(folderCreatedUpdateDb(QVariantMap)), Qt::UniqueConnection);
 
     if (replyCreateFolder->error() == QNetworkReply::NoError)
     {
@@ -176,7 +178,8 @@ void OcFolders::folderCreated()
         {
             emit createdFolderError(tr("Server reply was empty."));
         } else {
-            emit createdFolder(createresult);
+
+            folderCreatedUpdateDb(createresult);
         }
 
     } else {
@@ -194,7 +197,7 @@ void OcFolders::folderCreated()
 }
 
 
-void OcFolders::folderCreatedUpdateDb(QVariantMap createresult)
+void OcFolders::folderCreatedUpdateDb(const QVariantMap &createresult)
 {
     QSqlQuery query;
     foreach (QVariant folder, createresult["folders"].toList())
@@ -227,17 +230,16 @@ void OcFolders::deleteFolder(const QString &id)
 
 void OcFolders::folderDeleted()
 {
-    connect(this,SIGNAL(deletedFolder(int)),this,SLOT(folderDeletedUpdateDb(int)), Qt::UniqueConnection);
+//    connect(this,SIGNAL(deletedFolder(int)),this,SLOT(folderDeletedUpdateDb(int)), Qt::UniqueConnection);
 
     if (replyDeleteFolder->error() == QNetworkReply::NoError)
     {
         // extract folder id out of URL
-        QString url = replyDeleteFolder->url().toString();
-        QStringList urlParts = url.split("/");
-        int id = urlParts.last().toInt();
+        int id = replyDeleteFolder->url().toString().split("/").last().toInt();
 
         replyDeleteFolder->deleteLater();
-        emit deletedFolder(id);
+
+        folderDeletedUpdateDb(id);
 
     } else {
         QVariantMap deleteresult;
@@ -255,7 +257,7 @@ void OcFolders::folderDeleted()
 }
 
 
-void OcFolders::folderDeletedUpdateDb(int id)
+void OcFolders::folderDeletedUpdateDb(const int &id)
 {
     QSqlQuery query;
 
@@ -275,7 +277,6 @@ void OcFolders::folderDeletedUpdateDb(int id)
 
     // delete the serverside deleted item ids in the database
     for (int i = 0; i < idListFeeds.size(); ++i) {
-//        query.exec(QString("DELETE FROM items WHERE feedId = %1").arg(idListFeeds.at(i)));
         feeds.feedDeletedCleanItems(idListFeeds.at(i));
     }
 
@@ -289,7 +290,9 @@ void OcFolders::folderDeletedUpdateDb(int id)
 
 void OcFolders::renameFolder(const QString &id, const QString &name)
 {
-    qDebug() << name;
+#ifdef QT_DEBUG
+    qDebug() << "New folder name: " << name;
+#endif
 
     if (network.isFlightMode())
     {
@@ -304,31 +307,25 @@ void OcFolders::renameFolder(const QString &id, const QString &name)
         parameters.append(name);
         parameters.append("\"}");
 
+        newFolderName = name;
+
         replyRenameFolder = network.put(helper.buildRequest(folder, parameters.length()), parameters);
 
-        // map the name into the signal
-        QSignalMapper *signalMapper = new QSignalMapper(this);
-        signalMapper->setMapping(replyRenameFolder, name);
-
-        connect(replyRenameFolder, SIGNAL(finished()), signalMapper, SLOT(map()));
-
-        connect(signalMapper, SIGNAL(mapped(QString)), this, SLOT(folderRenamed(QString)));
+        connect(replyRenameFolder, SIGNAL(finished()), this, SLOT(folderRenamed()));
     }
 }
 
-void OcFolders::folderRenamed(QString name)
+void OcFolders::folderRenamed()
 {
-    connect(this,SIGNAL(renamedFolder(int, QString)),this,SLOT(folderRenamedUpdateDb(int, QString)), Qt::UniqueConnection);
 
     if (replyRenameFolder->error() == QNetworkReply::NoError)
     {
         // extract folder id out of URL
-        QString url = replyRenameFolder->url().toString();
-        QStringList urlParts = url.split("/");
-        int id = urlParts.last().toInt();
+        int id = replyRenameFolder->url().toString().split("/").last().toInt();
 
         replyRenameFolder->deleteLater();
-        emit renamedFolder(id, name);
+
+        folderRenamedUpdateDb(id, newFolderName);
 
     } else {
         QVariantMap renameresult = helper.jsonToQt(replyRenameFolder->readAll());
@@ -336,6 +333,7 @@ void OcFolders::folderRenamed(QString name)
         QString renameresulterror = renameresult["message"].toString();
 
         replyRenameFolder->deleteLater();
+
 #ifdef QT_DEBUG
         qDebug() << renameresulterror;
         qDebug() << replyRenameFolder->error();
@@ -347,7 +345,7 @@ void OcFolders::folderRenamed(QString name)
 }
 
 
-void OcFolders::folderRenamedUpdateDb(int id, QString name)
+void OcFolders::folderRenamedUpdateDb(const int &id, const QString &name)
 {
     QSqlQuery query;
 
@@ -396,8 +394,6 @@ void OcFolders::markFolderRead(const QString &id)
 
 void OcFolders::folderMarkedRead()
 {
-    connect(this, SIGNAL(markedReadFolder(int)), this, SLOT(folderMarkedReadUpdateDb(int)), Qt::UniqueConnection);
-
     if (replyMarkFolderRead->error() == QNetworkReply::NoError)
     {
         // extract folder id out of URL
@@ -411,7 +407,8 @@ void OcFolders::folderMarkedRead()
 #endif
 
         replyMarkFolderRead->deleteLater();
-        emit markedReadFolder(id);
+
+        folderMarkedReadUpdateDb(id);
 
     } else {
         QVariantMap markreadresult = helper.jsonToQt(replyMarkFolderRead->readAll());
@@ -427,7 +424,7 @@ void OcFolders::folderMarkedRead()
     }
 }
 
-void OcFolders::folderMarkedReadUpdateDb(int id)
+void OcFolders::folderMarkedReadUpdateDb(const int &id)
 {
     QDateTime ts;
     QSqlQuery query;

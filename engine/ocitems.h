@@ -31,12 +31,6 @@ public Q_SLOTS: // METHODS
     int isFetchImagesRunning();
 
 signals:
-    void requestedItems(QVariantMap requestItemsResult, QString type, QString fid);
-    void updatedItems(QVariantMap updateItemsResult, QString type, QString fid);
-    void markedItems(QStringList ids);
-    void markedAllItemsRead(QString newestItemId);
-    void starredItems(QStringList hashes);
-
     // item queue
     void dequeueFinished();
 
@@ -60,15 +54,10 @@ Q_SIGNALS: // SIGNALS
 
 private slots:
     void itemsRequested();
-    void itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString type, QString fId);
     void itemsUpdated();
-    void itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, QString fid);
-    void itemsMarked(QString joinedIds);
-    void itemsMarkedUpdateDb(QStringList ids);
-    void itemsStarred(QString joinedHashes);
-    void itemsStarredUpdateDb(QStringList hashes);
-    void itemsMarkedAllRead(QString newestItemid);
-    void itemsMarkedAllReadUpdateDb(QString newestItemId);
+    void itemsMarked();
+    void itemsStarred();
+    void itemsMarkedAllRead();
 
     // item queue
     void dequeueRead();
@@ -78,6 +67,12 @@ private slots:
     void dequeueFinish();
 
 private:
+    void itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, const QString &type, const QString &fId);
+    void itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const QString &type, const QString &fid);
+    void itemsMarkedUpdateDb(const QStringList &ids);
+    void itemsStarredUpdateDb(const QStringList &hashes);
+    void itemsMarkedAllReadUpdateDb(const QString &newestItemId);
+
     QUrl urlRequestItems, urlUpdateItems, urlMarkItems, urlStarItems, urlMarkAllItemsRead;
     QNetworkReply *replyRequestItems, *replyUpdateItems, *replyMarkItems, *replyStarItems, *replyMarkAllItemsRead;
     OcHelper helper;
@@ -100,6 +95,8 @@ private:
     void deleteCachedImages(const QList<int> &idsToDelte);
     int itemsToFetchImages;
     QString getFileTypeSuffix(const QByteArray &data);
+    QStringList itemsToMark, hashesToStar;
+    QString markAllReadNewestId;
 };
 
 #endif // OCITEMS_H

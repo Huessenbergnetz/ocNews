@@ -24,13 +24,6 @@ public Q_SLOTS: // METHODS
     void renameFolder(const QString &id, const QString &name);
     void requestFolders();
 
-signals:
-    void requestedFolders(QVariantMap foldersresult);
-    void createdFolder(QVariantMap createresult);
-    void deletedFolder(int id);
-    void renamedFolder(int id, QString name);
-    void markedReadFolder(int id);
-
 Q_SIGNALS: // SIGNALS
     void createdFolderError(const QString &createresulterror);
     void createdFolderSuccess(const QString &foldername);
@@ -45,23 +38,26 @@ Q_SIGNALS: // SIGNALS
 
 private slots:
     void foldersRequested();
-    void foldersRequestedUpdateDb(QVariantMap foldersresult);
     void folderCreated();
-    void folderCreatedUpdateDb(QVariantMap createresult);
     void folderDeleted();
-    void folderDeletedUpdateDb(int id);
-    void folderRenamed(QString name);
-    void folderRenamedUpdateDb(int id, QString name);
+    void folderRenamed();
     void folderMarkedRead();
-    void folderMarkedReadUpdateDb(int id);
 
 private:
-    QUrl urlRequestFolders, urlCreateFolder, urlDeleteFolder, urlRenameFolder;
+    void foldersRequestedUpdateDb(const QVariantMap &foldersresult);
+    void folderCreatedUpdateDb(const QVariantMap &createresult);
+    void folderDeletedUpdateDb(const int &id);
+    void folderRenamedUpdateDb(const int &id, const QString &name);
+    void folderMarkedReadUpdateDb(const int &id);
+
+
     QNetworkReply *replyRequestFolders, *replyCreateFolder, *replyDeleteFolder, *replyRenameFolder, *replyMarkFolderRead;
     OcHelper helper;
     OcDbManager database;
     OcFeeds feeds;
     OcNetwork network;
+
+    QString newFolderName;
 };
 
 #endif // OCFOLDERS_H

@@ -5,6 +5,9 @@ OcItems::OcItems(QObject *parent) :
     QObject(parent)
 {
     itemsToFetchImages = 0;
+    itemsToMark = QStringList();
+    hashesToStar = QStringList();
+    markAllReadNewestId = "";
 }
 
 
@@ -36,8 +39,6 @@ void OcItems::requestItems(const QString &batchSize, const QString &offset, cons
 
 void OcItems::itemsRequested()
 {
-    connect(this,SIGNAL(requestedItems(QVariantMap, QString, QString)),this,SLOT(itemsRequestedUpdateDb(QVariantMap, QString, QString)), Qt::UniqueConnection);
-
     if (replyRequestItems->error() == QNetworkReply::NoError)
     {
 #ifdef QT_DEBUG
@@ -61,7 +62,7 @@ void OcItems::itemsRequested()
         {
             emit requestedItemsError(tr("Server reply was empty."));
         } else {
-            emit requestedItems(requestItemsResult, type, fid);
+            itemsRequestedUpdateDb(requestItemsResult, type, fid);
         }
 
     } else {
@@ -69,10 +70,11 @@ void OcItems::itemsRequested()
 #ifdef QT_DEBUG
         qDebug() << "HTTP-Error:" << replyRequestItems->errorString();
 #endif
+        replyRequestItems->deleteLater();
     }
 }
 
-void OcItems::itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString type, QString fId)
+void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, const QString &type, const QString &fId)
 {
 #ifdef QT_DEBUG
     qDebug() << "Start updating items database.";
@@ -248,6 +250,8 @@ void OcItems::itemsRequestedUpdateDb(QVariantMap requestItemsResult, QString typ
 }
 
 
+
+
 void OcItems::updateItems(const QString &lastModified, const QString &type, const QString &id)
 {
     QString t_lastModified = lastModified;
@@ -322,8 +326,6 @@ void OcItems::updateItems(const QString &lastModified, const QString &type, cons
 
 void OcItems::itemsUpdated()
 {
-    connect(this,SIGNAL(updatedItems(QVariantMap, QString, QString)),this,SLOT(itemsUpdatedUpdateDb(QVariantMap, QString, QString)),Qt::UniqueConnection);
-
     if (replyUpdateItems->error() == QNetworkReply::NoError)
     {
 #ifdef QT_DEBUG
@@ -350,7 +352,7 @@ void OcItems::itemsUpdated()
         {
             emit updatedItemsError(tr("Server reply was empty."));
         } else {
-            emit updatedItems(updateItemsResult, type, id);
+            itemsUpdatedUpdateDb(updateItemsResult, type, id);
         }
 
     } else {
@@ -363,7 +365,7 @@ void OcItems::itemsUpdated()
 
 
 
-void OcItems::itemsUpdatedUpdateDb(QVariantMap updateItemsResult, QString type, QString fid)
+void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const QString &type, const QString &fid)
 {
 #ifdef QT_DEBUG
     qDebug() << "Start updating database.";
@@ -606,53 +608,47 @@ void OcItems::markItemsTillThis(const QString &action, const QDBusVariant &pubDa
 }
 
 
+
+
 void OcItems::markItems(const QString &action, const QVariantList &ids)
 {
 #ifdef QT_DEBUG
     qDebug() << "markItems: " << ids;
 #endif
 
-    // Create the JSON string and convert QVariantList to QStringList
-    QStringList slIds;
-    QByteArray parameters("{\"items\": [");
-    for (int i = 0; i < ids.size(); ++i)
-    {
-        if (i != 0)
-            parameters.append(", ");
-        parameters.append(ids.at(i).toString());
-        slIds.append(ids.at(i).toString());
+    if (ids.isEmpty()) {
+        emit markedItemsSuccess();
+        return;
     }
+
+    itemsToMark.clear();
+
+    for (int i = 0; i < ids.size(); ++i)
+        itemsToMark << ids.at(i).toString();
+
+    // Create the JSON string and convert QVariantList to QStringList
+    QByteArray parameters("{\"items\": [");
+    parameters.append(itemsToMark.join(", "));
     parameters.append("]}");
 
 #ifdef QT_DEBUG
-    qDebug() << "markItems: " << slIds;
+    qDebug() << "markItems: " << itemsToMark;
     qDebug() << parameters;
 #endif
 
-    slIds << action;
-
     if (network.isFlightMode())
     {
-        connect(this,SIGNAL(markedItems(QStringList)),this,SLOT(itemsMarkedUpdateDb(QStringList)),Qt::UniqueConnection);
-
-        QStringList queueItemIds = slIds;
-        queueItemIds.removeLast();
-
         if (action == "read")
         {
-            queueItems(OcItems::MarkRead, queueItemIds);
+            queueItems(OcItems::MarkRead, itemsToMark);
         } else {
-            queueItems(OcItems::MarkUnread, queueItemIds);
+            queueItems(OcItems::MarkUnread, itemsToMark);
         }
-#ifdef QT_DEBUG
-    qDebug() << "markItems Flight Mode: " << queueItemIds;
-#endif
 
-        emit markedItems(slIds);
+        itemsToMark << action;
+        itemsMarkedUpdateDb(itemsToMark);
 
     } else {
-
-        QString joinedIds = slIds.join(",");
 
         if (action == "read")
         {
@@ -661,30 +657,18 @@ void OcItems::markItems(const QString &action, const QVariantList &ids)
             replyMarkItems = network.put(helper.buildRequest("items/unread/multiple", parameters.size()), parameters);
         }
 
-        // map the name into the signal
-        QSignalMapper *signalMapper = new QSignalMapper(this);
-        signalMapper->setMapping(replyMarkItems, joinedIds);
-
-        connect(replyMarkItems, SIGNAL(finished()), signalMapper, SLOT(map()));
-
-        connect(signalMapper, SIGNAL(mapped(QString)), this, SLOT(itemsMarked(QString)));
+        itemsToMark << action;
+        connect(replyMarkItems, SIGNAL(finished()), this, SLOT(itemsMarked()));
     }
 
 }
 
-void OcItems::itemsMarked(QString joinedIds)
+void OcItems::itemsMarked()
 {
-#ifdef QT_DEBUG
-    qDebug() << joinedIds;
-#endif
-
-    connect(this,SIGNAL(markedItems(QStringList)),this,SLOT(itemsMarkedUpdateDb(QStringList)),Qt::UniqueConnection);
 
     if (replyMarkItems->error() == QNetworkReply::NoError)
     {
-        QStringList ids = joinedIds.split(",");
-
-        emit markedItems(ids);
+        itemsMarkedUpdateDb(itemsToMark);
     } else {
 
 #ifdef QT_DEBUG
@@ -694,9 +678,8 @@ void OcItems::itemsMarked(QString joinedIds)
 
         if (replyMarkItems->error() == QNetworkReply::TimeoutError || replyMarkItems->error() == QNetworkReply::UnknownNetworkError)
         {
-            QStringList ids = joinedIds.split(",");
-            QString action = ids.last();
-            QStringList queueItemIds = ids;
+            QStringList queueItemIds = itemsToMark;
+            QString action = queueItemIds.last();
             queueItemIds.removeLast();
 
             if (action == "read")
@@ -706,34 +689,37 @@ void OcItems::itemsMarked(QString joinedIds)
                 queueItems(OcItems::MarkUnread, queueItemIds);
             }
 
-            emit markedItems(ids);
+            itemsMarkedUpdateDb(itemsToMark);
+
         } else {
             emit markedItemsError(replyMarkItems->errorString());
         }
     }
+
     replyMarkItems->deleteLater();
 }
 
 
-void OcItems::itemsMarkedUpdateDb(QStringList ids)
+void OcItems::itemsMarkedUpdateDb(const QStringList &ids)
 {
 #ifdef QT_DEBUG
     qDebug() << "markItems Update DB: " << ids;
 #endif
-    QString action = ids.last();
-    ids.removeLast();
+    QStringList t_ids = ids;
+    QString action = t_ids.last();
+    t_ids.removeLast();
 
     QSqlQuery query;
     QDateTime ts;
     QSqlDatabase::database().transaction();
     if (action == "read")
     {
-        for (int i = 0; i < ids.size(); ++i)
-            query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE id = %1;").arg(ids.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE));
+        for (int i = 0; i < t_ids.size(); ++i)
+            query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE id = %1;").arg(t_ids.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE));
 
     } else {
-        for (int i = 0; i < ids.size(); ++i)
-            query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE id = %1;").arg(ids.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_TRUE));
+        for (int i = 0; i < t_ids.size(); ++i)
+            query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE id = %1;").arg(t_ids.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_TRUE));
     }
 
     QSqlDatabase::database().commit();
@@ -751,7 +737,7 @@ void OcItems::itemsMarkedUpdateDb(QStringList ids)
 void OcItems::starItems(const QString &action, const QVariantMap &itemIds)
 {
 
-    QStringList guidHashes;
+    hashesToStar.clear();
 
     // Create the JSON string
     QMapIterator<QString, QVariant> i(itemIds);
@@ -767,7 +753,7 @@ void OcItems::starItems(const QString &action, const QVariantMap &itemIds)
         parameters.append("\"guidHash\": \"");
         parameters.append(i.value().toString());
         parameters.append("\"}");
-        guidHashes << i.value().toString();
+        hashesToStar << i.value().toString();
         count++;
     }
     parameters.append("]}");
@@ -777,28 +763,23 @@ void OcItems::starItems(const QString &action, const QVariantMap &itemIds)
 #endif
 
 
-    guidHashes << action;
-
 
     if (network.isFlightMode())
     {
-        connect(this,SIGNAL(starredItems(QStringList)),this,SLOT(itemsStarredUpdateDb(QStringList)),Qt::UniqueConnection);
-
-        QStringList queueHashes = guidHashes;
-        queueHashes.removeLast();
-
         if (action == "star")
         {
-            queueItems(OcItems::Star, queueHashes);
+            queueItems(OcItems::Star, hashesToStar);
         } else {
-            queueItems(OcItems::Unstar, queueHashes);
+            queueItems(OcItems::Unstar, hashesToStar);
         }
 
-        emit starredItems(guidHashes);
+        hashesToStar << action;
+
+        itemsStarredUpdateDb(hashesToStar);
 
     } else {
 
-        QString joinedHashes = guidHashes.join(",");
+        hashesToStar << action;
 
         if (action == "star")
         {
@@ -807,40 +788,29 @@ void OcItems::starItems(const QString &action, const QVariantMap &itemIds)
             replyStarItems = network.put(helper.buildRequest("items/unstar/multiple", parameters.length()), parameters);
         }
 
-        // map the hashes into the signal
-        QSignalMapper *signalMapper = new QSignalMapper(this);
-        signalMapper->setMapping(replyStarItems, joinedHashes);
-
-        connect(replyStarItems, SIGNAL(finished()), signalMapper, SLOT(map()));
-
-        connect(signalMapper, SIGNAL(mapped(QString)), this, SLOT(itemsStarred(QString)));
+        connect(replyStarItems, SIGNAL(finished()), this, SLOT(itemsStarred()));
     }
 }
 
-void OcItems::itemsStarred(QString joinedHashes)
+void OcItems::itemsStarred()
 {
-#ifdef QT_DEBUG
-    qDebug() << joinedHashes;
-#endif
-    connect(this,SIGNAL(starredItems(QStringList)),this,SLOT(itemsStarredUpdateDb(QStringList)),Qt::UniqueConnection);
-
     if (replyStarItems->error() == QNetworkReply::NoError)
     {
-        QStringList hashes = joinedHashes.split(",");
-
         replyStarItems->deleteLater();
 
-        emit starredItems(hashes);
+        itemsStarredUpdateDb(hashesToStar);
+
     } else {
 #ifdef QT_DEBUG
         qDebug() << "HTTP-Error:" << replyStarItems->errorString();
 #endif
         if (replyStarItems->error() == QNetworkReply::TimeoutError || replyStarItems->error() == QNetworkReply::UnknownNetworkError)
         {
-            QStringList hashes = joinedHashes.split(",");
-            QString action = hashes.last();
-            QStringList queueHashes = hashes;
+
+            QStringList queueHashes = hashesToStar;
+            QString action = queueHashes.last();
             queueHashes.removeLast();
+
 
             if (action == "star")
             {
@@ -848,7 +818,8 @@ void OcItems::itemsStarred(QString joinedHashes)
             } else {
                 queueItems(OcItems::Unstar, queueHashes);
             }
-             emit starredItems(hashes);
+             itemsStarredUpdateDb(hashesToStar);
+
         } else {
             emit starredItemsError(replyStarItems->errorString());
         }
@@ -857,32 +828,38 @@ void OcItems::itemsStarred(QString joinedHashes)
     }
 }
 
-void OcItems::itemsStarredUpdateDb(QStringList hashes)
+void OcItems::itemsStarredUpdateDb(const QStringList &hashes)
 {
-    QString action = hashes.last();
-    hashes.removeLast();
+    QStringList t_hashes = hashes;
+    QString action = t_hashes.last();
+    t_hashes.removeLast();
 #ifdef QT_DEBUG
-    qDebug() << hashes;
+    qDebug() << t_hashes;
 #endif
 
     QDateTime ts;
     QSqlQuery query;
     if (action == "star")
     {
-        for (int i = 0; i < hashes.size(); ++i)
-            query.exec(QString("UPDATE items SET starred = %3, lastModified = %2  WHERE guidHash = \"%1\";").arg(hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_TRUE));
+        for (int i = 0; i < t_hashes.size(); ++i)
+            query.exec(QString("UPDATE items SET starred = %3, lastModified = %2  WHERE guidHash = \"%1\";").arg(t_hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_TRUE));
 
     } else {
-        for (int i = 0; i < hashes.size(); ++i)
-            query.exec(QString("UPDATE items SET starred = %3, lastModified = %2 WHERE guidHash = \"%1\";").arg(hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE));
+        for (int i = 0; i < t_hashes.size(); ++i)
+            query.exec(QString("UPDATE items SET starred = %3, lastModified = %2 WHERE guidHash = \"%1\";").arg(t_hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE));
     }
 
     emit starredItemsSuccess();
 }
 
 
+
+
+
 void OcItems::markAllItemsRead()
 {
+    markAllReadNewestId.clear();
+
     if (network.isFlightMode())
     {
         emit markedAllItemsReadError(tr("Device is in flight mode."));
@@ -890,14 +867,13 @@ void OcItems::markAllItemsRead()
     } else {
         // get newest item id
         QSqlQuery query;
-        QString newestItemId;
         query.exec("SELECT MAX(id) FROM items;");
         if (query.next())
-            newestItemId = query.value(0).toString();
+            markAllReadNewestId = query.value(0).toString();
 
         // build request parameters
         QByteArray parameters("{\"newestItemId\": ");
-        parameters.append(newestItemId);
+        parameters.append(markAllReadNewestId);
         parameters.append("}");
 
     #ifdef QT_DEBUG
@@ -906,26 +882,19 @@ void OcItems::markAllItemsRead()
 
         replyMarkAllItemsRead = network.put(helper.buildRequest("items/read", parameters.length()), parameters);
 
-        // map the hashes into the signal
-        QSignalMapper *signalMapper = new QSignalMapper(this);
-        signalMapper->setMapping(replyMarkAllItemsRead, newestItemId);
-
-        connect(replyMarkAllItemsRead, SIGNAL(finished()), signalMapper, SLOT(map()));
-
-        connect(signalMapper, SIGNAL(mapped(QString)), this, SLOT(itemsMarkedAllRead(QString)));
+        connect(replyMarkAllItemsRead, SIGNAL(finished()), this, SLOT(itemsMarkedAllRead()));
     }
 
 }
 
-void OcItems::itemsMarkedAllRead(QString newestItemId)
+void OcItems::itemsMarkedAllRead()
 {
-    connect(this,SIGNAL(markedAllItemsRead(QString)),this,SLOT(itemsMarkedAllReadUpdateDb(QString)),Qt::UniqueConnection);
-
     if (replyMarkAllItemsRead->error() == QNetworkReply::NoError)
     {
         replyMarkAllItemsRead->deleteLater();
 
-        emit markedAllItemsRead(newestItemId);
+        itemsMarkedAllReadUpdateDb(markAllReadNewestId);
+
     } else {
 #ifdef QT_DEBUG
         qDebug() << "HTTP-Error:" << replyMarkAllItemsRead->errorString();
@@ -935,7 +904,7 @@ void OcItems::itemsMarkedAllRead(QString newestItemId)
     }
 }
 
-void OcItems::itemsMarkedAllReadUpdateDb(QString newestItemId)
+void OcItems::itemsMarkedAllReadUpdateDb(const QString &newestItemId)
 {
     QDateTime ts;
     QSqlQuery query;
@@ -1427,8 +1396,8 @@ void OcItems::deleteCachedImages(const QList<int> &idsToDelte)
 
 QString OcItems::getFileTypeSuffix(const QByteArray &data)
 {
-    QByteArray m_data = data.toHex().toUpper();
-    QString magic = m_data.left(16);
+    QByteArray t_data = data.toHex().toUpper();
+    QString magic = t_data.left(16);
     QString result;
 
 #ifdef QT_DEBUG

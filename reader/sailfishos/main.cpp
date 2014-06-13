@@ -94,6 +94,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("dbus", &dbus);
     view->rootContext()->setContextProperty("downloads", &downloads);
     view->rootContext()->setContextProperty("versionString", VERSION_STRING);
+    view->rootContext()->setContextProperty("versionInt", VERSION);
 
     view->setSource(QUrl::fromLocalFile("/usr/share/harbour-ocnews-reader/qml/harbour-ocnews-reader.qml"));
     view->show();

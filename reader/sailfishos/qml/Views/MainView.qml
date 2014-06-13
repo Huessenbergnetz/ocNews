@@ -4,6 +4,7 @@ import Sailfish.Silica 1.0
 import "../Delegates"
 import "../Dialogs"
 import "../Common"
+import "../BTComponents"
 import "../JS/globals.js" as GLOBALS
 
 
@@ -64,6 +65,19 @@ Page {
         onStarredItemsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
         onUpdatedItemsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
         onRequestedItemsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
+    }
+
+    FirstStartInfo {
+        visible: dbus.getSetting("display/version", 0) < versionInt
+        name: "ocNews"
+        version: versionString
+//        helpPage: "../pages/Help.qml"
+        paypalOrganization: "Buschtrommel"
+        paypalItem: "ocNews"
+        paypalEmail: "kontakt@buschmann23.de"
+        paypalMessage: qsTr("Leave a message (English or German):")
+        description: qsTr("ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. ")
+//        onClicked: dbus.setSetting("display/version", versionInt)
     }
 
     SilicaListView {

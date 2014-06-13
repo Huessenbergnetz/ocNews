@@ -22,8 +22,6 @@ public Q_SLOTS: // METHODS
     void initConnection();
     void quitEngine();
 
-signals:
-
 Q_SIGNALS: // SIGNALS
     void gotVersion(const QString &version);
     void gotVersionError(const QString &error);

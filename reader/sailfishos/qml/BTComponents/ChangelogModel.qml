@@ -23,6 +23,16 @@ import QtQuick 2.0
 ListModel {
 
     ListElement {
+        version: "1.8.3"
+        date: 1399932292000
+        text: "<ul>
+                <li>Changed: changelog layout<li>
+                <li>Changed: removed Martine Grimme's FancyScroller, using native scoller instead</li>
+                <li>Improved: code cleanups</li>
+              </ul>"
+    }
+
+    ListElement {
         version: "1.8.2"
         date: 1399932292000
         text: "<ul>
