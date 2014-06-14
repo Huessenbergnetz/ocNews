@@ -17,10 +17,6 @@
 #include <QSystemBatteryInfo>
 #else
 #include <QTimer>
-//#include <mlite5/MNotification>
-//#include <mlite5/MNotificationGroup>
-//#include <QtSystemInfo/QNetworkInfo>
-//#include <QtSystemInfo/QBatteryInfo>
 #endif
 
 #if defined(MEEGO_EDITION_HARMATTAN)

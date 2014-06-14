@@ -9,6 +9,7 @@
 #include "ochelper.h"
 #include "ocnetwork.h"
 #include "occonfiguration.h"
+#include "ocnotifications.h"
 #include "../common/globals.h"
 
 class OcGeneric : public QObject
@@ -39,6 +40,7 @@ private:
     QNetworkReply *reply;
     OcHelper helper;
     OcConfiguration configuration;
+    OcNotifications notify;
 
 };
 

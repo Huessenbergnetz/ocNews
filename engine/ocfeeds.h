@@ -9,6 +9,7 @@
 #include "ocdbmanager.h"
 #include "ocnetwork.h"
 #include "ocitems.h"
+#include "ocnotifications.h"
 #include "../common/globals.h"
 
 class OcFeeds : public QObject
@@ -68,6 +69,7 @@ private:
     OcItems items;
     OcNetwork network;
     OcConfiguration config;
+    OcNotifications notify;
 
     bool addFeedToEventView;
     QString folderIdToMoveTo;

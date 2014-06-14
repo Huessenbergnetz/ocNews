@@ -76,5 +76,6 @@ desktop-file-install --delete-original       \
 %{_datadir}/harbour-ocnews-reader/
 %{_datadir}/applications/harbour-ocnews-reader.desktop
 %{_datadir}/icons/hicolor/86x86/apps/harbour-ocnews-reader.png
+%{_datadir}/lipstick/notificationcategories/*.conf
 # >> files
 # << files

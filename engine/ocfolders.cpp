@@ -38,6 +38,7 @@ void OcFolders::foldersRequested()
 #endif
         if (foldersresult.isEmpty())
         {
+            notify.showNotification(tr("Server reply was empty."), tr("Failed to request folders"), OcNotifications::Error);
             emit requestedFoldersError(tr("Server reply was empty."));
 
         } else {
@@ -53,6 +54,7 @@ void OcFolders::foldersRequested()
 #ifdef QT_DEBUG
         qDebug() << "HTTP-Error:" << replyRequestFolders->errorString();
 #endif
+        notify.showNotification(replyRequestFolders->errorString(), tr("Failed to request folders"), OcNotifications::Error);
         emit requestedFoldersError(replyRequestFolders->errorString());
     }
 
@@ -66,6 +68,7 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
     qDebug() << "Update folder db";
 #endif
     QSqlQuery query;
+    QStringList newFolders = QStringList();
 
     foreach (QVariant folder, foldersresult["folders"].toList())
     {
@@ -97,6 +100,7 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
 #ifdef QT_DEBUG
             qDebug() << "Created folder: " << map["name"].toString();
 #endif
+            newFolders << map["name"].toString();
         }
 
 
@@ -106,6 +110,7 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
     // now check if folders were deleted on server
     QList<int> idList;
     QList<int> idListDeleted;
+    QStringList deleteFolderNames = QStringList();
 
     // put all the ids into a list
     foreach (QVariant folder, foldersresult["folders"].toList())
@@ -116,11 +121,13 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
     }
 
     // compare the ids and put the deleted ids into a list
-    query.exec(QString("SELECT id FROM folders;"));
+    query.exec(QString("SELECT id, name FROM folders;"));
     while (query.next())
     {
-        if (!idList.contains(query.value(0).toInt()))
+        if (!idList.contains(query.value(0).toInt())) {
             idListDeleted << query.value(0).toInt();
+            deleteFolderNames << query.value(1).toString();
+        }
     }
 
     // delete the serverside deleted ids in the database
@@ -134,6 +141,32 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
     #endif
         }
         QSqlDatabase::database().commit();
+    }
+
+    if (!deleteFolderNames.isEmpty() || !newFolders.isEmpty())
+    {
+        QString summary = "";
+        QString body = "";
+
+        if (!newFolders.isEmpty()) {
+            summary = tr("%n folders(s) added", "", newFolders.count());
+            body = tr("Added:").append(" ");
+            body.append(newFolders.join(", "));
+        }
+
+        if (summary != "") {
+            summary.append(", ");
+            body.append("; ");
+        }
+
+        if (!deleteFolderNames.isEmpty())
+        {
+            summary.append(tr("%n folder(s) removed", "", deleteFolderNames.count()));
+            body.append(tr("Removed:")).append(" ");
+            body.append(deleteFolderNames.join(", "));
+        }
+
+        notify.showNotification(body, summary);
     }
 
 #ifdef QT_DEBUG
@@ -176,6 +209,7 @@ void OcFolders::folderCreated()
 
         if (createresult.isEmpty())
         {
+            notify.showNotification(tr("Server reply was empty."), tr("Failed to create folder"), OcNotifications::Error);
             emit createdFolderError(tr("Server reply was empty."));
         } else {
 
@@ -187,10 +221,15 @@ void OcFolders::folderCreated()
 
         QString createresulterror = createresult["message"].toString();
 
+        if (createresulterror.isEmpty())
+            createresulterror = replyCreateFolder->errorString();
+
         replyCreateFolder->deleteLater();
 #ifdef QT_DEBUG
         qDebug() << createresulterror;
 #endif
+
+        notify.showNotification(createresulterror, tr("Failed to create folder"), OcNotifications::Error);
 
         emit createdFolderError(createresulterror);
     }
@@ -208,6 +247,7 @@ void OcFolders::folderCreatedUpdateDb(const QVariantMap &createresult)
         query.bindValue(":name", map["name"].toString());
         query.exec();
         emit createdFolderSuccess(map["name"].toString());
+        notify.showNotification(tr("Successfully created folder \"%1\"").arg(map["name"].toString()), tr("Created folder"), OcNotifications::Success);
     }
 }
 
@@ -230,7 +270,6 @@ void OcFolders::deleteFolder(const QString &id)
 
 void OcFolders::folderDeleted()
 {
-//    connect(this,SIGNAL(deletedFolder(int)),this,SLOT(folderDeletedUpdateDb(int)), Qt::UniqueConnection);
 
     if (replyDeleteFolder->error() == QNetworkReply::NoError)
     {
@@ -247,10 +286,15 @@ void OcFolders::folderDeleted()
 
         QString deleteresulterror = deleteresult["message"].toString();
 
+        if (deleteresulterror.isEmpty())
+            deleteresulterror = replyDeleteFolder->errorString();
+
         replyDeleteFolder->deleteLater();
 #ifdef QT_DEBUG
         qDebug() << deleteresulterror;
 #endif
+
+        notify.showNotification(deleteresulterror, tr("Failed to delete folder"), OcNotifications::Error);
 
         emit deletedFolderError(deleteresulterror);
     }
@@ -332,6 +376,9 @@ void OcFolders::folderRenamed()
 
         QString renameresulterror = renameresult["message"].toString();
 
+        if (renameresulterror.isEmpty())
+            renameresulterror = replyRenameFolder->errorString();
+
         replyRenameFolder->deleteLater();
 
 #ifdef QT_DEBUG
@@ -339,6 +386,8 @@ void OcFolders::folderRenamed()
         qDebug() << replyRenameFolder->error();
         qDebug() << replyRenameFolder->errorString();
 #endif
+
+        notify.showNotification(renameresulterror, tr("Failed to rename folder"), OcNotifications::Error);
 
         emit renamedFolderError(renameresulterror);
     }
@@ -415,10 +464,15 @@ void OcFolders::folderMarkedRead()
 
         QString markreaderror = markreadresult["message"].toString();
 
+        if (markreaderror.isEmpty())
+            markreaderror = replyMarkFolderRead->errorString();
+
         replyMarkFolderRead->deleteLater();
 #ifdef QT_DEBUG
         qDebug() << markreaderror;
 #endif
+
+        notify.showNotification(markreaderror, tr("Failed to mark folder as read"), OcNotifications::Error);
 
         emit markedReadFolderError(markreaderror);
     }

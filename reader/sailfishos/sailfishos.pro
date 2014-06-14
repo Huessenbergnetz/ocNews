@@ -1,17 +1,10 @@
 TEMPLATE = app
 
 TARGET = harbour-ocnews-reader
-
-#QT += declarative dbus core sql
-#QT += quick qml dbus core sql
 QT += dbus core sql
 
 target.path = /usr/bin
 INSTALLS += target
-
-#qml.files = qml/*.qml
-#qml.path = /usr/share/harbour-ocnews-reader/qml
-#INSTALLS += qml
 
 icons.path = /usr/share/harbour-ocnews-reader/icons
 icons.files = icons/*

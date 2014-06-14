@@ -22,7 +22,7 @@ OcGeneric::OcGeneric(QObject *parent) :
  * \fn void OcGeneric::initConnection()
  * \brief Inits a connection
  *
- * This class only tries to request ther version of the ownClod News App to init
+ * This class only tries to request the version of the ownClod News App to init
  * the connection for other operations. This class is not more than a little hack
  * from the beginnings.
  */
@@ -74,6 +74,7 @@ void OcGeneric::initFinished()
 #endif
         }
 
+        notify.showNotification(errmsg, tr("Connection error"), OcNotifications::Error);
         emit initError(errmsg);
     } else {
         emit initSuccess();
@@ -138,6 +139,8 @@ void OcGeneric::getVersionFinished()
         }
 
         reply->deleteLater();
+
+        notify.showNotification(errmsg, tr("Connection error"), OcNotifications::Error);
 
         emit gotVersionError(errmsg);
 

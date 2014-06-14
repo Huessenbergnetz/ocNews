@@ -8,6 +8,7 @@
 #include "ocdbmanager.h"
 #include "ocgeneric.h"
 #include "ocfeeds.h"
+#include "ocnotifications.h"
 #include "../common/globals.h"
 
 class OcFolders : public QObject
@@ -52,6 +53,7 @@ private:
 
 
     QNetworkReply *replyRequestFolders, *replyCreateFolder, *replyDeleteFolder, *replyRenameFolder, *replyMarkFolderRead;
+    OcNotifications notify;
     OcHelper helper;
     OcDbManager database;
     OcFeeds feeds;

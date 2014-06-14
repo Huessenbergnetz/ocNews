@@ -11,6 +11,7 @@
 #include "ochelper.h"
 #include "ocnetwork.h"
 #include "ocdbmanager.h"
+#include "ocnotifications.h"
 #include "../common/globals.h"
 
 class OcItems : public QObject
@@ -80,6 +81,7 @@ private:
     OcNetwork network;
     Action action;
     OcConfiguration config;
+    OcNotifications notify;
 
     // item queue
     void queueItems(int action, QStringList &itemIds);

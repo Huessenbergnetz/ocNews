@@ -22,6 +22,7 @@
 #include "interfaces/ocupdateradaptor.h"
 #include "ocdownloadmanager.h"
 #include "interfaces/ocdownloadsadaptor.h"
+#include "ocnotifications.h"
 #if defined(MEEGO_EDITION_HARMATTAN)
 #include "ocaccount.h"
 #include "interfaces/ocaccountadaptor.h"

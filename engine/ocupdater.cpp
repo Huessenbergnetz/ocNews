@@ -9,7 +9,7 @@
  * \class OcUpdater
  * \brief The OcUpdater class handles full updates of the ownCloud News content
  *
- * This class contents functions for updating/synchronizing the content of the
+ * This class contains functions for updating/synchronizing the content of the
  * ownCloud News app to the ocNews local database. It defines a timer for automatic
  * background updates.
 */

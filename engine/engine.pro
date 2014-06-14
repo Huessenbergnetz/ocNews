@@ -68,6 +68,11 @@ supportfiles.files = sailfishos/*.sh
 INSTALLS += supportfiles
 }
 
+isEmpty(MEEGO_VERSION_MAJOR) {
+notifications.files = sailfishos/notifications/*.conf
+notifications.path = /usr/share/lipstick/notificationcategories/
+INSTALLS += notifications
+}
 
 SOURCES += main.cpp \
     ocnetwork.cpp \
@@ -89,7 +94,8 @@ SOURCES += main.cpp \
     ocdownloadmanager.cpp \
     interfaces/ocdownloadsadaptor.cpp \
     ocupgradehelper.cpp \
-    ../common/globals.cpp
+    ../common/globals.cpp \
+    ocnotifications.cpp
 
 !isEmpty(MEEGO_VERSION_MAJOR) {
 SOURCES += ocaccount.cpp
@@ -122,7 +128,8 @@ HEADERS += \
     ../common/globals.h \
     ocdownloadmanager.h \
     interfaces/ocdownloadsadaptor.h \
-    ocupgradehelper.h
+    ocupgradehelper.h \
+    ocnotifications.h
 
 !isEmpty(MEEGO_VERSION_MAJOR) {
 HEADERS += ocaccount.h
@@ -137,8 +144,8 @@ unix: PKGCONFIG += aegis-certman
 unix: PKGCONFIG += accounts-qt
 unix: PKGCONFIG += AccountSetup
 } else {
-#unix: PKGCONFIG += mlite5
-#unix: PKGCONFIG += qmsystem2-qt5
+LIBS += -lmlite5
+INCLUDEPATH += /usr/include/mlite5
 }
 
 OTHER_FILES += \

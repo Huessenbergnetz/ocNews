@@ -60,12 +60,15 @@ void OcItems::itemsRequested()
 #endif
         if (requestItemsResult.isEmpty())
         {
+            notify.showNotification(tr("Server reply was empty."), tr("Error in server reply"), OcNotifications::Error);
             emit requestedItemsError(tr("Server reply was empty."));
+
         } else {
             itemsRequestedUpdateDb(requestItemsResult, type, fid);
         }
 
     } else {
+        notify.showNotification(replyRequestItems->errorString(), tr("HTTP error"), OcNotifications::Error);
         emit requestedItemsError(replyRequestItems->errorString());
 #ifdef QT_DEBUG
         qDebug() << "HTTP-Error:" << replyRequestItems->errorString();
@@ -83,6 +86,7 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
     int imgHandling = config.getSetting(QString("display/handleimgs"), QDBusVariant(0)).variant().toInt();
     QList<int> newEventItems; // list for the new items, for sending to event feed
     QList<int> newItems; // list for fetching images
+    int unreadCount = 0;
     QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
     QStringList feedsForEventsList = feedsForEventView.split(",");
 
@@ -148,6 +152,9 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
 #endif
 
             newItems.append(map["id"].toInt());
+
+            if (map["unread"].toBool())
+                unreadCount++;
 
             // collect ids of new items for the event feed
             if (!feedsForEventsList.isEmpty())
@@ -235,6 +242,13 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
     qDebug() << "Finished updating database, emit requestedItemsSuccess";
 #endif
     emit requestedItemsSuccess();
+
+    if (!newItems.isEmpty())
+    {
+        QString notificationBody(tr("%n new article(s)", "", newItems.count()));
+        notificationBody.append(", ").append(tr("%n of them unread", "", unreadCount));
+        notify.showNotification(notificationBody, tr("New articles available"), OcNotifications::Success);
+    }
 
     if (!newEventItems.isEmpty())
         updateEventFeed(newEventItems);
@@ -350,6 +364,7 @@ void OcItems::itemsUpdated()
 
         if (updateItemsResult.isEmpty())
         {
+            notify.showNotification(tr("Server reply was empty."), tr("Error in server reply"), OcNotifications::Error);
             emit updatedItemsError(tr("Server reply was empty."));
         } else {
             itemsUpdatedUpdateDb(updateItemsResult, type, id);
@@ -359,6 +374,7 @@ void OcItems::itemsUpdated()
 #ifdef QT_DEBUG
         qDebug() << "HTTP-Error:" << replyUpdateItems->errorString();
 #endif
+        notify.showNotification(replyUpdateItems->errorString(), tr("HTTP error"), OcNotifications::Error);
         emit updatedItemsError(replyUpdateItems->errorString());
     }
 }
@@ -373,6 +389,7 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
 
     QList<int> newEventItems; // list for the new items, for sending to event feed
     QList<int> newItems; // list for fetching images
+    int unreadCount = 0;
     int imgHandling = config.getSetting(QString("display/handleimgs"), QDBusVariant(0)).variant().toInt();
     QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
     QStringList feedsForEventsList = feedsForEventView.split(",");
@@ -440,6 +457,9 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
 #endif
 
             newItems.append(map["id"].toInt());
+
+            if (map["unread"].toBool())
+                unreadCount++;
 
             // collect ids of new items for the event feed
             if (!feedsForEventsList.isEmpty())
@@ -541,6 +561,13 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
     qDebug() << "Emit updatedItemsSuccess";
 #endif
     emit updatedItemsSuccess();
+
+    if (!newItems.isEmpty())
+    {
+        QString notificationBody(tr("%n new article(s)", "", newItems.count()));
+        notificationBody.append(", ").append(tr("%n of them unread", "", unreadCount));
+        notify.showNotification(notificationBody, tr("New articles available"), OcNotifications::Success);
+    }
 
     if (!newEventItems.isEmpty())
         updateEventFeed(newEventItems);
@@ -692,6 +719,7 @@ void OcItems::itemsMarked()
             itemsMarkedUpdateDb(itemsToMark);
 
         } else {
+            notify.showNotification(replyMarkItems->errorString(), tr("Failed to mark articles"), OcNotifications::Error);
             emit markedItemsError(replyMarkItems->errorString());
         }
     }
@@ -821,6 +849,7 @@ void OcItems::itemsStarred()
              itemsStarredUpdateDb(hashesToStar);
 
         } else {
+            notify.showNotification(replyStarItems->errorString(), tr("Failed to un/star articles"), OcNotifications::Error);
             emit starredItemsError(replyStarItems->errorString());
         }
 
@@ -899,6 +928,7 @@ void OcItems::itemsMarkedAllRead()
 #ifdef QT_DEBUG
         qDebug() << "HTTP-Error:" << replyMarkAllItemsRead->errorString();
 #endif
+        notify.showNotification(replyMarkAllItemsRead->errorString(), tr("Failed to mark articles"), OcNotifications::Error);
         emit markedAllItemsReadError(replyMarkAllItemsRead->errorString());
         replyMarkAllItemsRead->deleteLater();
     }

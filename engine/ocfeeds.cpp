@@ -69,6 +69,7 @@ void OcFeeds::feedsRequested()
 
         if (feedsresult.isEmpty())
         {
+            notify.showNotification(tr("Server reply was empty."), tr("Failed to request feeds"), OcNotifications::Error);
             emit requestedFeedsError(tr("Server reply was empty."));
             return;
         }
@@ -80,6 +81,7 @@ void OcFeeds::feedsRequested()
 #ifdef QT_DEBUG
         qDebug() << "HTTP-Error:" << replyRequestFeeds->errorString();
 #endif
+        notify.showNotification(replyRequestFeeds->errorString(), tr("Failed to request feeds"), OcNotifications::Error);
         emit requestedFeedsError(replyRequestFeeds->errorString());
         replyRequestFeeds->deleteLater();
     }
@@ -104,6 +106,7 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
     qDebug() << "Start updating feeds database";
 #endif
     QSqlQuery query;
+    QStringList newFeeds = QStringList();
 
     foreach (QVariant feed, feedsresult["feeds"].toList())
     {
@@ -183,6 +186,8 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
 #ifdef QT_DEBUG
             qDebug() << "Added Feed: " << map["title"].toString();
 #endif
+            newFeeds << map["title"].toString();
+
             getFavicon( map["id"].toString(), map["faviconLink"].toString());
         }
 
@@ -192,6 +197,7 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
     // now check if feeds were deleted on server
     QList<int> idList;
     QList<int> idListDeleted;
+    QStringList deletedFeedNames;
 
     // put all the ids into a list
     foreach (QVariant feed, feedsresult["feeds"].toList())
@@ -202,11 +208,13 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
     }
 
     // compare the ids and put the deleted ids into a list
-    query.exec(QString("SELECT id FROM feeds;"));
+    query.exec(QString("SELECT id, title FROM feeds;"));
     while (query.next())
     {
-        if (!idList.contains(query.value(0).toInt()))
+        if (!idList.contains(query.value(0).toInt())) {
             idListDeleted << query.value(0).toInt();
+            deletedFeedNames << query.value(1).toString();
+        }
     }
 
     // delete the serverside deleted ids in the database
@@ -215,6 +223,35 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
         items.cleanItems(idListDeleted.at(i));
         qDebug() << "Deleted Feed ID: " << idListDeleted.at(i);
     }
+
+
+    if (!newFeeds.isEmpty() || !idListDeleted.isEmpty())
+    {
+        QString summary = "";
+        QString body = "";
+
+        if (!newFeeds.isEmpty()) {
+            summary = tr("%n feed(s) added", "", newFeeds.count());
+            body = tr("Added:").append(" ");
+            body.append(newFeeds.join(", "));
+        }
+
+        if (summary != "") {
+            summary.append(", ");
+            body.append("; ");
+        }
+
+        if (!deletedFeedNames.isEmpty())
+        {
+            summary.append(tr("%n feed(s) removed", "", deletedFeedNames.count()));
+            body.append(tr("Removed:")).append(" ");
+            body.append(deletedFeedNames.join(", "));
+        }
+
+        notify.showNotification(body, summary);
+
+    }
+
 
 #ifdef QT_DEBUG
     qDebug() << "Emit requestedFeedsSuccess signal";
@@ -281,6 +318,7 @@ void OcFeeds::feedCreated()
 
         if (createFeedResult.isEmpty())
         {
+            notify.showNotification(tr("Server reply was empty."), tr("Failed to add feed"), OcNotifications::Error);
             emit createdFeedError(tr("Server reply was empty."));
             return;
         }
@@ -292,7 +330,12 @@ void OcFeeds::feedCreated()
 
         QString createFeedResultError = createFeedResult["message"].toString();
 
+        if (createFeedResultError.isEmpty())
+            createFeedResultError = replyCreateFeed->errorString();
+
         replyCreateFeed->deleteLater();
+
+        notify.showNotification(createFeedResultError, tr("Failed to add feed"), OcNotifications::Error);
 
         emit createdFeedError(createFeedResultError);
 
@@ -366,6 +409,7 @@ void OcFeeds::feedCreatedFetchItems(const QVariantMap &createFeedResult, const Q
         items.requestItems("100", "0", "0", map["id"].toString(), "true"); // batchSize, offset, type, id, getRead
     }
     loop.exec();
+    notify.showNotification(feedName, tr("Added feed"), OcNotifications::Success);
     emit createdFeedSuccess(feedName);
 }
 
@@ -425,11 +469,16 @@ void OcFeeds::feedDeleted()
 
         QString deleteFeedResultError = deleteFeedResult["message"].toString();
 
+        if (deleteFeedResultError.isEmpty())
+            deleteFeedResultError = replyDeleteFeed->errorString();
+
         replyDeleteFeed->deleteLater();
 
 #ifdef QT_DEBUG
         qDebug() << deleteFeedResultError;
 #endif
+
+        notify.showNotification(deleteFeedResultError, tr("Failed to delete feed"), OcNotifications::Error);
 
         emit deletedFeedError(deleteFeedResultError);
     }
@@ -556,11 +605,15 @@ void OcFeeds::feedMoved()
 
         QString moveFeedResultError = moveresult["message"].toString();
 
+        if (moveFeedResultError.isEmpty())
+            moveFeedResultError = replyMoveFeed->errorString();
+
         replyMoveFeed->deleteLater();
 
 #ifdef QT_DEBUG
         qDebug() << moveFeedResultError;
 #endif
+        notify.showNotification(moveFeedResultError, tr("Failed to move feed"), OcNotifications::Error);
 
         emit movedFeedError(moveFeedResultError);
     }
@@ -741,6 +794,11 @@ void OcFeeds::feedMarkedRead()
 
         QString markedReadFeedErrorResult = markFeedReadResult["message"].toString();
 
+        if (markedReadFeedErrorResult.isEmpty())
+            markedReadFeedErrorResult = replyMarkFeedRead->errorString();
+
+        notify.showNotification(markedReadFeedErrorResult, tr("Failed to mark feed as read"), OcNotifications::Error);
+
         emit markedReadFeedError(markedReadFeedErrorResult);
 
         replyMarkFeedRead->deleteLater();
@@ -853,10 +911,15 @@ void OcFeeds::feedRenamed()
 
         QString renameresulterror = renameresult["message"].toString();
 
+        if (renameresulterror.isEmpty())
+            renameresulterror = replyRenameFeed->errorString();
+
         replyRenameFeed->deleteLater();
 #ifdef QT_DEBUG
         qDebug() << renameresulterror;
 #endif
+
+        notify.showNotification(renameresulterror, tr("Failed to rename feed"));
 
         emit renamedFeedError(renameresulterror);
     }
