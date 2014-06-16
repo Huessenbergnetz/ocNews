@@ -4,7 +4,8 @@
 #include <QObject>
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-
+#include <MNotification>
+#include <MRemoteAction>
 #else
 #include <mlite-global.h>
 #include <mlite5/MNotification>
