@@ -349,7 +349,7 @@ Page {
         property string folderName
         MenuLayout {
             MenuItem {
-                text: qsTr("Mark folder as read")
+                text: qsTr("Mark as read")
                 enabled: !operationRunning
                 onClicked: {
                     markReadQuery.id = folderContextMenu.folderId
@@ -358,7 +358,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Update folder")
+                text: qsTr("Update")
                 enabled: !operationRunning
                 onClicked: {
                     items.updateItems("0", "1", folderContextMenu.folderId)
@@ -366,7 +366,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Rename folder")
+                text: qsTr("Rename")
                 enabled: !operationRunning
                 onClicked: {
                     mainViewRenameFolder.folderId = folderContextMenu.folderId
@@ -375,7 +375,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Delete folder")
+                text: qsTr("Delete")
                 enabled: !operationRunning
                 onClicked: {
                     deleteQuery.id = folderContextMenu.folderId
@@ -393,7 +393,7 @@ Page {
         property string feedName
         MenuLayout {
             MenuItem {
-                text: qsTr("Mark feed as read")
+                text: qsTr("Mark as read")
                 enabled: !operationRunning
                 onClicked: {
                     operationRunning = true
@@ -401,7 +401,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Update feed")
+                text: qsTr("Update")
                 enabled: !operationRunning
                 onClicked: {
                     operationRunning = true
@@ -409,7 +409,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Move feed")
+                text: qsTr("Move")
                 enabled: !operationRunning
                 onClicked: {
                     mainViewMoveFeed.feedId = feedsContextMenu.feedId
@@ -419,7 +419,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Rename feed")
+                text: qsTr("Rename")
                 enabled: !operationRunning
                 onClicked: {
                     mainViewRenameFeed.feedId = feedsContextMenu.feedId
@@ -428,7 +428,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Delete feed")
+                text: qsTr("Delete")
                 enabled: !operationRunning
                 onClicked: {
                     deleteQuery.id = feedsContextMenu.feedId

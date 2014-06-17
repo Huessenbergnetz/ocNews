@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="en">
 <context>
     <name>About</name>
     <message>
@@ -297,28 +299,28 @@
     </message>
     <message>
         <location line="+54"/>
-        <source>Update feed</source>
-        <translation>Update feed</translation>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Mark feed as read</source>
-        <translation>Mark feed as read</translation>
+        <source>Mark as read</source>
+        <translation type="unfinished">Mark as read</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Move feed</source>
-        <translation>Move feed</translation>
+        <source>Move</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+8"/>
-        <source>Rename feed</source>
-        <translation>Rename feed</translation>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+8"/>
-        <source>Delete feed</source>
-        <translation>Delete feed</translation>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+8"/>
@@ -436,51 +438,35 @@
     </message>
     <message>
         <location line="+62"/>
-        <source>Update folder</source>
-        <translation>Update folder</translation>
+        <location line="+29"/>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Mark folder as read</source>
-        <translation>Mark folder as read</translation>
+        <location line="-24"/>
+        <location line="+29"/>
+        <source>Mark as read</source>
+        <translation type="unfinished">Mark as read</translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Rename folder</source>
-        <translation>Rename folder</translation>
+        <location line="-24"/>
+        <location line="+37"/>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
-        <source>Delete folder</source>
-        <translation>Delete folder</translation>
+        <location line="-29"/>
+        <location line="+37"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Update feed</source>
-        <translation>Update feed</translation>
+        <location line="-16"/>
+        <source>Move</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Mark feed as read</source>
-        <translation>Mark feed as read</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Move feed</source>
-        <translation>Move feed</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Rename feed</source>
-        <translation>Rename feed</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Delete feed</source>
-        <translation>Delete feed</translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location line="+24"/>
         <source>Deleting feed %1</source>
         <translation>Deleting feed %1</translation>
     </message>
@@ -624,7 +610,17 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+77"/>
+        <location filename="../qml/Views/MainView.qml" line="+78"/>
+        <source>Leave a message (English or German):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>Update running...</source>
         <translation>Update running...</translation>
     </message>

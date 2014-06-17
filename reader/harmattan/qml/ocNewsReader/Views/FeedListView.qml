@@ -190,7 +190,7 @@ Page {
         property string feedName
         MenuLayout {
             MenuItem {
-                text: qsTr("Mark feed as read")
+                text: qsTr("Mark as read")
                 enabled: !operationRunning
                 onClicked: {
                     operationRunning = true
@@ -198,7 +198,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Update feed")
+                text: qsTr("Update")
                 enabled: !operationRunning
                 onClicked: {
                     operationRunning = true
@@ -206,7 +206,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Move feed")
+                text: qsTr("Move")
                 enabled: !operationRunning
                 onClicked: {
                     feedListViewMoveFeed.feedId = feedsContextMenu.feedId
@@ -216,7 +216,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Rename feed")
+                text: qsTr("Rename")
                 enabled: !operationRunning
                 onClicked: {
                     feedListViewRenameFeed.feedId = feedsContextMenu.feedId
@@ -225,7 +225,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Delete feed")
+                text: qsTr("Delete")
                 enabled: !operationRunning
                 onClicked: {
                     feedListViewDeleteFeedQuery.feedId = feedsContextMenu.feedId

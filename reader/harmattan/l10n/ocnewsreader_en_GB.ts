@@ -1,14 +1,16 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="en">
 <context>
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+320"/>
+        <location line="+326"/>
         <source>About</source>
         <translation>About</translation>
     </message>
     <message>
-        <location line="-287"/>
+        <location line="-293"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>The ownCloud News App client for Harmattan</translation>
     </message>
@@ -98,7 +100,7 @@
         <translation>Martin Grimme&apos;s Tidings Elements</translation>
     </message>
     <message>
-        <location line="+144"/>
+        <location line="+150"/>
         <source>Contributors</source>
         <translation>Contributors</translation>
     </message>
@@ -239,30 +241,26 @@
     </message>
     <message>
         <location line="+20"/>
-        <source>Mark feed as read</source>
-        <translation>Mark feed as read</translation>
+        <source>Mark as read</source>
+        <translation type="unfinished">Mark as read</translation>
     </message>
     <message>
         <location line="+8"/>
-        <source>Update feed</source>
-        <translation>Update feed</translation>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+8"/>
-        <source>Move feed</source>
-        <translation>Move feed</translation>
+        <source>Move</source>
+        <translation type="unfinished">Move</translation>
     </message>
     <message>
         <location line="+10"/>
-        <source>Rename feed</source>
-        <translation>Rename feed</translation>
+        <source>Rename</source>
+        <translation type="unfinished">Rename</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Delete feed</source>
-        <translation>Delete feed</translation>
-    </message>
-    <message>
         <location line="+41"/>
         <location line="+28"/>
         <source>Delete</source>
@@ -531,56 +529,36 @@
     </message>
     <message>
         <location line="+18"/>
-        <source>Mark folder as read</source>
-        <translation>Mark folder as read</translation>
+        <location line="+44"/>
+        <source>Mark as read</source>
+        <translation type="unfinished">Mark as read</translation>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Update folder</source>
-        <translation>Update folder</translation>
+        <location line="-35"/>
+        <location line="+43"/>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
-        <source>Rename folder</source>
-        <translation>Rename folder</translation>
+        <location line="-35"/>
+        <location line="+53"/>
+        <source>Rename</source>
+        <translation type="unfinished">Rename</translation>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Delete folder</source>
-        <translation>Delete folder</translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Mark feed as read</source>
-        <translation>Mark feed as read</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Update feed</source>
-        <translation>Update feed</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Move feed</source>
-        <translation>Move feed</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Rename feed</source>
-        <translation>Rename feed</translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>Delete feed</source>
-        <translation>Delete feed</translation>
-    </message>
-    <message>
+        <location line="-44"/>
+        <location line="+53"/>
         <location line="+51"/>
         <source>Delete</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-70"/>
+        <source>Move</source>
+        <translation type="unfinished">Move</translation>
+    </message>
+    <message>
+        <location line="+71"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>

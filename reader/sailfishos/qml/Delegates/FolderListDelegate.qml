@@ -147,17 +147,17 @@ ListItem {
         id: folderContextMenu
         ContextMenu {
             MenuItem {
-                text: qsTr("Update folder")
+                text: qsTr("Update")
                 enabled: !operationRunning
                 onClicked: { busyIndicator.state = "RUNNING"; operationRunning = true; items.updateItems("0", "1", model.id) }
             }
             MenuItem {
-                text: qsTr("Mark folder as read")
+                text: qsTr("Mark as read")
                 enabled: !operationRunning
                 onClicked: markFolderRead(model.id, model.title)
             }
             MenuItem {
-                text: qsTr("Rename folder")
+                text: qsTr("Rename")
                 enabled: !operationRunning
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/RenameFolder.qml"), {folderId: model.id, folderName: model.title})
@@ -165,7 +165,7 @@ ListItem {
                 }
             }
             MenuItem {
-                text: qsTr("Delete folder")
+                text: qsTr("Delete")
                 enabled: !operationRunning
                 onClicked: removeFolder(model.id, model.title)
             }
@@ -176,17 +176,17 @@ ListItem {
         id: feedContextMenu
         ContextMenu {
             MenuItem {
-                text: qsTr("Update feed")
+                text: qsTr("Update")
                 enabled: !operationRunning
                 onClicked: { busyIndicator.state = "RUNNING"; operationRunning = true; items.updateItems("0", "0", model.id) }
             }
             MenuItem {
-                text: qsTr("Mark feed as read")
+                text: qsTr("Mark as read")
                 enabled: !operationRunning
                 onClicked: { busyIndicator.state = "RUNNING"; operationRunning = true; feeds.markFeedRead(model.id) }
             }
             MenuItem {
-                text: qsTr("Move feed")
+                text: qsTr("Move")
                 enabled: !operationRunning
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/MoveFeed.qml"), {feedId: model.id, feedName: model.title, folderId: "0"})
@@ -194,7 +194,7 @@ ListItem {
                 }
             }
             MenuItem {
-                text: qsTr("Rename feed")
+                text: qsTr("Rename")
                 enabled: !operationRunning
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/RenameFeed.qml"), {feedId: model.id, feedName: model.title})
@@ -202,7 +202,7 @@ ListItem {
                 }
             }
             MenuItem {
-                text: qsTr("Delete feed")
+                text: qsTr("Delete")
                 enabled: !operationRunning
                 onClicked: removeFeed(model.id, model.title)
             }
