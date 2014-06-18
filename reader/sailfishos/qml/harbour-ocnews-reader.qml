@@ -14,6 +14,10 @@ ApplicationWindow
     property int lastFullUpdateTime: dbus.getStat(1)
     property int fontSize: dbus.getSetting("display/fontsize", Theme.fontSizeSmall)
 
+    Connections {
+        target: dbusproxy
+        onDbusActivate: ocNewsReader.activate()
+    }
 
     Connections {
         target: updater

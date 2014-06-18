@@ -25,7 +25,7 @@ void OcNotifications::showNotification(const QString &body, const QString &summa
 #if defined(MEEGO_EDITION_HARMATTAN)
 
     image = "/usr/share/themes/blanco/meegotouch/icons/icon-m-ocnews.png";
-    MRemoteAction action("de.buschmann23.ocNewsReader", "/", "de.buschmann23.ocNewsReader", "", QVariantList() << QString());
+    MRemoteAction action("de.buschmann23.ocNewsReader", "/", "de.buschmann23.ocNewsReader", "activate");
 
     switch (notificationType)
     {
@@ -43,19 +43,21 @@ void OcNotifications::showNotification(const QString &body, const QString &summa
 
 #else
 
+    MRemoteAction action("harbour.ocnews.reader", "/", "harbour.ocnews.reader", "activate");
+
     switch (notificationType)
     {
     case Success:
-        type = "harbour.ocnews.success";
+        type = MNotification::TransferCompleteEvent;
         image = "/usr/share/harbour-ocnews-reader/icons/harbour-ocnews-popup-success.png";
         break;
     case Error:
-        type = "harbour.ocnews.error";
+        type = MNotification::TransferErrorEvent;
         image = "/usr/share/harbour-ocnews-reader/icons/harbour-ocnews-popup-error.png";
         break;
     case Default:
     default:
-        type = "harbour.ocnews.notification";
+        type = MNotification::TransferEvent;
         image = "/usr/share/harbour-ocnews-reader/icons/harbour-ocnews-popup.png";
         break;
     }
@@ -66,5 +68,6 @@ void OcNotifications::showNotification(const QString &body, const QString &summa
     notification->setImage(image);
 //    MRemoteAction action("harbour.mitakuuluu2.client", "/", "harbour.mitakuuluu2.client", "notificationCallback", QVariantList() << QString());
     notification->setAction(action);
-    notification->publish();
+    if (!notification->publish())
+        qDebug() << "Failed to show notification.";
 }

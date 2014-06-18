@@ -1,12 +1,6 @@
-//#ifdef QT_QML_DEBUG
-//#include <QtQuick>
-//#endif
-
-//#include <QtQuick>
 #include <QtQml>
 #include <QGuiApplication>
 #include <QQuickView>
-//#include <QScopedPointer>
 #include <QLocale>
 #include <QTranslator>
 
@@ -25,20 +19,12 @@
 #include "../common/dbus/interfaces/ocdbusitems.h"
 #include "../common/dbus/interfaces/ocdbusupdater.h"
 #include "../common/dbus/interfaces/ocdbusdownloads.h"
+#include "../common/dbus/adaptor/ocdbusadaptor.h"
+#include "../common/dbus/adaptor/ocdbusproxy.h"
 
 int main(int argc, char *argv[])
 {
-    // SailfishApp::main() will display "qml/template.qml", if you need more
-    // control over initialization, you can use:
-    //
-    //   - SailfishApp::application(int, char *[]) to get the QGuiApplication *
-    //   - SailfishApp::createView() to get a new QQuickView * instance
-    //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
-    //
-    // To display the view, call "show()" (will show fullscreen on device).
-
     QGuiApplication* app = SailfishApp::application(argc, argv);
-//    QScopedPointer<QGuiApplication>* app(SailfishApp::application(argc, argv));
 
     app->setOrganizationName("Buschtrommel");
     app->setOrganizationDomain("buschmann23.de");
@@ -60,6 +46,9 @@ int main(int argc, char *argv[])
     OcDbManager dbman;
     dbman.openDB();
 
+    OcDBusProxy* dbusproxy = new OcDBusProxy();
+    new OcDBusAdaptor(dbusproxy);
+
     OcDBusInterface dbus;
     OcDBusFolders folders;
     OcDBusFeeds feeds;
@@ -73,6 +62,14 @@ int main(int argc, char *argv[])
     OcItemsModelSql *itemsModelSql = new OcItemsModelSql();
     OcSpecialItemsModelSql *specialItemsModelSql = new OcSpecialItemsModelSql();
     OcSingleItemModelSql *singleItemModelSql = new OcSingleItemModelSql();
+
+    // register reader dbus interface
+    QDBusConnection connection = QDBusConnection::sessionBus();
+    bool ret = connection.registerService("harbour.ocnews.reader");
+    ret = connection.registerObject("/", dbusproxy);
+
+    if (!ret)
+        qDebug() << "Failed to register D-Bus interface...";
 
     QQuickView* view = SailfishApp::createView();
 
@@ -92,6 +89,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("items", &items);
     view->rootContext()->setContextProperty("updater", &updater);
     view->rootContext()->setContextProperty("dbus", &dbus);
+    view->rootContext()->setContextProperty("dbusproxy", dbusproxy);
     view->rootContext()->setContextProperty("downloads", &downloads);
     view->rootContext()->setContextProperty("versionString", VERSION_STRING);
     view->rootContext()->setContextProperty("versionInt", VERSION);

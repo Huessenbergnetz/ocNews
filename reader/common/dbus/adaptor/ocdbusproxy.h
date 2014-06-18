@@ -14,10 +14,12 @@ public:
 public Q_SLOTS: // METHODS
     void addFeed(const QStringList &feedUrl);
     void showContent(const QStringList &itemId);
+    void activate();
     
 signals:
     void dbusAddFeed(const QString &feedUrl);
     void dbusShowContent(const QString &itemId);
+    void dbusActivate();
     
 public slots:
     

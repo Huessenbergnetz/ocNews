@@ -45,3 +45,8 @@ void OcDBusAdaptor::showContent(const QStringList &itemId)
     QMetaObject::invokeMethod(parent(), "showContent", Q_ARG(QStringList, itemId));
 }
 
+void OcDBusAdaptor::activate()
+{
+    // handle method call de.buschmann23.ocNewsReader.showContent
+    QMetaObject::invokeMethod(parent(), "activate");
+}

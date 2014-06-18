@@ -18,6 +18,10 @@ readerl10n.path = /usr/share/harbour-ocnews-reader/translations
 readerl10n.files = l10n/*.qm
 INSTALLS += readerl10n
 
+dbusservice.path = /usr/share/dbus-1/services
+dbusservice.files = misc/harbour.ocnews.reader.service
+INSTALLS += dbusservice
+
 CONFIG += sailfishapp
 
 SOURCES += main.cpp \
@@ -42,7 +46,9 @@ SOURCES += main.cpp \
     ../common/dbus/interfaces/occonfigif.cpp \
     ../common/dbus/interfaces/ocaccountif.cpp \
     ../common/dbus/interfaces/ocdownloadsif.cpp \
-    ../common/dbus/interfaces/ocdbusdownloads.cpp
+    ../common/dbus/interfaces/ocdbusdownloads.cpp \
+    ../common/dbus/adaptor/ocdbusproxy.cpp \
+    ../common/dbus/adaptor/ocdbusadaptor.cpp
 
 OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Views/MainView.qml \
@@ -80,7 +86,9 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/BTComponents/ComboBoxList.qml \
     qml/BTComponents/ChangelogModel.qml \
     qml/BTComponents/Changelog.qml \
-    qml/BTComponents/PaypalChooser.qml
+    qml/BTComponents/PaypalChooser.qml \
+    misc/harbour.ocnews.reader.service \
+    ../common/dbus/adaptor/harbour.ocnews.reader.xml
 
 HEADERS += \
     ../common/ocdbmanager.h \
@@ -105,7 +113,9 @@ HEADERS += \
     ../common/dbus/interfaces/ocaccountif.h \
     ../../common/globals.h \
     ../common/dbus/interfaces/ocdownloadsif.h \
-    ../common/dbus/interfaces/ocdbusdownloads.h
+    ../common/dbus/interfaces/ocdbusdownloads.h \
+    ../common/dbus/adaptor/ocdbusproxy.h \
+    ../common/dbus/adaptor/ocdbusadaptor.h
 
 RESOURCES +=
 

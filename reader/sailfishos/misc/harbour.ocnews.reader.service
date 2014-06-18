@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=harbour.ocnews.reader
+Exec=/usr/bin/invoker --type=silica-qt5 -s /usr/bin/harbour-ocnews-reader
+User=nemo

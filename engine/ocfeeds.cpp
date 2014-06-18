@@ -225,7 +225,7 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
     }
 
 
-    if (!newFeeds.isEmpty() || !idListDeleted.isEmpty())
+    if ((!newFeeds.isEmpty() || !idListDeleted.isEmpty()) && config.getSetting(QString("notifications/feedsFolders"), QDBusVariant(false)).variant().toBool())
     {
         QString summary = "";
         QString body = "";

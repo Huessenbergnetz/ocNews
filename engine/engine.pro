@@ -68,11 +68,11 @@ supportfiles.files = sailfishos/*.sh
 INSTALLS += supportfiles
 }
 
-isEmpty(MEEGO_VERSION_MAJOR) {
-notifications.files = sailfishos/notifications/*.conf
-notifications.path = /usr/share/lipstick/notificationcategories/
-INSTALLS += notifications
-}
+#isEmpty(MEEGO_VERSION_MAJOR) {
+#notifications.files = sailfishos/notifications/*.conf
+#notifications.path = /usr/share/lipstick/notificationcategories/
+#INSTALLS += notifications
+#}
 
 SOURCES += main.cpp \
     ocnetwork.cpp \

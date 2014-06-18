@@ -66,6 +66,8 @@ QVariantMap OcConfiguration::getConfig()
     config["updateinterval"] = settings.value("update/interval", "3600");
     config["eventfeeds"] = settings.value("event/feeds", "");
     config["quitengine"] = settings.value("engine/quitonclose", false).toBool();
+    config["notifyFeedsFolders"] = settings.value("notifications/feedsFolders", false).toBool();
+    config["notifyNewItems"] = settings.value("notifications/newItems", false).toBool();
 #if !defined(MEEGO_EDITION_HARMATTAN)
     config["enabled"] = settings.value("account/enabled", true).toBool();
     config["uname"] = settings.value("account/user", "").toString();
@@ -109,6 +111,8 @@ void OcConfiguration::saveConfig(const QVariantMap &config)
     settings.setValue("update/interval", config["updateinterval"]);
     settings.setValue("event/feeds", config["eventfeeds"]);
     settings.setValue("engine/quitonclose", config["quitengine"]);
+    settings.setValue("notifications/feedsFolders", config["notifyFeedsFolders"]);
+    settings.setValue("notifications/newItems", config["notifyNewItems"]);
 #if !defined(MEEGO_EDITION_HARMATTAN)
     settings.setValue("account/enabled", config["enabled"]);
     settings.setValue("account/user", config["uname"]);

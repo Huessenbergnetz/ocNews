@@ -27,6 +27,7 @@ class QVariant;
 class OcDBusAdaptor: public QDBusAbstractAdaptor
 {
     Q_OBJECT
+#if defined(MEEGO_EDITION_HARMATTAN)
     Q_CLASSINFO("D-Bus Interface", "de.buschmann23.ocNewsReader")
     Q_CLASSINFO("D-Bus Introspection", ""
 "  <interface name=\"de.buschmann23.ocNewsReader\">\n"
@@ -36,8 +37,24 @@ class OcDBusAdaptor: public QDBusAbstractAdaptor
 "    <method name=\"addFeed\">\n"
 "      <arg direction=\"in\" type=\"as\" name=\"feedUrl\"/>\n"
 "    </method>\n"
+"    <method name=\"activate\" />"
 "  </interface>\n"
         "")
+#else
+    Q_CLASSINFO("D-Bus Interface", "harbour.ocnews.reader")
+    Q_CLASSINFO("D-Bus Introspection", ""
+"  <interface name=\"harbour.ocnews.reader\">\n"
+"    <method name=\"showContent\">\n"
+"      <arg direction=\"in\" type=\"as\" name=\"itemId\"/>\n"
+"    </method>\n"
+"    <method name=\"addFeed\">\n"
+"      <arg direction=\"in\" type=\"as\" name=\"feedUrl\"/>\n"
+"    </method>\n"
+"    <method name=\"activate\" />"
+"  </interface>\n"
+        "")
+#endif
+
 public:
     OcDBusAdaptor(QObject *parent);
     virtual ~OcDBusAdaptor();
@@ -46,6 +63,7 @@ public: // PROPERTIES
 public Q_SLOTS: // METHODS
     void addFeed(const QStringList &feedUrl);
     void showContent(const QStringList &itemId);
+    void activate();
 Q_SIGNALS: // SIGNALS
 };
 

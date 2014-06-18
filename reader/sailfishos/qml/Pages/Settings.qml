@@ -29,6 +29,8 @@ Page {
             sortAsc.checked = config["sortasc"]
             fontSizeSlider.value = config["fontsize"]
             hideReadFeeds.checked = config["hidereadfeeds"]
+            notifyFeedsFolders.checked = config["notifyFeedsFolders"]
+            notifyNewItems.checked = config["notifyNewItems"]
             isConfigSet = dbus.isConfigSet()
         }
     }
@@ -51,6 +53,8 @@ Page {
             sortasc:sortAsc.checked,
             fontsize:fontSizeSlider.value,
             hidereadfeeds:hideReadFeeds.checked,
+            notifyFeedsFolders:notifyFeedsFolders.checked,
+            notifyNewItems:notifyNewItems.checked,
             eventfeeds:"",
             enabled:true,
             themecolor:"black"
@@ -262,13 +266,6 @@ Page {
                 model: viewModeModel
             }
 
-            TextSwitch {
-                id: hideReadFeeds
-                text: qsTr("Hide read feeds and folders")
-                anchors { left: parent.left; right: parent.right }
-                description: qsTr("Hide feeds and folders that do not contain unread items.")
-            }
-
             ListModel {
                 id: orderByModel
                 ListElement { name: ""; value: "id" }
@@ -327,6 +324,13 @@ Page {
             }
 
             TextSwitch {
+                id: hideReadFeeds
+                text: qsTr("Hide read feeds and folders")
+                anchors { left: parent.left; right: parent.right }
+                description: qsTr("Hide feeds and folders that do not contain unread items.")
+            }
+
+            TextSwitch {
                 id: sortAsc
                 text: qsTr("Show oldest items on top")
                 anchors { left: parent.left; right: parent.right }
@@ -341,6 +345,20 @@ Page {
                 valueText: value + "px"
                 stepSize: 1
                 label: qsTr("Item view font size")
+            }
+
+            SectionHeader { text: qsTr("Notifications") }
+
+            TextSwitch {
+                id: notifyFeedsFolders
+                text: qsTr("Notify about added/removed feeds and folders")
+                anchors { left: parent.left; right: parent.right }
+            }
+
+            TextSwitch {
+                id: notifyNewItems
+                text: qsTr("Notify about new articles")
+                anchors { left: parent.left; right: parent.right }
             }
 
             SectionHeader { text: qsTr("Maintenance") }

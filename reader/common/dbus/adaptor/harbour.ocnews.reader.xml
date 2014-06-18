@@ -1,0 +1,12 @@
+ 
+<node>
+  <interface name="harbour.ocnews.reader">
+    <method name="showContent">
+        <arg name="itemId" type="as" direction="in" />
+    </method>
+    <method name="addFeed">
+        <arg name="feedUrl" type="as" direction="in" />
+    </method>
+    <method name="activate" />
+ </interface>
+</node>

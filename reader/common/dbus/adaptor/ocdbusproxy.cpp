@@ -16,3 +16,9 @@ void OcDBusProxy::showContent(const QStringList &itemId)
     QString t_itemId = itemId.at(0);
     emit dbusShowContent(t_itemId.remove(QRegExp("ocnews://")));
 }
+
+
+void OcDBusProxy::activate()
+{
+    emit dbusActivate();
+}
