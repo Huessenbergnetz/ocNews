@@ -45,69 +45,76 @@ Item {
     }
 
     Row {
-            spacing: UI.LIST_ITEM_SPACING
-            anchors { left: parent.left; leftMargin: 24; right: parent.right }
+        spacing: UI.LIST_ITEM_SPACING
+        anchors { left: parent.left; leftMargin: 24; right: parent.right }
 
-            Column {
-                id: textCol
-                width: parent.width - iconCol.width
+        Column {
+            id: textCol
+            width: parent.width - iconCol.width
 
-                Label {
-                    id: mainText
-                    text: model.title
-                    width: itemListItem.width - 60
-                    font.family: itemListItem.titleFont
-                    font.weight: itemListItem.titleWeight
-                    font.pixelSize: itemListItem.titleSize
-                    color: mouseArea.pressed ? itemListItem.titleColorPressed : itemListItem.titleColor
-                    maximumLineCount: 2
-                    elide: Text.ElideRight
-                    textFormat: Text.PlainText
-                }
-
-                Label {
-                    id: excerptText
-                    text: model.excerpt
-                    width: itemListItem.width - 60
-                    font.family: itemListItem.subtitleFont
-                    font.weight: itemListItem.subtitleWeight
-                    font.pixelSize: itemListItem.titleSize
-                    color: itemListItem.subtitleColor
-                    maximumLineCount: 3
-                    elide: Text.ElideRight
-                    textFormat: Text.PlainText
-                    visible: text !== ""
-                }
-
-                Label {
-                    id:dateText
-                    text: model.pubDate
-                    font.family: itemListItem.subtitleFont
-                    font.weight: itemListItem.subtitleWeight
-                    font.pixelSize: itemListItem.subtitleSize
-                    color: model.unread == "true" ? "#f78500" : itemListItem.subtitleColor
-                    textFormat: Text.PlainText
-                }
+            Label {
+                id: mainText
+                text: model.title
+                width: itemListItem.width - 60
+                font.family: itemListItem.titleFont
+                font.weight: itemListItem.titleWeight
+                font.pixelSize: itemListItem.titleSize
+                color: mouseArea.pressed ? itemListItem.titleColorPressed : itemListItem.titleColor
+                maximumLineCount: 2
+                elide: Text.ElideRight
+                textFormat: Text.PlainText
             }
 
-    }
+            Label {
+                id: excerptText
+                text: model.excerpt
+                width: itemListItem.width - 60
+                font.family: itemListItem.subtitleFont
+                font.weight: itemListItem.subtitleWeight
+                font.pixelSize: itemListItem.titleSize
+                color: itemListItem.subtitleColor
+                maximumLineCount: 3
+                elide: Text.ElideRight
+                textFormat: Text.PlainText
+                visible: text !== ""
+            }
 
-    Column {
-        id: iconCol
-        width: 32
-
-        Image {
-            visible: model.starred
-            width: 32
-            height: 32
-            source: "image://theme/icon-s-common-favorite-mark" + (theme.inverted? "-inverse" : "")
+            Label {
+                id:dateText
+                text: model.pubDate
+                font.family: itemListItem.subtitleFont
+                font.weight: itemListItem.subtitleWeight
+                font.pixelSize: itemListItem.subtitleSize
+                color: model.unread == "true" ? "#f78500" : itemListItem.subtitleColor
+                textFormat: Text.PlainText
+            }
         }
 
-        Image {
-            visible: model.enclosureLink != ""
-            width: 32
-            height: 32
-            source: "image://theme/icon-m-content-attachment" + (theme.inverted? "-inverse" : "")
+        Column {
+            id: iconCol
+            width: Math.max(articlePic.width, 32)
+
+            Image {
+                visible: model.starred
+                width: 32
+                height: 32
+                source: "image://theme/icon-s-common-favorite-mark" + (theme.inverted? "-inverse" : "")
+            }
+
+            Image {
+                visible: model.enclosureLink !== ""
+                width: 32
+                height: 32
+                source: "image://theme/icon-m-content-attachment" + (theme.inverted? "-inverse" : "")
+            }
+
+            Image {
+                id: articlePic
+                visible: model.image !== ""
+                source: model.image
+                width: visible ? 0 : 80
+                fillMode: Image.PreserveAspectCrop
+            }
         }
     }
 

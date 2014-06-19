@@ -42,6 +42,7 @@ Page {
             quitengine:quitEngine.checked,
             notifyFeedsFolders:feedsFoldersNotify.checked,
             notifyNewItems:newItemsNotify.checked,
+            showPicturesInList:articlePicture.checked,
             showExcerpts:excerpts.checked
         };
 
@@ -89,7 +90,7 @@ Page {
 
             Text {
                 id: accountButtonDescription
-                anchors { top: accountButton.bottom; topMargin: 20 }
+                anchors { top: accountButton.bottom; topMargin: 20; left: parent.left; leftMargin: 10; right: parent.right; rightMargin: 10 }
                 textFormat: Text.PlainText
                 width: parent.width
                 wrapMode: Text.WordWrap
@@ -355,9 +356,20 @@ Page {
                     }
                 }
 
+                LabeledSwitch {
+                    id: articlePicture
+                    width: parent.width - 40
+                    anchors { top: excerpts.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
+                    text: qsTr("Show article image in list")
+                    Connections {
+                        target: dbus
+                        onGotConfig: articlePicture.checked = config["showPicturesInList"]
+                    }
+                }
+
                 Label {
                     id: fontSizeLabel
-                    anchors { top: excerpts.bottom; topMargin: 15; left: parent.left; leftMargin: 20 }
+                    anchors { top: articlePicture.bottom; topMargin: 15; left: parent.left; leftMargin: 20 }
                     width: parent.width - 20
                     text: qsTr("Item view font size:") + " " + fontSizeSelector.value + "pt"
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere

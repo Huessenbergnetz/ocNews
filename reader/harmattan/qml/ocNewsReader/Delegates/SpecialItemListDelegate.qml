@@ -26,6 +26,8 @@ Item {
     height: Math.max(textCol.height, iconCol.height)
     width: parent.width
 
+    Component.onCompleted: console.log("IMAGE: " + model.image)
+
     BorderImage {
             id: background
             anchors { fill: parent; leftMargin: -UI.MARGIN_XLARGE; rightMargin: -UI.MARGIN_XLARGE }
@@ -42,82 +44,89 @@ Item {
     }
 
     Row {
-            anchors { left: parent.left; leftMargin: 24; right: parent.right }
-            spacing: UI.LIST_ITEM_SPACING
+        anchors { left: parent.left; leftMargin: 24; right: parent.right }
+        spacing: UI.LIST_ITEM_SPACING
 
-            Column {
-                id: textCol
-                width: parent.width - iconCol.width
+        Column {
+            id: textCol
+            width: parent.width - iconCol.width
 
-                Label {
-                    id: mainText
-                    text: model.title
-                    width: specialItemListItem.width - 60
-                    font.family: specialItemListItem.titleFont
-                    font.weight: specialItemListItem.titleWeight
-                    font.pixelSize: specialItemListItem.titleSize
-                    color: mouseArea.pressed ? specialItemListItem.titleColorPressed : specialItemListItem.titleColor
-                    maximumLineCount: 2
-                    elide: Text.ElideRight
-                    textFormat: Text.PlainText
-                }
-
-                Label {
-                    id: excerptText
-                    text: model.excerpt
-                    width: specialItemListItem.width - 60
-                    font.family: specialItemListItem.subtitleFont
-                    font.weight: specialItemListItem.subtitleWeight
-                    font.pixelSize: specialItemListItem.titleSize
-                    color: specialItemListItem.subtitleColor
-                    maximumLineCount: 3
-                    elide: Text.ElideRight
-                    textFormat: Text.PlainText
-                    visible: text !== ""
-                }
-
-
-                Label {
-                    id:feedNameText
-                    text: model.feedName
-                    font.family: specialItemListItem.subtitleFont
-                    font.weight: specialItemListItem.subtitleWeight
-                    font.pixelSize: 19
-                    color: specialItemListItem.subtitleColor
-                    width: parent.width
-                    elide: Text.ElideRight
-                    textFormat: Text.PlainText
-                }
-
-                Label {
-                    id:dateText
-                    text: model.pubDate
-                    font.family: specialItemListItem.subtitleFont
-                    font.weight: specialItemListItem.subtitleWeight
-                    font.pixelSize: specialItemListItem.subtitleSize
-                    color: model.unread == "true" ? "#f78500" : specialItemListItem.subtitleColor
-                    textFormat: Text.PlainText
-                }
+            Label {
+                id: mainText
+                text: model.title
+                width: specialItemListItem.width - 60
+                font.family: specialItemListItem.titleFont
+                font.weight: specialItemListItem.titleWeight
+                font.pixelSize: specialItemListItem.titleSize
+                color: mouseArea.pressed ? specialItemListItem.titleColorPressed : specialItemListItem.titleColor
+                maximumLineCount: 2
+                elide: Text.ElideRight
+                textFormat: Text.PlainText
             }
 
-    }
+            Label {
+                id: excerptText
+                text: model.excerpt
+                width: specialItemListItem.width - 60
+                font.family: specialItemListItem.subtitleFont
+                font.weight: specialItemListItem.subtitleWeight
+                font.pixelSize: specialItemListItem.titleSize
+                color: specialItemListItem.subtitleColor
+                maximumLineCount: 3
+                elide: Text.ElideRight
+                textFormat: Text.PlainText
+                visible: text !== ""
+            }
 
-    Column {
-        id: iconCol
-        width: 32
 
-        Image {
-            visible: model.starred
-            width: 32
-            height: 32
-            source: "image://theme/icon-s-common-favorite-mark" + (theme.inverted? "-inverse" : "")
+            Label {
+                id:feedNameText
+                text: model.feedName
+                font.family: specialItemListItem.subtitleFont
+                font.weight: specialItemListItem.subtitleWeight
+                font.pixelSize: 19
+                color: specialItemListItem.subtitleColor
+                width: parent.width
+                elide: Text.ElideRight
+                textFormat: Text.PlainText
+                }
+
+            Label {
+                id:dateText
+                text: model.pubDate
+                font.family: specialItemListItem.subtitleFont
+                font.weight: specialItemListItem.subtitleWeight
+                font.pixelSize: specialItemListItem.subtitleSize
+                color: model.unread == "true" ? "#f78500" : specialItemListItem.subtitleColor
+                textFormat: Text.PlainText
+            }
         }
 
-        Image {
-            visible: model.enclosureLink != ""
-            width: 32
-            height: 32
-            source: "image://theme/icon-m-content-attachment" + (theme.inverted? "-inverse" : "")
+        Column {
+            id: iconCol
+            width: model.image ? 80 : 32
+
+            Image {
+                visible: model.starred
+                width: 32
+                height: 32
+                source: "image://theme/icon-s-common-favorite-mark" + (theme.inverted? "-inverse" : "")
+            }
+
+            Image {
+                visible: model.enclosureLink != ""
+                width: 32
+                height: 32
+                source: "image://theme/icon-m-content-attachment" + (theme.inverted? "-inverse" : "")
+            }
+
+            Image {
+                id: articlePic
+                visible: model.image !== ""
+                source: model.image
+                width: visible ? 0 : 80
+                fillMode: Image.PreserveAspectCrop
+            }
         }
     }
 

@@ -16,6 +16,7 @@ const char* OcSpecialItemsModelSql::COLUMN_NAMES[] = {
     "feedId",
     "feedName",
     "excerpt",
+    "image",
     NULL
 };
 
@@ -94,9 +95,15 @@ void OcSpecialItemsModelSql::refresh(const QString &type, const QString &folderI
     querystring.append("(SELECT title FROM feeds where id = it.feedId) as feedName, ");
 
     if (config.getSetting("display/excerpts", false).toBool()) {
-        querystring.append("it.body AS excerpt ");
+        querystring.append("it.body AS excerpt, ");
     } else {
-        querystring.append("'' AS excerpt ");
+        querystring.append("'' AS excerpt, ");
+    }
+
+    if (config.getSetting("display/picturesInList", false).toBool()) {
+        querystring.append("(SELECT DISTINCT path FROM images WHERE parentId = it.id AND height > 50 ORDER BY width, height LIMIT 1) AS image ");
+    } else {
+        querystring.append("'' AS image ");
     }
 
 

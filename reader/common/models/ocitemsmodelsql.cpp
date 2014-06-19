@@ -16,6 +16,7 @@ const char* OcItemsModelSql::COLUMN_NAMES[] = {
     "url",
     "guidHash",
     "excerpt",
+    "image",
     NULL
 };
 
@@ -104,9 +105,15 @@ void OcItemsModelSql::refresh(const QString &feedId, int handleRead, bool sortAs
                                  "it.guidHash, ");
 
     if (config.getSetting("display/excerpts", false).toBool()) {
-        queryString.append("it.body AS excerpt ");
+        queryString.append("it.body AS excerpt, ");
     } else {
-        queryString.append("'' AS excerpt ");
+        queryString.append("'' AS excerpt, ");
+    }
+
+    if (config.getSetting("display/picturesInList", false).toBool()) {
+        queryString.append("(SELECT DISTINCT path FROM images WHERE parentId = it.id AND height > 50 ORDER BY width, height LIMIT 1) AS image ");
+    } else {
+        queryString.append("'' AS image ");
     }
 
     queryString.append(QString("FROM items it WHERE feedId = %1").arg(feedId.toInt()));
