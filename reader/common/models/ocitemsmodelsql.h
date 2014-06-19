@@ -2,6 +2,7 @@
 #define OCITEMSMODELSQL_H
 
 #include <QSqlQueryModel>
+#include "../common/dbus/interfaces/ocdbusinterface.h"
 
 class OcItemsModelSql : public QSqlQueryModel
 {
@@ -22,6 +23,7 @@ public slots:
 
 private:
     const static char* COLUMN_NAMES[];
+    OcDBusInterface config;
     
 };
 

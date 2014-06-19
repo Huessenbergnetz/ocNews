@@ -15,6 +15,7 @@ const char* OcItemsModelSql::COLUMN_NAMES[] = {
     "starred",
     "url",
     "guidHash",
+    "excerpt",
     NULL
 };
 
@@ -65,6 +66,12 @@ QVariant OcItemsModelSql::data(const QModelIndex &index, int role) const
                 QString time = QDateTime::fromTime_t(value.toUInt()).toLocalTime().toString(tr("hh:mm"));
 
                 value = date + " | " + time;
+            } else if (columnIdx == 10) {
+#if defined(MEEGO_EDITION_HARMATTAN)
+                value = value.toString().remove(QRegExp("<[^>]*>"));
+#else
+                value = value.toString().remove(QRegularExpression("<[^>]*>"));
+#endif
             }
 #if !defined(MEEGO_EDITION_HARMATTAN)
             else if (columnIdx == 0) {
@@ -94,8 +101,15 @@ void OcItemsModelSql::refresh(const QString &feedId, int handleRead, bool sortAs
                                  "it.unread, "
                                  "it.starred, "
                                  "it.url, "
-                                 "it.guidHash "
-                          "FROM items it WHERE feedId = %1").arg(feedId.toInt());
+                                 "it.guidHash, ");
+
+    if (config.getSetting("display/excerpts", false).toBool()) {
+        queryString.append("it.body AS excerpt ");
+    } else {
+        queryString.append("'' AS excerpt ");
+    }
+
+    queryString.append(QString("FROM items it WHERE feedId = %1").arg(feedId.toInt()));
 
 
     if (handleRead == 1) queryString.append(" AND it.unread = ").append(SQL_TRUE);

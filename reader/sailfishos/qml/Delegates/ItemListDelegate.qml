@@ -13,7 +13,8 @@ ListItem {
     property bool sortAsc
     property string feedType
 
-    contentHeight: Theme.itemSizeLarge
+    contentHeight: Math.max(textCol.height, iconCol.height) + Theme.paddingSmall
+    contentWidth: parent.width
     menu: itemContextMenu
 
     onClicked: {
@@ -28,9 +29,25 @@ ListItem {
     }
 
     function markParams() {
-        var params = new Array();
+        var params = [];
         params[0]=model.itemId;
         return params;
+    }
+
+    Item {
+        width: gi.width
+        height: gi.height
+        x: -(width / 2)
+        y: -(height / 4)
+
+        GlassItem {
+            id: gi
+            width: Theme.itemSizeExtraSmall
+            height: width
+            color: Theme.highlightColor
+            opacity: model.unread ? 1 : 0
+            Behavior on opacity { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad } }
+        }
     }
 
     Row {
@@ -46,14 +63,27 @@ ListItem {
 
             Text {
                 id: mainText
-                text: Theme.highlightText(model.title, searchString, model.unread ? Theme.highlightColor : Theme.secondaryHighlightColor)
+                text: Theme.highlightText(model.title, searchString, Theme.highlightColor)
                 width: parent.width
-                color: if (model.unread) { itemListItem.highlighted ? Theme.highlightColor : Theme.primaryColor } else { itemListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor }
+                color: itemListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
                 maximumLineCount: 2
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 elide: Text.ElideRight
                 textFormat: Text.StyledText
                 font.pixelSize: Theme.fontSizeSmall
+            }
+
+            Text {
+                id: excerptText
+                text: model.excerpt
+                textFormat: Text.PlainText
+                color: if (model.unread) { itemListItem.highlighted ? Theme.highlightColor : Theme.primaryColor } else { itemListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor }
+                font.pixelSize: Theme.fontSizeExtraSmall
+                width: parent.width
+                maximumLineCount: 3
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                elide: Text.ElideRight
+                visible: text !== ""
             }
 
             Text {

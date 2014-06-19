@@ -31,6 +31,7 @@ Page {
             hideReadFeeds.checked = config["hidereadfeeds"]
             notifyFeedsFolders.checked = config["notifyFeedsFolders"]
             notifyNewItems.checked = config["notifyNewItems"]
+            excerpts.checked = config["showExcerpts"]
             isConfigSet = dbus.isConfigSet()
         }
     }
@@ -55,6 +56,7 @@ Page {
             hidereadfeeds:hideReadFeeds.checked,
             notifyFeedsFolders:notifyFeedsFolders.checked,
             notifyNewItems:notifyNewItems.checked,
+            showExcerpts:excerpts.checked,
             eventfeeds:"",
             enabled:true,
             themecolor:"black"
@@ -335,6 +337,13 @@ Page {
                 text: qsTr("Show oldest items on top")
                 anchors { left: parent.left; right: parent.right }
                 description: qsTr("Set the default order of the news items to show the oldest at the top. You can still change it in the pully menu.")
+            }
+
+            TextSwitch {
+                id: excerpts
+                text: qsTr("Show article excerpts")
+                anchors { left: parent.left; right: parent.right }
+                description: qsTr("Shows some lines of the article content in the article list.")
             }
 
             Slider {

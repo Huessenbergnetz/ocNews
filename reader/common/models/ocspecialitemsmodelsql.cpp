@@ -15,6 +15,7 @@ const char* OcSpecialItemsModelSql::COLUMN_NAMES[] = {
     "guidHash",
     "feedId",
     "feedName",
+    "excerpt",
     NULL
 };
 
@@ -58,6 +59,7 @@ QVariant OcSpecialItemsModelSql::data(const QModelIndex &index, int role) const
                 int columnIdx = role - Qt::UserRole - 1;
                 QModelIndex modelIndex = this->index(index.row(), columnIdx);
                 value = QSqlQueryModel::data(modelIndex, Qt::DisplayRole);
+
                 if (columnIdx == 2) {
                     QString date = (QDateTime::currentDateTimeUtc().date() == QDateTime::fromTime_t(value.toUInt()).date()) ?
                                     tr("Today") :
@@ -65,6 +67,12 @@ QVariant OcSpecialItemsModelSql::data(const QModelIndex &index, int role) const
                     QString time = QDateTime::fromTime_t(value.toUInt()).toLocalTime().toString(tr("hh:mm"));
 
                     value = date + " | " + time;
+                } else if (columnIdx == 11) {
+#if defined(MEEGO_EDITION_HARMATTAN)
+                    value = value.toString().remove(QRegExp("<[^>]*>"));
+#else
+                    value = value.toString().remove(QRegularExpression("<[^>]*>"));
+#endif
                 }
 #if !defined(MEEGO_EDITION_HARMATTAN)
                 else if (columnIdx == 0) {
@@ -83,7 +91,13 @@ void OcSpecialItemsModelSql::refresh(const QString &type, const QString &folderI
 #endif
 
     QString querystring("SELECT it.title, it.id AS itemId, it.pubDate, it.enclosureLink, it.enclosureMime, it.unread, it.starred, it.url, it.guidHash, it.feedId, ");
-    querystring.append("(SELECT title FROM feeds where id = it.feedId) as feedName ");
+    querystring.append("(SELECT title FROM feeds where id = it.feedId) as feedName, ");
+
+    if (config.getSetting("display/excerpts", false).toBool()) {
+        querystring.append("it.body AS excerpt ");
+    } else {
+        querystring.append("'' AS excerpt ");
+    }
 
 
     if (type == "folder")
