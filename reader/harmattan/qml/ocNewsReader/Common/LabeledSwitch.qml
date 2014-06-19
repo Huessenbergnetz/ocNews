@@ -15,7 +15,7 @@ Item {
         width: parent.width - checkbox.width
 //        wrapMode: Text.NoWrap
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        color: "#8c8c8c"
+        color: checkbox.checked ? theme.inverted? "white" : "black" : "#8c8c8c"
     }
     Switch {
         id: checkbox

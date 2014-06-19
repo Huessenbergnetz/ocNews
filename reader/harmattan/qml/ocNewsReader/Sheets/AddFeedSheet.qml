@@ -78,23 +78,11 @@ Sheet {
                 initialValue: "0"
             }
 
-            Row {
-                id: addToEventRow
-                spacing: 2
-                anchors { top: chooseFolder.bottom; topMargin: 20 }
+            LabeledSwitch {
+                id: addToEventSwitch
                 width: parent.width
-
-                Label {
-                    id: addToEventLabel
-                    text: qsTr("Show feed in event view")
-                    textFormat: Text.PlainText
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-
-                Switch {
-                    id: addToEventSwitch
-                    anchors { right: parent.right }
-                }
+                anchors { top: chooseFolder.bottom; horizontalCenter: parent.horizontalCenter }
+                text: qsTr("Show feed in event view")
             }
 
     }

@@ -23,7 +23,8 @@ Item {
     property color subtitleColor: theme.inverted ? UI.LIST_SUBTITLE_COLOR_INVERTED : UI.LIST_SUBTITLE_COLOR
     property color subtitleColorPressed: theme.inverted ? UI.LIST_SUBTITLE_COLOR_PRESSED_INVERTED : UI.LIST_SUBTITLE_COLOR_PRESSED
 
-    height: 110
+//    height: 110
+    height: Math.max(textCol.height, iconCol.height)
     width: parent.width
 
     BorderImage {
@@ -44,12 +45,12 @@ Item {
     }
 
     Row {
-            anchors.fill: parent
             spacing: UI.LIST_ITEM_SPACING
-            anchors { left: parent.left; leftMargin: 24 }
+            anchors { left: parent.left; leftMargin: 24; right: parent.right }
 
             Column {
-                anchors { verticalCenter: parent.verticalCenter; top: parent.top; topMargin: 12 }
+                id: textCol
+                width: parent.width - iconCol.width
 
                 Label {
                     id: mainText
@@ -62,6 +63,20 @@ Item {
                     maximumLineCount: 2
                     elide: Text.ElideRight
                     textFormat: Text.PlainText
+                }
+
+                Label {
+                    id: excerptText
+                    text: model.excerpt
+                    width: itemListItem.width - 60
+                    font.family: itemListItem.subtitleFont
+                    font.weight: itemListItem.subtitleWeight
+                    font.pixelSize: itemListItem.titleSize
+                    color: itemListItem.subtitleColor
+                    maximumLineCount: 3
+                    elide: Text.ElideRight
+                    textFormat: Text.PlainText
+                    visible: text !== ""
                 }
 
                 Label {
@@ -78,7 +93,8 @@ Item {
     }
 
     Column {
-        anchors { verticalCenter: parent.verticalCenter; right: parent.right; top: parent.top; topMargin: 10 }
+        id: iconCol
+        width: 32
 
         Image {
             visible: model.starred

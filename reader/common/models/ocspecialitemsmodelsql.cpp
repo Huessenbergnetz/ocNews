@@ -160,6 +160,7 @@ void OcSpecialItemsModelSql::refresh(const QString &type, const QString &folderI
     }
 
     this->setQuery(querystring);
+
     while(this->canFetchMore())
         this->fetchMore();
 }

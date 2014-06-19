@@ -23,7 +23,7 @@ Item {
     property color subtitleColor: theme.inverted ? UI.LIST_SUBTITLE_COLOR_INVERTED : UI.LIST_SUBTITLE_COLOR
     property color subtitleColorPressed: theme.inverted ? UI.LIST_SUBTITLE_COLOR_PRESSED_INVERTED : UI.LIST_SUBTITLE_COLOR_PRESSED
 
-    height: 130
+    height: Math.max(textCol.height, iconCol.height)
     width: parent.width
 
     BorderImage {
@@ -42,11 +42,12 @@ Item {
     }
 
     Row {
-            anchors { fill: parent; left: parent.left; leftMargin: 24 }
+            anchors { left: parent.left; leftMargin: 24; right: parent.right }
             spacing: UI.LIST_ITEM_SPACING
 
             Column {
-                anchors { verticalCenter: parent.verticalCenter; top: parent.top; topMargin: 12 }
+                id: textCol
+                width: parent.width - iconCol.width
 
                 Label {
                     id: mainText
@@ -60,6 +61,21 @@ Item {
                     elide: Text.ElideRight
                     textFormat: Text.PlainText
                 }
+
+                Label {
+                    id: excerptText
+                    text: model.excerpt
+                    width: specialItemListItem.width - 60
+                    font.family: specialItemListItem.subtitleFont
+                    font.weight: specialItemListItem.subtitleWeight
+                    font.pixelSize: specialItemListItem.titleSize
+                    color: specialItemListItem.subtitleColor
+                    maximumLineCount: 3
+                    elide: Text.ElideRight
+                    textFormat: Text.PlainText
+                    visible: text !== ""
+                }
+
 
                 Label {
                     id:feedNameText
@@ -87,7 +103,8 @@ Item {
     }
 
     Column {
-        anchors { verticalCenter: parent.verticalCenter; right: parent.right; top: parent.top; topMargin: 10 }
+        id: iconCol
+        width: 32
 
         Image {
             visible: model.starred
