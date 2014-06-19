@@ -68,5 +68,5 @@ void OcNotifications::showNotification(const QString &body, const QString &summa
     notification->setImage(image);
     notification->setAction(action);
     if (!notification->publish())
-        qDebug() << "Failed to show notification.";
+        qDebug() << "Failed to publish notification.";
 }

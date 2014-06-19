@@ -245,8 +245,8 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
 
     if (!newItems.isEmpty() && config.getSetting(QString("notifications/newItems"), QDBusVariant(false)).variant().toBool())
     {
-        QString notificationBody(tr("%n new article(s)", "", newItems.count()));
-        notificationBody.append(", ").append(tr("%n of them unread", "", unreadCount));
+        QString notificationBody(tr("%n new", "", newItems.count()));
+        notificationBody.append(", ").append(tr("%n unread", "", unreadCount));
         notify.showNotification(notificationBody, tr("New articles available"), OcNotifications::Success);
     }
 
@@ -564,8 +564,8 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
 
     if (!newItems.isEmpty() && config.getSetting(QString("notifications/newItems"), QDBusVariant(false)).variant().toBool())
     {
-        QString notificationBody(tr("%n new article(s)", "", newItems.count()));
-        notificationBody.append(", ").append(tr("%n of them unread", "", unreadCount));
+        QString notificationBody(tr("%n new", "", newItems.count()));
+        notificationBody.append(", ").append(tr("%n unread", "", unreadCount));
         notify.showNotification(notificationBody, tr("New articles available"), OcNotifications::Success);
     }
 
