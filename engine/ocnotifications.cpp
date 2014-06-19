@@ -66,7 +66,6 @@ void OcNotifications::showNotification(const QString &body, const QString &summa
 
     notification = new MNotification(type, QString("ocNews - ").append(summary), body);
     notification->setImage(image);
-//    MRemoteAction action("harbour.mitakuuluu2.client", "/", "harbour.mitakuuluu2.client", "notificationCallback", QVariantList() << QString());
     notification->setAction(action);
     if (!notification->publish())
         qDebug() << "Failed to show notification.";
