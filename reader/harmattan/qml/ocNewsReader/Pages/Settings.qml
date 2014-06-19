@@ -39,7 +39,9 @@ Page {
             sortasc:sortAsc.checked,
             fontsize:fontSizeSelector.value,
             hidereadfeeds:hideReadFeeds.checked,
-            quitengine:quitEngine.checked
+            quitengine:quitEngine.checked,
+            notifyFeedsFolders:feedsFoldersNotify.checked,
+            notifyNewItems:newItemsNotify.checked
         };
 
         return saveConf;
@@ -364,9 +366,31 @@ Page {
                 }
 
                 LabeledSwitch {
-                    id: quitEngine
+                    id: feedsFoldersNotify
                     width: parent.width - 40
                     anchors { top: fontSizeSelector.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
+                    text: qsTr("Notify about added/removed feeds and folders")
+                    Connections {
+                        target: dbus
+                        onGotConfig: feedsFoldersNotify.checked = config["notifyFeedsFolders"]
+                    }
+                }
+
+                LabeledSwitch {
+                    id: newItemsNotify
+                    width: parent.width - 40
+                    anchors { top: feedsFoldersNotify.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
+                    text: qsTr("Notify about new articles")
+                    Connections {
+                        target: dbus
+                        onGotConfig: newItemsNotify.checked = config["notifyNewItems"]
+                    }
+                }
+
+                LabeledSwitch {
+                    id: quitEngine
+                    width: parent.width - 40
+                    anchors { top: newItemsNotify.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
                     text: qsTr("Quit engine on closing reader")
                     Connections {
                         target: dbus

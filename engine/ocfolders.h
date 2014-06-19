@@ -58,6 +58,7 @@ private:
     OcDbManager database;
     OcFeeds feeds;
     OcNetwork network;
+    OcConfiguration config;
 
     QString newFolderName;
 };

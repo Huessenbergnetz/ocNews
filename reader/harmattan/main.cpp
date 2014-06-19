@@ -96,6 +96,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     if (dbus.getSetting("engine/quitonclose", false).toBool())
         QObject::connect(QCoreApplication::instance(), SIGNAL(aboutToQuit()), &dbus, SLOT(quitEngine()));
 
+    QObject::connect(dbusproxy, SIGNAL(dbusActivate()), &viewer, SLOT(showFullScreen()));
+
     viewer.rootContext()->setContextProperty("folders", &folders);
     viewer.rootContext()->setContextProperty("feeds", &feeds);
     viewer.rootContext()->setContextProperty("items", &items);
@@ -115,7 +117,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("launcher", &launcher);
     viewer.rootContext()->setContextProperty("versionString", VERSION_STRING);
     viewer.rootContext()->setContextProperty("versionInt", VERSION);
-
 
 
     viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
