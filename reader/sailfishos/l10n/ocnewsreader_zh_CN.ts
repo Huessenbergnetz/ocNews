@@ -67,7 +67,7 @@
     <message>
         <location line="+7"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>版本</translation>
     </message>
 </context>
 <context>
@@ -83,27 +83,27 @@
     <message>
         <location filename="../qml/BTComponents/ContributorsModel.qml" line="+26"/>
         <source>Main developer, ocNews creator</source>
-        <translation type="unfinished"/>
+        <translation>主要开发者，ocNews创造者</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>作者</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>UI, French translation</source>
-        <translation type="unfinished"/>
+        <translation>UI，法语翻译</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Major contributors</source>
-        <translation type="unfinished"/>
+        <translation>主要贡献者</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Chinese (China) translation</source>
-        <translation type="unfinished"/>
+        <translation>中文（大陆）翻译</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -113,32 +113,32 @@
         <location line="+8"/>
         <location line="+5"/>
         <source>Thanks to</source>
-        <translation type="unfinished"/>
+        <translation>鸣谢</translation>
     </message>
     <message>
         <location line="-33"/>
         <source>Danish translation</source>
-        <translation type="unfinished"/>
+        <translation>丹麦语翻译</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>French translation</source>
-        <translation type="unfinished"/>
+        <translation>法语翻译</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Italian translation</source>
-        <translation type="unfinished"/>
+        <translation>意大利语翻译</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Spanish translation</source>
-        <translation type="unfinished"/>
+        <translation>西班牙语翻译</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation type="unfinished"/>
+        <translation>Martin Grimme的消息元素</translation>
     </message>
 </context>
 <context>
@@ -297,28 +297,28 @@
     </message>
     <message>
         <location line="+54"/>
-        <source>Update feed</source>
-        <translation>更新订阅</translation>
+        <source>Update</source>
+        <translation>更新</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Mark feed as read</source>
-        <translation>将订阅标记为已读</translation>
+        <source>Mark as read</source>
+        <translation>标记为已读条目</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Move feed</source>
-        <translation>移动订阅</translation>
+        <source>Move</source>
+        <translation>移动</translation>
     </message>
     <message>
         <location line="+8"/>
-        <source>Rename feed</source>
-        <translation>重命名订阅</translation>
+        <source>Rename</source>
+        <translation>重命名</translation>
     </message>
     <message>
         <location line="+8"/>
-        <source>Delete feed</source>
-        <translation>删除订阅</translation>
+        <source>Delete</source>
+        <translation>删除</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -393,33 +393,33 @@
         <location filename="../qml/BTComponents/FirstStartInfo.qml" line="+73"/>
         <source>Welcome to %1 %2</source>
         <comment>First is app name, second is version number</comment>
-        <translation type="unfinished"/>
+        <translation>欢迎使用 %1 %2</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Last changes</source>
-        <translation type="unfinished"/>
+        <translation>最近更新内容</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>捐赠</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>If you like %1 and you want to support the development, consider a small donation.</source>
         <comment>first is name of the application</comment>
-        <translation type="unfinished"/>
+        <translation>如果你喜欢并想支持%1的开发，请考虑进行捐赠。</translation>
     </message>
     <message>
         <location line="+18"/>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>帮助</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>关闭</translation>
     </message>
 </context>
 <context>
@@ -436,51 +436,35 @@
     </message>
     <message>
         <location line="+62"/>
-        <source>Update folder</source>
-        <translation>更新文件夹中的订阅</translation>
+        <location line="+29"/>
+        <source>Update</source>
+        <translation>更新</translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Mark folder as read</source>
-        <translation>将文件夹中的订阅标记为已读</translation>
+        <location line="-24"/>
+        <location line="+29"/>
+        <source>Mark as read</source>
+        <translation>标记为已读条目</translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Rename folder</source>
-        <translation>重命名文件夹</translation>
+        <location line="-24"/>
+        <location line="+37"/>
+        <source>Rename</source>
+        <translation>重命名</translation>
     </message>
     <message>
-        <location line="+8"/>
-        <source>Delete folder</source>
-        <translation>删除文件夹</translation>
+        <location line="-29"/>
+        <location line="+37"/>
+        <source>Delete</source>
+        <translation>删除</translation>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Update feed</source>
-        <translation>更新订阅</translation>
+        <location line="-16"/>
+        <source>Move</source>
+        <translation>移动</translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Mark feed as read</source>
-        <translation>将订阅标记为已读</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Move feed</source>
-        <translation>移动订阅</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Rename feed</source>
-        <translation>重命名订阅</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Delete feed</source>
-        <translation>删除订阅</translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location line="+24"/>
         <source>Deleting feed %1</source>
         <translation>正在删除订阅%1</translation>
     </message>
@@ -624,7 +608,17 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+77"/>
+        <location filename="../qml/Views/MainView.qml" line="+78"/>
+        <source>Leave a message (English or German):</source>
+        <translation>发消息（英文或德语）：</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. </source>
+        <translation>ocNews是一个ownCloud新闻客户端，一个基于云的RSS/Atom订阅器。</translation>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>
@@ -908,7 +902,7 @@
     <message>
         <location line="+1"/>
         <source>Polish Zloty</source>
-        <translation type="unfinished"/>
+        <translation>波兰兹罗提</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1053,7 +1047,7 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/Pages/Settings.qml" line="+90"/>
+        <location filename="../qml/Pages/Settings.qml" line="+94"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -1205,7 +1199,7 @@
         <translation>整体视图布局</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+63"/>
         <source>Hide read feeds and folders</source>
         <translation>隐藏已读订阅和文件夹</translation>
     </message>
@@ -1215,7 +1209,7 @@
         <translation>隐藏除未读条目以外的订阅和文件夹</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="-55"/>
         <source>Added (like on server)</source>
         <translation>已添加（在服务器上）</translation>
     </message>
@@ -1275,7 +1269,7 @@
         <translation>阅读文章</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+13"/>
         <source>Show oldest items on top</source>
         <translation>在顶部显示最旧条目</translation>
     </message>
@@ -1291,6 +1285,21 @@
     </message>
     <message>
         <location line="+3"/>
+        <source>Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Notify about added/removed feeds and folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Notify about new articles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Maintenance</source>
         <translation>维护</translation>
     </message>

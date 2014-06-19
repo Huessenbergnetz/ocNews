@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+319"/>
+        <location line="+326"/>
         <source>About</source>
         <translation>A Propos</translation>
     </message>
     <message>
-        <location line="-286"/>
+        <location line="-293"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>L&apos;application client ownCloud News pour Harmattan</translation>
     </message>
@@ -35,7 +35,7 @@
     <message>
         <location line="+24"/>
         <source>Upstream author</source>
-        <translation>Auteur upstream</translation>
+        <translation>Auteur original</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -64,12 +64,11 @@
     </message>
     <message>
         <location line="+7"/>
-        <location line="+29"/>
         <source>Danish translation</source>
         <translation>Translation danoise</translation>
     </message>
     <message>
-        <location line="-24"/>
+        <location line="+10"/>
         <source>French translation</source>
         <translation>Traduction française</translation>
     </message>
@@ -89,7 +88,7 @@
         <translation>Traduction espagnole</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+9"/>
         <source>Used third party elements</source>
         <translation>Éléments de tierces parties réutilisés</translation>
     </message>
@@ -99,14 +98,14 @@
         <translation>Éléments de l&apos;application Tidings par Martin Grimme</translation>
     </message>
     <message>
-        <location line="+138"/>
+        <location line="+150"/>
         <source>Contributors</source>
         <translation>Contributeurs</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Changelog</source>
-        <translation>Changelog</translation>
+        <translation>Notes de version</translation>
     </message>
 </context>
 <context>
@@ -240,30 +239,26 @@
     </message>
     <message>
         <location line="+20"/>
-        <source>Mark feed as read</source>
-        <translation>Marquer le flux comme lu</translation>
+        <source>Mark as read</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
-        <source>Update feed</source>
-        <translation>Mettre à jour le flux</translation>
+        <source>Update</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
-        <source>Move feed</source>
-        <translation>Déplacer le flux</translation>
+        <source>Move</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+10"/>
-        <source>Rename feed</source>
-        <translation>Renommer le flux</translation>
+        <source>Rename</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+9"/>
-        <source>Delete feed</source>
-        <translation>Supprimer le flux</translation>
-    </message>
-    <message>
         <location line="+41"/>
         <location line="+28"/>
         <source>Delete</source>
@@ -532,56 +527,36 @@
     </message>
     <message>
         <location line="+18"/>
-        <source>Mark folder as read</source>
-        <translation>Marquer le dossier comme lu</translation>
+        <location line="+44"/>
+        <source>Mark as read</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Update folder</source>
-        <translation>Mettre à jour le dossier</translation>
+        <location line="-35"/>
+        <location line="+43"/>
+        <source>Update</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+8"/>
-        <source>Rename folder</source>
-        <translation>Renommer le dossier</translation>
+        <location line="-35"/>
+        <location line="+53"/>
+        <source>Rename</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Delete folder</source>
-        <translation>Supprimer le dossier</translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Mark feed as read</source>
-        <translation>Marquer le flux comme lu</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Update feed</source>
-        <translation>Mettre à jour le flux</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Move feed</source>
-        <translation>Déplacer le flux</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Rename feed</source>
-        <translation>Renommer le flux</translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>Delete feed</source>
-        <translation>Supprimer le flux</translation>
-    </message>
-    <message>
+        <location line="-44"/>
+        <location line="+53"/>
         <location line="+51"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-70"/>
+        <source>Move</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+71"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
@@ -901,13 +876,13 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+64"/>
-        <location line="+527"/>
+        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+66"/>
+        <location line="+549"/>
         <source>Account Settings</source>
         <translation>Paramètres du compte</translation>
     </message>
     <message>
-        <location line="-508"/>
+        <location line="-530"/>
         <source>Open account manager</source>
         <translation>Gestion du compte</translation>
     </message>
@@ -1108,6 +1083,16 @@
     </message>
     <message>
         <location line="+22"/>
+        <source>Notify about added/removed feeds and folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Notify about new articles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+11"/>
         <source>Quit engine on closing reader</source>
         <translation>Quitter le moteur en fermant le lecteur</translation>
     </message>

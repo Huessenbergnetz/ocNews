@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for LANG in en_GB
+for LANG in en en_GB en_US
 do
 lupdate -locations relative -no-obsolete engine -ts engine/l10n/ocnewsengine_$LANG.ts
 lupdate -locations relative account/harmattan -ts account/harmattan/l10n/ocnewsaccount_$LANG.ts

@@ -1,23 +1,22 @@
 [main]
 host = https://www.transifex.com
-lang_map = en: en_GB
 
 [ocnews.engine]
 file_filter = engine/l10n/ocnewsengine_<lang>.ts
-source_lang = en_GB
+source_lang = en
 type = QT
 
 [ocnews.harmattanaccount]
 file_filter = account/harmattan/l10n/ocnewsaccount_<lang>.ts
-source_lang = en_GB
+source_lang = en
 type = QT
 
 [ocnews.harmattanreader]
 file_filter = reader/harmattan/l10n/ocnewsreader_<lang>.ts
-source_lang = en_GB
+source_lang = en
 type = QT
 
 [ocnews.sailfishosreader]
 file_filter = reader/sailfishos/l10n/ocnewsreader_<lang>.ts
-source_lang = en_GB
+source_lang = en
 type = QT

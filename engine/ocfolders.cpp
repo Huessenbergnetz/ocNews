@@ -149,7 +149,7 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
         QString body = "";
 
         if (!newFolders.isEmpty()) {
-            summary = tr("%n folders(s) added", "", newFolders.count());
+            summary = tr("%n folder(s) added", "", newFolders.count());
             body = tr("Added:").append(" ");
             body.append(newFolders.join(", "));
         }

@@ -1,10 +1,12 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="en_US">
 <context>
     <name>OcDownloadManager</name>
     <message>
         <location filename="../ocdownloadmanager.cpp" line="+124"/>
         <source>Downloading enclosure </source>
-        <translation>Descargando cercado</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -17,7 +19,7 @@
         <location line="+176"/>
         <location line="+137"/>
         <source>Device is in flight mode.</source>
-        <translation>El dispositivo se encuentra en modo avión</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-796"/>
@@ -25,64 +27,70 @@
         <location line="+248"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
-        <translation>La respuesta del servidor fue vacía</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-250"/>
         <location line="+12"/>
         <source>Failed to request feeds</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <location line="+150"/>
         <source>%n feed(s) added</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Added:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <location line="+11"/>
         <source>%n feed(s) removed</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Removed:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+74"/>
         <location line="+17"/>
         <source>Failed to add feed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+74"/>
         <source>Added feed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+69"/>
         <source>Failed to delete feed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+135"/>
         <source>Failed to move feed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+184"/>
         <source>Failed to mark feed as read</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+122"/>
         <source>Failed to rename feed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -94,7 +102,7 @@
         <location line="+84"/>
         <location line="+71"/>
         <source>Device is in flight mode.</source>
-        <translation>El dispositivo se encuentra en modo avión</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-373"/>
@@ -102,64 +110,70 @@
         <location line="+170"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
-        <translation>La respuesta del servidor fue vacía</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-172"/>
         <location line="+16"/>
         <source>Failed to request folders</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <location line="+95"/>
         <source>%n folder(s) added</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Added:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <location line="+11"/>
         <source>%n folder(s) removed</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Removed:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+47"/>
         <location line="+20"/>
         <source>Failed to create folder</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+18"/>
         <source>Successfully created folder &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Created folder</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+47"/>
         <source>Failed to delete folder</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+93"/>
         <source>Failed to rename folder</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+85"/>
         <source>Failed to mark folder as read</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -168,36 +182,36 @@
         <location filename="../ocgeneric.cpp" line="+34"/>
         <location line="+64"/>
         <source>Device is in flight mode.</source>
-        <translation>El dispositivo se encuentra en modo avión</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-33"/>
         <location line="+64"/>
         <source>Request canceled, maybe wrong username or password</source>
-        <translation>Pedido cancelado, quizás usuario o contraseña incorrecto</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-62"/>
         <location line="+64"/>
         <source>Remote host not found</source>
-        <translation>Host remoto no encontrado</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-62"/>
         <location line="+64"/>
         <source>Can not find ownCloud News, maybe wrong path or server</source>
-        <translation>No se puede encontrar ownCloud News, quizás path o servidor incorrecto</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-56"/>
         <location line="+66"/>
         <source>Connection error</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+17"/>
         <source>Server reply was empty.</source>
-        <translation>La respuesta del servidor fue vacía</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -207,7 +221,7 @@
         <location line="+257"/>
         <location line="+619"/>
         <source>Device is in flight mode.</source>
-        <translation>El dispositivo se encuentra en modo avión</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-831"/>
@@ -215,48 +229,54 @@
         <location line="+303"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
-        <translation>La respuesta del servidor fue vacía</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-305"/>
         <location line="+304"/>
         <source>Error in server reply</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-296"/>
         <location line="+306"/>
         <source>HTTP error</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <location line="-129"/>
         <location line="+319"/>
         <source>%n new</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <location line="-318"/>
         <location line="+319"/>
         <source>%n unread</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <location line="-318"/>
         <location line="+319"/>
         <source>New articles available</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+153"/>
         <location line="+209"/>
         <source>Failed to mark articles</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-79"/>
         <source>Failed to un/star articles</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -264,52 +284,52 @@
     <message>
         <location filename="../ocupdater.cpp" line="+236"/>
         <source>Your account is disabled or you have not created an account yet.</source>
-        <translation>Su cuenta se encuentra desactivada o usted aún no creó una</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+29"/>
         <source>Synchronizing ownCloud News</source>
-        <translation>Sincronizando ownCloud News</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Updating Folders</source>
-        <translation>Actualizando carpetas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+51"/>
         <source>Updating Feeds</source>
-        <translation>Actualizando Feeds</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+26"/>
         <source>Updating Items</source>
-        <translation>Actualizando Items</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+47"/>
         <source>Update Finished</source>
-        <translation>Actualización Terminada</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+30"/>
         <source>Update Failed</source>
-        <translation>Falló la actualización</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+62"/>
         <source>ocNews Image Fetcher</source>
-        <translation>Recopilador de Imágenes ocNews</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Fetching images</source>
-        <translation>Cargando imágenes</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+28"/>
         <source>Fetching images finished</source>
-        <translation>Recopilación de imágenes finalizada</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

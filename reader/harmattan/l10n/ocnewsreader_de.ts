@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+305"/>
+        <location line="+326"/>
         <source>About</source>
         <translation>Über</translation>
     </message>
     <message>
-        <location line="-270"/>
+        <location line="-293"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>Der ownCloud News App Client für Harmattan</translation>
     </message>
@@ -68,7 +68,7 @@
         <translation>Dänische Übersetzung</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+10"/>
         <source>French translation</source>
         <translation>Französische Übersetzung</translation>
     </message>
@@ -98,7 +98,7 @@
         <translation>Martin Grimmes Tidings-Elemente</translation>
     </message>
     <message>
-        <location line="+132"/>
+        <location line="+150"/>
         <source>Contributors</source>
         <translation>Mitwirkende</translation>
     </message>
@@ -239,30 +239,26 @@
     </message>
     <message>
         <location line="+20"/>
-        <source>Mark feed as read</source>
-        <translation>Feed als gelesen markieren</translation>
+        <source>Mark as read</source>
+        <translation>Als gelesen markieren</translation>
     </message>
     <message>
         <location line="+8"/>
-        <source>Update feed</source>
-        <translation>Feed aktualisieren</translation>
+        <source>Update</source>
+        <translation>Aktualisieren</translation>
     </message>
     <message>
         <location line="+8"/>
-        <source>Move feed</source>
-        <translation>Feed verschieben</translation>
+        <source>Move</source>
+        <translation>Verschieben</translation>
     </message>
     <message>
         <location line="+10"/>
-        <source>Rename feed</source>
-        <translation>Feed umbenennen</translation>
+        <source>Rename</source>
+        <translation>Umbenennen</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Delete feed</source>
-        <translation>Feed löschen</translation>
-    </message>
-    <message>
         <location line="+41"/>
         <location line="+28"/>
         <source>Delete</source>
@@ -531,56 +527,36 @@
     </message>
     <message>
         <location line="+18"/>
-        <source>Mark folder as read</source>
-        <translation>Ordner als gelesen markieren</translation>
+        <location line="+44"/>
+        <source>Mark as read</source>
+        <translation>Als gelesen markieren</translation>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Update folder</source>
-        <translation>Ordner aktualisieren</translation>
+        <location line="-35"/>
+        <location line="+43"/>
+        <source>Update</source>
+        <translation>Aktualisieren</translation>
     </message>
     <message>
-        <location line="+8"/>
-        <source>Rename folder</source>
-        <translation>Ordner umbenennen</translation>
+        <location line="-35"/>
+        <location line="+53"/>
+        <source>Rename</source>
+        <translation>Umbenennen</translation>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Delete folder</source>
-        <translation>Ordner löschen</translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Mark feed as read</source>
-        <translation>Feed als gelesen markieren</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Update feed</source>
-        <translation>Feed aktualisieren</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Move feed</source>
-        <translation>Feed verschieben</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Rename feed</source>
-        <translation>Feed umbenennen</translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>Delete feed</source>
-        <translation>Feed löschen</translation>
-    </message>
-    <message>
+        <location line="-44"/>
+        <location line="+53"/>
         <location line="+51"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-70"/>
+        <source>Move</source>
+        <translation>Verschieben</translation>
+    </message>
+    <message>
+        <location line="+71"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
@@ -900,13 +876,13 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+64"/>
-        <location line="+527"/>
+        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+66"/>
+        <location line="+549"/>
         <source>Account Settings</source>
         <translation>Benutzerkonto</translation>
     </message>
     <message>
-        <location line="-508"/>
+        <location line="-530"/>
         <source>Open account manager</source>
         <translation>Kontoverwaltung öffnen</translation>
     </message>
@@ -1107,6 +1083,16 @@
     </message>
     <message>
         <location line="+22"/>
+        <source>Notify about added/removed feeds and folders</source>
+        <translation>Informiere über hinzugefügte/entfernte Feeds und Ordner</translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Notify about new articles</source>
+        <translation>Informiere über neue Artikel</translation>
+    </message>
+    <message>
+        <location line="+11"/>
         <source>Quit engine on closing reader</source>
         <translation>Engine beim Schließen der Anwendung beenden</translation>
     </message>

@@ -297,28 +297,28 @@
     </message>
     <message>
         <location line="+54"/>
-        <source>Update feed</source>
-        <translation>Ajourfør feed</translation>
+        <source>Update</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+5"/>
-        <source>Mark feed as read</source>
-        <translation>Marker feed som læst</translation>
+        <source>Mark as read</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+5"/>
-        <source>Move feed</source>
-        <translation>Flyt feed</translation>
+        <source>Move</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
-        <source>Rename feed</source>
-        <translation>Omdøb feed</translation>
+        <source>Rename</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
-        <source>Delete feed</source>
-        <translation>Fjern feed</translation>
+        <source>Delete</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
@@ -436,51 +436,35 @@
     </message>
     <message>
         <location line="+62"/>
-        <source>Update folder</source>
-        <translation>Ajourfør folder</translation>
+        <location line="+29"/>
+        <source>Update</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Mark folder as read</source>
-        <translation>Mærk folder som læst</translation>
+        <location line="-24"/>
+        <location line="+29"/>
+        <source>Mark as read</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Rename folder</source>
-        <translation>Omdøb folder</translation>
+        <location line="-24"/>
+        <location line="+37"/>
+        <source>Rename</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+8"/>
-        <source>Delete folder</source>
-        <translation>Fjern folder</translation>
+        <location line="-29"/>
+        <location line="+37"/>
+        <source>Delete</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Update feed</source>
-        <translation>Ajourfør feed</translation>
+        <location line="-16"/>
+        <source>Move</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Mark feed as read</source>
-        <translation>Marker feed som læst</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Move feed</source>
-        <translation>Flyt feed</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Rename feed</source>
-        <translation>Omdøb feed</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Delete feed</source>
-        <translation>Fjern feed</translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location line="+24"/>
         <source>Deleting feed %1</source>
         <translation>Fjerner feed %1</translation>
     </message>
@@ -624,7 +608,17 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+77"/>
+        <location filename="../qml/Views/MainView.qml" line="+78"/>
+        <source>Leave a message (English or German):</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>Update running...</source>
         <translation>Ajourfører...</translation>
     </message>
@@ -1053,7 +1047,7 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/Pages/Settings.qml" line="+90"/>
+        <location filename="../qml/Pages/Settings.qml" line="+94"/>
         <source>Settings</source>
         <translation>Indstillinger</translation>
     </message>
@@ -1205,7 +1199,7 @@
         <translation>Hovedvisning layout</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+63"/>
         <source>Hide read feeds and folders</source>
         <translation>Skjul læste feeds og foldere</translation>
     </message>
@@ -1215,7 +1209,7 @@
         <translation>Skjul feeds og foldere der ikke indeholder ulæste poster.</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="-55"/>
         <source>Added (like on server)</source>
         <translation>Tilføjede (ligesom på server)</translation>
     </message>
@@ -1275,7 +1269,7 @@
         <translation>Læste artikler</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+13"/>
         <source>Show oldest items on top</source>
         <translation>Vis ældste poster i toppen</translation>
     </message>
@@ -1291,6 +1285,21 @@
     </message>
     <message>
         <location line="+3"/>
+        <source>Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Notify about added/removed feeds and folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Notify about new articles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Maintenance</source>
         <translation>Vedligeholdelse</translation>
     </message>

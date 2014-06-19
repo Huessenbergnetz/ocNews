@@ -34,7 +34,7 @@
     <message>
         <location line="+4"/>
         <source>Changelog</source>
-        <translation>Changelog</translation>
+        <translation>Notes de version</translation>
     </message>
     <message>
         <location line="+66"/>
@@ -62,12 +62,12 @@
     <message>
         <location filename="../qml/BTComponents/Changelog.qml" line="+35"/>
         <source>Changelog</source>
-        <translation>Changelog</translation>
+        <translation>Notes de version</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
 </context>
 <context>
@@ -83,27 +83,27 @@
     <message>
         <location filename="../qml/BTComponents/ContributorsModel.qml" line="+26"/>
         <source>Main developer, ocNews creator</source>
-        <translation type="unfinished"/>
+        <translation>Développeur principal, Créateur de ocNews</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Auteur</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>UI, French translation</source>
-        <translation type="unfinished"/>
+        <translation>Interface Utilisateur, Traduction française</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Major contributors</source>
-        <translation type="unfinished"/>
+        <translation>Contributeurs principaux</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Chinese (China) translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduction chinoise (Chine)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -113,32 +113,32 @@
         <location line="+8"/>
         <location line="+5"/>
         <source>Thanks to</source>
-        <translation type="unfinished"/>
+        <translation>Remerciements à</translation>
     </message>
     <message>
         <location line="-33"/>
         <source>Danish translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduction danoise</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>French translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduction française</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Italian translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduction italienne</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Spanish translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduction espagnole</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation type="unfinished"/>
+        <translation>Elements de Tidings par Martin Grimme</translation>
     </message>
 </context>
 <context>
@@ -297,28 +297,28 @@
     </message>
     <message>
         <location line="+54"/>
-        <source>Update feed</source>
-        <translation>Mettre à jour le flux</translation>
+        <source>Update</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+5"/>
-        <source>Mark feed as read</source>
-        <translation>Marquer le flux comme lu</translation>
+        <source>Mark as read</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+5"/>
-        <source>Move feed</source>
-        <translation>Déplacer le flux</translation>
+        <source>Move</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
-        <source>Rename feed</source>
-        <translation>Renommer le flux</translation>
+        <source>Rename</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
-        <source>Delete feed</source>
-        <translation>Supprimer le flux</translation>
+        <source>Delete</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
@@ -393,33 +393,33 @@
         <location filename="../qml/BTComponents/FirstStartInfo.qml" line="+73"/>
         <source>Welcome to %1 %2</source>
         <comment>First is app name, second is version number</comment>
-        <translation type="unfinished"/>
+        <translation>Bienvenue à %1 %2</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Last changes</source>
-        <translation type="unfinished"/>
+        <translation>Derniers changements</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>Faire un don</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>If you like %1 and you want to support the development, consider a small donation.</source>
         <comment>first is name of the application</comment>
-        <translation type="unfinished"/>
+        <translation>Si vous aimez %1 et que vous voulais aider le développement, envisagez un petit don.</translation>
     </message>
     <message>
         <location line="+18"/>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Aide</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Fermer</translation>
     </message>
 </context>
 <context>
@@ -436,51 +436,35 @@
     </message>
     <message>
         <location line="+62"/>
-        <source>Update folder</source>
-        <translation>Mettre à jour le dossier</translation>
+        <location line="+29"/>
+        <source>Update</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Mark folder as read</source>
-        <translation>Marquer le dossier comme lu</translation>
+        <location line="-24"/>
+        <location line="+29"/>
+        <source>Mark as read</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Rename folder</source>
-        <translation>Renommer le dossier</translation>
+        <location line="-24"/>
+        <location line="+37"/>
+        <source>Rename</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+8"/>
-        <source>Delete folder</source>
-        <translation>Supprimer le dossier</translation>
+        <location line="-29"/>
+        <location line="+37"/>
+        <source>Delete</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Update feed</source>
-        <translation>Mettre à jour le flux</translation>
+        <location line="-16"/>
+        <source>Move</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Mark feed as read</source>
-        <translation>Marquer le flux comme lu</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Move feed</source>
-        <translation>Déplacer le flux</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Rename feed</source>
-        <translation>Renommer le flux</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Delete feed</source>
-        <translation>Supprimer le flux</translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location line="+24"/>
         <source>Deleting feed %1</source>
         <translation>Suppression du flux %1</translation>
     </message>
@@ -624,7 +608,17 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+77"/>
+        <location filename="../qml/Views/MainView.qml" line="+78"/>
+        <source>Leave a message (English or German):</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>Update running...</source>
         <translation>Mise à jour en cours...</translation>
     </message>
@@ -908,7 +902,7 @@
     <message>
         <location line="+1"/>
         <source>Polish Zloty</source>
-        <translation type="unfinished"/>
+        <translation>Zloty Polonais</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1053,7 +1047,7 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/Pages/Settings.qml" line="+90"/>
+        <location filename="../qml/Pages/Settings.qml" line="+94"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
@@ -1205,7 +1199,7 @@
         <translation>Organisation de la page principale</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+63"/>
         <source>Hide read feeds and folders</source>
         <translation>Masquer les flux et dossiers lus</translation>
     </message>
@@ -1215,7 +1209,7 @@
         <translation>Masquer les flux et les dossiers qui ne contiennent pas d&apos;articles lus.</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="-55"/>
         <source>Added (like on server)</source>
         <translation>Ajouté (comme sur le serveur)</translation>
     </message>
@@ -1275,7 +1269,7 @@
         <translation>Articles lus</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+13"/>
         <source>Show oldest items on top</source>
         <translation>Afficher le plus vieux en premier</translation>
     </message>
@@ -1287,10 +1281,25 @@
     <message>
         <location line="+10"/>
         <source>Item view font size</source>
-        <translation>Taille de police des libellés</translation>
+        <translation>Taille du texte des articles</translation>
     </message>
     <message>
         <location line="+3"/>
+        <source>Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Notify about added/removed feeds and folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Notify about new articles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Maintenance</source>
         <translation>Maintenance</translation>
     </message>

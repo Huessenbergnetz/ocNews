@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+319"/>
+        <location line="+326"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location line="-286"/>
+        <location line="-293"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation type="unfinished"/>
     </message>
@@ -64,12 +64,11 @@
     </message>
     <message>
         <location line="+7"/>
-        <location line="+29"/>
         <source>Danish translation</source>
         <translation>Перевод на Датский язык</translation>
     </message>
     <message>
-        <location line="-24"/>
+        <location line="+10"/>
         <source>French translation</source>
         <translation>Перевод на Французский язык</translation>
     </message>
@@ -89,7 +88,7 @@
         <translation>Перевод на Испанский язык</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+9"/>
         <source>Used third party elements</source>
         <translation>Использует сторонние элементы</translation>
     </message>
@@ -99,7 +98,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+138"/>
+        <location line="+150"/>
         <source>Contributors</source>
         <translation>Участники</translation>
     </message>
@@ -240,30 +239,26 @@
     </message>
     <message>
         <location line="+20"/>
-        <source>Mark feed as read</source>
-        <translation>Отметить как прочитанное</translation>
+        <source>Mark as read</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
-        <source>Update feed</source>
-        <translation>Обновить</translation>
+        <source>Update</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
-        <source>Move feed</source>
-        <translation>Переместить</translation>
+        <source>Move</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+10"/>
-        <source>Rename feed</source>
-        <translation>Переименовать</translation>
+        <source>Rename</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+9"/>
-        <source>Delete feed</source>
-        <translation>Удалить</translation>
-    </message>
-    <message>
         <location line="+41"/>
         <location line="+28"/>
         <source>Delete</source>
@@ -532,56 +527,36 @@
     </message>
     <message>
         <location line="+18"/>
-        <source>Mark folder as read</source>
-        <translation>Отметить папку как прочитанную</translation>
+        <location line="+44"/>
+        <source>Mark as read</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Update folder</source>
-        <translation>Обновить папку</translation>
+        <location line="-35"/>
+        <location line="+43"/>
+        <source>Update</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+8"/>
-        <source>Rename folder</source>
-        <translation>Переименовать папку</translation>
+        <location line="-35"/>
+        <location line="+53"/>
+        <source>Rename</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Delete folder</source>
-        <translation>Удалить папку</translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Mark feed as read</source>
-        <translation>Отметить ленту как прочитанную</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Update feed</source>
-        <translation>Обновить</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Move feed</source>
-        <translation>Переместить</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Rename feed</source>
-        <translation>Переименовать</translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>Delete feed</source>
-        <translation>Удалить</translation>
-    </message>
-    <message>
+        <location line="-44"/>
+        <location line="+53"/>
         <location line="+51"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-70"/>
+        <source>Move</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+71"/>
         <source>Cancel</source>
         <translation>Отменить</translation>
     </message>
@@ -901,13 +876,13 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+64"/>
-        <location line="+527"/>
+        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+66"/>
+        <location line="+549"/>
         <source>Account Settings</source>
         <translation>Настройки учётной записи</translation>
     </message>
     <message>
-        <location line="-508"/>
+        <location line="-530"/>
         <source>Open account manager</source>
         <translation>Открыть менеджер учётных записей</translation>
     </message>
@@ -1108,6 +1083,16 @@
     </message>
     <message>
         <location line="+22"/>
+        <source>Notify about added/removed feeds and folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Notify about new articles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+11"/>
         <source>Quit engine on closing reader</source>
         <translation>Закрыть приложение при закрытии ридера</translation>
     </message>

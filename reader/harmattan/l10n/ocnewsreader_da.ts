@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+320"/>
+        <location line="+326"/>
         <source>About</source>
         <translation>Om</translation>
     </message>
     <message>
-        <location line="-287"/>
+        <location line="-293"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>OwnCloud News App klient for Harmattan</translation>
     </message>
@@ -98,7 +98,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+144"/>
+        <location line="+150"/>
         <source>Contributors</source>
         <translation>Bidragydere</translation>
     </message>
@@ -239,30 +239,26 @@
     </message>
     <message>
         <location line="+20"/>
-        <source>Mark feed as read</source>
-        <translation>Marker folder som læst</translation>
+        <source>Mark as read</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
-        <source>Update feed</source>
-        <translation>Ajourfør feed</translation>
+        <source>Update</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
-        <source>Move feed</source>
-        <translation>Flyt feed</translation>
+        <source>Move</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+10"/>
-        <source>Rename feed</source>
-        <translation>Omdøb feed</translation>
+        <source>Rename</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+9"/>
-        <source>Delete feed</source>
-        <translation>Fjern feed</translation>
-    </message>
-    <message>
         <location line="+41"/>
         <location line="+28"/>
         <source>Delete</source>
@@ -531,56 +527,36 @@
     </message>
     <message>
         <location line="+18"/>
-        <source>Mark folder as read</source>
-        <translation>Marker folder som læst</translation>
+        <location line="+44"/>
+        <source>Mark as read</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Update folder</source>
-        <translation>Ajourfør folder</translation>
+        <location line="-35"/>
+        <location line="+43"/>
+        <source>Update</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+8"/>
-        <source>Rename folder</source>
-        <translation>Omdøb folder</translation>
+        <location line="-35"/>
+        <location line="+53"/>
+        <source>Rename</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Delete folder</source>
-        <translation>Fjern folder</translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Mark feed as read</source>
-        <translation>Marker feed som læst</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Update feed</source>
-        <translation>Ajourfør feed</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Move feed</source>
-        <translation>Flyt feed</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Rename feed</source>
-        <translation>Omdøb feed</translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>Delete feed</source>
-        <translation>Fjern feed</translation>
-    </message>
-    <message>
+        <location line="-44"/>
+        <location line="+53"/>
         <location line="+51"/>
         <source>Delete</source>
         <translation>Fjern</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-70"/>
+        <source>Move</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+71"/>
         <source>Cancel</source>
         <translation>Afbryd</translation>
     </message>
@@ -900,13 +876,13 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+64"/>
-        <location line="+527"/>
+        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+66"/>
+        <location line="+549"/>
         <source>Account Settings</source>
         <translation>Konto Indstillinger</translation>
     </message>
     <message>
-        <location line="-508"/>
+        <location line="-530"/>
         <source>Open account manager</source>
         <translation>Åben kontohåndtering</translation>
     </message>
@@ -1107,6 +1083,16 @@
     </message>
     <message>
         <location line="+22"/>
+        <source>Notify about added/removed feeds and folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Notify about new articles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+11"/>
         <source>Quit engine on closing reader</source>
         <translation type="unfinished"/>
     </message>
@@ -1158,7 +1144,7 @@
     <message>
         <location line="+13"/>
         <source>Last full update:&lt;br /&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Sidste fulde ajourføring:&lt;br /&gt;</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1225,7 +1211,7 @@
     <message>
         <location line="+2"/>
         <source>Do you really want delete your complete database?</source>
-        <translation type="unfinished"/>
+        <translation>Vil du virkelig fjerne hele din database? </translation>
     </message>
     <message>
         <location line="+1"/>
