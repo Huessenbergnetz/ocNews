@@ -32,6 +32,7 @@ Page {
             notifyFeedsFolders.checked = config["notifyFeedsFolders"]
             notifyNewItems.checked = config["notifyNewItems"]
             excerpts.checked = config["showExcerpts"]
+            listPictures.checked = config["showPicturesInList"]
             isConfigSet = dbus.isConfigSet()
         }
     }
@@ -57,6 +58,7 @@ Page {
             notifyFeedsFolders:notifyFeedsFolders.checked,
             notifyNewItems:notifyNewItems.checked,
             showExcerpts:excerpts.checked,
+            showPicturesInList:listPictures.checked,
             eventfeeds:"",
             enabled:true,
             themecolor:"black"
@@ -344,6 +346,13 @@ Page {
                 text: qsTr("Show article excerpts")
                 anchors { left: parent.left; right: parent.right }
                 description: qsTr("Shows some lines of the article content in the article list.")
+            }
+
+            TextSwitch {
+                id: listPictures
+                text: qsTr("Display images in list")
+                anchors { left: parent.left; right: parent.right }
+                description: qsTr("Displays an image of the article in the list.")
             }
 
             Slider {

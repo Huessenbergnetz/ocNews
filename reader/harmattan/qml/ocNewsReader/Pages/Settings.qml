@@ -360,7 +360,7 @@ Page {
                     id: articlePicture
                     width: parent.width - 40
                     anchors { top: excerpts.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                    text: qsTr("Show article image in list")
+                    text: qsTr("Display images in list")
                     Connections {
                         target: dbus
                         onGotConfig: articlePicture.checked = config["showPicturesInList"]
