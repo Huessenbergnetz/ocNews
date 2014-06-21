@@ -18,6 +18,7 @@ ListItem {
     menu: itemContextMenu
 
     ListView.onAdd: AddAnimation { target: itemListItem }
+    ListView.onRemove: animateRemoval(itemListItem)
 
     onClicked: {
         if (model.unread) busyIndicator.state = "RUNNING"

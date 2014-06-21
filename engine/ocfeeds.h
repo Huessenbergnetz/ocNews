@@ -8,7 +8,6 @@
 #include "ochelper.h"
 #include "ocdbmanager.h"
 #include "ocnetwork.h"
-#include "ocitems.h"
 #include "ocnotifications.h"
 #include "../common/globals.h"
 
@@ -60,7 +59,6 @@ private slots:
 private:
     void feedsRequestedUpdateDb(const QVariantMap &feedsresult);
     void feedCreatedUpdateDb(const QVariantMap &createFeedResult);
-//    void feedCreatedFetchItems(const QVariantMap &createFeedResult, const QString &feedName);
     void feedDeletedUpdateDb(const int &id);
     void feedMovedUpdateDb(const int &id, const QString &folderId);
     void feedMarkedReadUpdateDb(const int &id);
@@ -69,7 +67,6 @@ private:
     QNetworkReply *replyRequestFeeds, *replyCreateFeed, *replyDeleteFeed, *replyMoveFeed, *replyGetFavicon, *replyMarkFeedRead, *replyRenameFeed;
     OcHelper helper;
     OcDbManager database;
-//    OcItems items;
     OcNetwork network;
     OcConfiguration config;
     OcNotifications notify;

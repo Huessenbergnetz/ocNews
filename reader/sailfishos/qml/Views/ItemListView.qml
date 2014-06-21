@@ -14,44 +14,59 @@ Page {
 
     property int handleRead: dbus.getSetting("display/handleread", 0)
     property bool sortAsc: dbus.getSetting("display/sortasc", false) == "true"
-    property string searchString
+    property string searchString: ""
 
-    onSearchStringChanged: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
+    onSearchStringChanged: itemList.model.search = searchString
+    onSortAscChanged: itemList.model.sortAsc = sortAsc
 
-//    Component.onCompleted: { console.log(handleRead); itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
     Component.onCompleted: itemsModelSql.feedId = feedId
     Component.onDestruction: GLOBALS.previousContentY = 0
-//    Component.onDestruction: { itemsModelSql.clear(); GLOBALS.previousContentY = 0 }
 
     Connections {
         target: feeds
-//        onMarkedReadFeedSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
         onDeletedFeedSuccess: pageStack.pop()
         onRenamedFeedSuccess: itemListView.feedName = newName
     }
-//    Connections {
-//        target: items
-//        onUpdatedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY }
-//        onRequestedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY; }
-//        onStarredItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY; }
-//        onMarkedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY; }
-//    }
-//    Connections {
-//        target: updater
-//        onUpdateFinished: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY }
-//    }
 
-    onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString)
+//    onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString)
     onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString)
+
+    Column {
+        id: headerContainer
+
+        width: itemListView.width
+
+        PageHeader { title: operationRunning ? qsTr("Update running...") : itemListView.feedName }
+
+        SearchField {
+            id: searchField
+            width: parent.width
+            visible: false
+            placeholderText: qsTr("Search")
+            EnterKey.onClicked: searchField.focus = false
+            EnterKey.iconSource: "image://theme/icon-m-enter-close"
+
+            Binding {
+                target: itemListView
+                property: "searchString"
+                value: searchField.text
+            }
+        }
+    }
 
 
     SilicaListView {
         id: itemList
-        anchors { top: parent.top; right: parent.right; left: parent.left; bottom: itemListFetchIndicator.visible ? itemListFetchIndicator.top : searchPanel.open ? searchPanel.top : sortingPanel.open ? sortingPanel.top : parent.bottom }
+        anchors { top: parent.top; right: parent.right; left: parent.left; bottom: itemListFetchIndicator.visible ? itemListFetchIndicator.top : sortingPanel.open ? sortingPanel.top : parent.bottom }
         currentIndex: -1
         clip: true
 
-        header: PageHeader { title: operationRunning ? qsTr("Update running...") : itemListView.feedName }
+        header: Item {
+            id: header
+            width: headerContainer.width
+            height: headerContainer.height
+            Component.onCompleted: headerContainer.parent = header
+        }
 
         Behavior on anchors.bottomMargin {
             NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
@@ -79,13 +94,11 @@ Page {
                     dialog.accepted.connect(function() { operationRunning = true })
                 }
             }
-
             MenuItem {
                 id: menuSort
                 text: sortingPanel.open ? qsTr("Hide sorting options") : qsTr("Show sorting options")
                 onClicked: {
-                    searchPanel.open = false;
-                    searchField.focus = false;
+                    searchField.focus = false
                     sortingPanel.open = !sortingPanel.open
                 }
             }
@@ -103,16 +116,15 @@ Page {
             }
             MenuItem {
                 id: showSearch
-                text: searchPanel.open ? qsTr("Hide search") : qsTr("Show search")
+                text: searchField.visible ? qsTr("Hide search") : qsTr("Show search")
                 onClicked: {
-                    sortingPanel.open = false
-                    searchPanel.open = !searchPanel.open
-                    if (!searchPanel.open) {itemListView.searchString = ""; searchField.focus = false } else {searchField.focus = true }
+                    searchField.visible = !searchField.visible
+                    if (!searchField.visible) {searchField.text = ""; searchField.focus = false } else {searchField.focus = true }
                 }
             }
         }
 
-        model: itemsModelSql
+        model: itemsModelFilter
 
         delegate: ItemListDelegate { feedId: itemListView.feedId; searchString: searchField.text; handleRead: itemListView.handleRead; sortAsc: itemListView.sortAsc; feedType: "0" }
 
@@ -144,28 +156,6 @@ Page {
     }
 
     DockedPanel {
-        id: searchPanel
-        width: parent.width
-        height: searchField.height
-        visible: open
-        dock: Dock.Bottom
-
-        SearchField {
-            id: searchField
-            width: parent.width
-            placeholderText: qsTr("Search")
-            EnterKey.onClicked: searchField.focus = false
-            EnterKey.iconSource: "image://theme/icon-m-enter-close"
-
-            Binding {
-                target: itemListView
-                property: "searchString"
-                value: searchField.text
-            }
-        }
-    }
-
-    DockedPanel {
         id: sortingPanel
         width: parent.width
         height: actCol.height
@@ -176,12 +166,6 @@ Page {
         Column {
             id: actCol
             width: parent.width
-
-            Button {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: sortAsc ? qsTr("Show newest on top") : qsTr("Show oldest on top")
-                onClicked: sortAsc = !sortAsc
-            }
 
             ListModel {
                 id: handleReadModel
@@ -204,6 +188,11 @@ Page {
                 onCurrentIndexChanged: handleRead = handleReadModel.get(handleReadSelection.currentIndex).value
             }
 
+            Button {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: sortAsc ? qsTr("Show newest on top") : qsTr("Show oldest on top")
+                onClicked: sortAsc = !sortAsc
+            }
         }
     }
 }

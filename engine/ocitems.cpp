@@ -239,11 +239,11 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
 #endif
     emit requestedItemsSuccess(updatedItems, newItems, idListDeleted);
 
-    if (!newItems.isEmpty() && config.getSetting(QString("notifications/newItems"), QDBusVariant(false)).variant().toBool())
+    if ((unreadCount > 0) && config.getSetting(QString("notifications/newItems"), QDBusVariant(false)).variant().toBool())
     {
-        QString notificationBody(tr("%n new", "", newItems.count()));
-        notificationBody.append(", ").append(tr("%n unread", "", unreadCount));
-        notify.showNotification(notificationBody, tr("New articles available"), OcNotifications::Success);
+//        QString notificationBody(tr("%n new", "", newItems.count()));
+//        notificationBody.append(", ").append(tr("%n unread", "", unreadCount));
+        notify.showNotification(tr("%n new unread item(s)", "", unreadCount), tr("New articles available"), OcNotifications::Success);
     }
 
     if (!newEventItems.isEmpty())
@@ -547,11 +547,11 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
 #endif
     emit updatedItemsSuccess(updatedItems, newItems, imageItemIdsToDelete);
 
-    if (!newItems.isEmpty() && config.getSetting(QString("notifications/newItems"), QDBusVariant(false)).variant().toBool())
+    if ((unreadCount > 0) && config.getSetting(QString("notifications/newItems"), QDBusVariant(false)).variant().toBool())
     {
-        QString notificationBody(tr("%n new", "", newItems.count()));
-        notificationBody.append(", ").append(tr("%n unread", "", unreadCount));
-        notify.showNotification(notificationBody, tr("New articles available"), OcNotifications::Success);
+//        QString notificationBody(tr("%n new", "", newItems.count()));
+//        notificationBody.append(", ").append(tr("%n unread", "", unreadCount));
+        notify.showNotification(tr("%n new unread item(s)", "", unreadCount), tr("New articles available"), OcNotifications::Success);
     }
 
     if (!newEventItems.isEmpty())

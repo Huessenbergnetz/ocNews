@@ -223,14 +223,6 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
         }
     }
 
-    // delete the serverside deleted ids in the database
-//    for (int i = 0; i < idListDeleted.size(); ++i) {
-//        query.exec(QString("DELETE FROM feeds WHERE id = %1").arg(idListDeleted.at(i)));
-//        items.cleanItems(idListDeleted.at(i));
-//        qDebug() << "Deleted Feed ID: " << idListDeleted.at(i);
-//    }
-
-
     if ((!newFeeds.isEmpty() || !idListDeleted.isEmpty()) && config.getSetting(QString("notifications/feedsFolders"), QDBusVariant(false)).variant().toBool())
     {
         QString summary = "";
@@ -387,40 +379,11 @@ void OcFeeds::feedCreatedUpdateDb(const QVariantMap &createFeedResult)
             config.setSetting(QString("event/feeds"), QDBusVariant(feedsForEventView));
         }
 
-//        feedCreatedFetchItems(createFeedResult, map["title"].toString());
-
         emit feedCreatedFetchItems("100", "0", "0", map["id"].toString(), "true");
         emit createdFeedSuccess(map["title"].toString());
     }
 }
 
-
-
-
-///*!
-// * \fn void OcFeeds::feedCreatedFetchItems(QVariantMap createFeedResult, QString feedName)
-// * \brief Fetches items of new created feed
-// *
-// * This internal function is called after a feed was successfully created and fetches the new
-// * available items of this feed.
-// *
-// * \param createFeedResult the result of the network reply
-// * \param feedName      the name of the feed
-// */
-
-//void OcFeeds::feedCreatedFetchItems(const QVariantMap &createFeedResult, const QString &feedName)
-//{
-//    QEventLoop loop;
-//    connect(&items,SIGNAL(requestedItemsSuccess()),&loop,SLOT(quit()));
-//    foreach (QVariant feed, createFeedResult["feeds"].toList())
-//    {
-//        QMap<QString, QVariant> map = feed.value<QVariantMap>();
-//        items.requestItems("100", "0", "0", map["id"].toString(), "true"); // batchSize, offset, type, id, getRead
-//    }
-//    loop.exec();
-//    notify.showNotification(feedName, tr("Added feed"), OcNotifications::Success);
-//    emit createdFeedSuccess(feedName);
-//}
 
 
 

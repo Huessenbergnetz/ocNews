@@ -25,6 +25,19 @@ public:
 
     QString feedId() const;
 
+    static const int TitleRole;
+    static const int ItemIdRole;
+    static const int PubDateRole;
+    static const int PubDateIntRole;
+    static const int EnclosureLinkRole;
+    static const int EnclosureMimeRole;
+    static const int UnreadRole;
+    static const int StarredRole;
+    static const int UrlRole;
+    static const int GuidHashRole;
+    static const int ExcerptRole;
+    static const int ImageRole;
+
 signals:
     void feedIdChanged(const QString &nFeedId);
 
@@ -43,19 +56,6 @@ private:
     void clear();
 
     QString m_feedId;
-
-    static const int TitleRole;
-    static const int ItemIdRole;
-    static const int PubDateRole;
-    static const int PubDateIntRole;
-    static const int EnclosureLinkRole;
-    static const int EnclosureMimeRole;
-    static const int UnreadRole;
-    static const int StarredRole;
-    static const int UrlRole;
-    static const int GuidHashRole;
-    static const int ExcerptRole;
-    static const int ImageRole;
 
     QString niceTime(const uint &t) const;
     QString prepareBody(const QString &b) const;

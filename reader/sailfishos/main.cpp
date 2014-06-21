@@ -12,6 +12,7 @@
 #include "../common/models/ocfeedsmodelsql.h"
 #include "../common/models/ocitemsmodelsql.h"
 #include "../common/models/ocitemsmodelnew.h"
+#include "../common/models/ocitemsmodelfilter.h"
 #include "../common/models/ocsingleitemmodelsql.h"
 #include "../common/models/ocspecialitemsmodelsql.h"
 #include "../common/models/occombinedmodelsql.h"
@@ -64,6 +65,8 @@ int main(int argc, char *argv[])
     OcFeedsModelSql *feedsModelSql = new OcFeedsModelSql();
 //    OcItemsModelSql *itemsModelSql = new OcItemsModelSql();
     OcItemsModelNew *itemsModelSql = new OcItemsModelNew();
+    OcItemsModelFilter *itemsModelFilter = new OcItemsModelFilter;
+    itemsModelFilter->setSourceModel(itemsModelSql);
     OcSpecialItemsModelSql *specialItemsModelSql = new OcSpecialItemsModelSql();
     OcSingleItemModelSql *singleItemModelSql = new OcSingleItemModelSql();
 
@@ -95,6 +98,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("combinedModelSql", combinedModelSql);
     view->rootContext()->setContextProperty("feedsModelSql", feedsModelSql);
     view->rootContext()->setContextProperty("itemsModelSql", itemsModelSql);
+    view->rootContext()->setContextProperty("itemsModelFilter", itemsModelFilter);
     view->rootContext()->setContextProperty("specialItemsModelSql", specialItemsModelSql);
     view->rootContext()->setContextProperty("singleItemModelSql", singleItemModelSql);
     view->rootContext()->setContextProperty("folders", &folders);

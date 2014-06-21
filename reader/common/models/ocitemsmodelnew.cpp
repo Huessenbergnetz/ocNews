@@ -18,6 +18,7 @@ OcItemsModelNew::OcItemsModelNew(QObject *parent) :
     QAbstractListModel(parent)
 {
     m_feedId = "";
+    m_items = QList<OcItemObject*>();
 }
 
 
