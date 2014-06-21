@@ -7,16 +7,13 @@ OcDBusItems::OcDBusItems(QObject *parent) :
     connect(items, SIGNAL(markedAllItemsReadError(QString)), this, SLOT(dbusMarkedAllItemsReadError(QString)));
     connect(items, SIGNAL(markedAllItemsReadSuccess()), this, SLOT(dbusMarkedAllItemsReadSuccess()));
     connect(items, SIGNAL(markedItemsError(QString)), this, SLOT(dbusMarkedItemsError(QString)));
-    connect(items, SIGNAL(markedItemsSuccess()), this, SLOT(dbusMarkedItemsSuccess()));
+    connect(items, SIGNAL(markedItemsSuccess(QStringList, QString)), this, SLOT(dbusMarkedItemsSuccess(QStringList, QString)));
     connect(items, SIGNAL(requestedItemsError(QString)), this, SLOT(dbusRequestedItemsError(QString)));
-    connect(items, SIGNAL(requestedItemsSuccess()), this, SLOT(dbusRequestedItemsSuccess()));
+    connect(items, SIGNAL(requestedItemsSuccess(QList<int>, QList<int>, QList<int>)), this, SLOT(dbusRequestedItemsSuccess(QList<int>, QList<int>, QList<int>)));
     connect(items, SIGNAL(starredItemsError(QString)), this, SLOT(dbusStarredItemsError(QString)));
-    connect(items, SIGNAL(starredItemsSuccess()), this, SLOT(dbusStarredItemsSuccess()));
+    connect(items, SIGNAL(starredItemsSuccess(QStringList, QString)), this, SLOT(dbusStarredItemsSuccess(QStringList, QString)));
     connect(items, SIGNAL(updatedItemsError(QString)), this, SLOT(dbusUpdatedItemsError(QString)));
-    connect(items, SIGNAL(updatedItemsSuccess()), this, SLOT(dbusUpdatedItemsSuccess()));
-    connect(items, SIGNAL(startedFetchingImages(int)), this, SLOT(dbusStartedFetchingImages(int)));
-    connect(items, SIGNAL(finishedFetchingImages()), this, SLOT(dbusFinishedFetchingImages()));
-    connect(items, SIGNAL(fetchingImages(int)), this, SLOT(dbusFetchingImages(int)));
+    connect(items, SIGNAL(updatedItemsSuccess(QList<int>, QList<int>, QList<int>)), this, SLOT(dbusUpdatedItemsSuccess(QList<int>, QList<int>, QList<int>)));
 }
 
 void OcDBusItems::markAllItemsRead()
@@ -31,9 +28,6 @@ void OcDBusItems::markItems(const QString &action, const QVariantList &ids)
 
 void OcDBusItems::markItemsTillThis(const QString &action, const QVariant &pubDate, const QVariant &feedId)
 {
-#ifdef QT_DEBUG
-        qDebug() << "DBus markItemsTillThis";
-#endif
     QDBusVariant t_pubDate(pubDate);
     QDBusVariant t_feedId(feedId);
     items->markItemsTillThis(action, t_pubDate, t_feedId);
@@ -54,11 +48,6 @@ void OcDBusItems::updateItems(const QString &lastModified, const QString &type, 
     items->updateItems(lastModified, type, id);
 }
 
-int OcDBusItems::isFetchImagesRunning()
-{
-    return items->isFetchImagesRunning();
-}
-
 void OcDBusItems::dbusMarkedAllItemsReadError(const QString &markedAllItemsReadErrorString)
 {
     emit markedAllItemsReadError(markedAllItemsReadErrorString);
@@ -74,9 +63,9 @@ void OcDBusItems::dbusMarkedItemsError(const QString &markedItemsErrorString)
     emit markedItemsError(markedItemsErrorString);
 }
 
-void OcDBusItems::dbusMarkedItemsSuccess()
+void OcDBusItems::dbusMarkedItemsSuccess(const QStringList &ids, const QString &action)
 {
-    emit markedItemsSuccess();
+    emit markedItemsSuccess(ids, action);
 }
 
 void OcDBusItems::dbusRequestedItemsError(const QString &requestedItemsErrorString)
@@ -84,9 +73,9 @@ void OcDBusItems::dbusRequestedItemsError(const QString &requestedItemsErrorStri
     emit requestedItemsError(requestedItemsErrorString);
 }
 
-void OcDBusItems::dbusRequestedItemsSuccess()
+void OcDBusItems::dbusRequestedItemsSuccess(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted)
 {
-    emit requestedItemsSuccess();
+    emit requestedItemsSuccess(updated, newItems, deleted);
 }
 
 void OcDBusItems::dbusStarredItemsError(const QString &starredItemsErrorString)
@@ -94,9 +83,9 @@ void OcDBusItems::dbusStarredItemsError(const QString &starredItemsErrorString)
     emit starredItemsError(starredItemsErrorString);
 }
 
-void OcDBusItems::dbusStarredItemsSuccess()
+void OcDBusItems::dbusStarredItemsSuccess(const QStringList &hashes, const QString &action)
 {
-    emit starredItemsSuccess();
+    emit starredItemsSuccess(hashes, action);
 }
 
 void OcDBusItems::dbusUpdatedItemsError(const QString &updateItemsErrorString)
@@ -104,22 +93,7 @@ void OcDBusItems::dbusUpdatedItemsError(const QString &updateItemsErrorString)
     emit updatedItemsError(updateItemsErrorString);
 }
 
-void OcDBusItems::dbusUpdatedItemsSuccess()
+void OcDBusItems::dbusUpdatedItemsSuccess(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted)
 {
-    emit updatedItemsSuccess();
-}
-
-void OcDBusItems::dbusStartedFetchingImages(const int &numberOfItems)
-{
-    emit startedFetchingImages(numberOfItems);
-}
-
-void OcDBusItems::dbusFinishedFetchingImages()
-{
-    emit finishedFetchingImages();
-}
-
-void OcDBusItems::dbusFetchingImages(const int &currentItem)
-{
-    emit fetchingImages(currentItem);
+    emit updatedItemsSuccess(updated, newItems, deleted);
 }

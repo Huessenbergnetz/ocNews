@@ -4,7 +4,6 @@
 OcItems::OcItems(QObject *parent) :
     QObject(parent)
 {
-    itemsToFetchImages = 0;
     itemsToMark = QStringList();
     hashesToStar = QStringList();
     markAllReadNewestId = "";
@@ -83,9 +82,9 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
     qDebug() << "Start updating items database.";
 #endif
 
-    int imgHandling = config.getSetting(QString("display/handleimgs"), QDBusVariant(0)).variant().toInt();
     QList<int> newEventItems; // list for the new items, for sending to event feed
     QList<int> newItems; // list for fetching images
+    QList<int> updatedItems;
     int unreadCount = 0;
     QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
     QStringList feedsForEventsList = feedsForEventView.split(",");
@@ -114,6 +113,8 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
 #ifdef QT_DEBUG
                 qDebug() << "Update ID:" << map["id"].toInt() << "|" << map["lastModified"].toInt();
 #endif
+                updatedItems << map["id"].toInt();
+
                 query.prepare("UPDATE items SET "
                               "guid = :guid, "
                               "guidHash = :guidHash, "
@@ -172,12 +173,7 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
             query.bindValue(":title", map["title"].toString());
             query.bindValue(":author", map["author"].toString());
             query.bindValue(":pubDate", map["pubDate"].toInt());
-            if (imgHandling == 2)
-            {
-                query.bindValue(":body", map["body"].toString());
-            } else {
-                query.bindValue(":body", cacheImages(map["body"].toString(), map["id"].toInt(), imgHandling));
-            }
+            query.bindValue(":body", map["body"].toString());
             query.bindValue(":enclosureMime", map["enclosureMime"].toString());
             query.bindValue(":enclosureLink", map["enclosureLink"].toString());
             query.bindValue(":feedId", map["feedId"].toInt());
@@ -241,7 +237,7 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
 #ifdef QT_DEBUG
     qDebug() << "Finished updating database, emit requestedItemsSuccess";
 #endif
-    emit requestedItemsSuccess();
+    emit requestedItemsSuccess(updatedItems, newItems, idListDeleted);
 
     if (!newItems.isEmpty() && config.getSetting(QString("notifications/newItems"), QDBusVariant(false)).variant().toBool())
     {
@@ -252,15 +248,6 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
 
     if (!newEventItems.isEmpty())
         updateEventFeed(newEventItems);
-
-    if (imgHandling == 2 && !newItems.isEmpty())
-    {
-        // wait one second before fetching images to give the database models some time to load
-        QEventLoop loop;
-        QTimer::singleShot(1000, &loop, SLOT(quit()));
-        loop.exec();
-        fetchImages(newItems);
-    }
 }
 
 
@@ -359,6 +346,7 @@ void OcItems::itemsUpdated()
         replyUpdateItems->deleteLater();
 
 #ifdef QT_DEBUG
+        qDebug() << updateItemsResult;
         qDebug() << "Finished parsing.";
 #endif
 
@@ -389,8 +377,8 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
 
     QList<int> newEventItems; // list for the new items, for sending to event feed
     QList<int> newItems; // list for fetching images
+    QList<int> updatedItems;
     int unreadCount = 0;
-    int imgHandling = config.getSetting(QString("display/handleimgs"), QDBusVariant(0)).variant().toInt();
     QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
     QStringList feedsForEventsList = feedsForEventView.split(",");
 
@@ -419,6 +407,8 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
 #ifdef QT_DEBUG
                 qDebug() << "Update Item ID:" << map["id"].toInt() << "|" << map["lastModified"].toInt();
 #endif
+                updatedItems << map["id"].toInt();
+
                 query.prepare("UPDATE items SET "
                               "guid = :guid, "
                               "guidHash = :guidHash, "
@@ -480,12 +470,7 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
             query.bindValue(":title", map["title"].toString());
             query.bindValue(":author", map["author"].toString());
             query.bindValue(":pubDate", map["pubDate"].toInt());
-            if (imgHandling == 2)
-            {
-                query.bindValue(":body", map["body"].toString());
-            } else {
-                query.bindValue(":body", cacheImages(map["body"].toString(), map["id"].toInt(), imgHandling));
-            }
+            query.bindValue(":body", map["body"].toString());
             query.bindValue(":enclosureMime", map["enclosureMime"].toString());
             query.bindValue(":enclosureLink", map["enclosureLink"].toString());
             query.bindValue(":feedId", map["feedId"].toInt());
@@ -515,10 +500,11 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
     qDebug() << "Start cleaning Database";
 #endif
 
+    QList<int> imageItemIdsToDelete;
+
     if (type != "2")
     {
         QList<int> feedIds;
-        QList<int> imageItemIds;
         int lowestId = 0;
 
         if (type == "0")
@@ -547,7 +533,7 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
             query.exec(QString("SELECT id FROM items WHERE starred = %3 AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)).arg(SQL_FALSE));
             while(query.next())
             {
-                imageItemIds << query.value(0).toInt();
+                imageItemIdsToDelete << query.value(0).toInt();
             }
 
             query.exec(QString("DELETE FROM items WHERE starred = %3 AND id < %1 AND feedId = %2;").arg(lowestId).arg(feedIds.at(i)).arg(SQL_FALSE));
@@ -555,12 +541,11 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
         }
         QSqlDatabase::database().commit();
 
-        deleteCachedImages(imageItemIds);
     }
 #ifdef QT_DEBUG
     qDebug() << "Emit updatedItemsSuccess";
 #endif
-    emit updatedItemsSuccess();
+    emit updatedItemsSuccess(updatedItems, newItems, imageItemIdsToDelete);
 
     if (!newItems.isEmpty() && config.getSetting(QString("notifications/newItems"), QDBusVariant(false)).variant().toBool())
     {
@@ -571,16 +556,6 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
 
     if (!newEventItems.isEmpty())
         updateEventFeed(newEventItems);
-
-    if (imgHandling == 2 && !newItems.isEmpty())
-    {
-        // wait one second before fetching images to give the database models some time to load
-        QEventLoop loop;
-        QTimer::singleShot(1000, &loop, SLOT(quit()));
-        loop.exec();
-        fetchImages(newItems);
-    }
-
 }
 
 
@@ -629,7 +604,7 @@ void OcItems::markItemsTillThis(const QString &action, const QDBusVariant &pubDa
     if (!itemIds.isEmpty()) {
         markItems(action, itemIds);
     } else {
-        emit markedItemsSuccess();
+        emit markedItemsSuccess(QStringList(), QString());
     }
 
 }
@@ -644,7 +619,7 @@ void OcItems::markItems(const QString &action, const QVariantList &ids)
 #endif
 
     if (ids.isEmpty()) {
-        emit markedItemsSuccess();
+        emit markedItemsSuccess(QStringList(), QString());
         return;
     }
 
@@ -755,7 +730,8 @@ void OcItems::itemsMarkedUpdateDb(const QStringList &ids)
     qDebug() << "markItems DB Error: " <<  QSqlDatabase::database().lastError();
 #endif
 
-    emit markedItemsSuccess();
+
+    emit markedItemsSuccess(t_ids, action);
 }
 
 
@@ -878,7 +854,7 @@ void OcItems::itemsStarredUpdateDb(const QStringList &hashes)
             query.exec(QString("UPDATE items SET starred = %3, lastModified = %2 WHERE guidHash = \"%1\";").arg(t_hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE));
     }
 
-    emit starredItemsSuccess();
+    emit starredItemsSuccess(t_hashes, action);
 }
 
 
@@ -944,25 +920,54 @@ void OcItems::itemsMarkedAllReadUpdateDb(const QString &newestItemId)
 }
 
 
-void OcItems::cleanItems(int id)
+void OcItems::cleanItems(const int &feedId)
 {
-    QSqlQuery query;
-    query.exec(QString("SELECT id FROM items WHERE feedId = %1;").arg(id));
+    QList<int> feeds;
 
-    QList<int> imageIdsToDelete;
-    while(query.next())
+    feeds << feedId;
+
+    cleanItems(QList<int>(), QList<int>(), feeds);
+}
+
+
+void OcItems::cleanItems(const QList<int> &feedIds)
+{
+    cleanItems(QList<int>(), QList<int>(), feedIds);
+}
+
+
+
+void OcItems::cleanItems(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted)
+{
+    if (!deleted.isEmpty())
     {
-        imageIdsToDelete << query.value(0).toInt();
-    }
+        QList<int> itemsToDelete;
 
-    query.exec(QString("DELETE FROM items WHERE feedId = %1;").arg(id));
+        for (int i = 0; i < deleted.size(); ++i)
+        {
 
-    deleteCachedImages(imageIdsToDelete);
+#ifdef QT_DEBUG
+            qDebug() << "Deleting feed ID: " << deleted.at(i);
+#endif
+
+            QSqlQuery query;
+            query.exec(QString("SELECT id FROM items WHERE feedId = %1;").arg(deleted.at(i)));
+
+            while(query.next())
+            {
+                itemsToDelete << query.value(0).toInt();
+            }
+
+            query.exec(QString("DELETE FROM items WHERE feedId = %1;").arg(deleted.at(i)));
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-    // remove items from event feed
-    MEventFeed::instance()->removeItemsBySourceName(QString("ocnews-feed-").append(QString::number(id)));
+            // remove items from event feed
+            MEventFeed::instance()->removeItemsBySourceName(QString("ocnews-feed-").append(QString::number(deleted.at(i))));
 #endif
+        }
+
+        emit cleanedItems(QList<int>(), QList<int>(), itemsToDelete);
+    }
 }
 
 
@@ -1045,7 +1050,7 @@ void OcItems::dequeueRead()
 #ifdef QT_DEBUG
         qDebug() << "Dequeue read items.";
 #endif
-        connect(this,SIGNAL(markedItemsSuccess()),this,SLOT(dequeueUnread()),Qt::UniqueConnection);
+        connect(this,SIGNAL(markedItemsSuccess(QStringList,QString)),this,SLOT(dequeueUnread()),Qt::UniqueConnection);
         markItems("read", markItemIds);
         query.exec(QString("DELETE FROM queue WHERE action = %1").arg(OcItems::MarkRead));
     } else {
@@ -1070,7 +1075,7 @@ void OcItems::dequeueUnread()
 #ifdef QT_DEBUG
         qDebug() << "Dequeue unread items.";
 #endif
-        connect(this,SIGNAL(markedItemsSuccess()),this,SLOT(dequeueStarred()),Qt::UniqueConnection);
+        connect(this,SIGNAL(markedItemsSuccess(QStringList,QString)),this,SLOT(dequeueStarred()),Qt::UniqueConnection);
         markItems("unread", markItemIds);
         query.exec(QString("DELETE FROM queue WHERE action = %1").arg(OcItems::MarkUnread));
     } else {
@@ -1095,7 +1100,7 @@ void OcItems::dequeueStarred()
 #ifdef QT_DEBUG
         qDebug() << "Dequeue starred items.";
 #endif
-        connect(this,SIGNAL(starredItemsSuccess()),this,SLOT(dequeueUnstarred()),Qt::UniqueConnection);
+        connect(this,SIGNAL(starredItemsSuccess(QStringList,QString)),this,SLOT(dequeueUnstarred()),Qt::UniqueConnection);
         starItems("star", starItemHashes);
         query.exec(QString("DELETE FROM queue WHERE action = %1").arg(OcItems::Star));
     } else  {
@@ -1120,7 +1125,7 @@ void OcItems::dequeueUnstarred()
 #ifdef QT_DEBUG
         qDebug() << "Dequeue unstarred items.";
 #endif
-        connect(this,SIGNAL(starredItemsSuccess()),this,SLOT(dequeueFinish()),Qt::UniqueConnection);
+        connect(this,SIGNAL(starredItemsSuccess(QStringList,QString)),this,SLOT(dequeueFinish()),Qt::UniqueConnection);
         starItems("unstar", starItemHashes);
         query.exec(QString("DELETE FROM queue WHERE action = %1").arg(OcItems::Unstar));
     } else {
@@ -1170,289 +1175,4 @@ void OcItems::updateEventFeed(const QList<int> &newsFeedItems)
         }
     }
 #endif
-}
-
-
-
-void OcItems::fetchImages(const QList<int> &newItems)
-{
-
-#ifdef QT_DEBUG
-    qDebug() << "Start fetching images.";
-#endif
-
-
-    itemsToFetchImages = newItems.size();
-    emit startedFetchingImages(itemsToFetchImages);
-
-    for (int i = 0; i < newItems.size(); ++i)
-    {
-        emit fetchingImages(i);
-        QString body = QString("");
-
-        QSqlQuery query;
-        query.exec(QString("SELECT body FROM items WHERE id = %1").arg(newItems.at(i)));
-
-        if (query.next())
-            body = cacheImages(query.value(0).toString(), newItems.at(i), 2);
-
-        if (body != "")
-        {
-            QSqlQuery query2;
-            query2.prepare("UPDATE items SET body = :body WHERE id = :id;");
-            query2.bindValue(":body", body);
-            query2.bindValue(":id", newItems.at(i));
-            query2.exec();
-        }
-
-    }
-
-    itemsToFetchImages = 0;
-    emit finishedFetchingImages();
-
-#ifdef QT_DEBUG
-    qDebug() << "Finished fetching images.";
-#endif
-
-}
-
-
-
-QString OcItems::cacheImages(const QString &bodyText, int id, int imageHandling)
-{
-    QString newBodyText = bodyText;
-    QRegExp findImg("<img[^>]*>");
-    QStringList foundImages;
-    int pos = 0;
-
-    while((pos = findImg.indexIn(bodyText, pos)) != -1)
-    {
-        foundImages << findImg.cap(0);
-        pos += findImg.matchedLength();
-    }
-#ifdef QT_DEBUG
-    qDebug() << "Found imgs: " << foundImages;
-#endif
-
-    if (!foundImages.isEmpty())
-    {
-        QSqlQuery query;
-
-        for (int i = 0; i < foundImages.size(); ++i)
-        {
-            QVariantMap imageInfo;
-
-            if (imageHandling != 2)
-            {
-                imageInfo = extractImgData(foundImages.at(i), false);
-            }
-            else
-            {
-                imageInfo = extractImgData(foundImages.at(i), true);
-
-                QUrl fileUrl(imageInfo["src"].toString());
-                QString fileName("_image_");
-                fileName.prepend(QString::number(id));
-                fileName.append(QString::number(i)).append(".");
-
-                QString storagePath(QDir::homePath());
-                storagePath.append(IMAGE_CACHE);
-                storagePath.append(QDir::separator()).append(fileName);
-                storagePath = QDir::toNativeSeparators(storagePath);
-
-                QEventLoop dlLoop;
-
-                QNetworkRequest request(fileUrl);
-
-                QNetworkReply *replyGetImage = network.get(request);
-
-                connect(replyGetImage, SIGNAL(finished()), &dlLoop, SLOT(quit()));
-                dlLoop.exec();
-
-                if (replyGetImage->error() == QNetworkReply::NoError)
-                {
-
-                    QByteArray recData = replyGetImage->readAll();
-
-                    QImage image;
-                    if (recData.size() > 0 && image.loadFromData(recData))
-                    {
-
-                        imageInfo["width"] = image.width();
-                        imageInfo["height"] = image.height();
-
-                        storagePath.append(getFileTypeSuffix(recData));
-
-#ifdef QT_DEBUG
-            qDebug() << storagePath;
-#endif
-
-
-                        QString oldSrc = imageInfo["src"].toString();
-                        QString newSrc = storagePath;
-
-                        oldSrc.prepend("src=\"");
-                        newSrc.prepend("src=\"");
-
-#ifdef QT_DEBUG
-                        qDebug() << "Image Seize: " << imageInfo["width"].toInt() << " x " << imageInfo["height"].toInt();
-#endif
-
-                        if (image.save(storagePath))
-                        {
-                            newBodyText.replace(oldSrc, newSrc, Qt::CaseSensitive);
-                            imageInfo["src"] = storagePath;
-                            replyGetImage->deleteLater();
-                        }
-                        else
-                        {
-
-                            qDebug() << "Try to save image with QFile method.";
-
-                            QFile file(storagePath);
-                            file.open(QIODevice::WriteOnly);
-
-                            if (file.write(recData) != -1)
-                            {
-
-                                newBodyText.replace(oldSrc, newSrc, Qt::CaseSensitive);
-                                imageInfo["src"] = storagePath;
-                                replyGetImage->deleteLater();
-
-                            } else {
-
-                                qDebug() << "Failed to save image";
-                                imageInfo = extractImgData(foundImages.at(i), false);
-                                replyGetImage->deleteLater();
-
-                            }
-
-                            file.close();
-
-                        }
-
-                    }
-                    else
-                    {
-                        qDebug() << "Can not load image data.";
-                        imageInfo = extractImgData(foundImages.at(i), false);
-                        replyGetImage->deleteLater();
-                    }
-                }
-                else
-                {
-                    qDebug() << "Can not download image file.";
-                    imageInfo = extractImgData(foundImages.at(i), false);
-                    replyGetImage->deleteLater();
-                }
-            }
-
-            query.prepare("INSERT INTO images (parentId, path, width, height) VALUES (:parentId, :path, :width, :height);");
-            query.bindValue(":parentId", id);
-            query.bindValue(":path", imageInfo["src"]);
-            query.bindValue(":width", imageInfo["width"]);
-            query.bindValue(":height", imageInfo["height"]);
-            query.exec();
-        }
-    }
-
-    return newBodyText;
-}
-
-
-QVariantMap OcItems::extractImgData(const QString &imgStr, bool srcOnly)
-{
-    QVariantMap result;
-
-    QRegExp findSrc("(http|ftp)[^\"]*");
-    imgStr.contains(findSrc);
-    result["src"] =  findSrc.cap(0);
-
-    if (!srcOnly)
-    {
-        QRegExp findWidth("width=\"\\d+\"");
-        QRegExp findHeight("height=\"\\d+\"");
-
-        imgStr.contains(findWidth);
-        imgStr.contains(findHeight);
-
-        QString widthString = findWidth.cap(0);
-        QString heightString = findHeight.cap(0);
-
-        widthString.chop(1);
-        widthString.remove(0, 7);
-        heightString.chop(1);
-        heightString.remove(0, 8);
-
-        result["width"] = widthString.toInt();
-        result["height"] = heightString.toInt();
-    }
-
-#ifdef QT_DEBUG
-    qDebug() << "Image information: " << result;
-#endif
-
-    return result;
-}
-
-
-void OcItems::deleteCachedImages(const QList<int> &idsToDelte)
-{
-    QSqlQuery query;
-
-    QStringList imagesToDelete;
-
-    QSqlDatabase::database().transaction();
-    for (int i = 0; i < idsToDelte.size(); ++i)
-    {
-        query.exec(QString("SELECT path FROM images WHERE parentId = %1").arg(idsToDelte.at(i)));
-        while(query.next())
-            imagesToDelete << query.value(0).toString();
-
-        query.exec(QString("DELETE FROM images WHERE parentId = %1").arg(idsToDelte.at(i)));
-    }
-    QSqlDatabase::database().commit();
-
-    if (!imagesToDelete.isEmpty())
-    {
-        for (int f = 0; f < imagesToDelete.size(); ++f)
-        {
-            QFile::remove(imagesToDelete.at(f));
-        }
-    }
-}
-
-
-
-QString OcItems::getFileTypeSuffix(const QByteArray &data)
-{
-    QByteArray t_data = data.toHex().toUpper();
-    QString magic = t_data.left(16);
-    QString result;
-
-#ifdef QT_DEBUG
-    qDebug() << "Try to get suffix from: " << magic;
-#endif
-
-    if (magic.contains("474946383961") || magic.contains("474946383761")) {
-        result = "gif";
-    } else if (magic.contains("FFD8FF")) {
-        result = "jpg";
-    } else if (magic.contains("89504E470D0A1A0A")) {
-        result = "png";
-    } else {
-        result = "";
-    }
-
-    return result;
-}
-
-
-
-int OcItems::isFetchImagesRunning()
-{
-#ifdef QT_DEBUG
-    qDebug() << "Items is fetching images: " << itemsToFetchImages;
-#endif
-    return itemsToFetchImages;
 }

@@ -20,37 +20,30 @@ public slots:
     void requestItems(const QString &batchSize, const QString &offset, const QString &type, const QString &id, const QString &getRead); // default: "1000", "0", "3", "0", "true"
     void starItems(const QString &action, const QVariantMap &itemIds);
     void updateItems(const QString &lastModified, const QString &type, const QString &id); // default: "0", "3", "0"
-    int isFetchImagesRunning();
 
 signals:
     void markedAllItemsReadError(const QString &markedAllItemsReadErrorString);
     void markedAllItemsReadSuccess();
     void markedItemsError(const QString &markedItemsErrorString);
-    void markedItemsSuccess();
+    void markedItemsSuccess(const QStringList &ids, const QString &action);
     void requestedItemsError(const QString &requestedItemsErrorString);
-    void requestedItemsSuccess();
+    void requestedItemsSuccess(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
     void starredItemsError(const QString &starredItemsErrorString);
-    void starredItemsSuccess();
+    void starredItemsSuccess(const QStringList &hashes, const QString &action);
     void updatedItemsError(const QString &updateItemsErrorString);
-    void updatedItemsSuccess();
-    void startedFetchingImages(const int &numberOfItems);
-    void finishedFetchingImages();
-    void fetchingImages(const int &currentItem);
+    void updatedItemsSuccess(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
 
 private slots:
     void dbusMarkedAllItemsReadError(const QString &markedAllItemsReadErrorString);
     void dbusMarkedAllItemsReadSuccess();
     void dbusMarkedItemsError(const QString &markedItemsErrorString);
-    void dbusMarkedItemsSuccess();
+    void dbusMarkedItemsSuccess(const QStringList &ids, const QString &action);
     void dbusRequestedItemsError(const QString &requestedItemsErrorString);
-    void dbusRequestedItemsSuccess();
+    void dbusRequestedItemsSuccess(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
     void dbusStarredItemsError(const QString &starredItemsErrorString);
-    void dbusStarredItemsSuccess();
+    void dbusStarredItemsSuccess(const QStringList &hashes, const QString &action);
     void dbusUpdatedItemsError(const QString &updateItemsErrorString);
-    void dbusUpdatedItemsSuccess();
-    void dbusStartedFetchingImages(const int &numberOfItems);
-    void dbusFinishedFetchingImages();
-    void dbusFetchingImages(const int &currentItem);
+    void dbusUpdatedItemsSuccess(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
 
 private:
     de::buschmann23::ocNewsEngine::Items *items;

@@ -2,6 +2,7 @@
 #define OCITEMSMODELSQL_H
 
 #include <QSqlQueryModel>
+#include <QSqlQuery>
 #include "../common/dbus/interfaces/ocdbusinterface.h"
 
 class OcItemsModelSql : public QSqlQueryModel

@@ -89,7 +89,9 @@ SOURCES += main.cpp \
     interfaces/ocdownloadsadaptor.cpp \
     ocupgradehelper.cpp \
     ../common/globals.cpp \
-    ocnotifications.cpp
+    ocnotifications.cpp \
+    ocimagefetcher.cpp \
+    interfaces/ocimagefetcheradaptor.cpp
 
 !isEmpty(MEEGO_VERSION_MAJOR) {
 SOURCES += ocaccount.cpp
@@ -123,7 +125,9 @@ HEADERS += \
     ocdownloadmanager.h \
     interfaces/ocdownloadsadaptor.h \
     ocupgradehelper.h \
-    ocnotifications.h
+    ocnotifications.h \
+    ocimagefetcher.h \
+    interfaces/ocimagefetcheradaptor.h
 
 !isEmpty(MEEGO_VERSION_MAJOR) {
 HEADERS += ocaccount.h
@@ -153,4 +157,5 @@ OTHER_FILES += \
     sailfishos/de.buschmann23.ocNewsEngine.service \
     interfaces/de.buschmann23.ocNewsEngine.Account.xml \
     interfaces/de.buschmann23.ocNewsEngine.Downloads.xml \
-    l10n/*.ts
+    l10n/*.ts \
+    interfaces/de.buschmann23.ocNewsEngine.ImageFetcher.xml

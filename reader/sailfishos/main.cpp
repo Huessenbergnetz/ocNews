@@ -11,6 +11,7 @@
 #include "../common/models/ocfoldermodelsql.h"
 #include "../common/models/ocfeedsmodelsql.h"
 #include "../common/models/ocitemsmodelsql.h"
+#include "../common/models/ocitemsmodelnew.h"
 #include "../common/models/ocsingleitemmodelsql.h"
 #include "../common/models/ocspecialitemsmodelsql.h"
 #include "../common/models/occombinedmodelsql.h"
@@ -19,6 +20,7 @@
 #include "../common/dbus/interfaces/ocdbusitems.h"
 #include "../common/dbus/interfaces/ocdbusupdater.h"
 #include "../common/dbus/interfaces/ocdbusdownloads.h"
+#include "../common/dbus/interfaces/ocdbusimagefetcher.h"
 #include "../common/dbus/adaptor/ocdbusadaptor.h"
 #include "../common/dbus/adaptor/ocdbusproxy.h"
 
@@ -55,13 +57,24 @@ int main(int argc, char *argv[])
     OcDBusItems items;
     OcDBusUpdater updater;
     OcDBusDownloads downloads;
+    OcDBusImageFetcher imageFetcher;
 
     OcFolderModelSql *folderModelSql = new OcFolderModelSql();
     OcCombinedModelSql *combinedModelSql = new OcCombinedModelSql();
     OcFeedsModelSql *feedsModelSql = new OcFeedsModelSql();
-    OcItemsModelSql *itemsModelSql = new OcItemsModelSql();
+//    OcItemsModelSql *itemsModelSql = new OcItemsModelSql();
+    OcItemsModelNew *itemsModelSql = new OcItemsModelNew();
     OcSpecialItemsModelSql *specialItemsModelSql = new OcSpecialItemsModelSql();
     OcSingleItemModelSql *singleItemModelSql = new OcSingleItemModelSql();
+
+
+    // connections to the items model
+    QObject::connect(&items, SIGNAL(markedItemsSuccess(QStringList,QString)), itemsModelSql, SLOT(itemsMarked(QStringList,QString)));
+    QObject::connect(&items, SIGNAL(starredItemsSuccess(QStringList,QString)), itemsModelSql, SLOT(itemsStarred(QStringList,QString)));
+    QObject::connect(&feeds, SIGNAL(markedReadFeedSuccess(QString)), itemsModelSql, SLOT(feedMarkedRead(QString)));
+    QObject::connect(&items, SIGNAL(updatedItemsSuccess(QList<int>,QList<int>,QList<int>)), itemsModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), itemsModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
+
 
     // register reader dbus interface
     QDBusConnection connection = QDBusConnection::sessionBus();
@@ -91,6 +104,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("dbus", &dbus);
     view->rootContext()->setContextProperty("dbusproxy", dbusproxy);
     view->rootContext()->setContextProperty("downloads", &downloads);
+    view->rootContext()->setContextProperty("imageFetcher", &imageFetcher);
     view->rootContext()->setContextProperty("versionString", VERSION_STRING);
     view->rootContext()->setContextProperty("versionInt", VERSION);
 

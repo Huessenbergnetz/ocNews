@@ -17,13 +17,13 @@ signals:
     void createdFeedError(const QString &createFeedResultError);
     void createdFeedSuccess(const QString &feedname);
     void deletedFeedError(const QString &deleteFeedResultError);
-    void deletedFeedSuccess();
+    void deletedFeedSuccess(const int &id);
     void markedReadFeedError(const QString &markedReadFeedError);
-    void markedReadFeedSuccess();
+    void markedReadFeedSuccess(const QString &feedId);
     void movedFeedError(const QString &moveFeedResultError);
     void movedFeedSuccess();
     void requestedFeedsError(const QString &requestedFeedsErrorString);
-    void requestedFeedsSuccess();
+    void requestedFeedsSuccess(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted);
     void renamedFeedSuccess(const QString &newName);
     void renamedFeedError(const QString &renamedFeedErrorString);
     
@@ -39,13 +39,13 @@ private slots:
     void dbusCreatedFeedError(const QString &createFeedResultError);
     void dbusCreatedFeedSuccess(const QString &feedname);
     void dbusDeletedFeedError(const QString &deleteFeedResultError);
-    void dbusDeletedFeedSuccess();
+    void dbusDeletedFeedSuccess(const int &id);
     void dbusMarkedReadFeedError(const QString &markedReadFeedErrorResult);
-    void dbusMarkedReadFeedSuccess();
+    void dbusMarkedReadFeedSuccess(const QString &feedId);
     void dbusMovedFeedError(const QString &moveFeedResultError);
     void dbusMovedFeedSuccess();
     void dbusRequestedFeedsError(const QString &requestedFeedsErrorString);
-    void dbusRequestedFeedsSuccess();
+    void dbusRequestedFeedsSuccess(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted);
     void dbusRenamedFeedSuccess(const QString &newName);
     void dbusRenamedFeedError(const QString &renamedFeedErrorString);
 

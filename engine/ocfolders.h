@@ -7,7 +7,6 @@
 #include "ochelper.h"
 #include "ocdbmanager.h"
 #include "ocgeneric.h"
-#include "ocfeeds.h"
 #include "ocnotifications.h"
 #include "../common/globals.h"
 
@@ -37,6 +36,9 @@ Q_SIGNALS: // SIGNALS
     void requestedFoldersError(const QString &requerstresulterror);
     void requestedFoldersSuccess();
 
+signals:
+    void deletedFolderCleanItems(const QList<int> &feedIds);
+
 private slots:
     void foldersRequested();
     void folderCreated();
@@ -56,7 +58,6 @@ private:
     OcNotifications notify;
     OcHelper helper;
     OcDbManager database;
-    OcFeeds feeds;
     OcNetwork network;
     OcConfiguration config;
 

@@ -17,6 +17,8 @@ ListItem {
     contentWidth: parent.width
     menu: itemContextMenu
 
+    ListView.onAdd: AddAnimation { target: itemListItem }
+
     onClicked: {
         if (model.unread) busyIndicator.state = "RUNNING"
         pageStack.push(Qt.resolvedUrl("../Views/SingleItemView.qml"), {itemId: model.itemId, searchString: itemListItem.searchString, handleRead: itemListItem.handleRead, sortAsc: itemListItem.sortAsc, feedType: itemListItem.feedType, parentFeedId: itemListItem.feedId })
@@ -101,12 +103,13 @@ ListItem {
 
             Image {
                 id: starImage
-                visible: model.starred && !busyIndicator.visible
+                opacity: model.starred ? 1 : 0
                 width: 32
                 height: 32
                 sourceSize.width: 32
                 sourceSize.height: 32
                 source: "image://theme/icon-s-favorite"
+                Behavior on opacity { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad } }
             }
 
             BusyIndicator {

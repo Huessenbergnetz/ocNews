@@ -28,7 +28,11 @@
         <signal name="requestedFeedsError">
             <arg name="requestedFeedsErrorString" type="s" direction="out"/>
         </signal>
-        <signal name="requestedFeedsSuccess"/>
+        <signal name="requestedFeedsSuccess">
+            <arg name="updated" type="ai" direction="out"/>
+            <arg name="newFeeds" type="ai" direction="out"/>
+            <arg name="deleted" type="ai" direction="out"/>
+        </signal>
         <signal name="createdFeedError">
             <arg name="createFeedResultError" type="s" direction="out"/>
         </signal>
@@ -38,7 +42,9 @@
         <signal name="deletedFeedError">
             <arg name="deleteFeedResultError" type="s" direction="out"/>
         </signal>
-        <signal name="deletedFeedSuccess"/>
+        <signal name="deletedFeedSuccess">
+            <arg name="id" type="i" direction="out"/>
+        </signal>
         <signal name="movedFeedError">
             <arg name="moveFeedResultError" type="s" direction="out"/>
         </signal>
@@ -52,6 +58,8 @@
         <signal name="renamedFeedError">
             <arg direction="out" type="s" name="renamedFeedErrorString"/>
         </signal>
-        <signal name="markedReadFeedSuccess"/>
+        <signal name="markedReadFeedSuccess">
+            <arg direction="out" type="s" name="feedId"/>
+        </signal>
     </interface>
 </node>

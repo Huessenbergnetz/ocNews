@@ -1,0 +1,15 @@
+ 
+<node>
+  <interface name="de.buschmann23.ocNewsEngine.ImageFetcher">
+    <signal name="startedFetchingImages">
+        <arg name="numberOfItems" type="i" direction="out"/>
+    </signal>
+    <signal name="finishedFetchingImages"/>
+    <signal name="fetchingImages">
+        <arg name="currentItem" type="i" direction="out"/>
+    </signal>
+    <method name="isFetchImagesRunning">
+        <arg type="i" direction="out"/>
+    </mehod>
+  </interface>
+</node>

@@ -77,26 +77,17 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QLatin1String("updateItems"), argumentList);
     }
 
-    inline QDBusPendingReply<int> isFetchImagesRunning()
-    {
-        QList<QVariant> argumentList;
-        return asyncCallWithArgumentList(QLatin1String("isFetchImagesRunning"), argumentList);
-    }
-
 Q_SIGNALS: // SIGNALS
     void markedAllItemsReadError(const QString &markedAllItemsReadErrorString);
     void markedAllItemsReadSuccess();
     void markedItemsError(const QString &markedItemsErrorString);
-    void markedItemsSuccess();
+    void markedItemsSuccess(const QStringList &ids, const QString &action);
     void requestedItemsError(const QString &requestedItemsErrorString);
-    void requestedItemsSuccess();
+    void requestedItemsSuccess(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
     void starredItemsError(const QString &starredItemsErrorString);
-    void starredItemsSuccess();
+    void starredItemsSuccess(const QStringList &hashes, const QString &action);
     void updatedItemsError(const QString &updateItemsErrorString);
-    void updatedItemsSuccess();
-    void startedFetchingImages(const int &numberOfItems);
-    void finishedFetchingImages();
-    void fetchingImages(const int &currentItem);
+    void updatedItemsSuccess(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
 };
 
 namespace de {

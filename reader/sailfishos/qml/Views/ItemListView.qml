@@ -18,26 +18,28 @@ Page {
 
     onSearchStringChanged: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
 
-    Component.onCompleted: { console.log(handleRead); itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
+//    Component.onCompleted: { console.log(handleRead); itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
+    Component.onCompleted: itemsModelSql.feedId = feedId
     Component.onDestruction: GLOBALS.previousContentY = 0
+//    Component.onDestruction: { itemsModelSql.clear(); GLOBALS.previousContentY = 0 }
 
     Connections {
         target: feeds
-        onMarkedReadFeedSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
+//        onMarkedReadFeedSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString) }
         onDeletedFeedSuccess: pageStack.pop()
         onRenamedFeedSuccess: itemListView.feedName = newName
     }
-    Connections {
-        target: items
-        onUpdatedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY }
-        onRequestedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY; }
-        onStarredItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY; }
-        onMarkedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY; }
-    }
-    Connections {
-        target: updater
-        onUpdateFinished: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY }
-    }
+//    Connections {
+//        target: items
+//        onUpdatedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY }
+//        onRequestedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY; }
+//        onStarredItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY; }
+//        onMarkedItemsSuccess: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY; }
+//    }
+//    Connections {
+//        target: updater
+//        onUpdateFinished: { GLOBALS.previousContentY = itemList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString); itemList.contentY = GLOBALS.previousContentY }
+//    }
 
     onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString)
     onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString)

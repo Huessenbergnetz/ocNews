@@ -319,14 +319,15 @@ void OcFolders::folderDeletedUpdateDb(const int &id)
     // delete the feeds that are part of the deleted folder
     query.exec(QString("DELETE FROM feeds WHERE folderId = %1;").arg(id));
 
-    // delete the serverside deleted item ids in the database
-    for (int i = 0; i < idListFeeds.size(); ++i) {
-        feeds.feedDeletedCleanItems(idListFeeds.at(i));
-    }
+//    // delete the serverside deleted item ids in the database
+//    for (int i = 0; i < idListFeeds.size(); ++i) {
+//        feeds.feedDeletedCleanItems(idListFeeds.at(i));
+//    }
 
 #ifdef QT_DEBUG
-    qDebug() << "Delted Folder ID:" << id;
+    qDebug() << "Deleted Folder ID:" << id;
 #endif
+    emit deletedFolderCleanItems(idListFeeds);
     emit deletedFolderSuccess();
 }
 

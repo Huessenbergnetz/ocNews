@@ -22,6 +22,8 @@
 #include "interfaces/ocupdateradaptor.h"
 #include "ocdownloadmanager.h"
 #include "interfaces/ocdownloadsadaptor.h"
+#include "ocimagefetcher.h"
+#include "interfaces/ocimagefetcheradaptor.h"
 #include "ocnotifications.h"
 #if defined(MEEGO_EDITION_HARMATTAN)
 #include "ocaccount.h"
@@ -180,12 +182,40 @@ int main(int argc, char *argv[])
     new OcUpdaterAdaptor(updater);
     OcDownloadManager* dManager = new OcDownloadManager;
     new OcDownloadManagerAdaptor(dManager);
+    OcImageFetcher* imgFetcher = new OcImageFetcher;
+    new OcImageFetcherAdaptor(imgFetcher);
 #if defined(MEEGO_EDITION_HARMATTAN)
     OcAccount* account = new OcAccount;
     new OcAccountAdaptor(account);
 #endif
 
+
+    // updater connections
+    QObject::connect(updater, SIGNAL(updateStarted()), folders, SLOT(requestFolders()));
+    QObject::connect(folders, SIGNAL(requestedFoldersSuccess()), updater, SLOT(updateFeeds()));
+    QObject::connect(folders, SIGNAL(requestedFoldersError(QString)), updater, SLOT(errorInUpdate(QString)));
+    QObject::connect(updater, SIGNAL(startRequestFeeds()), feeds, SLOT(requestFeeds()));
+    QObject::connect(feeds, SIGNAL(requestedFeedsSuccess(QList<int>, QList<int>, QList<int>)), updater, SLOT(updateItems()));
+    QObject::connect(feeds, SIGNAL(requestedFeedsError(QString)), updater, SLOT(errorInUpdate(QString)));
+    QObject::connect(updater, SIGNAL(startRequestItems(QString,QString,QString,QString,QString)), items, SLOT(requestItems(QString,QString,QString,QString,QString)));
+    QObject::connect(updater, SIGNAL(startUpdateItems(QString,QString,QString)), items, SLOT(updateItems(QString,QString,QString)));
+    QObject::connect(items, SIGNAL(updatedItemsSuccess(QList<int>, QList<int>, QList<int>)), updater, SLOT(endUpdate()));
+    QObject::connect(items, SIGNAL(updatedItemsError(QString)), updater, SLOT(errorInUpdate(QString)));
+    QObject::connect(items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), updater, SLOT(endUpdate()));
+    QObject::connect(items, SIGNAL(requestedItemsError(QString)), updater, SLOT(errorInUpdate(QString)));
     QObject::connect(configuration, SIGNAL(savedConfig()), updater, SLOT(handleNetAndConfChanges()));
+
+    // image fetcher connections
+    QObject::connect(items, SIGNAL(updatedItemsSuccess(QList<int>,QList<int>,QList<int>)), imgFetcher, SLOT(fetchImages(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), imgFetcher, SLOT(fetchImages(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(items, SIGNAL(cleanedItems(QList<int>,QList<int>,QList<int>)), imgFetcher, SLOT(fetchImages(QList<int>,QList<int>,QList<int>)));
+
+    // API interconnections
+    QObject::connect(feeds, SIGNAL(requestedFeedsSuccess(QList<int>,QList<int>,QList<int>)), items, SLOT(cleanItems(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(feeds, SIGNAL(deletedFeedSuccess(int)), items, SLOT(cleanItems(int)));
+    QObject::connect(folders, SIGNAL(deletedFolderCleanItems(QList<int>)), items, SLOT(cleanItems(QList<int>)));
+    QObject::connect(feeds, SIGNAL(feedCreatedFetchItems(QString,QString,QString,QString,QString)), items, SLOT(requestItems(QString,QString,QString,QString,QString)));
+
 
 
     QDBusConnection connection = QDBusConnection::sessionBus();
@@ -197,6 +227,7 @@ int main(int argc, char *argv[])
     connection.registerObject("/Items", items);
     connection.registerObject("/Updater", updater);
     connection.registerObject("/Downloads", dManager);
+    connection.registerObject("/ImageFetcher", imgFetcher);
 #if defined(MEEGO_EDITION_HARMATTAN)
     connection.registerObject("/Account", account);
 #endif

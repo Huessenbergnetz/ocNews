@@ -2,17 +2,25 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Item {
-    property int itemsToFetchImages: items.isFetchImagesRunning() + updater.isFetchImagesRunning()
+//    property int itemsToFetchImages: items.isFetchImagesRunning() + updater.isFetchImagesRunning()
+    property int itemsToFetchImages: imageFetcher.isFetchImagesRunning()
     property int currentItemFetching: 0
 
+//    Connections {
+//        target: updater
+//        onStartedFetchingImages: itemsToFetchImages = numberOfItems
+//        onFinishedFetchingImages: itemsToFetchImages = 0
+//        onFetchingImages: currentItemFetching = currentItem
+//    }
+//    Connections {
+//        target: items
+//        onStartedFetchingImages: itemsToFetchImages = numberOfItems
+//        onFinishedFetchingImages: itemsToFetchImages = 0
+//        onFetchingImages: currentItemFetching = currentItem
+//    }
+
     Connections {
-        target: updater
-        onStartedFetchingImages: itemsToFetchImages = numberOfItems
-        onFinishedFetchingImages: itemsToFetchImages = 0
-        onFetchingImages: currentItemFetching = currentItem
-    }
-    Connections {
-        target: items
+        target: imageFetcher
         onStartedFetchingImages: itemsToFetchImages = numberOfItems
         onFinishedFetchingImages: itemsToFetchImages = 0
         onFetchingImages: currentItemFetching = currentItem

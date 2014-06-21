@@ -18,7 +18,6 @@ OcUpdater::OcUpdater(QObject *parent) :
     QObject(parent)
 {
     updateRunning = false;
-    itemsToFetchImages = 0;
 
 #if defined(MEEGO_EDITION_HARMATTAN)
     transferClient = new TransferUI::Client();
@@ -255,6 +254,9 @@ void OcUpdater::startUpdatePrivate()
         emit updateFinished();
     } else {
 
+        updateRunning = true;
+        inOperation = true;
+
 #ifdef QT_DEBUG
         qDebug() << "Start Update";
         qDebug() << "Updating Folders";
@@ -272,30 +274,9 @@ void OcUpdater::startUpdatePrivate()
         transferItem->setActive(.05);
         transferItem->commit();
 #else
-//        notificationGroup = new MNotificationGroup(MNotification::TransferEvent);
-
-//        if (!notificationGroup->publish()) {
-
-//            qDebug() << "Cannot initialize MNotificationGroup";
-//            delete notificationGroup;
-
-//        } else {
-
-//            qDebug() << "Creating Notifiaction";
-//            notification = new MNotification(MNotification::TransferEvent, tr("Updating ownCloud News"));
-//            notification->setGroup(*notificationGroup);
-//            notification->publish();
-
-//        }
 
 #endif
-
-        QObject::connect(&folders, SIGNAL(requestedFoldersSuccess()), this, SLOT(updateFeeds()), Qt::UniqueConnection);
-        QObject::connect(&folders, SIGNAL(requestedFoldersError(QString)), this, SLOT(errorInUpdate(QString)), Qt::UniqueConnection);
-        updateRunning = true;
-        inOperation = true;
         emit updateStarted();
-        folders.requestFolders();
     }
 }
 
@@ -310,18 +291,19 @@ void OcUpdater::startUpdatePrivate()
 
 void OcUpdater::updateFeeds()
 {
+    if (updateRunning)
+    {
+
 #ifdef QT_DEBUG
-    qDebug() << "Updating Feeds";
+        qDebug() << "Updating Feeds";
 #endif
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-    transferItem->setProgress(.33);
-    transferItem->setName(tr("Updating Feeds"));
+        transferItem->setProgress(.33);
+        transferItem->setName(tr("Updating Feeds"));
 #endif
-
-    QObject::connect(&feeds, SIGNAL(requestedFeedsSuccess()), this, SLOT(updateItems()), Qt::UniqueConnection);
-    QObject::connect(&feeds, SIGNAL(requestedFeedsError(QString)), this, SLOT(errorInUpdate(QString)), Qt::UniqueConnection);
-    feeds.requestFeeds();
+        emit startRequestFeeds();
+    }
 }
 
 
@@ -336,40 +318,32 @@ void OcUpdater::updateFeeds()
 
 void OcUpdater::updateItems()
 {
+    if (updateRunning)
+    {
+
 #ifdef QT_DEBUG
-    qDebug() << "Updating Items";
+        qDebug() << "Updating Items";
 #endif
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-    transferItem->setProgress(.66);
-    transferItem->setName(tr("Updating Items"));
+        transferItem->setProgress(.66);
+        transferItem->setName(tr("Updating Items"));
 #endif
 
-
-    QObject::connect(&items, SIGNAL(startedFetchingImages(int)), this, SLOT(itemsStartedFetchingImages(int)));
-    QObject::connect(&items, SIGNAL(finishedFetchingImages()), this, SLOT(itemsFinishedFetchingImages()));
-    QObject::connect(&items, SIGNAL(fetchingImages(int)), this, SLOT(itemsFetchingImages(int)));
-
-    QSqlQuery query;
-    query.exec("SELECT id FROM items LIMIT 1;");
-    if (query.next())
-    {
-        if (query.value(0).toString() != "")
+        QSqlQuery query;
+        query.exec("SELECT id FROM items LIMIT 1;");
+        if (query.next())
         {
-            QObject::connect(&items, SIGNAL(updatedItemsSuccess()), this, SLOT(endUpdate()), Qt::UniqueConnection);
-            QObject::connect(&items, SIGNAL(updatedItemsError(QString)), this, SLOT(errorInUpdate(QString)), Qt::UniqueConnection);
-            items.updateItems("0", "3", "0");
+            if (query.value(0).toString() != "")
+            {
+                emit startUpdateItems("0", "3", "0");
+            } else {
+                emit startRequestItems("1000", "0", "3", "0", "true");
+            }
         } else {
-            QObject::connect(&items, SIGNAL(requestedItemsSuccess()), this, SLOT(endUpdate()), Qt::UniqueConnection);
-            QObject::connect(&items, SIGNAL(requestedItemsError(QString)), this, SLOT(errorInUpdate(QString)), Qt::UniqueConnection);
-            items.requestItems("1000", "0", "3", "0", "true");
+            emit startRequestItems("1000", "0", "3", "0", "true");
         }
-    } else {
-        QObject::connect(&items, SIGNAL(requestedItemsSuccess()), this, SLOT(endUpdate()), Qt::UniqueConnection);
-        QObject::connect(&items, SIGNAL(requestedItemsError(QString)), this, SLOT(errorInUpdate(QString)), Qt::UniqueConnection);
-        items.requestItems("1000", "0", "3", "0", "true");
     }
-
 }
 
 
@@ -385,22 +359,24 @@ void OcUpdater::updateItems()
 
 void OcUpdater::endUpdate()
 {
+    if (updateRunning)
+    {
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-    transferItem->setProgress(1.0);
-//    transferItem->setName(tr("Update Finished"));
-    transferItem->markDone(tr("Update Finished"));
-    transferClient->removeTransfer(transferItem->transferId());
-    delete transferItem;
-    transferItem = 0;
+        transferItem->setProgress(1.0);
+//        transferItem->setName(tr("Update Finished"));
+        transferItem->markDone(tr("Update Finished"));
+        transferClient->removeTransfer(transferItem->transferId());
+        delete transferItem;
+        transferItem = 0;
 #else
-//    notification->remove();
-//    notificationGroup->remove();
+
 #endif
 
-    updateRunning = false;
-    inOperation = false;
-    emit updateFinished();
+        updateRunning = false;
+        inOperation = false;
+        emit updateFinished();
+    }
 }
 
 
@@ -417,17 +393,19 @@ void OcUpdater::endUpdate()
 
 void OcUpdater::errorInUpdate(QString errorMessage)
 {
+    if (updateRunning)
+    {
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-    transferItem->markFailure(tr("Update Failed"), errorMessage);
+        transferItem->markFailure(tr("Update Failed"), errorMessage);
 #else
-//    notification->remove();
-//    notificationGroup->remove();
+
 #endif
 
-    updateRunning = false;
-    inOperation = false;
-    emit updateError(errorMessage);
+        updateRunning = false;
+        inOperation = false;
+        emit updateError(errorMessage);
+    }
 }
 
 
@@ -446,100 +424,3 @@ bool OcUpdater::isUpdateRunning()
 {
     return updateRunning;
 }
-
-
-
-/*!
- * \fn int OcUpdater::isFetchImagesRunning()
- * \brief Returns the number of items where images are to fetch
- *
- * This function checks if there are currently operationis running to prefetch images.
- *
- * \return int 0 if it is not running, otherwise the count of items to prefetch images for
- */
-
-int OcUpdater::isFetchImagesRunning()
-{
-    qDebug() << "Updater is fetching images: " << itemsToFetchImages;
-    return itemsToFetchImages;
-}
-
-
-
-
-/*!
- * \fn void OcUpdater::itemsStartedFetchingImages(const int &numberOfItems)
- * \brief Slot for receiving the startedFetchingImages signal from items
- * \param numberOfItems
- *
- * This private slot receives the startedFetchingImages signal from items class
- * and reemits it as an own signal.
- *
- */
-
-void OcUpdater::itemsStartedFetchingImages(const int &numberOfItems)
-{
-
-#if defined(MEEGO_EDITION_HARMATTAN)
-        transferItem = transferClient->registerTransfer(tr("ocNews Image Fetcher"), TransferUI::Client::TRANSFER_TYPES_DOWNLOAD);
-        transferItem->waitForCommit();
-        transferItem->setTargetName("ocNews");
-        transferItem->setName(tr("Fetching images"));
-        transferItem->setSize(0);
-        transferItem->setCanPause(false);
-        transferItem->setIcon("icon-m-ocnews");
-        transferItem->setActive(0);
-        transferItem->commit();
-#endif
-
-    itemsToFetchImages = numberOfItems;
-    emit startedFetchingImages(numberOfItems);
-}
-
-
-
-/*!
- * \fn void OcUpdater::itemsFinishedFetchingImages()
- * \brief Slot for receiving the finishedFetchingImages signal from items
- *
- * This private slot receives the finishedFetchingImages signal from items class
- * and reemits it as an own signal.
- *
- */
-
-void OcUpdater::itemsFinishedFetchingImages()
-{
-
-#if defined(MEEGO_EDITION_HARMATTAN)
-    transferItem->setProgress(1.0);
-    transferItem->setName(tr("Fetching images finished"));
-    transferItem->markDone();
-    transferClient->removeTransfer(transferItem->transferId());
-    delete transferItem;
-    transferItem = 0;
-#endif
-
-    itemsToFetchImages = 0;
-    emit finishedFetchingImages();
-}
-
-
-
-/*!
- * \fn void OcUpdater::itemsFetchingImages(const int &currentItem)
- * \brief Slot for receiving the fethcingImags signal from items
- * \param currentItem
- *
- * This private slot receives the fetchingImages signal from items class
- * and reemits it as an own signal.
- *
- */
-
-void OcUpdater::itemsFetchingImages(const int &currentItem)
-{
-#if defined(MEEGO_EDITION_HARMATTAN)
-    transferItem->setProgress((float)currentItem/itemsToFetchImages);
-#endif
-    emit fetchingImages(currentItem);
-}
-

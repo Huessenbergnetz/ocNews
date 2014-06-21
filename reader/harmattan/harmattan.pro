@@ -94,7 +94,10 @@ SOURCES += main.cpp \
     ../common/dbus/interfaces/ocdbusaccount.cpp \
     ../common/models/occombinedmodelsql.cpp \
     ../common/dbus/interfaces/ocdownloadsif.cpp \
-    ../common/dbus/interfaces/ocdbusdownloads.cpp
+    ../common/dbus/interfaces/ocdbusdownloads.cpp \
+    ../common/models/ocitemsmodelnew.cpp \
+    ../common/dbus/interfaces/ocimagefetcherif.cpp \
+    ../common/dbus/interfaces/ocdbusimagefetcher.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -127,7 +130,11 @@ HEADERS += \
     ../../common/globals.h \
     ../common/models/occombinedmodelsql.h \
     ../common/dbus/interfaces/ocdownloadsif.h \
-    ../common/dbus/interfaces/ocdbusdownloads.h
+    ../common/dbus/interfaces/ocdbusdownloads.h \
+    ../common/models/ocitemsmodelnew.h \
+    ../common/models/objects/ocitemobject.h \
+    ../common/dbus/interfaces/ocimagefetcherif.h \
+    ../common/dbus/interfaces/ocdbusimagefetcher.h
 
 OTHER_FILES += \
     ../common/dbus/adaptor/de.buschmann23.ocNewsReader.xml \

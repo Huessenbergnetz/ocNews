@@ -87,13 +87,13 @@ Q_SIGNALS: // SIGNALS
     void createdFeedError(const QString &createFeedResultError);
     void createdFeedSuccess(const QString &feedname);
     void deletedFeedError(const QString &deleteFeedResultError);
-    void deletedFeedSuccess();
+    void deletedFeedSuccess(const int &id);
     void markedReadFeedError(const QString &markedReadFeedErrorResult);
-    void markedReadFeedSuccess();
+    void markedReadFeedSuccess(const QString &feedId);
     void movedFeedError(const QString &moveFeedResultError);
     void movedFeedSuccess();
     void requestedFeedsError(const QString &requestedFeedsErrorString);
-    void requestedFeedsSuccess();
+    void requestedFeedsSuccess(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted);
     void renamedFeedSuccess(const QString &newName);
     void renamedFeedError(const QString &renamedFeedErrorString);
 };

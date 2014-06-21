@@ -45,8 +45,8 @@ Dialog {
             anchors { left: parent.left; right: parent.right }
             focus: false; label: qsTr("Feed address"); placeholderText: label
             EnterKey.enabled: text || inputMethodComposing
-            EnterKey.onClicked: feedAddress.focus = false
-            EnterKey.iconSource: "image://theme/icon-m-enter-close"
+            EnterKey.iconSource: "image://theme/icon-m-enter-accept"
+            EnterKey.onClicked: createFeed.accept()
         }
 
         ComboBoxList {

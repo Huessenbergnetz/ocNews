@@ -80,6 +80,7 @@ QVariant OcItemsModelSql::data(const QModelIndex &index, int role) const
             }
 #endif
         }
+
         return value;
 }
 
@@ -147,3 +148,4 @@ void OcItemsModelSql::refresh(const QString &feedId, int handleRead, bool sortAs
     while(this->canFetchMore())
         this->fetchMore();
 }
+

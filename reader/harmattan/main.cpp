@@ -12,6 +12,7 @@
 #include "../common/models/occombinedmodelsql.h"
 #include "../common/models/ocfeedsmodelsql.h"
 #include "../common/models/ocitemsmodelsql.h"
+#include "../common/models/ocitemsmodelnew.h"
 #include "../common/models/ocspecialitemsmodelsql.h"
 #include "../common/models/ocsingleitemmodelsql.h"
 #include "../common/dbus/interfaces/ocdbusinterface.h"
@@ -82,7 +83,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     OcFolderModelSql *folderModelSql = new OcFolderModelSql();
     OcCombinedModelSql *combinedModelSql = new OcCombinedModelSql();
     OcFeedsModelSql *feedsModelSql = new OcFeedsModelSql();
-    OcItemsModelSql *itemsModelSql = new OcItemsModelSql();
+//    OcItemsModelSql *itemsModelSql = new OcItemsModelSql();
+    OcItemsModelNew *itemsModelSql = new OcItemsModelNew();
     OcSpecialItemsModelSql *specialItemsModelSql = new OcSpecialItemsModelSql();
     OcSingleItemModelSql *singleItemModelSql = new OcSingleItemModelSql();
 

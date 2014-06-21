@@ -60,15 +60,26 @@ class OcItemsAdaptor: public QDBusAbstractAdaptor
 "    <signal name=\"requestedItemsError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"requestedItemsErrorString\"/>\n"
 "    </signal>\n"
-"    <signal name=\"requestedItemsSuccess\"/>\n"
+"    <signal name=\"requestedItemsSuccess\">\n"
+"      <arg name=\"updated\" type=\"ai\" direction=\"out\"/>\n"
+"      <arg name=\"newItems\" type=\"ai\" direction=\"out\"/>\n"
+"      <arg name=\"deleted\" type=\"ai\" direction=\"out\"/>\n"
+"    </signal>\n"
 "    <signal name=\"updatedItemsError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"updateItemsErrorString\"/>\n"
 "    </signal>\n"
-"    <signal name=\"updatedItemsSuccess\"/>\n"
+"    <signal name=\"updatedItemsSuccess\">\n"
+"      <arg name=\"updated\" type=\"ai\" direction=\"out\"/>\n"
+"      <arg name=\"newItems\" type=\"ai\" direction=\"out\"/>\n"
+"      <arg name=\"deleted\" type=\"ai\" direction=\"out\"/>\n"
+"    </signal>\n"
 "    <signal name=\"markedItemsError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"markedItemsErrorString\"/>\n"
 "    </signal>\n"
-"    <signal name=\"markedItemsSuccess\"/>\n"
+"    <signal name=\"markedItemsSuccess\">\n"
+"      <arg name=\"ids\" type=\"as\" direction=\"out\"/>\n"
+"      <arg name=\"action\" type=\"s\" direction=\"out\"/>\n"
+"    </signal>\n"
 "    <signal name=\"markedAllItemsReadError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"markedAllItemsReadErrorString\"/>\n"
 "    </signal>\n"
@@ -76,17 +87,10 @@ class OcItemsAdaptor: public QDBusAbstractAdaptor
 "    <signal name=\"starredItemsError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"starredItemsErrorString\"/>\n"
 "    </signal>\n"
-"    <signal name=\"starredItemsSuccess\"/>\n"
-"    <signal name=\"startedFetchingImages\">\n"
-"      <arg name=\"numberOfItems\" type=\"i\" direction=\"out\"/>\n"
+"    <signal name=\"starredItemsSuccess\">\n"
+"      <arg name=\"ids\" type=\"as\" direction=\"out\"/>\n"
+"      <arg name=\"action\" type=\"s\" direction=\"out\"/>\n"
 "    </signal>\n"
-"    <signal name=\"finishedFetchingImages\"/>\n"
-"    <signal name=\"fetchingImages\">\n"
-"      <arg name=\"currentItem\" type=\"i\" direction=\"out\"/>\n"
-"    </signal>\n"
-"    <method name=\"isFetchImagesRunning\">\n"
-"      <arg type=\"i\" direction=\"out\"/>\n"
-"    </mehod>\n"
 "  </interface>\n"
         "")
 public:
@@ -101,21 +105,17 @@ public Q_SLOTS: // METHODS
     void requestItems(const QString &batchSize, const QString &offset, const QString &type, const QString &id, const QString &getRead);
     void starItems(const QString &action, const QVariantMap &itemIds);
     void updateItems(const QString &lastModified, const QString &type, const QString &id);
-    int isFetchImagesRunning();
 Q_SIGNALS: // SIGNALS
     void markedAllItemsReadError(const QString &markedAllItemsReadErrorString);
     void markedAllItemsReadSuccess();
     void markedItemsError(const QString &markedItemsErrorString);
-    void markedItemsSuccess();
+    void markedItemsSuccess(const QStringList &ids, const QString &action);
     void requestedItemsError(const QString &requestedItemsErrorString);
-    void requestedItemsSuccess();
+    void requestedItemsSuccess(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
     void starredItemsError(const QString &starredItemsErrorString);
-    void starredItemsSuccess();
+    void starredItemsSuccess(const QStringList &hashes, const QString &action);
     void updatedItemsError(const QString &updateItemsErrorString);
-    void updatedItemsSuccess();
-    void startedFetchingImages(const int &numberOfItems);
-    void finishedFetchingImages();
-    void fetchingImages(const int &currentItem);
+    void updatedItemsSuccess(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
 };
 
 #endif

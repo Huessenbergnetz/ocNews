@@ -31,15 +31,26 @@
     <signal name="requestedItemsError">
         <arg name="requestedItemsErrorString" type="s" direction="out"/>
     </signal>
-    <signal name="requestedItemsSuccess"/>
+    <signal name="requestedItemsSuccess">
+        <arg name="updated" type="ai" direction="out"/>
+        <arg name="newItems" type="ai" direction="out"/>
+        <arg name="deleted" type="ai" direction="out"/>
+    </signal>
     <signal name="updatedItemsError">
         <arg name="updateItemsErrorString" type="s" direction="out"/>
     </signal>
-    <signal name="updatedItemsSuccess"/>
+    <signal name="updatedItemsSuccess">
+        <arg name="updated" type="ai" direction="out"/>
+        <arg name="newItems" type="ai" direction="out"/>
+        <arg name="deleted" type="ai" direction="out"/>
+    </signal>
     <signal name="markedItemsError">
         <arg name="markedItemsErrorString" type="s" direction="out"/>
     </signal>
-    <signal name="markedItemsSuccess"/>
+    <signal name="markedItemsSuccess">
+        <arg name="ids" type="as" direction="out"/>
+        <arg name="action" type="s" direction="out"/>
+    </signal>
     <signal name="markedAllItemsReadError">
         <arg name="markedAllItemsReadErrorString" type="s" direction="out"/>
     </signal>
@@ -47,8 +58,11 @@
     <signal name="starredItemsError">
         <arg name="starredItemsErrorString" type="s" direction="out"/>
     </signal>
-    <signal name="starredItemsSuccess"/>
-    <signal name="startedFetchingImages">
+    <signal name="starredItemsSuccess">
+        <arg name="ids" type="as" direction="out"/>
+        <arg name="action" type="s" direction="out"/>
+    </signal>
+<!--    <signal name="startedFetchingImages">
         <arg name="numberOfItems" type="i" direction="out"/>
     </signal>
     <signal name="finishedFetchingImages"/>
@@ -57,6 +71,6 @@
     </signal>
     <method name="isFetchImagesRunning">
         <arg type="i" direction="out"/>
-    </mehod>
+    </mehod>-->
   </interface>
 </node>

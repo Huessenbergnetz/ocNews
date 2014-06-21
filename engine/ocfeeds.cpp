@@ -108,6 +108,9 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
     QSqlQuery query;
     QStringList newFeeds = QStringList();
 
+    QList<int> newFeedIds = QList<int>();
+    QList<int> updatedFeeds = QList<int>();
+
     foreach (QVariant feed, feedsresult["feeds"].toList())
     {
 
@@ -118,6 +121,8 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
         query.exec(QString("SELECT title, faviconLink, folderId, unreadCount, link FROM feeds WHERE id = %1").arg(map["id"].toInt()));
         if (query.next())
         {
+            updatedFeeds << map["id"].toInt();
+
             // extract data from the last query
             QString title = query.value(0).toString();
             QString faviconLink = query.value(1).toString();
@@ -187,6 +192,7 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
             qDebug() << "Added Feed: " << map["title"].toString();
 #endif
             newFeeds << map["title"].toString();
+            newFeedIds << map["id"].toInt();
 
             getFavicon( map["id"].toString(), map["faviconLink"].toString());
         }
@@ -218,11 +224,11 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
     }
 
     // delete the serverside deleted ids in the database
-    for (int i = 0; i < idListDeleted.size(); ++i) {
-        query.exec(QString("DELETE FROM feeds WHERE id = %1").arg(idListDeleted.at(i)));
-        items.cleanItems(idListDeleted.at(i));
-        qDebug() << "Deleted Feed ID: " << idListDeleted.at(i);
-    }
+//    for (int i = 0; i < idListDeleted.size(); ++i) {
+//        query.exec(QString("DELETE FROM feeds WHERE id = %1").arg(idListDeleted.at(i)));
+//        items.cleanItems(idListDeleted.at(i));
+//        qDebug() << "Deleted Feed ID: " << idListDeleted.at(i);
+//    }
 
 
     if ((!newFeeds.isEmpty() || !idListDeleted.isEmpty()) && config.getSetting(QString("notifications/feedsFolders"), QDBusVariant(false)).variant().toBool())
@@ -256,7 +262,7 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
 #ifdef QT_DEBUG
     qDebug() << "Emit requestedFeedsSuccess signal";
 #endif
-    emit requestedFeedsSuccess();
+    emit requestedFeedsSuccess(updatedFeeds, newFeedIds, idListDeleted);
 }
 
 
@@ -381,37 +387,40 @@ void OcFeeds::feedCreatedUpdateDb(const QVariantMap &createFeedResult)
             config.setSetting(QString("event/feeds"), QDBusVariant(feedsForEventView));
         }
 
-        feedCreatedFetchItems(createFeedResult, map["title"].toString());
+//        feedCreatedFetchItems(createFeedResult, map["title"].toString());
+
+        emit feedCreatedFetchItems("100", "0", "0", map["id"].toString(), "true");
+        emit createdFeedSuccess(map["title"].toString());
     }
 }
 
 
 
 
-/*!
- * \fn void OcFeeds::feedCreatedFetchItems(QVariantMap createFeedResult, QString feedName)
- * \brief Fetches items of new created feed
- *
- * This internal function is called after a feed was successfully created and fetches the new
- * available items of this feed.
- *
- * \param createFeedResult the result of the network reply
- * \param feedName      the name of the feed
- */
+///*!
+// * \fn void OcFeeds::feedCreatedFetchItems(QVariantMap createFeedResult, QString feedName)
+// * \brief Fetches items of new created feed
+// *
+// * This internal function is called after a feed was successfully created and fetches the new
+// * available items of this feed.
+// *
+// * \param createFeedResult the result of the network reply
+// * \param feedName      the name of the feed
+// */
 
-void OcFeeds::feedCreatedFetchItems(const QVariantMap &createFeedResult, const QString &feedName)
-{
-    QEventLoop loop;
-    connect(&items,SIGNAL(requestedItemsSuccess()),&loop,SLOT(quit()));
-    foreach (QVariant feed, createFeedResult["feeds"].toList())
-    {
-        QMap<QString, QVariant> map = feed.value<QVariantMap>();
-        items.requestItems("100", "0", "0", map["id"].toString(), "true"); // batchSize, offset, type, id, getRead
-    }
-    loop.exec();
-    notify.showNotification(feedName, tr("Added feed"), OcNotifications::Success);
-    emit createdFeedSuccess(feedName);
-}
+//void OcFeeds::feedCreatedFetchItems(const QVariantMap &createFeedResult, const QString &feedName)
+//{
+//    QEventLoop loop;
+//    connect(&items,SIGNAL(requestedItemsSuccess()),&loop,SLOT(quit()));
+//    foreach (QVariant feed, createFeedResult["feeds"].toList())
+//    {
+//        QMap<QString, QVariant> map = feed.value<QVariantMap>();
+//        items.requestItems("100", "0", "0", map["id"].toString(), "true"); // batchSize, offset, type, id, getRead
+//    }
+//    loop.exec();
+//    notify.showNotification(feedName, tr("Added feed"), OcNotifications::Success);
+//    emit createdFeedSuccess(feedName);
+//}
 
 
 
@@ -512,9 +521,9 @@ void OcFeeds::feedDeletedUpdateDb(const int &id)
 
     config.setSetting(QString("event/feeds"), QDBusVariant(feedsForEventView));
 
-    items.cleanItems(id);
+//    items.cleanItems(id);
 
-    emit deletedFeedSuccess();
+    emit deletedFeedSuccess(id);
 }
 
 
@@ -531,7 +540,7 @@ void OcFeeds::feedDeletedUpdateDb(const int &id)
 
 void OcFeeds::feedDeletedCleanItems(int id)
 {
-    items.cleanItems(id);
+//    items.cleanItems(id);
 }
 
 
@@ -826,7 +835,7 @@ void OcFeeds::feedMarkedReadUpdateDb(const int &id)
     query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE unread = %4 AND feedId = %1").arg(id).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE).arg(SQL_TRUE));
     QSqlDatabase::database().commit();
 
-    emit markedReadFeedSuccess();
+    emit markedReadFeedSuccess(QString::number(id));
 }
 
 

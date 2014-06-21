@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include <QUrl>
-#include <QImage>
 #if defined(MEEGO_EDITION_HARMATTAN)
 #include <meventfeed.h>
 #endif
@@ -29,29 +28,28 @@ public Q_SLOTS: // METHODS
     void requestItems(const QString &batchSize, const QString &offset, const QString &type, const QString &id, const QString &getRead); // default: "1000", "0", "3", "0", "true"
     void starItems(const QString &action, const QVariantMap &itemIds);
     void updateItems(const QString &lastModified, const QString &type, const QString &id); // default: "0", "3", "0"
-    int isFetchImagesRunning();
 
 signals:
     // item queue
     void dequeueFinished();
+    void cleanedItems(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
 
 public slots:
-    void cleanItems(int id);
+    void cleanItems(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted);
+    void cleanItems(const int &feedId);
+    void cleanItems(const QList<int> &feedIds);
 
 Q_SIGNALS: // SIGNALS
     void markedAllItemsReadError(const QString &markedAllItemsReadErrorString);
     void markedAllItemsReadSuccess();
     void markedItemsError(const QString &markedItemsErrorString);
-    void markedItemsSuccess();
+    void markedItemsSuccess(const QStringList &ids, const QString &action);
     void requestedItemsError(const QString &requestedItemsErrorString);
-    void requestedItemsSuccess();
+    void requestedItemsSuccess(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
     void starredItemsError(const QString &starredItemsErrorString);
-    void starredItemsSuccess();
+    void starredItemsSuccess(const QStringList &hashes, const QString &action);
     void updatedItemsError(const QString &updateItemsErrorString);
-    void updatedItemsSuccess();
-    void startedFetchingImages(const int &numberOfItems);
-    void finishedFetchingImages();
-    void fetchingImages(const int &currentItem);
+    void updatedItemsSuccess(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
 
 private slots:
     void itemsRequested();
@@ -90,13 +88,6 @@ private:
     // add items to event feed
     void updateEventFeed(const QList<int> &newsFeedItems);
 
-    // cache images
-    void fetchImages(const QList<int> &newItems);
-    QString cacheImages(const QString &bodyText, int id, int imageHandling);
-    QVariantMap extractImgData(const QString &imgStr, bool srcOnly);
-    void deleteCachedImages(const QList<int> &idsToDelte);
-    int itemsToFetchImages;
-    QString getFileTypeSuffix(const QByteArray &data);
     QStringList itemsToMark, hashesToStar;
     QString markAllReadNewestId;
 };
