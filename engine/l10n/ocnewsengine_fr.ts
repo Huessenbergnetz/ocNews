@@ -11,8 +11,8 @@
     <name>OcFeeds</name>
     <message>
         <location filename="../ocfeeds.cpp" line="+35"/>
-        <location line="+246"/>
-        <location line="+152"/>
+        <location line="+244"/>
+        <location line="+126"/>
         <location line="+122"/>
         <location line="+176"/>
         <location line="+137"/>
@@ -20,21 +20,21 @@
         <translation>L&apos;appareil est en mode avion.</translation>
     </message>
     <message>
-        <location line="-796"/>
+        <location line="-768"/>
         <location line="+1"/>
-        <location line="+248"/>
+        <location line="+246"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation>La réponse du serveur était vide.</translation>
     </message>
     <message>
-        <location line="-250"/>
+        <location line="-248"/>
         <location line="+12"/>
         <source>Failed to request feeds</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location line="+150"/>
+        <location line="+148"/>
         <source>%n feed(s) added</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -60,12 +60,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+74"/>
-        <source>Added feed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+69"/>
+        <location line="+117"/>
         <source>Failed to delete feed</source>
         <translation type="unfinished"/>
     </message>
@@ -91,13 +86,13 @@
         <location filename="../ocfolders.cpp" line="+14"/>
         <location line="+171"/>
         <location line="+74"/>
-        <location line="+84"/>
+        <location line="+80"/>
         <location line="+71"/>
         <source>Device is in flight mode.</source>
         <translation>L&apos;appareil est en mode avion.</translation>
     </message>
     <message>
-        <location line="-373"/>
+        <location line="-369"/>
         <location line="+1"/>
         <location line="+170"/>
         <location line="+1"/>
@@ -152,7 +147,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+93"/>
+        <location line="+89"/>
         <source>Failed to rename folder</source>
         <translation type="unfinished"/>
     </message>
@@ -201,55 +196,67 @@
     </message>
 </context>
 <context>
+    <name>OcImageFetcher</name>
+    <message>
+        <location filename="../ocimagefetcher.cpp" line="+30"/>
+        <source>ocNews Image Fetcher</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Fetching images</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+40"/>
+        <source>Fetching images finished</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OcItems</name>
     <message>
-        <location filename="../ocitems.cpp" line="+18"/>
-        <location line="+257"/>
-        <location line="+619"/>
+        <location filename="../ocitems.cpp" line="+17"/>
+        <location line="+243"/>
+        <location line="+606"/>
         <source>Device is in flight mode.</source>
         <translation>L&apos;appareil est en mode avion.</translation>
     </message>
     <message>
-        <location line="-831"/>
+        <location line="-804"/>
         <location line="+1"/>
-        <location line="+303"/>
+        <location line="+290"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation>La réponse du serveur était vide.</translation>
     </message>
     <message>
-        <location line="-305"/>
-        <location line="+304"/>
+        <location line="-292"/>
+        <location line="+291"/>
         <source>Error in server reply</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-296"/>
-        <location line="+306"/>
+        <location line="-283"/>
+        <location line="+293"/>
         <source>HTTP error</source>
         <translation type="unfinished"/>
     </message>
-    <message numerus="yes">
-        <location line="-129"/>
-        <location line="+319"/>
-        <source>%n new</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location line="-318"/>
-        <location line="+319"/>
-        <source>%n unread</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
     <message>
-        <location line="-318"/>
-        <location line="+319"/>
+        <location line="-119"/>
+        <location line="+306"/>
         <source>New articles available</source>
         <translation type="unfinished"/>
     </message>
+    <message numerus="yes">
+        <location line="-306"/>
+        <location line="+306"/>
+        <source>%n new unread item(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
-        <location line="+153"/>
-        <location line="+209"/>
+        <location line="+143"/>
+        <location line="+210"/>
         <source>Failed to mark articles</source>
         <translation type="unfinished"/>
     </message>
@@ -262,12 +269,12 @@
 <context>
     <name>OcUpdater</name>
     <message>
-        <location filename="../ocupdater.cpp" line="+236"/>
+        <location filename="../ocupdater.cpp" line="+235"/>
         <source>Your account is disabled or you have not created an account yet.</source>
         <translation>Votre compte est désactivé ou bien vous n&apos;avez pas encore créé de compte.</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+32"/>
         <source>Synchronizing ownCloud News</source>
         <translation>Synchronisation de ownCloud News</translation>
     </message>
@@ -277,39 +284,24 @@
         <translation>Mise à jour des dossiers</translation>
     </message>
     <message>
-        <location line="+51"/>
+        <location line="+33"/>
         <source>Updating Feeds</source>
         <translation>Mise à jour des flux</translation>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+27"/>
         <source>Updating Items</source>
         <translation>Mise à jour des articles</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+38"/>
         <source>Update Finished</source>
         <translation>Mise à jour terminée</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+32"/>
         <source>Update Failed</source>
         <translation>Echec de la mise à jour</translation>
-    </message>
-    <message>
-        <location line="+62"/>
-        <source>ocNews Image Fetcher</source>
-        <translation>Téléchargeur d&apos;images ocNews</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Fetching images</source>
-        <translation>Téléchargement des images</translation>
-    </message>
-    <message>
-        <location line="+28"/>
-        <source>Fetching images finished</source>
-        <translation>Téléchargement des images terminé</translation>
     </message>
 </context>
 </TS>

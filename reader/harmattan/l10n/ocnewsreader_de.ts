@@ -78,17 +78,17 @@
         <translation>Italienische Übersetzung</translation>
     </message>
     <message>
-        <location line="+12"/>
-        <source>Russian translation</source>
-        <translation>Russische Übersetzung</translation>
-    </message>
-    <message>
-        <location line="-5"/>
+        <location line="+7"/>
         <source>Spanish translation</source>
         <translation>Spanische Übersetzung</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+5"/>
+        <source>Russian translation</source>
+        <translation>Russische Übersetzung</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Used third party elements</source>
         <translation>Genutzte Drittelemente</translation>
     </message>
@@ -151,7 +151,7 @@
         <translation>Ordner auswählen</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+10"/>
         <source>Show feed in event view</source>
         <translation>Feed in der Startansicht anzeigen</translation>
     </message>
@@ -676,9 +676,27 @@
     </message>
 </context>
 <context>
+    <name>OcItemsModelNew</name>
+    <message>
+        <location filename="../../common/models/ocitemsmodelnew.cpp" line="+197"/>
+        <source>Today</source>
+        <translation>Heute</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation>d. MMMM</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
     <name>OcItemsModelSql</name>
     <message>
-        <location filename="../../common/models/ocitemsmodelsql.cpp" line="+63"/>
+        <location filename="../../common/models/ocitemsmodelsql.cpp" line="+65"/>
         <source>Today</source>
         <translation>Heute</translation>
     </message>
@@ -714,7 +732,7 @@
 <context>
     <name>OcSpecialItemsModelSql</name>
     <message>
-        <location filename="../../common/models/ocspecialitemsmodelsql.cpp" line="+63"/>
+        <location filename="../../common/models/ocspecialitemsmodelsql.cpp" line="+66"/>
         <source>Today</source>
         <translation>Heute</translation>
     </message>
@@ -876,13 +894,13 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+66"/>
-        <location line="+549"/>
+        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+68"/>
+        <location line="+571"/>
         <source>Account Settings</source>
         <translation>Benutzerkonto</translation>
     </message>
     <message>
-        <location line="-530"/>
+        <location line="-552"/>
         <source>Open account manager</source>
         <translation>Kontoverwaltung öffnen</translation>
     </message>
@@ -1078,6 +1096,16 @@
     </message>
     <message>
         <location line="+11"/>
+        <source>Show article excerpts in list</source>
+        <translation>Artikelauszug in Liste anzeigen</translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Display images in list</source>
+        <translation>Bilder in Liste anzeigen</translation>
+    </message>
+    <message>
+        <location line="+11"/>
         <source>Item view font size:</source>
         <translation>Schriftgröße in der Nachrichtenansicht</translation>
     </message>
@@ -1257,17 +1285,17 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+306"/>
-        <source>Open website</source>
-        <translation>Artikel öffnen</translation>
-    </message>
-    <message>
-        <location line="-9"/>
+        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+297"/>
         <source>Load images</source>
         <translation>Bilder laden</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+9"/>
+        <source>Open website</source>
+        <translation>Artikel öffnen</translation>
+    </message>
+    <message>
+        <location line="+18"/>
         <source>Write to %1</source>
         <translation>Schreibe an %1</translation>
     </message>

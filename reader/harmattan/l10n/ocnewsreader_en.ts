@@ -153,7 +153,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+10"/>
         <source>Show feed in event view</source>
         <translation type="unfinished"></translation>
     </message>
@@ -678,9 +678,27 @@
     </message>
 </context>
 <context>
+    <name>OcItemsModelNew</name>
+    <message>
+        <location filename="../../common/models/ocitemsmodelnew.cpp" line="+197"/>
+        <source>Today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OcItemsModelSql</name>
     <message>
-        <location filename="../../common/models/ocitemsmodelsql.cpp" line="+63"/>
+        <location filename="../../common/models/ocitemsmodelsql.cpp" line="+65"/>
         <source>Today</source>
         <translation type="unfinished"></translation>
     </message>
@@ -716,7 +734,7 @@
 <context>
     <name>OcSpecialItemsModelSql</name>
     <message>
-        <location filename="../../common/models/ocspecialitemsmodelsql.cpp" line="+63"/>
+        <location filename="../../common/models/ocspecialitemsmodelsql.cpp" line="+66"/>
         <source>Today</source>
         <translation type="unfinished"></translation>
     </message>
@@ -878,13 +896,13 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+66"/>
-        <location line="+549"/>
+        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+68"/>
+        <location line="+571"/>
         <source>Account Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-530"/>
+        <location line="-552"/>
         <source>Open account manager</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1076,6 +1094,16 @@
     <message>
         <location line="+15"/>
         <source>Show oldest items on top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Show article excerpts in list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Display images in list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
