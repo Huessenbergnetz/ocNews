@@ -30,7 +30,7 @@ public Q_SLOTS: // METHODS
 
 Q_SIGNALS: // SIGNALS
     void startedFetchingImages(const int &numberOfItems);
-    void finishedFetchingImages();
+    void finishedFetchingImages(const int &numberOfItems);
     void fetchingImages(const int &currentItem);
 
 public slots:

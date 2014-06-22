@@ -43,9 +43,9 @@ public Q_SLOTS: // METHODS
     }
 
 Q_SIGNALS: // SIGNALS
-    void fetchingImages(int currentItem);
-    void finishedFetchingImages();
-    void startedFetchingImages(int numberOfItems);
+    void fetchingImages(const int &currentItem);
+    void finishedFetchingImages(const int &numberOfItems);
+    void startedFetchingImages(const int &numberOfItems);
 };
 
 namespace de {

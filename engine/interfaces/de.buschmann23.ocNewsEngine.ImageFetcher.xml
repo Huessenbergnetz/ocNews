@@ -4,7 +4,9 @@
     <signal name="startedFetchingImages">
         <arg name="numberOfItems" type="i" direction="out"/>
     </signal>
-    <signal name="finishedFetchingImages"/>
+    <signal name="finishedFetchingImages">
+        <arg name="numberOfItems" type="i" direction="out"/>
+    </signal>
     <signal name="fetchingImages">
         <arg name="currentItem" type="i" direction="out"/>
     </signal>

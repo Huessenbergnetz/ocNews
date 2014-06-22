@@ -78,7 +78,7 @@ void OcImageFetcher::fetchImages(const QList<int> &updated, const QList<int> &ne
 #endif
 
         itemsToFetchImages = 0;
-        emit finishedFetchingImages();
+        emit finishedFetchingImages(itemsToFetchImages);
 
 #ifdef QT_DEBUG
         qDebug() << "Finished fetching images.";

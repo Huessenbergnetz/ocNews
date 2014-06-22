@@ -97,7 +97,8 @@ SOURCES += main.cpp \
     ../common/dbus/interfaces/ocdbusdownloads.cpp \
     ../common/models/ocitemsmodelnew.cpp \
     ../common/dbus/interfaces/ocimagefetcherif.cpp \
-    ../common/dbus/interfaces/ocdbusimagefetcher.cpp
+    ../common/dbus/interfaces/ocdbusimagefetcher.cpp \
+    ../common/models/ocitemsmodelfilter.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -134,7 +135,8 @@ HEADERS += \
     ../common/models/ocitemsmodelnew.h \
     ../common/models/objects/ocitemobject.h \
     ../common/dbus/interfaces/ocimagefetcherif.h \
-    ../common/dbus/interfaces/ocdbusimagefetcher.h
+    ../common/dbus/interfaces/ocdbusimagefetcher.h \
+    ../common/models/ocitemsmodelfilter.h
 
 OTHER_FILES += \
     ../common/dbus/adaptor/de.buschmann23.ocNewsReader.xml \

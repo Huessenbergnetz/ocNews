@@ -8,24 +8,27 @@
 class OcDBusImageFetcher : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(int total READ total WRITE setTotal NOTIFY totalChanged)
+    Q_PROPERTY(int current READ current WRITE setCurrent NOTIFY currentChanged)
 public:
     explicit OcDBusImageFetcher(QObject *parent = 0);
 
+    int total() const;
+    int current() const;
+
 public slots:
-    int isFetchImagesRunning();
+    void setTotal(const int &nTotal);
+    void setCurrent(const int &nCurrent);
 
 signals:
-    void startedFetchingImages(const int &numberOfItems);
-    void finishedFetchingImages();
-    void fetchingImages(const int &currentItem);
-
-private slots:
-    void dbusStartedFetchingImages(const int &numberOfItems);
-    void dbusFinishedFetchingImages();
-    void dbusFetchingImages(const int &currentItem);
+    void totalChanged(const int &nTotal);
+    void currentChanged(const int &nCurrent);
 
 private:
     de::buschmann23::ocNewsEngine::ImageFetcher *imageFetcher;
+
+    int m_total;
+    int m_current;
 };
 
 #endif // OCDBUSIMAGEFETCHER_H

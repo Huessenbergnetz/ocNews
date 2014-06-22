@@ -33,7 +33,9 @@ class OcImageFetcherAdaptor: public QDBusAbstractAdaptor
 "    <signal name=\"startedFetchingImages\">\n"
 "      <arg direction=\"out\" type=\"i\" name=\"numberOfItems\"/>\n"
 "    </signal>\n"
-"    <signal name=\"finishedFetchingImages\"/>\n"
+"    <signal name=\"finishedFetchingImages\">\n"
+"      <arg direction=\"out\" type=\"i\" name=\"numberOfItems\"/>\n"
+"    </signal>\n"
 "    <signal name=\"fetchingImages\">\n"
 "      <arg direction=\"out\" type=\"i\" name=\"currentItem\"/>\n"
 "    </signal>\n"
@@ -50,9 +52,9 @@ public: // PROPERTIES
 public Q_SLOTS: // METHODS
     int isFetchImagesRunning();
 Q_SIGNALS: // SIGNALS
-    void fetchingImages(int currentItem);
-    void finishedFetchingImages();
-    void startedFetchingImages(int numberOfItems);
+    void fetchingImages(const int &currentItem);
+    void finishedFetchingImages(const int &numberOfItems);
+    void startedFetchingImages(const int &numberOfItems);
 };
 
 #endif

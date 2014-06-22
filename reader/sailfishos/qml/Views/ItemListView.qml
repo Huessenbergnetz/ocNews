@@ -28,7 +28,6 @@ Page {
         onRenamedFeedSuccess: itemListView.feedName = newName
     }
 
-//    onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString)
     onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString)
 
     Column {
