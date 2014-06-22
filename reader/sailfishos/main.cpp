@@ -24,6 +24,7 @@
 #include "../common/dbus/interfaces/ocdbusimagefetcher.h"
 #include "../common/dbus/adaptor/ocdbusadaptor.h"
 #include "../common/dbus/adaptor/ocdbusproxy.h"
+#include "ocnaminteractor.h"
 
 int main(int argc, char *argv[])
 {
@@ -89,6 +90,8 @@ int main(int argc, char *argv[])
 
     QQuickView* view = SailfishApp::createView();
 
+    OcNamInteractor *nami = new OcNamInteractor(view->engine(), view);
+
     QObject::connect(view->engine(), SIGNAL(quit()), QCoreApplication::instance(), SLOT(quit()));
 
     if (dbus.getSetting("engine/quitonclose", false).toBool())
@@ -109,6 +112,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("dbusproxy", dbusproxy);
     view->rootContext()->setContextProperty("downloads", &downloads);
     view->rootContext()->setContextProperty("imageFetcher", &imageFetcher);
+    view->rootContext()->setContextProperty("nami", nami);
     view->rootContext()->setContextProperty("versionString", VERSION_STRING);
     view->rootContext()->setContextProperty("versionInt", VERSION);
 

@@ -33,6 +33,10 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                text: qsTr("Clear cookies")
+                onClicked: nami.clearCookies()
+            }
+            MenuItem {
                 text: webView.loading ? qsTr("Stop loading") : qsTr("Reload")
                 onClicked: webView.loading ? webView.stop() : webView.reload()
             }
@@ -46,10 +50,13 @@ Page {
             }
         }
 
+        _cookiesEnabled: false
+
         experimental.userAgent: "Mozilla/5.0 (Maemo; Linux; Jolla; Sailfish; Mobile) AppleWebKit/534.13 (KHTML, like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13"
         experimental.preferences.pluginsEnabled: true
         experimental.preferences.javascriptEnabled: true
         experimental.preferences.defaultFontSize: Theme.fontSizeSmall
+        experimental.preferences.privateBrowsingEnabled: true
 
     }
 }

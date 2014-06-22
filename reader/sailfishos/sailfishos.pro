@@ -52,7 +52,8 @@ SOURCES += main.cpp \
     ../common/models/ocitemsmodelnew.cpp \
     ../common/dbus/interfaces/ocdbusimagefetcher.cpp \
     ../common/dbus/interfaces/ocimagefetcherif.cpp \
-    ../common/models/ocitemsmodelfilter.cpp
+    ../common/models/ocitemsmodelfilter.cpp \
+    ocnaminteractor.cpp
 
 OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Views/MainView.qml \
@@ -124,7 +125,8 @@ HEADERS += \
     ../common/models/objects/ocitemobject.h \
     ../common/dbus/interfaces/ocdbusimagefetcher.h \
     ../common/dbus/interfaces/ocimagefetcherif.h \
-    ../common/models/ocitemsmodelfilter.h
+    ../common/models/ocitemsmodelfilter.h \
+    ocnaminteractor.h
 
 RESOURCES +=
 
