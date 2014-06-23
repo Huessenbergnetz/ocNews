@@ -18,7 +18,8 @@ ListItem {
         if (type === "1")  {
             pageStack.push(Qt.resolvedUrl("../Views/FeedListView.qml"), {folderId: model.id, folderName: model.title})
         } else if (type === "0") {
-            pageStack.push(Qt.resolvedUrl("../Views/ItemListView.qml"), {feedId: id, feedName: title})
+            itemsModelSql.feedId = model.id
+            pageStack.push(Qt.resolvedUrl("../Views/ItemListView.qml"), {feedName: title})
         } else if (type === "-1" && id === "0") {
             pageStack.push(Qt.resolvedUrl("../Views/SpecialItemListView.qml"), {pageName: title, feedType: "all"})
         } else if (type === "-1" && id === "1") {

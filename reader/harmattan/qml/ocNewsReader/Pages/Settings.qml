@@ -115,10 +115,10 @@ Page {
 
                 ListModel {
                     id: maxItemModel
-                    ListElement { name: "50"; value: "50" }
-                    ListElement { name: "100"; value: "100" }
-                    ListElement { name: "200"; value: "200" }
-                    ListElement { name: "500"; value: "500" }
+                    ListElement { name: "50"; value: 50 }
+                    ListElement { name: "100"; value: 100 }
+                    ListElement { name: "200"; value: 200 }
+                    ListElement { name: "500"; value: 500 }
                 }
 
                 SelectionItem {

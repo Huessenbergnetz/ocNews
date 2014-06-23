@@ -16,9 +16,14 @@ ListItem {
 
     menu: feedContextMenu
 
-    onClicked: { type === "0" ? pageStack.push(Qt.resolvedUrl("../Views/ItemListView.qml"), {feedId: model.id, feedName: model.title}) :
-                                pageStack.push(Qt.resolvedUrl("../Views/SpecialItemListView.qml"), { id: feedListItem.folderId, pageName: qsTr("All") + " - " + feedListItem.folderName, feedType: "folder" })
-               }
+    onClicked: {
+        if (model.type === "0") {
+            itemsModelSql.feedId = model.id
+            pageStack.push(Qt.resolvedUrl("../Views/ItemListView.qml"), {feedName: model.title})
+        } else {
+            pageStack.push(Qt.resolvedUrl("../Views/SpecialItemListView.qml"), { id: feedListItem.folderId, pageName: qsTr("All") + " - " + feedListItem.folderName, feedType: "folder" })
+        }
+    }
 
     Row {
         id: mainRow
@@ -35,8 +40,6 @@ ListItem {
             Image {
                 anchors.centerIn: parent
                 visible: true
-//                width: model.iconSource ? (parseInt(model.iconWidth, 10) > 32) ? 64 : 32 : 64
-//                height: model.iconSource ? (parseInt(model.iconHeight, 10) > 32) ? 64 : 32 : 64
                 width: model.type === "1" ? 64 : 32
                 height: model.type === "1" ? 64 : 32
                 sourceSize.width: model.iconSource ? parseInt(model.iconWidth, 10) : 64
@@ -75,7 +78,6 @@ ListItem {
     CountBubble {
         id: unreadCount
         value: model.unreadCount
-//        visible: model.type !== "1" ? true : false
         visible: !busyIndicator.visible
         anchors { right: parent.right; rightMargin: Theme.paddingLarge; verticalCenter: parent.verticalCenter }
         color: if (model.unreadCount > 0) { feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor } else { feedListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor }

@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 CoverBackground {
     id: defCover
 
-    property bool active: status == Cover.Active
+    property bool active: status === Cover.Active
 
     Connections {
         target: updater
@@ -48,8 +48,7 @@ CoverBackground {
     }
 
     function changeItem(id) {
-        coverConnector.loading = true
-        pageStack.replace(Qt.resolvedUrl("../Views/SingleItemView.qml"), { itemId: id, searchString: coverConnector.searchString, handleRead: coverConnector.handleRead, sortAsc: coverConnector.sortAsc, feedType: coverConnector.feedType, parentFeedId: coverConnector.parentFeedId })
+//        pageStack.replace(Qt.resolvedUrl("../Views/SingleItemView.qml"), { itemId: id, searchString: coverConnector.searchString, handleRead: coverConnector.handleRead, sortAsc: coverConnector.sortAsc, feedType: coverConnector.feedType, parentFeedId: coverConnector.parentFeedId })
     }
 
     Image {
@@ -133,13 +132,6 @@ CoverBackground {
     }
 
 
-    BusyIndicator {
-        anchors.centerIn: parent
-        opacity: running ? 1 : 0
-        running: active && coverConnector.loading
-        Behavior on opacity { FadeAnimation{} }
-    }
-
 
 
     Column {
@@ -161,7 +153,7 @@ CoverBackground {
             font.pixelSize: Theme.fontSizeExtraSmall
             color: Theme.secondaryColor
             maximumLineCount: 1
-            text: coverConnector.feedName
+            text: item.feedName
         }
 
         Separator {
@@ -181,7 +173,7 @@ CoverBackground {
             elide: Text.ElideRight
             font.pixelSize: Theme.fontSizeSmall
             maximumLineCount: 6
-            text: coverConnector.title
+            text: item.title
             }
         }
 
@@ -207,36 +199,36 @@ CoverBackground {
 
 
     CoverActionList {
-        enabled: !updateRunning.visible && coverConnector.mode === "item" && coverConnector.prevId !== "0" && coverConnector.nextId !== "0"
+        enabled: !updateRunning.visible && coverConnector.mode === "item" && item.previous !== 0 && item.next !== 0
 
         CoverAction {
             iconSource: "image://theme/icon-cover-previous"
-            onTriggered: changeItem(coverConnector.prevId)
+            onTriggered: pageStack.currentPage.loadPrevNext(item.previous)
         }
 
         CoverAction {
             iconSource: "image://theme/icon-cover-next"
-            onTriggered: changeItem(coverConnector.nextId)
+            onTriggered: pageStack.currentPage.loadPrevNext(item.next)
         }
     }
 
 
     CoverActionList {
-        enabled: !updateRunning.visible && coverConnector.mode === "item" && coverConnector.prevId === "0" && coverConnector.nextId !== "0"
+        enabled: !updateRunning.visible && coverConnector.mode === "item" && item.previous === 0 && item.next !== 0
 
         CoverAction {
             iconSource: "image://theme/icon-cover-next"
-            onTriggered: changeItem(coverConnector.nextId)
+            onTriggered: pageStack.currentPage.loadPrevNext(item.next)
         }
     }
 
 
     CoverActionList {
-        enabled: !updateRunning.visible && coverConnector.mode === "item" && coverConnector.prevId !== "0" && coverConnector.nextId === "0"
+        enabled: !updateRunning.visible && coverConnector.mode === "item" && item.previous !== 0 && item.next === 0
 
         CoverAction {
             iconSource: "image://theme/icon-cover-previous"
-            onTriggered: changeItem(coverConnector.prevId)
+            onTriggered: pageStack.currentPage.loadPrevNext(item.previous)
         }
     }
 }

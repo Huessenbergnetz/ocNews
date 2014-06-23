@@ -148,7 +148,7 @@ Page {
 
     function openFile(file, properties) {
         var component = Qt.createComponent(file)
-        if (component.status == Component.Ready)
+        if (component.status === Component.Ready)
             pageStack.push(component, properties);
         else
             console.log("Error loading component:", component.errorString());

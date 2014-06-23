@@ -7,79 +7,20 @@ Page {
     id: settings
 
     property bool isConfigSet
-    property bool isPrivacyAccepted
-    property bool privacyShown
 
-    Connections {
-        target: dbus
-        onGotConfig: {
-            username.text = config["uname"]
-            password.text = config["pword"]
-            server.text = config["server"]
-            usessl.checked = config["usessl"]
-            ignoresslerrors.checked = config["ignoresslerrors"]
-            updateBehavior.initialValue = config["updatebehavior"]
-            updateInterval.initialValue = config["updateinterval"]
-            chooseMaxItems.initialValue = config["maxitems"]
-            quitEngine.checked = config["quitengine"]
-            chooseViewMode.initialValue = config["viewmode"]
-            chooseOrderBy.initialValue = config["orderby"]
-            showImgsSelection.initialValue = config["handleimgs"]
-            handleReadSelection.initialValue = config["handleread"]
-            sortAsc.checked = config["sortasc"]
-            fontSizeSlider.value = config["fontsize"]
-            hideReadFeeds.checked = config["hidereadfeeds"]
-            notifyFeedsFolders.checked = config["notifyFeedsFolders"]
-            notifyNewItems.checked = config["notifyNewItems"]
-            excerpts.checked = config["showExcerpts"]
-            listPictures.checked = config["showPicturesInList"]
-            isConfigSet = dbus.isConfigSet()
-        }
+    Component.onDestruction: saveAccount()
+
+    function saveAccount()
+    {
+        config.accountUser = username.text
+        config.accountPassword = password.text
+        config.accountServer = server.text
+        config.accountEnabled = true
     }
-
-    function saveValues() {
-        var saveConf={
-            uname:username.text,
-            pword:password.text,
-            server:server.text,
-            usessl:usessl.checked,
-            ignoresslerrors:ignoresslerrors.checked,
-            updatebehavior:updateBehaviorModel.get(updateBehavior.currentIndex).value,
-            updateinterval:updateIntervalModel.get(updateInterval.currentIndex).value,
-            maxitems:maxItemModel.get(chooseMaxItems.currentIndex).value,
-            quitengine:quitEngine.checked,
-            viewmode:viewModeModel.get(chooseViewMode.currentIndex).value,
-            orderby:orderByModel.get(chooseOrderBy.currentIndex).value,
-            handleimgs:showImgsModel.get(showImgsSelection.currentIndex).value,
-            handleread:handleReadModel.get(handleReadSelection.currentIndex).value,
-            sortasc:sortAsc.checked,
-            fontsize:fontSizeSlider.value,
-            hidereadfeeds:hideReadFeeds.checked,
-            notifyFeedsFolders:notifyFeedsFolders.checked,
-            notifyNewItems:notifyNewItems.checked,
-            showExcerpts:excerpts.checked,
-            showPicturesInList:listPictures.checked,
-            eventfeeds:"",
-            enabled:true,
-            themecolor:"black"
-        };
-
-        return saveConf;
-    }
-
-    Component.onCompleted: {
-//        isConfigSet = dbus.isConfigSet()
-        dbus.getConfig()
-    }
-
-    Component.onDestruction: dbus.saveConfig(saveValues());
 
     onStatusChanged: {
-        if (status == PageStatus.Active) {
-            if (dbus.getSetting("display/privacypolicy", false) == false && privacyShown === false) {
-                pageStack.push(Qt.resolvedUrl("../Dialogs/PrivacyPolicy.qml"));
-                privacyShown = true;
-            }
+        if (status === PageStatus.Active) {
+            if (!config.privacyShown) pageStack.push(Qt.resolvedUrl("../Dialogs/PrivacyPolicy.qml"));
         }
     }
 
@@ -99,6 +40,27 @@ Page {
 
             SectionHeader { text: qsTr("Server") }
 
+            PullDownMenu {
+                MenuItem {
+                    text: qsTr("Delete database")
+                    onClicked: deleteDatabase()
+                }
+                MenuItem {
+                    text: qsTr("Reset configuration")
+                    onClicked: resetConfiguration()
+                }
+                MenuItem {
+                    id: testConnection
+                    text: qsTr("Test connection")
+                    onClicked: { saveAccount(); dbus.getVersion(); testConnection.enabled = false }
+                    Connections {
+                        target: dbus
+                        onGotVersion: testConnection.enabled = true
+                        onGotVersionError: testConnection.enabled = true
+                    }
+                }
+            }
+
             TextField {
                 id: username
                 anchors { left: parent.left; right: parent.right }
@@ -106,6 +68,7 @@ Page {
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: password.focus = true
+                text: config.accountUser
             }
 
             TextField {
@@ -116,6 +79,7 @@ Page {
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: server.focus = true
+                text: config.accountPassword
             }
 
             TextField {
@@ -126,25 +90,14 @@ Page {
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: server.focus = false
-            }
-
-            Button {
-                id: testConnectionButton
-                text: qsTr("Test connection")
-                anchors.horizontalCenter: parent.horizontalCenter
-                onClicked: { dbus.saveConfig(saveValues()); dbus.getVersion(); testConnectionButton.visible = false }
-                Connections {
-                    target: dbus
-                    onGotVersion: testConnectionButton.visible = true
-                    onGotVersionError: testConnectionButton.visible = true
-                }
+                text: config.accountServer
             }
 
             BusyIndicator {
                 id: testConnectionBusy
                 anchors.horizontalCenter: parent.horizontalCenter
                 size: BusyIndicatorSize.Medium
-                visible: !testConnectionButton.visible
+                visible: !testConnection.enabled
                 running: testConnectionBusy.visible
             }
 
@@ -170,6 +123,8 @@ Page {
                 text: qsTr("Use HTTPS (SSL/TLS) connection")
                 anchors { left: parent.left; right: parent.right }
                 description: qsTr("Because ownCloud News requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption.")
+                checked: config.accountUseSSL
+                onCheckedChanged: config.accountUseSSL = checked
             }
 
             TextSwitch {
@@ -178,15 +133,17 @@ Page {
                 anchors { left: parent.left; right: parent.right }
                 description: qsTr("Only ignore SSL errors when you really know what you are doing. (Currently there is no system service for handling SSL certificates. ocNews will implement it's own in the future, but for now you have to ignore SSL errors when you are using a self signed certificate.)")
                 enabled: usessl.checked
+                checked: config.accountIgnoreSSLErrors
+                onCheckedChanged: config.accountIgnoreSSLErrors = checked
             }
 
             SectionHeader { text: qsTr("Updating") }
 
             ListModel {
                 id: updateBehaviorModel
-                ListElement { name: ""; value: "0" }
-                ListElement { name: ""; value: "1" }
-                ListElement { name: ""; value: "2" }
+                ListElement { name: ""; value: 0 }
+                ListElement { name: ""; value: 1 }
+                ListElement { name: ""; value: 2 }
                 Component.onCompleted: {
                     updateBehaviorModel.get(0).name = qsTr("Only manually")
                     updateBehaviorModel.get(1).name = qsTr("Automatic on Wi-Fi")
@@ -199,16 +156,18 @@ Page {
                 anchors { left: parent.left; right: parent.right }
                 label: qsTr("Updating")
                 model: updateBehaviorModel
+                initialValue: config.updateBehavior
+                onChoosenValueChanged: config.updateBehavior = choosenValue
             }
 
             ListModel {
                 id: updateIntervalModel
-                ListElement { name: ""; value: "900" }
-                ListElement { name: ""; value: "1800" }
-                ListElement { name: ""; value: "3600" }
-                ListElement { name: ""; value: "10800" }
-                ListElement { name: ""; value: "21600" }
-                ListElement { name: ""; value: "43200" }
+                ListElement { name: ""; value: 900 }
+                ListElement { name: ""; value: 1800 }
+                ListElement { name: ""; value: 3600 }
+                ListElement { name: ""; value: 10800 }
+                ListElement { name: ""; value: 21600 }
+                ListElement { name: ""; value: 43200 }
                 Component.onCompleted: {
                     updateIntervalModel.get(0).name = qsTr("15 Minutes")
                     updateIntervalModel.get(1).name = qsTr("30 Minutes")
@@ -225,23 +184,26 @@ Page {
                 anchors { left: parent.left; right: parent.right }
                 label: qsTr("Update interval")
                 model: updateIntervalModel
+                initialValue: config.updateInterval
+                onChoosenValueChanged: config.updateInterval = choosenValue
             }
 
             SectionHeader { text: qsTr("Engine") }
 
             ListModel {
                 id: maxItemModel
-                ListElement { name: "50"; value: "50" }
-                ListElement { name: "100"; value: "100" }
-                ListElement { name: "200"; value: "200" }
-                ListElement { name: "500"; value: "500" }
+                ListElement { name: "50"; value: 50 }
+                ListElement { name: "100"; value: 100 }
+                ListElement { name: "200"; value: 200 }
+                ListElement { name: "500"; value: 500 }
             }
 
             ComboBoxList {
-                id: chooseMaxItems
                 anchors { left: parent.left; right: parent.right }
                 label: qsTr("Number of items to keep")
                 model: maxItemModel
+                initialValue: config.maxItems
+                onChoosenValueChanged: config.maxItems = choosenValue
             }
 
             TextSwitch {
@@ -249,6 +211,8 @@ Page {
                 text: qsTr("Quit engine on closing reader")
                 anchors { left: parent.left; right: parent.right }
                 description: qsTr("By default the engine daemon ist started on application startup and keeps running after closing the application to operate/synchronize in the background. This option needs an application restart.")
+                checked: config.quitEngine
+                onCheckedChanged: config.quitEngine = checked
             }
 
             SectionHeader { text: qsTr("Appearance") }
@@ -264,10 +228,11 @@ Page {
             }
 
             ComboBoxList {
-                id: chooseViewMode
                 anchors { left: parent.left; right: parent.right }
                 label: qsTr("Main view layout")
                 model: viewModeModel
+                initialValue: config.viewMode
+                onChoosenValueChanged: config.viewMode = choosenValue
             }
 
             ListModel {
@@ -287,6 +252,8 @@ Page {
                 anchors { left: parent.left; right: parent.right }
                 label: qsTr("Order feeds and folders by")
                 model: orderByModel
+                initialValue: config.orderBy
+                onChoosenValueChanged: config.orderBy = choosenValue
             }
 
             ListModel {
@@ -306,6 +273,8 @@ Page {
                 anchors { left: parent.left; right: parent.right }
                 label: qsTr("Load content images")
                 model: showImgsModel
+                initialValue: config.handleImgs
+                onChoosenValueChanged: config.handleImgs = choosenValue
             }
 
             ListModel {
@@ -325,6 +294,8 @@ Page {
                 anchors { left: parent.left; right: parent.right }
                 label: qsTr("Read articles")
                 model: handleReadModel
+                initialValue: config.handleRead
+                onChoosenValueChanged: config.handleRead = choosenValue
             }
 
             TextSwitch {
@@ -332,6 +303,8 @@ Page {
                 text: qsTr("Hide read feeds and folders")
                 anchors { left: parent.left; right: parent.right }
                 description: qsTr("Hide feeds and folders that do not contain unread items.")
+                checked: config.hideReadFeeds
+                onCheckedChanged: config.hideReadFeeds = checked
             }
 
             TextSwitch {
@@ -339,6 +312,8 @@ Page {
                 text: qsTr("Show oldest items on top")
                 anchors { left: parent.left; right: parent.right }
                 description: qsTr("Set the default order of the news items to show the oldest at the top. You can still change it in the pully menu.")
+                checked: config.sortAsc
+                onCheckedChanged: config.sortAsc = checked
             }
 
             TextSwitch {
@@ -346,6 +321,8 @@ Page {
                 text: qsTr("Show article excerpts")
                 anchors { left: parent.left; right: parent.right }
                 description: qsTr("Shows some lines of the article content in the article list.")
+                checked: config.showExcerpts
+                onCheckedChanged: config.showExcerpts = checked
             }
 
             TextSwitch {
@@ -353,6 +330,8 @@ Page {
                 text: qsTr("Display images in list")
                 anchors { left: parent.left; right: parent.right }
                 description: qsTr("Displays an image of the article in the list.")
+                checked: config.showPicturesInList
+                onCheckedChanged: config.showPicturesInList = checked
             }
 
             Slider {
@@ -363,6 +342,8 @@ Page {
                 valueText: value + "px"
                 stepSize: 1
                 label: qsTr("Item view font size")
+                value: config.fontSize
+                onValueChanged: config.fontSize = value
             }
 
             SectionHeader { text: qsTr("Notifications") }
@@ -371,28 +352,32 @@ Page {
                 id: notifyFeedsFolders
                 text: qsTr("Notify about added/removed feeds and folders")
                 anchors { left: parent.left; right: parent.right }
+                checked: config.notifyFeedsFolders
+                onCheckedChanged: config.notifyFeedsFolders = checked
             }
 
             TextSwitch {
                 id: notifyNewItems
                 text: qsTr("Notify about new articles")
                 anchors { left: parent.left; right: parent.right }
+                checked: config.notifyNewItems
+                onCheckedChanged: config.notifyNewItems = checked
             }
 
-            SectionHeader { text: qsTr("Maintenance") }
+            SectionHeader { text: qsTr("Privacy") }
 
-            Button {
-                id: resetConfigurationButton
-                text: qsTr("Reset configuration")
-                anchors.horizontalCenter: parent.horizontalCenter
-                onClicked: resetConfiguration()
+            TextSwitch {
+                text: qsTr("Enable private browsing for web view")
+                anchors { left: parent.left; right: parent.right }
+                checked: config.privateBrowsing
+                onCheckedChanged: config.privateBrowsing = checked
             }
 
-            Button {
-                id: deleteDatabaseButton
-                text: qsTr("Delete database")
-                anchors.horizontalCenter: parent.horizontalCenter
-                onClicked: deleteDatabase()
+            TextSwitch {
+                text: qsTr("Allow cookies in web view")
+                anchors { left: parent.left; right: parent.right }
+                checked: config.enableCookies
+                onCheckedChanged: config.enableCookies = checked
             }
         }
     }

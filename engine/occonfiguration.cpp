@@ -53,10 +53,10 @@ QVariantMap OcConfiguration::getConfig()
 {
     QVariantMap config;
 
-    config["maxitems"] = settings.value("storage/maxitems", "100");
+    config["maxitems"] = settings.value("storage/maxitems", 100).toInt();
     config["viewmode"] = settings.value("display/viewmode", 0).toInt();
-    config["orderby"] = settings.value("display/orderby", "id");
-    config["themecolor"] = settings.value("display/themecolor", "white");
+    config["orderby"] = settings.value("display/orderby", "id").toString();
+    config["themecolor"] = settings.value("display/themecolor", "white").toString();
     config["handleimgs"] = settings.value("display/handleimgs", 0).toInt();
     config["handleread"] = settings.value("display/handleread", 0).toInt();
     config["sortasc"] = settings.value("display/sortasc", false).toBool();
@@ -64,9 +64,13 @@ QVariantMap OcConfiguration::getConfig()
     config["hidereadfeeds"] = settings.value("display/hidereadfeeds", false).toBool();
     config["showExcerpts"] = settings.value("display/excerpts", false).toBool();
     config["showPicturesInList"] = settings.value("display/picturesInList", false).toBool();
-    config["updatebehavior"] = settings.value("update/behavior", "0");
-    config["updateinterval"] = settings.value("update/interval", "3600");
-    config["eventfeeds"] = settings.value("event/feeds", "");
+    config["textformat"] = settings.value("display/textformat", "rich").toString();
+    config["privacyShown"] = settings.value("display/privacypolicy", false).toBool();
+    config["privateBrowsing"] = settings.value("privacy/privateBrowsing", false).toBool();
+    config["enableCookies"] = settings.value("privacy/enableCookies", true).toBool();
+    config["updatebehavior"] = settings.value("update/behavior", "0").toString();
+    config["updateinterval"] = settings.value("update/interval", "3600").toString();
+    config["eventfeeds"] = settings.value("event/feeds", "").toString();
     config["quitengine"] = settings.value("engine/quitonclose", false).toBool();
     config["notifyFeedsFolders"] = settings.value("notifications/feedsFolders", false).toBool();
     config["notifyNewItems"] = settings.value("notifications/newItems", false).toBool();
@@ -76,9 +80,7 @@ QVariantMap OcConfiguration::getConfig()
     config["pword"] = settings.value("account/password", "").toString();
     config["server"] = settings.value("account/server", "").toString();
     config["usessl"] = settings.value("account/usessl", true).toBool();
-    config["ignoresslerrors"] = settings.value("account/ignoresslerrors", false).toBool();
-#else
-    config["textformat"] = settings.value("display/textformat", "rich");
+    config["ignoresslerrors"] = settings.value("account/ignoresslerrors", false).toBool();   
 #endif
 
     emit gotConfig(config);
@@ -505,11 +507,11 @@ QVariantMap OcConfiguration::getAccount()
             result["state"] = 3;
         } else if (isConfigSet() && enabled == true) {
             result["state"] = 0;
-            result["uname"] = settings.value("account/user", "").toString();
-            result["pword"] = settings.value("account/password", "").toString();
-            result["server"] = settings.value("account/server", "").toString();
-            result["usessl"] = settings.value("account/usessl", true).toBool();
-            result["ignoresslerror"] = settings.value("account/ignoresslerrors", false).toBool();
+            result["uname"] = uname;
+            result["pword"] = pword;
+            result["server"] = server;
+            result["usessl"] = usessl;
+            result["ignoresslerror"] = ignoresslerror;
         }
 
 #endif

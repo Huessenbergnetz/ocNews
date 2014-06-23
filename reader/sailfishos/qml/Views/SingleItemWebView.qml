@@ -6,13 +6,11 @@ import Sailfish.Silica 1.0
 Page {
     id: singleWebView
 
-    property string itemUrl
-
     allowedOrientations: Orientation.Landscape | Orientation.Portrait
 
     onStatusChanged: {
-        if (status == PageStatus.Active) {
-            webView.url = itemUrl
+        if (status === PageStatus.Active) {
+            webView.url = item.url
         }
     }
 
@@ -50,13 +48,13 @@ Page {
             }
         }
 
-        _cookiesEnabled: false
+        _cookiesEnabled: config.enableCookies
 
         experimental.userAgent: "Mozilla/5.0 (Maemo; Linux; Jolla; Sailfish; Mobile) AppleWebKit/534.13 (KHTML, like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13"
         experimental.preferences.pluginsEnabled: true
         experimental.preferences.javascriptEnabled: true
         experimental.preferences.defaultFontSize: Theme.fontSizeSmall
-        experimental.preferences.privateBrowsingEnabled: true
+        experimental.preferences.privateBrowsingEnabled: config.privateBrowsing
 
     }
 }

@@ -9,10 +9,8 @@ ApplicationWindow
     id: ocNewsReader
 
     property bool operationRunning: updater.isUpdateRunning()
-    property int viewMode: dbus.getSetting("display/viewmode", 0)
     property int unreadItems: dbus.getStat(0)
     property int lastFullUpdateTime: dbus.getStat(1)
-    property int fontSize: dbus.getSetting("display/fontsize", Theme.fontSizeSmall)
 
     Connections {
         target: dbusproxy
@@ -62,10 +60,6 @@ ApplicationWindow
         onRequestedItemsError: operationRunning = false
         onRequestedItemsSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
     }
-    Connections {
-        target: dbus
-        onSavedConfig: { viewMode = dbus.getSetting("display/viewmode", 0); fontSize = dbus.getSetting("display/fontsize", Theme.fontSizeSmall) }
-    }
 
     initialPage: Component { MainView { } }
 
@@ -73,18 +67,6 @@ ApplicationWindow
 
     QtObject {
         id: coverConnector
-
-        property string feedName
-        property string title
-        property string itemId
-        property string searchString
-        property int handleRead
-        property bool sortAsc
-        property string feedType
-        property string parentFeedId
-        property string nextId
-        property string prevId
-        property bool loading: false
         property string mode: "overview"
     }
 

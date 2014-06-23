@@ -8,12 +8,14 @@
 
 #include "../../common/globals.h"
 #include "../common/ocdbmanager.h"
+#include "../common/occonfiguration.h"
 #include "../common/models/ocfoldermodelsql.h"
 #include "../common/models/ocfeedsmodelsql.h"
 #include "../common/models/ocitemsmodelsql.h"
 #include "../common/models/ocitemsmodelnew.h"
 #include "../common/models/ocitemsmodelfilter.h"
 #include "../common/models/ocsingleitemmodelsql.h"
+#include "../common/models/ocsingleitemmodelnew.h"
 #include "../common/models/ocspecialitemsmodelsql.h"
 #include "../common/models/occombinedmodelsql.h"
 #include "../common/dbus/interfaces/ocdbusfolders.h"
@@ -60,6 +62,7 @@ int main(int argc, char *argv[])
     OcDBusUpdater updater;
     OcDBusDownloads downloads;
     OcDBusImageFetcher imageFetcher;
+    OcConfiguration *config = new OcConfiguration;
 
     OcFolderModelSql *folderModelSql = new OcFolderModelSql();
     OcCombinedModelSql *combinedModelSql = new OcCombinedModelSql();
@@ -69,7 +72,9 @@ int main(int argc, char *argv[])
     OcItemsModelFilter *itemsModelFilter = new OcItemsModelFilter;
     itemsModelFilter->setSourceModel(itemsModelSql);
     OcSpecialItemsModelSql *specialItemsModelSql = new OcSpecialItemsModelSql();
-    OcSingleItemModelSql *singleItemModelSql = new OcSingleItemModelSql();
+//    OcSingleItemModelSql *singleItemModelSql = new OcSingleItemModelSql();
+    OcSingleItemModelNew *singleItemModelNew = new OcSingleItemModelNew;
+
 
 
     // connections to the items model
@@ -94,7 +99,7 @@ int main(int argc, char *argv[])
 
     QObject::connect(view->engine(), SIGNAL(quit()), QCoreApplication::instance(), SLOT(quit()));
 
-    if (dbus.getSetting("engine/quitonclose", false).toBool())
+    if (config->quitEngine())
         QObject::connect(QCoreApplication::instance(), SIGNAL(aboutToQuit()), &dbus, SLOT(quitEngine()));
 
     view->rootContext()->setContextProperty("folderModelSql", folderModelSql);
@@ -103,7 +108,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("itemsModelSql", itemsModelSql);
     view->rootContext()->setContextProperty("itemsModelFilter", itemsModelFilter);
     view->rootContext()->setContextProperty("specialItemsModelSql", specialItemsModelSql);
-    view->rootContext()->setContextProperty("singleItemModelSql", singleItemModelSql);
+    view->rootContext()->setContextProperty("item", singleItemModelNew);
     view->rootContext()->setContextProperty("folders", &folders);
     view->rootContext()->setContextProperty("feeds", &feeds);
     view->rootContext()->setContextProperty("items", &items);
@@ -113,6 +118,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("downloads", &downloads);
     view->rootContext()->setContextProperty("imageFetcher", &imageFetcher);
     view->rootContext()->setContextProperty("nami", nami);
+    view->rootContext()->setContextProperty("config", config);
     view->rootContext()->setContextProperty("versionString", VERSION_STRING);
     view->rootContext()->setContextProperty("versionInt", VERSION);
 

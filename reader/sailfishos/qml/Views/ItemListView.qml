@@ -4,23 +4,20 @@ import Sailfish.Silica 1.0
 import "../Delegates"
 import "../Common"
 import "../BTComponents"
-import "../JS/globals.js" as GLOBALS
 
 Page {
     id: itemListView
 
-    property string feedId
     property string feedName
 
-    property int handleRead: dbus.getSetting("display/handleread", 0)
-    property bool sortAsc: dbus.getSetting("display/sortasc", false) == "true"
+    property int handleRead: config.handleRead
+    property bool sortAsc: config.sortAsc
     property string searchString: ""
 
     onSearchStringChanged: itemList.model.search = searchString
     onSortAscChanged: itemList.model.sortAsc = sortAsc
 
-    Component.onCompleted: itemsModelSql.feedId = feedId
-    Component.onDestruction: GLOBALS.previousContentY = 0
+    Component.onCompleted: itemList.contentY = -headerContainer.height
 
     Connections {
         target: feeds
@@ -32,6 +29,10 @@ Page {
 
     Column {
         id: headerContainer
+
+        move: Transition { NumberAnimation { properties: "y"; easing.type: Easing.InOutQuad } }
+        add: Transition { FadeAnimation {} }
+
 
         width: itemListView.width
 
@@ -125,7 +126,7 @@ Page {
 
         model: itemsModelFilter
 
-        delegate: ItemListDelegate { feedId: itemListView.feedId; searchString: searchField.text; handleRead: itemListView.handleRead; sortAsc: itemListView.sortAsc; feedType: "0" }
+        delegate: ItemListDelegate { feedId: itemsModelSql.feedId; searchString: searchField.text; handleRead: itemListView.handleRead; sortAsc: itemListView.sortAsc; feedType: "0" }
 
         VerticalScrollDecorator {}
 

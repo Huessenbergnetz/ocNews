@@ -22,7 +22,14 @@ ListItem {
 
     onClicked: {
         if (model.unread) busyIndicator.state = "RUNNING"
-        pageStack.push(Qt.resolvedUrl("../Views/SingleItemView.qml"), {itemId: model.itemId, searchString: itemListItem.searchString, handleRead: itemListItem.handleRead, sortAsc: itemListItem.sortAsc, feedType: itemListItem.feedType, parentFeedId: itemListItem.feedId })
+        item.searchString = searchString
+        item.handleRead = handleRead
+        item.sortAsc = sortAsc
+        item.feedType = feedType
+        item.parentFeedId = feedId
+        item.showImg = config.handleImgs > 0
+        item.itemId = model.itemId
+        pageStack.push(Qt.resolvedUrl("../Views/SingleItemView.qml"))
     }
 
     function starParams() {

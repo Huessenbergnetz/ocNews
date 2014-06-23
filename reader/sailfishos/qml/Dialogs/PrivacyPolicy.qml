@@ -4,14 +4,12 @@ import Sailfish.Silica 1.0
 Dialog {
     id: privacyPolicy
 
-    property bool policy: dbus.getSetting("display/privacypolicy", false) == "true" ? true : false
-
     property string _RICHTEXT_STYLESHEET_PREAMBLE: "<html><style>a { text-decoration: none; color: '" + Theme.secondaryHighlightColor + "' }</style><body>";
     property string _RICHTEXT_STYLESHEET_APPENDIX: "</body></html>";
 
     acceptDestinationAction: PageStackAction.Pop
 
-    DialogHeader { acceptText: policy ? qsTr("Close") : qsTr("Accept") }
+    DialogHeader { acceptText: config.privacyShown ? qsTr("Close") : qsTr("Accept") }
 
     SilicaFlickable {
         id: policyFlick
@@ -145,6 +143,6 @@ Dialog {
         }
     }
 
-    onAccepted: dbus.setSetting("display/privacypolicy", true);
+    onAccepted: config.privacyShown = true
     onRejected: policy ? "" : Qt.quit();
 }

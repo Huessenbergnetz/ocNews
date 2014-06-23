@@ -11,32 +11,7 @@ import "../JS/globals.js" as GLOBALS
 Page {
     id: mainView
 
-    property int configState
-
-    Component.onCompleted: {
-        if (dbus.isConfigSet() && dbus.isAccountEnabled()) {
-            configState = 0
-        } else if (!dbus.isConfigSet()) {
-            configState = 1
-        } else if (dbus.isConfigSet() && !dbus.isAccountEnabled()) {
-            configState = 2
-        }
-    }
-
-    Connections {
-        target: dbus
-        onSavedConfig: {
-            if (dbus.isConfigSet() && dbus.isAccountEnabled()) {
-                configState = 0
-            } else if (!dbus.isConfigSet()) {
-                configState = 1
-            } else if (dbus.isConfigSet() && !dbus.isAccountEnabled()) {
-                configState = 2
-            }
-            mainViewList.model.refresh()
-        }
-        onCleanedDatabase: mainViewList.model.refresh()
-    }
+    property int configState: (config.isValid && config.accountEnabled) ? 0 : (!config.isValid) ? 1 : (config.isValid && !config.accountEnabled) ? 2 : 2
 
     Connections {
         target: updater
@@ -82,7 +57,6 @@ Page {
 
     SilicaListView {
         id: mainViewList
-//        anchors { top: parent.top; right: parent.right; left: parent.left; bottom: fetchIndicator.visible ? fetchIndicator.top : parent.bottom; bottomMargin: addActionsDock.open ? addActionsDock.height * 1.5 : 0 }
         anchors { top: parent.top; right: parent.right; left: parent.left; bottom: fetchIndicator.visible ? fetchIndicator.top : addActionsDock.open ? addActionsDock.top : parent.bottom }
         clip: true
 
@@ -114,7 +88,7 @@ Page {
             MenuItem {
                 id: quit
                 text: qsTr("Quit")
-                visible: dbus.getSetting("engine/quitonclose", "false") == "false"
+                visible: !config.quitEngine
                 onClicked: quitEngine()
             }
             MenuItem {
@@ -160,7 +134,7 @@ Page {
             text: qsTr("The local database is empty. Please make an update or add new feeds and folders.")
         }
 
-        model: viewMode === 0 ? folderModelSql : combinedModelSql
+        model: configState === 0 ? config.viewMode === 0 ? folderModelSql : combinedModelSql : null
         onModelChanged: model.refresh();
 
         delegate: FolderListDelegate { visible: configState === 0 && mainViewList.count > 1 }
@@ -169,7 +143,6 @@ Page {
 
         PushUpMenu {
             id: mainViewPushy
-            enabled: mainViewList.contentHeight >= mainViewList.height
             visible: mainViewList.contentHeight >= mainViewList.height
             MenuItem {
                 id: goToTop
