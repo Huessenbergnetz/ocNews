@@ -64,12 +64,13 @@ public slots:
     void itemsUpdated(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
 
 private slots:
-    void clear();
+    void clearByTimer();
 
 private:
     QList<OcItemObject*> m_items;
 
     void init();
+    void clear();
 
     int m_feedId;
     bool m_populating;

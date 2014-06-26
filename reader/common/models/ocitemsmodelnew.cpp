@@ -26,7 +26,7 @@ OcItemsModelNew::OcItemsModelNew(QObject *parent) :
 
     timer = new QTimer(this);
     timer->setSingleShot(true);
-    connect(timer, SIGNAL(timeout()), this, SLOT(clear()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(clearByTimer()));
 
 }
 
@@ -202,8 +202,6 @@ void OcItemsModelNew::clear()
 
     m_items.clear();
 
-    m_feedId = -999;
-
     endRemoveRows();
 }
 
@@ -219,8 +217,8 @@ void OcItemsModelNew::setFeedId(const int &nFeedId)
     timer->stop();
     if (nFeedId != m_feedId) {
         m_feedId = nFeedId;
-        emit feedIdChanged(feedId());
         init();
+        emit feedIdChanged(feedId());
     }
 }
 
@@ -267,15 +265,8 @@ void OcItemsModelNew::itemsMarked(const QStringList &ids, const QString &action)
 
         for (int i = 0; i < rowCount(); ++i) {
             if (ids.contains(QString::number(m_items.at(i)->itemId))) {
-                OcItemObject *iobj = m_items.at(i);
 
-                if (action == "read") {
-                    iobj->unread = false;
-                } else {
-                    iobj->unread = true;
-                }
-
-                m_items[i] = iobj;
+                m_items.at(i)->unread = (action == "read") ? false : true;
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
                 emit dataChanged(index(i), index(i), QVector<int>(1, UnreadRole));
@@ -295,15 +286,8 @@ void OcItemsModelNew::itemsStarred(const QStringList &hashes, const QString &act
 
         for (int i = 0; i < rowCount(); ++i) {
             if (hashes.contains(m_items.at(i)->guidHash)) {
-                OcItemObject *iobj = m_items.at(i);
 
-                if (action == "star") {
-                    iobj->starred = true;
-                } else {
-                    iobj->starred = false;
-                }
-
-                m_items[i] = iobj;
+                m_items.at(i)->starred = (action == "star") ? true : false;
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
                 emit dataChanged(index(i), index(i), QVector<int>(1, StarredRole));
@@ -323,11 +307,7 @@ void OcItemsModelNew::feedMarkedRead(const int &markedFeedId)
 
         for (int i = 0; i < rowCount(); ++i) {
 
-            OcItemObject *iobj = m_items.at(i);
-
-            iobj->unread = false;
-
-            m_items[i] = iobj;
+            m_items.at(i)->unread = false;
 
         }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
@@ -448,9 +428,10 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
                                              "it.unread, "
                                              "it.starred, "
                                              "it.url, "
-                                             "it.guidHash ");
+                                             "it.guidHash "
+                                      "FROM items it WHERE id = %1").arg(iobj->itemId);
 
-                queryString.append(QString("FROM items it WHERE id = %1").arg(m_items.at(i)->itemId));
+//                queryString.append(QString("FROM items it WHERE id = %1").arg(m_items.at(i)->itemId));
 
                 q.exec(queryString);
 
@@ -465,7 +446,7 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
                 iobj->url = q.value(6).toString();
                 iobj->guidHash = q.value(7).toString();
 
-                m_items[i] = iobj;
+//                m_items[i] = iobj;
 
                 emit dataChanged(index(i, 0), index(i, 0));
             }
@@ -525,6 +506,13 @@ void OcItemsModelNew::allMarkedRead()
 
 void OcItemsModelNew::startCleanUpTimer()
 {
-    qDebug() << "Start timer";
     timer->start(30000);
+}
+
+
+void OcItemsModelNew::clearByTimer()
+{
+    clear();
+
+    m_feedId = -999;
 }
