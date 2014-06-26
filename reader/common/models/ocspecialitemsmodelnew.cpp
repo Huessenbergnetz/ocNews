@@ -241,8 +241,6 @@ void OcSpecialItemsModelNew::init()
 
     querystring.append(" ORDER BY pubDate DESC");
 
-    qDebug() << querystring;
-
     query.exec(querystring);
 
 
@@ -279,8 +277,9 @@ void OcSpecialItemsModelNew::clear()
 {
     beginRemoveRows(QModelIndex(), 0, rowCount()-1);
 
-    for (int i = 0; i < m_items.size(); ++i)
-        delete m_items.at(i);
+    while (!m_items.isEmpty()) {
+        delete m_items.takeLast();
+    }
 
     m_items.clear();
 
@@ -310,7 +309,11 @@ void OcSpecialItemsModelNew::itemsMarked(const QStringList &ids, const QString &
 
                 m_items[i] = iobj;
 
-                emit dataChanged(index(i, 0), index(i, 0));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+                emit dataChanged(index(i), index(i), QVector<int>(1, UnreadRole));
+#else
+                emit dataChanged(index(i), index(i);
+#endif
             }
         }
     }
@@ -334,7 +337,11 @@ void OcSpecialItemsModelNew::itemsStarred(const QStringList &hashes, const QStri
 
                 m_items[i] = iobj;
 
-                emit dataChanged(index(i, 0), index(i, 0));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+                emit dataChanged(index(i), index(i), QVector<int>(1, StarredRole));
+#else
+                emit dataChanged(index(i), index(i);
+#endif
             }
         }
     }
@@ -352,7 +359,11 @@ void OcSpecialItemsModelNew::folderMarkedRead(const int &markedFolderId)
             if (iobj->unread) {
                 iobj->unread = false;
                 m_items[i] = iobj;
-                emit dataChanged(index(i, 0), index(i, 0));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+                emit dataChanged(index(i), index(i), QVector<int>(1, UnreadRole));
+#else
+                emit dataChanged(index(i), index(i);
+#endif
             }
         }
     }
@@ -371,7 +382,11 @@ void OcSpecialItemsModelNew::allMarkedRead()
             if (iobj->unread) {
                 iobj->unread = false;
                 m_items[i] = iobj;
-                emit dataChanged(index(i, 0), index(i, 0));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+                emit dataChanged(index(i), index(i), QVector<int>(1, UnreadRole));
+#else
+                emit dataChanged(index(i), index(i);
+#endif
             }
         }
     }
@@ -545,7 +560,7 @@ void OcSpecialItemsModelNew::itemsUpdated(const QList<int> &updated, const QList
 
             beginRemoveRows(QModelIndex(), idx, idx);
 
-            m_items.removeAt(idx);
+            delete m_items.takeAt(idx);
 
             endRemoveRows();
         }

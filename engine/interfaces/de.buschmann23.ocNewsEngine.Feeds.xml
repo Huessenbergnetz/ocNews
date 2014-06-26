@@ -49,12 +49,15 @@
         <signal name="movedFeedError">
             <arg name="moveFeedResultError" type="s" direction="out"/>
         </signal>
-        <signal name="movedFeedSuccess"/>
+        <signal name="movedFeedSuccess">
+            <arg name="feedId" type="i" direction="out"/>
+            <arg name="folderId" type="i" direction="out"/>
+        </signal>
         <signal name="markedReadFeedError">
             <arg name="markedReadFeedErrorResult" type="s" direction="out"/>
         </signal>
         <signal name="renamedFeedSuccess">
-            <arg direction="out" type="s" name="newName"/>
+            <arg direction="out" type="i" name="newName"/>
         </signal>
         <signal name="renamedFeedError">
             <arg direction="out" type="s" name="renamedFeedErrorString"/>
@@ -64,3 +67,4 @@
         </signal>
     </interface>
 </node>
+

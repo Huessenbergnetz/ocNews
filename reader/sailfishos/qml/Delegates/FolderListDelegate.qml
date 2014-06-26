@@ -17,6 +17,8 @@ ListItem {
     ListView.onAdd: AddAnimation { target: folderListItem }
     ListView.onRemove: animateRemoval(folderListItem)
 
+    property alias busyState: busyIndicator.state
+
     onClicked: {
 
         switch(model.type)
@@ -203,7 +205,7 @@ ListItem {
                 enabled: !operationRunning
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/MoveFeed.qml"), {feedId: model.id, feedName: model.title, folderId: "0"})
-                    dialog.accepted.connect(function() { busyIndicator.state = "RUNNING"; operationRunning = true; })
+                    dialog.accepted.connect(function() { folderListItem.busyState = "RUNNING"; operationRunning = true; })
                 }
             }
             MenuItem {

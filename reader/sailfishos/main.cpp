@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
     // connections to the items model
     QObject::connect(&items, SIGNAL(markedItemsSuccess(QStringList,QString)), itemsModelSql, SLOT(itemsMarked(QStringList,QString)));
     QObject::connect(&items, SIGNAL(starredItemsSuccess(QStringList,QString)), itemsModelSql, SLOT(itemsStarred(QStringList,QString)));
-    QObject::connect(&feeds, SIGNAL(markedReadFeedSuccess(QString)), itemsModelSql, SLOT(feedMarkedRead(QString)));
+    QObject::connect(&feeds, SIGNAL(markedReadFeedSuccess(int)), itemsModelSql, SLOT(feedMarkedRead(int)));
     QObject::connect(&items, SIGNAL(updatedItemsSuccess(QList<int>,QList<int>,QList<int>)), itemsModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
     QObject::connect(&items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), itemsModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
     QObject::connect(&items, SIGNAL(markedAllItemsReadSuccess()), itemsModelSql, SLOT(allMarkedRead()));
@@ -124,6 +124,9 @@ int main(int argc, char *argv[])
     QObject::connect(&items, SIGNAL(starredItemsSuccess(QStringList,QString)), combinedModelSql, SLOT(itemsStarred()));
     QObject::connect(&feeds, SIGNAL(requestedFeedsSuccess(QList<int>,QList<int>,QList<int>)), combinedModelSql, SLOT(feedsRequested(QList<int>,QList<int>,QList<int>)));
     QObject::connect(&feeds, SIGNAL(createdFeedSuccess(QString,int)), combinedModelSql, SLOT(feedCreated(QString,int)));
+    QObject::connect(&feeds, SIGNAL(deletedFeedSuccess(int)), combinedModelSql, SLOT(feedDeleted(int)));
+    QObject::connect(&feeds, SIGNAL(markedReadFeedSuccess(int)), combinedModelSql, SLOT(feedMarkedRead(int)));
+    QObject::connect(&feeds, SIGNAL(movedFeedSuccess(int,int)), combinedModelSql, SLOT(feedMoved(int,int)));
 
     // register reader dbus interface
     QDBusConnection connection = QDBusConnection::sessionBus();

@@ -647,7 +647,7 @@ void OcFeeds::feedMovedUpdateDb(const int &id, const QString &folderId)
     query.bindValue(":id", id);
     query.exec();
 
-    emit movedFeedSuccess();
+    emit movedFeedSuccess(id, folderId.toInt());
 }
 
 
@@ -832,7 +832,7 @@ void OcFeeds::feedMarkedReadUpdateDb(const int &id)
     query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE unread = %4 AND feedId = %1").arg(id).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE).arg(SQL_TRUE));
     QSqlDatabase::database().commit();
 
-    emit markedReadFeedSuccess(QString::number(id));
+    emit markedReadFeedSuccess(id);
 }
 
 

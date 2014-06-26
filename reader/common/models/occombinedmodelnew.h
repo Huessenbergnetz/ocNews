@@ -48,15 +48,20 @@ public slots:
     void itemsUpdated(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
     void itemsStarred();
     void itemsMarked();
-    void feedCreated(const QString &name, const int &id);
 
     void feedsRequested(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted);
+    void feedCreated(const QString &name, const int &id);
+    void feedDeleted(const int &id);
+    void feedMarkedRead(const int &id);
+    void feedMoved(const int &feedId, const int &folderId);
 
 private:
     QList<OcCombinedObject*> m_items;
 
     bool m_active;
     int m_totalUnread;
+
+    int findIndex(const int &id) const;
 
 };
 

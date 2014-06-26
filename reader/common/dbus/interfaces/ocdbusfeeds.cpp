@@ -9,9 +9,9 @@ OcDBusFeeds::OcDBusFeeds(QObject *parent) :
     connect(feeds, SIGNAL(deletedFeedError(QString)), this, SLOT(dbusDeletedFeedError(QString)));
     connect(feeds, SIGNAL(deletedFeedSuccess(int)), this, SLOT(dbusDeletedFeedSuccess(int)));
     connect(feeds, SIGNAL(markedReadFeedError(QString)), this, SLOT(dbusMarkedReadFeedError(QString)));
-    connect(feeds, SIGNAL(markedReadFeedSuccess(QString)), this, SLOT(dbusMarkedReadFeedSuccess(QString)));
+    connect(feeds, SIGNAL(markedReadFeedSuccess(int)), this, SLOT(dbusMarkedReadFeedSuccess(int)));
     connect(feeds, SIGNAL(movedFeedError(QString)), this, SLOT(dbusMovedFeedError(QString)));
-    connect(feeds, SIGNAL(movedFeedSuccess()), this, SLOT(dbusMovedFeedSuccess()));
+    connect(feeds, SIGNAL(movedFeedSuccess(int,int)), this, SLOT(dbusMovedFeedSuccess(int,int)));
     connect(feeds, SIGNAL(requestedFeedsError(QString)), this, SLOT(dbusRequestedFeedsError(QString)));
     connect(feeds, SIGNAL(requestedFeedsSuccess(QList<int>, QList<int>, QList<int>)), this, SLOT(dbusRequestedFeedsSuccess(QList<int>, QList<int>, QList<int>)));
     connect(feeds, SIGNAL(renamedFeedError(QString)), this, SLOT(dbusRenamedFeedError(QString)));
@@ -78,7 +78,7 @@ void OcDBusFeeds::dbusMarkedReadFeedError(const QString &markedReadFeedErrorResu
     emit markedReadFeedError(markedReadFeedErrorResult);
 }
 
-void OcDBusFeeds::dbusMarkedReadFeedSuccess(const QString &feedId)
+void OcDBusFeeds::dbusMarkedReadFeedSuccess(const int &feedId)
 {
     emit markedReadFeedSuccess(feedId);
 }
@@ -88,9 +88,9 @@ void OcDBusFeeds::dbusMovedFeedError(const QString &moveFeedResultError)
     emit movedFeedError(moveFeedResultError);
 }
 
-void OcDBusFeeds::dbusMovedFeedSuccess()
+void OcDBusFeeds::dbusMovedFeedSuccess(const int &feedId, const int &folderId)
 {
-    emit movedFeedSuccess();
+    emit movedFeedSuccess(feedId, folderId);
 }
 
 void OcDBusFeeds::dbusRequestedFeedsError(const QString &requestedFeedsErrorString)

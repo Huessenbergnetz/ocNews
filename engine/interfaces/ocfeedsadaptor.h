@@ -78,12 +78,15 @@ class OcFeedsAdaptor: public QDBusAbstractAdaptor
 "    <signal name=\"movedFeedError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"moveFeedResultError\"/>\n"
 "    </signal>\n"
-"    <signal name=\"movedFeedSuccess\"/>\n"
+"    <signal name=\"movedFeedSuccess\">\n"
+"      <arg name=\"feedId\" type=\"i\" direction=\"out\"/>\n"
+"      <arg name=\"folderId\" type=\"i\" direction=\"out\"/>\n"
+"    </signal>\n"
 "    <signal name=\"markedReadFeedError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"markedReadFeedErrorResult\"/>\n"
 "    </signal>\n"
 "    <signal name=\"renamedFeedSuccess\">\n"
-"      <arg direction=\"out\" type=\"s\" name=\"newName\"/>\n"
+"      <arg direction=\"out\" type=\"i\" name=\"newName\"/>\n"
 "    </signal>\n"
 "    <signal name=\"renamedFeedError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"renamedFeedErrorString\"/>\n"
@@ -112,9 +115,9 @@ Q_SIGNALS: // SIGNALS
     void deletedFeedError(const QString &deleteFeedResultError);
     void deletedFeedSuccess(const int &id);
     void markedReadFeedError(const QString &markedReadFeedErrorResult);
-    void markedReadFeedSuccess(const QString &feedId);
+    void markedReadFeedSuccess(const int &feedId);
     void movedFeedError(const QString &moveFeedResultError);
-    void movedFeedSuccess();
+    void movedFeedSuccess(const int &feedId, const int &folderId);
     void requestedFeedsError(const QString &requestedFeedsErrorString);
     void requestedFeedsSuccess(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted);
     void renamedFeedSuccess(const QString &newName);

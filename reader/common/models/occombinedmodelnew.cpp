@@ -203,8 +203,9 @@ void OcCombinedModelNew::clear()
 {
     beginRemoveRows(QModelIndex(), 0, rowCount()-1);
 
-    for (int i = 0; i < m_items.size(); ++i)
-        delete m_items.takeAt(i);
+    while (!m_items.isEmpty()) {
+        delete m_items.takeLast();
+    }
 
     m_items.clear();
 
@@ -371,7 +372,11 @@ void OcCombinedModelNew::itemsMarked()
                 cobj->unreadCount = idsAndUnread[cobj->id];
                 m_items.replace(i, cobj);
 
-                emit dataChanged(index(i, 0), index(i, 0));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+                emit dataChanged(index(i), index(i), QVector<int>(1, UnreadCountRole));
+#else
+                emit dataChanged(index(i), index(i));
+#endif
             }
     }
 }
@@ -404,7 +409,11 @@ void OcCombinedModelNew::itemsStarred()
                 cobj->unreadCount = uc;
                 m_items.replace(i, cobj);
 
-                emit dataChanged(index(i, 0), index(i, 0));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+                emit dataChanged(index(i), index(i), QVector<int>(1, UnreadCountRole));
+#else
+                emit dataChanged(index(i), index(i));
+#endif
             }
     }
 }
@@ -437,5 +446,94 @@ void OcCombinedModelNew::feedCreated(const QString &name, const int &id)
         m_items.append(cobj);
 
         endInsertRows();
+    }
+}
+
+
+
+void OcCombinedModelNew::feedDeleted(const int &id)
+{
+    if (!active())
+        return;
+
+    int deletedIdx = -999;
+
+    for (int i = 0; i < rowCount(); ++i)
+    {
+        if (m_items.at(i)->id == id)
+            deletedIdx = i;
+    }
+
+    if (deletedIdx != -999) {
+        beginRemoveRows(QModelIndex(), deletedIdx, deletedIdx);
+
+        delete m_items.takeAt(deletedIdx);
+
+        endRemoveRows();
+    }
+}
+
+
+
+void OcCombinedModelNew::feedMarkedRead(const int &id)
+{
+    if (!active())
+        return;
+
+    int idx = findIndex(id);
+
+    m_items.at(idx)->unreadCount = 0;
+
+//    OcCombinedObject *cobj = m_items.at(idx);
+
+//    cobj->unreadCount = 0;
+
+//    m_items.replace(idx, cobj);
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    emit dataChanged(index(idx), index(idx), QVector<int>(1, UnreadCountRole));
+#else
+    emit dataChanged(index(idx), index(idx));
+#endif
+}
+
+
+void OcCombinedModelNew::feedMoved(const int &feedId, const int &folderId)
+{
+    if (!active())
+        return;
+
+    QSqlQuery query;
+
+    query.exec(QString("SELECT name FROM folders WHERE id = %1").arg(folderId));
+
+    query.next();
+
+    int idx = findIndex(feedId);
+
+    OcCombinedObject *cobj = m_items.at(idx);
+
+    cobj->folderId = folderId;
+    cobj->folderName = query.value(0).toString();
+
+    m_items.replace(idx, cobj);
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    QVector<int> roles(1, FolderIdRole);
+    roles.append(FolderNameRole);
+    emit dataChanged(index(idx), index(idx), roles);
+#else
+    emit dataChanged(index(idx), index(idx));
+#endif
+
+}
+
+
+
+int OcCombinedModelNew::findIndex(const int &id) const
+{
+    for (int i = 0; i < rowCount(); ++i) {
+        if (m_items.at(i)->id == id)
+            return i;
     }
 }

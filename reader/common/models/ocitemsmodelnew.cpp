@@ -18,7 +18,7 @@ const int OcItemsModelNew::ImageRole = Qt::UserRole + 12;
 OcItemsModelNew::OcItemsModelNew(QObject *parent) :
     QAbstractListModel(parent)
 {
-    m_feedId = "";
+    m_feedId = -999;
     m_items = QList<OcItemObject*>();
     m_populating = false;
     m_showExcerpts = false;
@@ -26,7 +26,7 @@ OcItemsModelNew::OcItemsModelNew(QObject *parent) :
 
     timer = new QTimer(this);
     timer->setSingleShot(true);
-    connect(timer, SIGNAL(timeout()), this, SLOT(clearByTimer()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(clear()));
 
 }
 
@@ -114,7 +114,7 @@ void OcItemsModelNew::init()
 
     int length = 0;
 
-    queryString = QString("SELECT COUNT(id) FROM items WHERE feedId = %1").arg(feedId().toInt());
+    queryString = QString("SELECT COUNT(id) FROM items WHERE feedId = %1").arg(feedId());
 
     query.exec(queryString);
 
@@ -147,7 +147,7 @@ void OcItemsModelNew::init()
         queryString.append("'' AS image ");
     }
 
-    queryString.append(QString("FROM items it WHERE feedId = %1").arg(feedId().toInt()));
+    queryString.append(QString("FROM items it WHERE feedId = %1").arg(feedId()));
 
     queryString.append(" ORDER BY pubDate DESC");
 
@@ -196,24 +196,25 @@ void OcItemsModelNew::clear()
 {
     beginRemoveRows(QModelIndex(), 0, rowCount()-1);
 
-    for (int i = 0; i < m_items.size(); ++i)
-    {
-        delete m_items.at(i);
+    while (!m_items.isEmpty()) {
+        delete m_items.takeLast();
     }
 
     m_items.clear();
+
+    m_feedId = -999;
 
     endRemoveRows();
 }
 
 
 
-QString OcItemsModelNew::feedId() const
+int OcItemsModelNew::feedId() const
 {
     return m_feedId;
 }
 
-void OcItemsModelNew::setFeedId(const QString &nFeedId)
+void OcItemsModelNew::setFeedId(const int &nFeedId)
 {
     timer->stop();
     if (nFeedId != m_feedId) {
@@ -276,7 +277,11 @@ void OcItemsModelNew::itemsMarked(const QStringList &ids, const QString &action)
 
                 m_items[i] = iobj;
 
-                emit dataChanged(index(i, 0), index(i, 0));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+                emit dataChanged(index(i), index(i), QVector<int>(1, UnreadRole));
+#else
+                emit dataChanged(index(i), index(i));
+#endif
             }
         }
     }
@@ -300,7 +305,11 @@ void OcItemsModelNew::itemsStarred(const QStringList &hashes, const QString &act
 
                 m_items[i] = iobj;
 
-                emit dataChanged(index(i, 0), index(i, 0));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+                emit dataChanged(index(i), index(i), QVector<int>(1, StarredRole));
+#else
+                emit dataChanged(index(i), index(i));
+#endif
             }
         }
     }
@@ -308,7 +317,7 @@ void OcItemsModelNew::itemsStarred(const QStringList &hashes, const QString &act
 
 
 
-void OcItemsModelNew::feedMarkedRead(const QString &markedFeedId)
+void OcItemsModelNew::feedMarkedRead(const int &markedFeedId)
 {
     if (markedFeedId == feedId() && !m_populating) {
 
@@ -321,8 +330,11 @@ void OcItemsModelNew::feedMarkedRead(const QString &markedFeedId)
             m_items[i] = iobj;
 
         }
-
-        emit dataChanged(index(0, 0), index(rowCount()-1, 0));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        emit dataChanged(index(0), index(rowCount()-1), QVector<int>(1, UnreadRole));
+#else
+        emit dataChanged(index(0), index(rowCount()-1);
+#endif
     }
 }
 
@@ -351,7 +363,7 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
 
         int length = 0;
 
-        queryString = QString("SELECT COUNT(id) FROM items WHERE feedId = %1 AND id IN %2").arg(feedId().toInt()).arg(itemList);
+        queryString = QString("SELECT COUNT(id) FROM items WHERE feedId = %1 AND id IN %2").arg(feedId()).arg(itemList);
 
         q.exec(queryString);
 
@@ -385,7 +397,7 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
                 queryString.append("'' AS image ");
             }
 
-            queryString.append(QString("FROM items it WHERE feedId = %1 AND id IN %2").arg(feedId().toInt()).arg(itemList));
+            queryString.append(QString("FROM items it WHERE feedId = %1 AND id IN %2").arg(feedId()).arg(itemList));
 
             queryString.append(" ORDER BY pubDate ASC");
 
@@ -498,20 +510,15 @@ void OcItemsModelNew::allMarkedRead()
             if (iobj->unread) {
                 iobj->unread = false;
                 m_items[i] = iobj;
-                emit dataChanged(index(i, 0), index(i, 0));
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+                emit dataChanged(index(i), index(i), QVector<int>(1, UnreadRole));
+#else
+                emit dataChanged(index(i), index(i);
+#endif
             }
         }
     }
-}
-
-
-void OcItemsModelNew::clearByTimer()
-{
-    qDebug() << "Clean up by timer";
-
-    m_feedId = -99;
-
-    clear();
 }
 
 
