@@ -308,9 +308,14 @@ void OcFeeds::createFeed(const QString &url, const QString &folderId, const bool
         QString t_folderId = folderId;
         addFeedToEventView = eventView;
 
+        QString t_url = url;
+
+        if (!t_url.contains(QRegExp("^(http:\\/\\/\\w|https:\\/\\/\\w)")))
+            t_url.prepend("http://");
+
         // Create the JSON string
         QByteArray parameters("{\"url\": \"");
-        parameters.append(url);
+        parameters.append(t_url);
         parameters.append("\", \"folderId\": ");
         parameters.append(t_folderId.replace(QString("/"), QString("\\/")));
         parameters.append("}");
@@ -405,6 +410,8 @@ void OcFeeds::feedCreatedUpdateDb(const QVariantMap &createFeedResult)
             feedsForEventView.append(",").append(map["id"].toString());
             config.setSetting(QString("event/feeds"), QDBusVariant(feedsForEventView));
         }
+
+        addFeedToEventView = false;
 
         emit feedCreatedFetchItems("100", "0", "0", map["id"].toString(), "true");
         emit createdFeedSuccess(map["title"].toString(), map["id"].toInt());
