@@ -144,7 +144,6 @@ void OcCombinedModelNew::init()
 
     if (length > 0)
     {
-//        length++;
         length += 2;
 
         querystring = "SELECT fe.id AS id, 0 AS type, fe.title, fe.localUnreadCount AS unreadCount, fe.iconSource, fe.iconWidth, fe.iconHeight, fe.folderId, (SELECT name FROM folders WHERE id = fe.folderId) AS folderName FROM feeds fe WHERE fe.folderId > 0 ";
@@ -160,16 +159,6 @@ void OcCombinedModelNew::init()
         querystring.append("UNION ");
 
         querystring.append(QString("SELECT -2 AS id, 2 AS type, '%1' AS title, (SELECT COUNT(id) FROM items WHERE starred = %2) AS unreadCount, '' AS iconSource, '' AS iconWidth, '' AS iconHeight, 0 AS folderId, '' AS folderName ").arg(tr("Favourite posts")).arg(SQL_TRUE));
-
-//        query.exec(QString("SELECT id FROM items WHERE starred = %1 LIMIT 1").arg(SQL_TRUE));
-//        if (query.next())
-//        {
-//            length++;
-
-//            querystring.append("UNION ");
-
-//            querystring.append(QString("SELECT -2 AS id, 2 AS type, '%1' AS title, (SELECT COUNT(id) FROM items WHERE starred = %2) AS unreadCount, '' AS iconSource, '' AS iconWidth, '' AS iconHeight, 0 AS folderId, '' AS folderName ").arg(tr("Favourite posts")).arg(SQL_TRUE));
-//        }
 
         querystring.append("ORDER BY TYPE DESC");
 
@@ -332,6 +321,8 @@ void OcCombinedModelNew::feedsRequested(const QList<int> &updated, const QList<i
             endRemoveRows();
         }
     }
+
+    queryAndSetTotalCount();
 }
 
 
@@ -398,24 +389,15 @@ void OcCombinedModelNew::itemsStarred()
 
     query.next();
 
-    int uc = query.value(0).toInt();
+    int idx = findIndex(-2);
 
-    for (int i = 0; i < rowCount(); ++i)
-    {
-        OcCombinedObject *cobj = m_items.at(i);
-
-        if (cobj->id == -2)
-            if(cobj->unreadCount != uc) {
-                cobj->unreadCount = uc;
-                m_items.replace(i, cobj);
+    m_items.at(idx)->unreadCount = query.value(0).toInt();
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-                emit dataChanged(index(i), index(i), QVector<int>(1, UnreadCountRole));
+    emit dataChanged(index(idx), index(idx), QVector<int>(1, UnreadCountRole));
 #else
-                emit dataChanged(index(i), index(i));
+    emit dataChanged(index(idx), index(idx));
 #endif
-            }
-    }
 }
 
 
@@ -456,21 +438,15 @@ void OcCombinedModelNew::feedDeleted(const int &id)
     if (!active())
         return;
 
-    int deletedIdx = -999;
+    int idx = findIndex(id);
 
-    for (int i = 0; i < rowCount(); ++i)
-    {
-        if (m_items.at(i)->id == id)
-            deletedIdx = i;
-    }
+    beginRemoveRows(QModelIndex(), idx, idx);
 
-    if (deletedIdx != -999) {
-        beginRemoveRows(QModelIndex(), deletedIdx, deletedIdx);
+    delete m_items.takeAt(idx);
 
-        delete m_items.takeAt(deletedIdx);
+    endRemoveRows();
 
-        endRemoveRows();
-    }
+    queryAndSetTotalCount();
 }
 
 
@@ -484,17 +460,13 @@ void OcCombinedModelNew::feedMarkedRead(const int &id)
 
     m_items.at(idx)->unreadCount = 0;
 
-//    OcCombinedObject *cobj = m_items.at(idx);
-
-//    cobj->unreadCount = 0;
-
-//    m_items.replace(idx, cobj);
-
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     emit dataChanged(index(idx), index(idx), QVector<int>(1, UnreadCountRole));
 #else
     emit dataChanged(index(idx), index(idx));
 #endif
+
+    queryAndSetTotalCount();
 }
 
 
@@ -511,12 +483,8 @@ void OcCombinedModelNew::feedMoved(const int &feedId, const int &folderId)
 
     int idx = findIndex(feedId);
 
-    OcCombinedObject *cobj = m_items.at(idx);
-
-    cobj->folderId = folderId;
-    cobj->folderName = query.value(0).toString();
-
-    m_items.replace(idx, cobj);
+    m_items.at(idx)->folderId = folderId;
+    m_items.at(idx)->folderName = query.value(0).toString();
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     QVector<int> roles(1, FolderIdRole);
@@ -529,6 +497,23 @@ void OcCombinedModelNew::feedMoved(const int &feedId, const int &folderId)
 }
 
 
+void OcCombinedModelNew::feedRenamed(const QString &newName, const int &feedId)
+{
+    if (!active())
+        return;
+
+    int idx = findIndex(feedId);
+
+    m_items.at(idx)->title = newName;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    emit dataChanged(index(idx), index(idx), QVector<int>(1, TitleRole));
+#else
+    emit dataChanged(index(idx), index(idx));
+#endif
+}
+
+
 
 int OcCombinedModelNew::findIndex(const int &id) const
 {
@@ -536,4 +521,30 @@ int OcCombinedModelNew::findIndex(const int &id) const
         if (m_items.at(i)->id == id)
             return i;
     }
+
+    return -999;
+}
+
+
+void OcCombinedModelNew::queryAndSetTotalCount()
+{
+    QSqlQuery query;
+
+    query.exec("SELECT ((SELECT IFNULL(SUM(localUnreadCount),0) FROM feeds WHERE folderId = 0) + (SELECT SUM(localUnreadCount) FROM folders))");
+
+    query.next();
+
+    int totalCount = query.value(0).toInt();
+
+    int idx = findIndex(-1);
+
+    m_items.at(idx)->unreadCount = totalCount;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    emit dataChanged(index(idx), index(idx), QVector<int>(1, UnreadCountRole));
+#else
+    emit dataChanged(index(idx), index(idx));
+#endif
+
+    setTotalUnread(totalCount);
 }

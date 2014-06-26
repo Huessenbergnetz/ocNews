@@ -57,13 +57,14 @@
             <arg name="markedReadFeedErrorResult" type="s" direction="out"/>
         </signal>
         <signal name="renamedFeedSuccess">
-            <arg direction="out" type="i" name="newName"/>
+            <arg direction="out" type="s" name="newName"/>
+            <arg direction="out" type="i" name="feedId"/>
         </signal>
         <signal name="renamedFeedError">
             <arg direction="out" type="s" name="renamedFeedErrorString"/>
         </signal>
         <signal name="markedReadFeedSuccess">
-            <arg direction="out" type="s" name="feedId"/>
+            <arg direction="out" type="i" name="feedId"/>
         </signal>
     </interface>
 </node>

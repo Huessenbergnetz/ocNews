@@ -87,6 +87,7 @@ class OcFeedsAdaptor: public QDBusAbstractAdaptor
 "    </signal>\n"
 "    <signal name=\"renamedFeedSuccess\">\n"
 "      <arg direction=\"out\" type=\"i\" name=\"newName\"/>\n"
+"      <arg direction=\"out\" type=\"i\" name=\"feedId\"/>\n"
 "    </signal>\n"
 "    <signal name=\"renamedFeedError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"renamedFeedErrorString\"/>\n"
@@ -120,7 +121,7 @@ Q_SIGNALS: // SIGNALS
     void movedFeedSuccess(const int &feedId, const int &folderId);
     void requestedFeedsError(const QString &requestedFeedsErrorString);
     void requestedFeedsSuccess(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted);
-    void renamedFeedSuccess(const QString &newName);
+    void renamedFeedSuccess(const QString &newName, const int &feedId);
     void renamedFeedError(const QString &renamedFeedErrorString);
 };
 

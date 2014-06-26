@@ -127,6 +127,7 @@ int main(int argc, char *argv[])
     QObject::connect(&feeds, SIGNAL(deletedFeedSuccess(int)), combinedModelSql, SLOT(feedDeleted(int)));
     QObject::connect(&feeds, SIGNAL(markedReadFeedSuccess(int)), combinedModelSql, SLOT(feedMarkedRead(int)));
     QObject::connect(&feeds, SIGNAL(movedFeedSuccess(int,int)), combinedModelSql, SLOT(feedMoved(int,int)));
+    QObject::connect(&feeds, SIGNAL(renamedFeedSuccess(QString,int)), combinedModelSql, SLOT(feedRenamed(QString,int)));
 
     // register reader dbus interface
     QDBusConnection connection = QDBusConnection::sessionBus();

@@ -950,5 +950,5 @@ void OcFeeds::feedRenamedUpdateDb(const int &id, const QString &name)
     query.bindValue(":id", id);
     query.exec();
 
-    emit renamedFeedSuccess(name);
+    emit renamedFeedSuccess(name, id);
 }

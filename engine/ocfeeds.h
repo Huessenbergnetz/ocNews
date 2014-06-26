@@ -42,7 +42,7 @@ Q_SIGNALS: // SIGNALS
     void movedFeedSuccess(const int &feedId, const int &folderId);
     void requestedFeedsError(const QString &requestedFeedsErrorString);
     void requestedFeedsSuccess(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted);
-    void renamedFeedSuccess(const QString &newName);
+    void renamedFeedSuccess(const QString &newName, const int &feedId);
     void renamedFeedError(const QString &renamedFeedErrorString);
 
 signals:
