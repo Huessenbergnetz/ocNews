@@ -407,7 +407,7 @@ void OcFeeds::feedCreatedUpdateDb(const QVariantMap &createFeedResult)
         }
 
         emit feedCreatedFetchItems("100", "0", "0", map["id"].toString(), "true");
-        emit createdFeedSuccess(map["title"].toString());
+        emit createdFeedSuccess(map["title"].toString(), map["id"].toInt());
     }
 }
 

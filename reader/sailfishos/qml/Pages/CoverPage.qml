@@ -47,10 +47,6 @@ CoverBackground {
         return ret;
     }
 
-    function changeItem(id) {
-//        pageStack.replace(Qt.resolvedUrl("../Views/SingleItemView.qml"), { itemId: id, searchString: coverConnector.searchString, handleRead: coverConnector.handleRead, sortAsc: coverConnector.sortAsc, feedType: coverConnector.feedType, parentFeedId: coverConnector.parentFeedId })
-    }
-
     Image {
         source: "/usr/share/harbour-ocnews-reader/icons/graphic-cover-ocnews-background.png"
         x: 0; y: 0; z: -1
@@ -69,7 +65,8 @@ CoverBackground {
             font.pixelSize: Theme.fontSizeHuge
             font.weight: Font.Light
             textFormat: Text.PlainText
-            text: unreadItems
+//            text: unreadItems
+            text: config.viewMode === 0 ? folderModelSql.totalUnread : combinedModelSql.totalUnread
         }
 
         Text {

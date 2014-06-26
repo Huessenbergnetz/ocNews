@@ -14,10 +14,6 @@ Page {
     property int configState: (config.isValid && config.accountEnabled) ? 0 : (!config.isValid) ? 1 : (config.isValid && !config.accountEnabled) ? 2 : 2
 
 //    Connections {
-//        target: updater
-//        onUpdateFinished: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//    }
-//    Connections {
 //        target: folders
 //        onCreatedFolderSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
 //        onDeletedFolderSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
@@ -137,7 +133,7 @@ Page {
         model: configState === 0 ? config.viewMode === 0 ? folderModelSql : combinedModelFilter : null
         onModelChanged: {
             if (config.viewMode === 0) {
-                combinedModelSql.clear()
+                combinedModelSql.active = false
                 folderModelSql.refresh()
             } else {
                 combinedModelSql.active = true

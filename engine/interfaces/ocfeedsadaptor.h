@@ -67,6 +67,7 @@ class OcFeedsAdaptor: public QDBusAbstractAdaptor
 "    </signal>\n"
 "    <signal name=\"createdFeedSuccess\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"feedname\"/>\n"
+"      <arg name=\"feedId\" type=\"i\" direction=\"out\"/>\n"
 "    </signal>\n"
 "    <signal name=\"deletedFeedError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"deleteFeedResultError\"/>\n"
@@ -107,7 +108,7 @@ public Q_SLOTS: // METHODS
     void requestFeeds();
 Q_SIGNALS: // SIGNALS
     void createdFeedError(const QString &createFeedResultError);
-    void createdFeedSuccess(const QString &feedname);
+    void createdFeedSuccess(const QString &feedname, const int &feedId);
     void deletedFeedError(const QString &deleteFeedResultError);
     void deletedFeedSuccess(const int &id);
     void markedReadFeedError(const QString &markedReadFeedErrorResult);

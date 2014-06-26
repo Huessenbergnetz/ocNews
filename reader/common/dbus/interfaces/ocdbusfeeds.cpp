@@ -5,7 +5,7 @@ OcDBusFeeds::OcDBusFeeds(QObject *parent) :
 {
     feeds = new de::buschmann23::ocNewsEngine::Feeds("de.buschmann23.ocNewsEngine", "/Feeds", QDBusConnection::sessionBus(), this);
     connect(feeds, SIGNAL(createdFeedError(QString)), this, SLOT(dbusCreatedFeedError(QString)));
-    connect(feeds, SIGNAL(createdFeedSuccess(QString)), this, SLOT(dbusCreatedFeedSuccess(QString)));
+    connect(feeds, SIGNAL(createdFeedSuccess(QString,int)), this, SLOT(dbusCreatedFeedSuccess(QString,int)));
     connect(feeds, SIGNAL(deletedFeedError(QString)), this, SLOT(dbusDeletedFeedError(QString)));
     connect(feeds, SIGNAL(deletedFeedSuccess(int)), this, SLOT(dbusDeletedFeedSuccess(int)));
     connect(feeds, SIGNAL(markedReadFeedError(QString)), this, SLOT(dbusMarkedReadFeedError(QString)));
@@ -58,9 +58,9 @@ void OcDBusFeeds::dbusCreatedFeedError(const QString &createFeedResultError)
     emit createdFeedError(createFeedResultError);
 }
 
-void OcDBusFeeds::dbusCreatedFeedSuccess(const QString &feedname)
+void OcDBusFeeds::dbusCreatedFeedSuccess(const QString &feedname, const int &feedId)
 {
-    emit createdFeedSuccess(feedname);
+    emit createdFeedSuccess(feedname, feedId);
 }
 
 void OcDBusFeeds::dbusDeletedFeedError(const QString &deleteFeedResultError)

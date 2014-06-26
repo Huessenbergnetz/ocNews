@@ -15,7 +15,7 @@ public:
     
 signals:
     void createdFeedError(const QString &createFeedResultError);
-    void createdFeedSuccess(const QString &feedname);
+    void createdFeedSuccess(const QString &feedname, const int &feedId);
     void deletedFeedError(const QString &deleteFeedResultError);
     void deletedFeedSuccess(const int &id);
     void markedReadFeedError(const QString &markedReadFeedError);
@@ -37,7 +37,7 @@ public slots:
 
 private slots:
     void dbusCreatedFeedError(const QString &createFeedResultError);
-    void dbusCreatedFeedSuccess(const QString &feedname);
+    void dbusCreatedFeedSuccess(const QString &feedname, const int &feedId);
     void dbusDeletedFeedError(const QString &deleteFeedResultError);
     void dbusDeletedFeedSuccess(const int &id);
     void dbusMarkedReadFeedError(const QString &markedReadFeedErrorResult);

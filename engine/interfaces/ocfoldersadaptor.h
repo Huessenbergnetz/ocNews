@@ -61,16 +61,20 @@ class OcFoldersAdaptor: public QDBusAbstractAdaptor
 "    </signal>\n"
 "    <signal name=\"createdFolderSuccess\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"foldername\"/>\n"
+"      <arg name=\"folderId\" type=\"i\" direction=\"out\" />\n"
 "    </signal>\n"
 "    <signal name=\"deletedFolderError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"deleteresulterror\"/>\n"
 "    </signal>\n"
-"    <signal name=\"deletedFolderSuccess\"/>\n"
+"    <signal name=\"deletedFolderSuccess\">\n"
+"      <arg name=\"folderId\" type=\"i\" direction=\"out\" />\n"
+"    </signal>\n"
 "    <signal name=\"renamedFolderError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"renameresulterror\"/>\n"
 "    </signal>\n"
 "    <signal name=\"renamedFolderSuccess\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"newfoldername\"/>\n"
+"      <arg name=\"folderId\" type=\"i\" direction=\"out\" />\n"
 "    </signal>\n"
 "    <signal name=\"markedReadFolderError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"markedreaderror\"/>\n"
@@ -94,15 +98,15 @@ public Q_SLOTS: // METHODS
     void requestFolders();
 Q_SIGNALS: // SIGNALS
     void createdFolderError(const QString &createresulterror);
-    void createdFolderSuccess(const QString &foldername);
+    void createdFolderSuccess(const QString &foldername, const int &folderId);
     void deletedFolderError(const QString &deleteresulterror);
-    void deletedFolderSuccess();
+    void deletedFolderSuccess(const int &folderId);
     void markedReadFolderError(const QString &markedreaderror);
     void markedReadFolderSuccess(const int &folderId);
     void renamedFolderError(const QString &renameresulterror);
-    void renamedFolderSuccess(const QString &newfoldername);
+    void renamedFolderSuccess(const QString &newfoldername, const int &folderId);
     void requestedFoldersError(const QString &requerstresulterror);
-    void requestedFoldersSuccess();
+    void requestedFoldersSuccess(const QList<int> &updated, const QList<int> &newFolders, const QList<int> &deleted);
 };
 
 #endif

@@ -17,6 +17,7 @@ OcCombinedModelNew::OcCombinedModelNew(QObject *parent) :
 {
     m_items = QList<OcCombinedObject*>();
     m_active = false;
+    m_totalUnread = 0;
 }
 
 
@@ -34,6 +35,17 @@ void OcCombinedModelNew::setActive(const bool &nActive)
         }
 
         emit activeChanged(active());
+    }
+}
+
+
+int OcCombinedModelNew::totalUnread() const { return m_totalUnread; }
+
+void OcCombinedModelNew::setTotalUnread(const int &nTotalUnread)
+{
+    if (nTotalUnread != m_totalUnread) {
+        m_totalUnread = nTotalUnread;
+        emit totalUnreadChanged(totalUnread());
     }
 }
 
@@ -177,6 +189,9 @@ void OcCombinedModelNew::init()
                                                           query.value(7).toInt(),
                                                           query.value(8).toString());
             m_items.append(cobj);
+
+            if (cobj->type == 3)
+                setTotalUnread(cobj->unreadCount);
         }
 
         endInsertRows();
@@ -200,52 +215,8 @@ void OcCombinedModelNew::clear()
 
 void OcCombinedModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted)
 {
-//    if (!active())
-//        return;
-
     if (!updated.isEmpty() || !newItems.isEmpty() || !deleted.isEmpty())
     {
-//        QHash<int, int> idsAndUnread;
-
-//        QSqlQuery query;
-
-//        QString queryString("SELECT id, localUnreadCount FROM feeds");
-
-//        query.exec(queryString);
-
-//        while(query.next()) {
-//            idsAndUnread[query.value(0).toInt()] = query.value(1).toInt();
-//        }
-
-//        queryString = "SELECT ((SELECT IFNULL(SUM(localUnreadCount),0) FROM feeds WHERE folderId = 0) + (SELECT SUM(localUnreadCount) FROM folders))";
-
-//        query.exec(queryString);
-
-//        query.next();
-
-//        idsAndUnread[-1] = query.value(0).toInt();
-
-
-//        queryString = QString("SELECT COUNT(id) FROM items WHERE starred = %2").arg(SQL_TRUE);
-
-//        query.exec(queryString);
-
-//        query.next();
-
-//        idsAndUnread[-2] = query.value(0).toInt();
-
-
-//        for (int i = 0; i < rowCount(); ++i)
-//        {
-//            OcCombinedObject *cobj = m_items.at(i);
-
-//            if (cobj->unreadCount != idsAndUnread[cobj->id]) {
-//                cobj->unreadCount = idsAndUnread[cobj->id];
-//                m_items.replace(i, cobj);
-
-//                emit dataChanged(index(i, 0), index(i, 0));
-//            }
-//        }
         itemsMarked();
 
         itemsStarred();
@@ -389,6 +360,8 @@ void OcCombinedModelNew::itemsMarked()
 
     idsAndUnread[-1] = query.value(0).toInt();
 
+    setTotalUnread(query.value(0).toInt());
+
     for (int i = 0; i < rowCount(); ++i)
     {
         OcCombinedObject *cobj = m_items.at(i);
@@ -433,5 +406,36 @@ void OcCombinedModelNew::itemsStarred()
 
                 emit dataChanged(index(i, 0), index(i, 0));
             }
+    }
+}
+
+
+
+void OcCombinedModelNew::feedCreated(const QString &name, const int &id)
+{
+    if (!active())
+        return;
+
+    QSqlQuery query;
+
+    query.exec(QString("SELECT fe.id AS id, 0 AS type, fe.localUnreadCount AS unreadCount, fe.iconSource, fe.iconWidth, fe.iconHeight, fe.folderId, (SELECT name FROM folders WHERE id = fe.folderId) AS folderName FROM feeds fe WHERE fe.id = %1").arg(id));
+
+    if(query.next()) {
+
+        beginInsertRows(QModelIndex(), rowCount(), rowCount());
+
+        OcCombinedObject *cobj = new OcCombinedObject(query.value(0).toInt(),
+                                                      query.value(1).toInt(),
+                                                      name,
+                                                      query.value(2).toInt(),
+                                                      query.value(3).toString(),
+                                                      query.value(4).toInt(),
+                                                      query.value(5).toInt(),
+                                                      query.value(6).toInt(),
+                                                      query.value(7).toString());
+
+        m_items.append(cobj);
+
+        endInsertRows();
     }
 }

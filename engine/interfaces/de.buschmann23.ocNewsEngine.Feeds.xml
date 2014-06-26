@@ -38,6 +38,7 @@
         </signal>
         <signal name="createdFeedSuccess">
             <arg name="feedname" type="s" direction="out"/>
+            <arg name="feedId" type="i" direction="out"/>
         </signal>
         <signal name="deletedFeedError">
             <arg name="deleteFeedResultError" type="s" direction="out"/>

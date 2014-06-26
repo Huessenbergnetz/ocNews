@@ -21,8 +21,14 @@ ListItem {
 
     onClicked: {
         if (model.unread) busyIndicator.state = "RUNNING"
-        GLOBALS.previousContentY = ListView.view.contentY
-        pageStack.push(Qt.resolvedUrl("../Views/SingleItemView.qml"), {itemId: model.itemId, handleRead: specialItemListItem.handleRead, sortAsc: specialItemListItem.sortAsc, searchString: specialItemListItem.searchString, feedType: specialItemListItem.feedType, parentFeedId: specialItemListItem.feedId})
+        item.searchString = searchString
+        item.handleRead = handleRead
+        item.sortAsc = sortAsc
+        item.feedType = feedType
+        item.parentFeedId = feedId
+        item.showImg = config.handleImgs > 0
+        item.itemId = model.itemId
+        pageStack.push(Qt.resolvedUrl("../Views/SingleItemView.qml"))
     }
 
     function starParams() {

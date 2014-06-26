@@ -253,8 +253,8 @@ void OcFolders::folderCreatedUpdateDb(const QVariantMap &createresult)
         query.bindValue(":id", map["id"].toInt());
         query.bindValue(":name", map["name"].toString());
         query.exec();
-        emit createdFolderSuccess(map["name"].toString());
-        notify.showNotification(tr("Successfully created folder \"%1\"").arg(map["name"].toString()), tr("Created folder"), OcNotifications::Success);
+        emit createdFolderSuccess(map["name"].toString(), map["id"].toInt());
+//        notify.showNotification(tr("Successfully created folder \"%1\"").arg(map["name"].toString()), tr("Created folder"), OcNotifications::Success);
     }
 }
 
@@ -330,7 +330,7 @@ void OcFolders::folderDeletedUpdateDb(const int &id)
     qDebug() << "Deleted Folder ID:" << id;
 #endif
     emit deletedFolderCleanItems(idListFeeds);
-    emit deletedFolderSuccess();
+    emit deletedFolderSuccess(id);
 }
 
 
@@ -406,7 +406,7 @@ void OcFolders::folderRenamedUpdateDb(const int &id, const QString &name)
     query.bindValue(":id", id);
     query.exec();
 
-    emit renamedFolderSuccess(name);
+    emit renamedFolderSuccess(name, id);
 }
 
 

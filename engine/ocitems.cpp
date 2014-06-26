@@ -540,10 +540,6 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
         QSqlDatabase::database().commit();
 
     }
-#ifdef QT_DEBUG
-    qDebug() << "Emit updatedItemsSuccess";
-#endif
-    emit updatedItemsSuccess(updatedItems, newItems, imageItemIdsToDelete);
 
     if ((unreadCount > 0) && config.getSetting(QString("notifications/newItems"), QDBusVariant(false)).variant().toBool())
     {
@@ -552,6 +548,11 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
 
     if (!newEventItems.isEmpty())
         updateEventFeed(newEventItems);
+
+#ifdef QT_DEBUG
+    qDebug() << "Emit updatedItemsSuccess";
+#endif
+    emit updatedItemsSuccess(updatedItems, newItems, imageItemIdsToDelete);
 }
 
 

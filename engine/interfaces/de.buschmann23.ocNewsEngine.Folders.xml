@@ -32,16 +32,20 @@
         </signal>
         <signal name="createdFolderSuccess">
             <arg name="foldername" type="s" direction="out" />
+            <arg name="folderId" type="i" direction="out" />
         </signal>
         <signal name="deletedFolderError">
             <arg name="deleteresulterror" type="s" direction="out" />
         </signal>
-        <signal name="deletedFolderSuccess" />
+        <signal name="deletedFolderSuccess">
+            <arg name="folderId" type="i" direction="out" />
+        </signal>
         <signal name="renamedFolderError">
             <arg name="renameresulterror" type="s" direction="out" />
         </signal>
         <signal name="renamedFolderSuccess">
             <arg name="newfoldername" type="s" direction="out" />
+            <arg name="folderId" type="i" direction="out" />
         </signal>
         <signal name="markedReadFolderError">
             <arg name="markedreaderror" type="s" direction="out" />
@@ -52,4 +56,3 @@
     </interface>
 </node>
 
-requestedFoldersSuccess(const QList<int> &updated, const QList<int> &newFolders, const QList<int> &deleted);

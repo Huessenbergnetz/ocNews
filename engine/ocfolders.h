@@ -26,13 +26,13 @@ public Q_SLOTS: // METHODS
 
 Q_SIGNALS: // SIGNALS
     void createdFolderError(const QString &createresulterror);
-    void createdFolderSuccess(const QString &foldername);
+    void createdFolderSuccess(const QString &foldername, const int &folderId);
     void deletedFolderError(const QString &deleteresulterror);
-    void deletedFolderSuccess();
+    void deletedFolderSuccess(const int &folderId);
     void markedReadFolderError(const QString &markedreaderror);
     void markedReadFolderSuccess(const int &folderId);
     void renamedFolderError(const QString &renameresulterror);
-    void renamedFolderSuccess(const QString &newfoldername);
+    void renamedFolderSuccess(const QString &newfoldername, const int &folderId);
     void requestedFoldersError(const QString &requerstresulterror);
     void requestedFoldersSuccess(const QList<int> &updated, const QList<int> &newFolders, const QList<int> &deleted);
 

@@ -85,7 +85,7 @@ public Q_SLOTS: // METHODS
 
 Q_SIGNALS: // SIGNALS
     void createdFeedError(const QString &createFeedResultError);
-    void createdFeedSuccess(const QString &feedname);
+    void createdFeedSuccess(const QString &feedname, const int &feedId);
     void deletedFeedError(const QString &deleteFeedResultError);
     void deletedFeedSuccess(const int &id);
     void markedReadFeedError(const QString &markedReadFeedErrorResult);

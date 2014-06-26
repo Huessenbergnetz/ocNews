@@ -15,13 +15,13 @@ public:
     
 signals:
     void createdFolderError(const QString &createresulterror);
-    void createdFolderSuccess(const QString &foldername);
+    void createdFolderSuccess(const QString &foldername, const int &folderId);
     void deletedFolderError(const QString &deleteresulterror);
-    void deletedFolderSuccess();
+    void deletedFolderSuccess(const int &folderId);
     void markedReadFolderError(const QString &markedreaderror);
     void markedReadFolderSuccess(const int &folderId);
     void renamedFolderError(const QString &renameresulterror);
-    void renamedFolderSuccess(const QString &newfoldername);
+    void renamedFolderSuccess(const QString &newfoldername, const int &folderId);
     void requestedFoldersError(const QString &requerstresulterror);
     void requestedFoldersSuccess(const QList<int> &updated, const QList<int> &newFolders, const QList<int> &deleted);
     
@@ -34,13 +34,13 @@ public slots:
 
 private slots:
     void dbusCreatedFolderError(const QString &createresulterror);
-    void dbusCreatedFolderSuccess(const QString &foldername);
+    void dbusCreatedFolderSuccess(const QString &foldername, const int &folderId);
     void dbusDeletedFolderError(const QString &deleteresulterror);
-    void dbusDeletedFolderSuccess();
+    void dbusDeletedFolderSuccess(const int &folderId);
     void dbusMarkedReadFolderError(const QString &markedreaderror);
     void dbusMarkedReadFolderSuccess(const int &folderId);
     void dbusRenamedFolderError(const QString &renameresulterror);
-    void dbusRenamedFolderSuccess(const QString &newfoldername);
+    void dbusRenamedFolderSuccess(const QString &newfoldername, const int &folderId);
     void dbusRequestedFoldersError(const QString &requerstresulterror);
     void dbusRequestedFoldersSuccess(const QList<int> &updated, const QList<int> &newFolders, const QList<int> &deleted);
 

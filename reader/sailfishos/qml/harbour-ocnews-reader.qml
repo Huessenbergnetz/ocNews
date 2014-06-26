@@ -9,7 +9,6 @@ ApplicationWindow
     id: ocNewsReader
 
     property bool operationRunning: updater.isUpdateRunning()
-    property int unreadItems: dbus.getStat(0)
     property int lastFullUpdateTime: dbus.getStat(1)
 
     Connections {
@@ -19,7 +18,7 @@ ApplicationWindow
 
     Connections {
         target: updater
-        onUpdateFinished: { operationRunning = false; unreadItems = dbus.getStat(0); lastFullUpdateTime = dbus.getStat(1) }
+        onUpdateFinished: { operationRunning = false; lastFullUpdateTime = dbus.getStat(1) }
         onUpdateError: operationRunning = false
         onUpdateStarted: operationRunning = true
     }
@@ -28,20 +27,20 @@ ApplicationWindow
         onCreatedFolderError: operationRunning = false
         onCreatedFolderSuccess: operationRunning = false
         onDeletedFolderError: operationRunning = false
-        onDeletedFolderSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
+        onDeletedFolderSuccess: operationRunning = false
         onMarkedReadFolderError: operationRunning = false
-        onMarkedReadFolderSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
+        onMarkedReadFolderSuccess: operationRunning = false
         onRenamedFolderError: operationRunning = false
         onRenamedFolderSuccess: operationRunning = false
     }
     Connections {
         target: feeds
         onCreatedFeedError: operationRunning = false
-        onCreatedFeedSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
+        onCreatedFeedSuccess: operationRunning = false
         onDeletedFeedError: operationRunning = false
-        onDeletedFeedSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
+        onDeletedFeedSuccess: operationRunning = false
         onMarkedReadFeedError: operationRunning = false
-        onMarkedReadFeedSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
+        onMarkedReadFeedSuccess: operationRunning = false
         onMovedFeedError: operationRunning = false
         onMovedFeedSuccess: operationRunning = false
         onRenamedFeedSuccess: operationRunning = false
@@ -50,15 +49,15 @@ ApplicationWindow
     Connections {
         target: items
         onMarkedAllItemsReadError: operationRunning = false
-        onMarkedAllItemsReadSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
+        onMarkedAllItemsReadSuccess: operationRunning = false
         onMarkedItemsError: operationRunning = false
-        onMarkedItemsSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
+        onMarkedItemsSuccess: operationRunning = false
         onStarredItemsError: operationRunning = false
         onStarredItemsSuccess: operationRunning = false
         onUpdatedItemsError: operationRunning = false
-        onUpdatedItemsSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
+        onUpdatedItemsSuccess: operationRunning = false
         onRequestedItemsError: operationRunning = false
-        onRequestedItemsSuccess: { operationRunning = false; unreadItems = dbus.getStat(0) }
+        onRequestedItemsSuccess: operationRunning = false
     }
 
     initialPage: Component { MainView { } }

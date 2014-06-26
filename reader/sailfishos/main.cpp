@@ -123,6 +123,7 @@ int main(int argc, char *argv[])
     QObject::connect(&items, SIGNAL(markedItemsSuccess(QStringList,QString)), combinedModelSql, SLOT(itemsMarked()));
     QObject::connect(&items, SIGNAL(starredItemsSuccess(QStringList,QString)), combinedModelSql, SLOT(itemsStarred()));
     QObject::connect(&feeds, SIGNAL(requestedFeedsSuccess(QList<int>,QList<int>,QList<int>)), combinedModelSql, SLOT(feedsRequested(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&feeds, SIGNAL(createdFeedSuccess(QString,int)), combinedModelSql, SLOT(feedCreated(QString,int)));
 
     // register reader dbus interface
     QDBusConnection connection = QDBusConnection::sessionBus();

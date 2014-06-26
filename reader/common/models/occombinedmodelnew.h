@@ -12,6 +12,7 @@ class OcCombinedModelNew : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(bool active READ active WRITE setActive NOTIFY activeChanged)
+    Q_PROPERTY(int totalUnread READ totalUnread WRITE setTotalUnread NOTIFY totalUnreadChanged)
 public:
     explicit OcCombinedModelNew(QObject *parent = 0);
 
@@ -31,19 +32,23 @@ public:
     static const int FolderNameRole;
 
     bool active() const;
+    int totalUnread() const;
 
 signals:
     void activeChanged(const bool &nActive);
+    void totalUnreadChanged(const int &nTotalUnread);
 
 public slots:
     void clear();
     void init();
 
     void setActive(const bool &nActive);
+    void setTotalUnread(const int &nTotalUnread);
 
     void itemsUpdated(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
     void itemsStarred();
     void itemsMarked();
+    void feedCreated(const QString &name, const int &id);
 
     void feedsRequested(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted);
 
@@ -51,6 +56,7 @@ private:
     QList<OcCombinedObject*> m_items;
 
     bool m_active;
+    int m_totalUnread;
 
 };
 
