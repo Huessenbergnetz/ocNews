@@ -192,7 +192,7 @@ int main(int argc, char *argv[])
 
     // updater connections
     QObject::connect(updater, SIGNAL(updateStarted()), folders, SLOT(requestFolders()));
-    QObject::connect(folders, SIGNAL(requestedFoldersSuccess()), updater, SLOT(updateFeeds()));
+    QObject::connect(folders, SIGNAL(requestedFoldersSuccess(QList<int>,QList<int>,QList<int>)), updater, SLOT(updateFeeds()));
     QObject::connect(folders, SIGNAL(requestedFoldersError(QString)), updater, SLOT(errorInUpdate(QString)));
     QObject::connect(updater, SIGNAL(startRequestFeeds()), feeds, SLOT(requestFeeds()));
     QObject::connect(feeds, SIGNAL(requestedFeedsSuccess(QList<int>, QList<int>, QList<int>)), updater, SLOT(updateItems()));

@@ -121,7 +121,7 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
         query.exec(QString("SELECT title, faviconLink, folderId, unreadCount, link FROM feeds WHERE id = %1").arg(map["id"].toInt()));
         if (query.next())
         {
-            updatedFeeds << map["id"].toInt();
+            bool updated = false;
 
             // extract data from the last query
             QString title = query.value(0).toString();
@@ -137,6 +137,8 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
                 query.bindValue(":title", map["title"].toString());
                 query.bindValue(":id", map["id"].toInt());
                 query.exec();
+
+                updated = true;
             }
 
             // check if feed has changed it's favicon link
@@ -147,6 +149,8 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
                 query.bindValue(":id", map["id"].toInt());
                 query.exec();
                 getFavicon( map["id"].toString(), map["faviconLink"].toString());
+
+                updated = true;
             }
 
             // check if feed has changed it's folder id
@@ -156,6 +160,8 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
                 query.bindValue(":folderId", map["folderId"].toInt());
                 query.bindValue(":id", map["id"].toInt());
                 query.exec();
+
+                updated = true;
             }
 
             // check if feed has changed it's unread count
@@ -174,8 +180,12 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
                 query.bindValue(":link", map["link"].toString());
                 query.bindValue(":id", map["id"].toInt());
                 query.exec();
+
+                updated = true;
             }
 
+            if (updated)
+                updatedFeeds << map["id"].toInt();
 
         } else { // if feed is not in database, create it there
             query.prepare("INSERT INTO feeds (id, url, title, faviconLink, added, folderId, unreadCount, link) VALUES (:id, :url, :tit, :fav, :add, :fol, :unr, :lin);");
@@ -201,8 +211,8 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
     }
 
     // now check if feeds were deleted on server
-    QList<int> idList;
-    QList<int> idListDeleted;
+    QList<int> idList = QList<int>();
+    QList<int> idListDeleted = QList<int>();
     QStringList deletedFeedNames;
 
     // put all the ids into a list
@@ -222,6 +232,23 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
             deletedFeedNames << query.value(1).toString();
         }
     }
+
+    if (!idListDeleted.isEmpty()) {
+
+        QString ftdList("(");
+
+        for (int i = 0; i < idListDeleted.size(); ++i)
+        {
+            ftdList.append(QString::number(idListDeleted.at(i)));
+            ftdList.append(", ");
+        }
+
+        ftdList.chop(2);
+        ftdList.append(")");
+
+        query.exec(QString("DELETE FROM feeds WHERE id IN %1").arg(ftdList));
+    }
+
 
     if ((!newFeeds.isEmpty() || !idListDeleted.isEmpty()) && config.getSetting(QString("notifications/feedsFolders"), QDBusVariant(false)).variant().toBool())
     {

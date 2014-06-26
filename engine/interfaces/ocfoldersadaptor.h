@@ -51,7 +51,11 @@ class OcFoldersAdaptor: public QDBusAbstractAdaptor
 "    <signal name=\"requestedFoldersError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"requerstresulterror\"/>\n"
 "    </signal>\n"
-"    <signal name=\"requestedFoldersSuccess\"/>\n"
+"    <signal name=\"requestedFoldersSuccess\">\n"
+"      <arg name=\"updated\" type=\"ai\" direction=\"out\"/>\n"
+"      <arg name=\"newFolders\" type=\"ai\" direction=\"out\"/>\n"
+"      <arg name=\"deleted\" type=\"ai\" direction=\"out\"/>\n"
+"    </signal>\n"
 "    <signal name=\"createdFolderError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"createresulterror\"/>\n"
 "    </signal>\n"
@@ -71,7 +75,9 @@ class OcFoldersAdaptor: public QDBusAbstractAdaptor
 "    <signal name=\"markedReadFolderError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"markedreaderror\"/>\n"
 "    </signal>\n"
-"    <signal name=\"markedReadFolderSuccess\"/>\n"
+"    <signal name=\"markedReadFolderSuccess\">\n"
+"      <arg name=\"folderId\" type=\"i\" direction=\"out\" />\n"
+"    </signal>\n"
 "  </interface>\n"
         "")
 public:
@@ -92,7 +98,7 @@ Q_SIGNALS: // SIGNALS
     void deletedFolderError(const QString &deleteresulterror);
     void deletedFolderSuccess();
     void markedReadFolderError(const QString &markedreaderror);
-    void markedReadFolderSuccess();
+    void markedReadFolderSuccess(const int &folderId);
     void renamedFolderError(const QString &renameresulterror);
     void renamedFolderSuccess(const QString &newfoldername);
     void requestedFoldersError(const QString &requerstresulterror);

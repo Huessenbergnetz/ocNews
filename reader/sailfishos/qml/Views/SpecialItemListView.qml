@@ -9,48 +9,92 @@ import "../JS/globals.js" as GLOBALS
 Page {
     id: specialItemListView
 
-    property string id
+//    property string id
     property string pageName
-    property string feedType
+//    property string feedType
 
-    property int handleRead: dbus.getSetting("display/handleread", 0)
-    property bool sortAsc: dbus.getSetting("display/sortasc", false) == "true"
-    property string searchString
+    property int handleRead: config.handleRead
+    property bool sortAsc: config.sortAsc
+    property string searchString: ""
 
-    onSearchStringChanged: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString) }
+    onSearchStringChanged: specialItemList.model.search = searchString
+    onSortAscChanged: specialItemList.model.sortAsc = sortAsc
+    onHandleReadChanged: specialItemList.model.handleRead = handleRead
 
-    Component.onCompleted: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
-    Component.onDestruction: GLOBALS.previousContentY = 0;
-
-    Connections {
-        target: folders
-        onMarkedReadFolderSuccess: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
+    Component.onCompleted: {
+        specialItemList.contentY = -headerContainer.height
+        specialItemList.model.search = searchString
+        specialItemList.model.sortAsc = sortAsc
+        specialItemList.model.handleRead = handleRead
     }
-    Connections {
-        target: items
-        onUpdatedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
-        onRequestedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
-        onStarredItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
-        onMarkedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
-        onMarkedAllItemsReadSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
-    }
-    Connections {
-        target: updater
-        onUpdateFinished: { GLOBALS.previousContentY = specialItemList.contentY; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
-    }
+    Component.onDestruction: specialItemsModelSql.clear()
 
-    onHandleReadChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
-    onSortAscChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
+//    onSearchStringChanged: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString) }
 
+//    Component.onCompleted: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
+//    Component.onDestruction: GLOBALS.previousContentY = 0;
+
+//    Connections {
+//        target: folders
+//        onMarkedReadFolderSuccess: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
+//    }
+//    Connections {
+//        target: items
+//        onUpdatedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
+//        onRequestedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
+//        onStarredItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
+//        onMarkedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
+//        onMarkedAllItemsReadSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
+//    }
+//    Connections {
+//        target: updater
+//        onUpdateFinished: { GLOBALS.previousContentY = specialItemList.contentY; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
+//    }
+
+//    onHandleReadChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
+//    onSortAscChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
+
+
+    Column {
+        id: headerContainer
+
+        move: Transition { NumberAnimation { properties: "y"; easing.type: Easing.InOutQuad } }
+        add: Transition { FadeAnimation {} }
+
+
+        width: specialItemListView.width
+
+        PageHeader { title: operationRunning ? qsTr("Update running...") : specialItemListView.pageName }
+
+        SearchField {
+            id: searchField
+            width: parent.width
+            visible: false
+            placeholderText: qsTr("Search")
+            EnterKey.onClicked: searchField.focus = false
+            EnterKey.iconSource: "image://theme/icon-m-enter-close"
+
+            Binding {
+                target: specialItemListView
+                property: "searchString"
+                value: searchField.text
+            }
+        }
+    }
 
 
     SilicaListView {
         id: specialItemList
-        anchors { top: parent.top; right: parent.right; left: parent.left; bottom: specialItemListFetchIndicator.visible ? specialItemListFetchIndicator.top : searchPanel.open ? searchPanel.top : sortingPanel.open ? sortingPanel.top : parent.bottom }
+        anchors { top: parent.top; right: parent.right; left: parent.left; bottom: specialItemListFetchIndicator.visible ? specialItemListFetchIndicator.top : sortingPanel.open ? sortingPanel.top : parent.bottom }
         currentIndex: -1
         clip: true
 
-        header: PageHeader { title: operationRunning ? qsTr("Update running...") : specialItemListView.pageName }
+        header: Item {
+            id: header
+            width: headerContainer.width
+            height: headerContainer.height
+            Component.onCompleted: headerContainer.parent = header
+        }
 
 
         Behavior on anchors.bottomMargin {
@@ -68,7 +112,6 @@ Page {
                 id: menuSort
                 text: sortingPanel.open ? qsTr("Hide sorting options") : qsTr("Show sorting options")
                 onClicked: {
-                    searchPanel.open = false;
                     searchField.focus = false;
                     sortingPanel.open = !sortingPanel.open
                 }
@@ -76,32 +119,30 @@ Page {
             MenuItem {
                 id: markAsRead
                 enabled: !operationRunning
-                visible: feedType !== "starred"
-                text: feedType === "folder" ? qsTr("Mark folder as read") : qsTr("Mark all as read")
-                onClicked: feedType === "folder" ?  markFolderRead(specialItemListView.id, specialItemListView.pageName) : markAllAsRead()
+                visible: specialItemsModelSql.type !== 2
+                text: specialItemsModelSql.type === 1 ? qsTr("Mark folder as read") : qsTr("Mark all as read")
+                onClicked: { operationRunning = true; specialItemsModelSql.type === 1 ?  markFolderRead(specialItemsModelSql.id, specialItemListView.pageName) : markAllAsRead() }
             }
             MenuItem {
                 id: update
                 enabled: !operationRunning
-                visible: feedType !== "starred"
-                text: feedType === "folder" ? qsTr("Update folder") : qsTr("Update all")
-                onClicked: { operationRunning = true; feedType === "folder" ? items.updateItems("0", "1", specialItemListView.id) : updater.startUpdate() }
+                visible: specialItemsModelSql.type !== 2
+                text: specialItemsModelSql.type === 1 ? qsTr("Update folder") : qsTr("Update all")
+                onClicked: { operationRunning = true; specialItemsModelSql.type === 1 ? items.updateItems("0", "1", specialItemsModelSql.id) : updater.startUpdate() }
             }
             MenuItem {
                 id: showSearch
-                text: searchPanel.open ? qsTr("Hide search") : qsTr("Show search")
+                text: searchField.visible ? qsTr("Hide search") : qsTr("Show search")
                 onClicked: {
-                    sortingPanel.open = false
-                    searchPanel.open = !searchPanel.open
-                    searchField.forceActiveFocus();
-                    if (!searchPanel.open) {specialItemListView.searchString = ""; searchField.focus = false } else {searchField.focus = true }
+                    searchField.visible = !searchField.visible
+                    if (!searchField.visible) {specialItemListView.searchString = ""; searchField.focus = false } else {searchField.focus = true }
                 }
             }
         }
 
-        model: specialItemsModelSql
+        model: specialItemsModelFilter
 
-        delegate: SpecialItemListDelegate { feedId: specialItemListView.id; searchString: searchField.text; handleRead: specialItemListView.handleRead; sortAsc: specialItemListView.sortAsc; feedType: specialItemListView.feedType }
+        delegate: SpecialItemListDelegate { feedId: specialItemsModelSql.id; searchString: searchField.text; handleRead: specialItemListView.handleRead; sortAsc: specialItemListView.sortAsc; feedType: specialItemsModelSql.type }
 
         VerticalScrollDecorator {}
 
@@ -133,28 +174,6 @@ Page {
 
     RemorsePopup {
         id: remorsePop
-    }
-
-    DockedPanel {
-        id: searchPanel
-        width: parent.width
-        height: searchField.height
-        visible: open
-        dock: Dock.Bottom
-
-        SearchField {
-            id: searchField
-            width: parent.width
-            placeholderText: qsTr("Search")
-            EnterKey.onClicked: searchField.focus = false
-            EnterKey.iconSource: "image://theme/icon-m-enter-close"
-
-            Binding {
-                target: specialItemListView
-                property: "searchString"
-                value: searchField.text
-            }
-        }
     }
 
     DockedPanel {

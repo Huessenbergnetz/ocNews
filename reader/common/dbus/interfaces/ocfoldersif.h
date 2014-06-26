@@ -82,11 +82,11 @@ Q_SIGNALS: // SIGNALS
     void deletedFolderError(const QString &deleteresulterror);
     void deletedFolderSuccess();
     void markedReadFolderError(const QString &markedreaderror);
-    void markedReadFolderSuccess();
+    void markedReadFolderSuccess(const int &folderId);
     void renamedFolderError(const QString &renameresulterror);
     void renamedFolderSuccess(const QString &newfoldername);
     void requestedFoldersError(const QString &requerstresulterror);
-    void requestedFoldersSuccess();
+    void requestedFoldersSuccess(const QList<int> &updated, const QList<int> &newFolders, const QList<int> &deleted);
 };
 
 namespace de {

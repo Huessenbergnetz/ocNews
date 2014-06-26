@@ -27,7 +27,6 @@ OcConfiguration::OcConfiguration(QObject *parent) :
     m_notifyFeedsFolders = config["notifyFeedsFolders"].toBool();
     m_notifyNewItems = config["notifyNewItems"].toBool();
     m_isValid = conf->isConfigSet();
-    qDebug() << "VALID CONFIG: " << m_isValid;
 #if !defined(MEEGO_EDITION_HARMATTAN)
     m_accountEnabled = config["enabled"].toBool();
     m_accountUser = config["uname"].toString();

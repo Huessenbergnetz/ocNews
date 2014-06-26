@@ -11,13 +11,14 @@
 #include "../common/occonfiguration.h"
 #include "../common/models/ocfoldermodelsql.h"
 #include "../common/models/ocfeedsmodelsql.h"
-#include "../common/models/ocitemsmodelsql.h"
 #include "../common/models/ocitemsmodelnew.h"
 #include "../common/models/ocitemsmodelfilter.h"
-#include "../common/models/ocsingleitemmodelsql.h"
 #include "../common/models/ocsingleitemmodelnew.h"
 #include "../common/models/ocspecialitemsmodelsql.h"
+#include "../common/models/ocspecialitemsmodelnew.h"
 #include "../common/models/occombinedmodelsql.h"
+#include "../common/models/occombinedmodelnew.h"
+#include "../common/models/occombinedmodelfilter.h"
 #include "../common/dbus/interfaces/ocdbusfolders.h"
 #include "../common/dbus/interfaces/ocdbusfeeds.h"
 #include "../common/dbus/interfaces/ocdbusitems.h"
@@ -65,14 +66,27 @@ int main(int argc, char *argv[])
     OcConfiguration *config = new OcConfiguration;
 
     OcFolderModelSql *folderModelSql = new OcFolderModelSql();
-    OcCombinedModelSql *combinedModelSql = new OcCombinedModelSql();
+//    OcCombinedModelSql *combinedModelSql = new OcCombinedModelSql();
     OcFeedsModelSql *feedsModelSql = new OcFeedsModelSql();
-//    OcItemsModelSql *itemsModelSql = new OcItemsModelSql();
+
+    OcCombinedModelNew *combinedModelSql = new OcCombinedModelNew;
+    OcCombinedModelFilter *combinedModelFilter = new OcCombinedModelFilter;
+    combinedModelFilter->setHideRead(config->hideReadFeeds());
+    combinedModelFilter->setOrderBy(config->orderBy());
+    combinedModelFilter->setSourceModel(combinedModelSql);
+
     OcItemsModelNew *itemsModelSql = new OcItemsModelNew();
+    itemsModelSql->setShowExcerpts(config->showExcerpts());
+    itemsModelSql->setShowImages(config->showPicturesInList());
     OcItemsModelFilter *itemsModelFilter = new OcItemsModelFilter;
     itemsModelFilter->setSourceModel(itemsModelSql);
-    OcSpecialItemsModelSql *specialItemsModelSql = new OcSpecialItemsModelSql();
-//    OcSingleItemModelSql *singleItemModelSql = new OcSingleItemModelSql();
+
+    OcSpecialItemsModelNew *specialItemsModelSql = new OcSpecialItemsModelNew;
+    specialItemsModelSql->setShowExcerpts(config->showExcerpts());
+    specialItemsModelSql->setShowImages(config->showPicturesInList());
+    OcItemsModelFilter *specialItemsModelFilter = new OcItemsModelFilter;
+    specialItemsModelFilter->setSourceModel(specialItemsModelSql);
+
     OcSingleItemModelNew *singleItemModelNew = new OcSingleItemModelNew;
 
 
@@ -83,7 +97,32 @@ int main(int argc, char *argv[])
     QObject::connect(&feeds, SIGNAL(markedReadFeedSuccess(QString)), itemsModelSql, SLOT(feedMarkedRead(QString)));
     QObject::connect(&items, SIGNAL(updatedItemsSuccess(QList<int>,QList<int>,QList<int>)), itemsModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
     QObject::connect(&items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), itemsModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&items, SIGNAL(markedAllItemsReadSuccess()), itemsModelSql, SLOT(allMarkedRead()));
+    QObject::connect(config, SIGNAL(showExcerptsChanged(bool)), itemsModelSql, SLOT(setShowExcerpts(bool)));
+    QObject::connect(config, SIGNAL(showPicturesInListChanged(bool)), itemsModelSql, SLOT(setShowImages(bool)));
 
+
+    // connections to the special items model
+    QObject::connect(&items, SIGNAL(markedItemsSuccess(QStringList,QString)), specialItemsModelSql, SLOT(itemsMarked(QStringList,QString)));
+    QObject::connect(&items, SIGNAL(starredItemsSuccess(QStringList,QString)), specialItemsModelSql, SLOT(itemsStarred(QStringList,QString)));
+    QObject::connect(&folders, SIGNAL(markedReadFolderSuccess(int)), specialItemsModelSql, SLOT(folderMarkedRead(int)));
+    QObject::connect(&items, SIGNAL(updatedItemsSuccess(QList<int>,QList<int>,QList<int>)), specialItemsModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), specialItemsModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&items, SIGNAL(markedAllItemsReadSuccess()), specialItemsModelSql, SLOT(allMarkedRead()));
+    QObject::connect(config, SIGNAL(showExcerptsChanged(bool)), specialItemsModelSql, SLOT(setShowExcerpts(bool)));
+    QObject::connect(config, SIGNAL(showPicturesInListChanged(bool)), specialItemsModelSql, SLOT(setShowImages(bool)));
+
+
+    // connections to combined model filter
+    QObject::connect(config, SIGNAL(hideReadFeedsChanged(bool)), combinedModelFilter, SLOT(setHideRead(bool)));
+    QObject::connect(config, SIGNAL(orderByChanged(QString)), combinedModelFilter, SLOT(setOrderBy(QString)));
+
+    // connections to combined model
+    QObject::connect(&items, SIGNAL(updatedItemsSuccess(QList<int>,QList<int>,QList<int>)), combinedModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), combinedModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&items, SIGNAL(markedItemsSuccess(QStringList,QString)), combinedModelSql, SLOT(itemsMarked()));
+    QObject::connect(&items, SIGNAL(starredItemsSuccess(QStringList,QString)), combinedModelSql, SLOT(itemsStarred()));
+    QObject::connect(&feeds, SIGNAL(requestedFeedsSuccess(QList<int>,QList<int>,QList<int>)), combinedModelSql, SLOT(feedsRequested(QList<int>,QList<int>,QList<int>)));
 
     // register reader dbus interface
     QDBusConnection connection = QDBusConnection::sessionBus();
@@ -104,10 +143,12 @@ int main(int argc, char *argv[])
 
     view->rootContext()->setContextProperty("folderModelSql", folderModelSql);
     view->rootContext()->setContextProperty("combinedModelSql", combinedModelSql);
+    view->rootContext()->setContextProperty("combinedModelFilter", combinedModelFilter);
     view->rootContext()->setContextProperty("feedsModelSql", feedsModelSql);
     view->rootContext()->setContextProperty("itemsModelSql", itemsModelSql);
     view->rootContext()->setContextProperty("itemsModelFilter", itemsModelFilter);
     view->rootContext()->setContextProperty("specialItemsModelSql", specialItemsModelSql);
+    view->rootContext()->setContextProperty("specialItemsModelFilter", specialItemsModelFilter);
     view->rootContext()->setContextProperty("item", singleItemModelNew);
     view->rootContext()->setContextProperty("folders", &folders);
     view->rootContext()->setContextProperty("feeds", &feeds);

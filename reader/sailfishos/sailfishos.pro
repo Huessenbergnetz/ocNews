@@ -55,7 +55,11 @@ SOURCES += main.cpp \
     ../common/models/ocitemsmodelfilter.cpp \
     ocnaminteractor.cpp \
     ../common/occonfiguration.cpp \
-    ../common/models/ocsingleitemmodelnew.cpp
+    ../common/models/ocsingleitemmodelnew.cpp \
+    ../common/models/ocspecialitemsmodelnew.cpp \
+    ../common/models/ocmodelhelper.cpp \
+    ../common/models/occombinedmodelnew.cpp \
+    ../common/models/occombinedmodelfilter.cpp
 
 OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Views/MainView.qml \
@@ -130,7 +134,12 @@ HEADERS += \
     ../common/models/ocitemsmodelfilter.h \
     ocnaminteractor.h \
     ../common/occonfiguration.h \
-    ../common/models/ocsingleitemmodelnew.h
+    ../common/models/ocsingleitemmodelnew.h \
+    ../common/models/ocspecialitemsmodelnew.h \
+    ../common/models/ocmodelhelper.h \
+    ../common/models/occombinedmodelnew.h \
+    ../common/models/objects/cocombinedobject.h \
+    ../common/models/occombinedmodelfilter.h
 
 RESOURCES +=
 

@@ -22,7 +22,11 @@
         <signal name="requestedFoldersError">
             <arg name="requerstresulterror" type="s" direction="out" />
         </signal>
-        <signal name="requestedFoldersSuccess" />
+        <signal name="requestedFoldersSuccess">
+            <arg name="updated" type="ai" direction="out" />
+            <arg name="newFolders" type="ai" direction="out" />
+            <arg name="deleted" type="ai" direction="out" />
+        </signal>
         <signal name="createdFolderError">
             <arg name="createresulterror" type="s" direction="out" />
         </signal>
@@ -42,6 +46,10 @@
         <signal name="markedReadFolderError">
             <arg name="markedreaderror" type="s" direction="out" />
         </signal>
-        <signal name="markedReadFolderSuccess"/>
+        <signal name="markedReadFolderSuccess">
+            <arg name="folderId" type="i" direction="out" />
+        </signal>
     </interface>
 </node>
+
+requestedFoldersSuccess(const QList<int> &updated, const QList<int> &newFolders, const QList<int> &deleted);

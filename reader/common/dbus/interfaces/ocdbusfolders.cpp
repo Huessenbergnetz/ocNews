@@ -9,11 +9,11 @@ OcDBusFolders::OcDBusFolders(QObject *parent) :
     connect(folders, SIGNAL(deletedFolderError(QString)), this, SLOT(dbusDeletedFolderError(QString)));
     connect(folders, SIGNAL(deletedFolderSuccess()), this, SLOT(dbusDeletedFolderSuccess()));
     connect(folders, SIGNAL(markedReadFolderError(QString)), this, SLOT(dbusMarkedReadFolderError(QString)));
-    connect(folders, SIGNAL(markedReadFolderSuccess()), this, SLOT(dbusMarkedReadFolderSuccess()));
+    connect(folders, SIGNAL(markedReadFolderSuccess(int)), this, SLOT(dbusMarkedReadFolderSuccess(int)));
     connect(folders, SIGNAL(renamedFolderError(QString)), this, SLOT(dbusRenamedFolderError(QString)));
     connect(folders, SIGNAL(renamedFolderSuccess(QString)), this, SLOT(dbusRenamedFolderSuccess(QString)));
     connect(folders, SIGNAL(requestedFoldersError(QString)), this, SLOT(dbusRequestedFoldersError(QString)));
-    connect(folders, SIGNAL(requestedFoldersSuccess()), this, SLOT(dbusRequestedFoldersSuccess()));
+    connect(folders, SIGNAL(requestedFoldersSuccess(QList<int>, QList<int>, QList<int>)), this, SLOT(dbusRequestedFoldersSuccess(QList<int>, QList<int>, QList<int>)));
 }
 
 QVariantMap OcDBusFolders::getFolders()
@@ -71,9 +71,9 @@ void OcDBusFolders::dbusMarkedReadFolderError(const QString &markedreaderror)
     emit markedReadFolderError(markedreaderror);
 }
 
-void OcDBusFolders::dbusMarkedReadFolderSuccess()
+void OcDBusFolders::dbusMarkedReadFolderSuccess(const int &folderId)
 {
-    emit markedReadFolderSuccess();
+    emit markedReadFolderSuccess(folderId);
 }
 
 void OcDBusFolders::dbusRenamedFolderError(const QString &renameresulterror)
@@ -91,7 +91,7 @@ void OcDBusFolders::dbusRequestedFoldersError(const QString &requestresulterror)
     emit requestedFoldersError(requestresulterror);
 }
 
-void OcDBusFolders::dbusRequestedFoldersSuccess()
+void OcDBusFolders::dbusRequestedFoldersSuccess(const QList<int> &updated, const QList<int> &newFolders, const QList<int> &deleted)
 {
-    emit requestedFoldersSuccess();
+    emit requestedFoldersSuccess(updated, newFolders, deleted);
 }

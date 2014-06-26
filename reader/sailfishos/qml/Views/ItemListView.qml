@@ -16,16 +16,21 @@ Page {
 
     onSearchStringChanged: itemList.model.search = searchString
     onSortAscChanged: itemList.model.sortAsc = sortAsc
+    onHandleReadChanged: itemList.model.handleRead = handleRead
 
-    Component.onCompleted: itemList.contentY = -headerContainer.height
+    Component.onCompleted: {
+        itemList.contentY = -headerContainer.height
+        itemList.model.search = searchString
+        itemList.model.sortAsc = sortAsc
+        itemList.model.handleRead = handleRead
+    }
+    Component.onDestruction: itemsModelSql.startCleanUpTimer()
 
     Connections {
         target: feeds
         onDeletedFeedSuccess: pageStack.pop()
         onRenamedFeedSuccess: itemListView.feedName = newName
     }
-
-    onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchString)
 
     Column {
         id: headerContainer
@@ -83,14 +88,14 @@ Page {
                 id: deleteFeed
                 enabled: !operationRunning
                 text: qsTr("Delete feed")
-                onClicked: removeFeed(itemListView.feedId, itemListView.feedName)
+                onClicked: removeFeed(itemsModelSql.feedId, itemListView.feedName)
             }
             MenuItem {
                 id: renameFeed
                 enabled: !operationRunning
                 text: qsTr("Rename feed")
                 onClicked: {
-                    var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/RenameFeed.qml"), {feedId: feedId, feedName: feedName})
+                    var dialog = pageStack.push(Qt.resolvedUrl("../Dialogs/RenameFeed.qml"), {feedId: itemsModelSql.feedId, feedName: feedName})
                     dialog.accepted.connect(function() { operationRunning = true })
                 }
             }
@@ -106,13 +111,13 @@ Page {
                 id: markFeedAsRead
                 enabled: !operationRunning
                 text: qsTr("Mark feed as read")
-                onClicked: { operationRunning = true; feeds.markFeedRead(itemListView.feedId) }
+                onClicked: { operationRunning = true; feeds.markFeedRead(itemsModelSql.feedId) }
             }
             MenuItem {
                 id: updateFeed
                 enabled: !operationRunning
                 text: qsTr("Update feed")
-                onClicked: { operationRunning = true; items.updateItems("0", "0", itemListView.feedId) }
+                onClicked: { operationRunning = true; items.updateItems("0", "0", itemsModelSql.feedId) }
             }
             MenuItem {
                 id: showSearch

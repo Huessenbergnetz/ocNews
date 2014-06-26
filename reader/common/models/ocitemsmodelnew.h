@@ -4,9 +4,9 @@
 #include <QAbstractListModel>
 #include <QSqlQuery>
 #include <QSqlError>
-#include <QDateTime>
+#include <QTimer>
 
-#include "../common/dbus/interfaces/ocdbusinterface.h"
+#include "ocmodelhelper.h"
 
 class OcItemObject;
 
@@ -14,7 +14,9 @@ class OcItemsModelNew : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QString feedId READ feedId WRITE setFeedId NOTIFY feedIdChanged)
-
+    Q_PROPERTY(bool populating READ populating WRITE setPopulating NOTIFY populatingChanged)
+    Q_PROPERTY(bool showExcerpts READ showExcerpts WRITE setShowExcerpts NOTIFY showExcerptsChanged)
+    Q_PROPERTY(bool showImages READ showImages WRITE setShowImages NOTIFY showImagesChanged)
 public:
     explicit OcItemsModelNew(QObject *parent = 0);
 
@@ -24,6 +26,11 @@ public:
     QModelIndex index(int row, int column = 0, const QModelIndex &parent = QModelIndex()) const;
 
     QString feedId() const;
+    bool populating() const;
+    bool showExcerpts() const;
+    bool showImages() const;
+
+    Q_INVOKABLE void startCleanUpTimer();
 
     static const int TitleRole;
     static const int ItemIdRole;
@@ -40,14 +47,24 @@ public:
 
 signals:
     void feedIdChanged(const QString &nFeedId);
+    void populatingChanged(const bool &nPopulating);
+    void showExcerptsChanged(const bool &nShowExcerpts);
+    void showImagesChanged(const bool &nShowImages);
 
 public slots:
     void setFeedId(const QString &nFeedId);
+    void setPopulating(const bool &nPopulating);
+    void setShowExcerpts(const bool &nShowExcerpts);
+    void setShowImages(const bool &nShowImages);
 
     void itemsMarked(const QStringList &ids, const QString &action);
     void itemsStarred(const QStringList &hashes, const QString &action);
     void feedMarkedRead(const QString &markedFeedId);
+    void allMarkedRead();
     void itemsUpdated(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
+
+private slots:
+    void clearByTimer();
 
 private:
     QList<OcItemObject*> m_items;
@@ -56,11 +73,13 @@ private:
     void clear();
 
     QString m_feedId;
+    bool m_populating;
+    bool m_showExcerpts;
+    bool m_showImages;
 
-    QString niceTime(const uint &t) const;
-    QString prepareBody(const QString &b) const;
+    QTimer *timer;
 
-    OcDBusInterface config;
+    OcModelHelper helper;
 
 };
 

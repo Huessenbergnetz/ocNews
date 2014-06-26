@@ -16,6 +16,9 @@ ListItem {
 
     menu: feedContextMenu
 
+    ListView.onAdd: AddAnimation { target: feedListItem }
+    ListView.onRemove: animateRemoval(feedListItem)
+
     onClicked: {
         if (model.type === "0") {
             itemsModelSql.feedId = model.id
@@ -39,6 +42,7 @@ ListItem {
 
             Image {
                 anchors.centerIn: parent
+                asynchronous: true
                 visible: true
                 width: model.type === "1" ? 64 : 32
                 height: model.type === "1" ? 64 : 32

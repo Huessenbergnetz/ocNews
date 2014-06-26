@@ -70,6 +70,9 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
     QSqlQuery query;
     QStringList newFolders = QStringList();
 
+    QList<int> newFolderIds = QList<int>();
+    QList<int> updatedFolderIds = QList<int>();
+
     foreach (QVariant folder, foldersresult["folders"].toList())
     {
 
@@ -87,6 +90,9 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
                 query.bindValue(":name", map["name"].toString());
                 query.bindValue(":id", map["id"].toInt());
                 query.exec();
+
+                updatedFolderIds << map["id"].toInt();
+
 #ifdef QT_DEBUG
                 qDebug() << "Updated folder: " << map["name"].toString();
 #endif
@@ -101,6 +107,7 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
             qDebug() << "Created folder: " << map["name"].toString();
 #endif
             newFolders << map["name"].toString();
+            newFolderIds << map["id"].toInt();
         }
 
 
@@ -172,7 +179,7 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
 #ifdef QT_DEBUG
     qDebug() << "emit requestedFolderSuccess";
 #endif
-    emit requestedFoldersSuccess();
+    emit requestedFoldersSuccess(updatedFolderIds, newFolderIds, idListDeleted);
 
 }
 
@@ -496,7 +503,7 @@ void OcFolders::folderMarkedReadUpdateDb(const int &id)
     }
     QSqlDatabase::database().commit();
 
-    emit markedReadFolderSuccess();
+    emit markedReadFolderSuccess(id);
 
 }
 

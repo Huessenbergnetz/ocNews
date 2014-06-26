@@ -10,35 +10,46 @@ ListItem {
 
     contentHeight: Theme.itemSizeSmall
 
-    showMenuOnPressAndHold: model.type === "-1" ? false : true
+    showMenuOnPressAndHold: (model.type === 1 || model.type === 0) ? true : false
 
-    menu: model.type === "1" ? folderContextMenu : feedContextMenu
+    menu: model.type === 1 ? folderContextMenu : model.type === 0 ? feedContextMenu : null
+
+    ListView.onAdd: AddAnimation { target: folderListItem }
+    ListView.onRemove: animateRemoval(folderListItem)
 
     onClicked: {
-        if (type === "1")  {
-            pageStack.push(Qt.resolvedUrl("../Views/FeedListView.qml"), {folderId: model.id, folderName: model.title})
-        } else if (type === "0") {
+
+        switch(model.type)
+        {
+        case 0:
             itemsModelSql.feedId = model.id
-            pageStack.push(Qt.resolvedUrl("../Views/ItemListView.qml"), {feedName: title})
-        } else if (type === "-1" && id === "0") {
-            pageStack.push(Qt.resolvedUrl("../Views/SpecialItemListView.qml"), {pageName: title, feedType: "all"})
-        } else if (type === "-1" && id === "1") {
-            pageStack.push(Qt.resolvedUrl("../Views/SpecialItemListView.qml"), {pageName: title, feedType: "starred"})
+            pageStack.push(Qt.resolvedUrl("../Views/ItemListView.qml"), {feedName: model.title})
+            break;
+        case 1:
+            pageStack.push(Qt.resolvedUrl("../Views/FeedListView.qml"), {folderId: model.id, folderName: model.title})
+            break;
+        case 2:
+        case 3:
+            specialItemsModelSql.type = model.type
+            specialItemsModelSql.id = model.id
+            pageStack.push(Qt.resolvedUrl("../Views/SpecialItemListView.qml"), {pageName: model.title})
+            break;
+        default:
+            break;
         }
     }
 
     function getIconSource()
     {
-        if (model.type === "1") {
-            return "image://theme/icon-m-folder";
-        } else if (model.type === "0") {
+        switch(model.type)
+        {
+        case 0:
+        case 3:
             return "/usr/share/harbour-ocnews-reader/icons/icon-m-rss.png";
-        } else if (model.type === "-1") {
-            if (model.id === "0") {
-                return "/usr/share/harbour-ocnews-reader/icons/icon-m-rss.png";
-            } else {
-                return "image://theme/icon-m-favorite-selected";
-            }
+        case 1:
+            return "image://theme/icon-m-folder";
+        case 2:
+            return "image://theme/icon-m-favorite-selected";
         }
     }
 
@@ -57,6 +68,7 @@ ListItem {
             Image {
                 anchors.centerIn: parent
                 visible: true
+                asynchronous: true
 //                width: model.iconSource ? (parseInt(model.iconWidth, 10) > 32) ? 64 : 32 : 64
 //                height: model.iconSource ? (parseInt(model.iconHeight, 10) > 32) ? 64 : 32 : 64
 //                width: model.type === "1" ? 64 : 32
@@ -86,7 +98,7 @@ ListItem {
 
             Text {
                 id: subText
-                text: model.feedCount == 0 ? qsTr("Empty folder") : qsTr("%1 unread posts in %2 feeds").arg(model.unreadCount).arg(model.feedCount);
+                text: model.feedCount === 0 ? qsTr("Empty folder") : qsTr("%1 unread posts in %2 feeds").arg(model.unreadCount).arg(model.feedCount);
                 color: folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
 //                visible: model.type === "1" ? true : false
                 visible: false

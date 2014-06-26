@@ -1,37 +1,91 @@
-#include "ocitemsmodelnew.h"
+#include "ocspecialitemsmodelnew.h"
 #include "objects/ocitemobject.h"
 #include <QDebug>
 
-const int OcItemsModelNew::TitleRole = Qt::UserRole + 1;
-const int OcItemsModelNew::ItemIdRole = Qt::UserRole + 2;
-const int OcItemsModelNew::PubDateRole = Qt::UserRole + 3;
-const int OcItemsModelNew::PubDateIntRole = Qt::UserRole + 4;
-const int OcItemsModelNew::EnclosureLinkRole = Qt::UserRole + 5;
-const int OcItemsModelNew::EnclosureMimeRole = Qt::UserRole + 6;
-const int OcItemsModelNew::UnreadRole = Qt::UserRole + 7;
-const int OcItemsModelNew::StarredRole = Qt::UserRole + 8;
-const int OcItemsModelNew::UrlRole = Qt::UserRole + 9;
-const int OcItemsModelNew::GuidHashRole = Qt::UserRole + 10;
-const int OcItemsModelNew::ExcerptRole = Qt::UserRole + 11;
-const int OcItemsModelNew::ImageRole = Qt::UserRole + 12;
+const int OcSpecialItemsModelNew::TitleRole = Qt::UserRole + 1;
+const int OcSpecialItemsModelNew::ItemIdRole = Qt::UserRole + 2;
+const int OcSpecialItemsModelNew::PubDateRole = Qt::UserRole + 3;
+const int OcSpecialItemsModelNew::PubDateIntRole = Qt::UserRole + 4;
+const int OcSpecialItemsModelNew::EnclosureLinkRole = Qt::UserRole + 5;
+const int OcSpecialItemsModelNew::EnclosureMimeRole = Qt::UserRole + 6;
+const int OcSpecialItemsModelNew::UnreadRole = Qt::UserRole + 7;
+const int OcSpecialItemsModelNew::StarredRole = Qt::UserRole + 8;
+const int OcSpecialItemsModelNew::UrlRole = Qt::UserRole + 9;
+const int OcSpecialItemsModelNew::GuidHashRole = Qt::UserRole + 10;
+const int OcSpecialItemsModelNew::ExcerptRole = Qt::UserRole + 11;
+const int OcSpecialItemsModelNew::ImageRole = Qt::UserRole + 12;
+const int OcSpecialItemsModelNew::FeedNameRole = Qt::UserRole + 13;
+const int OcSpecialItemsModelNew::FeedIdRole = Qt::UserRole + 14;
 
-OcItemsModelNew::OcItemsModelNew(QObject *parent) :
+OcSpecialItemsModelNew::OcSpecialItemsModelNew(QObject *parent) :
     QAbstractListModel(parent)
 {
-    m_feedId = "";
-    m_items = QList<OcItemObject*>();
-    m_populating = false;
+    m_type = -99;
+    m_id = -99;
     m_showExcerpts = false;
     m_showImages = false;
-
-    timer = new QTimer(this);
-    timer->setSingleShot(true);
-    connect(timer, SIGNAL(timeout()), this, SLOT(clearByTimer()));
-
+    m_populating = false;
+    m_items = QList<OcItemObject*>();
 }
 
 
-QHash<int, QByteArray> OcItemsModelNew::roleNames() const
+int OcSpecialItemsModelNew::type() const { return m_type; }
+
+void OcSpecialItemsModelNew::setType(const int &nType)
+{
+    if (nType != m_type) {
+        m_type = nType;
+        emit typeChanged(type());
+    }
+}
+
+
+int OcSpecialItemsModelNew::id() const { return m_id; }
+
+void OcSpecialItemsModelNew::setId(const int &nId)
+{
+    if (nId != m_id) {
+        m_id = nId;
+        init();
+        emit idChanged(id());
+    }
+}
+
+
+bool OcSpecialItemsModelNew::showExcerpts() const { return m_showExcerpts; }
+
+void OcSpecialItemsModelNew::setShowExcerpts(const bool &nShowExcerpts)
+{
+    if (nShowExcerpts != m_showExcerpts) {
+        m_showExcerpts = nShowExcerpts;
+        emit showExcerptsChanged(showExcerpts());
+    }
+}
+
+
+bool OcSpecialItemsModelNew::showImages() const { return m_showImages; }
+
+void OcSpecialItemsModelNew::setShowImages(const bool &nShowImages)
+{
+    if (nShowImages != m_showImages) {
+        m_showImages = nShowImages;
+        emit showImagesChanged(showImages());
+    }
+}
+
+
+bool OcSpecialItemsModelNew::populating() const { return m_populating; }
+
+void OcSpecialItemsModelNew::setPopulating(const bool &nPopulating)
+{
+    if (nPopulating != m_populating) {
+        m_populating = nPopulating;
+        emit populatingChanged(populating());
+    }
+}
+
+
+QHash<int, QByteArray> OcSpecialItemsModelNew::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
     roles.insert(TitleRole, QByteArray("title"));
@@ -46,17 +100,19 @@ QHash<int, QByteArray> OcItemsModelNew::roleNames() const
     roles.insert(GuidHashRole, QByteArray("guidHash"));
     roles.insert(ExcerptRole, QByteArray("excerpt"));
     roles.insert(ImageRole, QByteArray("image"));
+    roles.insert(FeedNameRole, QByteArray("feedName"));
+    roles.insert(FeedIdRole, QByteArray("feedId"));
     return roles;
 }
 
 
-int OcItemsModelNew::rowCount(const QModelIndex &parent) const
+int OcSpecialItemsModelNew::rowCount(const QModelIndex &parent) const
 {
     return m_items.size();
 }
 
 
-QVariant OcItemsModelNew::data(const QModelIndex &index, int role) const
+QVariant OcSpecialItemsModelNew::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
         return QVariant();
@@ -91,6 +147,10 @@ QVariant OcItemsModelNew::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(iobj->excerpt);
     case ImageRole:
         return QVariant::fromValue(iobj->image);
+    case FeedNameRole:
+        return QVariant::fromValue(iobj->feedName);
+    case FeedIdRole:
+        return QVariant::fromValue(iobj->feedId);
     default:
         return QVariant();
 
@@ -98,10 +158,23 @@ QVariant OcItemsModelNew::data(const QModelIndex &index, int role) const
 }
 
 
-void OcItemsModelNew::init()
+QModelIndex OcSpecialItemsModelNew::index(int row, int column, const QModelIndex &parent) const
 {
+    if (!hasIndex(row, column, parent))
+        return QModelIndex();
+
+    return createIndex(row, column);
+}
+
+
+
+
+void OcSpecialItemsModelNew::init()
+{
+    // type: 0: Feed, 1: Folder, 2: Starred, 3: All
+
 #ifdef QT_DEBUG
-    qDebug() << "Init Items Model";
+    qDebug() << "Init special items model";
 #endif
 
     setPopulating(true);
@@ -109,14 +182,25 @@ void OcItemsModelNew::init()
     if (!m_items.isEmpty())
         clear();
 
-    QString queryString;
+    QString querystring;
     QSqlQuery query;
 
     int length = 0;
 
-    queryString = QString("SELECT COUNT(id) FROM items WHERE feedId = %1").arg(feedId().toInt());
+    switch (type()) {
+    case 1:
+        querystring = QString("SELECT count (id) FROM items WHERE feedId IN (SELECT id FROM feeds WHERE folderId = %1)").arg(id());
+        break;
+    case 2:
+        querystring = QString("SELECT count (id) FROM items WHERE starred = %1").arg(SQL_TRUE);
+        break;
+    case 3:
+    default:
+        querystring = "SELECT count (id) FROM items";
+        break;
+    }
 
-    query.exec(queryString);
+    query.exec(querystring);
 
     query.next();
 
@@ -124,40 +208,48 @@ void OcItemsModelNew::init()
 
     query.clear();
 
-    // handleRead 0: show read, 1: hide read, 2: show after unread
-    queryString = QString("SELECT it.id, "
-                                 "it.title, "
-                                 "it.pubDate, "
-                                 "it.enclosureLink, "
-                                 "it.enclosureMime, "
-                                 "it.unread, "
-                                 "it.starred, "
-                                 "it.url, "
-                                 "it.guidHash, ");
+
+    querystring = "SELECT it.id, it.title, it.pubDate, it.enclosureLink, it.enclosureMime, it.unread, it.starred, it.url, it.guidHash, ";
 
     if (showExcerpts()) {
-        queryString.append("it.body AS excerpt, ");
+        querystring.append("it.body AS excerpt, ");
     } else {
-        queryString.append("'' AS excerpt, ");
+        querystring.append("'' AS excerpt, ");
     }
 
     if (showImages()) {
-        queryString.append("(SELECT DISTINCT path FROM images WHERE parentId = it.id AND height > 50 ORDER BY width, height LIMIT 1) AS image ");
+        querystring.append("(SELECT DISTINCT path FROM images WHERE parentId = it.id AND height > 50 ORDER BY width, height LIMIT 1) AS image, ");
     } else {
-        queryString.append("'' AS image ");
+        querystring.append("'' AS image, ");
     }
 
-    queryString.append(QString("FROM items it WHERE feedId = %1").arg(feedId().toInt()));
+     querystring.append("(SELECT title FROM feeds where id = it.feedId) as feedName, it.feedId ");
 
-    queryString.append(" ORDER BY pubDate DESC");
 
-    query.exec(queryString);
+    switch (type()) {
+    case 1:
+        querystring.append(QString("FROM items it WHERE feedId IN (SELECT id FROM feeds WHERE folderId = %1)").arg(id()));
+        break;
+    case 2:
+        querystring.append("FROM items it WHERE starred = ").append(SQL_TRUE);
+        break;
+    case 3:
+    default:
+        querystring.append("FROM items it");
+        break;
+    }
+
+    querystring.append(" ORDER BY pubDate DESC");
+
+    qDebug() << querystring;
+
+    query.exec(querystring);
+
 
     beginInsertRows(QModelIndex(), 0, length-1);
 
     while(query.next())
     {
-
         OcItemObject *iobj = new OcItemObject(query.value(0).toInt(),
                                               query.value(1).toString(),
                                               query.value(2).toUInt(),
@@ -169,8 +261,8 @@ void OcItemsModelNew::init()
                                               query.value(8).toString(),
                                               helper.prepareBody(query.value(9).toString()),
                                               query.value(10).toString(),
-                                              "",
-                                              -1);
+                                              query.value(11).toString(),
+                                              query.value(12).toInt());
         m_items.append(iobj);
     }
 
@@ -182,90 +274,32 @@ void OcItemsModelNew::init()
 }
 
 
-QModelIndex OcItemsModelNew::index(int row, int column, const QModelIndex &parent) const
-{
-    if (!hasIndex(row, column, parent))
-        return QModelIndex();
 
-    return createIndex(row, column);
-}
-
-
-
-void OcItemsModelNew::clear()
+void OcSpecialItemsModelNew::clear()
 {
     beginRemoveRows(QModelIndex(), 0, rowCount()-1);
 
     for (int i = 0; i < m_items.size(); ++i)
-    {
         delete m_items.at(i);
-    }
 
     m_items.clear();
 
     endRemoveRows();
+
+    m_type = -99;
+    m_id = -99;
 }
 
 
 
-QString OcItemsModelNew::feedId() const
+void OcSpecialItemsModelNew::itemsMarked(const QStringList &ids, const QString &action)
 {
-    return m_feedId;
-}
-
-void OcItemsModelNew::setFeedId(const QString &nFeedId)
-{
-    timer->stop();
-    if (nFeedId != m_feedId) {
-        m_feedId = nFeedId;
-        emit feedIdChanged(feedId());
-        init();
-    }
-}
-
-
-
-bool OcItemsModelNew::populating() const { return m_populating; }
-
-void OcItemsModelNew::setPopulating(const bool &nPopulating)
-{
-    if (nPopulating != m_populating) {
-        m_populating = nPopulating;
-        emit populatingChanged(populating());
-    }
-}
-
-
-
-bool OcItemsModelNew::showExcerpts() const { return m_showExcerpts; }
-
-void OcItemsModelNew::setShowExcerpts(const bool &nShowExcerpts)
-{
-    if (nShowExcerpts != m_showExcerpts) {
-        m_showExcerpts = nShowExcerpts;
-        emit showExcerptsChanged(showExcerpts());
-    }
-}
-
-
-bool OcItemsModelNew::showImages() const { return m_showImages; }
-
-void OcItemsModelNew::setShowImages(const bool &nShowImages)
-{
-    if (nShowImages != m_showImages) {
-        m_showImages = nShowImages;
-        emit showImagesChanged(showImages());
-    }
-}
-
-
-
-void OcItemsModelNew::itemsMarked(const QStringList &ids, const QString &action)
-{
-    if (!ids.isEmpty() && !m_populating) {
-
-        for (int i = 0; i < rowCount(); ++i) {
-            if (ids.contains(QString::number(m_items.at(i)->itemId))) {
+    if (!ids.isEmpty() && !m_items.isEmpty() && !m_populating)
+    {
+        for (int i = 0; i < rowCount(); ++i)
+        {
+            if (ids.contains(QString::number(m_items.at(i)->itemId)))
+            {
                 OcItemObject *iobj = m_items.at(i);
 
                 if (action == "read") {
@@ -284,9 +318,9 @@ void OcItemsModelNew::itemsMarked(const QStringList &ids, const QString &action)
 
 
 
-void OcItemsModelNew::itemsStarred(const QStringList &hashes, const QString &action)
+void OcSpecialItemsModelNew::itemsStarred(const QStringList &hashes, const QString &action)
 {
-    if (!hashes.isEmpty() && !m_populating) {
+    if (!hashes.isEmpty() && !m_items.isEmpty() && !m_populating) {
 
         for (int i = 0; i < rowCount(); ++i) {
             if (hashes.contains(m_items.at(i)->guidHash)) {
@@ -307,27 +341,44 @@ void OcItemsModelNew::itemsStarred(const QStringList &hashes, const QString &act
 }
 
 
-
-void OcItemsModelNew::feedMarkedRead(const QString &markedFeedId)
+void OcSpecialItemsModelNew::folderMarkedRead(const int &markedFolderId)
 {
-    if (markedFeedId == feedId() && !m_populating) {
-
-        for (int i = 0; i < rowCount(); ++i) {
-
+    if (type() == 1 && id() == markedFolderId && !m_items.isEmpty() && !m_populating)
+    {
+        for (int i = 0; i < rowCount(); ++i)
+        {
             OcItemObject *iobj = m_items.at(i);
 
-            iobj->unread = false;
-
-            m_items[i] = iobj;
-
+            if (iobj->unread) {
+                iobj->unread = false;
+                m_items[i] = iobj;
+                emit dataChanged(index(i, 0), index(i, 0));
+            }
         }
+    }
 
-        emit dataChanged(index(0, 0), index(rowCount()-1, 0));
+}
+
+
+void OcSpecialItemsModelNew::allMarkedRead()
+{
+    if (!m_items.isEmpty() && !m_populating)
+    {
+        for (int i = 0; i < rowCount(); ++i)
+        {
+            OcItemObject *iobj = m_items.at(i);
+
+            if (iobj->unread) {
+                iobj->unread = false;
+                m_items[i] = iobj;
+                emit dataChanged(index(i, 0), index(i, 0));
+            }
+        }
     }
 }
 
 
-void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted)
+void OcSpecialItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted)
 {
     if (m_items.isEmpty() || m_populating)
         return;
@@ -336,8 +387,8 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
 
     QString queryString;
 
-    if (!newItems.isEmpty()) {
-
+    if (!newItems.isEmpty())
+    {
         QString itemList("(");
 
         for (int i = 0; i < newItems.size(); ++i)
@@ -351,7 +402,19 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
 
         int length = 0;
 
-        queryString = QString("SELECT COUNT(id) FROM items WHERE feedId = %1 AND id IN %2").arg(feedId().toInt()).arg(itemList);
+        switch (type())
+        {
+        case 1:
+            queryString = QString("SELECT COUNT(id) FROM items WHERE feedId IN (SELECT id FROM feeds WHERE folderId = %1) AND id IN %2").arg(id()).arg(itemList);
+            break;
+        case 2:
+            queryString = QString("SELECT COUNT(id) FROM items WHERE starred = %1 AND id IN %2").arg(SQL_TRUE).arg(itemList);
+            break;
+        case 3:
+        default:
+            queryString = QString("SELECT COUNT (id) FROM items WHERE id IN %2").arg(itemList);
+            break;
+        }
 
         q.exec(queryString);
 
@@ -363,15 +426,7 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
 
         if (length > 0) {
 
-            queryString = QString("SELECT it.id, "
-                                         "it.title, "
-                                         "it.pubDate, "
-                                         "it.enclosureLink, "
-                                         "it.enclosureMime, "
-                                         "it.unread, "
-                                         "it.starred, "
-                                         "it.url, "
-                                         "it.guidHash, ");
+            queryString = "SELECT it.id, it.title, it.pubDate, it.enclosureLink, it.enclosureMime, it.unread, it.starred, it.url, it.guidHash, ";
 
             if (showExcerpts()) {
                 queryString.append("it.body AS excerpt, ");
@@ -382,10 +437,24 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
             if (showImages()) {
                 queryString.append("(SELECT DISTINCT path FROM images WHERE parentId = it.id AND height > 50 ORDER BY width, height LIMIT 1) AS image ");
             } else {
-                queryString.append("'' AS image ");
+                queryString.append("'' AS image, ");
             }
 
-            queryString.append(QString("FROM items it WHERE feedId = %1 AND id IN %2").arg(feedId().toInt()).arg(itemList));
+             queryString.append("(SELECT title FROM feeds where id = it.feedId) as feedName, it.feedId ");
+
+
+            switch (type()) {
+            case 1:
+                queryString.append(QString("FROM items it WHERE feedId IN (SELECT id FROM feeds WHERE folderId = %1) AND id IN %2").arg(id()).arg(itemList));
+                break;
+            case 2:
+                queryString.append(QString("FROM items it WHERE starred = %1 AND id IN %2").arg(SQL_TRUE).arg(itemList));
+                break;
+            case 3:
+            default:
+                queryString.append(QString("FROM items it WHERE id IN %1").arg(itemList));
+                break;
+            }
 
             queryString.append(" ORDER BY pubDate ASC");
 
@@ -395,7 +464,6 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
 
             while(q.next())
             {
-
                 OcItemObject *iobj = new OcItemObject(q.value(0).toInt(),
                                                       q.value(1).toString(),
                                                       q.value(2).toUInt(),
@@ -407,10 +475,9 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
                                                       q.value(8).toString(),
                                                       helper.prepareBody(q.value(9).toString()),
                                                       q.value(10).toString(),
-                                                      "",
-                                                      -1);
+                                                      q.value(11).toString(),
+                                                      q.value(12).toInt());
                 m_items.prepend(iobj);
-
             }
 
             endInsertRows();
@@ -418,7 +485,6 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
             q.clear();
         }
     }
-
 
 
     if (!updated.isEmpty())
@@ -458,8 +524,9 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
                 emit dataChanged(index(i, 0), index(i, 0));
             }
         }
-    }
 
+        q.clear();
+    }
 
 
     if (!deleted.isEmpty())
@@ -483,41 +550,4 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
             endRemoveRows();
         }
     }
-}
-
-
-
-void OcItemsModelNew::allMarkedRead()
-{
-    if (!m_items.isEmpty() && !m_populating)
-    {
-        for (int i = 0; i < rowCount(); ++i)
-        {
-            OcItemObject *iobj = m_items.at(i);
-
-            if (iobj->unread) {
-                iobj->unread = false;
-                m_items[i] = iobj;
-                emit dataChanged(index(i, 0), index(i, 0));
-            }
-        }
-    }
-}
-
-
-void OcItemsModelNew::clearByTimer()
-{
-    qDebug() << "Clean up by timer";
-
-    m_feedId = -99;
-
-    clear();
-}
-
-
-
-void OcItemsModelNew::startCleanUpTimer()
-{
-    qDebug() << "Start timer";
-    timer->start(30000);
 }
