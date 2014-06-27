@@ -148,6 +148,7 @@ Page {
         PushUpMenu {
             id: mainViewPushy
             visible: mainViewList.contentHeight >= mainViewList.height
+            enabled: mainViewList.contentHeight >= mainViewList.height
             MenuItem {
                 id: goToTop
                 text: qsTr("Scroll to top")

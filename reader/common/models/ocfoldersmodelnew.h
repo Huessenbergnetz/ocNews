@@ -41,6 +41,23 @@ public slots:
     void setActive(const bool &nActive);
     void setTotalUnread(const int &nTotalUnread);
 
+    void itemsUpdated(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
+    void itemsStarred();
+    void itemsMarked();
+
+    void feedsRequested(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted);
+    void feedCreated(const QString &name, const int &id);
+    void feedDeleted(const int &id);
+    void feedMarkedRead(const int &id);
+    void feedMoved(const int &feedId, const int &folderId);
+    void feedRenamed(const QString &newName, const int &feedId);
+
+    void foldersRequested(const QList<int> &updated, const QList<int> &newFolders, const QList<int> &deleted);
+    void folderCreated(const QString &foldername, const int &folderId);
+    void folderDeleted(const int &id);
+    void folderMarkedRead(const int &id);
+    void folderRenamed(const QString &newName, const int &id);
+
 private:
     QList<OcFolderObject*> m_items;
 
@@ -50,7 +67,7 @@ private:
     void clear();
     void init();
 
-    int findIndex(const int &id) const;
+    int findIndex(const int &id, const int &type) const;
     void queryAndSetTotalCount();
 
 };

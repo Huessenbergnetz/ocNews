@@ -139,6 +139,7 @@ void OcFoldersModelNew::init()
 
     if (length > 0)
     {
+        length += 2;
 
         querystring = "SELECT fo.id AS id, 1 AS type, fo.name AS title, localUnreadCount AS unreadCount, '' AS iconSource, '' AS iconWidth, '' AS iconHeight, (SELECT COUNT(id) FROM feeds WHERE folderId = fo.id) AS feedCount FROM folders fo ";
 
@@ -196,10 +197,530 @@ void OcFoldersModelNew::clear()
 
 
 
-int OcFoldersModelNew::findIndex(const int &id) const
+
+void OcFoldersModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted)
+{
+
+    if (!updated.isEmpty() || !newItems.isEmpty() || !deleted.isEmpty())
+    {
+        itemsMarked();
+
+        itemsStarred();
+    }
+
+}
+
+
+void OcFoldersModelNew::itemsMarked()
+{
+    if (!active())
+        return;
+
+    QHash<int, int> idsAndUnread;
+
+    QSqlQuery query;
+
+    QString queryString("SELECT id, localUnreadCount FROM feeds WHERE folderId = 0");
+
+    query.exec(queryString);
+
+    while(query.next()) {
+        idsAndUnread[query.value(0).toInt()] = query.value(1).toInt();
+    }
+
+    queryString = "SELECT id, localUnreadCount FROM folders";
+
+    query.exec(queryString);
+
+    while(query.next()) {
+        idsAndUnread[query.value(0).toInt()] = query.value(1).toInt();
+    }
+
+    queryString = "SELECT ((SELECT IFNULL(SUM(localUnreadCount),0) FROM feeds WHERE folderId = 0) + (SELECT SUM(localUnreadCount) FROM folders))";
+
+    query.exec(queryString);
+
+    query.next();
+
+    idsAndUnread[-1] = query.value(0).toInt();
+
+    setTotalUnread(query.value(0).toInt());
+
+    for (int i = 0; i < rowCount(); ++i)
+    {
+        if (m_items.at(i)->id != -2) {
+
+            if (m_items.at(i)->unreadCount != idsAndUnread[m_items.at(i)->id]) {
+                m_items.at(i)->unreadCount = idsAndUnread[m_items.at(i)->id];
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+                emit dataChanged(index(i), index(i), QVector<int>(1, UnreadCountRole));
+#else
+                emit dataChanged(index(i), index(i));
+#endif
+
+            }
+        }
+    }
+}
+
+
+void OcFoldersModelNew::itemsStarred()
+{
+    if (!active())
+        return;
+
+    QSqlQuery query;
+
+    query.exec(QString("SELECT COUNT(id) FROM items WHERE starred = %1").arg(SQL_TRUE));
+
+    query.next();
+
+    int uc = query.value(0).toInt();
+
+    int idx = findIndex(-2, 2);
+
+    if (m_items.at(idx)->unreadCount != uc) {
+
+        m_items.at(idx)->unreadCount = uc;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        emit dataChanged(index(idx), index(idx), QVector<int>(1, UnreadCountRole));
+#else
+        emit dataChanged(index(idx), index(idx));
+#endif
+    }
+}
+
+
+
+void OcFoldersModelNew::feedsRequested(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted)
+{
+    if (!active())
+        return;
+
+    if (updated.isEmpty() && newFeeds.isEmpty() && deleted.isEmpty())
+        return;
+
+    QSqlQuery query;
+
+    if (!updated.isEmpty()) {
+
+        for (int i = 0; i < updated.size(); ++i) {
+
+            int idx = findIndex(updated.at(i), 0);
+
+            query.exec(QString("SELECT title, iconSource, iconWidth, iconHeight, folderId, localUnreadCount FROM feeds WHERE id = %1").arg(updated.at(i)));
+
+            query.next();
+
+            int folderId = query.value(4).toInt();
+
+            // check if updated feed is still children of root folder
+            if ((idx != -999) && (folderId == 0)) {
+
+                //update the feed, because it is still children of root
+                m_items.at(idx)->title = query.value(0).toString();
+                m_items.at(idx)->iconSource = query.value(1).toString();
+                m_items.at(idx)->iconWidth = query.value(2).toInt();
+                m_items.at(idx)->iconHeight = query.value(3).toInt();
+
+                emit dataChanged(index(idx), index(idx));
+
+            } else if ((idx != -999) && (folderId != 0)) {
+
+                //the updated feed is no longer children of root, remove it
+                beginRemoveRows(QModelIndex(), idx, idx);
+
+                delete m_items.takeAt(idx);
+
+                endRemoveRows();
+
+            } else if ((idx == -999) && (folderId == 0)) {
+
+                // the feed has been moved to the root folder
+
+                beginInsertRows(QModelIndex(), 0, 0);
+
+                OcFolderObject *fobj = new OcFolderObject(updated.at(i),
+                                                          0,
+                                                          query.value(0).toString(),
+                                                          query.value(5).toInt(),
+                                                          query.value(1).toString(),
+                                                          query.value(2).toInt(),
+                                                          query.value(3).toInt(),
+                                                          0);
+
+                m_items.prepend(fobj);
+
+                endInsertRows();
+            }
+        }
+    }
+
+
+    if (!newFeeds.isEmpty()) {
+
+        QString feedList("(");
+
+        for (int i = 0; i < newFeeds.size(); ++i) {
+            feedList.append(QString::number(newFeeds.at(i)));
+            feedList.append(", ");
+        }
+
+        feedList.chop(2);
+        feedList.append(")");
+
+        query.exec(QString("SELECT COUNT(id) FROM feeds WHERE folderId = 0 AND id IN %1").arg(feedList));
+
+        query.next();
+
+        int length = query.value(0).toInt();
+
+        if (length > 0) {
+
+            query.exec(QString("SELECT id, title, localUnreadCount, iconSource, iconWidth, iconHeight FROM feeds WHERE folderId = 0 AND id IN %1").arg(feedList));
+
+            beginInsertRows(QModelIndex(), rowCount(), (rowCount() + length - 1));
+
+            while(query.next()) {
+
+                OcFolderObject *fobj = new OcFolderObject(query.value(0).toInt(),
+                                                          0,
+                                                          query.value(1).toString(),
+                                                          query.value(2).toInt(),
+                                                          query.value(3).toString(),
+                                                          query.value(4).toInt(),
+                                                          query.value(5).toInt(),
+                                                          0);
+                m_items.append(fobj);
+            }
+
+            endInsertRows();
+        }
+    }
+
+
+    if (!deleted.isEmpty()) {
+
+        QList<int> idxs = QList<int>();
+
+        for (int i = 0; i < deleted.size(); ++i) {
+            int idx = findIndex(deleted.at(i), 0);
+            if (idx != -999)
+                idxs << idx;
+        }
+
+        if (!idxs.isEmpty()) {
+
+            for (int j = 0; j < idxs.size(); ++j) {
+
+                int idx = idxs.at(j);
+
+                beginRemoveRows(QModelIndex(), idx, idx);
+
+                delete m_items.takeAt(idx);
+
+                endRemoveRows();
+            }
+        }
+    }
+}
+
+
+
+void OcFoldersModelNew::feedCreated(const QString &name, const int &id)
+{
+    if (!active())
+        return;
+
+    QSqlQuery query;
+
+    query.exec(QString("SELECT localUnreadCount, iconSource, iconWidth, iconHeight, folderId FROM feeds WHERE id = %1").arg(id));
+
+    query.next();
+
+    if (query.value(4).toInt() == 0) {
+
+        beginInsertRows(QModelIndex(), 0 , 0);
+
+        OcFolderObject *fobj = new OcFolderObject(id,
+                                                  0,
+                                                  name,
+                                                  query.value(0).toInt(),
+                                                  query.value(1).toString(),
+                                                  query.value(2).toInt(),
+                                                  query.value(3).toInt(),
+                                                  0);
+        m_items.prepend(fobj);
+
+        endInsertRows();
+    }
+
+    queryAndSetTotalCount();
+}
+
+
+
+void OcFoldersModelNew::feedDeleted(const int &id)
+{
+    if (!active())
+        return;
+
+    int idx = findIndex(id, 0);
+
+    if (idx != -999) {
+
+        beginRemoveRows(QModelIndex(), idx, idx);
+
+        delete m_items.takeAt(idx);
+
+        endRemoveRows();
+    }
+
+    queryAndSetTotalCount();
+}
+
+
+void OcFoldersModelNew::feedMarkedRead(const int &id)
+{
+    if (!active())
+        return;
+
+    int idx = findIndex(id, 0);
+
+    if (idx != -999) {
+
+        m_items.at(idx)->unreadCount = 0;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        emit dataChanged(index(idx), index(idx), QVector<int>(1, UnreadCountRole));
+#else
+        emit dataChanged(index(idx), index(idx));
+#endif
+
+    }
+
+    queryAndSetTotalCount();
+}
+
+
+void OcFoldersModelNew::feedMoved(const int &feedId, const int &folderId)
+{
+    if (!active())
+        return;
+
+    int idx = findIndex(feedId, 0);
+
+    if ((idx == -999) && (folderId == 0)) {
+
+        QSqlQuery query;
+
+        query.exec(QString("SELECT title, localUnreadCount, iconSource, iconWidth, iconHeight FROM feeds WHERE id = %1").arg(feedId));
+
+        query.next();
+
+        beginInsertRows(QModelIndex(), 0, 0);
+
+        OcFolderObject *fobj = new OcFolderObject(feedId,
+                                                  0,
+                                                  query.value(0).toString(),
+                                                  query.value(1).toInt(),
+                                                  query.value(2).toString(),
+                                                  query.value(3).toInt(),
+                                                  query.value(4).toInt(),
+                                                  0);
+        m_items.prepend(fobj);
+
+        endInsertRows();
+
+    } else if ((idx != -999) && (folderId != 0)) {
+
+        beginRemoveRows(QModelIndex(), idx, idx);
+
+        delete m_items.takeAt(idx);
+
+        endRemoveRows();
+    }
+
+    itemsMarked();
+
+}
+
+
+
+void OcFoldersModelNew::feedRenamed(const QString &newName, const int &feedId)
+{
+    if (!active())
+        return;
+
+    int idx = findIndex(feedId, 0);
+
+    if (idx != -999)
+    {
+        m_items.at(idx)->title = newName;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        emit dataChanged(index(idx), index(idx), QVector<int>(1, TitleRole));
+#else
+        emit dataChanged(index(idx), index(idx));
+#endif
+    }
+}
+
+
+void OcFoldersModelNew::foldersRequested(const QList<int> &updated, const QList<int> &newFolders, const QList<int> &deleted)
+{
+    if (!active())
+        return;
+
+    if (updated.isEmpty() && newFolders.isEmpty() && deleted.isEmpty())
+        return;
+
+    QSqlQuery query;
+
+    if (!updated.isEmpty()) {
+
+        for (int i = 0; i < updated.size(); ++i) {
+
+            int idx = findIndex(updated.at(i), 1);
+
+            query.exec(QString("SELECT name FROM folders WHERE id = %1").arg(updated.at(i)));
+
+            query.next();
+
+            m_items.at(idx)->title = query.value(0).toString();
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+            emit dataChanged(index(idx), index(idx), QVector<int>(1, TitleRole));
+#else
+            emit dataChanged(index(idx), index(idx));
+#endif
+        }
+    }
+
+
+    if (!newFolders.isEmpty()) {
+
+        for (int i = 0; i < newFolders.size(); ++i) {
+
+            query.exec(QString("SELECT fo.name, fo.localUnreadCount, (SELECT COUNT(id) FROM feeds WHERE folderId = fo.id) AS feedCount FROM folders fo WHERE id = %1").arg(newFolders.at(i)));
+
+            query.next();
+
+            beginInsertRows(QModelIndex(), rowCount(), rowCount());
+
+            OcFolderObject *fobj = new OcFolderObject(newFolders.at(i),
+                                                      1,
+                                                      query.value(0).toString(),
+                                                      query.value(1).toInt(),
+                                                      "",
+                                                      0,
+                                                      0,
+                                                      query.value(2).toInt());
+            m_items.append(fobj);
+
+            endInsertRows();
+        }
+    }
+
+
+    if (!deleted.isEmpty()) {
+
+        QList<int> idxs = QList<int>();
+
+        for (int i = 0; i < deleted.size(); ++i) {
+            int idx = findIndex(deleted.at(i), 1);
+            if (idx != -999)
+                idxs << idx;
+        }
+
+        if (!idxs.isEmpty()) {
+
+            for (int j = 0; j < idxs.size(); ++j) {
+                int idx = idxs.at(j);
+                beginRemoveRows(QModelIndex(), idx, idx);
+
+                delete m_items.takeAt(idx);
+
+                endRemoveRows();
+            }
+        }
+    }
+}
+
+
+void OcFoldersModelNew::folderCreated(const QString &foldername, const int &folderId)
+{
+    beginInsertRows(QModelIndex(), rowCount(), rowCount());
+
+    OcFolderObject *fobj = new OcFolderObject(folderId, 1, foldername, 0, "", 0, 0, 0);
+
+    m_items.append(fobj);
+
+    endInsertRows();
+}
+
+
+
+void OcFoldersModelNew::folderDeleted(const int &id)
+{
+    int idx = findIndex(id, 1);
+
+    if (idx != -999) {
+
+        beginRemoveRows(QModelIndex(), idx, idx);
+
+        delete m_items.takeAt(idx);
+
+        endRemoveRows();
+    }
+
+    queryAndSetTotalCount();
+}
+
+
+void OcFoldersModelNew::folderMarkedRead(const int &id)
+{
+    int idx = findIndex(id, 1);
+
+    if (idx != -999) {
+
+        m_items.at(idx)->unreadCount = 0;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        emit dataChanged(index(idx), index(idx), QVector<int>(1, UnreadCountRole));
+#else
+        emit dataChanged(index(idx), index(idx));
+#endif
+    }
+
+    queryAndSetTotalCount();
+}
+
+
+void OcFoldersModelNew::folderRenamed(const QString &newName, const int &id)
+{
+    int idx = findIndex(id, 1);
+
+    if (idx != -999) {
+
+        m_items.at(idx)->title = newName;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        emit dataChanged(index(idx), index(idx), QVector<int>(1, TitleRole));
+#else
+        emit dataChanged(index(idx), index(idx));
+#endif
+    }
+}
+
+
+
+int OcFoldersModelNew::findIndex(const int &id, const int &type) const
 {
     for (int i = 0; i < rowCount(); ++i) {
-        if (m_items.at(i)->id == id)
+        if ((m_items.at(i)->id == id) && (m_items.at(i)->type == type))
             return i;
     }
 
@@ -217,7 +738,7 @@ void OcFoldersModelNew::queryAndSetTotalCount()
 
     int totalCount = query.value(0).toInt();
 
-    int idx = findIndex(-1);
+    int idx = findIndex(-1, 3);
 
     m_items.at(idx)->unreadCount = totalCount;
 
@@ -229,3 +750,4 @@ void OcFoldersModelNew::queryAndSetTotalCount()
 
     setTotalUnread(totalCount);
 }
+

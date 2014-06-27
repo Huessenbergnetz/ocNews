@@ -560,6 +560,18 @@ void OcFeeds::moveFeed(const QString &id, const QString &folderId)
     {
         emit movedFeedError(tr("Device is in flight mode."));
     } else {
+
+        QSqlQuery query;
+
+        query.exec(QString("SELECT folderId FROM feeds WHERE id = %1").arg(id.toInt()));
+
+        query.next();
+
+        if (query.value(0).toString() == folderId) {
+            emit movedFeedError(tr("Feed is already part of the destination folder"));
+            return;
+        }
+
         // Create the API URL
         QString feed = "feeds/";
         feed.append(id);

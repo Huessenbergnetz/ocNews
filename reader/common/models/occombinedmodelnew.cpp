@@ -383,7 +383,7 @@ void OcCombinedModelNew::itemsStarred()
 
     QString queryString;
 
-    queryString = QString("SELECT COUNT(id) FROM items WHERE starred = %2").arg(SQL_TRUE);
+    queryString = QString("SELECT COUNT(id) FROM items WHERE starred = %1").arg(SQL_TRUE);
 
     query.exec(queryString);
 

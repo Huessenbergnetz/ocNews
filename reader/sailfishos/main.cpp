@@ -141,6 +141,23 @@ int main(int argc, char *argv[])
     QObject::connect(config, SIGNAL(hideReadFeedsChanged(bool)), foldersModelFilter, SLOT(setHideRead(bool)));
     QObject::connect(config, SIGNAL(orderByChanged(QString)), foldersModelFilter, SLOT(setOrderBy(QString)));
 
+    // connections to folders model
+    QObject::connect(&items, SIGNAL(updatedItemsSuccess(QList<int>,QList<int>,QList<int>)), foldersModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), foldersModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&items, SIGNAL(markedItemsSuccess(QStringList,QString)), foldersModelSql, SLOT(itemsMarked()));
+    QObject::connect(&items, SIGNAL(starredItemsSuccess(QStringList,QString)), foldersModelSql, SLOT(itemsStarred()));
+    QObject::connect(&feeds, SIGNAL(requestedFeedsSuccess(QList<int>,QList<int>,QList<int>)), foldersModelSql, SLOT(feedsRequested(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&feeds, SIGNAL(createdFeedSuccess(QString,int)), foldersModelSql, SLOT(feedCreated(QString,int)));
+    QObject::connect(&feeds, SIGNAL(deletedFeedSuccess(int)), foldersModelSql, SLOT(feedDeleted(int)));
+    QObject::connect(&feeds, SIGNAL(markedReadFeedSuccess(int)), foldersModelSql, SLOT(feedMarkedRead(int)));
+    QObject::connect(&feeds, SIGNAL(movedFeedSuccess(int,int)), foldersModelSql, SLOT(feedMoved(int,int)));
+    QObject::connect(&feeds, SIGNAL(renamedFeedSuccess(QString,int)), foldersModelSql, SLOT(feedRenamed(QString,int)));
+    QObject::connect(&folders, SIGNAL(requestedFoldersSuccess(QList<int>,QList<int>,QList<int>)), foldersModelSql, SLOT(foldersRequested(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&folders, SIGNAL(createdFolderSuccess(QString,int)), foldersModelSql, SLOT(folderCreated(QString,int)));
+    QObject::connect(&folders, SIGNAL(deletedFolderSuccess(int)), foldersModelSql, SLOT(folderDeleted(int)));
+    QObject::connect(&folders, SIGNAL(markedReadFolderSuccess(int)), foldersModelSql, SLOT(folderMarkedRead(int)));
+
+
     // register reader dbus interface
     QDBusConnection connection = QDBusConnection::sessionBus();
     bool ret = connection.registerService("harbour.ocnews.reader");
