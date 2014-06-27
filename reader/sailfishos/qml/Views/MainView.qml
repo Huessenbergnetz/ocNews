@@ -130,12 +130,13 @@ Page {
             text: qsTr("The local database is empty. Please make an update or add new feeds and folders.")
         }
 
-        model: configState === 0 ? config.viewMode === 0 ? folderModelSql : combinedModelFilter : null
+        model: configState === 0 ? config.viewMode === 0 ? foldersModelFilter : combinedModelFilter : null
         onModelChanged: {
             if (config.viewMode === 0) {
                 combinedModelSql.active = false
-                folderModelSql.refresh()
+                foldersModelSql.active = true
             } else {
+                foldersModelSql.active = false
                 combinedModelSql.active = true
             }
         }

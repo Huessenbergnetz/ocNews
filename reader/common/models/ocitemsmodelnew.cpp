@@ -406,8 +406,6 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
             }
 
             endInsertRows();
-
-            q.clear();
         }
     }
 
@@ -431,8 +429,6 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
                                              "it.guidHash "
                                       "FROM items it WHERE id = %1").arg(iobj->itemId);
 
-//                queryString.append(QString("FROM items it WHERE id = %1").arg(m_items.at(i)->itemId));
-
                 q.exec(queryString);
 
                 q.next();
@@ -445,8 +441,6 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
                 iobj->starred = q.value(5).toBool();
                 iobj->url = q.value(6).toString();
                 iobj->guidHash = q.value(7).toString();
-
-//                m_items[i] = iobj;
 
                 emit dataChanged(index(i, 0), index(i, 0));
             }

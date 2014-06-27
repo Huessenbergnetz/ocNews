@@ -10,6 +10,8 @@
 #include "../common/ocdbmanager.h"
 #include "../common/occonfiguration.h"
 #include "../common/models/ocfoldermodelsql.h"
+#include "../common/models/ocfoldersmodelnew.h"
+#include "../common/models/ocfoldersmodelfilter.h"
 #include "../common/models/ocfeedsmodelsql.h"
 #include "../common/models/ocitemsmodelnew.h"
 #include "../common/models/ocitemsmodelfilter.h"
@@ -65,9 +67,12 @@ int main(int argc, char *argv[])
     OcDBusImageFetcher imageFetcher;
     OcConfiguration *config = new OcConfiguration;
 
-    OcFolderModelSql *folderModelSql = new OcFolderModelSql();
-//    OcCombinedModelSql *combinedModelSql = new OcCombinedModelSql();
+//    OcFolderModelSql *folderModelSql = new OcFolderModelSql();
     OcFeedsModelSql *feedsModelSql = new OcFeedsModelSql();
+
+    OcFoldersModelNew *foldersModelSql = new OcFoldersModelNew();
+    OcFoldersModelFilter *foldersModelFilter = new OcFoldersModelFilter();
+    foldersModelFilter->setSourceModel(foldersModelSql);
 
     OcCombinedModelNew *combinedModelSql = new OcCombinedModelNew;
     OcCombinedModelFilter *combinedModelFilter = new OcCombinedModelFilter;
@@ -146,7 +151,8 @@ int main(int argc, char *argv[])
     if (config->quitEngine())
         QObject::connect(QCoreApplication::instance(), SIGNAL(aboutToQuit()), &dbus, SLOT(quitEngine()));
 
-    view->rootContext()->setContextProperty("folderModelSql", folderModelSql);
+    view->rootContext()->setContextProperty("foldersModelSql", foldersModelSql);
+    view->rootContext()->setContextProperty("foldersModelFilter", foldersModelFilter);
     view->rootContext()->setContextProperty("combinedModelSql", combinedModelSql);
     view->rootContext()->setContextProperty("combinedModelFilter", combinedModelFilter);
     view->rootContext()->setContextProperty("feedsModelSql", feedsModelSql);
