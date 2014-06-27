@@ -325,14 +325,14 @@ Page {
                 onCheckedChanged: config.showExcerpts = checked
             }
 
-            TextSwitch {
-                id: listPictures
-                text: qsTr("Display images in list")
-                anchors { left: parent.left; right: parent.right }
-                description: qsTr("Displays an image of the article in the list.")
-                checked: config.showPicturesInList
-                onCheckedChanged: config.showPicturesInList = checked
-            }
+//            TextSwitch {
+//                id: listPictures
+//                text: qsTr("Display images in list")
+//                anchors { left: parent.left; right: parent.right }
+//                description: qsTr("Displays an image of the article in the list.")
+//                checked: config.showPicturesInList
+//                onCheckedChanged: config.showPicturesInList = checked
+//            }
 
             Slider {
                 id: fontSizeSlider
