@@ -56,7 +56,7 @@ bool OcUpgradeHelper::upgrade182AndOlder()
 
     query.exec("DROP TRIGGER IF EXISTS folders_localUnread_move_feed");
 
-    query.exec("CREATE TRIGGER IF NOT EXISTS folders_localUnread_move_feed_190 AFTER UPDATE OF folderId ON feeds "
+    query.exec("CREATE TRIGGER IF NOT EXISTS folders_localUnread_move_feed AFTER UPDATE OF folderId ON feeds "
                "BEGIN "
                "UPDATE folders SET localUnreadCount = (SELECT SUM(localUnreadCount) FROM feeds WHERE folderId = new.folderId) WHERE id = new.folderId; "
                "UPDATE folders SET localUnreadCount = (SELECT SUM(localUnreadCount) FROM feeds WHERE folderId = old.folderId) WHERE id = old.folderId; "
