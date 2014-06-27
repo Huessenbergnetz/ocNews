@@ -72,6 +72,8 @@ int main(int argc, char *argv[])
 
     OcFoldersModelNew *foldersModelSql = new OcFoldersModelNew();
     OcFoldersModelFilter *foldersModelFilter = new OcFoldersModelFilter();
+    foldersModelFilter->setHideRead(config->hideReadFeeds());
+    foldersModelFilter->setOrderBy(config->orderBy());
     foldersModelFilter->setSourceModel(foldersModelSql);
 
     OcCombinedModelNew *combinedModelSql = new OcCombinedModelNew;
@@ -133,6 +135,11 @@ int main(int argc, char *argv[])
     QObject::connect(&feeds, SIGNAL(markedReadFeedSuccess(int)), combinedModelSql, SLOT(feedMarkedRead(int)));
     QObject::connect(&feeds, SIGNAL(movedFeedSuccess(int,int)), combinedModelSql, SLOT(feedMoved(int,int)));
     QObject::connect(&feeds, SIGNAL(renamedFeedSuccess(QString,int)), combinedModelSql, SLOT(feedRenamed(QString,int)));
+
+
+    // connections to folders model filter
+    QObject::connect(config, SIGNAL(hideReadFeedsChanged(bool)), foldersModelFilter, SLOT(setHideRead(bool)));
+    QObject::connect(config, SIGNAL(orderByChanged(QString)), foldersModelFilter, SLOT(setOrderBy(QString)));
 
     // register reader dbus interface
     QDBusConnection connection = QDBusConnection::sessionBus();

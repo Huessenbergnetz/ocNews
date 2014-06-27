@@ -21,6 +21,7 @@ void OcCombinedModelFilter::setHideRead(const bool &nHideRead)
     if (nHideRead != m_hideRead) {
         m_hideRead = nHideRead;
         this->invalidateFilter();
+        this->invalidate();
         emit hideReadChanged(hideRead());
     }
 }
@@ -124,4 +125,6 @@ void OcCombinedModelFilter::setSorting()
     }
 
     this->sort(0);
+    this->invalidate();
+    this->invalidateFilter();
 }

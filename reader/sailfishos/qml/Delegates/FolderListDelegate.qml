@@ -79,7 +79,6 @@ ListItem {
                 height: 32
                 sourceSize.width: model.iconSource ? parseInt(model.iconWidth, 10) : 64
                 sourceSize.height: model.iconSource ? parseInt(model.iconHeight, 10) : 64
-//                source: model.iconSource ? model.iconSource : (model.type === "1") ? "image://theme/icon-m-folder" : "/usr/share/harbour-ocnews-reader/icons/icon-m-rss.png"
                 source: model.iconSource ? model.iconSource : getIconSource()
             }
         }

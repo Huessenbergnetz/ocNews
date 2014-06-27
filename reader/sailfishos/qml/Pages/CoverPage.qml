@@ -66,7 +66,7 @@ CoverBackground {
             font.weight: Font.Light
             textFormat: Text.PlainText
 //            text: unreadItems
-            text: config.viewMode === 0 ? folderModelSql.totalUnread : combinedModelSql.totalUnread
+            text: config.viewMode === 0 ? foldersModelSql.totalUnread : combinedModelSql.totalUnread
         }
 
         Text {

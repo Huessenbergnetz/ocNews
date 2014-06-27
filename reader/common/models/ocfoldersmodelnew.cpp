@@ -93,7 +93,7 @@ QVariant OcFoldersModelNew::data(const QModelIndex &index, int role) const
         if (!fobj->iconSource.isEmpty()) {
             return QVariant::fromValue(QDir::homePath() + BASE_PATH + "/favicons/" + fobj->iconSource);
         } else {
-            return QVariant::fromValue(QString());
+            return QVariant();
         }
     case IconWidthRole:
         return QVariant::fromValue(fobj->iconWidth);
