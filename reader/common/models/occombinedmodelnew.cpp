@@ -1,5 +1,5 @@
 #include "occombinedmodelnew.h"
-#include "objects/cocombinedobject.h"
+#include "objects/occombinedobject.h"
 #include <QDebug>
 
 const int OcCombinedModelNew::IdRole = Qt::UserRole + 1;

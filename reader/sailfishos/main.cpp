@@ -13,6 +13,8 @@
 #include "../common/models/ocfoldersmodelnew.h"
 #include "../common/models/ocfoldersmodelfilter.h"
 #include "../common/models/ocfeedsmodelsql.h"
+#include "../common/models/ocfeedsmodelnew.h"
+#include "../common/models/ocfeedsmodelfilter.h"
 #include "../common/models/ocitemsmodelnew.h"
 #include "../common/models/ocitemsmodelfilter.h"
 #include "../common/models/ocsingleitemmodelnew.h"
@@ -68,10 +70,11 @@ int main(int argc, char *argv[])
     OcConfiguration *config = new OcConfiguration;
 
 //    OcFolderModelSql *folderModelSql = new OcFolderModelSql();
-    OcFeedsModelSql *feedsModelSql = new OcFeedsModelSql();
+//    OcFeedsModelSql *feedsModelSql = new OcFeedsModelSql();
 
-    OcFoldersModelNew *foldersModelSql = new OcFoldersModelNew();
-    OcFoldersModelFilter *foldersModelFilter = new OcFoldersModelFilter();
+
+    OcFoldersModelNew *foldersModelSql = new OcFoldersModelNew;
+    OcFoldersModelFilter *foldersModelFilter = new OcFoldersModelFilter;
     foldersModelFilter->setHideRead(config->hideReadFeeds());
     foldersModelFilter->setOrderBy(config->orderBy());
     foldersModelFilter->setSourceModel(foldersModelSql);
@@ -82,7 +85,13 @@ int main(int argc, char *argv[])
     combinedModelFilter->setOrderBy(config->orderBy());
     combinedModelFilter->setSourceModel(combinedModelSql);
 
-    OcItemsModelNew *itemsModelSql = new OcItemsModelNew();
+    OcFeedsModelNew *feedsModelSql = new OcFeedsModelNew;
+    OcFeedsModelFilter *feedsModelFilter = new OcFeedsModelFilter;
+    feedsModelFilter->setHideRead(config->hideReadFeeds());
+    feedsModelFilter->setOrderBy(config->orderBy());
+    feedsModelFilter->setSourceModel(feedsModelSql);
+
+    OcItemsModelNew *itemsModelSql = new OcItemsModelNew;
     itemsModelSql->setShowExcerpts(config->showExcerpts());
     itemsModelSql->setShowImages(config->showPicturesInList());
     OcItemsModelFilter *itemsModelFilter = new OcItemsModelFilter;
@@ -158,6 +167,18 @@ int main(int argc, char *argv[])
     QObject::connect(&folders, SIGNAL(markedReadFolderSuccess(int)), foldersModelSql, SLOT(folderMarkedRead(int)));
 
 
+    // connections to feeds model filter
+    QObject::connect(config, SIGNAL(hideReadFeedsChanged(bool)), feedsModelFilter, SLOT(setHideRead(bool)));
+    QObject::connect(config, SIGNAL(orderByChanged(QString)), feedsModelFilter, SLOT(setOrderBy(QString)));
+
+
+    // connections to feeds model
+    QObject::connect(&items, SIGNAL(updatedItemsSuccess(QList<int>,QList<int>,QList<int>)), feedsModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), feedsModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&items, SIGNAL(markedItemsSuccess(QStringList,QString)), feedsModelSql, SLOT(itemsMarked()));
+    QObject::connect(&feeds, SIGNAL(requestedFeedsSuccess(QList<int>,QList<int>,QList<int>)), feedsModelSql, SLOT(feedsRequested(QList<int>,QList<int>,QList<int>)));
+
+
     // register reader dbus interface
     QDBusConnection connection = QDBusConnection::sessionBus();
     bool ret = connection.registerService("harbour.ocnews.reader");
@@ -180,6 +201,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("combinedModelSql", combinedModelSql);
     view->rootContext()->setContextProperty("combinedModelFilter", combinedModelFilter);
     view->rootContext()->setContextProperty("feedsModelSql", feedsModelSql);
+    view->rootContext()->setContextProperty("feedsModelFilter", feedsModelFilter);
     view->rootContext()->setContextProperty("itemsModelSql", itemsModelSql);
     view->rootContext()->setContextProperty("itemsModelFilter", itemsModelFilter);
     view->rootContext()->setContextProperty("specialItemsModelSql", specialItemsModelSql);

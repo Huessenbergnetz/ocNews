@@ -61,7 +61,9 @@ SOURCES += main.cpp \
     ../common/models/occombinedmodelnew.cpp \
     ../common/models/occombinedmodelfilter.cpp \
     ../common/models/ocfoldersmodelnew.cpp \
-    ../common/models/ocfoldersmodelfilter.cpp
+    ../common/models/ocfoldersmodelfilter.cpp \
+    ../common/models/ocfeedsmodelnew.cpp \
+    ../common/models/ocfeedsmodelfilter.cpp
 
 OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Views/MainView.qml \
@@ -140,11 +142,14 @@ HEADERS += \
     ../common/models/ocspecialitemsmodelnew.h \
     ../common/models/ocmodelhelper.h \
     ../common/models/occombinedmodelnew.h \
-    ../common/models/objects/cocombinedobject.h \
     ../common/models/occombinedmodelfilter.h \
     ../common/models/ocfoldersmodelnew.h \
     ../common/models/objects/ocfolerdobject.h \
-    ../common/models/ocfoldersmodelfilter.h
+    ../common/models/ocfoldersmodelfilter.h \
+    ../common/models/ocfeedsmodelnew.h \
+    ../common/models/objects/ocfeedobjec.h \
+    ../common/models/objects/occombinedobject.h \
+    ../common/models/ocfeedsmodelfilter.h
 
 RESOURCES +=
 

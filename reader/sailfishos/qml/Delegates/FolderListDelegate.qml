@@ -28,6 +28,7 @@ ListItem {
             pageStack.push(Qt.resolvedUrl("../Views/ItemListView.qml"), {feedName: model.title})
             break;
         case 1:
+            feedsModelSql.folderId = model.id
             pageStack.push(Qt.resolvedUrl("../Views/FeedListView.qml"), {folderId: model.id, folderName: model.title})
             break;
         case 2:

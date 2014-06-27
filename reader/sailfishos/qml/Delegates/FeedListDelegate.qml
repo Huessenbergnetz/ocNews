@@ -20,11 +20,19 @@ ListItem {
     ListView.onRemove: animateRemoval(feedListItem)
 
     onClicked: {
-        if (model.type === "0") {
+        switch(model.type)
+        {
+        case 0:
             itemsModelSql.feedId = model.id
             pageStack.push(Qt.resolvedUrl("../Views/ItemListView.qml"), {feedName: model.title})
-        } else {
-            pageStack.push(Qt.resolvedUrl("../Views/SpecialItemListView.qml"), { id: feedListItem.folderId, pageName: qsTr("All") + " - " + feedListItem.folderName, feedType: "folder" })
+            break;
+        case 1:
+            specialItemsModelSql.type = model.type
+            specialItemsModelSql.id = model.id
+            pageStack.push(Qt.resolvedUrl("../Views/SpecialItemListView.qml"), {pageName: feedListItem.folderName})
+            break;
+        default:
+            break;
         }
     }
 

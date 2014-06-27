@@ -316,7 +316,7 @@ void OcFoldersModelNew::feedsRequested(const QList<int> &updated, const QList<in
 
             int folderId = query.value(4).toInt();
 
-            // check if updated feed is still children of root folder
+            // check if updated feed is still child of root folder
             if ((idx != -999) && (folderId == 0)) {
 
                 //update the feed, because it is still children of root
@@ -329,7 +329,7 @@ void OcFoldersModelNew::feedsRequested(const QList<int> &updated, const QList<in
 
             } else if ((idx != -999) && (folderId != 0)) {
 
-                //the updated feed is no longer children of root, remove it
+                //the updated feed is no longer child of root, remove it
                 beginRemoveRows(QModelIndex(), idx, idx);
 
                 delete m_items.takeAt(idx);
