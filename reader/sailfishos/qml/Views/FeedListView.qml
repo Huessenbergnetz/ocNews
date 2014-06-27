@@ -11,35 +11,13 @@ Page {
     property string folderId
     property string folderName
 
-//    Component.onCompleted: feedsModelSql.refresh(folderId)
-
     Component.onDestruction: feedsModelSql.clear()
 
-//    Connections {
-//        target: feeds
-//        onMovedFeedSuccess: feedsModelSql.refresh(folderId)
-//        onCreatedFeedSuccess: feedsModelSql.refresh(folderId)
-//        onDeletedFeedSuccess: feedsModelSql.refresh(folderId)
-//        onMarkedReadFeedSuccess: feedsModelSql.refresh(folderId)
-//        onRenamedFeedSuccess: feedsModelSql.refresh(folderId)
-//    }
-//    Connections {
-//        target: items
-//        onUpdatedItemsSuccess: feedsModelSql.refresh(folderId)
-//        onRequestedItemsSuccess: feedsModelSql.refresh(folderId)
-//        onStarredItemsSuccess: feedsModelSql.refresh(folderId)
-//        onMarkedItemsSuccess: feedsModelSql.refresh(folderId)
-//    }
-//    Connections {
-//        target: folders
-//        onDeletedFolderSuccess: pageStack.pop()
-//        onMarkedReadFolderSuccess: feedsModelSql.refresh(folderId)
-//        onRenamedFolderSuccess: feedListView.folderName = newfoldername
-//    }
-//    Connections {
-//        target: updater
-//        onUpdateFinished: feedsModelSql.refresh(folderId)
-//    }
+    Connections {
+        target: folders
+        onDeletedFolderSuccess: pageStack.pop()
+        onRenamedFolderSuccess: feedListView.folderName = newfoldername
+    }
 
     SilicaListView {
         id: feedList

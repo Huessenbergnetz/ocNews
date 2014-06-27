@@ -177,6 +177,12 @@ int main(int argc, char *argv[])
     QObject::connect(&items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), feedsModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
     QObject::connect(&items, SIGNAL(markedItemsSuccess(QStringList,QString)), feedsModelSql, SLOT(itemsMarked()));
     QObject::connect(&feeds, SIGNAL(requestedFeedsSuccess(QList<int>,QList<int>,QList<int>)), feedsModelSql, SLOT(feedsRequested(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(&feeds, SIGNAL(createdFeedSuccess(QString,int)), feedsModelSql, SLOT(feedCreated(QString,int)));
+    QObject::connect(&feeds, SIGNAL(deletedFeedSuccess(int)), feedsModelSql, SLOT(feedDeleted(int)));
+    QObject::connect(&feeds, SIGNAL(markedReadFeedSuccess(int)), feedsModelSql, SLOT(feedMarkedRead(int)));
+    QObject::connect(&feeds, SIGNAL(movedFeedSuccess(int,int)), feedsModelSql, SLOT(feedMoved(int,int)));
+    QObject::connect(&feeds, SIGNAL(renamedFeedSuccess(QString,int)), feedsModelSql, SLOT(feedRenamed(QString,int)));
+    QObject::connect(&folders, SIGNAL(markedReadFolderSuccess(int)), feedsModelSql, SLOT(folderMarkedRead(int)));
 
 
     // register reader dbus interface

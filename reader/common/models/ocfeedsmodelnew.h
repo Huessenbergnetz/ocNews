@@ -43,6 +43,13 @@ public slots:
     void itemsMarked();
 
     void feedsRequested(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted);
+    void feedCreated(const QString &name, const int &id);
+    void feedDeleted(const int &id);
+    void feedMarkedRead(const int &id);
+    void feedMoved(const int &feedId, const int &fId);
+    void feedRenamed(const QString &newName, const int &feedId);
+
+    void folderMarkedRead(const int &id);
 
 private:
     int m_folderId;

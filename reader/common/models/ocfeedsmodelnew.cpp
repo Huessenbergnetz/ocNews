@@ -347,6 +347,154 @@ void OcFeedsModelNew::feedsRequested(const QList<int> &updated, const QList<int>
 
 
 
+void OcFeedsModelNew::feedDeleted(const int &id)
+{
+    int idx = findIndex(id, 0);
+
+    if (idx != -999) {
+
+        beginRemoveRows(QModelIndex(), idx, idx);
+
+        delete m_items.takeAt(idx);
+
+        endRemoveRows();
+    }
+
+    queryAndSetTotalUnread();
+}
+
+
+void OcFeedsModelNew::feedCreated(const QString &name, const int &id)
+{
+    QSqlQuery query;
+
+    query.exec(QString("SELECT id, localUnreadCount, iconSource, iconWidth, iconHeight, folderId FROM feeds WHERE id = %1").arg(id));
+
+    query.next();
+
+    if (query.value(5).toInt() == folderId()) {
+
+        beginInsertRows(QModelIndex(), rowCount(), rowCount());
+
+        OcFeedObject *fobj = new OcFeedObject(query.value(0).toInt(),
+                                              0,
+                                              name,
+                                              query.value(1).toInt(),
+                                              query.value(2).toString(),
+                                              query.value(3).toInt(),
+                                              query.value(4).toInt());
+
+        m_items.append(fobj);
+
+        endInsertRows();
+
+        queryAndSetTotalUnread();
+    }
+}
+
+
+void OcFeedsModelNew::feedMoved(const int &feedId, const int &fId)
+{
+    int idx = findIndex(feedId, 0);
+
+    if ((idx == -999) && (fId == folderId())) {
+
+        // feed was added to this folder, so create it
+
+        QSqlQuery query;
+
+        query.exec(QString("SELECT id, title, localUnreadCount, iconSource, iconWidth, iconHeight, folderId FROM feeds WHERE id = %1").arg(feedId));
+
+        query.next();
+
+        beginInsertRows(QModelIndex(), rowCount(), rowCount());
+
+        OcFeedObject *fobj = new OcFeedObject(query.value(0).toInt(),
+                                              0,
+                                              query.value(1).toString(),
+                                              query.value(2).toInt(),
+                                              query.value(3).toString(),
+                                              query.value(4).toInt(),
+                                              query.value(5).toInt());
+        m_items.append(fobj);
+
+        endInsertRows();
+
+        queryAndSetTotalUnread();
+
+    } else if ((idx != -999) && (fId != folderId())) {
+
+        // feed was removed from this folder, so delete it
+
+        beginRemoveRows(QModelIndex(), idx, idx);
+
+        delete m_items.takeAt(idx);
+
+        endRemoveRows();
+
+        queryAndSetTotalUnread();
+    }
+}
+
+
+void OcFeedsModelNew::feedMarkedRead(const int &id)
+{
+    int idx = findIndex(id, 0);
+
+    if (idx != -999) {
+
+        m_items.at(idx)->unreadCount = 0;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        emit dataChanged(index(idx), index(idx), QVector<int>(1, UnreadCountRole));
+#else
+        emit dataChanged(index(idx), index(idx));
+#endif
+
+        queryAndSetTotalUnread();
+    }
+}
+
+
+
+void OcFeedsModelNew::feedRenamed(const QString &newName, const int &feedId)
+{
+     int idx = findIndex(feedId, 0);
+
+     if (idx != -999) {
+
+         m_items.at(idx)->title = newName;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        emit dataChanged(index(idx), index(idx), QVector<int>(1, TitleRole));
+#else
+        emit dataChanged(index(idx), index(idx));
+#endif
+
+     }
+}
+
+
+
+void OcFeedsModelNew::folderMarkedRead(const int &id)
+{
+    if (id == folderId()) {
+
+        for (int i = 0; i < rowCount(); ++i) {
+
+            m_items.at(i)->unreadCount = 0;
+        }
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        emit dataChanged(index(0), index(rowCount()-1), QVector<int>(1, UnreadCountRole));
+#else
+        emit dataChanged(index(0), index(rowCount()-1));
+#endif
+    }
+}
+
+
+
 int OcFeedsModelNew::findIndex(const int &id, const int &type) const
 {
     for (int i = 0; i < rowCount(); ++i) {
