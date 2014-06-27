@@ -22,6 +22,7 @@ public slots:
 
 private:
     bool upgrade161AndOlder();
+    bool upgrade182AndOlder();
 };
 
 #endif // OCUPGRADEHELPER_H

@@ -12,13 +12,16 @@ void OcUpgradeHelper::init(int oldVersion, int currentVersion)
     if (oldVersion <= 161)
     {
         upgrade161AndOlder();
+        upgrade182AndOlder();
+    } else if (oldVersion <= 182) {
+        upgrade182AndOlder();
     }
 }
 
 
 bool OcUpgradeHelper::upgrade161AndOlder()
 {
-    qDebug() << "Performing internal upgrades vor version 1.6.1 and lower.";
+    qDebug() << "Performing internal upgrades for version 1.6.1 and lower.";
 
     QSqlQuery query;
 
@@ -40,4 +43,24 @@ bool OcUpgradeHelper::upgrade161AndOlder()
         }
 
     }
+
+    return true;
+}
+
+
+bool OcUpgradeHelper::upgrade182AndOlder()
+{
+    qDebug() << "Performing internal upgrade for version 1.8.2 and lower.";
+
+    QSqlQuery query;
+
+    query.exec("DROP TRIGGER IF EXISTS folders_localUnread_move_feed");
+
+    query.exec("CREATE TRIGGER IF NOT EXISTS folders_localUnread_move_feed_190 AFTER UPDATE OF folderId ON feeds "
+               "BEGIN "
+               "UPDATE folders SET localUnreadCount = (SELECT SUM(localUnreadCount) FROM feeds WHERE folderId = new.folderId) WHERE id = new.folderId; "
+               "UPDATE folders SET localUnreadCount = (SELECT SUM(localUnreadCount) FROM feeds WHERE folderId = old.folderId) WHERE id = old.folderId; "
+               "END;");
+
+    return true;
 }

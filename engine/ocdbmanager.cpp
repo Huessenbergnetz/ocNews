@@ -166,6 +166,7 @@ bool OcDbManager::createTables()
         build.exec(QString("CREATE TRIGGER IF NOT EXISTS folders_localUnread_move_feed AFTER UPDATE OF folderId ON feeds "
                            "BEGIN "
                            "UPDATE folders SET localUnreadCount = (SELECT SUM(localUnreadCount) FROM feeds WHERE folderId = new.folderId) WHERE id = new.folderId; "
+                           "UPDATE folders SET localUnreadCount = (SELECT SUM(localUnreadCount) FROM feeds WHERE folderId = old.folderId) WHERE id = old.folderId; "
                            "END;"));
 #ifdef QT_DEBUG
         qDebug() << "Created Table triggers.";
