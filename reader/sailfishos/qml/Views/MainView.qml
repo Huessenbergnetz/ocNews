@@ -23,7 +23,7 @@ Page {
         paypalEmail: "kontakt@buschmann23.de"
         paypalMessage: qsTr("Leave a message (English or German):")
         description: qsTr("ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. ")
-//        onClicked: config.displayedVersion = versionInt
+        onClicked: config.displayedVersion = versionInt
     }
 
     SilicaListView {
