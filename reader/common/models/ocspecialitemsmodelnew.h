@@ -7,8 +7,9 @@
 #include "ocmodelhelper.h"
 #include "ocspecialitemsmodelquery.h"
 #include "../../../common/globals.h"
+#include "objects/ocitemobject.h"
 
-class OcItemObject;
+//class OcItemObject;
 
 class OcSpecialItemsModelNew : public QAbstractListModel
 {

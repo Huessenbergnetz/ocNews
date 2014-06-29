@@ -6,10 +6,11 @@
 #include <QSqlError>
 #include <QTimer>
 #include <QStringList>
+#include "objects/ocitemobject.h"
 
 #include "ocmodelhelper.h"
 
-class OcItemObject;
+//class OcItemObject;
 
 class OcItemsModelNew : public QAbstractListModel
 {

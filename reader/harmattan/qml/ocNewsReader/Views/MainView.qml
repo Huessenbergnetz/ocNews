@@ -17,6 +17,16 @@ Page {
         } else if (dbus.isConfigSet() && !dbus.isAccountEnabled()) {
             configState = 2
         }
+        if (true) {
+            startUpInfoSheet.name = "ocNews"
+            startUpInfoSheet.version = versionString
+            startUpInfoSheet.paypalOrganization = "Buschtrommel"
+            startUpInfoSheet.paypalItem = "ocNews"
+            startUpInfoSheet.paypalEmail = "kontakt@buschmann23.de"
+            startUpInfoSheet.paypalMessage = qsTr("Leave a message (English or German):")
+            startUpInfoSheet.description = qsTr("ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. ")
+            startUpInfoSheet.open()
+        }
     }
 
     property int configState
@@ -33,6 +43,20 @@ Page {
              else
                  console.log("Error loading component:", component.errorString());
          }
+
+//    FirstStartInfo {
+////        visible: config.displayedVersion < versionInt
+//        visible: true
+//        name: "ocNews"
+//        version: versionString
+////        helpPage: "../pages/Help.qml"
+//        paypalOrganization: "Buschtrommel"
+//        paypalItem: "ocNews"
+//        paypalEmail: "kontakt@buschmann23.de"
+//        paypalMessage: qsTr("Leave a message (English or German):")
+//        description: qsTr("ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. ")
+////        onClicked: config.displayedVersion = versionInt
+//    }
 
     Connections {
         target: mainViewAddFeed
@@ -447,6 +471,10 @@ Page {
 
     RenameFeedSheet {
         id: mainViewRenameFeed
+    }
+
+    StartUpInfoSheet {
+        id: startUpInfoSheet
     }
 
 // ----------------- Sheets End --------------------

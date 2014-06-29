@@ -1,5 +1,5 @@
 #include "ocspecialitemsmodelnew.h"
-#include "objects/ocitemobject.h"
+
 #include <QDebug>
 
 const int OcSpecialItemsModelNew::TitleRole = Qt::UserRole + 1;
