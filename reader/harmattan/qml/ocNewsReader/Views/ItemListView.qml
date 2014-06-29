@@ -17,45 +17,40 @@ Page {
     property string feedId
     property string feedName
 
-    property int handleRead: dbus.getSetting("display/handleread", 0)
-    property bool sortAsc: dbus.getSetting("display/sortasc", false) == "true"
+    property int handleRead: config.handleRead
+    property bool sortAsc: config.sortAsc
+    property string searchString: ""
+
+    onHandleReadChanged: itemsList.model.handleRead = handleRead
+    onSortAscChanged: itemsList.model.sortAsc = sortAsc
+    onSearchStringChanged: itemsList.model.search = searchString
+
+    Component.onCompleted: {
+        itemsList.model.search = searchString
+        itemsList.model.sortAsc = sortAsc
+        itemsList.model.handleRead = handleRead
+    }
+
+    Component.onDestruction: itemsModelSql.startCleanUpTimer()
 
     function openFile(file, properties) {
              var component = Qt.createComponent(file)
-             if (component.status == Component.Ready)
+             if (component.status === Component.Ready)
                  pageStack.push(component, properties);
              else
                  console.log("Error loading component:", component.errorString());
          }
 
-    Component.onCompleted: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); }
-    Component.onDestruction: GLOBALS.previousContentY = 0;
-
     Connections {
         target: feeds
-        onMarkedReadFeedSuccess: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text)
         onRenamedFeedSuccess: itemListView.feedName = newName
         onDeletedFeedSuccess: pageStack.pop()
-    }
-    Connections {
-        target: items
-        onUpdatedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
-        onRequestedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
-        onStarredItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
-        onMarkedItemsSuccess: { itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
-    }
-    Connections {
-        target: updater
-        onUpdateFinished: { GLOBALS.previousContentY = itemsList.contentY; itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
     }
 
     Connections {
         target: itemListViewRenameFeed
         onAccepted: if (itemListViewRenameFeed.feedName !== itemListViewRenameFeed.newfeedName && itemListViewRenameFeed.newfeedName !== "") operationRunning = true
     }
-
-    onHandleReadChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text)
-    onSortAscChanged: itemsModelSql.refresh(feedId, handleRead, sortAsc, searchTextField.text)
 
 // ------------- Header Start ----------------
 
@@ -95,7 +90,8 @@ Page {
                 platformStyle: TextFieldStyle { paddingRight: clearButton.width }
                 inputMethodHints: Qt.ImhNoPredictiveText
 
-                onTextChanged: { searchFieldTimer.restart(); itemsModelSql.refresh(feedId, handleRead, sortAsc, text) }
+
+
 
                 Image {
                     id: clearButton
@@ -109,6 +105,12 @@ Page {
                         }
                     }
                 }
+            }
+
+            Binding {
+                target: itemListView
+                property: "searchString"
+                value: searchTextField.text
             }
         }
 
@@ -125,13 +127,18 @@ Page {
 
     ListView {
         id: itemsList
-//        anchors { fill: parent; topMargin: searchFieldBox.height + 71; leftMargin: 0; rightMargin: 16 }
         anchors { top: parent.top; topMargin: searchFieldBox.height + 71; left: parent.left; leftMargin: 0; right: parent.right; rightMargin: 16; bottom: ivFetchImagesIndicator.visible ? ivFetchImagesIndicator.top : parent.bottom }
-        model: itemsModelSql
+        model: itemsModelFilter
         delegate: ItemListDelegate {
             onClicked: {
-                GLOBALS.previousContentY = itemsList.contentY
-                openFile("SingleItemView.qml", {itemId: itemId, searchString: searchTextField.text, handleRead: itemListView.handleRead, sortAsc: itemListView.sortAsc, feedType: "0", parentFeedId: itemListView.feedId})
+                item.searchString = itemListView.searchString
+                item.handleRead = itemListView.handleRead
+                item.sortAsc = itemListView.sortAsc
+                item.feedType = 0
+                item.parentFeedId = itemListView.feedId
+                item.showImg = config.handleImgs > 0
+                item.itemId = itemId
+                openFile("SingleItemView.qml")
             }
             onPressAndHold: {
                      contextMenuEffect.play()
@@ -188,7 +195,6 @@ Page {
             platformIconId: operationRunning ? "toolbar-refresh-dimmed" : "toolbar-refresh"
             enabled: !operationRunning
             onClicked: {
-                GLOBALS.previousContentY = itemsList.contentY
                 operationRunning = true
                 items.updateItems("0", "0", itemListView.feedId);
             }
@@ -209,7 +215,6 @@ Page {
                 enabled: !operationRunning
                 onClicked: {
                     operationRunning = true
-                    GLOBALS.previousContentY = itemsList.contentY
                     feeds.markFeedRead(feedId)
                 }
             }
@@ -297,7 +302,6 @@ Page {
                 enabled: !operationRunning
                 onClicked: {
                     operationRunning = true
-                    GLOBALS.previousContentY = itemsList.contentY
                     itemContextMenu.starred === false ?
                                 items.starItems("star", itemContextMenu.starParams() ) :
                                items.starItems("unstar", itemContextMenu.starParams() )
@@ -309,7 +313,6 @@ Page {
                 enabled: !operationRunning
                 onClicked: {
                     operationRunning = true
-                    GLOBALS.previousContentY = itemsList.contentY
                     itemContextMenu.unread ? items.markItems("read", itemContextMenu.markParams()) : items.markItems("unread", itemContextMenu.markParams())
                 }
             }
@@ -318,7 +321,6 @@ Page {
                 enabled: !operationRunning
                 onClicked: {
                     operationRunning = true
-                    GLOBALS.previousContentY = itemsList.contentY
                     items.markItemsTillThis("read", itemContextMenu.pubDateInt, itemListView.feedId)
                 }
             }
@@ -327,7 +329,6 @@ Page {
                 enabled: !operationRunning
                 onClicked: {
                     operationRunning = true
-                    GLOBALS.previousContentY = itemsList.contentY
                     items.markItemsTillThis("unread", itemContextMenu.pubDateInt, itemListView.feedId)
                 }
             }

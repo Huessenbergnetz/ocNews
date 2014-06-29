@@ -44,6 +44,10 @@ bool OcUpgradeHelper::upgrade161AndOlder()
 
     }
 
+    settings.setValue("display/richText", settings.value("display/textformat", "rich").toString() == "rich");
+
+    settings.setValue("display/themeInverted", settings.value("display/themecolor", "white").toString() != "white");
+
     return true;
 }
 

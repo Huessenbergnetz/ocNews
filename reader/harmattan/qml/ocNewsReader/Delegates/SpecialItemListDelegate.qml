@@ -23,10 +23,8 @@ Item {
     property color subtitleColor: theme.inverted ? UI.LIST_SUBTITLE_COLOR_INVERTED : UI.LIST_SUBTITLE_COLOR
     property color subtitleColorPressed: theme.inverted ? UI.LIST_SUBTITLE_COLOR_PRESSED_INVERTED : UI.LIST_SUBTITLE_COLOR_PRESSED
 
-    height: Math.max(textCol.height, iconCol.height)
+    height: Math.max(textCol.height, iconCol.height) + 12
     width: parent.width
-
-    Component.onCompleted: console.log("IMAGE: " + model.image)
 
     BorderImage {
             id: background
@@ -44,7 +42,7 @@ Item {
     }
 
     Row {
-        anchors { left: parent.left; leftMargin: 24; right: parent.right }
+        anchors { left: parent.left; leftMargin: 24; right: parent.right; rightMargin: 10; top: parent.top; topMargin: 10 }
         spacing: UI.LIST_ITEM_SPACING
 
         Column {
@@ -54,7 +52,7 @@ Item {
             Label {
                 id: mainText
                 text: model.title
-                width: specialItemListItem.width - 60
+                width: parent.width
                 font.family: specialItemListItem.titleFont
                 font.weight: specialItemListItem.titleWeight
                 font.pixelSize: specialItemListItem.titleSize
@@ -67,7 +65,7 @@ Item {
             Label {
                 id: excerptText
                 text: model.excerpt
-                width: specialItemListItem.width - 60
+                width: parent.width
                 font.family: specialItemListItem.subtitleFont
                 font.weight: specialItemListItem.subtitleWeight
                 font.pixelSize: specialItemListItem.titleSize
@@ -97,7 +95,7 @@ Item {
                 font.family: specialItemListItem.subtitleFont
                 font.weight: specialItemListItem.subtitleWeight
                 font.pixelSize: specialItemListItem.subtitleSize
-                color: model.unread == "true" ? "#f78500" : specialItemListItem.subtitleColor
+                color: model.unread ? "#f78500" : specialItemListItem.subtitleColor
                 textFormat: Text.PlainText
             }
         }
@@ -114,7 +112,7 @@ Item {
             }
 
             Image {
-                visible: model.enclosureLink != ""
+                visible: model.enclosureLink
                 width: 32
                 height: 32
                 source: "image://theme/icon-m-content-attachment" + (theme.inverted? "-inverse" : "")
@@ -122,7 +120,7 @@ Item {
 
             Image {
                 id: articlePic
-                visible: model.image !== ""
+                visible: model.image
                 source: model.image
                 width: visible ? 0 : 80
                 fillMode: Image.PreserveAspectCrop

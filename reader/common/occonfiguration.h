@@ -2,6 +2,7 @@
 #define OCCONFIGURATION_H
 
 #include <QObject>
+#include <QVariantMap>
 #include "dbus/interfaces/occonfigif.h"
 
 class OcConfiguration : public QObject
@@ -12,7 +13,6 @@ class OcConfiguration : public QObject
     Q_PROPERTY(int maxItems READ maxItems WRITE setMaxItems NOTIFY maxItemsChanged)
     Q_PROPERTY(int viewMode READ viewMode WRITE setViewMode NOTIFY viewModeChanged)
     Q_PROPERTY(QString orderBy READ orderBy WRITE setOrderBy NOTIFY orderByChanged)
-    Q_PROPERTY(QString themeColor READ themeColor WRITE setThemeColor NOTIFY themeColorChanged)
     Q_PROPERTY(int handleImgs READ handleImgs WRITE setHandleImgs NOTIFY handleImgsChanged)
     Q_PROPERTY(int handleRead READ handleRead WRITE setHandleRead NOTIFY handleReadChanged)
     Q_PROPERTY(bool sortAsc READ sortAsc WRITE setSortAsc NOTIFY sortAscChanged)
@@ -26,8 +26,9 @@ class OcConfiguration : public QObject
     Q_PROPERTY(bool quitEngine READ quitEngine WRITE setQuitEngine NOTIFY quitEngineChanged)
     Q_PROPERTY(bool notifyFeedsFolders READ notifyFeedsFolders WRITE setNotifyFeedsFolders NOTIFY notifyFeedsFoldersChanged)
     Q_PROPERTY(bool notifyNewItems READ notifyNewItems WRITE setNotifyNewItems NOTIFY notifyNewItemsChanged)
-    Q_PROPERTY(QString textFormat READ textFormat WRITE setTextFormat NOTIFY textFormatChanged)
     Q_PROPERTY(bool isValid READ isValid WRITE setIsValid NOTIFY isValidChanged)
+    Q_PROPERTY(bool privacyShown READ privacyShown WRITE setPrivacyShown NOTIFY privacyShownChanged)
+    Q_PROPERTY(int displayedVersion READ displayedVersion WRITE setDisplayedVersion NOTIFY displayedVersionChanged)
 #if !defined(MEEGO_EDITION_HARMATTAN)
     Q_PROPERTY(bool accountEnabled READ accountEnabled WRITE setAccountEnabled NOTIFY accountEnabledChanged)
     Q_PROPERTY(QString accountUser READ accountUser WRITE setAccountUser NOTIFY accountUserChanged)
@@ -35,7 +36,9 @@ class OcConfiguration : public QObject
     Q_PROPERTY(QString accountServer READ accountServer WRITE setAccountServer NOTIFY accountServerChanged)
     Q_PROPERTY(bool accountUseSSL READ accountUseSSL WRITE setAccountUseSSL NOTIFY accountUseSSLChanged)
     Q_PROPERTY(bool accountIgnoreSSLErrors READ accountIgnoreSSLErrors WRITE setAccountIgnoreSSLErrors NOTIFY accountIgnoreSSLErrorsChanged)
-    Q_PROPERTY(bool privacyShown READ privacyShown WRITE setPrivacyShown NOTIFY privacyShownChanged)
+#else
+    Q_PROPERTY(bool useRichText READ useRichText WRITE setUseRichText NOTIFY useRichTextChanged)
+    Q_PROPERTY(bool themeInverted READ themeInverted WRITE setThemeInverted NOTIFY themeInvertedChanged)
 #endif
 public:
     explicit OcConfiguration(QObject *parent = 0);
@@ -45,7 +48,6 @@ public:
     int maxItems() const;
     int viewMode() const;
     QString orderBy() const;
-    QString themeColor() const;
     int handleImgs() const;
     int handleRead() const;
     bool sortAsc() const;
@@ -59,8 +61,9 @@ public:
     bool quitEngine() const;
     bool notifyFeedsFolders() const;
     bool notifyNewItems() const;
-    QString textFormat() const;
     bool isValid() const;
+    bool privacyShown() const;
+    int displayedVersion() const;
 #if !defined(MEEGO_EDITION_HARMATTAN)
     bool accountEnabled() const;
     QString accountUser() const;
@@ -68,7 +71,9 @@ public:
     QString accountServer() const;
     bool accountUseSSL() const;
     bool accountIgnoreSSLErrors() const;
-    bool privacyShown() const;
+#else
+    bool useRichText() const;
+    bool themeInverted() const;
 #endif
 
 signals:
@@ -77,7 +82,6 @@ signals:
     void maxItemsChanged(const int &nMaxItems);
     void viewModeChanged(const int &nViewMode);
     void orderByChanged(const QString &nOrderBy);
-    void themeColorChanged(const QString &nThemeColor);
     void handleImgsChanged(const int &nHandleImgs);
     void handleReadChanged(const int &nHandleRead);
     void sortAscChanged(const bool &nSortAsc);
@@ -91,8 +95,9 @@ signals:
     void quitEngineChanged(const bool &nQuitEngine);
     void notifyFeedsFoldersChanged(const bool &nNotifyFeedsFolders);
     void notifyNewItemsChanged(const bool &nNotifyNewItems);
-    void textFormatChanged(const QString &nTextFormat);
     void isValidChanged(const bool &nIsValid);
+    void privacyShownChanged(const bool &nPrivacyShown);
+    void displayedVersionChanged(const int &nDisplayedVersion);
 #if !defined(MEEGO_EDITION_HARMATTAN)
     void accountEnabledChanged(const bool &nAccountEnabled);
     void accountUserChanged(const QString &nAccountUser);
@@ -100,7 +105,9 @@ signals:
     void accountServerChanged(const QString &nAccountServer);
     void accountUseSSLChanged(const bool &nAccountUseSSL);
     void accountIgnoreSSLErrorsChanged(const bool &nAccountIgnoreSSLErrors);
-    void privacyShownChanged(const bool &nPrivacyShown);
+#else
+    void useRichTextChanged(const bool &nUseRichText);
+    void themeInvertedChanged(const bool &nThemeInverted);
 #endif
 
 public slots:
@@ -109,7 +116,6 @@ public slots:
     void setMaxItems(const int &nMaxItems);
     void setViewMode(const int &nViewMode);
     void setOrderBy(const QString &nOrderBy);
-    void setThemeColor(const QString &nThemeColor);
     void setHandleImgs(const int &nHandleImgs);
     void setHandleRead(const int &nHandleRead);
     void setSortAsc(const bool &nSortAsc);
@@ -123,8 +129,9 @@ public slots:
     void setQuitEngine(const bool &nQuitEngine);
     void setNotifyFeedsFolders(const bool &nNotifyFeedsFolders);
     void setNotifyNewItems(const bool &nNotifyNewItems);
-    void setTextFormat(const QString &nTextFormat);
     void setIsValid(const bool &nIsValid);
+    void setPrivacyShown(const bool &nPrivacyShown);
+    void setDisplayedVersion(const int &nDisplayedVersion);
 #if !defined(MEEGO_EDITION_HARMATTAN)
     void setAccountEnabled(const bool &nAccountEnabled);
     void setAccountUser(const QString &nAccountUser);
@@ -132,7 +139,9 @@ public slots:
     void setAccountServer(const QString &nAccountServer);
     void setAccountUseSSL(const bool &nAccountUseSSL);
     void setAccountIgnoreSSLErrors(const bool &nAccountIgnoreSSLErrors);
-    void setPrivacyShown(const bool &nPrivacyShown);
+#else
+    void setUseRichText(const bool &nUseRichText);
+    void setThemeInverted(const bool &nThemeInverted);
 #endif
 
 private:
@@ -143,7 +152,6 @@ private:
     int m_maxItems;
     int m_viewMode;
     QString m_orderBy;
-    QString m_themeColor;
     int m_handleImgs;
     int m_handleRead;
     bool m_sortAsc;
@@ -157,8 +165,9 @@ private:
     bool m_quitEngine;
     bool m_notifyFeedsFolders;
     bool m_notifyNewItems;
-    QString m_textFormat;
     bool m_isValid;
+    bool m_privacyShown;
+    int m_displayedVersion;
 #if !defined(MEEGO_EDITION_HARMATTAN)
     bool m_accountEnabled;
     QString m_accountUser;
@@ -166,7 +175,9 @@ private:
     QString m_accountServer;
     bool m_accountUseSSL;
     bool m_accountIgnoreSSLErrors;
-    bool m_privacyShown;
+#else
+    bool m_useRichText;
+    bool m_themeInverted;
 #endif
 };
 

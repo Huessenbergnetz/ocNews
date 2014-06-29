@@ -5,6 +5,15 @@ OcImageFetcher::OcImageFetcher(QObject *parent) :
     QObject(parent)
 {
     itemsToFetchImages = 0;
+
+#if defined(MEEGO_EDITION_HARMATTAN)
+    transferClient = new TransferUI::Client();
+
+    if(!transferClient->init()) {
+        qDebug()<<"Cannot initialize TUIClient";//error
+        delete transferClient;
+    }
+#endif
 }
 
 
@@ -27,15 +36,19 @@ void OcImageFetcher::fetchImages(const QList<int> &updated, const QList<int> &ne
         itemsToFetchImages = newItems.size();
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-        transferItem = transferClient->registerTransfer(tr("ocNews Image Fetcher"), TransferUI::Client::TRANSFER_TYPES_DOWNLOAD);
-        transferItem->waitForCommit();
-        transferItem->setTargetName("ocNews");
-        transferItem->setName(tr("Fetching images"));
-        transferItem->setSize(0);
-        transferItem->setCanPause(false);
-        transferItem->setIcon("icon-m-ocnews");
-        transferItem->setActive(0);
-        transferItem->commit();
+        if (transferClient) {
+            transferItem = transferClient->registerTransfer(tr("ocNews Image Fetcher"), TransferUI::Client::TRANSFER_TYPES_DOWNLOAD);
+            if (transferItem) {
+                transferItem->waitForCommit();
+                transferItem->setTargetName("ocNews");
+                transferItem->setName(tr("Fetching images"));
+                transferItem->setSize(0);
+                transferItem->setCanPause(false);
+                transferItem->setIcon("icon-m-ocnews");
+                transferItem->setActive(0);
+                transferItem->commit();
+            }
+        }
 #endif
 
         emit startedFetchingImages(itemsToFetchImages);
@@ -57,6 +70,8 @@ void OcImageFetcher::fetchImages(const QList<int> &updated, const QList<int> &ne
             if (query.next())
                 body = cacheImages(query.value(0).toString(), newItems.at(i), imgHandling);
 
+
+
             if (body != "")
             {
                 QSqlQuery query2;
@@ -65,7 +80,6 @@ void OcImageFetcher::fetchImages(const QList<int> &updated, const QList<int> &ne
                 query2.bindValue(":id", newItems.at(i));
                 query2.exec();
             }
-
         }
 
 #if defined(MEEGO_EDITION_HARMATTAN)
@@ -290,10 +304,12 @@ void OcImageFetcher::deleteCachedImages(const QList<int> &idsToDelte)
     {
         for (int f = 0; f < imagesToDelete.size(); ++f)
         {
+            if (!imagesToDelete.at(f).startsWith("http", Qt::CaseInsensitive)) {
 #ifdef QT_DEBUG
-            qDebug() << "Deleting image: " << imagesToDelete.at(f);
+                qDebug() << "Deleting image: " << imagesToDelete.at(f);
 #endif
-            QFile::remove(imagesToDelete.at(f));
+                QFile::remove(imagesToDelete.at(f));
+            }
         }
     }
 }

@@ -9,6 +9,7 @@
 #include <QNetworkRequest>
 #include <QFile>
 #include <QTimer>
+#include <QStringList>
 
 #if defined(MEEGO_EDITION_HARMATTAN)
 #include <TransferUI/Client>

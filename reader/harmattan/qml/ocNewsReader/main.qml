@@ -15,51 +15,61 @@ PageStackWindow {
     initialPage: mainView
 
     property bool operationRunning: updater.isUpdateRunning()
-    property int viewMode: dbus.getSetting("display/viewmode", 0)
-    property bool useRichText: dbus.getSetting("display/textformat", "rich") === "rich"
-    property int fontSize: dbus.getSetting("display/fontsize", 17)
 
     Component.onCompleted: {
-        theme.inverted = dbus.getSetting("display/themecolor", "white") === "black";
+        theme.inverted = config.themeInverted;
         theme.colorScheme = 15;
-        if (openItemId != "0")
-            openFile("Views/SingleItemView.qml", {itemId: openItemId, directOpening: true});
+        if (openItemId !== "0") {
+            item.showImg = config.handleImgs > 0
+            item.itemId = openItemId
+            openFile("Views/SingleItemView.qml", {directOpening: true});
+        }
+    }
+
+    Connections {
+        target: config
+        onThemeInvertedChanged: theme.inverted = nThemeInverted
     }
 
     Connections {
         target: dbusproxy
-        onDbusShowContent: { openFile("Views/SingleItemView.qml", {itemId: itemId, directOpening: true}) }
+        onDbusShowContent: {
+            item.showImg = config.handleImgs > 0
+            item.itemId = itemId
+            openFile("Views/SingleItemView.qml", {directOpening: true})
+        }
     }
     Connections {
         target: folders
-        onCreatedFolderSuccess: { infoMessages.show(); infoMessages.text = qsTr("Created folder %1").arg(foldername); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
-        onCreatedFolderError: { infoMessages.show(); infoMessages.text = createresulterror; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
-        onRenamedFolderSuccess: { infoMessages.show(); infoMessages.text = qsTr("Renamed folder to %1").arg(newfoldername); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
-        onRenamedFolderError: { infoMessages.show(); infoMessages.text = renameresulterror; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
-        onDeletedFolderSuccess: { infoMessages.show(); infoMessages.text = qsTr("Deleted Folder."); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
-        onDeletedFolderError: { infoMessages.show(); infoMessages.text = deleteresulterror; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
-        onRequestedFoldersError: { infoMessages.show(); infoMessages.text = requerstresulterror; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
+        onCreatedFolderSuccess: notifySuccess( qsTr("Created folder %1").arg(foldername))
+        onCreatedFolderError: notifyError(createresulterror)
+        onRenamedFolderSuccess: notifySuccess(qsTr("Renamed folder to %1").arg(newfoldername))
+        onRenamedFolderError: notifyError(renameresulterror)
+        onDeletedFolderSuccess: notifySuccess(qsTr("Deleted Folder."))
+        onDeletedFolderError: notifyError(deleteresulterror)
+        onRequestedFoldersError: notifyError(requerstresulterror)
         onMarkedReadFolderError: operationRunning = false
         onMarkedReadFolderSuccess: operationRunning = false
     }
     Connections {
         target: feeds
-        onCreatedFeedSuccess: { infoMessages.show(); infoMessages.text = qsTr("Created feed %1").arg(feedname); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
-        onCreatedFeedError: { infoMessages.show(); infoMessages.text = createFeedResultError; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
-        onMovedFeedSuccess: {  infoMessages.show(); infoMessages.text = qsTr("Moved feed."); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
-        onMovedFeedError: { infoMessages.show(); infoMessages.text = moveFeedResultError; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
-        onDeletedFeedSuccess: { infoMessages.show(); infoMessages.text = qsTr("Deleted feed."); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
-        onDeletedFeedError: { infoMessages.show(); infoMessages.text = deleteFeedResultError; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
+        onCreatedFeedSuccess: notifySuccess(qsTr("Created feed %1").arg(feedname))
+        onCreatedFeedError: notifyError(createFeedResultError)
+        onMovedFeedSuccess: notifySuccess(qsTr("Moved feed."))
+        onMovedFeedError: notifyError(moveFeedResultError)
+        onDeletedFeedSuccess: notifySuccess(qsTr("Deleted feed."))
+        onDeletedFeedError: notifyError(deleteFeedResultError)
         onMarkedReadFeedError: operationRunning = false
         onMarkedReadFeedSuccess: operationRunning = false
-        onRenamedFeedSuccess: { infoMessages.show(); infoMessages.text = qsTr("Renamed feed to %1").arg(newName); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
-        onRenamedFeedError: { infoMessages.show(); infoMessages.text = renamedFeedErrorString; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
+        onRenamedFeedSuccess: notifySuccess(qsTr("Renamed feed to %1").arg(newName))
+        onRenamedFeedError: notifyError(renamedFeedErrorString)
+
     }
     Connections {
         target: items
-        onStarredItemsError: { infoMessages.show(); infoMessages.text = starredItemsError; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
+        onStarredItemsError: notifyError(starredItemsError)
         onStarredItemsSuccess: operationRunning =false
-        onMarkedAllItemsReadError: { infoMessages.show(); infoMessages.text = markedAllItemsReadErrorString; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
+        onMarkedAllItemsReadError: notifyError(markedAllItemsReadErrorString)
         onMarkedAllItemsReadSuccess: operationRunning = false
         onMarkedItemsError: operationRunning = false
         onMarkedItemsSuccess: operationRunning = false
@@ -68,18 +78,33 @@ PageStackWindow {
     }
     Connections {
         target: updater
-        onUpdateError: { infoMessages.show(); infoMessages.text = updateErrorMessage; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
+        onUpdateError: notifyError(updateErrorMessage)
         onUpdateFinished: operationRunning = false
         onUpdateStarted: operationRunning = true
     }
     Connections {
         target: dbus
-        onGotVersion: { infoMessages.show(); infoMessages.text = qsTr("Found ownCloud News Version %1").arg(version); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
-        onGotVersionError: { infoMessages.show(); infoMessages.text = errmsg; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
-        onInitError: { infoMessages.show(); infoMessages.text = errorMessage; infoMessages.iconSource = "image://theme/icon-s-error"; errorEffect.play(); operationRunning = false }
-        onCleanedDatabase: { infoMessages.show(); infoMessages.text = qsTr("Deleted complete database"); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
-        onCleanedCertificates: { infoMessages.show(); infoMessages.text = qsTr("Removed trusted certificates. The changes take effect after an application restart."); infoMessages.iconSource = "image://theme/icon-s-common-done"; successfulEffect.play(); operationRunning = false }
-        onSavedConfig: { viewMode = dbus.getSetting("display/viewmode", 0); useRichText = dbus.getSetting("display/textformat", "rich") === "rich"; fontSize = dbus.getSetting("display/fontsize", 17) }
+        onGotVersion: notifySuccess(qsTr("Found ownCloud News Version %1").arg(version))
+        onGotVersionError: notifyError(errmsg)
+        onInitError: notifyError(errorMessage)
+        onCleanedDatabase: notifySuccess(qsTr("Deleted complete database"))
+        onCleanedCertificates: notifySuccess(qsTr("Removed trusted certificates. The changes take effect after an application restart."))
+    }
+
+    function notifySuccess(message) {
+        infoMessages.show()
+        infoMessages.text = message
+        infoMessages.iconSource = "image://theme/icon-s-common-done"
+        successfulEffect.play()
+        operationRunning = false
+    }
+
+    function notifyError(message) {
+        infoMessages.show()
+        infoMessages.text = message
+        infoMessages.iconSource = "image://theme/icon-s-error"
+        errorEffect.play()
+        operationRunning = false
     }
 
 

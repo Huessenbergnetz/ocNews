@@ -313,6 +313,8 @@ void OcFeeds::createFeed(const QString &url, const QString &folderId, const bool
         if (!t_url.contains(QRegExp("^(http:\\/\\/\\w|https:\\/\\/\\w)")))
             t_url.prepend("http://");
 
+        t_url = t_url.trimmed();
+
         // Create the JSON string
         QByteArray parameters("{\"url\": \"");
         parameters.append(t_url);

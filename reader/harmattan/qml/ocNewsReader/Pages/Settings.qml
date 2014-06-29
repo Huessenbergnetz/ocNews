@@ -16,8 +16,7 @@ Page {
     property int maxFeeds
     property bool isConfigSet
 
-    function saveValues() {
-
+    function saveEventViewFeeds() {
         // get IDs of the selected feeds for the event view
         var selInd = feedSelectionDialog.selectedIndexes;
         var selFed = new Array();
@@ -25,41 +24,22 @@ Page {
             selFed.push(feedSelectionDialog.model.get(feedSelectionDialog.selectedIndexes[i]).value);
         }
 
-        var saveConf={
-            maxitems:chooseMaxItems.currentValue,
-            viewmode:chooseViewMode.currentValue,
-            orderby:chooseOrderBy.currentValue,
-            textformat:textFormatSelection.valueChoosen,
-            themecolor:invertThemeSelection.choosenValue,
-            handleimgs:handleImgs.currentValue,
-            updatebehavior:updateBehavior.currentValue,
-            updateinterval:updateInterval.currentValue,
-            eventfeeds:selFed.toString(),
-            handleread:handleRead.currentValue,
-            sortasc:sortAsc.checked,
-            fontsize:fontSizeSelector.value,
-            hidereadfeeds:hideReadFeeds.checked,
-            quitengine:quitEngine.checked,
-            notifyFeedsFolders:feedsFoldersNotify.checked,
-            notifyNewItems:newItemsNotify.checked,
-            showPicturesInList:articlePicture.checked,
-            showExcerpts:excerpts.checked
-        };
-
-        return saveConf;
+//        dbus.setSetting("event/feeds", selFed.toString())
+        config.eventFeeds = selFed.toString()
     }
 
     Component.onCompleted: {
         isConfigSet = dbus.isConfigSet();
-        dbus.getConfig();
-        if (dbus.getSetting("display/privacypolicy", false) == false) {
-            settingsPrivacySheet.policy = dbus.getSetting("display/privacypolicy", false) == "true" ? true : false;
+        if (!config.privacyShown) {
+            settingsPrivacySheet.policy = config.privacyShown
             settingsPrivacySheet.open();
         }
-        dbus.getStatistics();
     }
 
-    Component.onDestruction: dbus.saveConfig(saveValues());
+    Component.onDestruction: {
+        saveEventViewFeeds()
+        config.fontSize = fontSizeSelector.value
+    }
 
     // ------------- Header Start ----------------
 
@@ -90,7 +70,7 @@ Page {
 
             Text {
                 id: accountButtonDescription
-                anchors { top: accountButton.bottom; topMargin: 20; left: parent.left; leftMargin: 10; right: parent.right; rightMargin: 10 }
+                anchors { top: accountButton.bottom; topMargin: 20; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20 }
                 textFormat: Text.PlainText
                 width: parent.width
                 wrapMode: Text.WordWrap
@@ -109,329 +89,263 @@ Page {
                 id: tab2Content
                 anchors { right: parent.right; left: parent.left; top: parent.top; bottom: parent.bottom; bottomMargin: 70 }
                 contentWidth: parent.width
-                contentHeight: chooseMaxItems.height + chooseViewMode.height + chooseOrderBy.height + hideReadFeeds.height + updateBehavior.height + updateInterval.height + textFormatLabel.height + textFormatSelection.height + invertThemeLabel.height + invertThemeSelection.height + handleImgs.height + handleRead.height + fontSizeLabel.height + fontSizeSelector.height + quitEngine.height + quitEngineDesc.height + sortAsc.height + 150
+                contentHeight: settingsCol.height + 50
 
                 flickableDirection:  Flickable.VerticalFlick
 
-                ListModel {
-                    id: maxItemModel
-                    ListElement { name: "50"; value: 50 }
-                    ListElement { name: "100"; value: 100 }
-                    ListElement { name: "200"; value: 200 }
-                    ListElement { name: "500"; value: 500 }
-                }
+                Column {
+                    id: settingsCol
+                    anchors { left: parent.left; right: parent.right; top: parent.top; topMargin: 10 }
+                    spacing: 10
 
-                SelectionItem {
-                    id: chooseMaxItems
-                    title: qsTr("Number of items to keep")
-                    width: (parent.width - 40)
-                    anchors { top: parent.top; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                    model: maxItemModel
-                    initialValue: "100"
-                    Connections {
-                        target: dbus
-                        onGotConfig: chooseMaxItems.initialValue = config["maxitems"]
+                    ListModel {
+                        id: maxItemModel
+                        ListElement { name: "50"; value: 50 }
+                        ListElement { name: "100"; value: 100 }
+                        ListElement { name: "200"; value: 200 }
+                        ListElement { name: "500"; value: 500 }
                     }
-                }
 
-                ListModel {
-                    id: viewModeModel
-                    ListElement { name: QT_TR_NOOP("Folders"); value: 0 }
-                    ListElement { name: QT_TR_NOOP("Feeds"); value: 1 }
-                }
-
-                SelectionItem {
-                    id: chooseViewMode
-                    title: qsTr("Main view layout")
-                    width: (parent.width - 40)
-                    anchors { top: chooseMaxItems.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                    model: viewModeModel
-                    initialValue: "0"
-                    tsBasename: "Settings"
-                    Connections {
-                        target: dbus
-                        onGotConfig: chooseViewMode.initialValue = config["viewmode"]
+                    SelectionItem {
+                        id: chooseMaxItems
+                        title: qsTr("Number of items to keep")
+                        width: (parent.width - 40)
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        model: maxItemModel
+                        initialValue: config.maxItems
+                        onCurrentValueChanged: config.maxItems = currentValue
                     }
-                }
 
-                ListModel {
-                    id: orderByModel
-                    ListElement { name: QT_TR_NOOP("Added (like on server)"); value: "id" }
-                    ListElement { name: QT_TR_NOOP("Title"); value: "title" }
-                    ListElement { name: QT_TR_NOOP("Unread count"); value: "unreadCount" }
-                }
-
-                SelectionItem {
-                    id: chooseOrderBy
-                    title: qsTr("Order feeds and folders by")
-                    width: parent.width - 40
-                    anchors { top: chooseViewMode.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                    model: orderByModel
-                    initialValue: "id"
-                    tsBasename: "Settings"
-                    Connections {
-                        target: dbus
-                        onGotConfig: chooseOrderBy.initialValue = config["orderby"]
+                    ListModel {
+                        id: viewModeModel
+                        ListElement { name: QT_TR_NOOP("Folders"); value: 0 }
+                        ListElement { name: QT_TR_NOOP("Feeds"); value: 1 }
                     }
-                }
 
-                LabeledSwitch {
-                    id: hideReadFeeds
-                    width: parent.width - 40
-                    anchors { top: chooseOrderBy.bottom; horizontalCenter: parent.horizontalCenter }
-                    text: qsTr("Hide read feeds and folders")
-                    Connections {
-                        target: dbus
-                        onGotConfig: hideReadFeeds.checked = config["hidereadfeeds"]
+                    SelectionItem {
+                        id: chooseViewMode
+                        title: qsTr("Main view layout")
+                        width: (parent.width - 40)
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        model: viewModeModel
+                        initialValue: config.viewMode
+                        onCurrentValueChanged: config.viewMode = currentValue
+                        tsBasename: "Settings"
                     }
-                }
 
-                ListModel {
-                    id: updateBehaviorModel
-                    ListElement { name: QT_TR_NOOP("Only manually"); value: "0" }
-                    ListElement { name: QT_TR_NOOP("Automatic on Wi-Fi"); value: "1" }
-                    ListElement { name: QT_TR_NOOP("Always automatic"); value: "2" }
-                }
-
-                SelectionItem {
-                    id: updateBehavior
-                    title: qsTr("Updating")
-                    width: parent.width - 40
-                    anchors { top: hideReadFeeds.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                    model: updateBehaviorModel
-                    initialValue: "0"
-                    tsBasename: "Settings"
-                    Connections {
-                        target: dbus
-                        onGotConfig: updateBehavior.initialValue = config["updatebehavior"]
+                    ListModel {
+                        id: orderByModel
+                        ListElement { name: QT_TR_NOOP("Added (like on server)"); value: "id" }
+                        ListElement { name: QT_TR_NOOP("Title"); value: "title" }
+                        ListElement { name: QT_TR_NOOP("Unread count"); value: "unreadCount" }
                     }
-                }
 
-                ListModel {
-                    id: updateIntervalModel
-                    ListElement { name: QT_TR_NOOP("15 Minutes"); value: "900" }
-                    ListElement { name: QT_TR_NOOP("30 Minutes"); value: "1800" }
-                    ListElement { name: QT_TR_NOOP("1 Hour"); value: "3600" }
-                    ListElement { name: QT_TR_NOOP("3 Hours"); value: "10800" }
-                    ListElement { name: QT_TR_NOOP("6 Hours"); value: "21600" }
-                    ListElement { name: QT_TR_NOOP("12 Hours"); value: "43200" }
-                }
-
-                SelectionItem {
-                   id: updateInterval
-                   visible: updateBehavior.currentValue != "0"
-                   title: qsTr("Update interval")
-                   width: parent.width - 40
-                   anchors { top: updateBehavior.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                   model: updateIntervalModel
-                   initialValue: "3600"
-                   tsBasename: "Settings"
-                   Connections {
-                       target: dbus
-                       onGotConfig: updateInterval.initialValue = config["updateinterval"]
-                   }
-                }
-
-                Label {
-                    id: textFormatLabel
-                    anchors { top: updateBehavior.currentValue == "0" ? updateBehavior.bottom : updateInterval.bottom; topMargin: 10; left: parent.left; leftMargin: 20 }
-                    text: qsTr("Display post content format")
-                    textFormat: Text.PlainText
-                }
-
-                ButtonRow {
-                    id: textFormatSelection
-                    property string valueChoosen
-                    anchors { top: textFormatLabel.bottom; horizontalCenter: parent.horizontalCenter }
-                    Button {
-                        id: rich;
-                        text: qsTr("Full");
-                        checked: textFormatSelection.valueChoosen == "rich";
-                        onClicked: textFormatSelection.valueChoosen = "rich"
+                    SelectionItem {
+                        id: chooseOrderBy
+                        title: qsTr("Order feeds and folders by")
+                        width: parent.width - 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        model: orderByModel
+                        initialValue: config.orderBy
+                        onCurrentValueChanged: config.orderBy = currentValue
+                        tsBasename: "Settings"
                     }
-                    Button {
-                        id: styled;
-                        text: qsTr("Limited");
-                        checked: textFormatSelection.valueChoosen == "styled";
-                        onClicked: textFormatSelection.valueChoosen = "styled"
+
+                    LabeledSwitch {
+                        id: hideReadFeeds
+                        width: parent.width - 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Hide read feeds and folders")
+                        checked: config.hideReadFeeds
+                        onCheckedChanged: config.hideReadFeeds = checked
                     }
-                    Connections {
-                        target: dbus
-                        onGotConfig: textFormatSelection.valueChoosen = config["textformat"]
+
+                    ListModel {
+                        id: updateBehaviorModel
+                        ListElement { name: QT_TR_NOOP("Only manually"); value: 0 }
+                        ListElement { name: QT_TR_NOOP("Automatic on Wi-Fi"); value: 1 }
+                        ListElement { name: QT_TR_NOOP("Always automatic"); value: 2 }
                     }
-                }
 
-
-                Label {
-                    id: invertThemeLabel
-                    anchors { top: textFormatSelection.bottom; topMargin: 15; left: parent.left; leftMargin: 20 }
-                    text: qsTr("Theme color")
-                }
-
-                ButtonRow {
-                    id: invertThemeSelection
-                    property string choosenValue
-                    anchors { top: invertThemeLabel.bottom; horizontalCenter: parent.horizontalCenter }
-                    Button {
-                        id: white
-                        text: qsTr("White")
-                        checked: invertThemeSelection.choosenValue == "white"
-                        onClicked: { invertThemeSelection.choosenValue = "white"; theme.inverted = false }
+                    SelectionItem {
+                        id: updateBehavior
+                        title: qsTr("Updating")
+                        width: parent.width - 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        model: updateBehaviorModel
+                        initialValue: config.updateBehavior
+                        onCurrentValueChanged: config.updateBehavior = currentValue
+                        tsBasename: "Settings"
                     }
-                    Button {
-                        id: black
-                        text: qsTr("Black")
-                        checked: invertThemeSelection.choosenValue == "black"
-                        onClicked: { invertThemeSelection.choosenValue = "black"; theme.inverted = true }
+
+                    ListModel {
+                        id: updateIntervalModel
+                        ListElement { name: QT_TR_NOOP("15 Minutes"); value: 900 }
+                        ListElement { name: QT_TR_NOOP("30 Minutes"); value: 1800 }
+                        ListElement { name: QT_TR_NOOP("1 Hour"); value: 3600 }
+                        ListElement { name: QT_TR_NOOP("3 Hours"); value: 10800 }
+                        ListElement { name: QT_TR_NOOP("6 Hours"); value: 21600 }
+                        ListElement { name: QT_TR_NOOP("12 Hours"); value: 43200 }
                     }
-                    Connections {
-                        target: dbus
-                        onGotConfig: invertThemeSelection.choosenValue = config["themecolor"]
+
+                    SelectionItem {
+                       id: updateInterval
+                       visible: config.updateBehavior !== 0
+                       title: qsTr("Update interval")
+                       width: parent.width - 40
+                       anchors.horizontalCenter: parent.horizontalCenter
+                       model: updateIntervalModel
+                       initialValue: config.updateInterval
+                       onCurrentValueChanged: config.updateInterval
+                       tsBasename: "Settings"
                     }
-                }
 
-
-                ListModel {
-                    id: handleImgsModel
-                    ListElement { name: QT_TR_NOOP("On request"); value: 0 }
-                    ListElement { name: QT_TR_NOOP("When item loads"); value: 1 }
-                    ListElement { name: QT_TR_NOOP("Prefetch at updating"); value: 2 }
-                }
-
-                SelectionItem {
-                    id: handleImgs
-                    title: qsTr("Load content images")
-                    width: parent.width - 40
-                    anchors { top: invertThemeSelection.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                    enabled: textFormatSelection.valueChoosen === "rich"
-                    model: handleImgsModel
-                    initialValue: "0"
-                    tsBasename: "Settings"
-                    Connections {
-                        target: dbus
-                        onGotConfig: handleImgs.initialValue = config["handleimgs"]
+                    LabeledSwitch {
+                        id: richText
+                        width: parent.width - 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Use prettier but slower Rich Text")
+                        checked: config.useRichText
+                        onCheckedChanged: config.useRichText = checked
                     }
-                }
 
-
-                ListModel {
-                    id: handleReadModel
-                    ListElement { name: QT_TR_NOOP("Show"); value: 0 }
-                    ListElement { name: QT_TR_NOOP("Hide"); value: 1 }
-                    ListElement { name: QT_TR_NOOP("Show after unread"); value: 2 }
-                }
-
-                SelectionItem {
-                   id: handleRead
-                   title: qsTr("Read articles")
-                   width: parent.width - 40
-                   anchors { top: handleImgs.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                   model: handleReadModel
-                   initialValue: "0"
-                   Connections {
-                       target: dbus
-                       onGotConfig: handleRead.initialValue = config["handleread"]
-                   }
-                }
-
-                LabeledSwitch {
-                    id: sortAsc
-                    width: parent.width - 40
-                    anchors { top: handleRead.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                    text: qsTr("Show oldest items on top")
-                    Connections {
-                        target: dbus
-                        onGotConfig: sortAsc.checked = config["sortasc"]
+                    LabeledSwitch {
+                        id: themeInverted
+                        width: parent.width - 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Invert the theme color")
+                        checked: config.themeInverted
+                        onCheckedChanged: config.themeInverted = checked
                     }
-                }
 
-                LabeledSwitch {
-                    id: excerpts
-                    width: parent.width - 40
-                    anchors { top: sortAsc.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                    text: qsTr("Show article excerpts in list")
-                    Connections {
-                        target: dbus
-                        onGotConfig: excerpts.checked = config["showExcerpts"]
+                    ListModel {
+                        id: handleImgsModel
+                        ListElement { name: QT_TR_NOOP("On request"); value: 0 }
+                        ListElement { name: QT_TR_NOOP("When item loads"); value: 1 }
+                        ListElement { name: QT_TR_NOOP("Prefetch at updating"); value: 2 }
                     }
-                }
 
-                LabeledSwitch {
-                    id: articlePicture
-                    width: parent.width - 40
-                    anchors { top: excerpts.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                    text: qsTr("Display images in list")
-                    Connections {
-                        target: dbus
-                        onGotConfig: articlePicture.checked = config["showPicturesInList"]
+                    SelectionItem {
+                        id: handleImgs
+                        title: qsTr("Load content images")
+                        width: parent.width - 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        enabled: config.useRichText
+                        model: handleImgsModel
+                        initialValue: config.handleImgs
+                        onCurrentValueChanged: config.handleImgs === currentValue
+                        tsBasename: "Settings"
                     }
-                }
 
-                Label {
-                    id: fontSizeLabel
-                    anchors { top: articlePicture.bottom; topMargin: 15; left: parent.left; leftMargin: 20 }
-                    width: parent.width - 20
-                    text: qsTr("Item view font size:") + " " + fontSizeSelector.value + "pt"
-                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                }
 
-                Slider {
-                    id: fontSizeSelector
-                    width: parent.width
-                    anchors { top: fontSizeLabel.bottom }
-                    minimumValue: 10;
-                    maximumValue: 40;
-                    valueIndicatorVisible: false
-                    stepSize: 1
-                    Connections {
-                        target: dbus
-                        onGotConfig: fontSizeSelector.value = config["fontsize"]
+                    ListModel {
+                        id: handleReadModel
+                        ListElement { name: QT_TR_NOOP("Show"); value: 0 }
+                        ListElement { name: QT_TR_NOOP("Hide"); value: 1 }
+                        ListElement { name: QT_TR_NOOP("Show after unread"); value: 2 }
                     }
-                }
 
-                LabeledSwitch {
-                    id: feedsFoldersNotify
-                    width: parent.width - 40
-                    anchors { top: fontSizeSelector.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                    text: qsTr("Notify about added/removed feeds and folders")
-                    Connections {
-                        target: dbus
-                        onGotConfig: feedsFoldersNotify.checked = config["notifyFeedsFolders"]
+                    SelectionItem {
+                       id: handleRead
+                       title: qsTr("Read articles")
+                       width: parent.width - 40
+                       anchors.horizontalCenter: parent.horizontalCenter
+                       model: handleReadModel
+                       initialValue: config.handleRead
+                       onCurrentValueChanged: config.handleRead = currentValue
                     }
-                }
 
-                LabeledSwitch {
-                    id: newItemsNotify
-                    width: parent.width - 40
-                    anchors { top: feedsFoldersNotify.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                    text: qsTr("Notify about new articles")
-                    Connections {
-                        target: dbus
-                        onGotConfig: newItemsNotify.checked = config["notifyNewItems"]
+                    LabeledSwitch {
+                        id: sortAsc
+                        width: parent.width - 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Show oldest items on top")
+                        checked: config.sortAsc
+                        onCheckedChanged: config.sortAsc = checked
                     }
-                }
 
-                LabeledSwitch {
-                    id: quitEngine
-                    width: parent.width - 40
-                    anchors { top: newItemsNotify.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter }
-                    text: qsTr("Quit engine on closing reader")
-                    Connections {
-                        target: dbus
-                        onGotConfig: quitEngine.checked = config["quitengine"]
+                    LabeledSwitch {
+                        id: excerpts
+                        width: parent.width - 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Show article excerpts in list")
+                        checked: config.showExcerpts
+                        onCheckedChanged: config.showExcerpts = checked
                     }
-                }
 
-                Text {
-                    id: quitEngineDesc
-                    text: qsTr("This option needs an application restart.")
-                    width: parent.width - 20
-                    anchors { top: quitEngine.bottom; topMargin: 7; left: parent.left; leftMargin: 20 }
-                    wrapMode: Text.WordWrap
-                    font.pointSize: 17
-                    font.weight: Font.Light
-                    color: theme.inverted ? "white" : "black"
-                    textFormat: Text.PlainText
+//                    LabeledSwitch {
+//                        id: articlePicture
+//                        width: parent.width - 40
+//                        anchors.horizontalCenter: parent.horizontalCenter
+//                        text: qsTr("Display images in lists")
+//                        checked: config.showPicturesInList
+//                        onCheckedChanged: config.showPicturesInList = checked
+//                    }
+
+                    Item {
+                        width: parent.width
+                        height: fontSizeLabel.height + fontSizeSelector.height
+
+                        Label {
+                            id: fontSizeLabel
+                            anchors { left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; top: parent.top }
+                            text: qsTr("Item view font size:") + " " + fontSizeSelector.value + "pt"
+                            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                        }
+
+                        Slider {
+                            id: fontSizeSelector
+                            anchors { left: parent.left; right: parent.right; top: fontSizeLabel.bottom }
+                            minimumValue: 10;
+                            maximumValue: 40;
+                            valueIndicatorVisible: false
+                            stepSize: 1
+                            value: config.fontSize
+                        }
+                    }
+
+                    LabeledSwitch {
+                        id: feedsFoldersNotify
+                        width: parent.width - 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Notify about added/removed feeds and folders")
+                        checked: config.notifyFeedsFolders
+                        onCheckedChanged: config.notifyFeedsFolders = checked
+                    }
+
+                    LabeledSwitch {
+                        id: newItemsNotify
+                        width: parent.width - 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Notify about new articles")
+                        checked: config.notifyNewItems
+                        onCheckedChanged: config.notifyNewItems = checked
+                    }
+
+                    Item {
+                        width: parent.width
+                        height: quitEngine.height + quitEngineDesc.height
+
+                        LabeledSwitch {
+                            id: quitEngine
+                            anchors { left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; top: parent.top }
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: qsTr("Quit engine on closing reader")
+                            checked: config.quitEngine
+                            onCheckedChanged: config.quitEngine = checked
+                        }
+
+                        Text {
+                            id: quitEngineDesc
+                            text: qsTr("This option needs an application restart.")
+                            anchors { left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; top: quitEngine.bottom }
+                            wrapMode: Text.WordWrap
+                            font.pointSize: 17
+                            font.weight: Font.Light
+                            color: theme.inverted ? "white" : "black"
+                            textFormat: Text.PlainText
+                        }
+                    }
                 }
             }
 
@@ -445,7 +359,7 @@ Page {
             id: tab3
             orientationLock: PageOrientation.LockPortrait
 
-            function buildFolderList()
+            function buildFeedList()
             {
                 var fee = feeds.getFeeds();
 
@@ -457,7 +371,7 @@ Page {
                 }
             }
 
-            Component.onCompleted: buildFolderList()
+            Component.onCompleted: buildFeedList()
 
             ListModel {
                 id: feedModelData
@@ -470,26 +384,21 @@ Page {
                 model: feedModelData
                 acceptButtonText: "OK"
 
-                Connections {
-                    target: dbus
-                    onGotConfig: {
-                        // convert the string got from the settings into the selected model items
-                        var loadedFeedIds = JSON.parse("[" + config["eventfeeds"] + "]");
-                        var selectedModelIdx = new Array()
-                        for (var i=0, tot=loadedFeedIds.length; i < tot; i++) {
-                            var found = false;
-                            var ii = 0;
-                            while ((!found) && (ii < feedModelData.count)) {
-                                if (feedModelData.get(ii).value == loadedFeedIds[i]) {
-                                    selectedModelIdx.push(ii);
-                                    found = true;
-                                }
-                                ii++;
+                Component.onCompleted: {
+                    var loadedFeedIds = JSON.parse("[" + config.eventFeeds + "]");
+                    var selectedModelIdx = new Array()
+                    for (var i=0, tot=loadedFeedIds.length; i < tot; i++) {
+                        var found = false;
+                        var ii = 0;
+                        while ((!found) && (ii < feedModelData.count)) {
+                            if (feedModelData.get(ii).value == loadedFeedIds[i]) {
+                                selectedModelIdx.push(ii);
+                                found = true;
                             }
+                            ii++;
                         }
-                        feedSelectionDialog.selectedIndexes = selectedModelIdx;
                     }
-
+                    feedSelectionDialog.selectedIndexes = selectedModelIdx;
                 }
             }
 
@@ -502,9 +411,8 @@ Page {
 
             Text {
                 id: feedSelectionDescription
-                anchors { top: feedSelectionButton.bottom; topMargin: 20 }
+                anchors { top: feedSelectionButton.bottom; topMargin: 20; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20 }
                 textFormat: Text.PlainText
-                width: parent.width
                 wrapMode: Text.WordWrap
                 color: theme.inverted ? "white" : "black"
                 font.pointSize: 17
@@ -518,103 +426,135 @@ Page {
             id: tab4
             orientationLock: PageOrientation.LockPortrait
 
+            Column {
+                id: statCol
+                anchors { top: parent.top; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; topMargin: 20 }
+                spacing: 10
 
-            Label {
-                id: statsLabel
-                text: qsTr("Database statistics")
-                anchors { top: parent.top; left: parent.left; topMargin: 20; leftMargin: 20 }
-                textFormat: Text.PlainText
-            }
+                Label {
+                    id: statsLabel
+                    text: qsTr("Database statistics")
+                    width: parent.width
+                    textFormat: Text.PlainText
+                    visible: folderCount.visible
+                }
 
-            Text {
-                id: folderCount
-                anchors { top: statsLabel.bottom; left: parent.left; topMargin: 10; leftMargin: 20 }
-                font.pointSize: 17
-                font.weight: Font.Light
-                textFormat: Text.PlainText
-                color: theme.inverted ? "white" : "black"
-                Connections {
-                    target: dbus
-                    onGotStatistics: folderCount.text = qsTr("Folders: ") + stats["folderCount"]
+                Text {
+                    id: folderCount
+                    width: parent.width
+                    font.pointSize: 17
+                    font.weight: Font.Light
+                    textFormat: Text.PlainText
+                    color: theme.inverted ? "white" : "black"
+                    visible: text != ""
+                    Connections {
+                        target: dbus
+                        onGotStatistics: folderCount.text = qsTr("Folders: ") + stats["folderCount"]
+                    }
+                }
+
+                Text {
+                    id: feedCount
+                    width: parent.width
+                    font.pointSize: 17
+                    font.weight: Font.Light
+                    textFormat: Text.PlainText
+                    color: theme.inverted ? "white" : "black"
+                    visible: text != ""
+                    Connections {
+                        target: dbus
+                        onGotStatistics: feedCount.text = qsTr("Feeds: ") + stats["feedCount"]
+                    }
+                }
+
+                Text {
+                    id: itemCount
+                    width: parent.width
+                    font.pointSize: 17
+                    font.weight: Font.Light
+                    textFormat: Text.PlainText
+                    color: theme.inverted ? "white" : "black"
+                    visible: text != ""
+                    Connections {
+                        target: dbus
+                        onGotStatistics: itemCount.text = qsTr("Posts: ") + stats["itemCount"]
+                    }
+                }
+
+                Text {
+                    id: unreadCount
+                    width: parent.width
+                    font.pointSize: 17
+                    font.weight: Font.Light
+                    textFormat: Text.PlainText
+                    color: theme.inverted ? "white" : "black"
+                    visible: text != ""
+                    Connections {
+                        target: dbus
+                        onGotStatistics: unreadCount.text = qsTr("Unread: ") + stats["unreadCount"]
+                    }
+                }
+
+                Text {
+                    id: lastFullUpdate
+                    width: parent.width
+                    font.pointSize: 17
+                    font.weight: Font.Light
+                    textFormat: Text.StyledText
+                    color: theme.inverted ? "white" : "black"
+                    visible: text != ""
+                    Connections {
+                        target: dbus
+                        onGotStatistics: lastFullUpdate.text = qsTr("Last full update:<br />") + Qt.formatDateTime(new Date(stats["lastFullUpdate"]), qsTr("d. MMMM yyyy, hh:mm"))
+                    }
                 }
             }
 
-            Text {
-                id: feedCount
-                anchors { top: folderCount.bottom; left: parent.left; topMargin: 10; leftMargin: 20 }
-                font.pointSize: 17
-                font.weight: Font.Light
-                textFormat: Text.PlainText
-                color: theme.inverted ? "white" : "black"
-                Connections {
-                    target: dbus
-                    onGotStatistics: feedCount.text = qsTr("Feeds: ") + stats["feedCount"]
+
+            Column {
+                id: buttonCol
+                anchors { top: statCol.bottom; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; topMargin: 40 }
+                spacing: 20
+
+                Button {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: qsTr("Query statistics")
+                    visible: lastFullUpdate.text === ""
+                    onClicked: { text = ""; qbi.visible = true; dbus.getStatistics(); enabled = false }
+
+                    BusyIndicator {
+                        id: qbi
+                        platformStyle: BusyIndicatorStyle { id: headerBusyIndicatorStyle; size: "small"; inverted: theme.inverted }
+                        anchors.centerIn: parent
+                        visible: false
+                        running: visible
+                    }
                 }
-            }
 
-            Text {
-                id: itemCount
-                anchors { top: feedCount.bottom; left: parent.left; topMargin: 10; leftMargin: 20 }
-                font.pointSize: 17
-                font.weight: Font.Light
-                textFormat: Text.PlainText
-                color: theme.inverted ? "white" : "black"
-                Connections {
-                    target: dbus
-                    onGotStatistics: itemCount.text = qsTr("Posts: ") + stats["itemCount"]
+                Button {
+                    id: resetConfigButton
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: qsTr("Reset configuration")
+                    onClicked: resetConfigQuery.open()
                 }
-            }
 
-            Text {
-                id: unreadCount
-                anchors { top: itemCount.bottom; left: parent.left; topMargin: 10; leftMargin: 20 }
-                font.pointSize: 17
-                font.weight: Font.Light
-                textFormat: Text.PlainText
-                color: theme.inverted ? "white" : "black"
-                Connections {
-                    target: dbus
-                    onGotStatistics: unreadCount.text = qsTr("Unread: ") + stats["unreadCount"]
+                Button {
+                    id: deleteDBButton
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: qsTr("Delete database")
+                    onClicked: deleteDBQuery.open()
+                    Connections {
+                        target: dbus
+                        onGotStatistics: stats["feedCount"] + stats["folderCount"] + stats["itemCount"] == 0 ? deleteDBButton.enabled = false : deleteDBButton.enabled = true
+                    }
                 }
-            }
 
-            Text {
-                id: lastFullUpdate
-                anchors { top: unreadCount.bottom; left: parent.left; topMargin: 10; leftMargin: 20 }
-                font.pointSize: 17
-                font.weight: Font.Light
-                textFormat: Text.StyledText
-                color: theme.inverted ? "white" : "black"
-                Connections {
-                    target: dbus
-                    onGotStatistics: lastFullUpdate.text = qsTr("Last full update:<br />") + Qt.formatDateTime(new Date(stats["lastFullUpdate"]), qsTr("d. MMMM yyyy, hh:mm"))
+                Button {
+                    id: deleteCertsButton
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: qsTr("Remove certificates")
+                    onClicked: deleteCertsQuery.open()
                 }
-            }
-
-
-            Button {
-                id: resetConfigButton
-                anchors { horizontalCenter: parent.horizontalCenter; top: lastFullUpdate.bottom; topMargin: 40 }
-                text: qsTr("Reset configuration")
-                onClicked: resetConfigQuery.open()
-            }
-
-            Button {
-                id: deleteDBButton
-                anchors { horizontalCenter: parent.horizontalCenter; top: resetConfigButton.bottom; topMargin: 20 }
-                text: qsTr("Delete database")
-                onClicked: deleteDBQuery.open()
-                Connections {
-                    target: dbus
-                    onGotStatistics: stats["feedCount"] + stats["folderCount"] + stats["itemCount"] == 0 ? deleteDBButton.enabled = false : deleteDBButton.enabled = true
-                }
-            }
-
-            Button {
-                id: deleteCertsButton
-                anchors { horizontalCenter: parent.horizontalCenter; top: deleteDBButton.bottom; topMargin: 20 }
-                text: qsTr("Remove certificates")
-                onClicked: deleteCertsQuery.open()
             }
         }
     }

@@ -35,7 +35,7 @@ Item {
     function openDonation(currency)
     {
         var lang = "";
-        var locale = String(Qt.locale().name);
+        var locale = new String(Qt.locale().name);
         var cc = locale.slice(3, 5);
 
         console.log(locale)
@@ -59,6 +59,7 @@ Item {
             break;
         default:
             lang = "";
+            break;
         }
 
         if (lang === "") {

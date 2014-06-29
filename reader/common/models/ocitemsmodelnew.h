@@ -5,6 +5,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QTimer>
+#include <QStringList>
 
 #include "ocmodelhelper.h"
 

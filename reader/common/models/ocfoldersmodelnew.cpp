@@ -17,6 +17,10 @@ OcFoldersModelNew::OcFoldersModelNew(QObject *parent) :
     m_items = QList<OcFolderObject*>();
     m_active = false;
     m_totalUnread = 0;
+
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+    setRoleNames(roleNames());
+#endif
 }
 
 
@@ -290,6 +294,27 @@ void OcFoldersModelNew::itemsStarred()
         emit dataChanged(index(idx), index(idx));
 #endif
     }
+}
+
+
+
+void OcFoldersModelNew::itemsMarkedAllRead()
+{
+    if (!active())
+        return;
+
+    for (int i = 0; i < rowCount(); ++i)
+    {
+        if (m_items.at(i)->id != -2)
+            m_items.at(i)->unreadCount = 0;
+    }
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    emit dataChanged(index(0), index(rowCount()-1), QVector<int>(1, UnreadCountRole));
+#else
+    emit dataChanged(index(0), index(rowCount()-1));
+#endif
+
 }
 
 
@@ -719,9 +744,11 @@ void OcFoldersModelNew::folderRenamed(const QString &newName, const int &id)
 
 int OcFoldersModelNew::findIndex(const int &id, const int &type) const
 {
-    for (int i = 0; i < rowCount(); ++i) {
-        if ((m_items.at(i)->id == id) && (m_items.at(i)->type == type))
-            return i;
+    if (!m_items.isEmpty()) {
+        for (int i = 0; i < rowCount(); ++i) {
+            if ((m_items.at(i)->id == id) && (m_items.at(i)->type == type))
+                return i;
+        }
     }
 
     return -999;

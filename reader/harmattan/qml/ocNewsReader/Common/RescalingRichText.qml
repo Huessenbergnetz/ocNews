@@ -52,9 +52,9 @@ Item {
         visible: false
         width: parent.width
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        textFormat: useRichText ? Text.RichText : Text.StyledText
+        textFormat: config.useRichText ? Text.RichText : Text.StyledText
 
-        text: useRichText ? "<style>* { font-size: 1px }</style>" + parent.text : parent.text
+        text: config.useRichText ? "<style>* { font-size: 1px }</style>" + parent.text : parent.text
 
         onPaintedWidthChanged: {
             console.log("contentWidth: " + paintedWidth)
@@ -73,7 +73,7 @@ Item {
         transformOrigin: Item.TopLeft
         font.pointSize: parent.fontSize / scaling
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        textFormat: useRichText ? Text.RichText : Text.StyledText
+        textFormat: config.useRichText ? Text.RichText : Text.StyledText
         smooth: true
         font.weight: Font.Light
 
@@ -94,7 +94,7 @@ Item {
             console.log("scaling: " + scaling);
 
             // set text to content item
-            contentText.text = useRichText ? _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX : parent.text
+            contentText.text = config.useRichText ? _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX : parent.text
         }
     }
 }

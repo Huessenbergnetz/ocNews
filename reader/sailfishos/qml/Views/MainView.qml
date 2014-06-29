@@ -39,7 +39,7 @@ Page {
 //    }
 
     FirstStartInfo {
-        visible: dbus.getSetting("display/version", 0) < versionInt
+        visible: config.displayedVersion < versionInt
         name: "ocNews"
         version: versionString
 //        helpPage: "../pages/Help.qml"
@@ -48,7 +48,7 @@ Page {
         paypalEmail: "kontakt@buschmann23.de"
         paypalMessage: qsTr("Leave a message (English or German):")
         description: qsTr("ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. ")
-//        onClicked: dbus.setSetting("display/version", versionInt)
+//        onClicked: config.displayedVersion = versionInt
     }
 
     SilicaListView {

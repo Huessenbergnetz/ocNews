@@ -34,78 +34,111 @@ Page {
             orientationLock: PageOrientation.LockPortrait
 
             Image {
-                id: ocnewsLogo
-                anchors { top: parent.top; topMargin: 10 }
+                id: coverImage
+                anchors { top: parent.top; topMargin: 10; left: parent.left; right: parent.right }
                 asynchronous: true
                 sourceSize.width: 540
                 sourceSize.height: 270
                 source: "/opt/ocNewsReader/images/ocNews-Harmattan-Cover.jpg"
             }
 
-            Label {
-                id: labelName
-                anchors { horizontalCenter: parent.horizontalCenter; top: ocnewsLogo.bottom; topMargin: 5 }
-                textFormat: Text.PlainText
-                text: "ocNews " + versionString
-            }
+            Column {
+                id: firstAboutCol
+                anchors { top: coverImage.bottom; topMargin: 5; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20 }
+                spacing: 10
 
-            Text {
-                id: description
-                anchors { horizontalCenter: parent.horizontalCenter; top: labelName.bottom; topMargin: 5 }
-                text: qsTr("The ownCloud News App client for Harmattan")
-                width: parent.width
-                font.pointSize: 17
-                font.weight: Font.Light
-                wrapMode: Text.WordWrap
-                horizontalAlignment: Text.AlignHCenter
-                textFormat: Text.PlainText
-                color: theme.inverted ? "white" : "black"
-            }
+                Label {
+                    id: labelName
+                    width: parent.width
+                    textFormat: Text.PlainText
+                    text: "ocNews " + versionString
+                    font.pointSize: 24
+                }
 
-            Text {
-                id: copyright
-                anchors { horizontalCenter: parent.horizontalCenter; top: description.bottom; topMargin: 5 }
-                font.pointSize: 17
-                font.weight: Font.Light
-                text: "© 2013-2014, Buschtrommel"
-                textFormat: Text.PlainText
-                color: theme.inverted ? "white" : "black"
-            }
+                Text {
+                    id: description
+                    text: qsTr("The ownCloud News App client for Harmattan")
+                    width: parent.width
+                    font.pointSize: 17
+                    font.weight: Font.Light
+                    wrapMode: Text.WordWrap
+                    horizontalAlignment: Text.AlignHCenter
+                    textFormat: Text.PlainText
+                    color: theme.inverted ? "white" : "black"
+                }
 
-            Text {
-                id: license
-                anchors { horizontalCenter: parent.horizontalCenter; top: copyright.bottom; topMargin: 5 }
-                font.pointSize: 17
-                font.weight: Font.Light
-                text: _RICHTEXT_STYLESHEET_PREAMBLE + qsTr("Licensed under the <a href='http://www.gnu.org/licenses/gpl-2.0.en.html'>GNU GPL v2</a>") + _RICHTEXT_STYLESHEET_APPENDIX
-                textFormat: Text.RichText
-                color: theme.inverted ? "white" : "black"
-                onLinkActivated: { Qt.openUrlExternally(link) }
-            }
+                Text {
+                    id: copyright
+                    width: parent.width
+                    font.pointSize: 17
+                    font.weight: Font.Light
+                    text: "© 2013-2014, Buschtrommel"
+                    textFormat: Text.PlainText
+                    color: theme.inverted ? "white" : "black"
+                }
 
-            Button {
-                id: privacyPolicyButton
-                anchors { horizontalCenter: parent.horizontalCenter; top: license.bottom; topMargin: 30 }
-                text: qsTr("Privacy policy")
-                onClicked: {
-                    aboutPrivacySheet.policy = dbus.getSetting("display/privacypolicy", false) == "true" ? true : false;
-                    aboutPrivacySheet.open();
+                Text {
+                    id: license
+                    width: parent.width
+                    font.pointSize: 17
+                    font.weight: Font.Light
+                    text: _RICHTEXT_STYLESHEET_PREAMBLE + qsTr("Licensed under the <a href='http://www.gnu.org/licenses/gpl-2.0.en.html'>GNU GPL v2</a>") + _RICHTEXT_STYLESHEET_APPENDIX
+                    textFormat: Text.RichText
+                    color: theme.inverted ? "white" : "black"
+                    onLinkActivated: { Qt.openUrlExternally(link) }
+                }
+
+                GroupHeader { text: qsTr("Contribute") }
+
+                PayPalChooser {
+                    id: donation
+                    width: parent.width + 40
+                    organization: "Buschtrommel"
+                    item: "ocNews"
+                    email: "kontakt@buschmann23.de"
+                    message: qsTr("Leave a message (English or German):")
+                }
+
+                Button {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: qsTr("Translate")
+                    onClicked: Qt.openUrlExternally("https://www.transifex.com/projects/p/ocnews/")
+                }
+
+                Button {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: qsTr("Report bugs")
+                    onClicked: Qt.openUrlExternally("https://github.com/Buschtrommel/ocNews/issues")
+                }
+
+                GroupHeader { text: qsTr("Further information") }
+
+                Button {
+                    id: privacyPolicyButton
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: qsTr("Privacy policy")
+                    onClicked: {
+                        aboutPrivacySheet.policy = config.privacyShown
+                        aboutPrivacySheet.open();
+                    }
+                }
+
+                Button {
+                    id: websiteLink
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: qsTr("Visit website")
+                    onClicked: Qt.openUrlExternally("http://ocnews.buschmann23.de")
                 }
             }
 
-            Button {
-                id: websiteLink
-                anchors { horizontalCenter: parent.horizontalCenter; top: privacyPolicyButton.bottom; topMargin: 10 }
-                text: qsTr("Visit website")
-                onClicked: Qt.openUrlExternally("http://ocnews.buschmann23.de")
-            }
 
-            Button {
-                id: licenseLink
-                anchors { horizontalCenter: parent.horizontalCenter; top: websiteLink.bottom; topMargin: 10 }
-                text: qsTr("Donate")
-                onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDZAG64WD34PL")
-            }
+
+            //                Button {
+            //                    id: licenseLink
+            //                    anchors { horizontalCenter: parent.horizontalCenter; top: websiteLink.bottom; topMargin: 10 }
+            //                    text: qsTr("Donate")
+            //                    onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDZAG64WD34PL")
+            //                }
         }
 
         Page {

@@ -164,9 +164,12 @@ int main(int argc, char *argv[])
     if (oldVersion > 0 && oldVersion < VERSION)
     {
         qDebug() << "Performing internal updrades.";
-        OcUpgradeHelper upHelper;
-        upHelper.init(oldVersion, VERSION);
-        upHelper.deleteLater();
+        OcUpgradeHelper *upHelper = new OcUpgradeHelper;
+        upHelper->init(oldVersion, VERSION);
+        upHelper->deleteLater();
+//        OcUpgradeHelper upHelper;
+//        upHelper.init(oldVersion, VERSION);
+//        upHelper.deleteLater();
     }
 
 

@@ -114,7 +114,7 @@ Page {
                 organization: "Buschtrommel"
                 item: "ocNews"
                 email: "kontakt@buschmann23.de"
-                message: qsTr("Message to Buschtrommel:")
+                message: qsTr("Leave a message (English or German):")
             }
         }
     }

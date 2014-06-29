@@ -179,6 +179,6 @@ Sheet {
             }
     }
 
-    onAccepted: dbus.setSetting("display/privacypolicy", true);
+    onAccepted: config.privacyShown = true
     onRejected: policy ? "" : Qt.quit();
 }

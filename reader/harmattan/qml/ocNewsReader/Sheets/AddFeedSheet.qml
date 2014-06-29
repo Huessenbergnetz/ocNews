@@ -66,6 +66,7 @@ Sheet {
                 height: 50
                 width: parent.width
                 placeholderText: qsTr("Enter new feed address")
+                inputMethodHints: Qt.ImhUrlCharactersOnly | Qt.ImhPreferLowercase | Qt.ImhNoAutoUppercase
             }
 
 

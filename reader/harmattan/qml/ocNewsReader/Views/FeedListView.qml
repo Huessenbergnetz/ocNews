@@ -17,38 +17,17 @@ Page {
 
     function openFile(file, properties) {
              var component = Qt.createComponent(file)
-             if (component.status == Component.Ready)
+             if (component.status === Component.Ready)
                  pageStack.push(component, properties);
              else
                  console.log("Error loading component:", component.errorString());
          }
 
-    Component.onCompleted: feedsModelSql.refresh(folderId)
-
-    Connections {
-        target: feeds
-        onMovedFeedSuccess: feedsModelSql.refresh(folderId)
-        onCreatedFeedSuccess: feedsModelSql.refresh(folderId)
-        onDeletedFeedSuccess: feedsModelSql.refresh(folderId)
-        onMarkedReadFeedSuccess: feedsModelSql.refresh(folderId)
-        onRenamedFeedSuccess: feedsModelSql.refresh(folderId)
-    }
-    Connections {
-        target: items
-        onUpdatedItemsSuccess: feedsModelSql.refresh(folderId)
-        onRequestedItemsSuccess: feedsModelSql.refresh(folderId)
-        onStarredItemsSuccess: feedsModelSql.refresh(folderId)
-        onMarkedItemsSuccess: feedsModelSql.refresh(folderId)
-    }
     Connections {
         target: folders
         onDeletedFolderSuccess: pageStack.pop()
-        onMarkedReadFolderSuccess: feedsModelSql.refresh(folderId)
     }
-    Connections {
-        target: updater
-        onUpdateFinished: feedsModelSql.refresh(folderId)
-    }
+
     Connections {
         target: feedListViewAddFeed
         onAccepted: if (feedListViewAddFeed.feedAddressText !== "") operationRunning = true
@@ -82,17 +61,22 @@ Page {
     ListView {
         id: feedList
         anchors { top: parent.top; topMargin: 71; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; bottom: fvFetchImagesIndicator.visible ? fvFetchImagesIndicator.top : parent.bottom }
-        model: feedsModelSql
+        model: feedsModelFilter
         delegate: FeedListDelegate {
                  subtitleColor: "grey"
                  onClicked: {
-                     type === "0" ?
-                                 openFile("ItemListView.qml", {feedId: id, feedName: title}) :
-                                 openFile("SpecialItemListView.qml", { id: folderId, pageName: qsTr("All") + " - " + folderName, feedType: "folder" })
+                     if (type === 0) {
+                         itemsModelSql.feedId = id
+                         openFile("ItemListView.qml", {feedId: id, feedName: title})
+                     } else if (type === 1) {
+                         openFile("SpecialItemListView.qml", { pageName: qsTr("All") + " - " + folderName, feedId: folderId, feedType: type, feedType: type });
+                     }
                  }
+
+
                  onPressAndHold: {
-                     contextMenuEffect.play()
-                     if (type === "0") {
+                     if (type === 0) {
+                        contextMenuEffect.play()
                         feedsContextMenu.feedId = id
                         feedsContextMenu.feedName = title
                         feedsContextMenu.open()

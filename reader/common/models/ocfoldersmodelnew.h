@@ -44,6 +44,7 @@ public slots:
     void itemsUpdated(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
     void itemsStarred();
     void itemsMarked();
+    void itemsMarkedAllRead();
 
     void feedsRequested(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted);
     void feedCreated(const QString &name, const int &id);

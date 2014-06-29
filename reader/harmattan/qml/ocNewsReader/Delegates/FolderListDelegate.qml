@@ -26,16 +26,14 @@ Item {
 
     function getIconSource()
     {
-        if (model.type === "1") {
+        switch(model.type) {
+        case 1:
             return theme.inverted ? "/opt/ocNewsReader/images/directory-inverse.png" : "image://theme/icon-m-common-directory"
-        } else if (model.type === "0") {
+        case 0:
+        case 3:
             return "image://theme/icon-m-content-feed" + (theme.inverted? "-inverse" : "")
-        } else if (model.type === "-1") {
-            if (model.id === "0") {
-                return "image://theme/icon-m-content-feed" + (theme.inverted? "-inverse" : "")
-            } else {
-                return "image://theme/icon-m-content-favourites" + (theme.inverted? "-inverse" : "")
-            }
+        case 2:
+            return "image://theme/icon-m-content-favourites" + (theme.inverted? "-inverse" : "")
         }
     }
 
@@ -83,12 +81,12 @@ Item {
 
             Label {
                 id: subText
-                text: model.feedCount == 0 ? qsTr("Empty folder") : qsTr("%1 unread posts in %2 feeds").arg(model.unreadCount).arg(model.feedCount);
+                text: model.feedCount === 0 ? qsTr("Empty folder") : qsTr("%1 unread posts in %2 feeds").arg(model.unreadCount).arg(model.feedCount);
                 font.family: folderListItem.subtitleFont
                 font.weight: folderListItem.subtitleWeight
                 font.pixelSize: folderListItem.subtitleSize
                 color: mouseArea.pressed ? folderListItem.subtitleColorPressed : folderListItem.subtitleColor
-                visible: model.type === "1" ? true : false
+                visible: model.type === 1 ? true : false
                 textFormat: Text.PlainText
             }
         }
@@ -97,13 +95,13 @@ Item {
     Image {
         source: "image://theme/icon-m-common-drilldown-arrow" + (theme.inverted ? "-inverse" : "")
         anchors { right: parent.right; rightMargin: -5; verticalCenter: parent.verticalCenter }
-        visible: model.type === "1" ? true : false
+        visible: model.type === 1 ? true : false
     }
 
     OcCountBubble {
         value: model.unreadCount
         anchors { right: parent.right; verticalCenter: parent.verticalCenter }
-        visible: model.type !== "1" ? true : false
+        visible: model.type !== 1 ? true : false
     }
 
     MouseArea {
@@ -120,7 +118,7 @@ Item {
     Image {
        height: 2
        width: parent.width
-       visible: viewMode === 0
+       visible: config.viewMode === 0
        anchors.top: parent.bottom
        source: "image://theme/meegotouch-separator" + (theme.inverted? "-inverted" : "") + "-background-horizontal"
        fillMode: Image.TileHorizontally

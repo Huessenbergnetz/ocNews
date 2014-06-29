@@ -3,8 +3,6 @@ import com.nokia.meego 1.0
 //import com.nokia.extras 1.0
 import QtMobility.feedback 1.1
 
-import "../JS/globals.js" as GLOBALS
-
 import "../Common"
 import "../Delegates"
 import "../Sheets"
@@ -14,43 +12,40 @@ Page {
     tools: specialItemListViewTools
     orientationLock: PageOrientation.LockPortrait
 
-    property string id
+    property int feedId
     property string pageName
-    property string feedType
+    property int feedType
 
-    property int handleRead: dbus.getSetting("display/handleread", 0)
-    property bool sortAsc: dbus.getSetting("display/sortasc", false) == "true"
+    property int handleRead: config.handleRead
+    property bool sortAsc: config.sortAsc
+    property string searchString: ""
+
+    onSearchStringChanged: itemsList.model.search = searchString
+    onHandleReadChanged: itemsList.model.handleRead = handleRead
+    onSortAscChanged: itemsList.model.sortAsc = sortAsc
+
+    Component.onCompleted: {
+        itemsList.model.search = searchString
+        itemsList.model.handleRead = handleRead
+        itemsList.model.sortAsc = sortAsc
+    }
+
+    Component.onDestruction: specialItemsModelSql.clear()
+
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            specialItemsModelSql.type = feedType
+            specialItemsModelSql.id = feedId
+        }
+    }
 
     function openFile(file, properties) {
              var component = Qt.createComponent(file)
-             if (component.status == Component.Ready)
+             if (component.status === Component.Ready)
                  pageStack.push(component, properties);
              else
                  console.log("Error loading component:", component.errorString());
          }
-
-    Component.onCompleted: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
-    Component.onDestruction: GLOBALS.previousContentY = 0
-
-    Connections {
-        target: folders
-        onMarkedReadFolderSuccess: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchTextField.text);
-    }
-    Connections {
-        target: items
-        onUpdatedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
-        onRequestedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
-        onStarredItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
-        onMarkedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
-        onMarkedAllItemsReadSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY; }
-    }
-    Connections {
-        target: updater
-        onUpdateFinished: { GLOBALS.previousContentY = itemsList.contentY; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchTextField.text); itemsList.contentY = GLOBALS.previousContentY }
-    }
-
-    onHandleReadChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchTextField.text)
-    onSortAscChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchTextField.text)
 
 // ------------- Header Start ----------------
 
@@ -62,6 +57,13 @@ Page {
 // ------------- Header End ----------------
 
 
+
+    BusyIndicator {
+        platformStyle: BusyIndicatorStyle { id: headerBusyIndicatorStyle; size: "large"; inverted: theme.inverted }
+        anchors.centerIn: parent
+        visible: specialItemsModelSql.populating
+        running: visible
+    }
 
 // ------------- Start Search Field ------------
 
@@ -82,8 +84,6 @@ Page {
 
             Behavior on opacity { NumberAnimation { duration: 400 } }
 
-
-
             TextField {
                 id: searchTextField
                 width: parent.width
@@ -91,8 +91,6 @@ Page {
                 anchors { left: srect.left; top: srect.top; topMargin: 9 }
                 platformStyle: TextFieldStyle { paddingRight: clearButton.width }
                 inputMethodHints: Qt.ImhNoPredictiveText
-
-                onTextChanged: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, text); searchFieldTimer.restart(); }
 
                 Image {
                     id: clearButton
@@ -105,6 +103,12 @@ Page {
                             specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc)
                         }
                     }
+                }
+
+                Binding {
+                    target: specialItemListView
+                    property: "searchString"
+                    value: searchTextField.text
                 }
             }
         }
@@ -120,11 +124,18 @@ Page {
 
     ListView {
         id: itemsList
-//        anchors { fill: parent; topMargin: searchFieldBox.height + 71; leftMargin: 0; rightMargin: 16 }
         anchors { top: parent.top; topMargin: searchFieldBox.height + 71; left: parent.left; leftMargin: 0; right: parent.right; rightMargin: 16; bottom: sivFetchImagesIndicator.visible ? sivFetchImagesIndicator.top : parent.bottom }
-        model: specialItemsModelSql
+        model: specialItemsModelFilter
         delegate: SpecialItemListDelegate {
-                 onClicked: { GLOBALS.previousContentY = itemsList.contentY; openFile("SingleItemView.qml", {itemId: itemId, searchString: searchTextField.text, handleRead: specialItemListView.handleRead, sortAsc: specialItemListView.sortAsc, feedType: specialItemListView.feedType, parentFeedId: specialItemListView.id}) }
+                 onClicked: {
+                     item.searchString = specialItemListView.searchString
+                     item.handleRead = specialItemListView.handleRead
+                     item.sortAsc = specialItemListView.sortAsc
+                     item.feedType = specialItemListView.feedType
+                     item.parentFeedId = specialItemListView.feedId
+                     item.showImg = config.handleImgs > 0
+                     item.itemId = itemId
+                     openFile("SingleItemView.qml") }
                  onPressAndHold: {
                      contextMenuEffect.play()
                      itemContextMenu.itId = itemId
@@ -187,7 +198,6 @@ Page {
 //                }
 //            ]
 //            onClicked: {
-//                GLOBALS.previousContentY = itemsList.contentY;
 //                specialItemListViewHeader.indicatorState = "RUNNING"
 //                updaterIcon.state = "RUNNING"
 //                feedType === "folder" ? items.updateItems("0", "1", specialItemListView.id) : dbus.initConnection()
@@ -225,7 +235,6 @@ Page {
                 enabled: !operationRunning
                 onClicked: {
                     operationRunning = true
-                    GLOBALS.previousContentY = itemsList.contentY;
                     feedType === "folder" ? folders.markFolderRead(id) : items.markAllItemsRead()
                 }
             }
@@ -290,7 +299,6 @@ Page {
                 enabled: !operationRunning
                 onClicked: {
                     operationRunning = true
-                    GLOBALS.previousContentY = itemsList.contentY;
                     itemContextMenu.starred === false ?
                                     items.starItems("star", itemContextMenu.starParams() ) :
                                     items.starItems("unstar", itemContextMenu.starParams() )
@@ -301,7 +309,6 @@ Page {
                 enabled: !operationRunning
                 onClicked: {
                     operationRunning = true
-                    GLOBALS.previousContentY = itemsList.contentY;
                     itemContextMenu.unread ?
                                 items.markItems("read", itemContextMenu.markParams()) :
                                 items.markItems("unread", itemContextMenu.markParams());

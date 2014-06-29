@@ -6,6 +6,7 @@
 #include <QUrl>
 #include <QFileInfo>
 #include <QDateTime>
+#include <QVariant>
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <QRegularExpression>
 #else

@@ -18,6 +18,10 @@ OcCombinedModelNew::OcCombinedModelNew(QObject *parent) :
     m_items = QList<OcCombinedObject*>();
     m_active = false;
     m_totalUnread = 0;
+
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+    setRoleNames(roleNames());
+#endif
 }
 
 
@@ -248,7 +252,11 @@ void OcCombinedModelNew::feedsRequested(const QList<int> &updated, const QList<i
                     cobj->iconWidth = query.value(4).toInt();
                     cobj->iconHeight = query.value(5).toInt();
                     cobj->folderId = query.value(6).toInt();
-                    cobj->folderName = query.value(7).toString();
+                    if (cobj->folderId == 0) {
+                        cobj->folderName = tr("Uncategorized");
+                    } else {
+                        cobj->folderName = query.value(7).toString();
+                    }
 
                     m_items.replace(i, cobj);
 
@@ -310,19 +318,40 @@ void OcCombinedModelNew::feedsRequested(const QList<int> &updated, const QList<i
         }
 
 
-        for (int j = 0; j < deletedIdxs.size(); ++j) {
+        if (!deletedIdxs.isEmpty()) {
+            for (int j = 0; j < deletedIdxs.size(); ++j) {
 
-            int idx = deletedIdxs.at(j);
+                int idx = deletedIdxs.at(j);
 
-            beginRemoveRows(QModelIndex(), idx, idx);
+                beginRemoveRows(QModelIndex(), idx, idx);
 
-            delete m_items.takeAt(idx);
+                delete m_items.takeAt(idx);
 
-            endRemoveRows();
+                endRemoveRows();
+            }
         }
     }
 
     queryAndSetTotalCount();
+}
+
+
+void OcCombinedModelNew::itemsMarkedAllRead()
+{
+    if (!active())
+        return;
+
+    for (int i = 0; i < rowCount(); ++i) {
+
+        if (m_items.at(i)->id != -2)
+            m_items.at(i)->unreadCount = 0;
+    }
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    emit dataChanged(index(0), index(rowCount()-1), QVector<int>(1, UnreadCountRole));
+#else
+    emit dataChanged(index(0), index(rowCount()-1));
+#endif
 }
 
 
@@ -423,7 +452,7 @@ void OcCombinedModelNew::feedCreated(const QString &name, const int &id)
                                                       query.value(4).toInt(),
                                                       query.value(5).toInt(),
                                                       query.value(6).toInt(),
-                                                      query.value(7).toString());
+                                                      query.value(6).toInt() == 0 ? tr("Uncategorized") : query.value(7).toString());
 
         m_items.append(cobj);
 
@@ -435,10 +464,14 @@ void OcCombinedModelNew::feedCreated(const QString &name, const int &id)
 
 void OcCombinedModelNew::feedDeleted(const int &id)
 {
+    qDebug() << "DELETING FEED";
+
     if (!active())
         return;
 
     int idx = findIndex(id);
+
+    qDebug() << "INDEX: " << idx;
 
     beginRemoveRows(QModelIndex(), idx, idx);
 
@@ -517,9 +550,13 @@ void OcCombinedModelNew::feedRenamed(const QString &newName, const int &feedId)
 
 int OcCombinedModelNew::findIndex(const int &id) const
 {
-    for (int i = 0; i < rowCount(); ++i) {
-        if (m_items.at(i)->id == id)
-            return i;
+    qDebug() << "TRY TO FIND INDEX";
+
+    if (!m_items.isEmpty()) {
+        for (int i = 0; i < rowCount(); ++i) {
+            if (m_items.at(i)->id == id)
+                return i;
+        }
     }
 
     return -999;

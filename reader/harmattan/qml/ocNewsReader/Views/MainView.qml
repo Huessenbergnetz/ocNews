@@ -6,7 +6,6 @@ import QtMobility.feedback 1.1
 import "../Common"
 import "../Delegates"
 import "../Sheets"
-import "../JS/globals.js" as GLOBALS
 
 Page {
     id: mainView
@@ -21,6 +20,8 @@ Page {
     }
 
     property int configState
+
+    onConfigStateChanged: console.log("CONFIG STATE: " + configState)
 
     tools: mainViewTools
     orientationLock: PageOrientation.LockPortrait
@@ -64,37 +65,8 @@ Page {
                 configState = 2
             }
         }
-        onSavedConfig: folderList.model.refresh()
-        onCleanedDatabase: folderList.model.refresh()
     }
-    Connections {
-        target: updater
-        onUpdateFinished: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-    }
-    Connections {
-        target: folders
-        onCreatedFolderSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-        onDeletedFolderSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-        onMarkedReadFolderSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-        onRenamedFolderSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-    }
-    Connections {
-        target: feeds
-        onCreatedFeedSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-        onDeletedFeedSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-        onMarkedReadFeedSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-        onMovedFeedSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-        onRequestedFeedsSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-        onRenamedFeedSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-    }
-    Connections {
-        target: items
-        onMarkedAllItemsReadSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-        onMarkedItemsSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-        onStarredItemsSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-        onUpdatedItemsSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY}
-        onRequestedItemsSuccess: { GLOBALS.previousFlatContentY = folderList.contentY; folderList.model.refresh(); folderList.contentY = GLOBALS.previousFlatContentY }
-    }
+
 
 
 // ------------- Header Start ----------------
@@ -146,7 +118,7 @@ Page {
             text: qsTr("Privacy policy")
             anchors { top: updateHint.bottom; topMargin: 20; horizontalCenter: parent.horizontalCenter }
             onClicked: {
-                mainViewPrivacySheet.policy = dbus.getSetting("display/privacypolicy", false) == "true" ? true : false
+                mainViewPrivacySheet.policy = config.privacyShown
                 mainViewPrivacySheet.open();
             }
 
@@ -198,28 +170,39 @@ Page {
     ListView {
         id: folderList
         anchors { top: parent.top; topMargin: 71; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; bottom: mvFetchImagesIndicator.visible ? mvFetchImagesIndicator.top : parent.bottom }
-        model: viewMode === 0 ? folderModelSql : combinedModelSql
+        model: configState === 0 ? config.viewMode === 0 ? foldersModelFilter : combinedModelFilter : null
+
+        onModelChanged: {
+            if (config.viewMode === 0) {
+                combinedModelSql.active = false
+                foldersModelSql.active = true
+            } else {
+                foldersModelSql.active = false
+                combinedModelSql.active = true
+            }
+        }
+
         visible: configState === 0
         delegate: FolderListDelegate {
             subtitleColor: "grey"
             onClicked: {
-                if (type === "1")  {
-                    openFile("FeedListView.qml", {folderId: id, folderName: title})
-                } else if (type === "0") {
+                if (type === 0) {
+                    itemsModelSql.feedId = id
                     openFile("ItemListView.qml", {feedId: id, feedName: title})
-                } else if (type === "-1" && id === "0") {
-                    openFile("SpecialItemListView.qml", { pageName: title, feedType: "all" })
-                } else if (type === "-1" && id === "1") {
-                    openFile("SpecialItemListView.qml", { pageName: title, feedType: "starred" })
+                } else if ( type === 1) {
+                    feedsModelSql.folderId = id
+                    openFile("FeedListView.qml", {folderId: id, folderName: title})
+                } else if ( type === 2 || type === 3) {
+                    openFile("SpecialItemListView.qml", { pageName: title, feedId: id, feedType: type });
                 }
             }
             onPressAndHold: {
                 contextMenuEffect.play();
-                if (type === "1") {
+                if (type === 1) {
                     folderContextMenu.folderId = id
                     folderContextMenu.folderName = title
                     folderContextMenu.open()
-                } else if (type === "0") {
+                } else if (type === 0) {
                     feedsContextMenu.feedId = id
                     feedsContextMenu.feedName = title
                     feedsContextMenu.open()
@@ -228,7 +211,6 @@ Page {
         }
         section.property: "folderName"
         section.delegate: GroupHeader { text: section }
-        onModelChanged: model.refresh()
 
         Behavior on height {
             NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
@@ -264,7 +246,6 @@ Page {
             id: updaterIcon
             platformIconId: operationRunning ? "toolbar-refresh-dimmed" : "toolbar-refresh"
             enabled: !operationRunning
-//            onClicked: { operationRunning = true; updater.startUpdate(); }
             onClicked: { (updateMenu.status === DialogStatus.Closed) ? updateMenu.open() : updateMenu.close(); settingsMenu.close(); addMenu.close() }
         }
         ToolIcon {
@@ -289,7 +270,7 @@ Page {
             }
             MenuItem {
                 text: qsTr("Quit completely")
-                visible: dbus.getSetting("engine/quitonclose", "false") == "false"
+                visible: !config.quitEngine
                 onClicked: quitCompletely.open()
             }
         }

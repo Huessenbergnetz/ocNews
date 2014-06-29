@@ -11,39 +11,11 @@ Page {
     tools: singleItemViewTools
     orientationLock: PageOrientation.Automatic
 
-    property string itemId
     property bool directOpening: false
 
-    property int handleRead
-    property bool sortAsc
-    property string searchString
-    property string feedType
-    property string parentFeedId
-
-    property string guidHash
-    property string url
-    property string title
-    property string author
-    property string pubDate
-    property string body
-    property string enclosureMime
-    property string enclosureLink
-    property bool unread
-    property bool starred
-    property string feedName
-    property string feedId
-    property bool containsImg
-    property int enclosureType
-    property string enclosureHost
-    property string enclosureName
-    property string prevId
-    property string nextId
-
-    property bool enclosureDownloading: downloads.getCurrentItem() === itemId
-    property bool enclosureInQueue: downloads.itemInQueue(itemId)
-    property bool enclosureExists: downloads.itemExists(enclosureLink, enclosureMime) !== "" && !enclosureDownloading && !enclosureInQueue
-
-    property bool showImgsDefault: dbus.getSetting("display/handleimgs", 0) > 0
+    property bool enclosureDownloading: downloads.getCurrentItem() === item.itemId
+    property bool enclosureInQueue: downloads.itemInQueue(item.itemId)
+    property bool enclosureExists: downloads.itemExists(item.enclosureLink, item.enclosureMime) !== "" && !enclosureDownloading && !enclosureInQueue
 
     function isMailTo(url) {
         var string = url;
@@ -80,24 +52,24 @@ Page {
     function downloadEnclosure()
     {
         enclosureInQueue = true;
-        downloads.append(itemId);
+        downloads.append(item.itemId);
     }
 
     function abortEnclosureDownload()
     {
         enclosureInQueue = false;
-        downloads.abortDownload(itemId);
+        downloads.abortDownload(item.itemId);
     }
 
     function openEnclosureDirect()
     {
         var ret;
-        switch(enclosureType) {
+        switch(item.enclosureType) {
         case 1:
-            launcher.playAudio(enclosureLink);
+            launcher.playAudio(item.enclosureLink);
             break;
         case 2:
-            launcher.playVideo(enclosureLink);
+            launcher.playVideo(item.enclosureLink);
             break;
         case 3:
             ret = "image://theme/icon-m-content-pdf"
@@ -111,38 +83,16 @@ Page {
         }
     }
 
-    function getItemData(showImgs)
-    {
-        var itemData = singleItemModelSql.getItemData(itemId, handleRead, sortAsc, searchString, feedType, parentFeedId, showImgs);
-        guidHash = itemData["guidHash"];
-        url = itemData["url"];
-        title = itemData["title"];
-        author = itemData["author"];
-        pubDate = itemData["pubDate"];
-        body = itemData["body"];
-        enclosureMime = itemData["enclosureMime"];
-        enclosureLink = itemData["enclosureLink"];
-        unread = itemData["unread"];
-        starred = itemData["starred"];
-        feedName = itemData["feedName"];
-        feedId= itemData["feedId"];
-        containsImg = itemData["containsImg"];
-        enclosureType = itemData["enclosureType"];
-        enclosureHost = itemData["enclosureHost"];
-        enclosureName = itemData["enclosureName"];
-        prevId = itemData["previous"];
-        nextId = itemData["next"];
-    }
 
     function starParams() {
         var params={};
-        params[feedId]=guidHash;
+        params[item.feedId]=item.guidHash;
         return params;
     }
 
     function markParams() {
         var params = new Array();
-        params[0]=itemId;
+        params[0]=item.itemId;
         return params;
     }
 
@@ -154,26 +104,23 @@ Page {
             console.log("Error loading component:", component.errorString());
     }
 
-    Component.onCompleted: {
-        getItemData(itemId, showImgsDefault);
-    }
 
     onStatusChanged: {
-        if (status == PageStatus.Active) {
-            if (unread) { operationRunning = true; items.markItems("read", markParams()) }
+        if (status === PageStatus.Active) {
+            if (item.unread) { operationRunning = true; items.markItems("read", markParams()) }
         }
     }
 
     Connections {
         target: items
-        onStarredItemsSuccess: starred = !starred
+        onStarredItemsSuccess: item.starred = !item.starred
     }
 
 
     Connections {
         target: downloads
-        onStarted: if(startedFileId === itemId) { enclosureDownloading = true; enclosureInQueue = false }
-        onFinishedFile: if(finishedFileId === itemId) { enclosureDownloading = false; enclosureExists = downloads.itemExists(enclosureLink, enclosureMime) !== "" }
+        onStarted: if(startedFileId === item.itemId) { enclosureDownloading = true; enclosureInQueue = false }
+        onFinishedFile: if(finishedFileId === item.itemId) { enclosureDownloading = false; enclosureExists = downloads.itemExists(item.enclosureLink, item.enclosureMime) !== "" }
     }
 
 
@@ -201,7 +148,7 @@ Page {
 
             Text {
                 width: itemContent.width - 35
-                text: title
+                text: item.title
                 font.pointSize: 23
                 font.weight: Font.Light
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
@@ -219,7 +166,7 @@ Page {
 
         Text {
             id: feedNameText
-            text: feedName
+            text: item.feedName
             width: parent.width
             elide: Text.ElideRight
             font.pointSize: 16
@@ -236,7 +183,7 @@ Page {
 
             Text {
                 id: pubDateText
-                text: pubDate
+                text: item.pubDate
                 font.pointSize: 16
                 font.weight: Font.Light
                 textFormat: Text.PlainText
@@ -245,7 +192,7 @@ Page {
 
             Text {
                 id: authorText
-                text: author != "" ? " | " + author : ""
+                text: item.author != "" ? " | " + item.author : ""
                 font.pointSize: 16
                 font.weight: Font.Light
                 width: parent.width - pubDateText.width
@@ -266,8 +213,8 @@ Page {
 
         RescalingRichText {
             id: bodyText
-            text: body
-            fontSize: ocNewsReader.fontSize
+            text: item.body
+            fontSize: config.fontSize
             anchors { top: headerSeperator.bottom; topMargin: 12; left: parent.left; right: parent.right }
             onLinkActivated: if (isImageLink(link)) {imagePreview.link = link; imagePreview.open()} else {linkContextMenu.link = link; linkContextMenu.open()}
             color: theme.inverted ? "white" : "black"
@@ -277,14 +224,14 @@ Page {
             id: enclosure
             anchors { top: bodyText.bottom; topMargin: 20 }
             width: itemContent.width
-            visible: enclosureLink != ""
-            name: enclosureName
-            host: enclosureHost
+            visible: item.enclosureLink != ""
+            name: item.enclosureName
+            host: item.enclosureHost
             showHost: !enclosureExists && !enclosureInQueue
             exists: enclosureExists
             inQueue: enclosureInQueue
             showProgress: enclosureDownloading
-            encType: enclosureType
+            encType: item.enclosureType
             Connections {
                 target: downloads
                 onProgress: if(enclosureDownloading) { enclosure.maxValue = tot; enclosure.value = rec }
@@ -297,7 +244,7 @@ Page {
             text: qsTr("Load images")
             anchors { top: enclosure.visible ? enclosure.bottom : bodyText.bottom; topMargin: 20; horizontalCenter: parent.horizontalCenter }
             platformStyle: ButtonStyle { id: showImgButtonStyle }
-            visible: containsImg
+            visible: item.containsImg
             onClicked: getItemData(itemId, true);
         }
 
@@ -335,7 +282,7 @@ Page {
         MenuLayout {
             MenuItem {
                 text: enclosureExists ? qsTr("Open enclosure") : qsTr("Open enclosure directly")
-                onClicked: enclosureExists ? Qt.openUrlExternally(downloads.itemExists(enclosureLink, enclosureMime)) : singleItemView.openEnclosureDirect()
+                onClicked: enclosureExists ? Qt.openUrlExternally(downloads.itemExists(item.enclosureLink, item.enclosureMime)) : singleItemView.openEnclosureDirect()
                 enabled: !enclosureDownloading && !enclosureInQueue
             }
             MenuItem {
@@ -355,29 +302,29 @@ Page {
             onClicked: directOpening ? openFile("MainView.qml") : pageStack.pop()
         }
         ToolIcon {
-            platformIconId: prevId !== "0" ? "toolbar-previous" : "toolbar-previous-dimmed"
-            enabled: prevId !== "0"
+            platformIconId: item.previous !== 0 ? "toolbar-previous" : "toolbar-previous-dimmed"
+            enabled: item.previous !== 0
+            visible: !directOpening
             onClicked: {
                 itemContent.opacity = 0
-                itemId = prevId
-                getItemData(showImgsDefault)
+                item.itemId = item.previous
                 itemContent.contentY = 0
-                if (unread) { operationRunning = true; items.markItems("read", markParams()) }
+                if (item.unread) { operationRunning = true; items.markItems("read", markParams()) }
                 backToNonOpaque.restart()
             }
         }
         ToolIcon {
-            platformIconId: starred ? operationRunning ? "toolbar-favorite-mark-dimmed" : "toolbar-favorite-mark" : operationRunning ? "toolbar-favorite-unmark-dimmed" : "toolbar-favorite-unmark"
+            platformIconId: item.starred ? operationRunning ? "toolbar-favorite-mark-dimmed" : "toolbar-favorite-mark" : operationRunning ? "toolbar-favorite-unmark-dimmed" : "toolbar-favorite-unmark"
             enabled: !operationRunning
             onClicked: {
                 operationRunning = true
-                starred ? items.starItems("unstar", starParams() ) :
+                item.starred ? items.starItems("unstar", starParams() ) :
                           items.starItems("star", starParams() )
             }
         }
         ToolIcon {
             platformIconId: "toolbar-share"
-            onClicked: shareUi.share(url, title, feedName)
+            onClicked: shareUi.share(item.url, item.title, item.feedName)
         }
         ToolIcon {
             platformIconId: "toolbar-webview"
@@ -385,14 +332,13 @@ Page {
             onClicked: Qt.openUrlExternally(url)
         }
         ToolIcon {
-            platformIconId: nextId !== "0" ? "toolbar-next" : "toolbar-next-dimmed"
-            enabled: nextId !== "0"
+            platformIconId: item.next !== 0 ? "toolbar-next" : "toolbar-next-dimmed"
+            enabled: item.next !== 0
+            visible: !directOpening
             onClicked: {
                 itemContent.opacity = 0
-                itemId = nextId
-                getItemData(showImgsDefault)
-                itemContent.contentY = 0
-                if (unread) { operationRunning = true; items.markItems("read", markParams()) }
+                item.itemId = item.next
+                if (item.unread) { operationRunning = true; items.markItems("read", markParams()) }
                 backToNonOpaque.restart()
             }
         }
@@ -424,9 +370,9 @@ Page {
         acceptButtonText: qsTr("Delete")
         rejectButtonText: qsTr("Cancel")
         message: qsTr("Do you really want to delete this file?")
-        titleText: qsTr("Delete %1?").arg(enclosureName)
+        titleText: qsTr("Delete %1?").arg(item.enclosureName)
         onAccepted: {
-            enclosureExists = !downloads.deleteFile(enclosureLink, enclosureMime)
+            enclosureExists = !downloads.deleteFile(item.enclosureLink, item.enclosureMime)
         }
     }
 

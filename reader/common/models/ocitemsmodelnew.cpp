@@ -28,6 +28,9 @@ OcItemsModelNew::OcItemsModelNew(QObject *parent) :
     timer->setSingleShot(true);
     connect(timer, SIGNAL(timeout()), this, SLOT(clearByTimer()));
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+    setRoleNames(roleNames());
+#endif
 }
 
 
@@ -124,7 +127,6 @@ void OcItemsModelNew::init()
 
     query.clear();
 
-    // handleRead 0: show read, 1: hide read, 2: show after unread
     queryString = QString("SELECT it.id, "
                                  "it.title, "
                                  "it.pubDate, "
@@ -313,7 +315,7 @@ void OcItemsModelNew::feedMarkedRead(const int &markedFeedId)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
         emit dataChanged(index(0), index(rowCount()-1), QVector<int>(1, UnreadRole));
 #else
-        emit dataChanged(index(0), index(rowCount()-1);
+        emit dataChanged(index(0), index(rowCount()-1));
 #endif
     }
 }
@@ -489,7 +491,7 @@ void OcItemsModelNew::allMarkedRead()
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
                 emit dataChanged(index(i), index(i), QVector<int>(1, UnreadRole));
 #else
-                emit dataChanged(index(i), index(i);
+                emit dataChanged(index(i), index(i));
 #endif
             }
         }
@@ -500,7 +502,7 @@ void OcItemsModelNew::allMarkedRead()
 
 void OcItemsModelNew::startCleanUpTimer()
 {
-    timer->start(30000);
+    timer->start(10000);
 }
 
 

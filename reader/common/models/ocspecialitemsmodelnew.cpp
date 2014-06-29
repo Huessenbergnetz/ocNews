@@ -26,6 +26,10 @@ OcSpecialItemsModelNew::OcSpecialItemsModelNew(QObject *parent) :
     m_showImages = false;
     m_populating = false;
     m_items = QList<OcItemObject*>();
+
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+    setRoleNames(roleNames());
+#endif
 }
 
 
@@ -312,7 +316,7 @@ void OcSpecialItemsModelNew::itemsMarked(const QStringList &ids, const QString &
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
                 emit dataChanged(index(i), index(i), QVector<int>(1, UnreadRole));
 #else
-                emit dataChanged(index(i), index(i);
+                emit dataChanged(index(i), index(i));
 #endif
             }
         }
@@ -340,7 +344,7 @@ void OcSpecialItemsModelNew::itemsStarred(const QStringList &hashes, const QStri
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
                 emit dataChanged(index(i), index(i), QVector<int>(1, StarredRole));
 #else
-                emit dataChanged(index(i), index(i);
+                emit dataChanged(index(i), index(i));
 #endif
             }
         }
@@ -362,7 +366,7 @@ void OcSpecialItemsModelNew::folderMarkedRead(const int &markedFolderId)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
                 emit dataChanged(index(i), index(i), QVector<int>(1, UnreadRole));
 #else
-                emit dataChanged(index(i), index(i);
+                emit dataChanged(index(i), index(i));
 #endif
             }
         }
@@ -385,7 +389,7 @@ void OcSpecialItemsModelNew::allMarkedRead()
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
                 emit dataChanged(index(i), index(i), QVector<int>(1, UnreadRole));
 #else
-                emit dataChanged(index(i), index(i);
+                emit dataChanged(index(i), index(i));
 #endif
             }
         }

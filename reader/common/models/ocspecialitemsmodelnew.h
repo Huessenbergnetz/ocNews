@@ -4,6 +4,7 @@
 #include <QAbstractListModel>
 #include <QSqlQuery>
 #include <QSqlError>
+#include <QStringList>
 #include "ocmodelhelper.h"
 #include "../../../common/globals.h"
 

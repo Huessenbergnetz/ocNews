@@ -14,6 +14,10 @@ OcFeedsModelNew::OcFeedsModelNew(QObject *parent) :
     QAbstractListModel(parent)
 {
     m_folderId = -999;
+
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+    setRoleNames(roleNames());
+#endif
 }
 
 
@@ -215,6 +219,25 @@ void OcFeedsModelNew::itemsMarked()
 
 
 
+void OcFeedsModelNew::itemsMarkedAllRead()
+{
+    if (m_items.isEmpty())
+        return;
+
+    for (int i = 0; i < rowCount(); ++i)
+    {
+        m_items.at(i)->unreadCount = 0;
+    }
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    emit dataChanged(index(0), index(rowCount()-1), QVector<int>(1, UnreadCountRole));
+#else
+    emit dataChanged(index(0), index(rowCount()-1));
+#endif
+}
+
+
+
 void OcFeedsModelNew::feedsRequested(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted)
 {
     if (updated.isEmpty() && newFeeds.isEmpty() && deleted.isEmpty())
@@ -358,9 +381,9 @@ void OcFeedsModelNew::feedDeleted(const int &id)
         delete m_items.takeAt(idx);
 
         endRemoveRows();
-    }
 
-    queryAndSetTotalUnread();
+        queryAndSetTotalUnread();
+    }
 }
 
 
@@ -459,6 +482,9 @@ void OcFeedsModelNew::feedMarkedRead(const int &id)
 
 void OcFeedsModelNew::feedRenamed(const QString &newName, const int &feedId)
 {
+    if (m_items.isEmpty())
+        return;
+
      int idx = findIndex(feedId, 0);
 
      if (idx != -999) {
@@ -497,9 +523,11 @@ void OcFeedsModelNew::folderMarkedRead(const int &id)
 
 int OcFeedsModelNew::findIndex(const int &id, const int &type) const
 {
-    for (int i = 0; i < rowCount(); ++i) {
-        if ((m_items.at(i)->id == id) && (m_items.at(i)->type == type))
-            return i;
+    if (!m_items.isEmpty()) {
+        for (int i = 0; i < rowCount(); ++i) {
+            if ((m_items.at(i)->id == id) && (m_items.at(i)->type == type))
+                return i;
+        }
     }
 
     return -999;
@@ -509,6 +537,9 @@ int OcFeedsModelNew::findIndex(const int &id, const int &type) const
 void OcFeedsModelNew::queryAndSetTotalUnread()
 {
     int idx = findIndex(folderId(), 1);
+
+    if (idx == -999)
+        return;
 
     QSqlQuery query;
 

@@ -6,6 +6,7 @@
 #include <QStringList>
 #include <QFileInfo>
 #include <QVariant>
+#include <QSettings>
 #include "../common/globals.h"
 
 class OcUpgradeHelper : public QObject
@@ -23,6 +24,8 @@ public slots:
 private:
     bool upgrade161AndOlder();
     bool upgrade182AndOlder();
+
+    QSettings settings;
 };
 
 #endif // OCUPGRADEHELPER_H

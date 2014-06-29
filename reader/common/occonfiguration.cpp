@@ -12,7 +12,6 @@ OcConfiguration::OcConfiguration(QObject *parent) :
     m_maxItems = config["maxitems"].toInt();
     m_viewMode = config["viewmode"].toInt();
     m_orderBy = config["orderby"].toString();
-    m_themeColor = config["themecolor"].toString();
     m_handleImgs = config["handleimgs"].toInt();
     m_handleRead = config["handleread"].toInt();
     m_sortAsc = config["sortasc"].toBool();
@@ -27,6 +26,8 @@ OcConfiguration::OcConfiguration(QObject *parent) :
     m_notifyFeedsFolders = config["notifyFeedsFolders"].toBool();
     m_notifyNewItems = config["notifyNewItems"].toBool();
     m_isValid = conf->isConfigSet();
+    m_privacyShown = config["privacyShown"].toBool();
+    m_displayedVersion = config["displayversion"].toInt();
 #if !defined(MEEGO_EDITION_HARMATTAN)
     m_accountEnabled = config["enabled"].toBool();
     m_accountUser = config["uname"].toString();
@@ -34,13 +35,26 @@ OcConfiguration::OcConfiguration(QObject *parent) :
     m_accountServer = config["server"].toString();
     m_accountUseSSL = config["usessl"].toBool();
     m_accountIgnoreSSLErrors = config["ignoresslerrors"].toBool();
-    m_privacyShown = config["privacyShown"].toBool();
+#else
+    m_useRichText = config["userichtext"].toBool();
+    m_themeInverted = config["themeinverted"].toBool();
 #endif
 }
 
 
-bool OcConfiguration::privateBrowsing() const { return m_privateBrowsing; }
+int OcConfiguration::displayedVersion() const { return m_displayedVersion; }
 
+void OcConfiguration::setDisplayedVersion(const int &nDisplayedVersion)
+{
+    if (nDisplayedVersion != m_displayedVersion) {
+        m_displayedVersion = nDisplayedVersion;
+        conf->setSetting("display/version", QDBusVariant(displayedVersion()));
+        emit displayedVersionChanged(displayedVersion());
+    }
+}
+
+
+bool OcConfiguration::privateBrowsing() const { return m_privateBrowsing; }
 
 void OcConfiguration::setPrivateBrowsing(const bool &nPrivateBrowsing)
 {
@@ -96,18 +110,6 @@ void OcConfiguration::setOrderBy(const QString &nOrderBy)
         m_orderBy = nOrderBy;
         conf->setSetting("display/orderby", QDBusVariant(orderBy()));
         emit orderByChanged(orderBy());
-    }
-}
-
-
-QString OcConfiguration::themeColor() const { return m_themeColor; }
-
-void OcConfiguration::setThemeColor(const QString &nThemeColor)
-{
-    if (nThemeColor != m_themeColor) {
-        m_themeColor = nThemeColor;
-        conf->setSetting("display/themecolor", QDBusVariant(themeColor()));
-        emit themeColorChanged(themeColor());
     }
 }
 
@@ -273,18 +275,6 @@ void OcConfiguration::setNotifyNewItems(const bool &nNotifyNewItems)
 
 
 
-QString OcConfiguration::textFormat() const { return m_textFormat; }
-
-void OcConfiguration::setTextFormat(const QString &nTextFormat)
-{
-    if (nTextFormat != m_textFormat) {
-        m_textFormat = nTextFormat;
-        conf->setSetting("display/textformat", QDBusVariant(textFormat()));
-        emit eventFeedsChanged(textFormat());
-    }
-}
-
-
 bool OcConfiguration::privacyShown() const { return m_privacyShown; }
 
 void OcConfiguration::setPrivacyShown(const bool &nPrivacyShown)
@@ -382,5 +372,31 @@ void OcConfiguration::setAccountIgnoreSSLErrors(const bool &nAccountIgnoreSSLErr
         emit accountIgnoreSSLErrorsChanged(accountIgnoreSSLErrors());
     }
 }
+#else
+
+
+bool OcConfiguration::useRichText() const { return m_useRichText; }
+
+void OcConfiguration::setUseRichText(const bool &nUseRichText)
+{
+    if (nUseRichText != m_useRichText) {
+        m_useRichText = nUseRichText;
+        conf->setSetting("display/richText", QDBusVariant(useRichText()));
+        emit useRichTextChanged(useRichText());
+    }
+}
+
+
+bool OcConfiguration::themeInverted() const { return m_themeInverted; }
+
+void OcConfiguration::setThemeInverted(const bool &nThemeInverted)
+{
+    if (nThemeInverted != m_themeInverted) {
+        m_themeInverted = nThemeInverted;
+        conf->setSetting("display/themeInverted", QDBusVariant(themeInverted()));
+        emit themeInvertedChanged(themeInverted());
+    }
+}
+
 
 #endif

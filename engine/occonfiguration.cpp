@@ -56,7 +56,6 @@ QVariantMap OcConfiguration::getConfig()
     config["maxitems"] = settings.value("storage/maxitems", 100).toInt();
     config["viewmode"] = settings.value("display/viewmode", 0).toInt();
     config["orderby"] = settings.value("display/orderby", "id").toString();
-    config["themecolor"] = settings.value("display/themecolor", "white").toString();
     config["handleimgs"] = settings.value("display/handleimgs", 0).toInt();
     config["handleread"] = settings.value("display/handleread", 0).toInt();
     config["sortasc"] = settings.value("display/sortasc", false).toBool();
@@ -64,8 +63,8 @@ QVariantMap OcConfiguration::getConfig()
     config["hidereadfeeds"] = settings.value("display/hidereadfeeds", false).toBool();
     config["showExcerpts"] = settings.value("display/excerpts", false).toBool();
     config["showPicturesInList"] = settings.value("display/picturesInList", false).toBool();
-    config["textformat"] = settings.value("display/textformat", "rich").toString();
     config["privacyShown"] = settings.value("display/privacypolicy", false).toBool();
+    config["displayversion"] = settings.value("display/version", 0).toInt();
     config["privateBrowsing"] = settings.value("privacy/privateBrowsing", false).toBool();
     config["enableCookies"] = settings.value("privacy/enableCookies", true).toBool();
     config["updatebehavior"] = settings.value("update/behavior", "0").toString();
@@ -80,7 +79,10 @@ QVariantMap OcConfiguration::getConfig()
     config["pword"] = settings.value("account/password", "").toString();
     config["server"] = settings.value("account/server", "").toString();
     config["usessl"] = settings.value("account/usessl", true).toBool();
-    config["ignoresslerrors"] = settings.value("account/ignoresslerrors", false).toBool();   
+    config["ignoresslerrors"] = settings.value("account/ignoresslerrors", false).toBool();
+#else
+    config["userichtext"] = settings.value("display/richText", true).toBool();
+    config["themeinverted"] = settings.value("display/themeInverted", false).toBool();
 #endif
 
     emit gotConfig(config);

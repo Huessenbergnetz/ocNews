@@ -69,12 +69,7 @@ DEFINES += MEEGO_EDITION_HARMATTAN
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-    ../common/models/ocspecialitemsmodelsql.cpp \
-    ../common/models/ocsingleitemmodelsql.cpp \
     ocshareui.cpp \
-    ../common/models/ocitemsmodelsql.cpp \
-    ../common/models/ocfoldermodelsql.cpp \
-    ../common/models/ocfeedsmodelsql.cpp \
     ../common/ocdbmanager.cpp \
     ../common/dbus/interfaces/ocgenericif.cpp \
     ../common/dbus/interfaces/ocdbusinterface.cpp \
@@ -92,14 +87,28 @@ SOURCES += main.cpp \
     ../common/oclauncher.cpp \
     ../common/dbus/interfaces/ocaccountif.cpp \
     ../common/dbus/interfaces/ocdbusaccount.cpp \
-    ../common/models/occombinedmodelsql.cpp \
     ../common/dbus/interfaces/ocdownloadsif.cpp \
     ../common/dbus/interfaces/ocdbusdownloads.cpp \
     ../common/models/ocitemsmodelnew.cpp \
     ../common/dbus/interfaces/ocimagefetcherif.cpp \
     ../common/dbus/interfaces/ocdbusimagefetcher.cpp \
     ../common/models/ocitemsmodelfilter.cpp \
-    ../common/occonfiguration.cpp
+    ../common/occonfiguration.cpp \
+    ../common/models/ocspecialitemsmodelnew.cpp \
+    ../common/models/ocsingleitemmodelnew.cpp \
+    ../common/models/ocmodelhelper.cpp \
+    ../common/models/ocfoldersmodelnew.cpp \
+    ../common/models/ocfoldersmodelfilter.cpp \
+    ../common/models/ocfoldermodelsql.cpp \
+    ../common/models/ocfeedsmodelsql.cpp \
+    ../common/models/ocfeedsmodelnew.cpp \
+    ../common/models/ocfeedsmodelfilter.cpp \
+    ../common/models/occombinedmodelsql.cpp \
+    ../common/models/occombinedmodelnew.cpp \
+    ../common/models/occombinedmodelfilter.cpp \
+    ../common/models/ocspecialitemsmodelsql.cpp \
+    ../common/models/ocsingleitemmodelsql.cpp \
+    ../common/models/ocitemsmodelsql.cpp \
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -138,7 +147,25 @@ HEADERS += \
     ../common/dbus/interfaces/ocimagefetcherif.h \
     ../common/dbus/interfaces/ocdbusimagefetcher.h \
     ../common/models/ocitemsmodelfilter.h \
-    ../common/occonfiguration.h
+    ../common/occonfiguration.h \
+    ../common/models/ocsingleitemmodelsql.h \
+    ../common/models/ocsingleitemmodelnew.h \
+    ../common/models/ocmodelhelper.h \
+    ../common/models/ocitemsmodelsql.h \
+    ../common/models/ocfoldersmodelnew.h \
+    ../common/models/ocfoldersmodelfilter.h \
+    ../common/models/ocfeedsmodelnew.h \
+    ../common/models/ocfeedsmodelfilter.h \
+    ../common/models/occombinedmodelsql.h \
+    ../common/models/occombinedmodelnew.h \
+    ../common/models/occombinedmodelfilter.h \
+    ../common/models/ocspecialitemsmodelnew.h \
+    ../common/models/ocsingleitemmodelsql.h \
+    ../common/models/ocitemsmodelsql.h \
+    ../common/models/objects/ocitemobject.h \
+    ../common/models/objects/ocfolerdobject.h \
+    ../common/models/objects/ocfeedobjec.h \
+    ../common/models/objects/occombinedobject.h
 
 OTHER_FILES += \
     ../common/dbus/adaptor/de.buschmann23.ocNewsReader.xml \
