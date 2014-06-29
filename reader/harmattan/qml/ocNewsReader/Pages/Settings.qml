@@ -24,7 +24,6 @@ Page {
             selFed.push(feedSelectionDialog.model.get(feedSelectionDialog.selectedIndexes[i]).value);
         }
 
-//        dbus.setSetting("event/feeds", selFed.toString())
         config.eventFeeds = selFed.toString()
     }
 

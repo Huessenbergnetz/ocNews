@@ -4,6 +4,7 @@
 #include <QThread>
 #include <QSqlQuery>
 #include <QList>
+#include <QVariant>
 #include "ocmodelhelper.h"
 #include "objects/ocitemobject.h"
 

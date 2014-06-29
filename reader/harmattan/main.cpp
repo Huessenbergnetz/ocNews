@@ -4,6 +4,7 @@
 #include <QGraphicsObject>
 #include <QDeclarativeContext>
 #include <QtDeclarative>
+#include <QMetaType>
 #include "qmlapplicationviewer.h"
 
 #include "../../common/globals.h"
@@ -35,6 +36,7 @@
 #include "../common/dbus/adaptor/ocdbusproxy.h"
 #include "../common/oclauncher.h"
 #include "ocshareui.h"
+#include "../common/models/objects/ocitemobject.h"
 
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
@@ -44,6 +46,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QApplication::setOrganizationDomain("buschmann23.de");
     QApplication::setApplicationName("ocNewsReader");
     QApplication::setApplicationVersion(VERSION_STRING);
+
+    qRegisterMetaType<OcItemObject>("OcItemObject");
 
     QString locale = QLocale::system().name();
     QTranslator translator;

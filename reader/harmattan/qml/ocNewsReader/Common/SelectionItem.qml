@@ -4,6 +4,7 @@ import com.nokia.meego 1.0
 Item {
 
     property alias title: title.text
+    property alias titleColor: title.color
     property string initialValue
     property string currentValue
     property alias model: selectionDialog.model
