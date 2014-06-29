@@ -29,21 +29,22 @@ Page {
     }
     Component.onDestruction: specialItemsModelSql.clear()
 
-    onStatusChanged: {
-        if (status === PageStatus.Active) {
-            specialItemsModelSql.type = feedType
-            specialItemsModelSql.id = feedId
-        }
-    }
+//    onStatusChanged: {
+//        if (status === PageStatus.Active) {
+//            specialItemsModelSql.type = feedType
+//            specialItemsModelSql.id = feedId
+//        }
+//    }
 
     BusyIndicator {
         size: BusyIndicatorSize.Large
-        visible: true
-        opacity: specialItemsModelSql.populating ? 1 : 0
-        running: specialItemsModelSql.populating
+        visible: specialItemsModelSql.populating
+        running: visible
+//        opacity: specialItemsModelSql.populating ? 1 : 0
+//        running: specialItemsModelSql.populating
+//        running: opacity > 0
         anchors.centerIn: parent
-        Behavior on opacity { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad } }
-        onRunningChanged: console.log("RUNNING: " + running)
+//        Behavior on opacity { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad } }
     }
 
 

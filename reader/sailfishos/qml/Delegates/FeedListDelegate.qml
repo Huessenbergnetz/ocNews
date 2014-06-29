@@ -27,8 +27,8 @@ ListItem {
             pageStack.push(Qt.resolvedUrl("../Views/ItemListView.qml"), {feedName: model.title})
             break;
         case 1:
-//            specialItemsModelSql.type = model.type
-//            specialItemsModelSql.id = model.id
+            specialItemsModelSql.type = model.type
+            specialItemsModelSql.id = model.id
 //            pageStack.push(Qt.resolvedUrl("../Views/SpecialItemListView.qml"), {pageName: feedListItem.folderName})
             pageStack.push(Qt.resolvedUrl("../Views/SpecialItemListView.qml"), {pageName: feedListItem.folderName, feedId: model.id, feedType: model.type})
             break;

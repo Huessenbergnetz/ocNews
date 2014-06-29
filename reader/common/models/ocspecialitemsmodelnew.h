@@ -3,9 +3,9 @@
 
 #include <QAbstractListModel>
 #include <QSqlQuery>
-#include <QSqlError>
 #include <QStringList>
 #include "ocmodelhelper.h"
+#include "ocspecialitemsmodelquery.h"
 #include "../../../common/globals.h"
 
 class OcItemObject;
@@ -53,6 +53,11 @@ public slots:
     void folderMarkedRead(const int &markedFolderId);
     void allMarkedRead();
     void itemsUpdated(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted);
+
+private slots:
+    void gotItem(OcItemObject *item);
+    void queryFinished();
+
 
 private:
     void init();

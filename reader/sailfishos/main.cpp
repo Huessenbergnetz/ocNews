@@ -3,6 +3,7 @@
 #include <QQuickView>
 #include <QLocale>
 #include <QTranslator>
+#include <QMetaType>
 
 #include <sailfishapp.h>
 
@@ -32,6 +33,7 @@
 #include "../common/dbus/adaptor/ocdbusadaptor.h"
 #include "../common/dbus/adaptor/ocdbusproxy.h"
 #include "ocnaminteractor.h"
+#include "../common/models/objects/ocitemobject.h"
 
 int main(int argc, char *argv[])
 {
@@ -41,6 +43,8 @@ int main(int argc, char *argv[])
     app->setOrganizationDomain("buschmann23.de");
     app->setApplicationName("harbour-ocnews-reader");
     app->setApplicationVersion(VERSION_STRING);
+
+    qRegisterMetaType<OcItemObject>("OcItemObject");
 
     QString locale = QLocale::system().name();
     QTranslator *translator = new QTranslator;

@@ -33,8 +33,8 @@ ListItem {
             break;
         case 2:
         case 3:
-//            specialItemsModelSql.type = model.type
-//            specialItemsModelSql.id = model.id
+            specialItemsModelSql.type = model.type
+            specialItemsModelSql.id = model.id
             pageStack.push(Qt.resolvedUrl("../Views/SpecialItemListView.qml"), {pageName: model.title, feedId: model.id, feedType: model.type})
             break;
         default:

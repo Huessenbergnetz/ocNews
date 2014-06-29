@@ -13,31 +13,6 @@ Page {
 
     property int configState: (config.isValid && config.accountEnabled) ? 0 : (!config.isValid) ? 1 : (config.isValid && !config.accountEnabled) ? 2 : 2
 
-//    Connections {
-//        target: folders
-//        onCreatedFolderSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//        onDeletedFolderSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//        onMarkedReadFolderSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//        onRenamedFolderSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//    }
-//    Connections {
-//        target: feeds
-//        onCreatedFeedSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//        onDeletedFeedSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//        onMarkedReadFeedSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//        onMovedFeedSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//        onRequestedFeedsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//        onRenamedFeedSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//    }
-//    Connections {
-//        target: items
-//        onMarkedAllItemsReadSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//        onMarkedItemsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//        onStarredItemsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//        onUpdatedItemsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//        onRequestedItemsSuccess: { GLOBALS.previousFlatContentY = mainViewList.contentY; mainViewList.model.refresh(); mainViewList.contentY = GLOBALS.previousFlatContentY }
-//    }
-
     FirstStartInfo {
         visible: config.displayedVersion < versionInt
         name: "ocNews"
