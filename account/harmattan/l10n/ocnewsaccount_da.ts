@@ -59,7 +59,7 @@
     <message id="qtn_button_save">
         <location filename="../qml/main.qml" line="+31"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Gem</translation>
     </message>
     <message id="qtn_button_cancel">
         <location line="+5"/>
@@ -130,32 +130,32 @@
     <message id="qtn_set_server">
         <location line="+1"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Sæt Server</translation>
     </message>
     <message id="qtn_ssl_enabled">
         <location line="+8"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>SSL Aktiveret</translation>
     </message>
     <message id="qtn_ignore_ssl">
         <location line="+7"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Ignorer SSL</translation>
     </message>
     <message id="qtn_create_account">
         <location line="+6"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Opret konto</translation>
     </message>
     <message id="qtn_creating">
         <location line="+29"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Opretter</translation>
     </message>
     <message id="qtn_only_one_account">
         <location line="+20"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Kun en konto</translation>
     </message>
 </context>
 </TS>

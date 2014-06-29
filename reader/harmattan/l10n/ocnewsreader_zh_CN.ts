@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+326"/>
+        <location line="+301"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location line="-293"/>
+        <location line="-263"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>&lt;b&gt;OwnCloud News&lt;/b&gt; For Harmattan</translation>
     </message>
@@ -18,7 +18,32 @@
         <translation>授权许可基于：&lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.de.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+6"/>
+        <source>Contribute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Leave a message (English or German):</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Translate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Report bugs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Further information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>Privacy policy</source>
         <translation>隐私政策</translation>
     </message>
@@ -28,12 +53,7 @@
         <translation>访问项目主页</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Donate</source>
-        <translation>捐赠</translation>
-    </message>
-    <message>
-        <location line="+24"/>
+        <location line="+34"/>
         <source>Upstream author</source>
         <translation>核心作者</translation>
     </message>
@@ -98,7 +118,12 @@
         <translation>Martin Grimme 的新闻素材</translation>
     </message>
     <message>
-        <location line="+150"/>
+        <location line="+27"/>
+        <source>Version</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+65"/>
         <source>Contributors</source>
         <translation>项目贡献者</translation>
     </message>
@@ -146,7 +171,7 @@
         <translation>请输入新的订阅源地址</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+8"/>
         <source>Select folder</source>
         <translation>选择文件夹</translation>
     </message>
@@ -213,12 +238,12 @@
 <context>
     <name>FeedListView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/FeedListView.qml" line="+91"/>
+        <location filename="../qml/ocNewsReader/Views/FeedListView.qml" line="+72"/>
         <source>All</source>
         <translation>全部</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+62"/>
         <source>Add feed</source>
         <translation>添加订阅</translation>
     </message>
@@ -309,7 +334,7 @@
 <context>
     <name>FetchImagesIndicator</name>
     <message>
-        <location filename="../qml/ocNewsReader/Common/FetchImagesIndicator.qml" line="+37"/>
+        <location filename="../qml/ocNewsReader/Common/FetchImagesIndicator.qml" line="+21"/>
         <source>Fetching images</source>
         <translation>正在捕获图片</translation>
     </message>
@@ -317,7 +342,7 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+86"/>
+        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+84"/>
         <source>Empty folder</source>
         <translation>空文件夹</translation>
     </message>
@@ -356,17 +381,17 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/ItemListView.qml" line="+93"/>
+        <location filename="../qml/ocNewsReader/Views/ItemListView.qml" line="+88"/>
         <source>Search...</source>
         <translation>正在搜索...</translation>
     </message>
     <message>
-        <location line="+115"/>
+        <location line="+126"/>
         <source>Mark feed as read</source>
         <translation>将订阅标记为已读</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+8"/>
         <source>Delete feed</source>
         <translation>删除订阅</translation>
     </message>
@@ -416,7 +441,7 @@
         <translation>从收藏中移除</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+11"/>
         <source>Mark as read</source>
         <translation>标记为已读</translation>
     </message>
@@ -426,17 +451,17 @@
         <translation>标记为未读</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+8"/>
         <source>Mark as read up to this point</source>
         <translation>将帖子标记为已读</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+8"/>
         <source>Mark as unread up to this point</source>
         <translation>将帖子标记为未读</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+8"/>
         <source>Share</source>
         <translation>分享</translation>
     </message>
@@ -459,7 +484,17 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/MainView.qml" line="+104"/>
+        <location filename="../qml/ocNewsReader/Views/MainView.qml" line="+26"/>
+        <source>Leave a message (English or German):</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+73"/>
         <source>ocNews</source>
         <translation>OcNews</translation>
     </message>
@@ -490,7 +525,7 @@
         <translation>账号已停用,使用本程序需要开启账号.</translation>
     </message>
     <message>
-        <location line="+107"/>
+        <location line="+116"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -546,17 +581,17 @@
     <message>
         <location line="-44"/>
         <location line="+53"/>
-        <location line="+51"/>
+        <location line="+55"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location line="-70"/>
+        <location line="-74"/>
         <source>Move</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+75"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -637,6 +672,26 @@
     </message>
 </context>
 <context>
+    <name>OcCombinedModelNew</name>
+    <message>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
+        <location line="+99"/>
+        <location line="+199"/>
+        <source>Uncategorized</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="-294"/>
+        <source>All posts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Favourite posts</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OcCombinedModelSql</name>
     <message>
         <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
@@ -652,6 +707,14 @@
         <location line="+8"/>
         <source>Favourite posts</source>
         <translation>收藏的帖子</translation>
+    </message>
+</context>
+<context>
+    <name>OcFeedsModelNew</name>
+    <message>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
+        <source>All posts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -676,20 +739,15 @@
     </message>
 </context>
 <context>
-    <name>OcItemsModelNew</name>
+    <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocitemsmodelnew.cpp" line="+197"/>
-        <source>Today</source>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
+        <source>All posts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+1"/>
-        <source>d. MMMM</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>hh:mm</source>
+        <location line="+3"/>
+        <source>Favourite posts</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -709,6 +767,42 @@
         <location line="+1"/>
         <source>hh:mm</source>
         <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcModelHelper</name>
+    <message>
+        <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
+        <source>Today</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>OcSingleItemModelNew</name>
+    <message>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+431"/>
+        <source>Today</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -894,13 +988,13 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+68"/>
-        <location line="+571"/>
+        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
+        <location line="+531"/>
         <source>Account Settings</source>
         <translation>账号设置</translation>
     </message>
     <message>
-        <location line="-552"/>
+        <location line="-512"/>
         <source>Open account manager</source>
         <translation>账号管理</translation>
     </message>
@@ -920,12 +1014,12 @@
         <translation>你需要创建自己的ownCloud server账号,点击上面按钮跳转到账号管理中创建.</translation>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+31"/>
         <source>Number of items to keep</source>
         <translation>保留的条目数量</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+10"/>
         <source>Folders</source>
         <translation>文件夹</translation>
     </message>
@@ -940,7 +1034,7 @@
         <translation>程序主界面布局</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+11"/>
         <source>Added (like on server)</source>
         <translation>已添加（在服务器上）</translation>
     </message>
@@ -960,12 +1054,12 @@
         <translation>将订阅和文件夹排序以</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+13"/>
         <source>Hide read feeds and folders</source>
         <translation>隐藏已读订阅和文件夹</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+7"/>
         <source>Only manually</source>
         <translation>手动</translation>
     </message>
@@ -985,7 +1079,7 @@
         <translation>更新</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+11"/>
         <source>15 Minutes</source>
         <translation>15分钟</translation>
     </message>
@@ -1020,37 +1114,7 @@
         <translation>更新间隔</translation>
     </message>
     <message>
-        <location line="+15"/>
-        <source>Display post content format</source>
-        <translation>显示帖子内容格式</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Full</source>
-        <translation>满</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Limited</source>
-        <translation>有限</translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Theme color</source>
-        <translation>主题风格</translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>White</source>
-        <translation>亮</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Black</source>
-        <translation>暗</translation>
-    </message>
-    <message>
-        <location line="+13"/>
+        <location line="+29"/>
         <source>On request</source>
         <translation>根据要求</translation>
     </message>
@@ -1070,7 +1134,7 @@
         <translation>读取内容图片</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+13"/>
         <source>Show</source>
         <translation>显示</translation>
     </message>
@@ -1090,87 +1154,92 @@
         <translation>阅读文章</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+12"/>
         <source>Show oldest items on top</source>
         <translation>在顶部显示最旧条目</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+9"/>
         <source>Show article excerpts in list</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Display images in list</source>
+        <location line="-64"/>
+        <source>Use prettier but slower Rich Text</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+9"/>
+        <source>Invert the theme color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+76"/>
         <source>Item view font size:</source>
         <translation>条目内容字体大小：</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+19"/>
         <source>Notify about added/removed feeds and folders</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+9"/>
         <source>Notify about new articles</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+13"/>
         <source>Quit engine on closing reader</source>
         <translation>关闭阅读器时退出ocNews引擎</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+7"/>
         <source>This option needs an application restart.</source>
         <translation>* 此操作需要重启程序</translation>
     </message>
     <message>
-        <location line="+42"/>
+        <location line="+43"/>
         <source>Select feeds for the event view</source>
         <translation>选择事件视窗订阅源</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+25"/>
         <source>Select event view feeds</source>
         <translation>选择事件视窗订阅源</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+12"/>
         <source>Click the button to select the feeds that you want to aggregate to the Event screen. Only newly downloaded items will be added to the Events screen.</source>
         <translation>点击按钮选择你要添加到事件视窗的订阅源.只有最新地内容才会显示.</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+16"/>
         <source>Database statistics</source>
         <translation>数据库统计</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+16"/>
         <source>Folders: </source>
         <translation>文件夹:</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Feeds: </source>
         <translation>订阅源:</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Posts: </source>
         <translation>帖子:</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Unread: </source>
         <translation>未读:</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Last full update:&lt;br /&gt;</source>
         <translation>最后全部更新:&lt;br /&gt;</translation>
     </message>
@@ -1180,7 +1249,12 @@
         <translation>d. MMMM yyyy, hh:mm</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+13"/>
+        <source>Query statistics</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+16"/>
         <source>Reset configuration</source>
         <translation>重置设定</translation>
     </message>
@@ -1195,7 +1269,7 @@
         <translation>删除证书</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+29"/>
         <source>Display &amp; Update Settings</source>
         <translation>显示 &amp; 更新设置</translation>
     </message>
@@ -1285,7 +1359,7 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+297"/>
+        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+244"/>
         <source>Load images</source>
         <translation>读取图片</translation>
     </message>
@@ -1330,7 +1404,7 @@
         <translation>下载附件</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+81"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -1358,7 +1432,7 @@
         <translation>正在搜索...</translation>
     </message>
     <message>
-        <location line="+133"/>
+        <location line="+143"/>
         <source>Mark folder as read</source>
         <translation>将文件夹中的订阅标记为已读</translation>
     </message>
@@ -1368,7 +1442,7 @@
         <translation>全部设为已读</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+9"/>
         <source>Show newest on top</source>
         <translation>在顶部显示最新条目</translation>
     </message>
@@ -1408,7 +1482,7 @@
         <translation>从收藏里删除</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
         <source>Mark as read</source>
         <translation>标记为已读</translation>
     </message>
@@ -1418,7 +1492,7 @@
         <translation>标记为未读</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
         <source>Share</source>
         <translation>分享</translation>
     </message>
@@ -1426,7 +1500,7 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../qml/ocNewsReader/main.qml" line="+35"/>
+        <location filename="../qml/ocNewsReader/main.qml" line="+44"/>
         <source>Created folder %1</source>
         <translation>创建%1文件夹</translation>
     </message>
@@ -1461,7 +1535,7 @@
         <translation>重命名订阅为%1</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+23"/>
         <source>Found ownCloud News Version %1</source>
         <translation>发现新版本%1</translation>
     </message>

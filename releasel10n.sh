@@ -10,9 +10,9 @@ lrelease ocnewsengine_$LANG.ts
 done
 
 cd ../../account/harmattan/l10n
-lrelease -markuntranslated '' -idbased ocnewsaccount.ts
+# lrelease -markuntranslated '' -idbased ocnewsaccount.ts
 
-for LANG in da de es fr it ru zh_CN
+for LANG in en en_GB en_US da de es fr it ru zh_CN
 do
 lrelease -markuntranslated '' -idbased ocnewsaccount_$LANG.ts
 done

@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+326"/>
+        <location line="+301"/>
         <source>About</source>
         <translation>Über</translation>
     </message>
     <message>
-        <location line="-293"/>
+        <location line="-263"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>Der ownCloud News App Client für Harmattan</translation>
     </message>
@@ -18,7 +18,32 @@
         <translation>Lizensiert unter der &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+6"/>
+        <source>Contribute</source>
+        <translation>Mithelfen</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Leave a message (English or German):</source>
+        <translation>Eine Nachricht hinterlassen (Englisch oder Deutsch&quot;:</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Translate</source>
+        <translation>Übersetzen</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Report bugs</source>
+        <translation>Fehler melden</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Further information</source>
+        <translation>Weitere Informationen</translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>Privacy policy</source>
         <translation>Datenschutzerklärung</translation>
     </message>
@@ -28,12 +53,7 @@
         <translation>Webseite besuchen</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Donate</source>
-        <translation>Spenden</translation>
-    </message>
-    <message>
-        <location line="+24"/>
+        <location line="+34"/>
         <source>Upstream author</source>
         <translation>Urheber</translation>
     </message>
@@ -98,7 +118,12 @@
         <translation>Martin Grimmes Tidings-Elemente</translation>
     </message>
     <message>
-        <location line="+150"/>
+        <location line="+27"/>
+        <source>Version</source>
+        <translation>Version</translation>
+    </message>
+    <message>
+        <location line="+65"/>
         <source>Contributors</source>
         <translation>Mitwirkende</translation>
     </message>
@@ -146,7 +171,7 @@
         <translation>Neue Feed-Adresse eingeben</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+8"/>
         <source>Select folder</source>
         <translation>Ordner auswählen</translation>
     </message>
@@ -213,12 +238,12 @@
 <context>
     <name>FeedListView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/FeedListView.qml" line="+91"/>
+        <location filename="../qml/ocNewsReader/Views/FeedListView.qml" line="+72"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+62"/>
         <source>Add feed</source>
         <translation>Feed hinzufügen</translation>
     </message>
@@ -309,7 +334,7 @@
 <context>
     <name>FetchImagesIndicator</name>
     <message>
-        <location filename="../qml/ocNewsReader/Common/FetchImagesIndicator.qml" line="+37"/>
+        <location filename="../qml/ocNewsReader/Common/FetchImagesIndicator.qml" line="+21"/>
         <source>Fetching images</source>
         <translation>Lade Bilder</translation>
     </message>
@@ -317,7 +342,7 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+86"/>
+        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+84"/>
         <source>Empty folder</source>
         <translation>Leerer Ordner</translation>
     </message>
@@ -356,17 +381,17 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/ItemListView.qml" line="+93"/>
+        <location filename="../qml/ocNewsReader/Views/ItemListView.qml" line="+88"/>
         <source>Search...</source>
         <translation>Suche...</translation>
     </message>
     <message>
-        <location line="+115"/>
+        <location line="+126"/>
         <source>Mark feed as read</source>
         <translation>Feed als gelesen markieren</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+8"/>
         <source>Delete feed</source>
         <translation>Feed löschen</translation>
     </message>
@@ -416,7 +441,7 @@
         <translation>Aus Favoriten entfernen</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+11"/>
         <source>Mark as read</source>
         <translation>Als gelesen markieren</translation>
     </message>
@@ -426,17 +451,17 @@
         <translation>Als ungelesen markieren</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+8"/>
         <source>Mark as read up to this point</source>
         <translation>Bis hier als gelesen markieren</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+8"/>
         <source>Mark as unread up to this point</source>
         <translation>Bis hier als ungelesen markieren</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+8"/>
         <source>Share</source>
         <translation>Teilen</translation>
     </message>
@@ -459,7 +484,17 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/MainView.qml" line="+104"/>
+        <location filename="../qml/ocNewsReader/Views/MainView.qml" line="+26"/>
+        <source>Leave a message (English or German):</source>
+        <translation>Eine Nachricht hinterlassen (Englisch oder Deutsch):</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. </source>
+        <translation>ocNews ist ein Client für die ownCloud News App, einen cloud-basierten RSS/Atom-Feed-Aggregator.</translation>
+    </message>
+    <message>
+        <location line="+73"/>
         <source>ocNews</source>
         <translation>ocNews</translation>
     </message>
@@ -490,7 +525,7 @@
         <translation>Ihr Benutzerkonto ist zur Zeit deaktiviert. Um ocNews nutzen zu können müssen Sie es aktivieren.</translation>
     </message>
     <message>
-        <location line="+107"/>
+        <location line="+116"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
@@ -546,17 +581,17 @@
     <message>
         <location line="-44"/>
         <location line="+53"/>
-        <location line="+51"/>
+        <location line="+55"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location line="-70"/>
+        <location line="-74"/>
         <source>Move</source>
         <translation>Verschieben</translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+75"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
@@ -637,6 +672,26 @@
     </message>
 </context>
 <context>
+    <name>OcCombinedModelNew</name>
+    <message>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
+        <location line="+99"/>
+        <location line="+199"/>
+        <source>Uncategorized</source>
+        <translation>Unkatekorisiert</translation>
+    </message>
+    <message>
+        <location line="-294"/>
+        <source>All posts</source>
+        <translation>Alle Artikel</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Favourite posts</source>
+        <translation>Favorisierte Artikel</translation>
+    </message>
+</context>
+<context>
     <name>OcCombinedModelSql</name>
     <message>
         <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
@@ -652,6 +707,14 @@
         <location line="+8"/>
         <source>Favourite posts</source>
         <translation>Favoriten</translation>
+    </message>
+</context>
+<context>
+    <name>OcFeedsModelNew</name>
+    <message>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
+        <source>All posts</source>
+        <translation>Alle Artikel</translation>
     </message>
 </context>
 <context>
@@ -676,9 +739,22 @@
     </message>
 </context>
 <context>
-    <name>OcItemsModelNew</name>
+    <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocitemsmodelnew.cpp" line="+197"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
+        <source>All posts</source>
+        <translation>Alle Artikel</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Favourite posts</source>
+        <translation>Favorisierte Artikel</translation>
+    </message>
+</context>
+<context>
+    <name>OcItemsModelSql</name>
+    <message>
+        <location filename="../../common/models/ocitemsmodelsql.cpp" line="+65"/>
         <source>Today</source>
         <translation>Heute</translation>
     </message>
@@ -694,9 +770,27 @@
     </message>
 </context>
 <context>
-    <name>OcItemsModelSql</name>
+    <name>OcModelHelper</name>
     <message>
-        <location filename="../../common/models/ocitemsmodelsql.cpp" line="+65"/>
+        <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
+        <source>Today</source>
+        <translation>Heute</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation>d. MMMM</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcSingleItemModelNew</name>
+    <message>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+431"/>
         <source>Today</source>
         <translation>Heute</translation>
     </message>
@@ -894,13 +988,13 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+68"/>
-        <location line="+571"/>
+        <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
+        <location line="+531"/>
         <source>Account Settings</source>
         <translation>Benutzerkonto</translation>
     </message>
     <message>
-        <location line="-552"/>
+        <location line="-512"/>
         <source>Open account manager</source>
         <translation>Kontoverwaltung öffnen</translation>
     </message>
@@ -920,12 +1014,12 @@
         <translation>Sie müssen ein Benutzerkonto für Ihren ownCloud-Server anlegen. Drücken Sie den obigen Knopf um ein neues Konto in der Kontenverwaltung anzulegen.</translation>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+31"/>
         <source>Number of items to keep</source>
         <translation>Anz. aufzubewahrender Objekte</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+10"/>
         <source>Folders</source>
         <translation>Ordner</translation>
     </message>
@@ -940,7 +1034,7 @@
         <translation>Aufbau der Hauptansicht</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+11"/>
         <source>Added (like on server)</source>
         <translation>Hinzugefügt (wie auf dem Server)</translation>
     </message>
@@ -960,12 +1054,12 @@
         <translation>Feeds und Ordner sortieren nach</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+13"/>
         <source>Hide read feeds and folders</source>
         <translation>Gelesene Feeds und Ordner verstecken</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+7"/>
         <source>Only manually</source>
         <translation>Nur manuell</translation>
     </message>
@@ -985,7 +1079,7 @@
         <translation>Aktualisieren</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+11"/>
         <source>15 Minutes</source>
         <translation>15 Minuten</translation>
     </message>
@@ -1020,37 +1114,7 @@
         <translation>Aktualisierungsintervall</translation>
     </message>
     <message>
-        <location line="+15"/>
-        <source>Display post content format</source>
-        <translation>Textformat für Nachrichtentexte</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Full</source>
-        <translation>Voll</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Limited</source>
-        <translation>Eingeschränkt</translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Theme color</source>
-        <translation>Themenfarbe</translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>White</source>
-        <translation>Weiß</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Black</source>
-        <translation>Schwarz</translation>
-    </message>
-    <message>
-        <location line="+13"/>
+        <location line="+29"/>
         <source>On request</source>
         <translation>Auf Anfrage</translation>
     </message>
@@ -1070,7 +1134,7 @@
         <translation>Bilder im Inhalt laden</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+13"/>
         <source>Show</source>
         <translation>Zeigen</translation>
     </message>
@@ -1090,87 +1154,92 @@
         <translation>Gelesene Artikel</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+12"/>
         <source>Show oldest items on top</source>
         <translation>Älteste Einträge zuerst anzeigen</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+9"/>
         <source>Show article excerpts in list</source>
         <translation>Artikelauszug in Liste anzeigen</translation>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Display images in list</source>
-        <translation>Bilder in Liste anzeigen</translation>
+        <location line="-64"/>
+        <source>Use prettier but slower Rich Text</source>
+        <translation>Nutze schöneren aber langsameren Rich Text</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+9"/>
+        <source>Invert the theme color</source>
+        <translation>Themen-Farbe invertieren</translation>
+    </message>
+    <message>
+        <location line="+76"/>
         <source>Item view font size:</source>
         <translation>Schriftgröße in der Nachrichtenansicht</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+19"/>
         <source>Notify about added/removed feeds and folders</source>
         <translation>Informiere über hinzugefügte/entfernte Feeds und Ordner</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+9"/>
         <source>Notify about new articles</source>
         <translation>Informiere über neue Artikel</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+13"/>
         <source>Quit engine on closing reader</source>
         <translation>Engine beim Schließen der Anwendung beenden</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+7"/>
         <source>This option needs an application restart.</source>
         <translation>Diese Option benötigt einen Neustart der Anwendung.</translation>
     </message>
     <message>
-        <location line="+42"/>
+        <location line="+43"/>
         <source>Select feeds for the event view</source>
         <translation>Feeds für die Startansicht auswählen</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+25"/>
         <source>Select event view feeds</source>
         <translation>Startansicht-Feeds wählen</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+12"/>
         <source>Click the button to select the feeds that you want to aggregate to the Event screen. Only newly downloaded items will be added to the Events screen.</source>
         <translation>Drücken Sie den obigen Knopf um die Feeds auszuwählen, deren Inhalt in der Startansicht angezeigt werden soll. Nur neu herunter geladene Einträge werden der Startansicht hinzugefügt.</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+16"/>
         <source>Database statistics</source>
         <translation>Datenbankstatistik</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+16"/>
         <source>Folders: </source>
         <translation>Ordner: </translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Feeds: </source>
         <translation>Feeds: </translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Posts: </source>
         <translation>Nachrichten: </translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Unread: </source>
         <translation>Ungelesene: </translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Last full update:&lt;br /&gt;</source>
         <translation>Letzte Vollaktualisierung:&lt;br /&gt;</translation>
     </message>
@@ -1180,7 +1249,12 @@
         <translation>d. MMMM yyyy, hh:mm</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+13"/>
+        <source>Query statistics</source>
+        <translation>Statistiken abfragen</translation>
+    </message>
+    <message>
+        <location line="+16"/>
         <source>Reset configuration</source>
         <translation>Konfiguration zurücksetzen</translation>
     </message>
@@ -1195,7 +1269,7 @@
         <translation>Zertifikate entfernen</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+29"/>
         <source>Display &amp; Update Settings</source>
         <translation>Anzeige &amp; Aktualisierung</translation>
     </message>
@@ -1285,7 +1359,7 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+297"/>
+        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+244"/>
         <source>Load images</source>
         <translation>Bilder laden</translation>
     </message>
@@ -1330,7 +1404,7 @@
         <translation>Anhang herunterladen</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+81"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
@@ -1358,7 +1432,7 @@
         <translation>Suche...</translation>
     </message>
     <message>
-        <location line="+133"/>
+        <location line="+143"/>
         <source>Mark folder as read</source>
         <translation>Ordner als gelesen markieren</translation>
     </message>
@@ -1368,7 +1442,7 @@
         <translation>Alle als gelesen markieren</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+9"/>
         <source>Show newest on top</source>
         <translation>Neueste zuerst anzeigen</translation>
     </message>
@@ -1408,7 +1482,7 @@
         <translation>Von Favoriten entfernen</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
         <source>Mark as read</source>
         <translation>Als gelesen markieren</translation>
     </message>
@@ -1418,7 +1492,7 @@
         <translation>Als ungelesen markieren</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
         <source>Share</source>
         <translation>Teilen</translation>
     </message>
@@ -1426,7 +1500,7 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../qml/ocNewsReader/main.qml" line="+35"/>
+        <location filename="../qml/ocNewsReader/main.qml" line="+44"/>
         <source>Created folder %1</source>
         <translation>Ordner %1 erstellt</translation>
     </message>
@@ -1461,7 +1535,7 @@
         <translation>Feed umbenannt in %1</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+23"/>
         <source>Found ownCloud News Version %1</source>
         <translation>ownCloud News Version %1 gefunden</translation>
     </message>

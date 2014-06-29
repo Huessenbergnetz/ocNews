@@ -53,8 +53,8 @@
     </message>
     <message>
         <location line="+11"/>
-        <source>Message to Buschtrommel:</source>
-        <translation>Messaggio a Buschtrommel:</translation>
+        <source>Leave a message (English or German):</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -184,7 +184,7 @@
         <translation>proprio ora</translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+29"/>
         <source>Unread news</source>
         <translation>Notizie non lette</translation>
     </message>
@@ -281,12 +281,7 @@
 <context>
     <name>FeedListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FeedListDelegate.qml" line="+20"/>
-        <source>All</source>
-        <translation>Tutto</translation>
-    </message>
-    <message>
-        <location line="+44"/>
+        <location filename="../qml/Delegates/FeedListDelegate.qml" line="+80"/>
         <source>Empty folder</source>
         <translation>Svuota cartella</translation>
     </message>
@@ -296,7 +291,7 @@
         <translation>%1 post non letti in %2 feed</translation>
     </message>
     <message>
-        <location line="+54"/>
+        <location line="+53"/>
         <source>Update</source>
         <translation type="unfinished"/>
     </message>
@@ -329,7 +324,7 @@
 <context>
     <name>FeedListView</name>
     <message>
-        <location filename="../qml/Views/FeedListView.qml" line="+50"/>
+        <location filename="../qml/Views/FeedListView.qml" line="+30"/>
         <source>Update running...</source>
         <translation>Aggiornamento in corso...</translation>
     </message>
@@ -364,7 +359,7 @@
         <translation>La cartella è vuota. Aggiungi i feed</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+16"/>
         <source>Scroll to top</source>
         <translation>Torna in cima</translation>
     </message>
@@ -382,7 +377,7 @@
 <context>
     <name>FetchImagesIndicator</name>
     <message>
-        <location filename="../qml/Common/FetchImagesIndicator.qml" line="+45"/>
+        <location filename="../qml/Common/FetchImagesIndicator.qml" line="+21"/>
         <source>Fetching images</source>
         <translation>Recupero immagini</translation>
     </message>
@@ -425,7 +420,7 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+88"/>
+        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+103"/>
         <source>Empty folder</source>
         <translation>Svuota cartella</translation>
     </message>
@@ -482,7 +477,7 @@
 <context>
     <name>ItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+155"/>
+        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+162"/>
         <source>Mark as read</source>
         <translation>Segna come letto</translation>
     </message>
@@ -515,7 +510,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+39"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+44"/>
         <source>Update running...</source>
         <translation>Aggiornamento in corso...</translation>
     </message>
@@ -608,7 +603,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+78"/>
+        <location filename="../qml/Views/MainView.qml" line="+24"/>
         <source>Leave a message (English or German):</source>
         <translation type="unfinished"/>
     </message>
@@ -618,7 +613,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+11"/>
         <source>Update running...</source>
         <translation>Aggiornamento in corso...</translation>
     </message>
@@ -668,7 +663,7 @@
         <translation>Il database è vuoto. Aggiorna o aggiungi nuovi feed e cartelle.</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+24"/>
         <source>Scroll to top</source>
         <translation>Torna in cima</translation>
     </message>
@@ -707,6 +702,26 @@
     </message>
 </context>
 <context>
+    <name>OcCombinedModelNew</name>
+    <message>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
+        <location line="+99"/>
+        <location line="+199"/>
+        <source>Uncategorized</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="-294"/>
+        <source>All posts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Favourite posts</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OcCombinedModelSql</name>
     <message>
         <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
@@ -722,6 +737,14 @@
         <location line="+8"/>
         <source>Favourite posts</source>
         <translation>Post preferiti</translation>
+    </message>
+</context>
+<context>
+    <name>OcFeedsModelNew</name>
+    <message>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
+        <source>All posts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -746,20 +769,15 @@
     </message>
 </context>
 <context>
-    <name>OcItemsModelNew</name>
+    <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocitemsmodelnew.cpp" line="+197"/>
-        <source>Today</source>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
+        <source>All posts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+1"/>
-        <source>d. MMMM</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>hh:mm</source>
+        <location line="+3"/>
+        <source>Favourite posts</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -779,6 +797,42 @@
         <location line="+1"/>
         <source>hh:mm</source>
         <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcModelHelper</name>
+    <message>
+        <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
+        <source>Today</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>OcSingleItemModelNew</name>
+    <message>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+431"/>
+        <source>Today</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -838,7 +892,7 @@
 <context>
     <name>PaypalChooser</name>
     <message>
-        <location filename="../qml/BTComponents/PaypalChooser.qml" line="+125"/>
+        <location filename="../qml/BTComponents/PaypalChooser.qml" line="+126"/>
         <source>Currency</source>
         <translation>Valuta</translation>
     </message>
@@ -966,7 +1020,7 @@
 <context>
     <name>PrivacyPolicy</name>
     <message>
-        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+14"/>
+        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+12"/>
         <source>Close</source>
         <translation>Chiudi</translation>
     </message>
@@ -1065,38 +1119,38 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/Pages/Settings.qml" line="+98"/>
+        <location filename="../qml/Pages/Settings.qml" line="+39"/>
         <source>Settings</source>
         <translation>Impostazioni</translation>
     </message>
     <message>
         <location line="+2"/>
-        <location line="+24"/>
+        <location line="+47"/>
         <source>Server</source>
         <translation>Server</translation>
     </message>
     <message>
-        <location line="-19"/>
+        <location line="-21"/>
         <source>User name</source>
         <translation>Nome utente</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+10"/>
         <source>Password</source>
         <translation>Password</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+11"/>
         <source>Server: e.g. cloud.example.com</source>
         <translation>Server: es. cloud.esempio.com</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="-34"/>
         <source>Test connection</source>
         <translation>Testa connessione</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+62"/>
         <source>Found ownCloud News Version %1</source>
         <translation>Trovata versione %1 di ownCloud</translation>
     </message>
@@ -1111,7 +1165,7 @@
         <translation>Dato che Notizie ownCloud richiede di inviare nome utente e password ad ogni sincronizzazione, dovresti mantenere questo abilitato per usare una connessione criptata, se il tuo server supporta o richiede la crittografia.</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Ignore SSL errors</source>
         <translation>Ignora errori SSL</translation>
     </message>
@@ -1121,7 +1175,7 @@
         <translation>Ignora gli errori SSL solo se sai cosa stai facendo. (Attualmente non esiste un servizio per il trattamento dei certificati SSL. ocNews implementerà un suo sistema in futuro, per adesso puoi ignorare gli errori SSL se stai usando un certificato autofirmato)</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+6"/>
         <location line="+17"/>
         <source>Updating</source>
         <translation>Aggiornamento</translation>
@@ -1142,7 +1196,7 @@
         <translation>Sempre automatico</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+22"/>
         <source>15 Minutes</source>
         <translation>15 min</translation>
     </message>
@@ -1177,17 +1231,17 @@
         <translation>Intervallo di aggiornamento</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+6"/>
         <source>Engine</source>
         <translation>Motore</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+12"/>
         <source>Number of items to keep</source>
         <translation>Numero di elementi da tenere</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+8"/>
         <source>Quit engine on closing reader</source>
         <translation>Spegni motore alla chiusura</translation>
     </message>
@@ -1197,7 +1251,7 @@
         <translation>Di default il demone si avvia all&apos;apertura e rimane attivo anche dopo la chiusura e lavora in background. Riavvia l&apos;applicazione per applicare.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+5"/>
         <source>Appearance</source>
         <translation>Aspetto</translation>
     </message>
@@ -1212,12 +1266,12 @@
         <translation>Feed</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+6"/>
         <source>Main view layout</source>
         <translation>Configurazione vista principale</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+12"/>
         <source>Added (like on server)</source>
         <translation>Aggiunti (come nel server)</translation>
     </message>
@@ -1237,7 +1291,7 @@
         <translation>Ordina cartelle e feed per</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+12"/>
         <source>On request</source>
         <translation>Su richiesta</translation>
     </message>
@@ -1257,7 +1311,7 @@
         <translation>Carica immagini</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+12"/>
         <source>Show</source>
         <translation>Mostra</translation>
     </message>
@@ -1277,7 +1331,7 @@
         <translation>Articoli letti</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+8"/>
         <source>Hide read feeds and folders</source>
         <translation>Nascondi cartelle e feed letti</translation>
     </message>
@@ -1287,7 +1341,7 @@
         <translation>Nascondi cartelle e feed che non contengono elementi non letti.</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Show oldest items on top</source>
         <translation>Mostra elementi vecchi in cima</translation>
     </message>
@@ -1298,7 +1352,7 @@
 Puoi comunque cambiarlo dal menu.</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Show article excerpts</source>
         <translation type="unfinished"/>
     </message>
@@ -1308,22 +1362,12 @@ Puoi comunque cambiarlo dal menu.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Display images in list</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Displays an image of the article in the list.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+10"/>
+        <location line="+21"/>
         <source>Item view font size</source>
         <translation>Dimensione testo vista elementi</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+5"/>
         <source>Notifications</source>
         <translation type="unfinished"/>
     </message>
@@ -1333,27 +1377,37 @@ Puoi comunque cambiarlo dal menu.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+8"/>
         <source>Notify about new articles</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+4"/>
-        <source>Maintenance</source>
-        <translation>Manutenzione</translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="-312"/>
         <source>Reset configuration</source>
         <translation>Azzera configurazione</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-4"/>
         <source>Delete database</source>
         <translation>Elimina database</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+322"/>
+        <source>Privacy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Enable private browsing for web view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Allow cookies in web view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+10"/>
         <source>Deleting database</source>
         <translation>Eliminazione database</translation>
     </message>
@@ -1366,7 +1420,7 @@ Puoi comunque cambiarlo dal menu.</translation>
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/Views/SingleItemView.qml" line="+121"/>
+        <location filename="../qml/Views/SingleItemView.qml" line="+74"/>
         <location line="+38"/>
         <source>Open in Browser</source>
         <translation>Apri nel Browser</translation>
@@ -1415,7 +1469,12 @@ Puoi comunque cambiarlo dal menu.</translation>
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../qml/Views/SingleItemWebView.qml" line="+36"/>
+        <location filename="../qml/Views/SingleItemWebView.qml" line="+34"/>
+        <source>Clear cookies</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Stop loading</source>
         <translation>Blocca caricamento</translation>
     </message>
@@ -1438,7 +1497,7 @@ Puoi comunque cambiarlo dal menu.</translation>
 <context>
     <name>SpecialItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+163"/>
+        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+169"/>
         <source>Mark as read</source>
         <translation>Segna come letto</translation>
     </message>
@@ -1461,12 +1520,12 @@ Puoi comunque cambiarlo dal menu.</translation>
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../qml/Views/SpecialItemListView.qml" line="+53"/>
+        <location filename="../qml/Views/SpecialItemListView.qml" line="+61"/>
         <source>Update running...</source>
         <translation>Aggiornamento in corso...</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+46"/>
         <source>Hide sorting options</source>
         <translation>Nascondi opzioni di classificazione</translation>
     </message>
@@ -1476,7 +1535,7 @@ Puoi comunque cambiarlo dal menu.</translation>
         <translation>Mostra opzioni di classificazione</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
         <source>Mark folder as read</source>
         <translation>Segna cartella come letta</translation>
     </message>
@@ -1506,7 +1565,7 @@ Puoi comunque cambiarlo dal menu.</translation>
         <translation>Mostra cerca</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+20"/>
         <source>Scroll to top</source>
         <translation>Torna in cima</translation>
     </message>
@@ -1521,12 +1580,12 @@ Puoi comunque cambiarlo dal menu.</translation>
         <translation>Segnati tutti come letti</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="-99"/>
         <source>Search</source>
         <translation>Cerca</translation>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+120"/>
         <source>Show newest on top</source>
         <translation>Mostra recenti in cima</translation>
     </message>

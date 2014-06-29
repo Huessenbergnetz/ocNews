@@ -53,8 +53,8 @@
     </message>
     <message>
         <location line="+11"/>
-        <source>Message to Buschtrommel:</source>
-        <translation>给 Buschtrommel 发消息：</translation>
+        <source>Leave a message (English or German):</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -184,7 +184,7 @@
         <translation>刚刚</translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+29"/>
         <source>Unread news</source>
         <translation>未读条目</translation>
     </message>
@@ -281,12 +281,7 @@
 <context>
     <name>FeedListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FeedListDelegate.qml" line="+20"/>
-        <source>All</source>
-        <translation>全部订阅</translation>
-    </message>
-    <message>
-        <location line="+44"/>
+        <location filename="../qml/Delegates/FeedListDelegate.qml" line="+80"/>
         <source>Empty folder</source>
         <translation>空文件夹</translation>
     </message>
@@ -296,7 +291,7 @@
         <translation>在%2个订阅中有%1个未读条目</translation>
     </message>
     <message>
-        <location line="+54"/>
+        <location line="+53"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
@@ -329,7 +324,7 @@
 <context>
     <name>FeedListView</name>
     <message>
-        <location filename="../qml/Views/FeedListView.qml" line="+50"/>
+        <location filename="../qml/Views/FeedListView.qml" line="+30"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>
@@ -364,7 +359,7 @@
         <translation>文件夹为空，请添加订阅。</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+16"/>
         <source>Scroll to top</source>
         <translation>回到顶部</translation>
     </message>
@@ -382,7 +377,7 @@
 <context>
     <name>FetchImagesIndicator</name>
     <message>
-        <location filename="../qml/Common/FetchImagesIndicator.qml" line="+45"/>
+        <location filename="../qml/Common/FetchImagesIndicator.qml" line="+21"/>
         <source>Fetching images</source>
         <translation>正在捕获图片</translation>
     </message>
@@ -425,7 +420,7 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+88"/>
+        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+103"/>
         <source>Empty folder</source>
         <translation>空文件夹</translation>
     </message>
@@ -482,7 +477,7 @@
 <context>
     <name>ItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+155"/>
+        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+162"/>
         <source>Mark as read</source>
         <translation>标记为已读条目</translation>
     </message>
@@ -515,7 +510,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+39"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+44"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>
@@ -608,7 +603,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+78"/>
+        <location filename="../qml/Views/MainView.qml" line="+24"/>
         <source>Leave a message (English or German):</source>
         <translation>发消息（英文或德语）：</translation>
     </message>
@@ -618,7 +613,7 @@
         <translation>ocNews是一个ownCloud新闻客户端，一个基于云的RSS/Atom订阅器。</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+11"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>
@@ -668,7 +663,7 @@
         <translation>本地数据库为空，请尝试更新或添加新的订阅。</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+24"/>
         <source>Scroll to top</source>
         <translation>回到顶部</translation>
     </message>
@@ -707,6 +702,26 @@
     </message>
 </context>
 <context>
+    <name>OcCombinedModelNew</name>
+    <message>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
+        <location line="+99"/>
+        <location line="+199"/>
+        <source>Uncategorized</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="-294"/>
+        <source>All posts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Favourite posts</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OcCombinedModelSql</name>
     <message>
         <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
@@ -722,6 +737,14 @@
         <location line="+8"/>
         <source>Favourite posts</source>
         <translation>最爱条目</translation>
+    </message>
+</context>
+<context>
+    <name>OcFeedsModelNew</name>
+    <message>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
+        <source>All posts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -746,20 +769,15 @@
     </message>
 </context>
 <context>
-    <name>OcItemsModelNew</name>
+    <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocitemsmodelnew.cpp" line="+197"/>
-        <source>Today</source>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
+        <source>All posts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+1"/>
-        <source>d. MMMM</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>hh:mm</source>
+        <location line="+3"/>
+        <source>Favourite posts</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -779,6 +797,42 @@
         <location line="+1"/>
         <source>hh:mm</source>
         <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcModelHelper</name>
+    <message>
+        <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
+        <source>Today</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>OcSingleItemModelNew</name>
+    <message>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+431"/>
+        <source>Today</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -838,7 +892,7 @@
 <context>
     <name>PaypalChooser</name>
     <message>
-        <location filename="../qml/BTComponents/PaypalChooser.qml" line="+125"/>
+        <location filename="../qml/BTComponents/PaypalChooser.qml" line="+126"/>
         <source>Currency</source>
         <translation>汇率</translation>
     </message>
@@ -966,7 +1020,7 @@
 <context>
     <name>PrivacyPolicy</name>
     <message>
-        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+14"/>
+        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+12"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
@@ -1065,38 +1119,38 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/Pages/Settings.qml" line="+98"/>
+        <location filename="../qml/Pages/Settings.qml" line="+39"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
         <location line="+2"/>
-        <location line="+24"/>
+        <location line="+47"/>
         <source>Server</source>
         <translation>服务器</translation>
     </message>
     <message>
-        <location line="-19"/>
+        <location line="-21"/>
         <source>User name</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+10"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+11"/>
         <source>Server: e.g. cloud.example.com</source>
         <translation>服务器：如 cloud.example.com</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="-34"/>
         <source>Test connection</source>
         <translation>测试连接</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+62"/>
         <source>Found ownCloud News Version %1</source>
         <translation>找到ownCloud新闻版本%1</translation>
     </message>
@@ -1111,7 +1165,7 @@
         <translation>因为ownCloud新闻的每个操作请求，都需要你发送你的用户名和密码，所以在你的服务器支持或者要求加密的情况下，你应该启用这个功能来使用加密连接。</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Ignore SSL errors</source>
         <translation>忽略SSL错误</translation>
     </message>
@@ -1121,7 +1175,7 @@
         <translation>只在你了解发生了什么的情况下忽略SSL错误（目前ocNews没有处理SSL证书的系统服务。ocNews将会在未来的版本加入这个功能，但目前你在使用自签名证书时，需要忽略SSL错误才行。）。</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+6"/>
         <location line="+17"/>
         <source>Updating</source>
         <translation>更新</translation>
@@ -1142,7 +1196,7 @@
         <translation>自动</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+22"/>
         <source>15 Minutes</source>
         <translation>15分钟</translation>
     </message>
@@ -1177,17 +1231,17 @@
         <translation>更新间隔</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+6"/>
         <source>Engine</source>
         <translation>引擎</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+12"/>
         <source>Number of items to keep</source>
         <translation>保留的条目数量</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+8"/>
         <source>Quit engine on closing reader</source>
         <translation>关闭阅读器时退出ocNews引擎</translation>
     </message>
@@ -1197,7 +1251,7 @@
         <translation>默认情况下，引擎服务随程序启动；在程序关闭后引擎服务仍会持续后台运行以操作/同步数据。这个选项需要重启程序后生效。</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+5"/>
         <source>Appearance</source>
         <translation>外观</translation>
     </message>
@@ -1212,12 +1266,12 @@
         <translation>订阅</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+6"/>
         <source>Main view layout</source>
         <translation>整体视图布局</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+12"/>
         <source>Added (like on server)</source>
         <translation>已添加（在服务器上）</translation>
     </message>
@@ -1237,7 +1291,7 @@
         <translation>将订阅和文件夹排序以</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+12"/>
         <source>On request</source>
         <translation>根据要求</translation>
     </message>
@@ -1257,7 +1311,7 @@
         <translation>读取内容图片</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+12"/>
         <source>Show</source>
         <translation>显示</translation>
     </message>
@@ -1277,7 +1331,7 @@
         <translation>阅读文章</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+8"/>
         <source>Hide read feeds and folders</source>
         <translation>隐藏已读订阅和文件夹</translation>
     </message>
@@ -1287,7 +1341,7 @@
         <translation>隐藏除未读条目以外的订阅和文件夹</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Show oldest items on top</source>
         <translation>在顶部显示最旧条目</translation>
     </message>
@@ -1297,7 +1351,7 @@
         <translation>设置在顶部显示最旧条目的新闻默认排序。当然你后续还可以在下滑菜单中更改。</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Show article excerpts</source>
         <translation type="unfinished"/>
     </message>
@@ -1307,22 +1361,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Display images in list</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Displays an image of the article in the list.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+10"/>
+        <location line="+21"/>
         <source>Item view font size</source>
         <translation>条目内容字体大小</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+5"/>
         <source>Notifications</source>
         <translation type="unfinished"/>
     </message>
@@ -1332,27 +1376,37 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+8"/>
         <source>Notify about new articles</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+4"/>
-        <source>Maintenance</source>
-        <translation>维护</translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="-312"/>
         <source>Reset configuration</source>
         <translation>重置设定</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-4"/>
         <source>Delete database</source>
         <translation>删除数据库</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+322"/>
+        <source>Privacy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Enable private browsing for web view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Allow cookies in web view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+10"/>
         <source>Deleting database</source>
         <translation>正在删除数据库</translation>
     </message>
@@ -1365,7 +1419,7 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/Views/SingleItemView.qml" line="+121"/>
+        <location filename="../qml/Views/SingleItemView.qml" line="+74"/>
         <location line="+38"/>
         <source>Open in Browser</source>
         <translation>在浏览器中打开</translation>
@@ -1414,7 +1468,12 @@
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../qml/Views/SingleItemWebView.qml" line="+36"/>
+        <location filename="../qml/Views/SingleItemWebView.qml" line="+34"/>
+        <source>Clear cookies</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Stop loading</source>
         <translation>停止读取</translation>
     </message>
@@ -1437,7 +1496,7 @@
 <context>
     <name>SpecialItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+163"/>
+        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+169"/>
         <source>Mark as read</source>
         <translation>标记为已读条目</translation>
     </message>
@@ -1460,12 +1519,12 @@
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../qml/Views/SpecialItemListView.qml" line="+53"/>
+        <location filename="../qml/Views/SpecialItemListView.qml" line="+61"/>
         <source>Update running...</source>
         <translation>更新进行中</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+46"/>
         <source>Hide sorting options</source>
         <translation>隐藏排序选项</translation>
     </message>
@@ -1475,7 +1534,7 @@
         <translation>显示排序选项</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
         <source>Mark folder as read</source>
         <translation>将文件夹中的订阅标记为已读</translation>
     </message>
@@ -1505,7 +1564,7 @@
         <translation>显示搜索</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+20"/>
         <source>Scroll to top</source>
         <translation>回到顶部</translation>
     </message>
@@ -1520,12 +1579,12 @@
         <translation>正在标记所有条目为已读</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="-99"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+120"/>
         <source>Show newest on top</source>
         <translation>在顶部显示最新条目</translation>
     </message>

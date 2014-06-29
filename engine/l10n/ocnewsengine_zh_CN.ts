@@ -11,30 +11,30 @@
     <name>OcFeeds</name>
     <message>
         <location filename="../ocfeeds.cpp" line="+35"/>
-        <location line="+244"/>
-        <location line="+126"/>
+        <location line="+271"/>
+        <location line="+135"/>
         <location line="+122"/>
-        <location line="+176"/>
+        <location line="+188"/>
         <location line="+137"/>
         <source>Device is in flight mode.</source>
         <translation>设备处于飞行模式。</translation>
     </message>
     <message>
-        <location line="-768"/>
+        <location line="-816"/>
         <location line="+1"/>
-        <location line="+246"/>
+        <location line="+280"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation>服务器返回为空。</translation>
     </message>
     <message>
-        <location line="-248"/>
+        <location line="-282"/>
         <location line="+12"/>
         <source>Failed to request feeds</source>
         <translation>请求订阅失败</translation>
     </message>
     <message numerus="yes">
-        <location line="+148"/>
+        <location line="+175"/>
         <source>%n feed(s) added</source>
         <translation><numerusform>已添加%n条订阅</numerusform></translation>
     </message>
@@ -54,18 +54,23 @@
         <translation>移除：</translation>
     </message>
     <message>
-        <location line="+74"/>
+        <location line="+81"/>
         <location line="+17"/>
         <source>Failed to add feed</source>
         <translation>添加订阅失败</translation>
     </message>
     <message>
-        <location line="+117"/>
+        <location line="+119"/>
         <source>Failed to delete feed</source>
         <translation>删除订阅失败</translation>
     </message>
     <message>
-        <location line="+135"/>
+        <location line="+84"/>
+        <source>Feed is already part of the destination folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+63"/>
         <source>Failed to move feed</source>
         <translation>移动订阅失败</translation>
     </message>
@@ -84,7 +89,7 @@
     <name>OcFolders</name>
     <message>
         <location filename="../ocfolders.cpp" line="+14"/>
-        <location line="+171"/>
+        <location line="+178"/>
         <location line="+74"/>
         <location line="+80"/>
         <location line="+71"/>
@@ -92,21 +97,21 @@
         <translation>设备处于飞行模式。</translation>
     </message>
     <message>
-        <location line="-369"/>
+        <location line="-376"/>
         <location line="+1"/>
-        <location line="+170"/>
+        <location line="+177"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation>服务器返回为空。</translation>
     </message>
     <message>
-        <location line="-172"/>
+        <location line="-179"/>
         <location line="+16"/>
         <source>Failed to request folders</source>
         <translation>请求文件夹失败</translation>
     </message>
     <message numerus="yes">
-        <location line="+95"/>
+        <location line="+102"/>
         <source>%n folder(s) added</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
@@ -132,17 +137,7 @@
         <translation>创建文件夹失败</translation>
     </message>
     <message>
-        <location line="+18"/>
-        <source>Successfully created folder &quot;%1&quot;</source>
-        <translation>成功创建文件夹“%1”</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Created folder</source>
-        <translation>已创建文件夹</translation>
-    </message>
-    <message>
-        <location line="+47"/>
+        <location line="+65"/>
         <source>Failed to delete folder</source>
         <translation>删除文件夹失败</translation>
     </message>
@@ -198,17 +193,17 @@
 <context>
     <name>OcImageFetcher</name>
     <message>
-        <location filename="../ocimagefetcher.cpp" line="+30"/>
+        <location filename="../ocimagefetcher.cpp" line="+40"/>
         <source>ocNews Image Fetcher</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>Fetching images</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+40"/>
+        <location line="+43"/>
         <source>Fetching images finished</source>
         <translation type="unfinished"/>
     </message>
@@ -218,12 +213,12 @@
     <message>
         <location filename="../ocitems.cpp" line="+17"/>
         <location line="+243"/>
-        <location line="+606"/>
+        <location line="+607"/>
         <source>Device is in flight mode.</source>
         <translation>设备处于飞行模式。</translation>
     </message>
     <message>
-        <location line="-804"/>
+        <location line="-805"/>
         <location line="+1"/>
         <location line="+290"/>
         <location line="+1"/>
@@ -244,18 +239,18 @@
     </message>
     <message>
         <location line="-119"/>
-        <location line="+306"/>
+        <location line="+302"/>
         <source>New articles available</source>
         <translation>有新文章</translation>
     </message>
     <message numerus="yes">
-        <location line="-306"/>
-        <location line="+306"/>
+        <location line="-302"/>
+        <location line="+302"/>
         <source>%n new unread item(s)</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
-        <location line="+143"/>
+        <location line="+148"/>
         <location line="+210"/>
         <source>Failed to mark articles</source>
         <translation>标记文章失败</translation>

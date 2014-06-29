@@ -55,7 +55,7 @@
     </message>
     <message>
         <location line="+11"/>
-        <source>Message to Buschtrommel:</source>
+        <source>Leave a message (English or German):</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -186,7 +186,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+29"/>
         <source>Unread news</source>
         <translation type="unfinished"></translation>
     </message>
@@ -283,12 +283,7 @@
 <context>
     <name>FeedListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FeedListDelegate.qml" line="+20"/>
-        <source>All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+44"/>
+        <location filename="../qml/Delegates/FeedListDelegate.qml" line="+80"/>
         <source>Empty folder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -298,7 +293,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+54"/>
+        <location line="+53"/>
         <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
@@ -331,7 +326,7 @@
 <context>
     <name>FeedListView</name>
     <message>
-        <location filename="../qml/Views/FeedListView.qml" line="+50"/>
+        <location filename="../qml/Views/FeedListView.qml" line="+30"/>
         <source>Update running...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -366,7 +361,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+16"/>
         <source>Scroll to top</source>
         <translation type="unfinished"></translation>
     </message>
@@ -384,7 +379,7 @@
 <context>
     <name>FetchImagesIndicator</name>
     <message>
-        <location filename="../qml/Common/FetchImagesIndicator.qml" line="+45"/>
+        <location filename="../qml/Common/FetchImagesIndicator.qml" line="+21"/>
         <source>Fetching images</source>
         <translation type="unfinished"></translation>
     </message>
@@ -427,7 +422,7 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+88"/>
+        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+103"/>
         <source>Empty folder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -484,7 +479,7 @@
 <context>
     <name>ItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+155"/>
+        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+162"/>
         <source>Mark as read</source>
         <translation type="unfinished"></translation>
     </message>
@@ -517,7 +512,7 @@
 <context>
     <name>ItemListView</name>
     <message>
-        <location filename="../qml/Views/ItemListView.qml" line="+39"/>
+        <location filename="../qml/Views/ItemListView.qml" line="+44"/>
         <source>Update running...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -610,7 +605,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+78"/>
+        <location filename="../qml/Views/MainView.qml" line="+24"/>
         <source>Leave a message (English or German):</source>
         <translation type="unfinished"></translation>
     </message>
@@ -620,7 +615,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+11"/>
         <source>Update running...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -670,7 +665,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+24"/>
         <source>Scroll to top</source>
         <translation type="unfinished"></translation>
     </message>
@@ -709,6 +704,26 @@
     </message>
 </context>
 <context>
+    <name>OcCombinedModelNew</name>
+    <message>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
+        <location line="+99"/>
+        <location line="+199"/>
+        <source>Uncategorized</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-294"/>
+        <source>All posts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Favourite posts</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OcCombinedModelSql</name>
     <message>
         <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
@@ -723,6 +738,14 @@
     <message>
         <location line="+8"/>
         <source>Favourite posts</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OcFeedsModelNew</name>
+    <message>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
+        <source>All posts</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -748,9 +771,22 @@
     </message>
 </context>
 <context>
-    <name>OcItemsModelNew</name>
+    <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocitemsmodelnew.cpp" line="+197"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
+        <source>All posts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Favourite posts</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OcItemsModelSql</name>
+    <message>
+        <location filename="../../common/models/ocitemsmodelsql.cpp" line="+65"/>
         <source>Today</source>
         <translation type="unfinished"></translation>
     </message>
@@ -766,9 +802,27 @@
     </message>
 </context>
 <context>
-    <name>OcItemsModelSql</name>
+    <name>OcModelHelper</name>
     <message>
-        <location filename="../../common/models/ocitemsmodelsql.cpp" line="+65"/>
+        <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
+        <source>Today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OcSingleItemModelNew</name>
+    <message>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+431"/>
         <source>Today</source>
         <translation type="unfinished"></translation>
     </message>
@@ -840,7 +894,7 @@
 <context>
     <name>PaypalChooser</name>
     <message>
-        <location filename="../qml/BTComponents/PaypalChooser.qml" line="+125"/>
+        <location filename="../qml/BTComponents/PaypalChooser.qml" line="+126"/>
         <source>Currency</source>
         <translation type="unfinished"></translation>
     </message>
@@ -968,7 +1022,7 @@
 <context>
     <name>PrivacyPolicy</name>
     <message>
-        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+14"/>
+        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+12"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1067,38 +1121,38 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/Pages/Settings.qml" line="+98"/>
+        <location filename="../qml/Pages/Settings.qml" line="+39"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <location line="+24"/>
+        <location line="+47"/>
         <source>Server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-19"/>
+        <location line="-21"/>
         <source>User name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+10"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+11"/>
         <source>Server: e.g. cloud.example.com</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="-34"/>
         <source>Test connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+62"/>
         <source>Found ownCloud News Version %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1113,7 +1167,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Ignore SSL errors</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1123,7 +1177,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+6"/>
         <location line="+17"/>
         <source>Updating</source>
         <translation type="unfinished"></translation>
@@ -1144,7 +1198,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+22"/>
         <source>15 Minutes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1179,17 +1233,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+6"/>
         <source>Engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+12"/>
         <source>Number of items to keep</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+8"/>
         <source>Quit engine on closing reader</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1199,7 +1253,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+5"/>
         <source>Appearance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1214,12 +1268,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+6"/>
         <source>Main view layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+12"/>
         <source>Added (like on server)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1239,7 +1293,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+12"/>
         <source>On request</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1259,7 +1313,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+12"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1279,7 +1333,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+8"/>
         <source>Hide read feeds and folders</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1289,7 +1343,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Show oldest items on top</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1299,7 +1353,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Show article excerpts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1309,22 +1363,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Display images in list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Displays an image of the article in the list.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
+        <location line="+21"/>
         <source>Item view font size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+5"/>
         <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1334,27 +1378,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+8"/>
         <source>Notify about new articles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+4"/>
-        <source>Maintenance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="-312"/>
         <source>Reset configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-4"/>
         <source>Delete database</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+322"/>
+        <source>Privacy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Enable private browsing for web view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Allow cookies in web view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
         <source>Deleting database</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1367,7 +1421,7 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/Views/SingleItemView.qml" line="+121"/>
+        <location filename="../qml/Views/SingleItemView.qml" line="+74"/>
         <location line="+38"/>
         <source>Open in Browser</source>
         <translation type="unfinished"></translation>
@@ -1416,7 +1470,12 @@
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../qml/Views/SingleItemWebView.qml" line="+36"/>
+        <location filename="../qml/Views/SingleItemWebView.qml" line="+34"/>
+        <source>Clear cookies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Stop loading</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1439,7 +1498,7 @@
 <context>
     <name>SpecialItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+163"/>
+        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+169"/>
         <source>Mark as read</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1462,12 +1521,12 @@
 <context>
     <name>SpecialItemListView</name>
     <message>
-        <location filename="../qml/Views/SpecialItemListView.qml" line="+53"/>
+        <location filename="../qml/Views/SpecialItemListView.qml" line="+61"/>
         <source>Update running...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+46"/>
         <source>Hide sorting options</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1477,7 +1536,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
         <source>Mark folder as read</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1507,7 +1566,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+20"/>
         <source>Scroll to top</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1522,12 +1581,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="-99"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+120"/>
         <source>Show newest on top</source>
         <translation type="unfinished"></translation>
     </message>

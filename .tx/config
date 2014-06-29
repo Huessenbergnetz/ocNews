@@ -7,7 +7,7 @@ source_lang = en
 type = QT
 
 [ocnews.harmattanaccount]
-file_filter = account/harmattan/l10n/ocnewsaccount_<lang>.ts
+file_filter = account/harmattan/l10n/ocnewsaccount.ts
 source_lang = en
 type = QT
 
