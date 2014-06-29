@@ -221,75 +221,13 @@ void OcSpecialItemsModelNew::init()
         queryThread->startQuery(id(), type(), showImages(), showExcerpts());
 
     }
-
-
-//    querystring = "SELECT it.id, it.title, it.pubDate, it.enclosureLink, it.enclosureMime, it.unread, it.starred, it.url, it.guidHash, ";
-
-//    if (showExcerpts()) {
-//        querystring.append("it.body AS excerpt, ");
-//    } else {
-//        querystring.append("'' AS excerpt, ");
-//    }
-
-//    if (showImages()) {
-//        querystring.append("(SELECT DISTINCT path FROM images WHERE parentId = it.id AND height > 50 ORDER BY width, height LIMIT 1) AS image, ");
-//    } else {
-//        querystring.append("'' AS image, ");
-//    }
-
-//     querystring.append("(SELECT title FROM feeds where id = it.feedId) as feedName, it.feedId ");
-
-
-//    switch (type()) {
-//    case 1:
-//        querystring.append(QString("FROM items it WHERE feedId IN (SELECT id FROM feeds WHERE folderId = %1)").arg(id()));
-//        break;
-//    case 2:
-//        querystring.append("FROM items it WHERE starred = ").append(SQL_TRUE);
-//        break;
-//    case 3:
-//    default:
-//        querystring.append("FROM items it");
-//        break;
-//    }
-
-//    querystring.append(" ORDER BY pubDate DESC");
-
-//    query.exec(querystring);
-
-
-//    beginInsertRows(QModelIndex(), 0, length-1);
-
-//    while(query.next())
-//    {
-//        OcItemObject *iobj = new OcItemObject(query.value(0).toInt(),
-//                                              query.value(1).toString(),
-//                                              query.value(2).toUInt(),
-//                                              query.value(3).toString(),
-//                                              query.value(4).toString(),
-//                                              query.value(5).toBool(),
-//                                              query.value(6).toBool(),
-//                                              query.value(7).toString(),
-//                                              query.value(8).toString(),
-//                                              helper.prepareBody(query.value(9).toString()),
-//                                              query.value(10).toString(),
-//                                              query.value(11).toString(),
-//                                              query.value(12).toInt());
-//        m_items.append(iobj);
-//    }
-
-//    setPopulating(false);
-
-//    endInsertRows();
 }
 
 
 
 void OcSpecialItemsModelNew::gotItem(OcItemObject *item)
 {
-//    beginInsertRows(QModelIndex(),rowCount(), rowCount());
     m_items.append(item);
-//    endInsertRows();
 }
 
 
