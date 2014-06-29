@@ -9,9 +9,9 @@ import "../JS/globals.js" as GLOBALS
 Page {
     id: specialItemListView
 
-//    property string id
+    property int feedId
     property string pageName
-//    property string feedType
+    property int feedType
 
     property int handleRead: config.handleRead
     property bool sortAsc: config.sortAsc
@@ -29,30 +29,23 @@ Page {
     }
     Component.onDestruction: specialItemsModelSql.clear()
 
-//    onSearchStringChanged: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString) }
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            specialItemsModelSql.type = feedType
+            specialItemsModelSql.id = feedId
+        }
+    }
 
-//    Component.onCompleted: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
-//    Component.onDestruction: GLOBALS.previousContentY = 0;
+    BusyIndicator {
+        size: BusyIndicatorSize.Large
+        visible: true
+        opacity: specialItemsModelSql.populating ? 1 : 0
+        running: specialItemsModelSql.populating
+        anchors.centerIn: parent
+        Behavior on opacity { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad } }
+        onRunningChanged: console.log("RUNNING: " + running)
+    }
 
-//    Connections {
-//        target: folders
-//        onMarkedReadFolderSuccess: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
-//    }
-//    Connections {
-//        target: items
-//        onUpdatedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
-//        onRequestedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
-//        onStarredItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
-//        onMarkedItemsSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
-//        onMarkedAllItemsReadSuccess: { specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
-//    }
-//    Connections {
-//        target: updater
-//        onUpdateFinished: { GLOBALS.previousContentY = specialItemList.contentY; specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString); specialItemList.contentY = GLOBALS.previousContentY }
-//    }
-
-//    onHandleReadChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
-//    onSortAscChanged: specialItemsModelSql.refresh(feedType, id, handleRead, sortAsc, searchString)
 
 
     Column {
@@ -142,7 +135,7 @@ Page {
 
         model: specialItemsModelFilter
 
-        delegate: SpecialItemListDelegate { feedId: specialItemsModelSql.id; searchString: searchField.text; handleRead: specialItemListView.handleRead; sortAsc: specialItemListView.sortAsc; feedType: specialItemsModelSql.type }
+        delegate: SpecialItemListDelegate { feedId: specialItemListView.feedId; searchString: searchField.text; handleRead: specialItemListView.handleRead; sortAsc: specialItemListView.sortAsc; feedType: specialItemListView.feedType }
 
         VerticalScrollDecorator {}
 

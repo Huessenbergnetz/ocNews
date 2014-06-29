@@ -210,8 +210,6 @@ void OcSpecialItemsModelNew::init()
 
     length = query.value(0).toInt();
 
-    query.clear();
-
 
     querystring = "SELECT it.id, it.title, it.pubDate, it.enclosureLink, it.enclosureMime, it.unread, it.starred, it.url, it.guidHash, ";
 
@@ -268,11 +266,9 @@ void OcSpecialItemsModelNew::init()
         m_items.append(iobj);
     }
 
-    endInsertRows();
-
-    query.clear();
-
     setPopulating(false);
+
+    endInsertRows();
 }
 
 

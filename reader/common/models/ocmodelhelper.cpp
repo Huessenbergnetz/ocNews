@@ -19,11 +19,15 @@ QString OcModelHelper::niceTime(const uint &t) const
 
 QString OcModelHelper::prepareBody(const QString &b) const
 {
+    if (!b.isEmpty()) {
     QString newBody = b;
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    return newBody.remove(QRegularExpression("<[^>]*>")).trimmed().left(200);
+        return newBody.remove(QRegularExpression("<[^>]*>")).replace(QRegularExpression("\\s{2,}"), " ").trimmed().left(200);
 #else
-    return newBody.remove(QRegExp("<[^>]*>")).trimmed().left(200);
+        return newBody.remove(QRegExp("<[^>]*>")).replace(QRegExp("\\s{2,}"), " ").trimmed().left(200);
 #endif
+    } else {
+        return b;
+    }
 }

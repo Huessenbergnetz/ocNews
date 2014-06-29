@@ -2,6 +2,8 @@
 #define OCITEMSMODELFILTER_H
 
 #include <QSortFilterProxyModel>
+#include <QList>
+#include <QPair>
 #include "ocitemsmodelnew.h"
 
 class OcItemsModelFilter : public QSortFilterProxyModel
@@ -30,11 +32,14 @@ public slots:
 
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const;
 
 private:
     QString m_search;
     bool m_sortAsc;
     int m_handleRead;
+
+    QList<QPair<int, Qt::SortOrder> > m_orders;
 
     void setSortOrder();
 };
