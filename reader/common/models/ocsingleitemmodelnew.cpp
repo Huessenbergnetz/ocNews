@@ -16,7 +16,7 @@ OcSingleItemModelNew::OcSingleItemModelNew(QObject *parent) :
     m_containsImg = true;
     m_showImg = false;
     m_searchString = "";
-    m_feedType = "";
+    m_feedType = 0;
     m_guidHash = "";
     m_url = "";
     m_title = "";
@@ -26,7 +26,7 @@ OcSingleItemModelNew::OcSingleItemModelNew(QObject *parent) :
     m_enclosureMime = "";
     m_enclosureLink = "";
     m_feedName = "";
-    m_feedId = "";
+    m_feedId = 0;
     m_enclosureHost = "";
     m_enclosureName = "";
 }
@@ -155,9 +155,9 @@ void OcSingleItemModelNew::setSearchString(const QString &nSearchString)
 }
 
 
-QString OcSingleItemModelNew::feedType() const { return m_feedType; }
+int OcSingleItemModelNew::feedType() const { return m_feedType; }
 
-void OcSingleItemModelNew::setFeedType(const QString &nFeedType)
+void OcSingleItemModelNew::setFeedType(const int &nFeedType)
 {
     if (nFeedType != m_feedType) {
         m_feedType = nFeedType;
@@ -276,9 +276,9 @@ void OcSingleItemModelNew::setFeedName(const QString &nFeedName)
 }
 
 
-QString OcSingleItemModelNew::feedId() const { return m_feedId; }
+int OcSingleItemModelNew::feedId() const { return m_feedId; }
 
-void OcSingleItemModelNew::setFeedId(const QString &nFeedId)
+void OcSingleItemModelNew::setFeedId(const int &nFeedId)
 {
     if (nFeedId != m_feedId) {
         m_feedId = nFeedId;
@@ -328,11 +328,11 @@ void OcSingleItemModelNew::get()
         queryString.append("WHERE pubDate < it.pubDate ");
     }
 
-    if (feedType() == "0") {
+    if (feedType() == 0) {
         queryString.append(QString("AND feedId = %1 ").arg(parentFeedId()));
-    } else if (feedType() == "folder") {
+    } else if (feedType() == 1) {
         queryString.append(QString("AND feedId IN (SELECT id FROM feeds WHERE folderId = %1) ").arg(parentFeedId()));
-    } else if (feedType() == "starred") {
+    } else if (feedType() == 2) {
         queryString.append(QString("AND starred = %1 ").arg(SQL_TRUE));
     }
 
@@ -373,11 +373,11 @@ void OcSingleItemModelNew::get()
         queryString.append("WHERE pubDate > it.pubDate ");
     }
 
-    if (feedType() == "0") {
+    if (feedType() == 0) {
         queryString.append(QString("AND feedId = %1 ").arg(parentFeedId()));
-    } else if (feedType() == "folder") {
+    } else if (feedType() == 1) {
         queryString.append(QString("AND feedId IN (SELECT id FROM feeds WHERE folderId = %1) ").arg(parentFeedId()));
-    } else if (feedType() == "starred") {
+    } else if (feedType() == 2) {
         queryString.append(QString("AND starred = %1 ").arg(SQL_TRUE));
     }
 
@@ -410,15 +410,6 @@ void OcSingleItemModelNew::get()
 
     query.exec(queryString);
 
-#ifdef QT_DEBUG
-    qDebug() << "Item ID: " << itemId();
-    qDebug() << "Show Img: " << showImg();
-    qDebug() << "Handle read: " << handleRead();
-    qDebug() << "Sort ascending: " << sortAsc();
-    qDebug() << "Search string: " << searchString();
-    qDebug() << "Feed type: " << feedType();
-    qDebug() << "Feed id: " << parentFeedId();
-#endif
 
     if (query.next())
     {
@@ -437,7 +428,7 @@ void OcSingleItemModelNew::get()
         setEnclosureLink(query.value(8).toString());
         setUnread(query.value(9).toBool());
         setStarred(query.value(10).toBool());
-        setFeedId(query.value(11).toString());
+        setFeedId(query.value(11).toInt());
         setFeedName(query.value(12).toString());
         setPrevious(query.value(13).toInt());
         setNext(query.value(14).toInt());
@@ -456,6 +447,18 @@ void OcSingleItemModelNew::get()
             setEnclosureName(QFileInfo(query.value(8).toString()).fileName());
         }
     }
+
+#ifdef QT_DEBUG
+    qDebug() << "Item ID: " << itemId();
+    qDebug() << "Show Img: " << showImg();
+    qDebug() << "Handle read: " << handleRead();
+    qDebug() << "Sort ascending: " << sortAsc();
+    qDebug() << "Search string: " << searchString();
+    qDebug() << "Parent Feed type: " << feedType();
+    qDebug() << "Parent Feed id: " << parentFeedId();
+    qDebug() << "Next id: " << next();
+    qDebug() << "Previous id: " << previous();
+#endif
 }
 
 

@@ -32,7 +32,7 @@ Item {
     id: root
 
     property string text
-    property alias color: contentText.color
+    property color color
     property real fontSize: Theme.fontSizeSmall
 
     property string _RICHTEXT_STYLESHEET_PREAMBLE: "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><style>a { text-decoration: none; color: '" + Theme.secondaryHighlightColor + "' }</style></head><body>";
@@ -65,22 +65,31 @@ Item {
         }
     }
 
-    Text {
+    Loader {
         id: contentText
+        sourceComponent: rescaleTimer.running ? null : textComponent
+    }
 
-        width: parent.width / scaling
-        scale: scaling
+    Component {
+        id: textComponent
 
-        transformOrigin: Item.TopLeft
-        font.pixelSize: parent.fontSize / scaling
-        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        textFormat: Text.RichText
-        smooth: true
+        Text {
 
-//        text: _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX
+            width: root.width / scaling
+            scale: scaling
 
-        onLinkActivated: {
-            root.linkActivated(link);
+            transformOrigin: Item.TopLeft
+            font.pixelSize: root.fontSize / scaling
+            color: root.color
+            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+            textFormat: Text.RichText
+            smooth: true
+
+            text: _RICHTEXT_STYLESHEET_PREAMBLE + root.text + _RICHTEXT_STYLESHEET_APPENDIX
+
+            onLinkActivated: {
+                root.linkActivated(link);
+            }
         }
     }
 
@@ -95,7 +104,7 @@ Item {
 
             // force reflow
 //            contentText.text = contentText.text + " ";
-            contentText.text = _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX
+//            contentText.text = _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX
 
         }
     }

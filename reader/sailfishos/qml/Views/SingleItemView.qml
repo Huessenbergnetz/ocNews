@@ -13,7 +13,7 @@ Page {
 
     function starParams() {
         var params={};
-        params[feedId]=item.guidHash;
+        params[item.feedId]=item.guidHash;
         return params;
     }
 

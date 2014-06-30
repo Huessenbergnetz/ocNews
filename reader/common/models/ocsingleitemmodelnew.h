@@ -29,7 +29,7 @@ class OcSingleItemModelNew : public QObject
     Q_PROPERTY(bool containsImg READ containsImg WRITE setContainsImg NOTIFY containsImgChanged)
     Q_PROPERTY(bool showImg READ showImg WRITE setShowImg NOTIFY showImgChanged)
     Q_PROPERTY(QString searchString READ searchString WRITE setSearchString NOTIFY searchStringChanged)
-    Q_PROPERTY(QString feedType READ feedType WRITE setFeedType NOTIFY feedTypeChanged)
+    Q_PROPERTY(int feedType READ feedType WRITE setFeedType NOTIFY feedTypeChanged)
     Q_PROPERTY(QString guidHash READ guidHash WRITE setGuidHash NOTIFY guidHashChanged)
     Q_PROPERTY(QString url READ url WRITE setUrl NOTIFY urlChanged)
     Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
@@ -39,7 +39,7 @@ class OcSingleItemModelNew : public QObject
     Q_PROPERTY(QString enclosureMime READ enclosureMime WRITE setEnclosureMime NOTIFY enclosureMimeChanged)
     Q_PROPERTY(QString enclosureLink READ enclosureLink WRITE setEnclosureLink NOTIFY enclosureLinkChanged)
     Q_PROPERTY(QString feedName READ feedName WRITE setFeedName NOTIFY feedNameChanged)
-    Q_PROPERTY(QString feedId READ feedId WRITE setFeedId NOTIFY feedIdChanged)
+    Q_PROPERTY(int feedId READ feedId WRITE setFeedId NOTIFY feedIdChanged)
     Q_PROPERTY(QString enclosureHost READ enclosureHost WRITE setEnclosureHost NOTIFY enclosureHostChanged)
     Q_PROPERTY(QString enclosureName READ enclosureName WRITE setEnclosureName NOTIFY enclosureNameChanged)
 public:
@@ -59,7 +59,7 @@ public:
     bool containsImg() const;
     bool showImg() const;
     QString searchString() const;
-    QString feedType() const;
+    int feedType() const;
     QString guidHash() const;
     QString url() const;
     QString title() const;
@@ -69,7 +69,7 @@ public:
     QString enclosureMime() const;
     QString enclosureLink() const;
     QString feedName() const;
-    QString feedId() const;
+    int feedId() const;
     QString enclosureHost() const;
     QString enclosureName() const;
 
@@ -86,7 +86,7 @@ signals:
     void containsImgChanged(const bool &nContainsImg);
     void showImgChanged(const bool &nShowImg);
     void searchStringChanged(const QString &nSearchString);
-    void feedTypeChanged(const QString &nFeedType);
+    void feedTypeChanged(const int &nFeedType);
     void guidHashChanged(const QString &nGuidHash);
     void urlChanged(const QString &nUrl);
     void titleChanged(const QString &nTitle);
@@ -96,7 +96,7 @@ signals:
     void enclosureMimeChanged(const QString &nEnclosureMime);
     void enclosureLinkChanged(const QString &nEnclosureLink);
     void feedNameChanged(const QString &nFeedName);
-    void feedIdChanged(const QString &nFeedId);
+    void feedIdChanged(const int &nFeedId);
     void enclosureHostChanged(const QString &nEnclosureHost);
     void enclosureNameChanged(const QString &nEnclosureName);
 
@@ -113,7 +113,7 @@ public slots:
     void setContainsImg(const bool &nContainsImg);
     void setShowImg(const bool &nShowImg);
     void setSearchString(const QString &nSearchString);
-    void setFeedType(const QString &nFeedType);
+    void setFeedType(const int &nFeedType);
     void setGuidHash(const QString &nGuidHash);
     void setUrl(const QString &nUrl);
     void setTitle(const QString &nTitle);
@@ -123,7 +123,7 @@ public slots:
     void setEnclosureMime(const QString &nEnclosureMime);
     void setEnclosureLink(const QString &nEnclosureLink);
     void setFeedName(const QString &nFeedName);
-    void setFeedId(const QString &nFeedId);
+    void setFeedId(const int &nFeedId);
     void setEnclosureHost(const QString &nEnclosureHost);
     void setEnclosureName(const QString &nEnclosureName);
 
@@ -140,7 +140,7 @@ private:
     bool m_containsImg;
     bool m_showImg;
     QString m_searchString;
-    QString m_feedType;
+    int m_feedType;
     QString m_guidHash;
     QString m_url;
     QString m_title;
@@ -150,7 +150,7 @@ private:
     QString m_enclosureMime;
     QString m_enclosureLink;
     QString m_feedName;
-    QString m_feedId;
+    int m_feedId;
     QString m_enclosureHost;
     QString m_enclosureName;
 

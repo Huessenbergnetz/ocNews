@@ -131,7 +131,7 @@ Page {
 
         model: itemsModelFilter
 
-        delegate: ItemListDelegate { feedId: itemsModelSql.feedId; searchString: searchField.text; handleRead: itemListView.handleRead; sortAsc: itemListView.sortAsc; feedType: "0" }
+        delegate: ItemListDelegate { feedId: itemsModelSql.feedId; searchString: searchField.text; handleRead: itemListView.handleRead; sortAsc: itemListView.sortAsc; feedType: 0 }
 
         VerticalScrollDecorator {}
 

@@ -7,11 +7,11 @@ import "../Views"
 ListItem {
     id: itemListItem
 
-    property string feedId
+    property int feedId
     property string searchString
     property int handleRead
     property bool sortAsc
-    property string feedType
+    property int feedType
 
     contentHeight: Math.max(textCol.height, iconCol.height) + Theme.paddingSmall
     contentWidth: parent.width
