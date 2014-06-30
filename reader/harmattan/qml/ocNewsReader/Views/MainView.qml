@@ -203,6 +203,8 @@ Page {
                     feedsModelSql.folderId = id
                     openFile("FeedListView.qml", {folderId: id, folderName: title})
                 } else if ( type === 2 || type === 3) {
+                    specialItemsModelSql.type = type
+                    specialItemsModelSql.id = id
                     openFile("SpecialItemListView.qml", { pageName: title, feedId: id, feedType: type });
                 }
             }

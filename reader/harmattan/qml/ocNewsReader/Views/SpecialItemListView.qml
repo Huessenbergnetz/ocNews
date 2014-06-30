@@ -32,12 +32,12 @@ Page {
 
     Component.onDestruction: specialItemsModelSql.clear()
 
-    onStatusChanged: {
-        if (status === PageStatus.Active) {
-            specialItemsModelSql.type = feedType
-            specialItemsModelSql.id = feedId
-        }
-    }
+//    onStatusChanged: {
+//        if (status === PageStatus.Active) {
+//            specialItemsModelSql.type = feedType
+//            specialItemsModelSql.id = feedId
+//        }
+//    }
 
     function openFile(file, properties) {
              var component = Qt.createComponent(file)

@@ -550,8 +550,6 @@ void OcCombinedModelNew::feedRenamed(const QString &newName, const int &feedId)
 
 int OcCombinedModelNew::findIndex(const int &id) const
 {
-    qDebug() << "TRY TO FIND INDEX";
-
     if (!m_items.isEmpty()) {
         for (int i = 0; i < rowCount(); ++i) {
             if (m_items.at(i)->id == id)
