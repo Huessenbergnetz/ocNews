@@ -32,6 +32,7 @@ Item {
     id: root
 
     property string text
+    property string scaledText
     property color color
     property real fontSize: Theme.fontSizeSmall
 
@@ -48,6 +49,10 @@ Item {
     onWidthChanged: {
         rescaleTimer.restart();
     }
+
+//    onTextChanged: {
+//        rescaleTimer.restart()
+//    }
 
     Text {
         id: layoutText
@@ -85,7 +90,8 @@ Item {
             textFormat: Text.RichText
             smooth: true
 
-            text: _RICHTEXT_STYLESHEET_PREAMBLE + root.text + _RICHTEXT_STYLESHEET_APPENDIX
+//            text: _RICHTEXT_STYLESHEET_PREAMBLE + root.text + _RICHTEXT_STYLESHEET_APPENDIX
+            text: _RICHTEXT_STYLESHEET_PREAMBLE + root.scaledText + _RICHTEXT_STYLESHEET_APPENDIX
 
             onLinkActivated: {
                 root.linkActivated(link);
@@ -102,9 +108,7 @@ Item {
             scaling = Math.min(1, parent.width / (layoutText.contentWidth + 0.0));
             console.log("scaling: " + scaling);
 
-            // force reflow
-//            contentText.text = contentText.text + " ";
-//            contentText.text = _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX
+            root.scaledText = root.text
 
         }
     }
