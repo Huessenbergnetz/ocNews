@@ -352,6 +352,8 @@ void OcCombinedModelNew::itemsMarkedAllRead()
 #else
     emit dataChanged(index(0), index(rowCount()-1));
 #endif
+
+    setTotalUnread(0);
 }
 
 

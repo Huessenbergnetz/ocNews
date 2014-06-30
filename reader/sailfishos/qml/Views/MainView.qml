@@ -101,8 +101,13 @@ Page {
         }
 
         ViewPlaceholder {
-            enabled: configState === 0 && mainViewList.count <= 1
+            enabled: configState === 0 && mainViewList.count === 0 && !config.hideReadFeeds
             text: qsTr("The local database is empty. Please make an update or add new feeds and folders.")
+        }
+
+        ViewPlaceholder {
+            enabled: configState === 0 && mainViewList.count === 0 && config.hideReadFeeds
+            text: qsTr("No unread or favorite articles to show. Change your option to show hide read feeds and folders to see content.")
         }
 
         model: configState === 0 ? config.viewMode === 0 ? foldersModelFilter : combinedModelFilter : null
@@ -116,7 +121,7 @@ Page {
             }
         }
 
-        delegate: FolderListDelegate { visible: configState === 0 && mainViewList.count > 1 }
+        delegate: FolderListDelegate { visible: configState === 0 }
 
         VerticalScrollDecorator {}
 

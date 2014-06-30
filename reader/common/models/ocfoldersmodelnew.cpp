@@ -315,6 +315,8 @@ void OcFoldersModelNew::itemsMarkedAllRead()
     emit dataChanged(index(0), index(rowCount()-1));
 #endif
 
+    setTotalUnread(0);
+
 }
 
 

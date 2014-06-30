@@ -64,22 +64,18 @@ ListItem {
         spacing: 8
 
         Item {
-            width: 64
-            height: 64
+            width: 32
+            height: 32
             anchors.verticalCenter: parent.verticalCenter
 
             Image {
                 anchors.centerIn: parent
                 visible: true
                 asynchronous: true
-//                width: model.iconSource ? (parseInt(model.iconWidth, 10) > 32) ? 64 : 32 : 64
-//                height: model.iconSource ? (parseInt(model.iconHeight, 10) > 32) ? 64 : 32 : 64
-//                width: model.type === "1" ? 64 : 32
-//                height: model.type === "1" ? 64 : 32
                 width: 32
                 height: 32
-                sourceSize.width: model.iconSource ? parseInt(model.iconWidth, 10) : 64
-                sourceSize.height: model.iconSource ? parseInt(model.iconHeight, 10) : 64
+                sourceSize.width: model.iconSource ? model.iconWidth : 64
+                sourceSize.height: model.iconSource ? model.iconHeight : 64
                 source: model.iconSource ? model.iconSource : getIconSource()
             }
         }
@@ -95,7 +91,7 @@ ListItem {
                 maximumLineCount: 1
                 truncationMode: TruncationMode.Fade
                 textFormat: Text.PlainText
-                width: parent.width - 130
+                width: parent.width - 100
             }
 
             Text {
