@@ -1,4 +1,21 @@
-Version 1.8.2
+Version 1.9.0, 2014-06-29 23:33:19 +0200
+
+  General
+  * New: optional show article excerpts in list views (issue #41)
+  * New: optional notify about new items, also notify about errors on SailfishOS, notifications are now part of the background daemon (issue #38)
+  * Changed: changelog layout
+  * Changed: simplified wording for some context menus in list views (issue #43)
+  * Improved: code cleanups (issue #40)
+  * Improved: data models (issue #44)
+  * Fixed: local unread count was not updated after moving a feed (issue #46)
+  
+  Harmattan
+  * New: startup info
+  
+  Sailfish OS
+  * Changed: removed Martine Grimme's FancyScroller, using native scroller instead
+
+Version 1.8.2, 2014-05-13 00:04:00 +0200
 
   General
   * Improved: about page design

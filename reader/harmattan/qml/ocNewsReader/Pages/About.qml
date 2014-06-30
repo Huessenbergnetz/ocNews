@@ -7,7 +7,9 @@ import "../Sheets"
 Page {
     id: about
 
-    tools: aboutTools
+    anchors.fill: parent
+
+    tools: aboutTabs
 
     orientationLock: PageOrientation.LockPortrait
 
@@ -17,128 +19,129 @@ Page {
 
     // ------------- Header Start ----------------
 
-        Header {
-            id: aboutPageHeader
-            text: qsTr("About")
-        }
+    Header {
+        id: aboutPageHeader
+        text: qsTr("About")
+    }
 
     // ------------- Header End ----------------
 
     TabGroup {
         id: tabgroup
         currentTab: aboutTab
-        anchors { top: aboutPageHeader.bottom; topMargin: 5 }
+        anchors { top: aboutPageHeader.bottom; left: parent.left; right: parent.right }
 
         Page {
             id: aboutTab
             orientationLock: PageOrientation.LockPortrait
 
-            Image {
-                id: coverImage
-                anchors { top: parent.top; topMargin: 10; left: parent.left; right: parent.right }
-                asynchronous: true
-                sourceSize.width: 540
-                sourceSize.height: 270
-                source: "/opt/ocNewsReader/images/ocNews-Harmattan-Cover.jpg"
-            }
+            Flickable {
+                id: aboutFlick
+                anchors.fill: parent
+                contentHeight: coverImage.height + firstAboutCol.height + 100
 
-            Column {
-                id: firstAboutCol
-                anchors { top: coverImage.bottom; topMargin: 5; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20 }
-                spacing: 10
 
-                Label {
-                    id: labelName
+                Image {
+                    id: coverImage
+                    anchors { top: parent.top; left: parent.left; right: parent.right }
+                    asynchronous: true
+                    sourceSize.width: 540
+                    sourceSize.height: 270
                     width: parent.width
-                    textFormat: Text.PlainText
-                    text: "ocNews " + versionString
-                    font.pointSize: 24
+                    height: width/2
+                    source: "/opt/ocNewsReader/images/ocNews-Harmattan-Cover.jpg"
                 }
 
-                Text {
-                    id: description
-                    text: qsTr("The ownCloud News App client for Harmattan")
-                    width: parent.width
-                    font.pointSize: 17
-                    font.weight: Font.Light
-                    wrapMode: Text.WordWrap
-                    horizontalAlignment: Text.AlignHCenter
-                    textFormat: Text.PlainText
-                    color: theme.inverted ? "white" : "black"
-                }
+                Column {
+                    id: firstAboutCol
+                    anchors { top: coverImage.bottom; topMargin: 5; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20 }
+                    spacing: 10
 
-                Text {
-                    id: copyright
-                    width: parent.width
-                    font.pointSize: 17
-                    font.weight: Font.Light
-                    text: "© 2013-2014, Buschtrommel"
-                    textFormat: Text.PlainText
-                    color: theme.inverted ? "white" : "black"
-                }
+                    Label {
+                        id: labelName
+                        width: parent.width
+                        textFormat: Text.PlainText
+                        text: "ocNews " + versionString
+                        font.pointSize: 32
+                    }
 
-                Text {
-                    id: license
-                    width: parent.width
-                    font.pointSize: 17
-                    font.weight: Font.Light
-                    text: _RICHTEXT_STYLESHEET_PREAMBLE + qsTr("Licensed under the <a href='http://www.gnu.org/licenses/gpl-2.0.en.html'>GNU GPL v2</a>") + _RICHTEXT_STYLESHEET_APPENDIX
-                    textFormat: Text.RichText
-                    color: theme.inverted ? "white" : "black"
-                    onLinkActivated: { Qt.openUrlExternally(link) }
-                }
+                    Text {
+                        id: description
+                        text: qsTr("The ownCloud News App client for Harmattan")
+                        width: parent.width
+                        font.pointSize: 17
+                        font.weight: Font.Light
+                        wrapMode: Text.WordWrap
+                        textFormat: Text.PlainText
+                        color: theme.inverted ? "white" : "black"
+                    }
 
-                GroupHeader { text: qsTr("Contribute") }
+                    Text {
+                        id: copyright
+                        width: parent.width
+                        font.pointSize: 17
+                        font.weight: Font.Light
+                        text: "© 2013-2014, Buschtrommel"
+                        textFormat: Text.PlainText
+                        color: theme.inverted ? "white" : "black"
+                    }
 
-                PayPalChooser {
-                    id: donation
-                    width: parent.width + 40
-                    organization: "Buschtrommel"
-                    item: "ocNews"
-                    email: "kontakt@buschmann23.de"
-                    message: qsTr("Leave a message (English or German):")
-                }
+                    Text {
+                        id: license
+                        width: parent.width
+                        font.pointSize: 17
+                        font.weight: Font.Light
+                        text: _RICHTEXT_STYLESHEET_PREAMBLE + qsTr("Licensed under the <a href='http://www.gnu.org/licenses/gpl-2.0.en.html'>GNU GPL v2</a>") + _RICHTEXT_STYLESHEET_APPENDIX
+                        textFormat: Text.RichText
+                        color: theme.inverted ? "white" : "black"
+                        onLinkActivated: { Qt.openUrlExternally(link) }
+                    }
 
-                Button {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: qsTr("Translate")
-                    onClicked: Qt.openUrlExternally("https://www.transifex.com/projects/p/ocnews/")
-                }
+                    GroupHeader { text: qsTr("Contribute") }
 
-                Button {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: qsTr("Report bugs")
-                    onClicked: Qt.openUrlExternally("https://github.com/Buschtrommel/ocNews/issues")
-                }
+                    PayPalChooser {
+                        id: donation
+                        width: parent.width + 40
+                        organization: "Buschtrommel"
+                        item: "ocNews"
+                        email: "kontakt@buschmann23.de"
+                        message: qsTr("Leave a message (English or German):")
+                    }
 
-                GroupHeader { text: qsTr("Further information") }
+                    Button {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Translate")
+                        onClicked: Qt.openUrlExternally("https://www.transifex.com/projects/p/ocnews/")
+                    }
 
-                Button {
-                    id: privacyPolicyButton
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: qsTr("Privacy policy")
-                    onClicked: {
-                        aboutPrivacySheet.policy = config.privacyShown
-                        aboutPrivacySheet.open();
+                    Button {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Report bugs")
+                        onClicked: Qt.openUrlExternally("https://github.com/Buschtrommel/ocNews/issues")
+                    }
+
+                    GroupHeader { text: qsTr("Further information") }
+
+                    Button {
+                        id: privacyPolicyButton
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Privacy policy")
+                        onClicked: {
+                            aboutPrivacySheet.policy = config.privacyShown
+                            aboutPrivacySheet.open();
+                        }
+                    }
+
+                    Button {
+                        id: websiteLink
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Visit website")
+                        onClicked: Qt.openUrlExternally("http://ocnews.buschmann23.de")
                     }
                 }
-
-                Button {
-                    id: websiteLink
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: qsTr("Visit website")
-                    onClicked: Qt.openUrlExternally("http://ocnews.buschmann23.de")
-                }
             }
 
-
-
-            //                Button {
-            //                    id: licenseLink
-            //                    anchors { horizontalCenter: parent.horizontalCenter; top: websiteLink.bottom; topMargin: 10 }
-            //                    text: qsTr("Donate")
-            //                    onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDZAG64WD34PL")
-            //                }
+            ScrollDecorator { flickableItem: aboutFlick }
         }
 
         Page {
@@ -147,10 +150,8 @@ Page {
 
             Flickable {
                 id: contributorsContent
-                anchors { right: parent.right; rightMargin: 15; left: parent.left; leftMargin: 15; top: parent.top; topMargin: 10; bottomMargin: aboutTools.height }
-                width: parent.width
-                height: parent.height
-                contentHeight: contentCol.height + aboutTools.height + 50
+                anchors { right: parent.right; rightMargin: 15; left: parent.left; leftMargin: 15; top: parent.top; topMargin: 10 }
+                contentHeight: contentCol.height + aboutTabs.height + 50
                 flickableDirection:  Flickable.VerticalFlick
 
 
@@ -243,7 +244,6 @@ Page {
 
             ScrollDecorator {
                 flickableItem: contributorsContent
-                anchors { right: parent.right; rightMargin: -contributorsContent.anchors.rightMargin }
             }
         }
 
@@ -255,7 +255,7 @@ Page {
             ListView {
                 id: changelogContent
                 anchors.fill: parent
-                anchors.bottomMargin: aboutTools.height
+                anchors.bottomMargin: aboutTabs.height
                 model: ChangelogModel {}
 
                 section {
@@ -274,7 +274,8 @@ Page {
                         Text {
                             id: date
                             textFormat: Text.PlainText
-                            width: parent.width
+//                            width: parent.width
+                            anchors { left: parent.left; leftMargin: 20; right: parent.right }
                             wrapMode: Text.WordWrap
                             color: theme.inverted ? "white" : "black"
                             font.pointSize: 17
@@ -298,7 +299,6 @@ Page {
 
             ScrollDecorator {
                 flickableItem: changelogContent
-                anchors { right: parent.right; rightMargin: -changelogContent.anchors.rightMargin }
             }
 
         }
@@ -307,33 +307,33 @@ Page {
 
     // ----------------- Toolbar Start --------------------
 
-        ToolBarLayout {
-            id: aboutTools
-            visible: true
-            ToolIcon {
-                platformIconId: "toolbar-back"
-                anchors.left: (parent === undefined) ? undefined : parent.left
-                onClicked: { pageStack.pop(); }
+    ToolBarLayout {
+        id: aboutTabs
+
+        ToolIcon {
+            platformIconId: "toolbar-back"
+            anchors.left: (parent === undefined) ? undefined : parent.left
+            onClicked: { pageStack.pop(); }
+        }
+        ButtonRow {
+            style: TabButtonStyle { }
+            TabButton {
+                iconSource: "image://theme/icon-m-toolbar-application"
+                tab: aboutTab
+                onClicked: aboutPageHeader.text = qsTr("About")
             }
-            ButtonRow {
-                style: TabButtonStyle { }
-                TabButton {
-                    iconSource: "image://theme/icon-m-toolbar-application"
-                    tab: aboutTab
-                    onClicked: aboutPageHeader.text = qsTr("About")
-                }
-                TabButton {
-                    iconSource: "image://theme/icon-m-toolbar-contact"
-                    tab: contributorsTab
-                    onClicked: aboutPageHeader.text = qsTr("Contributors")
-                }
-                TabButton {
-                    iconSource: "image://theme/icon-m-toolbar-list"
-                    tab: changelogTab
-                    onClicked: aboutPageHeader.text = qsTr("Changelog")
-                }
+            TabButton {
+                iconSource: "image://theme/icon-m-toolbar-contact"
+                tab: contributorsTab
+                onClicked: aboutPageHeader.text = qsTr("Contributors")
+            }
+            TabButton {
+                iconSource: "image://theme/icon-m-toolbar-list"
+                tab: changelogTab
+                onClicked: aboutPageHeader.text = qsTr("Changelog")
             }
         }
+    }
     // ----------------- Toolbar End --------------------
 
 

@@ -1,3 +1,16 @@
+buschtrommel-ocnews (1.9.0) stable; urgency=low
+
+  * New: optional show article excerpts in list views (issue #41)
+  * New: optional notify about new items, also notify about errors on SailfishOS, notifications are now part of the background daemon (issue #38)
+  * New: startup info
+  * Changed: changelog layout
+  * Changed: simplified wording for some context menus in list views (issue #43)
+  * Improved: code cleanups (issue #40)
+  * Improved: data models (issue #44)
+  * Fixed: local unread count was not updated after moving a feed (issue #46)
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Mon, 29 Jun 2014 23:33:19 +0200
+
 buschtrommel-ocnews (1.8.2) stable; urgency=low
 
   * Improved: about page design

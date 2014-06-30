@@ -3,11 +3,18 @@ import QtQuick 1.1
 
 ListModel {
     ListElement {
-        version: "1.8.3"
-        time: 1399932292000
+        version: "1.9.0"
+        time: 1404077599000
         text: "<ul>
-                <li>Improved: code cleanups</li>
-               </ul>"
+                <li>New: optional show article excerpts in list views (issue #41)<li>
+                <li>New: optional notify about new items, also notify about errors on SailfishOS, notifications are now part of the background daemon (issue #38)</li>
+                <li>New: startup info</li>
+                <li>Changed: changelog layout<li>
+                <li>Changed: simplified wording for some context menus in list views (issue #43)</li>
+                <li>Improved: code cleanups (issue #40)</li>
+                <li>Improved: data models (issue #44)</li>
+                <li>Fixed: local unread count was not updated after moving a feed (issue #46)</li>
+              </ul>"
     }
 
     ListElement {

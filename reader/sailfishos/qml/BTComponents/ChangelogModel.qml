@@ -31,10 +31,10 @@ ListModel {
                 <li>New: optional show article excerpts in list views (issue #41)<li>
                 <li>New: optional notify about new items, also notify about errors on SailfishOS, notifications are now part of the background daemon (issue #38)</li>
                 <li>Changed: changelog layout<li>
-                <li>Changed: removed Martine Grimme's FancyScroller, using native scoller instead</li>
+                <li>Changed: removed Martine Grimme's FancyScroller, using native scroller instead</li>
                 <li>Changed: simplified wording for some context menus in list views (issue #43)</li>
                 <li>Improved: code cleanups (issue #40)</li>
-                <li>Improved: data models (issue #44)</l>
+                <li>Improved: data models (issue #44)</li>
                 <li>Fixed: local unread count was not updated after moving a feed (issue #46)</li>
               </ul>"
     }
