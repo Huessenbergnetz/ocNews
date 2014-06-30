@@ -141,6 +141,7 @@ int main(int argc, char *argv[])
     QObject::connect(&items, SIGNAL(updatedItemsSuccess(QList<int>,QList<int>,QList<int>)), combinedModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
     QObject::connect(&items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), combinedModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
     QObject::connect(&items, SIGNAL(markedItemsSuccess(QStringList,QString)), combinedModelSql, SLOT(itemsMarked()));
+    QOBject::connect(&items, SIGNAL(markedAllItemsReadSuccess()), combinedModelSql, SLOT(itemsMarkedAllRead()));
     QObject::connect(&items, SIGNAL(starredItemsSuccess(QStringList,QString)), combinedModelSql, SLOT(itemsStarred()));
     QObject::connect(&feeds, SIGNAL(requestedFeedsSuccess(QList<int>,QList<int>,QList<int>)), combinedModelSql, SLOT(feedsRequested(QList<int>,QList<int>,QList<int>)));
     QObject::connect(&feeds, SIGNAL(createdFeedSuccess(QString,int)), combinedModelSql, SLOT(feedCreated(QString,int)));
@@ -159,6 +160,7 @@ int main(int argc, char *argv[])
     QObject::connect(&items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), foldersModelSql, SLOT(itemsUpdated(QList<int>,QList<int>,QList<int>)));
     QObject::connect(&items, SIGNAL(markedItemsSuccess(QStringList,QString)), foldersModelSql, SLOT(itemsMarked()));
     QObject::connect(&items, SIGNAL(starredItemsSuccess(QStringList,QString)), foldersModelSql, SLOT(itemsStarred()));
+    QObject::connect(&items, SIGNAL(markedAllItemsReadSuccess()), foldersModelSql, SLOT(itemsMarkedAllRead()));
     QObject::connect(&feeds, SIGNAL(requestedFeedsSuccess(QList<int>,QList<int>,QList<int>)), foldersModelSql, SLOT(feedsRequested(QList<int>,QList<int>,QList<int>)));
     QObject::connect(&feeds, SIGNAL(createdFeedSuccess(QString,int)), foldersModelSql, SLOT(feedCreated(QString,int)));
     QObject::connect(&feeds, SIGNAL(deletedFeedSuccess(int)), foldersModelSql, SLOT(feedDeleted(int)));
