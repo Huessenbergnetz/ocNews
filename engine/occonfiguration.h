@@ -35,6 +35,8 @@ public Q_SLOTS: // METHODS
     bool isAccountEnabled();
     
 signals:
+    void updateIntervalChanged(const int &nInterval);
+    void updateBehaviorChanged(const int &nBehavior);
 
 Q_SIGNALS: // SIGNALS
     void gotConfig(const QVariantMap &config);

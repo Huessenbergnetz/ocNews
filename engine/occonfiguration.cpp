@@ -67,8 +67,8 @@ QVariantMap OcConfiguration::getConfig()
     config["displayversion"] = settings.value("display/version", 0).toInt();
     config["privateBrowsing"] = settings.value("privacy/privateBrowsing", false).toBool();
     config["enableCookies"] = settings.value("privacy/enableCookies", true).toBool();
-    config["updatebehavior"] = settings.value("update/behavior", "0").toString();
-    config["updateinterval"] = settings.value("update/interval", "3600").toString();
+    config["updatebehavior"] = settings.value("update/behavior", 0).toInt();
+    config["updateinterval"] = settings.value("update/interval", 3600).toInt();
     config["eventfeeds"] = settings.value("event/feeds", "").toString();
     config["quitengine"] = settings.value("engine/quitonclose", false).toBool();
     config["notifyFeedsFolders"] = settings.value("notifications/feedsFolders", false).toBool();
@@ -185,6 +185,12 @@ void OcConfiguration::setSetting(const QString &entry, const QDBusVariant &value
 
     if (entry == "account/id")
         emit changedConfig();
+
+    if (entry == "update/interval")
+        emit updateIntervalChanged(setvalue.toInt());
+
+    if (entry == "update/behavior")
+        emit updateBehaviorChanged(setvalue.toInt());
 }
 
 

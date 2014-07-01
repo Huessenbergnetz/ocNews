@@ -73,9 +73,6 @@ int main(int argc, char *argv[])
     OcDBusImageFetcher imageFetcher;
     OcConfiguration *config = new OcConfiguration;
 
-//    OcFolderModelSql *folderModelSql = new OcFolderModelSql();
-//    OcFeedsModelSql *feedsModelSql = new OcFeedsModelSql();
-
 
     OcFoldersModelNew *foldersModelSql = new OcFoldersModelNew;
     OcFoldersModelFilter *foldersModelFilter = new OcFoldersModelFilter;

@@ -17,7 +17,9 @@
 #include <QSystemBatteryInfo>
 #else
 #include <QTimer>
+//#include <keepalive/backgroundactivity.h>
 #endif
+#include <keepalive/backgroundactivity.h>
 
 #if defined(MEEGO_EDITION_HARMATTAN)
 QTM_USE_NAMESPACE
@@ -47,6 +49,8 @@ signals:
     
 public slots:
     void handleNetAndConfChanges();
+    void setUpdateInterval(const int &nInterval);
+    void setUpdateBehavior(const int &nBehavior);
 
 private slots:
     void startUpdateTimed();
@@ -63,6 +67,8 @@ private:
     OcNetwork network;
     OcConfiguration config;
     bool updateRunning;
+    int m_interval;
+    int m_updateBehavior;
 #if defined(MEEGO_EDITION_HARMATTAN)
     TransferUI::Client *transferClient;
     TransferUI::Transfer *transferItem;
@@ -71,11 +77,13 @@ private:
     QSystemBatteryInfo *batteryInfo;
 #else
     QTimer *timer;
+//    BackgroundActivity *m_timer;
 //    MNotificationGroup *notificationGroup;
 //    MNotification *notification;
 //    QNetworkInfo *networkInfo;
 //    QBatteryInfo *batteryInfo;
 #endif
+    BackgroundActivity *m_timer;
 };
 
 #endif // OCUPDATER_H

@@ -167,9 +167,6 @@ int main(int argc, char *argv[])
         OcUpgradeHelper *upHelper = new OcUpgradeHelper;
         upHelper->init(oldVersion, VERSION);
         upHelper->deleteLater();
-//        OcUpgradeHelper upHelper;
-//        upHelper.init(oldVersion, VERSION);
-//        upHelper.deleteLater();
     }
 
 
@@ -181,12 +178,12 @@ int main(int argc, char *argv[])
     new OcFeedsAdaptor(feeds);
     OcItems* items = new OcItems;
     new OcItemsAdaptor(items);
-    OcUpdater* updater = new OcUpdater;
-    new OcUpdaterAdaptor(updater);
     OcDownloadManager* dManager = new OcDownloadManager;
     new OcDownloadManagerAdaptor(dManager);
     OcImageFetcher* imgFetcher = new OcImageFetcher;
     new OcImageFetcherAdaptor(imgFetcher);
+    OcUpdater* updater = new OcUpdater;
+    new OcUpdaterAdaptor(updater);
 #if defined(MEEGO_EDITION_HARMATTAN)
     OcAccount* account = new OcAccount;
     new OcAccountAdaptor(account);
@@ -206,7 +203,8 @@ int main(int argc, char *argv[])
     QObject::connect(items, SIGNAL(updatedItemsError(QString)), updater, SLOT(errorInUpdate(QString)));
     QObject::connect(items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), updater, SLOT(endUpdate()));
     QObject::connect(items, SIGNAL(requestedItemsError(QString)), updater, SLOT(errorInUpdate(QString)));
-    QObject::connect(configuration, SIGNAL(savedConfig()), updater, SLOT(handleNetAndConfChanges()));
+    QObject::connect(configuration, SIGNAL(updateBehaviorChanged(int)), updater, SLOT(setUpdateBehavior(int)));
+    QObject::connect(configuration, SIGNAL(updateIntervalChanged(int)), updater, SLOT(setUpdateInterval(int)));
 
     // image fetcher connections
     QObject::connect(items, SIGNAL(updatedItemsSuccess(QList<int>,QList<int>,QList<int>)), imgFetcher, SLOT(fetchImages(QList<int>,QList<int>,QList<int>)));

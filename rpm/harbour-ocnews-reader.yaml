@@ -20,10 +20,12 @@ PkgConfigBR:
 - Qt5Qml
 - Qt5Quick
 - mlite5
+- keepalive
 Requires:
 - sailfishsilica-qt5 >= 0.10.9
 - qt5-plugin-imageformat-gif
 - qt5-plugin-imageformat-ico
+- qt5-plugin-imageformat-jpeg
 Files:
 - '%defattr(644, root, root, 755)'
 - '%attr(755, root, root) %{_bindir}/harbour-ocnews-*'

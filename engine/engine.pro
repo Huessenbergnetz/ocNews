@@ -144,6 +144,7 @@ unix: PKGCONFIG += AccountSetup
 } else {
 LIBS += -lmlite5
 INCLUDEPATH += /usr/include/mlite5
+PKGCONFIG += keepalive
 }
 
 OTHER_FILES += \

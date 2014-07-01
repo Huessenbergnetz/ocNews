@@ -24,6 +24,7 @@ Source100:  harbour-ocnews-reader.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
 Requires:   qt5-plugin-imageformat-gif
 Requires:   qt5-plugin-imageformat-ico
+Requires:   qt5-plugin-imageformat-jpeg
 BuildRequires:  pkgconfig(Qt5Sql)
 BuildRequires:  pkgconfig(Qt5Network)
 BuildRequires:  pkgconfig(Qt5DBus)
@@ -32,6 +33,7 @@ BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(mlite5)
+BuildRequires:  pkgconfig(keepalive)
 BuildRequires:  desktop-file-utils
 
 %description

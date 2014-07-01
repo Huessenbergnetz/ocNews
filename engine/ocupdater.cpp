@@ -19,6 +19,10 @@ OcUpdater::OcUpdater(QObject *parent) :
 {
     updateRunning = false;
 
+    m_updateBehavior = config.getSetting(QString("update/behavior"), QDBusVariant(0)).variant().toInt();
+
+    m_interval = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt();
+
 #if defined(MEEGO_EDITION_HARMATTAN)
     transferClient = new TransferUI::Client();
 
@@ -32,7 +36,7 @@ OcUpdater::OcUpdater(QObject *parent) :
     timer = new QSystemAlignedTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(startUpdateTimed()));
     timer->setMinimumInterval(0);
-    timer->setMaximumInterval(config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt() + TIMER_DELTA);
+    timer->setMaximumInterval(m_interval + TIMER_DELTA);
     timer->start();
 
 #ifdef QT_DEBUG
@@ -43,20 +47,19 @@ OcUpdater::OcUpdater(QObject *parent) :
     connect(batteryInfo, SIGNAL(chargingStateChanged(QSystemBatteryInfo::ChargingState)), this, SLOT(handleNetAndConfChanges()));
     connect(networkInfo, SIGNAL(networkStatusChanged(QSystemNetworkInfo::NetworkMode,QSystemNetworkInfo::NetworkStatus)), this, SLOT(handleNetAndConfChanges()));
 #else
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(startUpdateTimed()));
-    timer->setInterval(config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt() * 1000);
-    timer->setTimerType(Qt::CoarseTimer);
-    timer->start();
+    m_timer = new BackgroundActivity(this);
+    connect(m_timer, SIGNAL(running()), this, SLOT(startUpdateTimed()));
+    m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
 
+#ifdef QT_DEBUG
+    qDebug() << "Initial update minimum interval: " << m_interval - TIMER_DELTA;
+    qDebug() << "Initial update maximum interval: " << m_interval + TIMER_DELTA;
+#endif
 
     connect(&network, SIGNAL(networkOnline()), this, SLOT(handleNetAndConfChanges()));
     connect(&network, SIGNAL(networkConfigChanged()), this, SLOT(handleNetAndConfChanges()));
 
-    // after startup, check if an update should be performed
-//    handleNetAndConfChanges();  // is currently anywayy called by network online check
 #endif
-
 }
 
 
@@ -103,7 +106,7 @@ void OcUpdater::handleNetAndConfChanges()
 #if defined(MEEGO_EDITION_HARMATTAN)
             timer->wokeUp();
 #else
-            timer->start();
+            m_timer->stop();
 #endif
 
             startUpdateTimed();
@@ -127,17 +130,7 @@ void OcUpdater::handleNetAndConfChanges()
 
 void OcUpdater::startUpdateTimed()
 {
-    int updateBehavior = config.getSetting(QString("update/behavior"), QDBusVariant(0)).variant().toInt();
-
 #if defined(MEEGO_EDITION_HARMATTAN)
-
-    int interval = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt();
-
-    if (timer->minimumInterval() != interval - TIMER_DELTA)
-        timer->setMinimumInterval(interval - TIMER_DELTA);
-
-    if (timer->maximumInterval() != interval + TIMER_DELTA)
-        timer->setMaximumInterval(interval + TIMER_DELTA);
 
 #ifdef QT_DEBUG
     qDebug() << "Settings before timed update start:";
@@ -153,7 +146,7 @@ void OcUpdater::startUpdateTimed()
 
     if (batteryInfo->remainingCapacityPercent() >= MINIMUM_BATTERY || batteryInfo->chargingState() == QSystemBatteryInfo::Charging )
     {
-        if ((updateBehavior == 1 && networkInfo->currentMode() == QSystemNetworkInfo::WlanMode) || updateBehavior == 2)
+        if ((m_updateBehavior == 1 && networkInfo->currentMode() == QSystemNetworkInfo::WlanMode) || m_updateBehavior == 2)
         {
             if (config.isConfigSet() && config.isAccountEnabled())
             {
@@ -177,17 +170,16 @@ void OcUpdater::startUpdateTimed()
 //    networkInfo = new QNetworkInfo();
 //    batteryInfo = new QBatteryInfo();
 
-    int interval = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt() * 1000;
-
-    if (timer->interval() != interval)
-        timer->setInterval(interval);
-
-    if ((updateBehavior == 1 && network.bearerType() == 1) || updateBehavior == 2)
+    if ((m_updateBehavior == 1 && network.bearerType() == 1) || m_updateBehavior == 2)
     {
         if (config.isConfigSet() && config.isAccountEnabled())
         {
             startUpdatePrivate();
+        } else {
+            m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
         }
+    } else {
+        m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
     }
 
 #endif
@@ -206,28 +198,13 @@ void OcUpdater::startUpdateTimed()
 
 void OcUpdater::startUpdate()
 {
-
-#if defined(MEEGO_EDITION_HARMATTAN)
-    int intervall = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt();
-    if (timer->minimumInterval() != intervall - TIMER_DELTA)
-        timer->setMinimumInterval(intervall - TIMER_DELTA);
-
-    if (timer->maximumInterval() != intervall + TIMER_DELTA)
-        timer->setMaximumInterval(intervall + TIMER_DELTA);
-#else
-    int intervall = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt() * 1000;
-
-    if (timer->interval() != intervall)
-        timer->setInterval(intervall);
-#endif
-
     if (config.isConfigSet() && config.isAccountEnabled())
     {
 
 #if defined(MEEGO_EDITION_HARMATTAN)
         timer->wokeUp();
 #else
-        timer->start();
+        m_timer->stop();
 #endif
 
         startUpdatePrivate();
@@ -370,7 +347,7 @@ void OcUpdater::endUpdate()
         delete transferItem;
         transferItem = 0;
 #else
-
+        m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
 #endif
 
         updateRunning = false;
@@ -399,7 +376,7 @@ void OcUpdater::errorInUpdate(QString errorMessage)
 #if defined(MEEGO_EDITION_HARMATTAN)
         transferItem->markFailure(tr("Update Failed"), errorMessage);
 #else
-
+        m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
 #endif
 
         updateRunning = false;
@@ -424,3 +401,53 @@ bool OcUpdater::isUpdateRunning()
 {
     return updateRunning;
 }
+
+
+
+
+/*!
+ * \fn void OcUpdater::setUpdateBehavior(const int &nBehavior)
+ * \brief Handles changes in the update behavior configuration
+ *
+ * If the new update behavior is not 0 (means manual update only)
+ * it calls handleNetAndConfChanges to perform an update if appropriate.
+ *
+ * \param nBehavior     The new behavior
+ */
+void OcUpdater::setUpdateBehavior(const int &nBehavior)
+{
+    if (nBehavior != m_updateBehavior) {
+        m_updateBehavior = nBehavior;
+        if (m_updateBehavior != 0)
+            handleNetAndConfChanges();
+    }
+}
+
+
+
+/*!
+ * \fn void OcUpdater::setUpdateInterval(const int &nInterval)
+ * \fn Handles changes in the update interval configuration
+ *
+ * If the new update interval is different it sets the new interval
+ * to the timer. If the update behavior is not 0 (means manual update only)
+ * it calls handleNetAndConfChanges to perform an update ir appropriate.
+ *
+ * \param nInterval
+ */
+void OcUpdater::setUpdateInterval(const int &nInterval)
+{
+    if (nInterval != m_interval) {
+        m_interval = nInterval;
+#if defined(MEEGO_EDITION_HARMATTAN)
+        timer->setMinimumInterval(m_interval - TIMER_DELTA);
+        timer->setMaximumInterval(m_interval + TIMER_DELTA);
+#else
+        m_timer->stop();
+        m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
+#endif
+        if (m_updateBehavior != 0)
+            handleNetAndConfChanges();
+    }
+}
+
