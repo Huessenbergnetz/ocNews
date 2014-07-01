@@ -25,6 +25,7 @@ void OcItemsQuery::run()
 
     query.exec(m_queryString);
 
+#if defined(MEEGO_EDITION_HARMATTAN)
     if (m_specialItemsModel) {
         while(query.next())
         {
@@ -62,4 +63,43 @@ void OcItemsQuery::run()
             emit gotRecord(iobj);
         }
     }
+#else
+    if (m_specialItemsModel) {
+        while(query.next())
+        {
+            OcItemObject *iobj = new OcItemObject(query.value(0).toInt(),
+                                                  query.value(1).toString().toHtmlEscaped(),
+                                                  query.value(2).toUInt(),
+                                                  query.value(3).toString(),
+                                                  query.value(4).toString(),
+                                                  query.value(5).toBool(),
+                                                  query.value(6).toBool(),
+                                                  query.value(7).toString(),
+                                                  query.value(8).toString(),
+                                                  helper.prepareBody(query.value(9).toString()),
+                                                  query.value(10).toString(),
+                                                  query.value(11).toString(),
+                                                  query.value(12).toInt());
+            emit gotRecord(iobj);
+        }
+    } else {
+        while(query.next())
+        {
+            OcItemObject *iobj = new OcItemObject(query.value(0).toInt(),
+                                                  query.value(1).toString().toHtmlEscaped(),
+                                                  query.value(2).toUInt(),
+                                                  query.value(3).toString(),
+                                                  query.value(4).toString(),
+                                                  query.value(5).toBool(),
+                                                  query.value(6).toBool(),
+                                                  query.value(7).toString(),
+                                                  query.value(8).toString(),
+                                                  helper.prepareBody(query.value(9).toString()),
+                                                  query.value(10).toString(),
+                                                  "",
+                                                  -1);
+            emit gotRecord(iobj);
+        }
+    }
+#endif
 }
