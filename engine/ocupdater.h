@@ -3,9 +3,6 @@
 
 #include <QObject>
 #include "ocnetwork.h"
-#include "ocfolders.h"
-#include "ocfeeds.h"
-#include "ocitems.h"
 #include "occonfiguration.h"
 #include "../common/globals.h"
 
@@ -16,10 +13,8 @@
 #include <QSystemNetworkInfo>
 #include <QSystemBatteryInfo>
 #else
-#include <QTimer>
-//#include <keepalive/backgroundactivity.h>
-#endif
 #include <keepalive/backgroundactivity.h>
+#endif
 
 #if defined(MEEGO_EDITION_HARMATTAN)
 QTM_USE_NAMESPACE
@@ -61,9 +56,6 @@ private slots:
     void errorInUpdate(QString errorMessage);
 
 private:
-    OcFolders folders;
-    OcFeeds feeds;
-    OcItems items;
     OcNetwork network;
     OcConfiguration config;
     bool updateRunning;
@@ -76,14 +68,12 @@ private:
     QSystemNetworkInfo *networkInfo;
     QSystemBatteryInfo *batteryInfo;
 #else
-    QTimer *timer;
-//    BackgroundActivity *m_timer;
+    BackgroundActivity *m_timer;
 //    MNotificationGroup *notificationGroup;
 //    MNotification *notification;
 //    QNetworkInfo *networkInfo;
 //    QBatteryInfo *batteryInfo;
 #endif
-    BackgroundActivity *m_timer;
 };
 
 #endif // OCUPDATER_H
