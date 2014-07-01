@@ -19,9 +19,9 @@ OcUpdater::OcUpdater(QObject *parent) :
 {
     updateRunning = false;
 
-    m_updateBehavior = config.getSetting(QString("update/behavior"), QDBusVariant(0)).variant().toInt();
+    m_updateBehavior = config.value("update/behavior", 0).toInt();
 
-    m_interval = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toInt();
+    m_interval = config.value("update/interval", 3600).toInt();
 
 #if defined(MEEGO_EDITION_HARMATTAN)
     transferClient = new TransferUI::Client();
@@ -70,7 +70,7 @@ OcUpdater::OcUpdater(QObject *parent) :
  * \brief Is called after a change in the network connection
  *
  * This internal slot is connected to the networkStatusChanged signal of QSystemNetworkInfo
- * and the savedConfig signal of OcConfiguration to check, if an update should be performed
+ * and two signals of OcConfiguration to check, if an update should be performed
  * after something changed in the network or application config.
  */
 
@@ -87,11 +87,11 @@ void OcUpdater::handleNetAndConfChanges()
 
         QDateTime ts;
 
-        uint lastFullUpdate = config.getSetting(QString("storage/lastFullUpdate"), QDBusVariant(0)).variant().toUInt();
+        uint lastFullUpdate = config.value("storage/lastFullUpdate", 0).toUInt();
         uint currentTime = ts.currentDateTimeUtc().toTime_t();
 
         uint timeDiff = currentTime - lastFullUpdate;
-        uint triggerTime = config.getSetting(QString("update/interval"), QDBusVariant(3600)).variant().toUInt();
+        uint triggerTime = config.value("update/interval", 3600).toUInt();
 
 #ifdef QT_DEBUG
     qDebug() << "Last full update: " << lastFullUpdate;
@@ -243,7 +243,7 @@ void OcUpdater::startUpdatePrivate()
 #if defined(MEEGO_EDITION_HARMATTAN)
         transferItem = transferClient->registerTransfer(tr("Synchronizing ownCloud News"), TransferUI::Client::TRANSFER_TYPES_SYNC);
         transferItem->waitForCommit();
-        transferItem->setTargetName(config.getSetting(QString("server/domain"), QDBusVariant("")).variant().toString());
+        transferItem->setTargetName(config.value("server/domain", "").toString());
         transferItem->setName(tr("Updating Folders"));
         transferItem->setSize(0);
         transferItem->setCanPause(false);
@@ -450,4 +450,3 @@ void OcUpdater::setUpdateInterval(const int &nInterval)
             handleNetAndConfChanges();
     }
 }
-

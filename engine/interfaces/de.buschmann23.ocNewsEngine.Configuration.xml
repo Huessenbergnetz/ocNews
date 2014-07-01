@@ -19,11 +19,6 @@
         <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="QVariantMap"/>
         <arg name="config" type="a{sv}" direction="out" />
     </signal>
-    <method name="saveConfig">
-        <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="QVariantMap"/>
-        <arg name="config" type="a{sv}" direction="in" />
-    </method>
-    <signal name="savedConfig"/>
     <method name="cleanDatabase"/>
     <signal name="cleanedDatabase"/>
     <method name="getStatistics">

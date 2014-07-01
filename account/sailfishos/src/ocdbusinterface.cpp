@@ -13,7 +13,6 @@ OcDBusInterface::OcDBusInterface(QObject *parent) :
 
     configuration = new de::buschmann23::ocNewsEngine::Configuration("de.buschmann23.ocNewsEngine", "/Configuration", QDBusConnection::sessionBus(), this);
     connect(configuration, SIGNAL(gotConfig(QVariantMap)), this, SLOT(dbusGotConfig(QVariantMap)));
-    connect(configuration, SIGNAL(savedConfig()), this, SLOT(dbusSavedConfig()));
     connect(configuration, SIGNAL(cleanedDatabase()), this, SLOT(dbusCleanedDatabase()));
     connect(configuration, SIGNAL(gotStatistics(QVariantMap)), this, SLOT(dbusGotStatistics(QVariantMap)));
     connect(configuration, SIGNAL(cleanedCertificates()), this, SLOT(dbusCleanedCertificates()));
@@ -68,11 +67,6 @@ void OcDBusInterface::getConfig()
     configuration->getConfig();
 }
 
-void OcDBusInterface::saveConfig(QVariantMap config)
-{
-    configuration->saveConfig(config);
-}
-
 QVariant OcDBusInterface::getSetting(QString entry, QVariant defaultValue)
 {
     QDBusVariant dbvDefaultValue(defaultValue);
@@ -121,11 +115,6 @@ bool OcDBusInterface::isAccountEnabled()
 void OcDBusInterface::dbusGotConfig(const QVariantMap &config)
 {
     emit gotConfig(config);
-}
-
-void OcDBusInterface::dbusSavedConfig()
-{
-    emit savedConfig();
 }
 
 void OcDBusInterface::dbusCleanedDatabase()

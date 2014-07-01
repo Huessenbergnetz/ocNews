@@ -150,7 +150,7 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
         QSqlDatabase::database().commit();
     }
 
-    if ((!deleteFolderNames.isEmpty() || !newFolders.isEmpty()) && config.getSetting(QString("notifications/feedsFolders"), QDBusVariant(false)).variant().toBool())
+    if ((!deleteFolderNames.isEmpty() || !newFolders.isEmpty()) && config.value("notifications/feedsFolders", false).toBool())
     {
         QString summary = "";
         QString body = "";

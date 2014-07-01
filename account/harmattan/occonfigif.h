@@ -85,13 +85,6 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QLatin1String("resetConfig"), argumentList);
     }
 
-    inline QDBusPendingReply<> saveConfig(const QVariantMap &config)
-    {
-        QList<QVariant> argumentList;
-        argumentList << QVariant::fromValue(config);
-        return asyncCallWithArgumentList(QLatin1String("saveConfig"), argumentList);
-    }
-
     inline QDBusPendingReply<> setSetting(const QString &entry, const QDBusVariant &value)
     {
         QList<QVariant> argumentList;
@@ -105,7 +98,6 @@ Q_SIGNALS: // SIGNALS
     void cleanedDatabase();
     void gotConfig(const QVariantMap &config);
     void gotStatistics(const QVariantMap &stats);
-    void savedConfig();
 };
 
 namespace de {

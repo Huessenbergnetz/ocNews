@@ -14,7 +14,6 @@ public:
     Q_INVOKABLE void initConnection();
     // configuration
     Q_INVOKABLE void getConfig();
-    Q_INVOKABLE void saveConfig(QVariantMap config);
     Q_INVOKABLE QVariant getSetting(QString entry, QVariant defaultValue = "");
     Q_INVOKABLE void setSetting(QString entry, QVariant value);
     Q_INVOKABLE void resetConfig();
@@ -33,7 +32,6 @@ signals:
     void initSuccess();
     // configuration
     void gotConfig(const QVariantMap &config);
-    void savedConfig();
     void cleanedDatabase();
     void gotStatistics(const QVariantMap &stats);
     void cleanedCertificates();
@@ -52,7 +50,6 @@ private slots:
     void dbusInitSuccess();
     // configuration
     void dbusGotConfig(const QVariantMap &config);
-    void dbusSavedConfig();
     void dbusCleanedDatabase();
     void dbusGotStatistics(const QVariantMap &stats);
     void dbusCleanedCertificates();

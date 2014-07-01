@@ -30,7 +30,7 @@ int collectCertsForDeletion(int ordering, X509* cert, void* ctx)
 */
 
 OcConfiguration::OcConfiguration(QObject *parent) :
-    QObject(parent)
+    QSettings(parent)
 {
 }
 
@@ -53,91 +53,41 @@ QVariantMap OcConfiguration::getConfig()
 {
     QVariantMap config;
 
-    config["maxitems"] = settings.value("storage/maxitems", 100).toInt();
-    config["viewmode"] = settings.value("display/viewmode", 0).toInt();
-    config["orderby"] = settings.value("display/orderby", "id").toString();
-    config["handleimgs"] = settings.value("display/handleimgs", 0).toInt();
-    config["handleread"] = settings.value("display/handleread", 0).toInt();
-    config["sortasc"] = settings.value("display/sortasc", false).toBool();
-    config["fontsize"] = settings.value("display/fontsize", DEFAULT_FONT_SIZE).toInt();
-    config["hidereadfeeds"] = settings.value("display/hidereadfeeds", false).toBool();
-    config["showExcerpts"] = settings.value("display/excerpts", false).toBool();
-    config["showPicturesInList"] = settings.value("display/picturesInList", false).toBool();
-    config["privacyShown"] = settings.value("display/privacypolicy", false).toBool();
-    config["displayversion"] = settings.value("display/version", 0).toInt();
-    config["privateBrowsing"] = settings.value("privacy/privateBrowsing", false).toBool();
-    config["enableCookies"] = settings.value("privacy/enableCookies", true).toBool();
-    config["updatebehavior"] = settings.value("update/behavior", 0).toInt();
-    config["updateinterval"] = settings.value("update/interval", 3600).toInt();
-    config["eventfeeds"] = settings.value("event/feeds", "").toString();
-    config["quitengine"] = settings.value("engine/quitonclose", false).toBool();
-    config["notifyFeedsFolders"] = settings.value("notifications/feedsFolders", false).toBool();
-    config["notifyNewItems"] = settings.value("notifications/newItems", false).toBool();
+    config["maxitems"] = value("storage/maxitems", 100).toInt();
+    config["viewmode"] = value("display/viewmode", 0).toInt();
+    config["orderby"] = value("display/orderby", "id").toString();
+    config["handleimgs"] = value("display/handleimgs", 0).toInt();
+    config["handleread"] = value("display/handleread", 0).toInt();
+    config["sortasc"] = value("display/sortasc", false).toBool();
+    config["fontsize"] = value("display/fontsize", DEFAULT_FONT_SIZE).toInt();
+    config["hidereadfeeds"] = value("display/hidereadfeeds", false).toBool();
+    config["showExcerpts"] = value("display/excerpts", false).toBool();
+    config["showPicturesInList"] = value("display/picturesInList", false).toBool();
+    config["privacyShown"] = value("display/privacypolicy", false).toBool();
+    config["displayversion"] = value("display/version", 0).toInt();
+    config["privateBrowsing"] = value("privacy/privateBrowsing", false).toBool();
+    config["enableCookies"] = value("privacy/enableCookies", true).toBool();
+    config["updatebehavior"] = value("update/behavior", 0).toInt();
+    config["updateinterval"] = value("update/interval", 3600).toInt();
+    config["eventfeeds"] = value("event/feeds", "").toString();
+    config["quitengine"] = value("engine/quitonclose", false).toBool();
+    config["notifyFeedsFolders"] = value("notifications/feedsFolders", false).toBool();
+    config["notifyNewItems"] = value("notifications/newItems", false).toBool();
 #if !defined(MEEGO_EDITION_HARMATTAN)
-    config["enabled"] = settings.value("account/enabled", true).toBool();
-    config["uname"] = settings.value("account/user", "").toString();
-    config["pword"] = settings.value("account/password", "").toString();
-    config["server"] = settings.value("account/server", "").toString();
-    config["usessl"] = settings.value("account/usessl", true).toBool();
-    config["ignoresslerrors"] = settings.value("account/ignoresslerrors", false).toBool();
+    config["enabled"] = value("account/enabled", true).toBool();
+    config["uname"] = value("account/user", "").toString();
+    config["pword"] = value("account/password", "").toString();
+    config["server"] = value("account/server", "").toString();
+    config["usessl"] = value("account/usessl", true).toBool();
+    config["ignoresslerrors"] = value("account/ignoresslerrors", false).toBool();
 #else
-    config["userichtext"] = settings.value("display/richText", true).toBool();
-    config["themeinverted"] = settings.value("display/themeInverted", false).toBool();
+    config["userichtext"] = value("display/richText", true).toBool();
+    config["themeinverted"] = value("display/themeInverted", false).toBool();
 #endif
 
     emit gotConfig(config);
 
     return config;
-}
-
-
-
-/*!
- * \fn void OcConfiguration::saveConfig(const QVariantMap &config)
- * \brief Saves the default configuration options
- *
- * This functions saves the main configuration options that it get in
- * a QVariantMap. If used, you have to set every mapped item.
- *
- * \param config QVariantMap that contains the main configuration
- */
-
-void OcConfiguration::saveConfig(const QVariantMap &config)
-{
-    settings.setValue("storage/maxitems", config["maxitems"]);
-    settings.setValue("display/viewmode", config["viewmode"]);
-    settings.setValue("display/orderby", config["orderby"]);
-    settings.setValue("display/themecolor", config["themecolor"]);
-    settings.setValue("display/handleimgs", config["handleimgs"]);
-    settings.setValue("display/handleread", config["handleread"]);
-    settings.setValue("display/sortasc", config["sortasc"]);
-    settings.setValue("display/fontsize", config["fontsize"]);
-    settings.setValue("display/hidereadfeeds", config["hidereadfeeds"]);
-    settings.setValue("display/excerpts", config["showExcerpts"]);
-    settings.setValue("display/picturesInList", config["showPicturesInList"]);
-    settings.setValue("update/behavior", config["updatebehavior"]);
-    settings.setValue("update/interval", config["updateinterval"]);
-    settings.setValue("event/feeds", config["eventfeeds"]);
-    settings.setValue("engine/quitonclose", config["quitengine"]);
-    settings.setValue("notifications/feedsFolders", config["notifyFeedsFolders"]);
-    settings.setValue("notifications/newItems", config["notifyNewItems"]);
-#if !defined(MEEGO_EDITION_HARMATTAN)
-    settings.setValue("account/enabled", config["enabled"]);
-    settings.setValue("account/user", config["uname"]);
-    settings.setValue("account/password", config["pword"]);
-    settings.setValue("account/server", config["server"]);
-    settings.setValue("account/usessl", config["usessl"]);
-    settings.setValue("account/ignoresslerrors", config["ignoresslerrors"]);
-#else
-    settings.setValue("display/textformat", config["textformat"]);
-#endif
-    settings.sync();
-
-    emit savedConfig();
-
-#ifdef QT_DEBUG
-        qDebug() << "Saved configuration";
-#endif
 }
 
 
@@ -157,7 +107,7 @@ QDBusVariant OcConfiguration::getSetting(const QString &entry, const QDBusVarian
 {
     QDBusVariant result;
     QVariant qvResult;
-    qvResult = settings.value(entry, defaultValue.variant());
+    qvResult = value(entry, defaultValue.variant());
     result.setVariant(qvResult);
 
     return result;
@@ -181,7 +131,7 @@ void OcConfiguration::setSetting(const QString &entry, const QDBusVariant &value
 #ifdef QT_DEBUG
         qDebug() << "Set Setting: " << entry << " : " << setvalue;
 #endif
-    settings.setValue(entry, setvalue);
+    setValue(entry, setvalue);
 
     if (entry == "account/id")
         emit changedConfig();
@@ -269,8 +219,8 @@ QDBusVariant OcConfiguration::getStat(const int stat)
         if(query.next())
             qvResult = query.value(0);
     } else if (stat == 1) {
-        qvResult = settings.value("storage/lastFullUpdate", 0) == 0 ? 0 :
-                   QDateTime::fromTime_t(settings.value("storage/lastFullUpdate",0).toInt()).toLocalTime().toMSecsSinceEpoch();
+        qvResult = value("storage/lastFullUpdate", 0) == 0 ? 0 :
+                   QDateTime::fromTime_t(value("storage/lastFullUpdate",0).toInt()).toLocalTime().toMSecsSinceEpoch();
     }
 
     result.setVariant(qvResult);
@@ -310,8 +260,8 @@ QVariantMap OcConfiguration::getStatistics()
         stats["unreadCount"] = query.value(1);
         stats["folderCount"] = query.value(2);
         stats["feedCount"] = query.value(3);
-        stats["lastFullUpdate"] = settings.value("storage/lastFullUpdate", 0) == 0 ? 0 :
-                                  QDateTime::fromTime_t(settings.value("storage/lastFullUpdate", 0).toInt()).toLocalTime().toMSecsSinceEpoch();
+        stats["lastFullUpdate"] = value("storage/lastFullUpdate", 0) == 0 ? 0 :
+                                  QDateTime::fromTime_t(value("storage/lastFullUpdate", 0).toInt()).toLocalTime().toMSecsSinceEpoch();
     }
 
     emit gotStatistics(stats);
@@ -381,7 +331,7 @@ bool OcConfiguration::isConfigSet()
 
 #if defined(MEEGO_EDITION_HARMATTAN)
 
-    QString accountid = settings.value("account/id", "").toString();
+    QString accountid = value("account/id", "").toString();
 
     if (accountid != "") {
 
@@ -399,9 +349,9 @@ bool OcConfiguration::isConfigSet()
 
 #else
 
-    QString uname = settings.value("account/user", "").toString();
-    QString pword = settings.value("account/password", "").toString();
-    QString server = settings.value("account/server", "").toString();
+    QString uname = value("account/user", "").toString();
+    QString pword = value("account/password", "").toString();
+    QString server = value("account/server", "").toString();
 
     if (uname != "" && pword != "" && server != "")
         configStatus = true;
@@ -432,7 +382,7 @@ bool OcConfiguration::isAccountEnabled()
     accMan = new Accounts::Manager();
 
     Accounts::AccountId id;
-    id = settings.value("account/id", "").toInt();
+    id = value("account/id", "").toInt();
 
     account = accMan->account(id);
 
@@ -441,7 +391,7 @@ bool OcConfiguration::isAccountEnabled()
 
 #else
 
-    bool enabled = settings.value("account/enabled", false).toBool();
+    bool enabled = value("account/enabled", false).toBool();
     if (enabled)
         accountState = true;
 
@@ -476,7 +426,7 @@ QVariantMap OcConfiguration::getAccount()
         accMan = new Accounts::Manager();
 
         Accounts::AccountId id;
-        id = settings.value("account/id", "").toInt();
+        id = value("account/id", "").toInt();
 
         account = accMan->account(id);
 
@@ -501,12 +451,12 @@ QVariantMap OcConfiguration::getAccount()
         }
 #else
 
-        bool enabled = settings.value("account/enabled", false).toBool();
-        QString uname = settings.value("account/user", "").toString();
-        QString pword = settings.value("account/password", "").toString();
-        QString server = settings.value("account/server", "").toString();
-        bool usessl = settings.value("account/usessl", true).toBool();
-        bool ignoresslerror = settings.value("account/ignoresslerrors", false).toBool();
+        bool enabled = value("account/enabled", false).toBool();
+        QString uname = value("account/user", "").toString();
+        QString pword = value("account/password", "").toString();
+        QString server = value("account/server", "").toString();
+        bool usessl = value("account/usessl", true).toBool();
+        bool ignoresslerror = value("account/ignoresslerrors", false).toBool();
 
         if (!isConfigSet())
         {

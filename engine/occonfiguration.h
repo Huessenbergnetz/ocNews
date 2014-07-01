@@ -14,7 +14,7 @@
 #endif
 #include "../common/globals.h"
 
-class OcConfiguration : public QObject
+class OcConfiguration : public QSettings
 {
     Q_OBJECT
 public:
@@ -26,7 +26,6 @@ public Q_SLOTS: // METHODS
     QDBusVariant getSetting(const QString &entry, const QDBusVariant &defaultValue);
     QVariantMap getConfig();
     void resetConfig();
-    void saveConfig(const QVariantMap &config);
     void cleanDatabase();
     QVariantMap getStatistics();
     QDBusVariant getStat(const int stat);
@@ -40,7 +39,6 @@ signals:
 
 Q_SIGNALS: // SIGNALS
     void gotConfig(const QVariantMap &config);
-    void savedConfig();
     void cleanedDatabase();
     void gotStatistics(const QVariantMap &stats);
     void cleanedCertificates();

@@ -8,7 +8,6 @@
 #include <QTimer>
 #include "ochelper.h"
 #include "ocnetwork.h"
-#include "occonfiguration.h"
 #include "ocnotifications.h"
 #include "../common/globals.h"
 
@@ -39,7 +38,6 @@ private:
     OcNetwork network;
     QNetworkReply *reply;
     OcHelper helper;
-    OcConfiguration configuration;
     OcNotifications notify;
 
 };

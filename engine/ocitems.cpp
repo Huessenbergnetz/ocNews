@@ -86,11 +86,9 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
     QList<int> newItems; // list for fetching images
     QList<int> updatedItems;
     int unreadCount = 0;
-    QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
-    QStringList feedsForEventsList = feedsForEventView.split(",");
+    QStringList feedsForEventsList = config.value("event/feeds", "").toString().split(",");
 
 #ifdef QT_DEBUG
-    qDebug() << "EventViewString: " << feedsForEventView;
     qDebug() << "EventViewList: " << feedsForEventsList;
 #endif
 
@@ -239,7 +237,7 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
 #endif
     emit requestedItemsSuccess(updatedItems, newItems, idListDeleted);
 
-    if ((unreadCount > 0) && config.getSetting(QString("notifications/newItems"), QDBusVariant(false)).variant().toBool())
+    if ((unreadCount > 0) && config.value("notifications/newItems", false).toBool())
     {
         notify.showNotification(tr("%n new unread item(s)", "", unreadCount), tr("New articles available"), OcNotifications::Success);
     }
@@ -292,7 +290,7 @@ void OcItems::updateItems(const QString &lastModified, const QString &type, cons
                 } else if (type == "2") {
                     querystring = QString("SELECT MAX(lastModified) FROM items WHERE starred = ").append(SQL_TRUE);
                 } else if (type == "3") {
-                    t_lastModified = config.getSetting(QString("storage/lastFullUpdate"), QDBusVariant("")).variant().toString();
+                    t_lastModified = config.value("storage/lastFullUpdate", "").toString();
                     if (t_lastModified == "")
                         querystring = QString("SELECT MAX(lastModified) FROM items;");
                 }
@@ -377,11 +375,9 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
     QList<int> newItems; // list for fetching images
     QList<int> updatedItems;
     int unreadCount = 0;
-    QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
-    QStringList feedsForEventsList = feedsForEventView.split(",");
+    QStringList feedsForEventsList = config.value("event/feeds", "").toString().split(",");
 
 #ifdef QT_DEBUG
-    qDebug() << "EventViewString: " << feedsForEventView;
     qDebug() << "EventViewList: " << feedsForEventsList;
 #endif
 
@@ -487,7 +483,7 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
     if (type == "3")
     {
         QDateTime ts;
-        config.setSetting("storage/lastFullUpdate", QDBusVariant(ts.currentDateTimeUtc().toTime_t()));
+        config.setValue("storage/lastFullUpdate", ts.currentDateTimeUtc().toTime_t());
     }
 
 
@@ -522,7 +518,7 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
         QSqlDatabase::database().transaction();
         for (int i = 0; i < feedIds.size(); ++i)
         {
-            query.exec(QString("SELECT MIN(id) FROM (SELECT id FROM items WHERE feedId = %1 ORDER BY id DESC LIMIT %2);").arg(feedIds.at(i)).arg(config.getSetting(QString("storage/maxitems"), QDBusVariant(100)).variant().toInt()));
+            query.exec(QString("SELECT MIN(id) FROM (SELECT id FROM items WHERE feedId = %1 ORDER BY id DESC LIMIT %2);").arg(feedIds.at(i)).arg(config.value("storage/maxitems", 100).toInt()));
             if (query.next())
                 lowestId = query.value(0).toInt();
 
@@ -541,7 +537,7 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
 
     }
 
-    if ((unreadCount > 0) && config.getSetting(QString("notifications/newItems"), QDBusVariant(false)).variant().toBool())
+    if ((unreadCount > 0) && config.value("notifications/newItems", false).toBool())
     {
         notify.showNotification(tr("%n new unread item(s)", "", unreadCount), tr("New articles available"), OcNotifications::Success);
     }

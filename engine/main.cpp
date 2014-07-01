@@ -160,7 +160,7 @@ int main(int argc, char *argv[])
     OcConfiguration* configuration = new OcConfiguration;
     new OcConfigAdaptor(configuration);
 
-    int oldVersion = configuration->getSetting("system/version", QDBusVariant(0)).variant().toInt();
+    int oldVersion = configuration->value("system/version", 0).toInt();
     if (oldVersion > 0 && oldVersion < VERSION)
     {
         qDebug() << "Performing internal updrades.";
@@ -233,7 +233,7 @@ int main(int argc, char *argv[])
     connection.registerObject("/Account", account);
 #endif
 
-    configuration->setSetting("system/version", QDBusVariant(VERSION));
+    configuration->setValue("system/version", VERSION);
 
 //    MRemoteAction evenFeedAction("de.buschmann23.ocNewsEngine", "/Updater", "de.buschmann23.ocNewsEngine", "startUpdate");
 //    QDBusInterface eventFeedInterface("com.nokia.home.EventFeed", "/eventfeed", "com.nokia.home.EventFeed", QDBusConnection::sessionBus());

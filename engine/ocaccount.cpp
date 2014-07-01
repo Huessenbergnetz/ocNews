@@ -25,7 +25,7 @@ void OcAccount::edit()
     manager = new Accounts::Manager();
 
     Accounts::AccountId id;
-    id = config.getSetting(QString("account/id"), QDBusVariant("")).variant().toInt();
+    id = config.value("account/id", -1).variant().toInt();
     account = manager->account(id);
     proxy->editAccount(account, "");
 }

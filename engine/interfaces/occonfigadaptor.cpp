@@ -99,12 +99,6 @@ void OcConfigAdaptor::resetConfig()
     QMetaObject::invokeMethod(parent(), "resetConfig");
 }
 
-void OcConfigAdaptor::saveConfig(const QVariantMap &config)
-{
-    // handle method call de.buschmann23.ocNewsEngine.Configuration.saveConfig
-    QMetaObject::invokeMethod(parent(), "saveConfig", Q_ARG(QVariantMap, config));
-}
-
 void OcConfigAdaptor::setSetting(const QString &entry, const QDBusVariant &value)
 {
     // handle method call de.buschmann23.ocNewsEngine.Configuration.setSetting

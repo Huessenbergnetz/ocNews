@@ -48,11 +48,6 @@ class OcConfigAdaptor: public QDBusAbstractAdaptor
 "      <annotation value=\"QVariantMap\" name=\"com.trolltech.QtDBus.QtTypeName.In0\"/>\n"
 "      <arg direction=\"out\" type=\"a{sv}\" name=\"config\"/>\n"
 "    </signal>\n"
-"    <method name=\"saveConfig\">\n"
-"      <annotation value=\"QVariantMap\" name=\"com.trolltech.QtDBus.QtTypeName.In0\"/>\n"
-"      <arg direction=\"in\" type=\"a{sv}\" name=\"config\"/>\n"
-"    </method>\n"
-"    <signal name=\"savedConfig\"/>\n"
 "    <method name=\"cleanDatabase\"/>\n"
 "    <signal name=\"cleanedDatabase\"/>\n"
 "    <method name=\"getStatistics\">\n"
@@ -93,7 +88,6 @@ public Q_SLOTS: // METHODS
     bool isAccountEnabled();
     bool isConfigSet();
     void resetConfig();
-    void saveConfig(const QVariantMap &config);
     void setSetting(const QString &entry, const QDBusVariant &value);
 Q_SIGNALS: // SIGNALS
     void changedConfig();
@@ -101,7 +95,6 @@ Q_SIGNALS: // SIGNALS
     void cleanedDatabase();
     void gotConfig(const QVariantMap &config);
     void gotStatistics(const QVariantMap &stats);
-    void savedConfig();
 };
 
 #endif
