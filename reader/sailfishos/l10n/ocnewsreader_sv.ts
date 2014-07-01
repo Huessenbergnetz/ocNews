@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv" sourcelanguage="en" version="2.0">
 <context>
     <name>About</name>
     <message>
@@ -420,7 +420,7 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+103"/>
+        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+99"/>
         <source>Empty folder</source>
         <translation type="unfinished"/>
     </message>
@@ -515,7 +515,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+6"/>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+40"/>
         <source>Delete feed</source>
         <translation type="unfinished"/>
     </message>
@@ -565,22 +570,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-106"/>
-        <source>Search</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+148"/>
-        <source>Show newest on top</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Show oldest on top</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-17"/>
+        <location line="+25"/>
         <source>Show</source>
         <translation type="unfinished"/>
     </message>
@@ -597,6 +587,16 @@
     <message>
         <location line="+7"/>
         <source>Read articles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Show newest on top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Show oldest on top</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -663,6 +663,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <location line="+5"/>
+        <source>No unread or favorite articles to show. Enable your option to show hide read feeds and folders to see content.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location line="+24"/>
         <source>Scroll to top</source>
         <translation type="unfinished"/>
@@ -706,12 +711,12 @@
     <message>
         <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
         <location line="+99"/>
-        <location line="+199"/>
+        <location line="+201"/>
         <source>Uncategorized</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-294"/>
+        <location line="-296"/>
         <source>All posts</source>
         <translation type="unfinished"/>
     </message>
@@ -820,7 +825,7 @@
 <context>
     <name>OcSingleItemModelNew</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+431"/>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
         <source>Today</source>
         <translation type="unfinished"/>
     </message>
@@ -1130,7 +1135,22 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-21"/>
+        <location line="-43"/>
+        <source>Delete database</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Reset configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Test connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+13"/>
         <source>User name</source>
         <translation type="unfinished"/>
     </message>
@@ -1145,12 +1165,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-34"/>
-        <source>Test connection</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+62"/>
+        <location line="+28"/>
         <source>Found ownCloud News Version %1</source>
         <translation type="unfinished"/>
     </message>
@@ -1381,17 +1396,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-312"/>
-        <source>Reset configuration</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-4"/>
-        <source>Delete database</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+322"/>
+        <location line="+6"/>
         <source>Privacy</source>
         <translation type="unfinished"/>
     </message>
@@ -1524,7 +1529,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+6"/>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+40"/>
         <source>Hide sorting options</source>
         <translation type="unfinished"/>
     </message>
@@ -1579,12 +1589,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-99"/>
-        <source>Search</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+120"/>
+        <location line="+21"/>
         <source>Show newest on top</source>
         <translation type="unfinished"/>
     </message>

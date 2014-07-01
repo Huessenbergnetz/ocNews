@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" sourcelanguage="en" version="2.0">
 <context>
     <name>About</name>
     <message>
@@ -420,7 +420,7 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+103"/>
+        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+99"/>
         <source>Empty folder</source>
         <translation>空文件夹</translation>
     </message>
@@ -515,7 +515,12 @@
         <translation>更新进行中</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+6"/>
+        <source>Search</source>
+        <translation>搜索</translation>
+    </message>
+    <message>
+        <location line="+40"/>
         <source>Delete feed</source>
         <translation>删除订阅</translation>
     </message>
@@ -565,22 +570,7 @@
         <translation>正在删除订阅%1</translation>
     </message>
     <message>
-        <location line="-106"/>
-        <source>Search</source>
-        <translation>搜索</translation>
-    </message>
-    <message>
-        <location line="+148"/>
-        <source>Show newest on top</source>
-        <translation>在顶部显示最新条目</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Show oldest on top</source>
-        <translation>在顶部显示最旧条目</translation>
-    </message>
-    <message>
-        <location line="-17"/>
+        <location line="+25"/>
         <source>Show</source>
         <translation>显示</translation>
     </message>
@@ -598,6 +588,16 @@
         <location line="+7"/>
         <source>Read articles</source>
         <translation>阅读文章</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Show newest on top</source>
+        <translation>在顶部显示最新条目</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Show oldest on top</source>
+        <translation>在顶部显示最旧条目</translation>
     </message>
 </context>
 <context>
@@ -663,6 +663,11 @@
         <translation>本地数据库为空，请尝试更新或添加新的订阅。</translation>
     </message>
     <message>
+        <location line="+5"/>
+        <source>No unread or favorite articles to show. Enable your option to show hide read feeds and folders to see content.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location line="+24"/>
         <source>Scroll to top</source>
         <translation>回到顶部</translation>
@@ -706,12 +711,12 @@
     <message>
         <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
         <location line="+99"/>
-        <location line="+199"/>
+        <location line="+201"/>
         <source>Uncategorized</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-294"/>
+        <location line="-296"/>
         <source>All posts</source>
         <translation type="unfinished"/>
     </message>
@@ -820,7 +825,7 @@
 <context>
     <name>OcSingleItemModelNew</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+431"/>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
         <source>Today</source>
         <translation type="unfinished"/>
     </message>
@@ -1130,7 +1135,22 @@
         <translation>服务器</translation>
     </message>
     <message>
-        <location line="-21"/>
+        <location line="-43"/>
+        <source>Delete database</source>
+        <translation>删除数据库</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Reset configuration</source>
+        <translation>重置设定</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Test connection</source>
+        <translation>测试连接</translation>
+    </message>
+    <message>
+        <location line="+13"/>
         <source>User name</source>
         <translation>用户名</translation>
     </message>
@@ -1145,12 +1165,7 @@
         <translation>服务器：如 cloud.example.com</translation>
     </message>
     <message>
-        <location line="-34"/>
-        <source>Test connection</source>
-        <translation>测试连接</translation>
-    </message>
-    <message>
-        <location line="+62"/>
+        <location line="+28"/>
         <source>Found ownCloud News Version %1</source>
         <translation>找到ownCloud新闻版本%1</translation>
     </message>
@@ -1381,17 +1396,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-312"/>
-        <source>Reset configuration</source>
-        <translation>重置设定</translation>
-    </message>
-    <message>
-        <location line="-4"/>
-        <source>Delete database</source>
-        <translation>删除数据库</translation>
-    </message>
-    <message>
-        <location line="+322"/>
+        <location line="+6"/>
         <source>Privacy</source>
         <translation type="unfinished"/>
     </message>
@@ -1524,7 +1529,12 @@
         <translation>更新进行中</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+6"/>
+        <source>Search</source>
+        <translation>搜索</translation>
+    </message>
+    <message>
+        <location line="+40"/>
         <source>Hide sorting options</source>
         <translation>隐藏排序选项</translation>
     </message>
@@ -1579,12 +1589,7 @@
         <translation>正在标记所有条目为已读</translation>
     </message>
     <message>
-        <location line="-99"/>
-        <source>Search</source>
-        <translation>搜索</translation>
-    </message>
-    <message>
-        <location line="+120"/>
+        <location line="+21"/>
         <source>Show newest on top</source>
         <translation>在顶部显示最新条目</translation>
     </message>

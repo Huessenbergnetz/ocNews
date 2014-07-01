@@ -107,7 +107,7 @@ Page {
 
         ViewPlaceholder {
             enabled: configState === 0 && mainViewList.count === 0 && config.hideReadFeeds
-            text: qsTr("No unread or favorite articles to show. Change your option to show hide read feeds and folders to see content.")
+            text: qsTr("No unread or favorite articles to show. Enable your option to show hide read feeds and folders to see content.")
         }
 
         model: configState === 0 ? config.viewMode === 0 ? foldersModelFilter : combinedModelFilter : null

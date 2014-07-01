@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" sourcelanguage="en" version="2.0">
 <context>
     <name>OcDownloadManager</name>
     <message>
@@ -237,17 +237,17 @@
         <source>HTTP error</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <location line="-119"/>
-        <location line="+302"/>
-        <source>New articles available</source>
-        <translation type="unfinished"/>
-    </message>
     <message numerus="yes">
-        <location line="-302"/>
+        <location line="-119"/>
         <location line="+302"/>
         <source>%n new unread item(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <location line="-302"/>
+        <location line="+302"/>
+        <source>New articles available</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+148"/>

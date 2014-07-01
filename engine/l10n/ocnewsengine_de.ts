@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" sourcelanguage="en" version="2.0">
 <context>
     <name>OcDownloadManager</name>
     <message>
@@ -36,7 +36,7 @@
     <message numerus="yes">
         <location line="+175"/>
         <source>%n feed(s) added</source>
-        <translation><numerusform>%n Feed hinzugefügt</numerusform><numerusform>%n Feeds hinzugefügt</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -46,7 +46,7 @@
     <message numerus="yes">
         <location line="+11"/>
         <source>%n feed(s) removed</source>
-        <translation><numerusform>%n Feed entfernt</numerusform><numerusform>%n Feeds entfernt</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -113,7 +113,7 @@
     <message numerus="yes">
         <location line="+102"/>
         <source>%n folder(s) added</source>
-        <translation><numerusform>%n Ordner hinzugefügt</numerusform><numerusform>%n Ordner hinzugefügt</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -123,7 +123,7 @@
     <message numerus="yes">
         <location line="+11"/>
         <source>%n folder(s) removed</source>
-        <translation><numerusform>%n Ordner entfernt</numerusform><numerusform>%n Ordner entfernt</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -237,17 +237,17 @@
         <source>HTTP error</source>
         <translation>HTTP-Fehler</translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location line="-119"/>
+        <location line="+302"/>
+        <source>%n new unread item(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <location line="-302"/>
         <location line="+302"/>
         <source>New articles available</source>
         <translation>Neue Artikel verfügbar</translation>
-    </message>
-    <message numerus="yes">
-        <location line="-302"/>
-        <location line="+302"/>
-        <source>%n new unread item(s)</source>
-        <translation><numerusform>%n neuer ungelesener Eintrag</numerusform><numerusform>%n neue ungelesene Einträge</numerusform></translation>
     </message>
     <message>
         <location line="+148"/>

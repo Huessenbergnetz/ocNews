@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" sourcelanguage="en" version="2.0">
 <context>
     <name>About</name>
     <message>
@@ -420,7 +420,7 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+103"/>
+        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+99"/>
         <source>Empty folder</source>
         <translation>Dossier vide</translation>
     </message>
@@ -515,7 +515,12 @@
         <translation>Mise à jour en cours...</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+6"/>
+        <source>Search</source>
+        <translation>Rechercher</translation>
+    </message>
+    <message>
+        <location line="+40"/>
         <source>Delete feed</source>
         <translation>Supprimer le flux</translation>
     </message>
@@ -565,22 +570,7 @@
         <translation>Suppression du flux %1</translation>
     </message>
     <message>
-        <location line="-106"/>
-        <source>Search</source>
-        <translation>Rechercher</translation>
-    </message>
-    <message>
-        <location line="+148"/>
-        <source>Show newest on top</source>
-        <translation>Afficher le plus récent en premier</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Show oldest on top</source>
-        <translation>Afficher le plus vieux en premier</translation>
-    </message>
-    <message>
-        <location line="-17"/>
+        <location line="+25"/>
         <source>Show</source>
         <translation>Afficher</translation>
     </message>
@@ -598,6 +588,16 @@
         <location line="+7"/>
         <source>Read articles</source>
         <translation>Articles lus</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Show newest on top</source>
+        <translation>Afficher le plus récent en premier</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Show oldest on top</source>
+        <translation>Afficher le plus vieux en premier</translation>
     </message>
 </context>
 <context>
@@ -663,6 +663,11 @@
         <translation>La base de donnée locale est vide. Veuillez mettre à jour ou ajouter des flux et des dossiers.</translation>
     </message>
     <message>
+        <location line="+5"/>
+        <source>No unread or favorite articles to show. Enable your option to show hide read feeds and folders to see content.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location line="+24"/>
         <source>Scroll to top</source>
         <translation>Remonter au début</translation>
@@ -706,12 +711,12 @@
     <message>
         <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
         <location line="+99"/>
-        <location line="+199"/>
+        <location line="+201"/>
         <source>Uncategorized</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-294"/>
+        <location line="-296"/>
         <source>All posts</source>
         <translation type="unfinished"/>
     </message>
@@ -820,7 +825,7 @@
 <context>
     <name>OcSingleItemModelNew</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+431"/>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
         <source>Today</source>
         <translation type="unfinished"/>
     </message>
@@ -1130,7 +1135,22 @@
         <translation>Serveur</translation>
     </message>
     <message>
-        <location line="-21"/>
+        <location line="-43"/>
+        <source>Delete database</source>
+        <translation>Effacer la base de donnée</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Reset configuration</source>
+        <translation>Réinitialiser la configuration</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Test connection</source>
+        <translation>Tester la connexion</translation>
+    </message>
+    <message>
+        <location line="+13"/>
         <source>User name</source>
         <translation>Nom d&apos;utilisateur</translation>
     </message>
@@ -1145,12 +1165,7 @@
         <translation>Serveur: par exemple cloud.example.com</translation>
     </message>
     <message>
-        <location line="-34"/>
-        <source>Test connection</source>
-        <translation>Tester la connexion</translation>
-    </message>
-    <message>
-        <location line="+62"/>
+        <location line="+28"/>
         <source>Found ownCloud News Version %1</source>
         <translation>Version %1 de ownCloud News détectée</translation>
     </message>
@@ -1381,17 +1396,7 @@
         <translation>Notifier lors de nouveaux articles</translation>
     </message>
     <message>
-        <location line="-312"/>
-        <source>Reset configuration</source>
-        <translation>Réinitialiser la configuration</translation>
-    </message>
-    <message>
-        <location line="-4"/>
-        <source>Delete database</source>
-        <translation>Effacer la base de donnée</translation>
-    </message>
-    <message>
-        <location line="+322"/>
+        <location line="+6"/>
         <source>Privacy</source>
         <translation type="unfinished"/>
     </message>
@@ -1524,7 +1529,12 @@
         <translation>Mise à jour en cours...</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+6"/>
+        <source>Search</source>
+        <translation>Rechercher</translation>
+    </message>
+    <message>
+        <location line="+40"/>
         <source>Hide sorting options</source>
         <translation>Masquer les options de tri</translation>
     </message>
@@ -1579,12 +1589,7 @@
         <translation>Marquage de tous les articles comme lus</translation>
     </message>
     <message>
-        <location line="-99"/>
-        <source>Search</source>
-        <translation>Rechercher</translation>
-    </message>
-    <message>
-        <location line="+120"/>
+        <location line="+21"/>
         <source>Show newest on top</source>
         <translation>Afficher le plus récent en premier</translation>
     </message>

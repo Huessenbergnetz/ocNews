@@ -422,7 +422,7 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+103"/>
+        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+99"/>
         <source>Empty folder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -665,6 +665,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+5"/>
+        <source>No unread or favorite articles to show. Enable your option to show hide read feeds and folders to see content.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+24"/>
         <source>Scroll to top</source>
         <translation type="unfinished"></translation>
@@ -708,12 +713,12 @@
     <message>
         <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
         <location line="+99"/>
-        <location line="+199"/>
+        <location line="+201"/>
         <source>Uncategorized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-294"/>
+        <location line="-296"/>
         <source>All posts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -822,7 +827,7 @@
 <context>
     <name>OcSingleItemModelNew</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+431"/>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
         <source>Today</source>
         <translation type="unfinished"></translation>
     </message>

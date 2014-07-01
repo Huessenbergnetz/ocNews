@@ -1,19 +1,19 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" sourcelanguage="en" version="2.0">
 <context>
     <name>About</name>
     <message>
-        <location filename="../qml/ocNewsReader/Pages/About.qml" line="+22"/>
-        <location line="+301"/>
+        <location filename="../qml/ocNewsReader/Pages/About.qml" line="+24"/>
+        <location line="+299"/>
         <source>About</source>
         <translation>Über</translation>
     </message>
     <message>
-        <location line="-263"/>
+        <location line="-253"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>Der ownCloud News App Client für Harmattan</translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+24"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
         <translation>Lizensiert unter der &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
@@ -53,7 +53,7 @@
         <translation>Webseite besuchen</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+26"/>
         <source>Upstream author</source>
         <translation>Urheber</translation>
     </message>
@@ -118,7 +118,7 @@
         <translation>Martin Grimmes Tidings-Elemente</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+26"/>
         <source>Version</source>
         <translation>Version</translation>
     </message>
@@ -494,7 +494,7 @@
         <translation>ocNews ist ein Client für die ownCloud News App, einen cloud-basierten RSS/Atom-Feed-Aggregator.</translation>
     </message>
     <message>
-        <location line="+73"/>
+        <location line="+59"/>
         <source>ocNews</source>
         <translation>ocNews</translation>
     </message>
@@ -525,7 +525,7 @@
         <translation>Ihr Benutzerkonto ist zur Zeit deaktiviert. Um ocNews nutzen zu können müssen Sie es aktivieren.</translation>
     </message>
     <message>
-        <location line="+116"/>
+        <location line="+118"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
@@ -676,12 +676,12 @@
     <message>
         <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
         <location line="+99"/>
-        <location line="+199"/>
+        <location line="+201"/>
         <source>Uncategorized</source>
         <translation>Unkatekorisiert</translation>
     </message>
     <message>
-        <location line="-294"/>
+        <location line="-296"/>
         <source>All posts</source>
         <translation>Alle Artikel</translation>
     </message>
@@ -790,7 +790,7 @@
 <context>
     <name>OcSingleItemModelNew</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+431"/>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
         <source>Today</source>
         <translation>Heute</translation>
     </message>
@@ -839,6 +839,134 @@
         <location line="+1"/>
         <source>hh:mm</source>
         <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>PayPalChooser</name>
+    <message>
+        <location filename="../qml/ocNewsReader/Common/PayPalChooser.qml" line="+107"/>
+        <source>Currency</source>
+        <translation>Währung</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Euro</source>
+        <translation>Euro</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>US Dollar</source>
+        <translation>US Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Australian Dollar</source>
+        <translation>Australischer Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Brazilian Real</source>
+        <translation>Brasilianischer Real</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Pound Sterling</source>
+        <translation>Pfund Sterling</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Danish Krone</source>
+        <translation>Dänische Krone</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Hong Kong Dollar</source>
+        <translation>Hongkong Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Israel New Shekel</source>
+        <translation>Israelischer Schekel</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Japanese Yen</source>
+        <translation>Japanischer Yen</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Canadian Dollar</source>
+        <translation>Kanadischer Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Mexican Peso</source>
+        <translation>Mexikanischer Peso</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>New Taiwan Dollar</source>
+        <translation>Neuer Taiwan-Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>New Zealand Dollar</source>
+        <translation>Neuseeland-Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Norwegian Krone</source>
+        <translation>Norwegische Krone</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Philippine Peso</source>
+        <translation>Philippinischer Peso</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Polish Zloty</source>
+        <translation>Polnischer Zloty</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Russian Ruble</source>
+        <translation>Russischer Rubel</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Swedish Krone</source>
+        <translation>Schwedische Krone</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Swiss Franc</source>
+        <translation>Schweizer Franken</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Singapore Dollar</source>
+        <translation>Singapur-Dollar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Thai Baht</source>
+        <translation>Thailändischer Baht</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Czech Koruna</source>
+        <translation>Tschechische Koruna</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Hungarian Forint</source>
+        <translation>Ungarischer Forint</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Donate via PayPal</source>
+        <translation>Über PayPal spenden</translation>
     </message>
 </context>
 <context>
@@ -1114,7 +1242,17 @@
         <translation>Aktualisierungsintervall</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+13"/>
+        <source>Use prettier but slower Rich Text</source>
+        <translation>Nutze schöneren aber langsameren Rich Text</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Invert the theme color</source>
+        <translation>Themen-Farbe invertieren</translation>
+    </message>
+    <message>
+        <location line="+7"/>
         <source>On request</source>
         <translation>Auf Anfrage</translation>
     </message>
@@ -1164,17 +1302,7 @@
         <translation>Artikelauszug in Liste anzeigen</translation>
     </message>
     <message>
-        <location line="-64"/>
-        <source>Use prettier but slower Rich Text</source>
-        <translation>Nutze schöneren aber langsameren Rich Text</translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>Invert the theme color</source>
-        <translation>Themen-Farbe invertieren</translation>
-    </message>
-    <message>
-        <location line="+76"/>
+        <location line="+21"/>
         <source>Item view font size:</source>
         <translation>Schriftgröße in der Nachrichtenansicht</translation>
     </message>
@@ -1495,6 +1623,40 @@
         <location line="+10"/>
         <source>Share</source>
         <translation>Teilen</translation>
+    </message>
+</context>
+<context>
+    <name>StartUpInfoSheet</name>
+    <message>
+        <location filename="../qml/ocNewsReader/Sheets/StartUpInfoSheet.qml" line="+44"/>
+        <source>Welcome to %1 %2</source>
+        <comment>First is app name, second is version number</comment>
+        <translation>Willkommen zu %1 %2</translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Last changes</source>
+        <translation>Letzte Änderungen</translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Donate</source>
+        <translation>Spenden</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>If you like ocNews and have not purchased it alread via Ovi Store and you want to support the development, consider a small donation.</source>
+        <translation>Wenn Ihnen ocNews gefällt und Sie es nicht bereits im Nokia/Ovi Store gekauft haben, denken Sie doch über eine kleine Spende nach.</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Help</source>
+        <translation>Hilfe</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Close</source>
+        <translation>Schließen</translation>
     </message>
 </context>
 <context>
