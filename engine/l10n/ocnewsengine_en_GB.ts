@@ -226,40 +226,40 @@
     <name>OcItems</name>
     <message>
         <location filename="../ocitems.cpp" line="+17"/>
-        <location line="+243"/>
-        <location line="+607"/>
+        <location line="+241"/>
+        <location line="+605"/>
         <source>Device is in flight mode.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-805"/>
+        <location line="-801"/>
         <location line="+1"/>
-        <location line="+290"/>
+        <location line="+288"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-292"/>
-        <location line="+291"/>
+        <location line="-290"/>
+        <location line="+289"/>
         <source>Error in server reply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-283"/>
-        <location line="+293"/>
+        <location line="-281"/>
+        <location line="+291"/>
         <source>HTTP error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-119"/>
-        <location line="+302"/>
+        <location line="+300"/>
         <source>New articles available</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="-302"/>
-        <location line="+302"/>
+        <location line="-300"/>
+        <location line="+300"/>
         <source>%n new unread item(s)</source>
         <translation>
             <numerusform>%n new unread item</numerusform>
@@ -281,7 +281,7 @@
 <context>
     <name>OcUpdater</name>
     <message>
-        <location filename="../ocupdater.cpp" line="+235"/>
+        <location filename="../ocupdater.cpp" line="+217"/>
         <source>Your account is disabled or you have not created an account yet.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -311,7 +311,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+33"/>
         <source>Update Failed</source>
         <translation type="unfinished"></translation>
     </message>

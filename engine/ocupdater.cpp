@@ -35,9 +35,11 @@ OcUpdater::OcUpdater(QObject *parent) :
     batteryInfo = new QSystemBatteryInfo();
     timer = new QSystemAlignedTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(startUpdateTimed()));
-    timer->setMinimumInterval(0);
-    timer->setMaximumInterval(m_interval + TIMER_DELTA);
-    timer->start();
+    if (m_updateBehavior != 0) {
+        timer->setMinimumInterval(0);
+        timer->setMaximumInterval(m_interval + TIMER_DELTA);
+        timer->start();
+    }
 
 #ifdef QT_DEBUG
     qDebug() << "Initial update minimum interval: " << timer->minimumInterval();
@@ -49,7 +51,8 @@ OcUpdater::OcUpdater(QObject *parent) :
 #else
     m_timer = new BackgroundActivity(this);
     connect(m_timer, SIGNAL(running()), this, SLOT(startUpdateTimed()));
-    m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
+    if (m_updateBehavior != 0)
+        m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
 
 #ifdef QT_DEBUG
     qDebug() << "Initial update minimum interval: " << m_interval - TIMER_DELTA;
@@ -176,10 +179,12 @@ void OcUpdater::startUpdateTimed()
         {
             startUpdatePrivate();
         } else {
-            m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
+            if (m_updateBehavior != 0)
+                m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
         }
     } else {
-        m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
+        if (m_updateBehavior != 0)
+            m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
     }
 
 #endif
@@ -347,7 +352,8 @@ void OcUpdater::endUpdate()
         delete transferItem;
         transferItem = 0;
 #else
-        m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
+        if (m_updateBehavior != 0)
+            m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
 #endif
 
         updateRunning = false;
@@ -376,7 +382,8 @@ void OcUpdater::errorInUpdate(QString errorMessage)
 #if defined(MEEGO_EDITION_HARMATTAN)
         transferItem->markFailure(tr("Update Failed"), errorMessage);
 #else
-        m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
+        if (m_updateBehavior != 0)
+            m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
 #endif
 
         updateRunning = false;
@@ -417,7 +424,28 @@ bool OcUpdater::isUpdateRunning()
 void OcUpdater::setUpdateBehavior(const int &nBehavior)
 {
     if (nBehavior != m_updateBehavior) {
+        int oldBehavior = m_updateBehavior;
         m_updateBehavior = nBehavior;
+
+        if (oldBehavior == 0 && nBehavior != 0) {
+
+#if defined(MEEGO_EDITION_HARMATTAN)
+            timer->setMinimumInterval(m_interval - TIMER_DELTA);
+            timer->setMaximumInterval(m_interval + TIMER_DELTA);
+            timer->start();
+#else
+            m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
+#endif
+
+        } else if (oldBehavior != 0 && nBehavior == 0) {
+
+#if defined(MEEGO_EDITION_HARMATTAN)
+            timer->stop();
+#else
+            m_timer->stop();
+#endif
+        }
+
         if (m_updateBehavior != 0)
             handleNetAndConfChanges();
     }

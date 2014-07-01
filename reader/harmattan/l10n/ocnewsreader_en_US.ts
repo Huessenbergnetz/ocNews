@@ -344,7 +344,7 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+85"/>
+        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+84"/>
         <source>Empty folder</source>
         <translation type="unfinished"></translation>
     </message>
