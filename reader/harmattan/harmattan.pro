@@ -110,7 +110,8 @@ SOURCES += main.cpp \
     ../common/models/ocsingleitemmodelsql.cpp \
     ../common/models/ocitemsmodelsql.cpp \
     ../common/models/objects/ocitemobject.cpp \
-    ../common/models/ocspecialitemsmodelquery.cpp
+    ../common/models/ocspecialitemsmodelquery.cpp \
+    ../common/models/ocitemsquery.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -168,7 +169,7 @@ HEADERS += \
     ../common/models/objects/ocfolerdobject.h \
     ../common/models/objects/ocfeedobjec.h \
     ../common/models/objects/occombinedobject.h \
-    ../common/models/ocspecialitemsmodelquery.h
+    ../common/models/ocitemsquery.h
 
 OTHER_FILES += \
     ../common/dbus/adaptor/de.buschmann23.ocNewsReader.xml \

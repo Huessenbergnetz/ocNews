@@ -5,7 +5,7 @@
 #include <QSqlQuery>
 #include <QStringList>
 #include "ocmodelhelper.h"
-#include "ocspecialitemsmodelquery.h"
+#include "ocitemsquery.h"
 #include "../../../common/globals.h"
 #include "objects/ocitemobject.h"
 

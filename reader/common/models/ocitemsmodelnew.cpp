@@ -124,62 +124,63 @@ void OcItemsModelNew::init()
 
     length = query.value(0).toInt();
 
-    query.clear();
+    if (length > 0) {
 
-    queryString = QString("SELECT it.id, "
-                                 "it.title, "
-                                 "it.pubDate, "
-                                 "it.enclosureLink, "
-                                 "it.enclosureMime, "
-                                 "it.unread, "
-                                 "it.starred, "
-                                 "it.url, "
-                                 "it.guidHash, ");
+        query.clear();
 
-    if (showExcerpts()) {
-        queryString.append("it.body AS excerpt, ");
-    } else {
-        queryString.append("'' AS excerpt, ");
+        queryString = QString("SELECT it.id, "
+                                     "it.title, "
+                                     "it.pubDate, "
+                                     "it.enclosureLink, "
+                                     "it.enclosureMime, "
+                                     "it.unread, "
+                                     "it.starred, "
+                                     "it.url, "
+                                     "it.guidHash, ");
+
+        if (showExcerpts()) {
+            queryString.append("it.body AS excerpt, ");
+        } else {
+            queryString.append("'' AS excerpt, ");
+        }
+
+        if (showImages()) {
+            queryString.append("(SELECT DISTINCT path FROM images WHERE parentId = it.id AND height > 50 ORDER BY width, height LIMIT 1) AS image ");
+        } else {
+            queryString.append("'' AS image ");
+        }
+
+        queryString.append(QString("FROM items it WHERE feedId = %1").arg(feedId()));
+
+        queryString.append(" ORDER BY pubDate DESC");
+
+        query.exec(queryString);
+
+
+        beginInsertRows(QModelIndex(), 0, length-1);
+
+        OcItemsQuery *queryThread = new OcItemsQuery(this);
+        connect(queryThread, SIGNAL(gotRecord(OcItemObject*)), this, SLOT(gotItem(OcItemObject*)));
+        connect(queryThread, SIGNAL(finished()), this, SLOT(queryFinished()));
+        connect(queryThread, SIGNAL(finished()), queryThread, SLOT(deleteLater()));
+        queryThread->startQuery(queryString, false);
+
+    } else  {
+        setPopulating(false);
     }
+}
 
-    if (showImages()) {
-        queryString.append("(SELECT DISTINCT path FROM images WHERE parentId = it.id AND height > 50 ORDER BY width, height LIMIT 1) AS image ");
-    } else {
-        queryString.append("'' AS image ");
-    }
 
-    queryString.append(QString("FROM items it WHERE feedId = %1").arg(feedId()));
+void OcItemsModelNew::gotItem(OcItemObject *item)
+{
+    m_items.append(item);
+}
 
-    queryString.append(" ORDER BY pubDate DESC");
 
-    query.exec(queryString);
-
-    beginInsertRows(QModelIndex(), 0, length-1);
-
-    while(query.next())
-    {
-
-        OcItemObject *iobj = new OcItemObject(query.value(0).toInt(),
-                                              query.value(1).toString(),
-                                              query.value(2).toUInt(),
-                                              query.value(3).toString(),
-                                              query.value(4).toString(),
-                                              query.value(5).toBool(),
-                                              query.value(6).toBool(),
-                                              query.value(7).toString(),
-                                              query.value(8).toString(),
-                                              helper.prepareBody(query.value(9).toString()),
-                                              query.value(10).toString(),
-                                              "",
-                                              -1);
-        m_items.append(iobj);
-    }
-
-    endInsertRows();
-
-    query.clear();
-
+void OcItemsModelNew::queryFinished()
+{
     setPopulating(false);
+    endInsertRows();
 }
 
 

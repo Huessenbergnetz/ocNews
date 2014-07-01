@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QStringList>
 #include "objects/ocitemobject.h"
+#include "ocitemsquery.h"
 
 #include "ocmodelhelper.h"
 
@@ -67,6 +68,8 @@ public slots:
 
 private slots:
     void clearByTimer();
+    void gotItem(OcItemObject *item);
+    void queryFinished();
 
 private:
     QList<OcItemObject*> m_items;
