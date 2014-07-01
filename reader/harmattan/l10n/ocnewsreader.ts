@@ -344,14 +344,23 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+84"/>
+        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+85"/>
         <source>Empty folder</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location line="+0"/>
-        <source>%1 unread posts in %2 feeds</source>
-        <translation type="unfinished"></translation>
+        <source>%n unread post(s) in</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location line="+0"/>
+        <source>%n feed(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>

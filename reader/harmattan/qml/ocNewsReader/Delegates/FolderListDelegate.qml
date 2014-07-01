@@ -81,7 +81,7 @@ Item {
 
             Label {
                 id: subText
-                text: model.feedCount === 0 ? qsTr("Empty folder") : qsTr("%1 unread posts in %2 feeds").arg(model.unreadCount).arg(model.feedCount);
+                text: model.feedCount === 0 ? qsTr("Empty folder") : qsTr("%n unread post(s) in", "", model.unreadCount) + " " + qsTr("%n feed(s)", "", model.feedCount)
                 font.family: folderListItem.subtitleFont
                 font.weight: folderListItem.subtitleWeight
                 font.pixelSize: folderListItem.subtitleSize

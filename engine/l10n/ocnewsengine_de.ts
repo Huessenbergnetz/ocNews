@@ -36,7 +36,7 @@
     <message numerus="yes">
         <location line="+175"/>
         <source>%n feed(s) added</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n Feed hinzugefügt</numerusform><numerusform>%n Feeds hinzugefügt</numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -46,7 +46,7 @@
     <message numerus="yes">
         <location line="+11"/>
         <source>%n feed(s) removed</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n Feed entfernt</numerusform><numerusform>%n Feeds entfernt</numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -113,7 +113,7 @@
     <message numerus="yes">
         <location line="+102"/>
         <source>%n folder(s) added</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n Ordner hinzugefügt</numerusform><numerusform>%n Ordner hinzugefügt</numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -123,7 +123,7 @@
     <message numerus="yes">
         <location line="+11"/>
         <source>%n folder(s) removed</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n Ordner entfernt</numerusform><numerusform>%n Ordner entfernt</numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -241,7 +241,7 @@
         <location line="-119"/>
         <location line="+302"/>
         <source>%n new unread item(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n neuer ungelesene Artikel</numerusform><numerusform>%n neue ungelesene Artikel</numerusform></translation>
     </message>
     <message>
         <location line="-302"/>

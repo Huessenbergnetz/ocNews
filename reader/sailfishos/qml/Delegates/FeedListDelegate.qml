@@ -75,15 +75,6 @@ ListItem {
                 width: parent.width - 130
             }
 
-            Text {
-                id: subText
-                text: model.feedCount == 0 ? qsTr("Empty folder") : qsTr("%1 unread posts in %2 feeds").arg(model.unreadCount).arg(model.feedCount);
-                color: feedListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                visible: false
-                textFormat: Text.PlainText
-                font.pixelSize: Theme.fontSizeSmall
-            }
-
         }
 
     }

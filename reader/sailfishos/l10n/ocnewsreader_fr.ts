@@ -148,35 +148,20 @@
         <source>Never</source>
         <translation>Jamais</translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location line="+2"/>
-        <source>%1 days ago</source>
-        <translation>Il y a %1 jours</translation>
+        <source>%n day(s) ago</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
-    <message>
-        <location line="+0"/>
-        <source>1 day ago</source>
-        <translation>Il y a 1 jour</translation>
-    </message>
-    <message>
+    <message numerus="yes">
         <location line="+2"/>
-        <source>%1 hours ago</source>
-        <translation>Il y a %1 heures</translation>
+        <source>%n hour(s) ago</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
-    <message>
-        <location line="+0"/>
-        <source>1 hour ago</source>
-        <translation>Il y a 1 heure</translation>
-    </message>
-    <message>
+    <message numerus="yes">
         <location line="+2"/>
-        <source>%1 minutes ago</source>
-        <translation>Il y a %1 minutes</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>1 minute ago</source>
-        <translation>Il y a 1 minute</translation>
+        <source>%n minute(s) ago</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -420,17 +405,7 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+99"/>
-        <source>Empty folder</source>
-        <translation>Dossier vide</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>%1 unread posts in %2 feeds</source>
-        <translation>%1 articles non lus dans %2 flux</translation>
-    </message>
-    <message>
-        <location line="+62"/>
+        <location filename="../qml/Delegates/FolderListDelegate.qml" line="+150"/>
         <location line="+29"/>
         <source>Update</source>
         <translation>Mettre à jour</translation>

@@ -342,14 +342,19 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+84"/>
+        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+85"/>
         <source>Empty folder</source>
         <translation>Leerer Ordner</translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location line="+0"/>
-        <source>%1 unread posts in %2 feeds</source>
-        <translation>%1 ungelesene Nachrichten in %2 Feeds</translation>
+        <source>%n unread post(s) in</source>
+        <translation><numerusform>%n ungelesener Artikel in</numerusform><numerusform>%n ungelesene Artikel in</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location line="+0"/>
+        <source>%n feed(s)</source>
+        <translation><numerusform>%n Feed</numerusform><numerusform>%n Feeds</numerusform></translation>
     </message>
 </context>
 <context>

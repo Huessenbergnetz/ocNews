@@ -94,16 +94,6 @@ ListItem {
                 width: parent.width - 100
             }
 
-            Text {
-                id: subText
-                text: model.feedCount === 0 ? qsTr("Empty folder") : qsTr("%1 unread posts in %2 feeds").arg(model.unreadCount).arg(model.feedCount);
-                color: folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-//                visible: model.type === "1" ? true : false
-                visible: false
-                textFormat: Text.PlainText
-                font.pixelSize: Theme.fontSizeSmall
-            }
-
         }
 
     }
@@ -111,7 +101,6 @@ ListItem {
     CountBubble {
         id: cntBub
         value: model.unreadCount
-//        visible: model.type !== "1" ? true : false
         visible: !busyIndicator.visible
         anchors { right: parent.right; rightMargin: Theme.paddingLarge; verticalCenter: parent.verticalCenter }
         color: if (model.unreadCount > 0) { folderListItem.highlighted ? Theme.highlightColor : Theme.primaryColor } else { folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor }

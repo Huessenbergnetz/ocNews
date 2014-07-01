@@ -35,11 +35,11 @@ CoverBackground {
         if (nDays > 14) {
             ret = qsTr("Never")
         } else if (nHours > 23) {
-            ret = (nDays > 1) ? qsTr("%1 days ago").arg(nDays) : qsTr("1 day ago");
+            ret = qsTr("%n day(s) ago", "", nDays)
         } else if (nMins > 59) {
-            ret = (nHours > 1) ? qsTr("%1 hours ago").arg(nHours) : qsTr("1 hour ago");
+            ret = qsTr("%n hour(s) ago", "", nHours)
         } else if (nMins > 0) {
-            ret = (nMins > 1) ? qsTr("%1 minutes ago").arg(nMins) : qsTr("1 minute ago");
+            ret = qsTr("%n minute(s) ago", "", nMins)
         } else {
             ret = qsTr("Just now")
         }
@@ -65,7 +65,6 @@ CoverBackground {
             font.pixelSize: Theme.fontSizeHuge
             font.weight: Font.Light
             textFormat: Text.PlainText
-//            text: unreadItems
             text: config.viewMode === 0 ? foldersModelSql.totalUnread : combinedModelSql.totalUnread
         }
 

@@ -38,9 +38,9 @@
     <message numerus="yes">
         <location line="+175"/>
         <source>%n feed(s) added</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n feed added</numerusform>
+            <numerusform>%n feeds added</numerusform>
         </translation>
     </message>
     <message>
@@ -51,9 +51,9 @@
     <message numerus="yes">
         <location line="+11"/>
         <source>%n feed(s) removed</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n feed removed</numerusform>
+            <numerusform>%n feeds removed</numerusform>
         </translation>
     </message>
     <message>
@@ -121,9 +121,9 @@
     <message numerus="yes">
         <location line="+102"/>
         <source>%n folder(s) added</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n folder added</numerusform>
+            <numerusform>%n folders added</numerusform>
         </translation>
     </message>
     <message>
@@ -134,9 +134,9 @@
     <message numerus="yes">
         <location line="+11"/>
         <source>%n folder(s) removed</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n folder removed</numerusform>
+            <numerusform>%n folders removed</numerusform>
         </translation>
     </message>
     <message>
@@ -261,9 +261,9 @@
         <location line="-302"/>
         <location line="+302"/>
         <source>%n new unread item(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n new unread item</numerusform>
+            <numerusform>%n new unread items</numerusform>
         </translation>
     </message>
     <message>
