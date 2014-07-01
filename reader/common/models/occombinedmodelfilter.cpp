@@ -44,7 +44,11 @@ bool OcCombinedModelFilter::filterAcceptsRow(int source_row, const QModelIndex &
     QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
 
     if (hideRead()) {
-        return (sourceModel()->data(index, OcCombinedModelNew::UnreadCountRole).toInt() > 0);
+        if (sourceModel()->data(index, OcCombinedModelNew::TypeRole).toInt() != 3) {
+            return (sourceModel()->data(index, OcCombinedModelNew::UnreadCountRole).toInt() > 0);
+        } else {
+            return true;
+        }
     } else {
         return true;
     }
