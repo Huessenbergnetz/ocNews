@@ -86,7 +86,7 @@ Item {
                 font.weight: folderListItem.subtitleWeight
                 font.pixelSize: folderListItem.subtitleSize
                 color: mouseArea.pressed ? folderListItem.subtitleColorPressed : folderListItem.subtitleColor
-                visible: model.type === 1 ? true : false
+                visible: model.type === 1
                 textFormat: Text.PlainText
             }
         }
