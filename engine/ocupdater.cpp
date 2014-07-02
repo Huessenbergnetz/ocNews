@@ -138,7 +138,7 @@ void OcUpdater::startUpdateTimed()
 #ifdef QT_DEBUG
     qDebug() << "Settings before timed update start:";
     qDebug() << "-----------------------------------";
-    qDebug() << "Update behavior: " << updateBehavior;
+    qDebug() << "Update behavior: " << m_updateBehavior;
     qDebug() << "Mimimum interval: " << timer->minimumInterval();
     qDebug() << "Maximum interval: " << timer->maximumInterval();
     qDebug() << "Battery load in %: " << batteryInfo->remainingCapacityPercent();
