@@ -210,6 +210,7 @@ int main(int argc, char *argv[])
     QObject::connect(items, SIGNAL(updatedItemsSuccess(QList<int>,QList<int>,QList<int>)), imgFetcher, SLOT(fetchImages(QList<int>,QList<int>,QList<int>)));
     QObject::connect(items, SIGNAL(requestedItemsSuccess(QList<int>,QList<int>,QList<int>)), imgFetcher, SLOT(fetchImages(QList<int>,QList<int>,QList<int>)));
     QObject::connect(items, SIGNAL(cleanedItems(QList<int>,QList<int>,QList<int>)), imgFetcher, SLOT(fetchImages(QList<int>,QList<int>,QList<int>)));
+    QObject::connect(configuration, SIGNAL(cleanedDatabase()), imgFetcher, SLOT(databaseCleaned()));
 
     // API interconnections
     QObject::connect(feeds, SIGNAL(requestedFeedsSuccess(QList<int>,QList<int>,QList<int>)), items, SLOT(cleanItems(QList<int>,QList<int>,QList<int>)));

@@ -129,117 +129,155 @@ QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHa
         {
             QVariantMap imageInfo;
 
-            if (imageHandling != 2)
+            imageInfo = extractImgData(foundImages.at(i));
+
+            if (imageInfo["tracker"].toBool())
             {
-                imageInfo = extractImgData(foundImages.at(i), false);
+                newBodyText.replace(foundImages.at(i), "");
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+                newBodyText.remove(QRegularExpression("<a[^>]*>\\s*</a>"));
+#else
+                newBodyText.remove(QRegExp("<a[^>]*>\\s*</a>"));
+#endif
+
+#ifdef QT_DEBUG
+                qDebug() << "Remove tracker image";
+#endif
             }
             else
             {
-                imageInfo = extractImgData(foundImages.at(i), true);
 
-                QUrl fileUrl(imageInfo["src"].toString());
-                QString fileName("_image_");
-                fileName.prepend(QString::number(id));
-                fileName.append(QString::number(i)).append(".");
-
-                QString storagePath(QDir::homePath());
-                storagePath.append(IMAGE_CACHE);
-                storagePath.append(QDir::separator()).append(fileName);
-                storagePath = QDir::toNativeSeparators(storagePath);
-
-                QEventLoop dlLoop;
-
-                QNetworkRequest request(fileUrl);
-
-                QNetworkReply *replyGetImage = network.get(request);
-
-                connect(replyGetImage, SIGNAL(finished()), &dlLoop, SLOT(quit()));
-                dlLoop.exec();
-
-                if (replyGetImage->error() == QNetworkReply::NoError)
+                if (imageHandling == 2)
                 {
 
-                    QByteArray recData = replyGetImage->readAll();
+                    QUrl fileUrl(imageInfo["src"].toString());
 
-                    QImage image;
-                    if (recData.size() > 0 && image.loadFromData(recData))
+                    QEventLoop dlLoop;
+
+                    QNetworkRequest request(fileUrl);
+
+                    QNetworkReply *replyGetImage = network.get(request);
+
+                    connect(replyGetImage, SIGNAL(finished()), &dlLoop, SLOT(quit()));
+                    dlLoop.exec();
+
+                    if (replyGetImage->error() == QNetworkReply::NoError)
                     {
 
-                        imageInfo["width"] = image.width();
-                        imageInfo["height"] = image.height();
+                        QByteArray recData = replyGetImage->readAll();
 
-                        storagePath.append(getFileTypeSuffix(recData));
-
-#ifdef QT_DEBUG
-            qDebug() << storagePath;
-#endif
-
-
-                        QString oldSrc = imageInfo["src"].toString();
-                        QString newSrc = storagePath;
-
-                        oldSrc.prepend("src=\"");
-                        newSrc.prepend("src=\"");
-
-#ifdef QT_DEBUG
-                        qDebug() << "Image Seize: " << imageInfo["width"].toInt() << " x " << imageInfo["height"].toInt();
-#endif
-
-                        if (image.save(storagePath))
+                        QImage image;
+                        if (recData.size() > 0 && image.loadFromData(recData))
                         {
-                            newBodyText.replace(oldSrc, newSrc, Qt::CaseSensitive);
-                            imageInfo["src"] = storagePath;
-                            replyGetImage->deleteLater();
+
+                            imageInfo["tracker"] = bool(image.width() == 1 && image.height() == 1);
+
+                            if (imageInfo["tracker"].toBool())
+                            {
+                                newBodyText.replace(foundImages.at(i), "");
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+                                newBodyText.remove(QRegularExpression("<a[^>]*>\\s*</a>"));
+#else
+                                newBodyText.remove(QRegExp("<a[^>]*>\\s*</a>"));
+#endif
+
+#ifdef QT_DEBUG
+                                qDebug() << "Remove tracker image";
+#endif
+                            }
+                            else
+                            {
+
+
+                                imageInfo["width"] = image.width();
+                                imageInfo["height"] = image.height();
+
+                                QString fileName("_image_");
+                                fileName.prepend(QString::number(id));
+                                fileName.append(QString::number(i)).append(".");
+
+                                QString storagePath(QDir::homePath());
+                                storagePath.append(IMAGE_CACHE);
+                                storagePath.append(QDir::separator()).append(fileName);
+                                storagePath = QDir::toNativeSeparators(storagePath);
+
+                                storagePath.append(getFileTypeSuffix(recData));
+
+#ifdef QT_DEBUG
+                                qDebug() << storagePath;
+#endif
+
+                                QString oldSrc = imageInfo["src"].toString();
+                                QString newSrc = storagePath;
+
+                                oldSrc.prepend("src=\"");
+                                newSrc.prepend("src=\"");
+
+#ifdef QT_DEBUG
+                                qDebug() << "Image Size: " << imageInfo["width"].toInt() << " x " << imageInfo["height"].toInt();
+#endif
+
+                                if (image.save(storagePath))
+                                {
+                                    newBodyText.replace(oldSrc, newSrc, Qt::CaseSensitive);
+                                    imageInfo["src"] = storagePath;
+                                    replyGetImage->deleteLater();
+                                }
+                                else
+                                {
+#ifdef QT_DEBUG
+                                    qDebug() << "Try to save image with QFile method.";
+#endif
+                                    QFile file(storagePath);
+                                    file.open(QIODevice::WriteOnly);
+
+                                    if (file.write(recData) != -1)
+                                    {
+
+                                        newBodyText.replace(oldSrc, newSrc, Qt::CaseSensitive);
+                                        imageInfo["src"] = storagePath;
+                                        replyGetImage->deleteLater();
+
+                                    } else {
+#ifdef QT_DEBUG
+                                        qDebug() << "Failed to save image";
+#endif
+                                        replyGetImage->deleteLater();
+
+                                    }
+
+                                    file.close();
+
+                                }
+                            }
+
                         }
                         else
                         {
-
-                            qDebug() << "Try to save image with QFile method.";
-
-                            QFile file(storagePath);
-                            file.open(QIODevice::WriteOnly);
-
-                            if (file.write(recData) != -1)
-                            {
-
-                                newBodyText.replace(oldSrc, newSrc, Qt::CaseSensitive);
-                                imageInfo["src"] = storagePath;
-                                replyGetImage->deleteLater();
-
-                            } else {
-
-                                qDebug() << "Failed to save image";
-                                imageInfo = extractImgData(foundImages.at(i), false);
-                                replyGetImage->deleteLater();
-
-                            }
-
-                            file.close();
-
+#ifdef QT_DEBUG
+                            qDebug() << "Can not load image data.";
+#endif
+                            replyGetImage->deleteLater();
                         }
-
                     }
                     else
                     {
-                        qDebug() << "Can not load image data.";
-                        imageInfo = extractImgData(foundImages.at(i), false);
+#ifdef QT_DEBUG
+                        qDebug() << "Can not download image file.";
+#endif
                         replyGetImage->deleteLater();
                     }
                 }
-                else
-                {
-                    qDebug() << "Can not download image file.";
-                    imageInfo = extractImgData(foundImages.at(i), false);
-                    replyGetImage->deleteLater();
+
+                if (!imageInfo["tracker"].toBool()) {
+                    query.prepare("INSERT INTO images (parentId, path, width, height) VALUES (:parentId, :path, :width, :height);");
+                    query.bindValue(":parentId", id);
+                    query.bindValue(":path", imageInfo["src"]);
+                    query.bindValue(":width", imageInfo["width"]);
+                    query.bindValue(":height", imageInfo["height"]);
+                    query.exec();
                 }
             }
-
-            query.prepare("INSERT INTO images (parentId, path, width, height) VALUES (:parentId, :path, :width, :height);");
-            query.bindValue(":parentId", id);
-            query.bindValue(":path", imageInfo["src"]);
-            query.bindValue(":width", imageInfo["width"]);
-            query.bindValue(":height", imageInfo["height"]);
-            query.exec();
         }
     }
 
@@ -247,7 +285,7 @@ QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHa
 }
 
 
-QVariantMap OcImageFetcher::extractImgData(const QString &imgStr, bool srcOnly)
+QVariantMap OcImageFetcher::extractImgData(const QString &imgStr)
 {
     QVariantMap result;
 
@@ -255,25 +293,26 @@ QVariantMap OcImageFetcher::extractImgData(const QString &imgStr, bool srcOnly)
     imgStr.contains(findSrc);
     result["src"] =  findSrc.cap(0);
 
-    if (!srcOnly)
-    {
-        QRegExp findWidth("width=\"\\d+\"");
-        QRegExp findHeight("height=\"\\d+\"");
+    QRegExp findWidth("width=\"\\d+\"");
+    QRegExp findHeight("height=\"\\d+\"");
 
-        imgStr.contains(findWidth);
-        imgStr.contains(findHeight);
+    imgStr.contains(findWidth);
+    imgStr.contains(findHeight);
 
-        QString widthString = findWidth.cap(0);
-        QString heightString = findHeight.cap(0);
+    QString widthString = findWidth.cap(0);
+    QString heightString = findHeight.cap(0);
 
-        widthString.chop(1);
-        widthString.remove(0, 7);
-        heightString.chop(1);
-        heightString.remove(0, 8);
+    widthString.chop(1);
+    widthString.remove(0, 7);
+    heightString.chop(1);
+    heightString.remove(0, 8);
 
-        result["width"] = widthString.toInt();
-        result["height"] = heightString.toInt();
-    }
+    int width = widthString.toInt();
+    int height = heightString.toInt();
+
+    result["width"] = width;
+    result["height"] = height;
+    result["tracker"] = bool(width == 1 && height == 1);
 
 #ifdef QT_DEBUG
     qDebug() << "Image information: " << result;
@@ -347,4 +386,17 @@ int OcImageFetcher::isFetchImagesRunning()
     qDebug() << "Items is fetching images: " << itemsToFetchImages;
 #endif
     return itemsToFetchImages;
+}
+
+
+void OcImageFetcher::databaseCleaned()
+{
+    QDir imageCache(QDir::homePath().append(IMAGE_CACHE));
+
+    QStringList imgs = imageCache.entryList(QDir::Files);
+
+    for (int i = 0; i < imgs.size(); ++i) {
+        imageCache.remove(imgs.at(i));
+    }
+
 }
