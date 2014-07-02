@@ -88,7 +88,7 @@ Page {
                 label: qsTr("Server"); placeholderText: qsTr("Server: e.g. cloud.example.com")
                 inputMethodHints: Qt.ImhUrlCharactersOnly
                 EnterKey.enabled: text || inputMethodComposing
-                EnterKey.iconSource: "image://theme/icon-m-enter-next"
+                EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: server.focus = false
                 text: config.accountServer
             }

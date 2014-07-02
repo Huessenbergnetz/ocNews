@@ -42,5 +42,6 @@
         <arg name="accountState" type="b" direction="out" />
     </method>
     <signal name="changedConfig" />
+    <signal name="configReset" />
  </interface>
 </node>

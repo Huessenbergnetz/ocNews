@@ -144,5 +144,5 @@ Dialog {
     }
 
     onAccepted: config.privacyShown = true
-    onRejected: policy ? "" : Qt.quit();
+    onRejected: config.privacyShown ? null : Qt.quit();
 }

@@ -38,6 +38,7 @@ signals:
     void gotStatistics(const QVariantMap &stats);
     void cleanedCertificates();
     void changedConfig();
+    void configReset();
     
 public slots:
     // generic
@@ -56,6 +57,7 @@ private slots:
     void dbusGotStatistics(const QVariantMap &stats);
     void dbusCleanedCertificates();
     void dbusChangedConfig();
+    void dbusConfigReset();
     
 private:
     de::buschmann23::ocNewsEngine::Generic *generic;

@@ -108,6 +108,10 @@ int main(int argc, char *argv[])
 
 
 
+    // connections to configuration system
+    QObject::connect(&dbus, SIGNAL(configReset()), config, SLOT(configReset()));
+
+
     // connections to the items model
     QObject::connect(&items, SIGNAL(markedItemsSuccess(QStringList,QString)), itemsModelSql, SLOT(itemsMarked(QStringList,QString)));
     QObject::connect(&items, SIGNAL(starredItemsSuccess(QStringList,QString)), itemsModelSql, SLOT(itemsStarred(QStringList,QString)));
@@ -146,6 +150,7 @@ int main(int argc, char *argv[])
     QObject::connect(&feeds, SIGNAL(markedReadFeedSuccess(int)), combinedModelSql, SLOT(feedMarkedRead(int)));
     QObject::connect(&feeds, SIGNAL(movedFeedSuccess(int,int)), combinedModelSql, SLOT(feedMoved(int,int)));
     QObject::connect(&feeds, SIGNAL(renamedFeedSuccess(QString,int)), combinedModelSql, SLOT(feedRenamed(QString,int)));
+    QObject::connect(&dbus, SIGNAL(cleanedDatabase()), combinedModelSql, SLOT(databaseCleaned()));
 
 
     // connections to folders model filter
@@ -168,6 +173,7 @@ int main(int argc, char *argv[])
     QObject::connect(&folders, SIGNAL(createdFolderSuccess(QString,int)), foldersModelSql, SLOT(folderCreated(QString,int)));
     QObject::connect(&folders, SIGNAL(deletedFolderSuccess(int)), foldersModelSql, SLOT(folderDeleted(int)));
     QObject::connect(&folders, SIGNAL(markedReadFolderSuccess(int)), foldersModelSql, SLOT(folderMarkedRead(int)));
+    QObject::connect(&dbus, SIGNAL(cleanedDatabase()), foldersModelSql, SLOT(databaseCleaned()));
 
 
     // connections to feeds model filter

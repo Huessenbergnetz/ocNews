@@ -43,6 +43,7 @@ Q_SIGNALS: // SIGNALS
     void gotStatistics(const QVariantMap &stats);
     void cleanedCertificates();
     void changedConfig();
+    void configReset();
 
     
 public slots:

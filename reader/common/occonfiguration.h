@@ -144,6 +144,9 @@ public slots:
     void setThemeInverted(const bool &nThemeInverted);
 #endif
 
+public slots:
+    void configReset();
+
 private:
     de::buschmann23::ocNewsEngine::Configuration *conf;
 

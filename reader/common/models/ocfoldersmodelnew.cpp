@@ -131,7 +131,7 @@ void OcFoldersModelNew::init()
 
     QSqlQuery query;
 
-    int length = 0;
+    int length = 2;
 
     QString querystring("SELECT ((SELECT COUNT(id) FROM feeds WHERE folderId = 0) + (SELECT COUNT(id) FROM folders))");
 
@@ -139,12 +139,10 @@ void OcFoldersModelNew::init()
 
     query.next();
 
-    length = query.value(0).toInt();
+    length += query.value(0).toInt();
 
-    if (length > 0)
-    {
-        length += 2;
-
+//    if (length > 0)
+//    {
         querystring = "SELECT fo.id AS id, 1 AS type, fo.name AS title, localUnreadCount AS unreadCount, '' AS iconSource, '' AS iconWidth, '' AS iconHeight, (SELECT COUNT(id) FROM feeds WHERE folderId = fo.id) AS feedCount FROM folders fo ";
 
         querystring.append("UNION ");
@@ -181,7 +179,7 @@ void OcFoldersModelNew::init()
         }
 
         endInsertRows();
-    }
+//    }
 }
 
 
@@ -740,6 +738,14 @@ void OcFoldersModelNew::folderRenamed(const QString &newName, const int &id)
         emit dataChanged(index(idx), index(idx));
 #endif
     }
+}
+
+void OcFoldersModelNew::databaseCleaned()
+{
+    if (!active())
+        return;
+
+    init();
 }
 
 

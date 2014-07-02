@@ -231,12 +231,6 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
     }
     QSqlDatabase::database().commit();
 
-
-#ifdef QT_DEBUG
-    qDebug() << "Finished updating database, emit requestedItemsSuccess";
-#endif
-    emit requestedItemsSuccess(updatedItems, newItems, idListDeleted);
-
     if ((unreadCount > 0) && config.value("notifications/newItems", false).toBool())
     {
         notify.showNotification(tr("%n new unread item(s)", "", unreadCount), tr("New articles available"), OcNotifications::Success);
@@ -244,6 +238,11 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
 
     if (!newEventItems.isEmpty())
         updateEventFeed(newEventItems);
+
+#ifdef QT_DEBUG
+    qDebug() << "Finished updating database, emit requestedItemsSuccess";
+#endif
+    emit requestedItemsSuccess(updatedItems, newItems, idListDeleted);
 }
 
 

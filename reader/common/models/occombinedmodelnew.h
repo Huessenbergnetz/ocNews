@@ -57,6 +57,8 @@ public slots:
     void feedMoved(const int &feedId, const int &folderId);
     void feedRenamed(const QString &newName, const int &feedId);
 
+    void databaseCleaned();
+
 private:
     QList<OcCombinedObject*> m_items;
 

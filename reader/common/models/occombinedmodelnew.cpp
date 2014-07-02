@@ -136,7 +136,7 @@ void OcCombinedModelNew::init()
 
     QSqlQuery query;
 
-    int length = 0;
+    int length = 2;
 
     QString querystring("SELECT COUNT(id) FROM feeds");
 
@@ -144,11 +144,11 @@ void OcCombinedModelNew::init()
 
     query.next();
 
-    length = query.value(0).toInt();
+    length += query.value(0).toInt();
 
-    if (length > 0)
-    {
-        length += 2;
+//    if (length > 0)
+//    {
+//        length += 2;
 
         querystring = "SELECT fe.id AS id, 0 AS type, fe.title, fe.localUnreadCount AS unreadCount, fe.iconSource, fe.iconWidth, fe.iconHeight, fe.folderId, (SELECT name FROM folders WHERE id = fe.folderId) AS folderName FROM feeds fe WHERE fe.folderId > 0 ";
 
@@ -188,7 +188,7 @@ void OcCombinedModelNew::init()
         }
 
         endInsertRows();
-    }
+//    }
 }
 
 
@@ -546,6 +546,15 @@ void OcCombinedModelNew::feedRenamed(const QString &newName, const int &feedId)
 #else
     emit dataChanged(index(idx), index(idx));
 #endif
+}
+
+
+void OcCombinedModelNew::databaseCleaned()
+{
+    if (!active())
+        return;
+
+    init();
 }
 
 

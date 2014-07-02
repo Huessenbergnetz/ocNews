@@ -17,6 +17,7 @@ OcDBusInterface::OcDBusInterface(QObject *parent) :
     connect(configuration, SIGNAL(gotStatistics(QVariantMap)), this, SLOT(dbusGotStatistics(QVariantMap)));
     connect(configuration, SIGNAL(cleanedCertificates()), this, SLOT(dbusCleanedCertificates()));
     connect(configuration, SIGNAL(changedConfig()), this, SLOT(dbusChangedConfig()));
+    connect(configuration, SIGNAL(configReset()), this, SLOT(dbusConfigReset()));
 }
 
 /*
@@ -148,4 +149,9 @@ void OcDBusInterface::dbusCleanedCertificates()
 void OcDBusInterface::dbusChangedConfig()
 {
     emit changedConfig();
+}
+
+void OcDBusInterface::dbusConfigReset()
+{
+    emit configReset();
 }

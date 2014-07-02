@@ -281,6 +281,7 @@ void OcConfiguration::setPrivacyShown(const bool &nPrivacyShown)
 {
     if (nPrivacyShown != m_privacyShown) {
         m_privacyShown = nPrivacyShown;
+        conf->setSetting("display/privacypolicy", QDBusVariant(privacyShown()));
         emit privacyShownChanged(privacyShown());
     }
 }
@@ -400,3 +401,40 @@ void OcConfiguration::setThemeInverted(const bool &nThemeInverted)
 
 
 #endif
+
+
+
+void OcConfiguration::configReset()
+{
+    QVariantMap config = conf->getConfig();
+    setPrivateBrowsing(config["privateBrowsing"].toBool());
+    setEnableCookies(config["enableCookies"].toBool());
+    setMaxItems(config["maxitems"].toInt());
+    setViewMode(config["viewmode"].toInt());
+    setOrderBy(config["orderby"].toString());
+    setHandleImgs(config["handleimgs"].toInt());
+    setHandleRead(config["handleread"].toInt());
+    setSortAsc(config["sortasc"].toBool());
+    setFontSize(config["fontsize"].toInt());
+    setHideReadFeeds(config["hidereadfeeds"].toBool());
+    setShowExcerpts(config["showExcerpts"].toBool());
+    setShowPicturesInList(config["showPicturesInList"].toBool());
+    setUpdateBehavior(config["updatebehavior"].toInt());
+    setUpdateInterval(config["updateinterval"].toInt());
+    setEventFeeds(config["eventfeeds"].toString());
+    setQuitEngine(config["quitengine"].toBool());
+    setNotifyFeedsFolders(config["notifyFeedsFolders"].toBool());
+    setNotifyNewItems(config["notifyNewItems"].toBool());
+    setIsValid(conf->isConfigSet());
+#if !defined(MEEGO_EDITION_HARMATTAN)
+    setAccountEnabled(config["enabled"].toBool());
+    setAccountUser(config["uname"].toString());
+    setAccountPassword(config["pword"].toString());
+    setAccountServer(config["server"].toString());
+    setAccountUseSSL(config["usessl"].toBool());
+    setAccountIgnoreSSLErrors(config["ignoresslerrors"].toBool());
+#else
+    setUseRichText(config["userichtext"].toBool());
+    setThemeInverted(config["themeinverted"].toBool());
+#endif
+}

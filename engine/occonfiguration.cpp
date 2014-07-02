@@ -157,16 +157,17 @@ void OcConfiguration::setSetting(const QString &entry, const QDBusVariant &value
 
 void OcConfiguration::resetConfig()
 {
-    settings.remove("server");
-    settings.remove("display");
-    settings.remove("storage/maxitems");
-    settings.remove("update");
-    settings.remove("event");
+   remove("server");
+   remove("display");
+   remove("storage/maxitems");
+   remove("update");
+   remove("event");
 #if !defined(MEEGO_EDITION_HARMATTAN)
-    settings.remove("account");
+   remove("account");
 #endif
 
-    getConfig();
+   emit configReset();
+
 }
 
 
@@ -186,9 +187,8 @@ void OcConfiguration::cleanDatabase()
     query.exec("DELETE FROM feeds");
     query.exec("DELETE FROM items");
     query.exec("DELETE FROM queue");
-    settings.remove("storage/lastFullUpdate");
+    remove("storage/lastFullUpdate");
 
-    getStatistics();
     emit cleanedDatabase();
 }
 
@@ -256,10 +256,10 @@ QVariantMap OcConfiguration::getStatistics()
 
     if(query.next())
     {
-        stats["itemCount"] = query.value(0);
-        stats["unreadCount"] = query.value(1);
-        stats["folderCount"] = query.value(2);
-        stats["feedCount"] = query.value(3);
+        stats["itemCount"] = query.value(0).toInt();
+        stats["unreadCount"] = query.value(1).toInt();
+        stats["folderCount"] = query.value(2).toInt();
+        stats["feedCount"] = query.value(3).toInt();
         stats["lastFullUpdate"] = value("storage/lastFullUpdate", 0) == 0 ? 0 :
                                   QDateTime::fromTime_t(value("storage/lastFullUpdate", 0).toInt()).toLocalTime().toMSecsSinceEpoch();
     }
@@ -391,8 +391,7 @@ bool OcConfiguration::isAccountEnabled()
 
 #else
 
-    bool enabled = value("account/enabled", false).toBool();
-    if (enabled)
+    if (value("account/enabled", true).toBool())
         accountState = true;
 
 #endif
@@ -451,7 +450,7 @@ QVariantMap OcConfiguration::getAccount()
         }
 #else
 
-        bool enabled = value("account/enabled", false).toBool();
+        bool enabled = value("account/enabled", true).toBool();
         QString uname = value("account/user", "").toString();
         QString pword = value("account/password", "").toString();
         QString server = value("account/server", "").toString();

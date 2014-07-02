@@ -59,6 +59,8 @@ public slots:
     void folderMarkedRead(const int &id);
     void folderRenamed(const QString &newName, const int &id);
 
+    void databaseCleaned();
+
 private:
     QList<OcFolderObject*> m_items;
 

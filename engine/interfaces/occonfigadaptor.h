@@ -71,6 +71,7 @@ class OcConfigAdaptor: public QDBusAbstractAdaptor
 "      <arg direction=\"out\" type=\"b\" name=\"accountState\"/>\n"
 "    </method>\n"
 "    <signal name=\"changedConfig\"/>\n"
+"    <signal name=\"configReset\" />\n"
 "  </interface>\n"
         "")
 public:
@@ -95,6 +96,7 @@ Q_SIGNALS: // SIGNALS
     void cleanedDatabase();
     void gotConfig(const QVariantMap &config);
     void gotStatistics(const QVariantMap &stats);
+    void configReset();
 };
 
 #endif

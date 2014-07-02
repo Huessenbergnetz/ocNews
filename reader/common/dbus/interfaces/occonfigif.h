@@ -105,6 +105,7 @@ Q_SIGNALS: // SIGNALS
     void cleanedDatabase();
     void gotConfig(const QVariantMap &config);
     void gotStatistics(const QVariantMap &stats);
+    void configReset();
 };
 
 namespace de {

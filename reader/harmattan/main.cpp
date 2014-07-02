@@ -10,18 +10,14 @@
 #include "../../common/globals.h"
 #include "../common/ocdbmanager.h"
 #include "../common/occonfiguration.h"
-//#include "../common/models/ocfoldermodelsql.h"
 #include "../common/models/ocfoldersmodelnew.h"
 #include "../common/models/ocfoldersmodelfilter.h"
-//#include "../common/models/ocfeedsmodelsql.h"
 #include "../common/models/ocfeedsmodelnew.h"
 #include "../common/models/ocfeedsmodelfilter.h"
 #include "../common/models/ocitemsmodelnew.h"
 #include "../common/models/ocitemsmodelfilter.h"
 #include "../common/models/ocsingleitemmodelnew.h"
-//#include "../common/models/ocspecialitemsmodelsql.h"
 #include "../common/models/ocspecialitemsmodelnew.h"
-//#include "../common/models/occombinedmodelsql.h"
 #include "../common/models/occombinedmodelnew.h"
 #include "../common/models/occombinedmodelfilter.h"
 #include "../common/dbus/interfaces/ocdbusinterface.h"
@@ -128,6 +124,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     OcSingleItemModelNew *singleItemModelNew = new OcSingleItemModelNew;
 
 
+    // connections to configuration system
+    QObject::connect(&dbus, SIGNAL(configReset()), config, SLOT(configReset()));
+
 
     // connections to the items model
     QObject::connect(&items, SIGNAL(markedItemsSuccess(QStringList,QString)), itemsModelSql, SLOT(itemsMarked(QStringList,QString)));
@@ -167,6 +166,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QObject::connect(&feeds, SIGNAL(markedReadFeedSuccess(int)), combinedModelSql, SLOT(feedMarkedRead(int)));
     QObject::connect(&feeds, SIGNAL(movedFeedSuccess(int,int)), combinedModelSql, SLOT(feedMoved(int,int)));
     QObject::connect(&feeds, SIGNAL(renamedFeedSuccess(QString,int)), combinedModelSql, SLOT(feedRenamed(QString,int)));
+    QObject::connect(&dbus, SIGNAL(cleanedDatabase()), combinedModelSql, SLOT(databaseCleaned()));
 
 
     // connections to folders model filter
@@ -189,6 +189,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QObject::connect(&folders, SIGNAL(createdFolderSuccess(QString,int)), foldersModelSql, SLOT(folderCreated(QString,int)));
     QObject::connect(&folders, SIGNAL(deletedFolderSuccess(int)), foldersModelSql, SLOT(folderDeleted(int)));
     QObject::connect(&folders, SIGNAL(markedReadFolderSuccess(int)), foldersModelSql, SLOT(folderMarkedRead(int)));
+    QObject::connect(&dbus, SIGNAL(cleanedDatabase()), foldersModelSql, SLOT(databaseCleaned()));
 
 
     // connections to feeds model filter
