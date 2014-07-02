@@ -47,12 +47,14 @@ Item {
     clip: true
 
     onWidthChanged: {
-        rescaleTimer.restart();
+        if (!rescaleTimer.running)
+            rescaleTimer.restart();
     }
 
-//    onTextChanged: {
-//        rescaleTimer.restart()
-//    }
+    onTextChanged: {
+        if (!rescaleTimer.running)
+            rescaleTimer.restart();
+    }
 
     Text {
         id: layoutText
