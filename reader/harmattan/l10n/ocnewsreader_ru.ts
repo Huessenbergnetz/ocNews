@@ -10,7 +10,7 @@
     <message>
         <location line="-253"/>
         <source>The ownCloud News App client for Harmattan</source>
-        <translation type="unfinished"/>
+        <translation>ocNews - это клиент облачного приложения ownCloud News для Meego/Harmattan</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -25,12 +25,12 @@
     <message>
         <location line="+8"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Оставить сообщение(Английский или Немецкий):</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Перевод</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -40,7 +40,7 @@
     <message>
         <location line="+4"/>
         <source>Further information</source>
-        <translation type="unfinished"/>
+        <translation>Дополнительная информация</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -55,7 +55,7 @@
     <message>
         <location line="+26"/>
         <source>Upstream author</source>
-        <translation type="unfinished"/>
+        <translation>Автор</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -65,7 +65,7 @@
     <message>
         <location line="+8"/>
         <source>Major contributors</source>
-        <translation type="unfinished"/>
+        <translation>Основные разработчики</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -75,7 +75,7 @@
     <message>
         <location line="+6"/>
         <source>Thanks to</source>
-        <translation type="unfinished"/>
+        <translation>Благодарности</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -120,7 +120,7 @@
     <message>
         <location line="+26"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Версия</translation>
     </message>
     <message>
         <location line="+65"/>
@@ -265,22 +265,22 @@
     <message>
         <location line="+20"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить как прочитанное</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Обновить</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Переместить</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -342,7 +342,7 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+85"/>
+        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+84"/>
         <source>Empty folder</source>
         <translation>Очистить папку</translation>
     </message>
@@ -491,12 +491,12 @@
     <message>
         <location filename="../qml/ocNewsReader/Views/MainView.qml" line="+26"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Оставить сообщение(Английский или Немецкий):</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. </source>
-        <translation type="unfinished"/>
+        <translation>ocNews - это клиент облачного приложения ownCloud News, являющегося агрегатором лент в формате RSS/Atom.</translation>
     </message>
     <message>
         <location line="+59"/>
@@ -569,19 +569,19 @@
         <location line="+18"/>
         <location line="+44"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить как прочитанное</translation>
     </message>
     <message>
         <location line="-35"/>
         <location line="+43"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Обновить</translation>
     </message>
     <message>
         <location line="-35"/>
         <location line="+53"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать</translation>
     </message>
     <message>
         <location line="-44"/>
@@ -593,7 +593,7 @@
     <message>
         <location line="-74"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Переместить</translation>
     </message>
     <message>
         <location line="+75"/>
@@ -688,12 +688,12 @@
     <message>
         <location line="-296"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Все записи</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Избранные записи</translation>
     </message>
 </context>
 <context>
@@ -719,7 +719,7 @@
     <message>
         <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Все записи</translation>
     </message>
 </context>
 <context>
@@ -748,12 +748,12 @@
     <message>
         <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Все записи</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Все записи</translation>
     </message>
 </context>
 <context>
@@ -779,7 +779,7 @@
     <message>
         <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -797,7 +797,7 @@
     <message>
         <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -851,127 +851,127 @@
     <message>
         <location filename="../qml/ocNewsReader/Common/PayPalChooser.qml" line="+107"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Валюта</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Euro</source>
-        <translation type="unfinished"/>
+        <translation>Евро</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>US Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Доллар США</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Australian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Австралийский доллар</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Brazilian Real</source>
-        <translation type="unfinished"/>
+        <translation>Бразильский реал</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Pound Sterling</source>
-        <translation type="unfinished"/>
+        <translation>Фунт стерлингов</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Датская крона</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hong Kong Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Гонконгский доллар</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Israel New Shekel</source>
-        <translation type="unfinished"/>
+        <translation>Израильский шекель</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Japanese Yen</source>
-        <translation type="unfinished"/>
+        <translation>Японская йена</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Canadian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Канадский доллар</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Mexican Peso</source>
-        <translation type="unfinished"/>
+        <translation>Мексиканский песо</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Taiwan Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Тайваньский доллар</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Zealand Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Новозеландский доллар</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Norwegian Krone</source>
-        <translation type="unfinished"/>
+        <translation>Норвежская крона</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Philippine Peso</source>
-        <translation type="unfinished"/>
+        <translation>Филиппинский песо</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Polish Zloty</source>
-        <translation type="unfinished"/>
+        <translation>Польский злотый</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian Ruble</source>
-        <translation type="unfinished"/>
+        <translation>Российский рубль</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swedish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Шведская крона</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swiss Franc</source>
-        <translation type="unfinished"/>
+        <translation>Швейцарский франк</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Singapore Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Сингапурский доллар</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Thai Baht</source>
-        <translation type="unfinished"/>
+        <translation>Тайский бат</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Czech Koruna</source>
-        <translation type="unfinished"/>
+        <translation>Чешская крона</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hungarian Forint</source>
-        <translation type="unfinished"/>
+        <translation>Венгерский форинт</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Пожертвовать через PayPal</translation>
     </message>
 </context>
 <context>
@@ -1249,12 +1249,12 @@
     <message>
         <location line="+13"/>
         <source>Use prettier but slower Rich Text</source>
-        <translation type="unfinished"/>
+        <translation>Использовать красивый но медленный Rich Text</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Invert the theme color</source>
-        <translation type="unfinished"/>
+        <translation>Инвертировать цветовую схему</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1314,12 +1314,12 @@
     <message>
         <location line="+19"/>
         <source>Notify about added/removed feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Уведомлять о добавленных/удалённых лентах и папках</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Notify about new articles</source>
-        <translation type="unfinished"/>
+        <translation>Уведомлять  о новых статьях</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1384,7 +1384,7 @@
     <message>
         <location line="+13"/>
         <source>Query statistics</source>
-        <translation type="unfinished"/>
+        <translation>Запросить статистику</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -1636,32 +1636,32 @@
         <location filename="../qml/ocNewsReader/Sheets/StartUpInfoSheet.qml" line="+44"/>
         <source>Welcome to %1 %2</source>
         <comment>First is app name, second is version number</comment>
-        <translation type="unfinished"/>
+        <translation>Добро пожаловать в %1 %2</translation>
     </message>
     <message>
         <location line="+17"/>
         <source>Last changes</source>
-        <translation type="unfinished"/>
+        <translation>Последние изменения</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>Пожертвовать</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>If you like ocNews and have not purchased it alread via Ovi Store and you want to support the development, consider a small donation.</source>
-        <translation type="unfinished"/>
+        <translation>Если вам понравился ocNews и вы не приобрели его через Ovi Store и/или хотите поддержать его дальнейшую разработку, то вы можете сделать небольшое пожертвование.</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Помощь</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Закрыть</translation>
     </message>
 </context>
 <context>

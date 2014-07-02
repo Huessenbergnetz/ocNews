@@ -54,7 +54,7 @@
     <message>
         <location line="+11"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Laisser un message (en anglais ou en allemand)</translation>
     </message>
 </context>
 <context>
@@ -151,17 +151,17 @@
     <message numerus="yes">
         <location line="+2"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>il y a %n jour</numerusform><numerusform>il y a %n jours</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
         <source>%n hour(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>il y a %n heure</numerusform><numerusform>il y a %n heures</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
         <source>%n minute(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>il y a %n minute</numerusform><numerusform>il y a %n minutes</numerusform></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -169,7 +169,7 @@
         <translation>Maintenant</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+28"/>
         <source>Unread news</source>
         <translation>Articles non lus</translation>
     </message>
@@ -266,17 +266,7 @@
 <context>
     <name>FeedListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FeedListDelegate.qml" line="+80"/>
-        <source>Empty folder</source>
-        <translation>Dossier vide</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>%1 unread posts in %2 feeds</source>
-        <translation>%1 articles non lus dans %2 flux</translation>
-    </message>
-    <message>
-        <location line="+53"/>
+        <location filename="../qml/Delegates/FeedListDelegate.qml" line="+124"/>
         <source>Update</source>
         <translation>Mettre à jour</translation>
     </message>
@@ -640,7 +630,7 @@
     <message>
         <location line="+5"/>
         <source>No unread or favorite articles to show. Enable your option to show hide read feeds and folders to see content.</source>
-        <translation type="unfinished"/>
+        <translation>Aucun article non lu ou favori à afficher. Activez l&apos;option d&apos;afficher les flux et dossiers lus pour voir le contenu.</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -688,17 +678,17 @@
         <location line="+99"/>
         <location line="+201"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Sans catégorie</translation>
     </message>
     <message>
         <location line="-296"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tous les articles</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Articles favoris</translation>
     </message>
 </context>
 <context>
@@ -724,7 +714,7 @@
     <message>
         <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tous les articles</translation>
     </message>
 </context>
 <context>
@@ -753,12 +743,12 @@
     <message>
         <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tous les articles</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Articles favoris</translation>
     </message>
 </context>
 <context>
@@ -784,7 +774,7 @@
     <message>
         <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Aujourd&apos;hui</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -802,7 +792,7 @@
     <message>
         <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Aujourd&apos;hui</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1373,17 +1363,17 @@
     <message>
         <location line="+6"/>
         <source>Privacy</source>
-        <translation type="unfinished"/>
+        <translation>Vie privée</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Enable private browsing for web view</source>
-        <translation type="unfinished"/>
+        <translation>Activer la navigation privée pour la vue web</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Allow cookies in web view</source>
-        <translation type="unfinished"/>
+        <translation>Autoriser les cookies dans la vue web</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1450,7 +1440,7 @@
     <message>
         <location filename="../qml/Views/SingleItemWebView.qml" line="+34"/>
         <source>Clear cookies</source>
-        <translation type="unfinished"/>
+        <translation>Effacer les cookies</translation>
     </message>
     <message>
         <location line="+4"/>

@@ -36,7 +36,7 @@
     <message numerus="yes">
         <location line="+175"/>
         <source>%n feed(s) added</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n flux ajouté</numerusform><numerusform>%n flux ajoutés</numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -46,7 +46,7 @@
     <message numerus="yes">
         <location line="+11"/>
         <source>%n feed(s) removed</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n flux supprimé</numerusform><numerusform>%n flux supprimés</numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -67,7 +67,7 @@
     <message>
         <location line="+84"/>
         <source>Feed is already part of the destination folder</source>
-        <translation type="unfinished"/>
+        <translation>Le flux est déjà présent dans le dossier de destination</translation>
     </message>
     <message>
         <location line="+63"/>
@@ -113,7 +113,7 @@
     <message numerus="yes">
         <location line="+102"/>
         <source>%n folder(s) added</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n dossier ajouté</numerusform><numerusform>%n dossiers ajoutés</numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -123,7 +123,7 @@
     <message numerus="yes">
         <location line="+11"/>
         <source>%n folder(s) removed</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n dossier supprimé</numerusform><numerusform>%n dossiers supprimé</numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -212,40 +212,40 @@
     <name>OcItems</name>
     <message>
         <location filename="../ocitems.cpp" line="+17"/>
-        <location line="+243"/>
-        <location line="+607"/>
+        <location line="+241"/>
+        <location line="+605"/>
         <source>Device is in flight mode.</source>
         <translation>L&apos;appareil est en mode avion.</translation>
     </message>
     <message>
-        <location line="-805"/>
+        <location line="-801"/>
         <location line="+1"/>
-        <location line="+290"/>
+        <location line="+288"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation>La réponse du serveur était vide.</translation>
     </message>
     <message>
-        <location line="-292"/>
-        <location line="+291"/>
+        <location line="-290"/>
+        <location line="+289"/>
         <source>Error in server reply</source>
         <translation>Erreur dans la réponse du serveur</translation>
     </message>
     <message>
-        <location line="-283"/>
-        <location line="+293"/>
+        <location line="-281"/>
+        <location line="+291"/>
         <source>HTTP error</source>
         <translation>Erreur HTTP</translation>
     </message>
     <message numerus="yes">
         <location line="-119"/>
-        <location line="+302"/>
+        <location line="+300"/>
         <source>%n new unread item(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n nouvel élément non lu</numerusform><numerusform>%n nouveaux éléments non lus</numerusform></translation>
     </message>
     <message>
-        <location line="-302"/>
-        <location line="+302"/>
+        <location line="-300"/>
+        <location line="+300"/>
         <source>New articles available</source>
         <translation>Nouveaux articles disponibles</translation>
     </message>
@@ -264,7 +264,7 @@
 <context>
     <name>OcUpdater</name>
     <message>
-        <location filename="../ocupdater.cpp" line="+235"/>
+        <location filename="../ocupdater.cpp" line="+217"/>
         <source>Your account is disabled or you have not created an account yet.</source>
         <translation>Votre compte est désactivé ou bien vous n&apos;avez pas encore créé de compte.</translation>
     </message>
@@ -294,7 +294,7 @@
         <translation>Mise à jour terminée</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+33"/>
         <source>Update Failed</source>
         <translation>Echec de la mise à jour</translation>
     </message>

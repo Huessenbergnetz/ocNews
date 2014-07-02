@@ -169,7 +169,7 @@
         <translation>Ahora mismo</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+28"/>
         <source>Unread news</source>
         <translation>Noticias sin leer</translation>
     </message>
@@ -266,17 +266,7 @@
 <context>
     <name>FeedListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/FeedListDelegate.qml" line="+80"/>
-        <source>Empty folder</source>
-        <translation>Vaciar carpeta</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>%1 unread posts in %2 feeds</source>
-        <translation>%1 noticias no leídas en %2 feeds</translation>
-    </message>
-    <message>
-        <location line="+53"/>
+        <location filename="../qml/Delegates/FeedListDelegate.qml" line="+124"/>
         <source>Update</source>
         <translation type="unfinished"/>
     </message>
