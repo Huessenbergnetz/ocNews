@@ -3,6 +3,16 @@ import QtQuick 1.1
 
 ListModel {
     ListElement {
+        version: "1.9.1"
+        time: 1404255600000
+        text: "<ul>
+                <li>Changed: show All Articles entry even when there are no unread items and hide feeds and folders is set to true</li>
+                <li>Changed: use threaded model population for normal itemsmodel, too</li>
+                <li>Fixed: fix return of NULL value in database query for total unread count (should fix issue #49)</li>
+               </ul>"
+    }
+
+    ListElement {
         version: "1.9.0"
         time: 1404077599000
         text: "<ul>

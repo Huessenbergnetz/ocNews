@@ -1,3 +1,15 @@
+Version 1.9.1, 2014-07-02 01:00:00 +0200
+
+  General
+  * Changed: show All Articles entry even when there are no unread items and hide feeds and folders is set to true
+  * Changed: use threaded model population for normal itemsmodel, too
+  * Fixed: fix return of NULL value in database query for total unread count (should fix issue #49)
+  
+  Sailfish OS
+  * Fixed: when scaling rich text, first calculate the scaling, then set the text, fixes issue #47
+  * Fixed: add forgotten connections between items signal markedAllItemsReadSuccess to models, to fix not updated models
+  * Fixed: use nemo-keepalive for reliable update interval, fixes issue #5
+
 Version 1.9.0, 2014-06-29 23:33:19 +0200
 
   General

@@ -1,3 +1,11 @@
+buschtrommel-ocnews (1.9.1) stable; urgency=low
+
+  * Changed: show All Articles entry even when there are no unread items and hide feeds and folders is set to true
+  * Changed: use threaded model population for normal itemsmodel, too
+  * Fixed: fix return of NULL value in database query for total unread count (should fix issue #49)
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Wed, 02 Jul 2014 01:00:00 +0200
+
 buschtrommel-ocnews (1.9.0) stable; urgency=low
 
   * New: optional show article excerpts in list views (issue #41)
