@@ -21,9 +21,18 @@
 import QtQuick 2.0
 
 ListModel {
-
-
-
+    ListElement {
+        version: "1.9.1"
+        time: 1404255600000
+        text: "<ul>
+                <li>Changed: show All Articles entry even when there are no unread items and hide feeds and folders is set to true</li>
+                <li>Changed: use threaded model population for normal itemsmodel, too</li>
+                <li>Fixed: fix return of NULL value in database query for total unread count (should fix issue #49)</li>
+                <li>Fixed: when scaling rich text, first calculate the scaling, then set the text, fixes issue #47</li>
+                <li>Fixed: add forgotten connections between items signal markedAllItemsReadSuccess to models, to fix not updated models</li>
+                <li>Fixed: use nemo-keepalive for reliable update interval, fixes issue #5</li>
+               </ul>"
+    }
     ListElement {
         version: "1.9.0"
         date: 1404077599000
