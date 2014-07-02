@@ -1,3 +1,9 @@
+Version 1.9.2, 2014-07-02 18:32:00 +0200
+
+  General
+  * Fixed: also react on text changes when rescaling rich text, fixing issue #52
+  * Fixed: fixing bugs in configuration system, should also fix issue #54
+
 Version 1.9.1, 2014-07-02 01:00:00 +0200
 
   General

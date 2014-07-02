@@ -3,6 +3,15 @@ import QtQuick 1.1
 
 ListModel {
     ListElement {
+        version : "1.9.2"
+        time: 1404318720000
+        text: "<ul>
+                <li>Fixed: also react on text changes when rescaling rich text, fixing issue #52</li>
+                <li>Fixed: fixing bugs in configuration system, should also fix issue #54</li>
+               </ul>"
+    }
+
+    ListElement {
         version: "1.9.1"
         time: 1404255600000
         text: "<ul>

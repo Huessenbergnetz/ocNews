@@ -22,8 +22,17 @@ import QtQuick 2.0
 
 ListModel {
     ListElement {
+        version : "1.9.2"
+        date: 1404318720000
+        text: "<ul>
+                <li>Fixed: also react on text changes when rescaling rich text, fixing issue #52</li>
+                <li>Fixed: fixing bugs in configuration system, should also fix issue #54</li>
+               </ul>"
+    }
+
+    ListElement {
         version: "1.9.1"
-        time: 1404255600000
+        date: 1404255600000
         text: "<ul>
                 <li>Changed: show All Articles entry even when there are no unread items and hide feeds and folders is set to true</li>
                 <li>Changed: use threaded model population for normal itemsmodel, too</li>
