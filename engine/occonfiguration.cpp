@@ -187,6 +187,7 @@ void OcConfiguration::cleanDatabase()
     query.exec("DELETE FROM feeds");
     query.exec("DELETE FROM items");
     query.exec("DELETE FROM queue");
+    query.exec("DELETE FROM images");
     remove("storage/lastFullUpdate");
 
     emit cleanedDatabase();
