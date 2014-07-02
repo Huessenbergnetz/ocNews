@@ -31,8 +31,10 @@ Item {
     id: root
 
     property string text
-    property alias color: contentText.color
+    property string scaledText
+    property color color
     property real fontSize: 17
+
     property string _RICHTEXT_STYLESHEET_PREAMBLE: "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><style>a { text-decoration: none; color: '" + theme.selectionColor + "' }</style></head><body>";
     property string _RICHTEXT_STYLESHEET_APPENDIX: "</body></html>";
 
@@ -44,8 +46,16 @@ Item {
     clip: true
 
     onWidthChanged: {
-        rescaleTimer.restart();
+        if (!rescaleTimer.running)
+            rescaleTimer.restart();
     }
+
+    onTextChanged: {
+        if (!rescaleTimer.running)
+            rescaleTimer.restart();
+    }
+
+
 
     Text {
         id: layoutText
@@ -64,23 +74,31 @@ Item {
         onTextChanged: rescaleTimer.restart()
     }
 
-    Text {
+    Loader {
         id: contentText
+        sourceComponent: rescaleTimer.running ? null : textComponent
+    }
 
-        width: parent.width / scaling
-        scale: scaling
+    Component {
+        id: textComponent
+        Text {
+            width: root.width / scaling
+            scale: scaling
 
-        transformOrigin: Item.TopLeft
-        font.pointSize: parent.fontSize / scaling
-        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        textFormat: config.useRichText ? Text.RichText : Text.StyledText
-        smooth: true
-        font.weight: Font.Light
+            transformOrigin: Item.TopLeft
+            font.pointSize: root.fontSize / scaling
+            color: root.color
+            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+            textFormat: config.useRichText ? Text.RichText : Text.StyledText
+            smooth: true
+            font.weight: Font.Light
 
-//        text: useRichText ? _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX : parent.text
+    //        text: useRichText ? _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX : parent.text
+            text: config.useRichText ? _RICHTEXT_STYLESHEET_PREAMBLE + root.scaledText + _RICHTEXT_STYLESHEET_APPENDIX : root.scaledText
 
-        onLinkActivated: {
-            root.linkActivated(link);
+            onLinkActivated: {
+                root.linkActivated(link);
+            }
         }
     }
 
@@ -93,8 +111,7 @@ Item {
             scaling = Math.min(1, parent.width / (layoutText.paintedWidth + 0.0));
             console.log("scaling: " + scaling);
 
-            // set text to content item
-            contentText.text = config.useRichText ? _RICHTEXT_STYLESHEET_PREAMBLE + parent.text + _RICHTEXT_STYLESHEET_APPENDIX : parent.text
+            root.scaledText = root.text
         }
     }
 }
