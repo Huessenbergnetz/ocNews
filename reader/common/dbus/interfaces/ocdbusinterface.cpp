@@ -29,11 +29,6 @@ void OcDBusInterface::getVersion()
     generic->getVersion();
 }
 
-void OcDBusInterface::initConnection()
-{
-    generic->initConnection();
-}
-
 void OcDBusInterface::quitEngine()
 {
     generic->quitEngine();

@@ -19,72 +19,6 @@ OcGeneric::OcGeneric(QObject *parent) :
 
 
 /*!
- * \fn void OcGeneric::initConnection()
- * \brief Inits a connection
- *
- * This class only tries to request the version of the ownClod News App to init
- * the connection for other operations. This class is not more than a little hack
- * from the beginnings.
- */
-
-void OcGeneric::initConnection()
-{
-    if (network.isFlightMode())
-    {
-        emit initError(tr("Device is in flight mode."));
-        emit initErrorFlightMode();
-
-    } else {
-
-        url = helper.buildUrl("version");
-
-        QNetworkRequest request;
-        request.setUrl(url);
-        reply = network.get(request);
-
-        connect(reply,SIGNAL(finished()),this,SLOT(initFinished()));
-    }
-}
-
-
-
-/*!
- * \fn void OcGeneric::initFinished()
- * \brief Handles the result of the init network operation
- *
- * This internal function handles the network reply of initConnection().
- */
-
-void OcGeneric::initFinished()
-{
-    QString errmsg;
-
-    if (reply->error()) {
-        if (reply->error() == 5)
-        {
-            errmsg = tr("Request canceled, maybe wrong username or password");
-        } else if (reply->error() == 3) {
-            errmsg = tr("Remote host not found");
-        } else if (reply->error() == 203) {
-            errmsg = tr("Can not find ownCloud News, maybe wrong path or server");
-        } else {
-            errmsg = reply->errorString();
-#ifdef QT_DEBUG
-            qDebug() << reply->errorString();
-#endif
-        }
-
-        notify.showNotification(errmsg, tr("Connection error"), OcNotifications::Error);
-        emit initError(errmsg);
-    } else {
-        emit initSuccess();
-    }
-}
-
-
-
-
-/*!
  * \fn void OcGeneric::getVersion()
  * \brief Gets the version of the ownCloud News App
  *
@@ -97,7 +31,6 @@ void OcGeneric::getVersion()
     {
         emit gotVersionError(tr("Device is in flight mode."));
     } else {
-        url = helper.buildUrl("version");
 
         QNetworkRequest request = helper.buildRequest("version");
         reply = network.get(request);

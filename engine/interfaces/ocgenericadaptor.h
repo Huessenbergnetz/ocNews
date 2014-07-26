@@ -37,7 +37,6 @@ class OcGenericAdaptor: public QDBusAbstractAdaptor
 "    <signal name=\"gotVersionError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"error\"/>\n"
 "    </signal>\n"
-"    <method name=\"initConnection\"/>\n"
 "    <signal name=\"initSuccess\"/>\n"
 "    <signal name=\"initError\">\n"
 "      <arg direction=\"out\" type=\"s\" name=\"errorMessage\"/>\n"
@@ -53,7 +52,6 @@ public:
 public: // PROPERTIES
 public Q_SLOTS: // METHODS
     void getVersion();
-    void initConnection();
     void quitEngine();
 Q_SIGNALS: // SIGNALS
     void gotVersion(const QString &version);

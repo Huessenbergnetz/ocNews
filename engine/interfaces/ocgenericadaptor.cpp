@@ -39,12 +39,6 @@ void OcGenericAdaptor::getVersion()
     QMetaObject::invokeMethod(parent(), "getVersion");
 }
 
-void OcGenericAdaptor::initConnection()
-{
-    // handle method call de.buschmann23.ocNewsEngine.Generic.initConnection
-    QMetaObject::invokeMethod(parent(), "initConnection");
-}
-
 void OcGenericAdaptor::quitEngine()
 {
     // handle method call de.buschmann23.ocNewsEngine.Generic.quitEngine

@@ -11,7 +11,6 @@ class OcDBusInterface : public QObject
 public:
     explicit OcDBusInterface(QObject *parent = 0);
     // generic
-    Q_INVOKABLE void initConnection();
     Q_INVOKABLE void quitEngine();
     // configuration
     Q_INVOKABLE void getConfig();

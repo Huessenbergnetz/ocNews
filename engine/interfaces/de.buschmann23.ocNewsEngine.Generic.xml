@@ -8,7 +8,6 @@
     <signal name="gotVersionError">
         <arg name="error" type="s" direction="out"/>
     </signal>
-    <method name="initConnection" />
     <signal name="initSuccess" />
     <signal name="initError">
         <arg name="errorMessage" type="s" direction="out"/>

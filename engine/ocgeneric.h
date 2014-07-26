@@ -19,7 +19,6 @@ public:
 
 public Q_SLOTS: // METHODS
     void getVersion();
-    void initConnection();
     void quitEngine();
 
 Q_SIGNALS: // SIGNALS
@@ -31,7 +30,6 @@ Q_SIGNALS: // SIGNALS
 
 private slots:
     void getVersionFinished();
-    void initFinished();
 
 private:
     QUrl url;

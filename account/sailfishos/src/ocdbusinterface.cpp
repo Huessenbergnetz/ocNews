@@ -28,11 +28,6 @@ void OcDBusInterface::getVersion()
     generic->getVersion();
 }
 
-void OcDBusInterface::initConnection()
-{
-    generic->initConnection();
-}
-
 void OcDBusInterface::dbusGotVersion(const QString &version)
 {
     emit gotVersion(version);

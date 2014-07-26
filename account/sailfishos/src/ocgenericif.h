@@ -42,12 +42,6 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QLatin1String("getVersion"), argumentList);
     }
 
-    inline QDBusPendingReply<> initConnection()
-    {
-        QList<QVariant> argumentList;
-        return asyncCallWithArgumentList(QLatin1String("initConnection"), argumentList);
-    }
-
 Q_SIGNALS: // SIGNALS
     void gotVersion(const QString &version);
     void gotVersionError(const QString &error);

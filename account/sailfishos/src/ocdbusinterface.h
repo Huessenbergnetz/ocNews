@@ -10,8 +10,6 @@ class OcDBusInterface : public QObject
     Q_OBJECT
 public:
     explicit OcDBusInterface(QObject *parent = 0);
-    // generic
-    Q_INVOKABLE void initConnection();
     // configuration
     Q_INVOKABLE void getConfig();
     Q_INVOKABLE QVariant getSetting(QString entry, QVariant defaultValue = "");
