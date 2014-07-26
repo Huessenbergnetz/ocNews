@@ -35,11 +35,7 @@ void OcGeneric::initConnection()
         emit initErrorFlightMode();
 
     } else {
-
-        url = helper.buildUrl("version");
-
-        QNetworkRequest request;
-        request.setUrl(url);
+        QNetworkRequest request = helper.buildRequest("version");
         reply = network.get(request);
 
         connect(reply,SIGNAL(finished()),this,SLOT(initFinished()));
@@ -97,8 +93,6 @@ void OcGeneric::getVersion()
     {
         emit gotVersionError(tr("Device is in flight mode."));
     } else {
-        url = helper.buildUrl("version");
-
         QNetworkRequest request = helper.buildRequest("version");
         reply = network.get(request);
 
