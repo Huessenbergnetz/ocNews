@@ -1,3 +1,9 @@
+buschtrommel-ocnews (1.9.3) stable; urgency=low
+
+  * Improved: translation updates
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Wed, 12 Nov 2014 18:04:41 +0100
+
 buschtrommel-ocnews (1.9.2) stable; urgency=low
 
   * Fixed: also react on text changes when rescaling rich text, fixing issue #52

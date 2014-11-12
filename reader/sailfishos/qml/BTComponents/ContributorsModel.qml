@@ -60,6 +60,12 @@ ListModel {
     }
 
     ListElement {
+        name: "Heimen Stoffels"
+        role: QT_TR_NOOP("Dutch (Netherlands) translation")
+        section: QT_TR_NOOP("Thanks to")
+    }
+
+    ListElement {
         name: "Jean Clovis"
         role: QT_TR_NOOP("French translation")
         section: QT_TR_NOOP("Thanks to")
