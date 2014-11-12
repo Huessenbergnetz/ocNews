@@ -41,7 +41,7 @@
     <message>
         <location line="+1"/>
         <source>Added:</source>
-        <translation type="unfinished"/>
+        <translation>Добавлено:</translation>
     </message>
     <message numerus="yes">
         <location line="+11"/>
@@ -51,18 +51,18 @@
     <message>
         <location line="+1"/>
         <source>Removed:</source>
-        <translation type="unfinished"/>
+        <translation>Удалено:</translation>
     </message>
     <message>
         <location line="+81"/>
         <location line="+17"/>
         <source>Failed to add feed</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при добавлении ленты новостей</translation>
     </message>
     <message>
         <location line="+119"/>
         <source>Failed to delete feed</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при удалении ленты новостей</translation>
     </message>
     <message>
         <location line="+84"/>
@@ -72,7 +72,7 @@
     <message>
         <location line="+63"/>
         <source>Failed to move feed</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при перемещении ленты новостей</translation>
     </message>
     <message>
         <location line="+184"/>
@@ -82,7 +82,7 @@
     <message>
         <location line="+122"/>
         <source>Failed to rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при переименовании папки</translation>
     </message>
 </context>
 <context>
@@ -118,7 +118,7 @@
     <message>
         <location line="+1"/>
         <source>Added:</source>
-        <translation type="unfinished"/>
+        <translation>Добавлено:</translation>
     </message>
     <message numerus="yes">
         <location line="+11"/>
@@ -128,23 +128,23 @@
     <message>
         <location line="+1"/>
         <source>Removed:</source>
-        <translation type="unfinished"/>
+        <translation>Удалено:</translation>
     </message>
     <message>
         <location line="+47"/>
         <location line="+20"/>
         <source>Failed to create folder</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка создания папки</translation>
     </message>
     <message>
         <location line="+65"/>
         <source>Failed to delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при удалении папки</translation>
     </message>
     <message>
         <location line="+89"/>
         <source>Failed to rename folder</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при переименовании папки</translation>
     </message>
     <message>
         <location line="+85"/>
@@ -155,34 +155,29 @@
 <context>
     <name>OcGeneric</name>
     <message>
-        <location filename="../ocgeneric.cpp" line="+34"/>
-        <location line="+64"/>
+        <location filename="../ocgeneric.cpp" line="+32"/>
         <source>Device is in flight mode.</source>
         <translation>Устройство находится в режиме полёта.</translation>
     </message>
     <message>
-        <location line="-33"/>
-        <location line="+64"/>
+        <location line="+30"/>
         <source>Request canceled, maybe wrong username or password</source>
         <translation>Запрос отменён, возможно допущена ошибка в имени пользователя или пароле</translation>
     </message>
     <message>
-        <location line="-62"/>
-        <location line="+64"/>
+        <location line="+2"/>
         <source>Remote host not found</source>
         <translation>Удалённый сервер не найден</translation>
     </message>
     <message>
-        <location line="-62"/>
-        <location line="+64"/>
+        <location line="+2"/>
         <source>Can not find ownCloud News, maybe wrong path or server</source>
         <translation>OwnCloud News не найден, возможно не корректно указан путь или сервер</translation>
     </message>
     <message>
-        <location line="-56"/>
-        <location line="+66"/>
+        <location line="+10"/>
         <source>Connection error</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка соединения</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -212,40 +207,40 @@
     <name>OcItems</name>
     <message>
         <location filename="../ocitems.cpp" line="+17"/>
-        <location line="+243"/>
-        <location line="+607"/>
+        <location line="+240"/>
+        <location line="+605"/>
         <source>Device is in flight mode.</source>
         <translation>Устройство находится в режиме полёта.</translation>
     </message>
     <message>
-        <location line="-805"/>
+        <location line="-800"/>
         <location line="+1"/>
-        <location line="+290"/>
+        <location line="+287"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation>Сервер закрыл соединение.</translation>
     </message>
     <message>
-        <location line="-292"/>
-        <location line="+291"/>
+        <location line="-289"/>
+        <location line="+288"/>
         <source>Error in server reply</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-283"/>
-        <location line="+293"/>
+        <location line="-280"/>
+        <location line="+290"/>
         <source>HTTP error</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location line="-119"/>
-        <location line="+302"/>
+        <location line="-124"/>
+        <location line="+305"/>
         <source>%n new unread item(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location line="-302"/>
-        <location line="+302"/>
+        <location line="-305"/>
+        <location line="+305"/>
         <source>New articles available</source>
         <translation type="unfinished"/>
     </message>
@@ -264,7 +259,7 @@
 <context>
     <name>OcUpdater</name>
     <message>
-        <location filename="../ocupdater.cpp" line="+235"/>
+        <location filename="../ocupdater.cpp" line="+217"/>
         <source>Your account is disabled or you have not created an account yet.</source>
         <translation>Ваша учётная запись неактивна или ещё не создана.</translation>
     </message>
@@ -294,7 +289,7 @@
         <translation>Обновление завершено</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+33"/>
         <source>Update Failed</source>
         <translation>Ошибка при обновлении</translation>
     </message>

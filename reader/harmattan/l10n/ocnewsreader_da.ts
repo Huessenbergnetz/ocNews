@@ -20,27 +20,27 @@
     <message>
         <location line="+6"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>Bidrag</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Efterlad en besked (Engelsk eller Tysk):</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Oversæt</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>Indrapporter fejl</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Further information</source>
-        <translation type="unfinished"/>
+        <translation>Yderligere information</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -120,7 +120,7 @@
     <message>
         <location line="+26"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
     <message>
         <location line="+65"/>
@@ -342,19 +342,19 @@
 <context>
     <name>FolderListDelegate</name>
     <message>
-        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+85"/>
+        <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+84"/>
         <source>Empty folder</source>
         <translation>Tom folder</translation>
     </message>
     <message numerus="yes">
         <location line="+0"/>
         <source>%n unread post(s) in</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n ulæst besked i</numerusform><numerusform>%n ulæste beskeder i</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+0"/>
         <source>%n feed(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n feed</numerusform><numerusform>%n feeds</numerusform></translation>
     </message>
 </context>
 <context>
@@ -491,12 +491,12 @@
     <message>
         <location filename="../qml/ocNewsReader/Views/MainView.qml" line="+26"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Efterlad en besked (Engelsk eller Tysk):</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. </source>
-        <translation type="unfinished"/>
+        <translation>ocNews er en klient til ownCloud News app, en cloudbaseret RSS / Atom-feed aggregator.</translation>
     </message>
     <message>
         <location line="+59"/>
@@ -683,17 +683,17 @@
         <location line="+99"/>
         <location line="+201"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Uden kategori</translation>
     </message>
     <message>
         <location line="-296"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Alle poster</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Favoritposter</translation>
     </message>
 </context>
 <context>
@@ -719,7 +719,7 @@
     <message>
         <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Alle poster</translation>
     </message>
 </context>
 <context>
@@ -746,14 +746,14 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Alle poster</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Favoritposter</translation>
     </message>
 </context>
 <context>
@@ -779,17 +779,17 @@
     <message>
         <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>I dag</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d.MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>tt:mm</translation>
     </message>
 </context>
 <context>
@@ -797,17 +797,17 @@
     <message>
         <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>I dag</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d.MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>tt:mm</translation>
     </message>
 </context>
 <context>
@@ -851,127 +851,127 @@
     <message>
         <location filename="../qml/ocNewsReader/Common/PayPalChooser.qml" line="+107"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Valuta</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Euro</source>
-        <translation type="unfinished"/>
+        <translation>Euro</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>US Dollar</source>
-        <translation type="unfinished"/>
+        <translation>US Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Australian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Australsk Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Brazilian Real</source>
-        <translation type="unfinished"/>
+        <translation>Brasilianske Real</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Pound Sterling</source>
-        <translation type="unfinished"/>
+        <translation>Britisk Pund</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Dansk Krone</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hong Kong Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Hong Kong Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Israel New Shekel</source>
-        <translation type="unfinished"/>
+        <translation>Israelsk Ny Shekel</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Japanese Yen</source>
-        <translation type="unfinished"/>
+        <translation>Japansk Yen</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Canadian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Canadiske Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Mexican Peso</source>
-        <translation type="unfinished"/>
+        <translation>Mexicanske Peso</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Taiwan Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Ny Taiwan Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Zealand Dollar</source>
-        <translation type="unfinished"/>
+        <translation>New Zealand Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Norwegian Krone</source>
-        <translation type="unfinished"/>
+        <translation>Norske Kroner</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Philippine Peso</source>
-        <translation type="unfinished"/>
+        <translation>Filippinske Peso</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Polish Zloty</source>
-        <translation type="unfinished"/>
+        <translation>Poliske Zloty</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian Ruble</source>
-        <translation type="unfinished"/>
+        <translation>Russisk Rubel</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swedish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Svensk Krone</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swiss Franc</source>
-        <translation type="unfinished"/>
+        <translation>Schweiziske Franc</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Singapore Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Singapore Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Thai Baht</source>
-        <translation type="unfinished"/>
+        <translation>Thailandsk Baht</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Czech Koruna</source>
-        <translation type="unfinished"/>
+        <translation>Tjekkiske Koruna</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hungarian Forint</source>
-        <translation type="unfinished"/>
+        <translation>Ungarske Forint</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Doner via PayPal</translation>
     </message>
 </context>
 <context>
@@ -1004,7 +1004,7 @@
     <message>
         <location line="+9"/>
         <source>In order to log in to your ownCloud server, ocNews collects the server address, your user name and your password. These data is stored in a protected/private folder on your device. The data is not given to the author of ocNews or other third parties.</source>
-        <translation type="unfinished"/>
+        <translation>For at logge ind på din ownCloud server,  indsamler ocNews server-adresse, dit brugernavn og din adgangskode. Disse data gemmes i en beskyttet / privat folder på din enhed. Dataene bliver ikke videregivet til forfatteren af ​​ocNews eller tredjepart.</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -1014,7 +1014,7 @@
     <message>
         <location line="+9"/>
         <source>ocNews needs your log in data to connect to your ownCloud server. Your log in data is used to log in to your ownCloud server to perform the tasks of synchronizing your ownCloud News App data with your device.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews har brug for dine login data til at oprette forbindelse til din ownCloud server, for at kunne synkronisere din ownCloud News App data med din telefon.</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -1034,7 +1034,7 @@
     <message>
         <location line="+9"/>
         <source>ocNews only uses your data for the log in process into the server that you configure in the settings. ocNews does not send these data to the author of ocNews or other third parties. For questions concerning the privacy on the server side, you have to contact your ownCloud service provider.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews bruger kun dine data til at logge ind på den server du har angivet i indstillingerne. ocNews sender ikke sende disse data til hverken udvikleren eller tredjepart. For spørgsmål om privatlivspolitik på serveren, er du nødt til at kontakte din ownCloud tjenesteudbyder.</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -1044,7 +1044,7 @@
     <message>
         <location line="+9"/>
         <source>ocNews is a cloud based RSS/Atom feed reader. It has no preinstalled third party links other than the own application website link on the About page. Showing feed content and/or opening feed link addresses is in the user&apos;s responsibility. For questions concerning the privacy of the used feed content and/or website content you have to contact the feed provider.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews er en cloudbaseret RSS / Atom-feed læser. Programmet har ingen andre  forudinstallerede tredjepart links end et til programmets hjemmeside på siden Om. Visning af feedindhold og / eller åbning af internetlinks fra feeds, er brugerens eget ansvar. For spørgsmål vedrørende privatlivets fred i forbindelse med feedindhold og / eller hjemmesideindhold, er du nødt til at kontakte feed udbyder.</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -1244,17 +1244,17 @@
     <message>
         <location line="+6"/>
         <source>Update interval</source>
-        <translation type="unfinished"/>
+        <translation>Sidste ændringer</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Use prettier but slower Rich Text</source>
-        <translation type="unfinished"/>
+        <translation>Brug pænere men langsommere Rig Tekst</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Invert the theme color</source>
-        <translation type="unfinished"/>
+        <translation>Vend temafarver</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1334,17 +1334,17 @@
     <message>
         <location line="+43"/>
         <source>Select feeds for the event view</source>
-        <translation type="unfinished"/>
+        <translation>Vælg feeds for element visning.</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>Select event view feeds</source>
-        <translation type="unfinished"/>
+        <translation>Vælg feeds for element visning.</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Click the button to select the feeds that you want to aggregate to the Event screen. Only newly downloaded items will be added to the Events screen.</source>
-        <translation type="unfinished"/>
+        <translation>Klik på knappen for at vælge de feeds, som du ønsker at samle til elementvisning. Kun nyligt hentede emner vil blive tilføjet til elementvisning.</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -1384,7 +1384,7 @@
     <message>
         <location line="+13"/>
         <source>Query statistics</source>
-        <translation type="unfinished"/>
+        <translation>Forespørgselsstatistikker</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -1636,32 +1636,32 @@
         <location filename="../qml/ocNewsReader/Sheets/StartUpInfoSheet.qml" line="+44"/>
         <source>Welcome to %1 %2</source>
         <comment>First is app name, second is version number</comment>
-        <translation type="unfinished"/>
+        <translation>Velkommen til %1 %2</translation>
     </message>
     <message>
         <location line="+17"/>
         <source>Last changes</source>
-        <translation type="unfinished"/>
+        <translation>Sidste ændringer</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>Doner</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>If you like ocNews and have not purchased it alread via Ovi Store and you want to support the development, consider a small donation.</source>
-        <translation type="unfinished"/>
+        <translation>Hvis du kan lide ocNews og ikke allerede har købt det via Ovi Store, og du ønsker at støtte udviklingen, så overvej en lille donation.</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Hjælp</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Luk</translation>
     </message>
 </context>
 <context>

@@ -4,12 +4,12 @@
     <message>
         <location filename="../qml/Pages/About.qml" line="+19"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>Página de inicio</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Política de privacidad</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -39,22 +39,22 @@
     <message>
         <location line="+7"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>Contribuir</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Traducir</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>Reportar fallos</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Dejar mensaje (Inglés o Alemán):</translation>
     </message>
 </context>
 <context>
@@ -67,7 +67,7 @@
     <message>
         <location line="+7"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versión</translation>
     </message>
 </context>
 <context>
@@ -83,27 +83,27 @@
     <message>
         <location filename="../qml/BTComponents/ContributorsModel.qml" line="+26"/>
         <source>Main developer, ocNews creator</source>
-        <translation type="unfinished"/>
+        <translation>Desarrollador principal, creador de ocNews</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>UI, French translation</source>
-        <translation type="unfinished"/>
+        <translation>Interfaz de usuario, traducción al Francés</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Major contributors</source>
-        <translation type="unfinished"/>
+        <translation>Mayores aportadores</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Chinese (China) translation</source>
-        <translation type="unfinished"/>
+        <translation>Chino (China) traducción</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -113,32 +113,32 @@
         <location line="+8"/>
         <location line="+5"/>
         <source>Thanks to</source>
-        <translation type="unfinished"/>
+        <translation>Gracias a</translation>
     </message>
     <message>
         <location line="-33"/>
         <source>Danish translation</source>
-        <translation type="unfinished"/>
+        <translation>Traducción al danés</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>French translation</source>
-        <translation type="unfinished"/>
+        <translation>Traducción al Francés</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Italian translation</source>
-        <translation type="unfinished"/>
+        <translation>Traducción al italiano</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Spanish translation</source>
-        <translation type="unfinished"/>
+        <translation>Traducción al español</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation type="unfinished"/>
+        <translation>Martin Grimme&apos;s Anunciando Elementos</translation>
     </message>
 </context>
 <context>
@@ -268,27 +268,27 @@
     <message>
         <location filename="../qml/Delegates/FeedListDelegate.qml" line="+124"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar como leído</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Mover</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Renombrar</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Borrar</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -363,17 +363,17 @@
         <location filename="../qml/BTComponents/FirstStartInfo.qml" line="+73"/>
         <source>Welcome to %1 %2</source>
         <comment>First is app name, second is version number</comment>
-        <translation type="unfinished"/>
+        <translation>Bienvenido a %1 %2</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Last changes</source>
-        <translation type="unfinished"/>
+        <translation>Últimos cambios</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>Donar</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -384,12 +384,12 @@
     <message>
         <location line="+18"/>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Ayuda</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Cerrar</translation>
     </message>
 </context>
 <context>
@@ -398,30 +398,30 @@
         <location filename="../qml/Delegates/FolderListDelegate.qml" line="+150"/>
         <location line="+29"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <location line="-24"/>
         <location line="+29"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar como leído</translation>
     </message>
     <message>
         <location line="-24"/>
         <location line="+37"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Renombrar</translation>
     </message>
     <message>
         <location line="-29"/>
         <location line="+37"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Borrar</translation>
     </message>
     <message>
         <location line="-16"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Mover</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -492,7 +492,7 @@
     <message>
         <location line="+6"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Renombrar feed</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -570,7 +570,7 @@
     <message>
         <location filename="../qml/Views/MainView.qml" line="+24"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Dejar mensaje (Inglés o Alemán):</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -678,17 +678,17 @@
         <location line="+99"/>
         <location line="+201"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Sin categorizar</translation>
     </message>
     <message>
         <location line="-296"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Todas las noticias</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Noticias favoritas</translation>
     </message>
 </context>
 <context>
@@ -714,7 +714,7 @@
     <message>
         <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Todas las noticias</translation>
     </message>
 </context>
 <context>
@@ -741,14 +741,14 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Todas las noticias</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Noticias favoritas</translation>
     </message>
 </context>
 <context>
@@ -774,17 +774,17 @@
     <message>
         <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Hoy</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -792,17 +792,17 @@
     <message>
         <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Hoy</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -844,7 +844,12 @@
 <context>
     <name>OpenLink</name>
     <message>
-        <location filename="../qml/Dialogs/OpenLink.qml" line="+43"/>
+        <location filename="../qml/Dialogs/OpenLink.qml" line="+44"/>
+        <source>Open</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Write e-mail</source>
         <translation>Escribir e-mail</translation>
     </message>
@@ -854,7 +859,7 @@
         <translation>Abrir en navegador</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Click button to load image</source>
         <translation>Click en el botón para cargar imagen</translation>
     </message>
@@ -864,133 +869,133 @@
     <message>
         <location filename="../qml/BTComponents/PaypalChooser.qml" line="+126"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Moneda</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Euro</source>
-        <translation type="unfinished"/>
+        <translation>Euro</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>US Dollar</source>
-        <translation type="unfinished"/>
+        <translation>US Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Australian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Australian Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Brazilian Real</source>
-        <translation type="unfinished"/>
+        <translation>Brazilian Real</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Pound Sterling</source>
-        <translation type="unfinished"/>
+        <translation>Pound Sterling</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Danish Krone</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hong Kong Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Hong Kong Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Israel New Shekel</source>
-        <translation type="unfinished"/>
+        <translation>Israel New Shekel</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Japanese Yen</source>
-        <translation type="unfinished"/>
+        <translation>Japanese Yen</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Canadian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Canadian Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Mexican Peso</source>
-        <translation type="unfinished"/>
+        <translation>Mexican Peso</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Taiwan Dollar</source>
-        <translation type="unfinished"/>
+        <translation>New Taiwan Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Zealand Dollar</source>
-        <translation type="unfinished"/>
+        <translation>New Zealand Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Norwegian Krone</source>
-        <translation type="unfinished"/>
+        <translation>Norwegian Krone</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Philippine Peso</source>
-        <translation type="unfinished"/>
+        <translation>Philippine Peso</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Polish Zloty</source>
-        <translation type="unfinished"/>
+        <translation>Polish Zloty</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian Ruble</source>
-        <translation type="unfinished"/>
+        <translation>Russian Ruble</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swedish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Swedish Krone</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swiss Franc</source>
-        <translation type="unfinished"/>
+        <translation>Swiss Franc</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Singapore Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Singapore Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Thai Baht</source>
-        <translation type="unfinished"/>
+        <translation>Thai Baht</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Czech Koruna</source>
-        <translation type="unfinished"/>
+        <translation>Czech Koruna</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hungarian Forint</source>
-        <translation type="unfinished"/>
+        <translation>Hungarian Forint</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Donar via PayPal</translation>
     </message>
 </context>
 <context>
     <name>PrivacyPolicy</name>
     <message>
-        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+12"/>
+        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+17"/>
         <source>Close</source>
         <translation>Cerrar</translation>
     </message>
@@ -1000,7 +1005,7 @@
         <translation>Aceptar</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+8"/>
         <source>Privacy Policy</source>
         <translation>Política de privacidad</translation>
     </message>
@@ -1065,12 +1070,12 @@
     <message>
         <location filename="../qml/Dialogs/RenameFeed.qml" line="+17"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Renombrar feed</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Feed name</source>
-        <translation type="unfinished"/>
+        <translation>Nombre de feed</translation>
     </message>
 </context>
 <context>
@@ -1348,7 +1353,7 @@
     <message>
         <location line="+5"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificaciones</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -1363,7 +1368,7 @@
     <message>
         <location line="+6"/>
         <source>Privacy</source>
-        <translation type="unfinished"/>
+        <translation>Privacidad</translation>
     </message>
     <message>
         <location line="+3"/>

@@ -754,7 +754,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
         <source>All posts</source>
         <translation type="unfinished"></translation>
     </message>

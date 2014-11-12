@@ -9,16 +9,16 @@ Dialog {
 
     acceptDestinationAction: PageStackAction.Pop
 
-    DialogHeader { acceptText: config.privacyShown ? qsTr("Close") : qsTr("Accept") }
-
     SilicaFlickable {
         id: policyFlick
         anchors.fill: parent
-        contentHeight: policyCol.height + 5 * Theme.paddingLarge
+        contentHeight: policyCol.height + Theme.paddingLarge + dHeader.height
+
+        DialogHeader { id: dHeader; acceptText: config.privacyShown ? qsTr("Close") : qsTr("Accept") }
 
         Column {
             id: policyCol
-            anchors { left: parent.left; right: parent.right; top: parent.top; topMargin: 4 * Theme.paddingLarge; }
+            anchors { left: parent.left; right: parent.right; top: dHeader.bottom; }
 
             Label {
                 id: policyHeader

@@ -40,7 +40,10 @@ Dialog {
     }
 
     DialogHeader {
-        title: isMailTo(link) ? qsTr("Write e-mail") : qsTr("Open in browser")
+        dialog: parent
+        defaultAcceptText: qsTr("Open")
+        acceptText: isMailTo(link) ? qsTr("Write e-mail") : qsTr("Open in browser")
+        cancelText: ""
     }
 
     IconButton {

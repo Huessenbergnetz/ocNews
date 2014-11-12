@@ -4,22 +4,22 @@
     <message>
         <location filename="../qml/Pages/About.qml" line="+19"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>Домашняя страница</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Политика конфиденциальности</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Список изменений</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Авторы</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -29,7 +29,7 @@
     <message>
         <location line="+29"/>
         <source>The ownCloud News App client for Sailfish OS</source>
-        <translation type="unfinished"/>
+        <translation>Новостной клиент ownCloud для Sailfish OS</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -44,17 +44,17 @@
     <message>
         <location line="+7"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Перевод</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>Сообщить об ошибке</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Отправить сообщение (English or German):</translation>
     </message>
 </context>
 <context>
@@ -62,12 +62,12 @@
     <message>
         <location filename="../qml/BTComponents/Changelog.qml" line="+35"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Список изменений</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Версия</translation>
     </message>
 </context>
 <context>
@@ -75,7 +75,7 @@
     <message>
         <location filename="../qml/BTComponents/Contributors.qml" line="+34"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Авторы</translation>
     </message>
 </context>
 <context>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../qml/BTComponents/ContributorsModel.qml" line="+26"/>
         <source>Main developer, ocNews creator</source>
-        <translation type="unfinished"/>
+        <translation>Главный разработчик, создатель ocNews </translation>
     </message>
     <message>
         <location line="+1"/>
@@ -113,7 +113,7 @@
         <location line="+8"/>
         <location line="+5"/>
         <source>Thanks to</source>
-        <translation type="unfinished"/>
+        <translation>Благодарности</translation>
     </message>
     <message>
         <location line="-33"/>
@@ -146,7 +146,7 @@
     <message>
         <location filename="../qml/Pages/CoverPage.qml" line="+36"/>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>Никогда</translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
@@ -166,17 +166,17 @@
     <message>
         <location line="+2"/>
         <source>Just now</source>
-        <translation type="unfinished"/>
+        <translation>Прямо сейчас</translation>
     </message>
     <message>
         <location line="+28"/>
         <source>Unread news</source>
-        <translation type="unfinished"/>
+        <translation>Непрочитанные новости</translation>
     </message>
     <message>
         <location line="+27"/>
         <source>Updating</source>
-        <translation type="unfinished"/>
+        <translation>Обновление</translation>
     </message>
 </context>
 <context>
@@ -189,17 +189,17 @@
     <message>
         <location line="+15"/>
         <source>Add feed</source>
-        <translation type="unfinished"/>
+        <translation>Добавить ленту новостей</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Feed address</source>
-        <translation type="unfinished"/>
+        <translation>Адрес ленты новостей</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Add feed to folder</source>
-        <translation type="unfinished"/>
+        <translation>Добавить ленту новостей в папку</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -212,12 +212,12 @@
     <message>
         <location filename="../qml/Dialogs/CreateFolder.qml" line="+14"/>
         <source>Add folder</source>
-        <translation type="unfinished"/>
+        <translation>Добавить папку</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Folder name</source>
-        <translation type="unfinished"/>
+        <translation>Имя папки</translation>
     </message>
 </context>
 <context>
@@ -225,7 +225,7 @@
     <message>
         <location filename="../qml/Common/EnclosureItem.qml" line="+70"/>
         <source>Deleting %1</source>
-        <translation type="unfinished"/>
+        <translation>Удаление %1</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -235,7 +235,7 @@
     <message>
         <location line="+52"/>
         <source>Download finished</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка закончена</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -250,7 +250,7 @@
     <message>
         <location line="+6"/>
         <source>Abort download</source>
-        <translation type="unfinished"/>
+        <translation>Отменить загрузку</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -268,32 +268,32 @@
     <message>
         <location filename="../qml/Delegates/FeedListDelegate.qml" line="+124"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Обновить</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить как прочитанное</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Переместить</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Deleting feed %1</source>
-        <translation type="unfinished"/>
+        <translation>Удаление новостной ленты %1</translation>
     </message>
 </context>
 <context>
@@ -306,12 +306,12 @@
     <message>
         <location line="+11"/>
         <source>Delete Folder</source>
-        <translation type="unfinished"/>
+        <translation>Удалить папку</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Rename folder</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать папку</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -321,17 +321,17 @@
     <message>
         <location line="+9"/>
         <source>Mark folder as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить папку как прочитанную</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Update folder</source>
-        <translation type="unfinished"/>
+        <translation>Обновить папку</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>This folder is empty. Add some feeds to it.</source>
-        <translation type="unfinished"/>
+        <translation>Это папку пуста. Добавить новостную ленту.</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -341,7 +341,7 @@
     <message>
         <location line="+13"/>
         <source>Deleting folder %1</source>
-        <translation type="unfinished"/>
+        <translation>Удаление папки %1</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -363,17 +363,17 @@
         <location filename="../qml/BTComponents/FirstStartInfo.qml" line="+73"/>
         <source>Welcome to %1 %2</source>
         <comment>First is app name, second is version number</comment>
-        <translation type="unfinished"/>
+        <translation>Добро пожаловать в %1 %2</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Last changes</source>
-        <translation type="unfinished"/>
+        <translation>Последние изменения</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>Пожертвовать</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -384,12 +384,12 @@
     <message>
         <location line="+18"/>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Помощь</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Закрыть</translation>
     </message>
 </context>
 <context>
@@ -398,30 +398,30 @@
         <location filename="../qml/Delegates/FolderListDelegate.qml" line="+150"/>
         <location line="+29"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Обновить</translation>
     </message>
     <message>
         <location line="-24"/>
         <location line="+29"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить как прочитанное</translation>
     </message>
     <message>
         <location line="-24"/>
         <location line="+37"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать</translation>
     </message>
     <message>
         <location line="-29"/>
         <location line="+37"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location line="-16"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Переместить</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -482,17 +482,17 @@
     <message>
         <location line="+6"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Поиск</translation>
     </message>
     <message>
         <location line="+40"/>
         <source>Delete feed</source>
-        <translation type="unfinished"/>
+        <translation>Удалить новостную ленту</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать новостную ленту</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -507,22 +507,22 @@
     <message>
         <location line="+9"/>
         <source>Mark feed as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить новостную ленту как прочитанную</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Update feed</source>
-        <translation type="unfinished"/>
+        <translation>Обновить новостную ленту</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Hide search</source>
-        <translation type="unfinished"/>
+        <translation>Скрыть поиск</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Show search</source>
-        <translation type="unfinished"/>
+        <translation>Показать поиск</translation>
     </message>
     <message>
         <location line="+20"/>
@@ -537,12 +537,12 @@
     <message>
         <location line="+25"/>
         <source>Show</source>
-        <translation type="unfinished"/>
+        <translation>Показать</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hide</source>
-        <translation type="unfinished"/>
+        <translation>Скрыть</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -562,7 +562,7 @@
     <message>
         <location line="+0"/>
         <source>Show oldest on top</source>
-        <translation type="unfinished"/>
+        <translation>Показать старые в первую очередь</translation>
     </message>
 </context>
 <context>
@@ -585,7 +585,7 @@
     <message>
         <location line="+25"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Выход</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -595,22 +595,22 @@
     <message>
         <location line="+5"/>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Добавить</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Update all</source>
-        <translation type="unfinished"/>
+        <translation>Обновить все</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Last update:</source>
-        <translation type="unfinished"/>
+        <translation>Последнее обновление:</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -645,7 +645,7 @@
     <message>
         <location line="+11"/>
         <source>Add folder</source>
-        <translation type="unfinished"/>
+        <translation>Добавить папку</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -741,7 +741,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
         <source>All posts</source>
         <translation type="unfinished"/>
     </message>
@@ -756,7 +756,7 @@
     <message>
         <location filename="../../common/models/ocitemsmodelsql.cpp" line="+65"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -774,7 +774,7 @@
     <message>
         <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -792,7 +792,7 @@
     <message>
         <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -810,7 +810,7 @@
     <message>
         <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+136"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -828,7 +828,7 @@
     <message>
         <location filename="../../common/models/ocspecialitemsmodelsql.cpp" line="+66"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -844,17 +844,22 @@
 <context>
     <name>OpenLink</name>
     <message>
-        <location filename="../qml/Dialogs/OpenLink.qml" line="+43"/>
-        <source>Write e-mail</source>
+        <location filename="../qml/Dialogs/OpenLink.qml" line="+44"/>
+        <source>Open</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Write e-mail</source>
+        <translation>Написать e-mail</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Open in browser</source>
-        <translation type="unfinished"/>
+        <translation>Открыть в браузере</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Click button to load image</source>
         <translation type="unfinished"/>
     </message>
@@ -990,9 +995,9 @@
 <context>
     <name>PrivacyPolicy</name>
     <message>
-        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+12"/>
+        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+17"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1000,7 +1005,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+8"/>
         <source>Privacy Policy</source>
         <translation type="unfinished"/>
     </message>
@@ -1078,12 +1083,12 @@
     <message>
         <location filename="../qml/Dialogs/RenameFolder.qml" line="+17"/>
         <source>Rename folder</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать папку</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Folder name</source>
-        <translation type="unfinished"/>
+        <translation>Имя папки</translation>
     </message>
 </context>
 <context>
@@ -1091,7 +1096,7 @@
     <message>
         <location filename="../qml/Pages/Settings.qml" line="+39"/>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1107,22 +1112,22 @@
     <message>
         <location line="+4"/>
         <source>Reset configuration</source>
-        <translation type="unfinished"/>
+        <translation>Сбросить конфигурацию</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Test connection</source>
-        <translation type="unfinished"/>
+        <translation>Тест соединения</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>User name</source>
-        <translation type="unfinished"/>
+        <translation>Имя пользователя</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Пароль</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1158,7 +1163,7 @@
         <location line="+6"/>
         <location line="+17"/>
         <source>Updating</source>
-        <translation type="unfinished"/>
+        <translation>Обновление</translation>
     </message>
     <message>
         <location line="-9"/>
@@ -1183,32 +1188,32 @@
     <message>
         <location line="+1"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>30 минут</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 час</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>3 Hours</source>
-        <translation type="unfinished"/>
+        <translation>3 часа</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>6 Hours</source>
-        <translation type="unfinished"/>
+        <translation>6 часов</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>12 Hours</source>
-        <translation type="unfinished"/>
+        <translation>12 часов</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Update interval</source>
-        <translation type="unfinished"/>
+        <translation>Интервал обновления</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1238,12 +1243,12 @@
     <message>
         <location line="+7"/>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Папки</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Feeds</source>
-        <translation type="unfinished"/>
+        <translation>Новостные ленты</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1293,12 +1298,12 @@
     <message>
         <location line="+12"/>
         <source>Show</source>
-        <translation type="unfinished"/>
+        <translation>Показать</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hide</source>
-        <translation type="unfinished"/>
+        <translation>Скрыть</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1348,7 +1353,7 @@
     <message>
         <location line="+5"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Уведомления</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -1392,12 +1397,12 @@
         <location filename="../qml/Views/SingleItemView.qml" line="+74"/>
         <location line="+38"/>
         <source>Open in Browser</source>
-        <translation type="unfinished"/>
+        <translation>Открыть в браузере</translation>
     </message>
     <message>
         <location line="-34"/>
         <source>Remove from favourites</source>
-        <translation type="unfinished"/>
+        <translation>Удалить из избранных</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1407,7 +1412,7 @@
     <message>
         <location line="+8"/>
         <source>Show images</source>
-        <translation type="unfinished"/>
+        <translation>Показать картинки</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1440,17 +1445,17 @@
     <message>
         <location filename="../qml/Views/SingleItemWebView.qml" line="+34"/>
         <source>Clear cookies</source>
-        <translation type="unfinished"/>
+        <translation>Очистить cookies</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Stop loading</source>
-        <translation type="unfinished"/>
+        <translation>Остановить загрузку</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Reload</source>
-        <translation type="unfinished"/>
+        <translation>Перезагрузить</translation>
     </message>
     <message>
         <location line="+4"/>

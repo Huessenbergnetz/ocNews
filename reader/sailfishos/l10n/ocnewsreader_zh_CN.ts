@@ -54,7 +54,7 @@
     <message>
         <location line="+11"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>留言(仅支持英文和德语):</translation>
     </message>
 </context>
 <context>
@@ -630,7 +630,7 @@
     <message>
         <location line="+5"/>
         <source>No unread or favorite articles to show. Enable your option to show hide read feeds and folders to see content.</source>
-        <translation type="unfinished"/>
+        <translation>没有可显示的收藏或者未阅读的文章.请通过选项启用已阅读文章和文件夹的内容</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -678,17 +678,17 @@
         <location line="+99"/>
         <location line="+201"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>未分类</translation>
     </message>
     <message>
         <location line="-296"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>所有帖子</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>收藏的帖子</translation>
     </message>
 </context>
 <context>
@@ -714,7 +714,7 @@
     <message>
         <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>所有帖子</translation>
     </message>
 </context>
 <context>
@@ -741,14 +741,14 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>所有帖子</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>收藏的帖子</translation>
     </message>
 </context>
 <context>
@@ -774,17 +774,17 @@
     <message>
         <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>今天</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -792,17 +792,17 @@
     <message>
         <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>今天</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -844,7 +844,12 @@
 <context>
     <name>OpenLink</name>
     <message>
-        <location filename="../qml/Dialogs/OpenLink.qml" line="+43"/>
+        <location filename="../qml/Dialogs/OpenLink.qml" line="+44"/>
+        <source>Open</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Write e-mail</source>
         <translation>发电邮</translation>
     </message>
@@ -854,7 +859,7 @@
         <translation>在浏览器中打开</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Click button to load image</source>
         <translation>点击以载入图片</translation>
     </message>
@@ -990,7 +995,7 @@
 <context>
     <name>PrivacyPolicy</name>
     <message>
-        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+12"/>
+        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+17"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
@@ -1000,7 +1005,7 @@
         <translation>接受</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+8"/>
         <source>Privacy Policy</source>
         <translation>隐私政策</translation>
     </message>
@@ -1333,12 +1338,12 @@
     <message>
         <location line="+7"/>
         <source>Show article excerpts</source>
-        <translation type="unfinished"/>
+        <translation>显示文章摘要</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Shows some lines of the article content in the article list.</source>
-        <translation type="unfinished"/>
+        <translation>在文章列表中显示部分文章内容</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -1348,32 +1353,32 @@
     <message>
         <location line="+5"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>通知</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Notify about added/removed feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>添加或删除订阅源/文件夹时通知</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Notify about new articles</source>
-        <translation type="unfinished"/>
+        <translation>更新文章时通知</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Privacy</source>
-        <translation type="unfinished"/>
+        <translation>隐私</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Enable private browsing for web view</source>
-        <translation type="unfinished"/>
+        <translation>启用隐身浏览</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Allow cookies in web view</source>
-        <translation type="unfinished"/>
+        <translation>所有web缓存cookies</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1440,7 +1445,7 @@
     <message>
         <location filename="../qml/Views/SingleItemWebView.qml" line="+34"/>
         <source>Clear cookies</source>
-        <translation type="unfinished"/>
+        <translation>清除cookies</translation>
     </message>
     <message>
         <location line="+4"/>

@@ -165,32 +165,27 @@
 <context>
     <name>OcGeneric</name>
     <message>
-        <location filename="../ocgeneric.cpp" line="+34"/>
-        <location line="+64"/>
+        <location filename="../ocgeneric.cpp" line="+32"/>
         <source>Device is in flight mode.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-33"/>
-        <location line="+64"/>
+        <location line="+30"/>
         <source>Request canceled, maybe wrong username or password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-62"/>
-        <location line="+64"/>
+        <location line="+2"/>
         <source>Remote host not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-62"/>
-        <location line="+64"/>
+        <location line="+2"/>
         <source>Can not find ownCloud News, maybe wrong path or server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-56"/>
-        <location line="+66"/>
+        <location line="+10"/>
         <source>Connection error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -222,42 +217,42 @@
     <name>OcItems</name>
     <message>
         <location filename="../ocitems.cpp" line="+17"/>
-        <location line="+241"/>
+        <location line="+240"/>
         <location line="+605"/>
         <source>Device is in flight mode.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-801"/>
+        <location line="-800"/>
         <location line="+1"/>
-        <location line="+288"/>
+        <location line="+287"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-290"/>
-        <location line="+289"/>
+        <location line="-289"/>
+        <location line="+288"/>
         <source>Error in server reply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-281"/>
-        <location line="+291"/>
+        <location line="-280"/>
+        <location line="+290"/>
         <source>HTTP error</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="-119"/>
-        <location line="+300"/>
+        <location line="-124"/>
+        <location line="+305"/>
         <source>%n new unread item(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location line="-300"/>
-        <location line="+300"/>
+        <location line="-305"/>
+        <location line="+305"/>
         <source>New articles available</source>
         <translation type="unfinished"></translation>
     </message>

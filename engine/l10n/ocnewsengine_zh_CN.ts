@@ -67,7 +67,7 @@
     <message>
         <location line="+84"/>
         <source>Feed is already part of the destination folder</source>
-        <translation type="unfinished"/>
+        <translation>该订阅已经是目标文件夹一部分</translation>
     </message>
     <message>
         <location line="+63"/>
@@ -155,32 +155,27 @@
 <context>
     <name>OcGeneric</name>
     <message>
-        <location filename="../ocgeneric.cpp" line="+34"/>
-        <location line="+64"/>
+        <location filename="../ocgeneric.cpp" line="+32"/>
         <source>Device is in flight mode.</source>
         <translation>设备处于飞行模式。</translation>
     </message>
     <message>
-        <location line="-33"/>
-        <location line="+64"/>
+        <location line="+30"/>
         <source>Request canceled, maybe wrong username or password</source>
         <translation>请求被取消，用户名或密码可能是错误的</translation>
     </message>
     <message>
-        <location line="-62"/>
-        <location line="+64"/>
+        <location line="+2"/>
         <source>Remote host not found</source>
         <translation>远程主机未找到</translation>
     </message>
     <message>
-        <location line="-62"/>
-        <location line="+64"/>
+        <location line="+2"/>
         <source>Can not find ownCloud News, maybe wrong path or server</source>
         <translation>找不到ownCloud新闻，路径或服务器可能错误</translation>
     </message>
     <message>
-        <location line="-56"/>
-        <location line="+66"/>
+        <location line="+10"/>
         <source>Connection error</source>
         <translation>连接错误</translation>
     </message>
@@ -195,57 +190,57 @@
     <message>
         <location filename="../ocimagefetcher.cpp" line="+40"/>
         <source>ocNews Image Fetcher</source>
-        <translation type="unfinished"/>
+        <translation>ocNews图片捕获器</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Fetching images</source>
-        <translation type="unfinished"/>
+        <translation>图片捕获完成</translation>
     </message>
     <message>
         <location line="+43"/>
         <source>Fetching images finished</source>
-        <translation type="unfinished"/>
+        <translation>图片捕获完成</translation>
     </message>
 </context>
 <context>
     <name>OcItems</name>
     <message>
         <location filename="../ocitems.cpp" line="+17"/>
-        <location line="+243"/>
-        <location line="+607"/>
+        <location line="+240"/>
+        <location line="+605"/>
         <source>Device is in flight mode.</source>
         <translation>设备处于飞行模式。</translation>
     </message>
     <message>
-        <location line="-805"/>
+        <location line="-800"/>
         <location line="+1"/>
-        <location line="+290"/>
+        <location line="+287"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation>服务器返回为空。</translation>
     </message>
     <message>
-        <location line="-292"/>
-        <location line="+291"/>
+        <location line="-289"/>
+        <location line="+288"/>
         <source>Error in server reply</source>
         <translation>服务器返回错误</translation>
     </message>
     <message>
-        <location line="-283"/>
-        <location line="+293"/>
+        <location line="-280"/>
+        <location line="+290"/>
         <source>HTTP error</source>
         <translation>HTTP错误</translation>
     </message>
     <message numerus="yes">
-        <location line="-119"/>
-        <location line="+302"/>
+        <location line="-124"/>
+        <location line="+305"/>
         <source>%n new unread item(s)</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
-        <location line="-302"/>
-        <location line="+302"/>
+        <location line="-305"/>
+        <location line="+305"/>
         <source>New articles available</source>
         <translation>有新文章</translation>
     </message>
@@ -264,7 +259,7 @@
 <context>
     <name>OcUpdater</name>
     <message>
-        <location filename="../ocupdater.cpp" line="+235"/>
+        <location filename="../ocupdater.cpp" line="+217"/>
         <source>Your account is disabled or you have not created an account yet.</source>
         <translation>你的账户被禁用或你还没有创建账户。</translation>
     </message>
@@ -294,7 +289,7 @@
         <translation>更新完成</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+33"/>
         <source>Update Failed</source>
         <translation>更新失败</translation>
     </message>

@@ -741,7 +741,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
         <source>All posts</source>
         <translation>Tous les articles</translation>
     </message>
@@ -779,12 +779,12 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -797,12 +797,12 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -844,7 +844,12 @@
 <context>
     <name>OpenLink</name>
     <message>
-        <location filename="../qml/Dialogs/OpenLink.qml" line="+43"/>
+        <location filename="../qml/Dialogs/OpenLink.qml" line="+44"/>
+        <source>Open</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Write e-mail</source>
         <translation>Écrire un courriel</translation>
     </message>
@@ -854,7 +859,7 @@
         <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Click button to load image</source>
         <translation>Cliquer sur le bouton pour charger l&apos;image</translation>
     </message>
@@ -990,7 +995,7 @@
 <context>
     <name>PrivacyPolicy</name>
     <message>
-        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+12"/>
+        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+17"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
@@ -1000,7 +1005,7 @@
         <translation>Accepter</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+8"/>
         <source>Privacy Policy</source>
         <translation>Vie Privée</translation>
     </message>

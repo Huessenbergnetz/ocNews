@@ -741,7 +741,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+154"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
         <source>All posts</source>
         <translation>Alle Artikel</translation>
     </message>
@@ -844,7 +844,12 @@
 <context>
     <name>OpenLink</name>
     <message>
-        <location filename="../qml/Dialogs/OpenLink.qml" line="+43"/>
+        <location filename="../qml/Dialogs/OpenLink.qml" line="+44"/>
+        <source>Open</source>
+        <translation>Öffnen</translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Write e-mail</source>
         <translation>Schreibe E-Mail</translation>
     </message>
@@ -854,7 +859,7 @@
         <translation>Im Browser öffnen</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Click button to load image</source>
         <translation>Knopf drücken um Bild zu laden</translation>
     </message>
@@ -990,7 +995,7 @@
 <context>
     <name>PrivacyPolicy</name>
     <message>
-        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+12"/>
+        <location filename="../qml/Dialogs/PrivacyPolicy.qml" line="+17"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
@@ -1000,7 +1005,7 @@
         <translation>Annehmen</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+8"/>
         <source>Privacy Policy</source>
         <translation>Datenschutzerklärung</translation>
     </message>
