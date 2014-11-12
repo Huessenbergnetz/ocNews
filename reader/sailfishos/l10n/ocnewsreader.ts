@@ -111,6 +111,7 @@
         <location line="+1"/>
         <location line="+8"/>
         <location line="+11"/>
+        <location line="+6"/>
         <location line="+8"/>
         <location line="+8"/>
         <location line="+5"/>
@@ -118,12 +119,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-33"/>
+        <location line="-39"/>
         <source>Danish translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+11"/>
+        <source>Dutch (Netherlands) translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>French translation</source>
         <translation type="unfinished"></translation>
     </message>

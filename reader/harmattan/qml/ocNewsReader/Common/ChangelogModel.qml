@@ -3,6 +3,14 @@ import QtQuick 1.1
 
 ListModel {
     ListElement {
+        version : "1.9.3"
+        time: 1415812273000
+        text: "<ul>
+                <li>Improved: translation updates</li>
+               </ul>"
+    }
+
+    ListElement {
         version : "1.9.2"
         time: 1404318720000
         text: "<ul>

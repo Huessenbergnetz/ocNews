@@ -22,6 +22,16 @@ import QtQuick 2.0
 
 ListModel {
     ListElement {
+        version : "1.9.3"
+        date: 1415812273000
+        text: "<ul>
+                <li>New: partly Dutch (Netherlands) translation by Heimen Stoffels</li>
+                <li>Improved: SailfishOS Update 9 compatibility (issue #58)</li>
+                <li>Improved: translation updates</li>
+               </ul>"
+    }
+
+    ListElement {
         version : "1.9.2"
         date: 1404318720000
         text: "<ul>
