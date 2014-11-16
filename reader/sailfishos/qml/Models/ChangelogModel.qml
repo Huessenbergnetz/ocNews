@@ -30,6 +30,16 @@ import QtQuick 2.0
 
 ListModel {
     ListElement {
+        version: "1.9.4"
+        date: 1416161271000
+        entries: [
+            ListElement { type: 0; issue: ""; description: "implement QsLog to create log files" },
+            ListElement { type: 1; issue: ""; description: "updating BTComponents (About page, Changelog, Contributors, etc.)" },
+            ListElement { type: 1; issue: ""; description: "translation updates" }
+        ]
+    }
+
+    ListElement {
         version : "1.9.3"
         date: 1415812273000
         entries: [
