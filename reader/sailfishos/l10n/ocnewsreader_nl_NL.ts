@@ -2,72 +2,125 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../qml/Pages/About.qml" line="+19"/>
-        <source>Homepage</source>
-        <translation>Website</translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Privacy Policy</source>
-        <translation>Privacyovereenkomst</translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Changelog</source>
-        <translation>Wijzigingslog</translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Contributors</source>
-        <translation>Bijdragers</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>About</source>
-        <translation>Over</translation>
-    </message>
-    <message>
-        <location line="+29"/>
+        <location filename="../qml/Pages/About.qml" line="+10"/>
         <source>The ownCloud News App client for Sailfish OS</source>
         <translation>De ownCloud-nieuwsapp-client voor SailfishOS</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+4"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
         <translation>Gelicenseerd onder de &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Contribute</source>
-        <translation>Bijdragen</translation>
+        <location line="+15"/>
+        <source>Munich</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Translate</source>
-        <translation>Vertalen</translation>
+        <location line="+1"/>
+        <source>Germany</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+6"/>
-        <source>Report bugs</source>
-        <translation>Bugs rapporteren</translation>
+        <location line="+4"/>
+        <source>Donate via PayPal</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
+        <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="-7"/>
         <source>Leave a message (English or German):</source>
         <translation>Een bericht achterlaten (Engels of Duits)</translation>
     </message>
 </context>
 <context>
+    <name>AboutPage</name>
+    <message>
+        <location filename="../qml/BTComponents/AboutPage.qml" line="+77"/>
+        <source>Homepage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Changelog</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Contributors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>About</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+58"/>
+        <source>Contact</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+84"/>
+        <source>Contribute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Translate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Report bugs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>3rd party licenses</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Changelog</name>
     <message>
-        <location filename="../qml/BTComponents/Changelog.qml" line="+35"/>
+        <location filename="../qml/BTComponents/Changelog.qml" line="+42"/>
         <source>Changelog</source>
         <translation>Wijzigingslog</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Version</source>
-        <translation>Versie</translation>
+        <location line="+20"/>
+        <source>New</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Improved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Fixed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Note</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -79,9 +132,22 @@
     </message>
 </context>
 <context>
+    <name>ContributorsDelegate</name>
+    <message>
+        <location filename="../qml/BTComponents/ContributorsDelegate.qml" line="+127"/>
+        <source>Website</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Sina Weibo</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ContributorsModel</name>
     <message>
-        <location filename="../qml/BTComponents/ContributorsModel.qml" line="+26"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="+26"/>
         <source>Main developer, ocNews creator</source>
         <translation>Hoofdontwikkelaar, ontwikkelaar van ocNews</translation>
     </message>
@@ -366,29 +432,18 @@
 <context>
     <name>FirstStartInfo</name>
     <message>
-        <location filename="../qml/BTComponents/FirstStartInfo.qml" line="+73"/>
+        <location filename="../qml/BTComponents/FirstStartInfo.qml" line="+76"/>
         <source>Welcome to %1 %2</source>
         <comment>First is app name, second is version number</comment>
         <translation>Welkom bij %1 %2</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+15"/>
         <source>Last changes</source>
         <translation>Laatste wijzigingen</translation>
     </message>
     <message>
-        <location line="+15"/>
-        <source>Donate</source>
-        <translation>Doneren</translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>If you like %1 and you want to support the development, consider a small donation.</source>
-        <comment>first is name of the application</comment>
-        <translation>Als u %1 goed vindt en u wilt de ontwikkeling steunen, overweeg dan een kleine donatie.</translation>
-    </message>
-    <message>
-        <location line="+18"/>
+        <location line="+63"/>
         <source>Help</source>
         <translation>Hulp</translation>
     </message>
@@ -582,17 +637,32 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+24"/>
+        <location filename="../qml/Views/MainView.qml" line="+27"/>
         <source>Leave a message (English or German):</source>
         <translation>Een bericht achterlaten (Engels of Duits)</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. </source>
-        <translation>ocNews is een client voor de ownCloud-nieuwsapp, een cloudgebaseerde RSS/Atom-feedaggregator.</translation>
+        <location line="-5"/>
+        <source>Donate</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+1"/>
+        <source>If you like ocNews and you want to support the development, consider a small donation.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Donate via PayPal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ocNews is a client for the ownCloud News app, a cloud based RSS/Atom feed aggregator. </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+13"/>
         <source>Update running...</source>
         <translation>Bezig met bijwerken...</translation>
     </message>
@@ -934,7 +1004,7 @@
 <context>
     <name>PaypalChooser</name>
     <message>
-        <location filename="../qml/BTComponents/PaypalChooser.qml" line="+126"/>
+        <location filename="../qml/BTComponents/PaypalChooser.qml" line="+127"/>
         <source>Currency</source>
         <translation>Munteenheid</translation>
     </message>
@@ -1052,11 +1122,6 @@
         <location line="+1"/>
         <source>Hungarian Forint</source>
         <translation>Hongaarse Florijn</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Donate via PayPal</source>
-        <translation>Doneren via PayPal</translation>
     </message>
 </context>
 <context>
