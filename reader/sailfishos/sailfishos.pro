@@ -99,16 +99,18 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     l10n/*.ts \
     qml/Dialogs/RenameFeed.qml \
     qml/BTComponents/FirstStartInfo.qml \
-    qml/BTComponents/ContributorsModel.qml \
     qml/BTComponents/ContributorsDelegate.qml \
     qml/BTComponents/Contributors.qml \
     qml/BTComponents/ComboBoxList.qml \
-    qml/BTComponents/ChangelogModel.qml \
     qml/BTComponents/Changelog.qml \
     qml/BTComponents/PaypalChooser.qml \
     misc/harbour.ocnews.reader.service \
     ../common/dbus/adaptor/harbour.ocnews.reader.xml \
-    qml/Pages/LanguageChooser.qml
+    qml/Pages/LanguageChooser.qml \
+    qml/BTComponents/AboutPage.qml \
+    qml/BTComponents/ChangelogDelegate.qml \
+    qml/Models/ChangelogModel.qml \
+    qml/Models/ContributorsModel.qml
 
 HEADERS += \
     ../common/ocdbmanager.h \

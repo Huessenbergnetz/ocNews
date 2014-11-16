@@ -31,6 +31,7 @@ Item {
     property string item
     property string message
     property string url
+    property string label
 
     function openDonation(currency)
     {
@@ -153,7 +154,7 @@ Item {
     ComboBoxList {
         id: donation
         anchors { left: parent.left; right: parent.right }
-        label: qsTr("Donate via PayPal")
+        label: root.label
         model: donationModel
         onChoosenValueChanged: openDonation(choosenValue)
     }

@@ -32,10 +32,16 @@ Item {
     property string name
     property string description
     property string helpPage
+    property string donationHeader
+    property string donationText
     property string paypalOrganization
     property string paypalItem
     property string paypalEmail
     property string paypalMessage
+    property string paypalLabel
+
+    property ListModel changeLogModel: null
+    property string changeLogTracker
 
     Loader {
         anchors.fill: parent
@@ -44,6 +50,7 @@ Item {
 
     Component {
         id: info
+
         Rectangle {
             color: Theme.rgba("black", 0.8)
             anchors.fill: parent
@@ -61,10 +68,6 @@ Item {
                 Column {
                     id: infoCol
                     anchors { left: parent.left; right: parent.right; top: parent.top; topMargin: Theme.paddingLarge }
-
-                    ChangelogModel {
-                        id: changelogModel
-                    }
 
                     Label {
                         id: title
@@ -85,23 +88,41 @@ Item {
                         text: _RICHTEXT_STYLESHEET_PREAMBLE + root.description + _RICHTEXT_STYLESHEET_APPENDIX
                     }
 
+                    SectionHeader { text: qsTr("Last changes"); visible: clRepeater.count > 0 }
 
-                    SectionHeader { text: qsTr("Last changes"); visible: newInThisVersion.visible }
+                    Repeater {
+                        id: clRepeater
+                        model: changeLogModel.get(0).entries
+                        anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
 
+                        Item {
+                            anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                            height: desc.height
 
-                    Text {
-                        id: newInThisVersion
-                        anchors { left: parent.left; right: parent.right; rightMargin: Theme.paddingLarge }
-                        textFormat: Text.RichText
-                        color: Theme.primaryColor
-                        wrapMode: Text.WordWrap
-                        font.pixelSize: Theme.fontSizeSmall
-                        onLinkActivated: { Qt.openUrlExternally(link) }
-                        text: changelogModel.count > 0 ? _RICHTEXT_STYLESHEET_PREAMBLE + changelogModel.get(0).text + _RICHTEXT_STYLESHEET_APPENDIX : ""
-                        visible: changelogModel.get(0).text !== ""
+                            property string issueUrl: (model.issue && root.changeLogTracker) ? " (<a href='" + root.changeLogTracker + model.issue +"'>#" + model.issue + "</a>)" : ""
+
+                            Image {
+                                id: typeIcon
+                                width: 32; height: 32
+                                source: model.type === 0 ? "image://theme/icon-m-add" : model.type === 1 ? "image://theme/icon-m-favorite" : model.type === 2 ? "image://theme/icon-m-crash-reporter" : "image://theme/icon-s-high-importance"
+                                anchors { left: parent.left; top: parent.top; }
+                            }
+
+                            Text {
+                                id: desc
+                                width: parent.width - typeIcon.width - Theme.paddingSmall
+                                anchors { left: typeIcon.right; leftMargin: Theme.paddingSmall; right: parent.right }
+                                textFormat: Text.RichText
+                                color: Theme.primaryColor
+                                wrapMode: Text.WordWrap
+                                font.pixelSize: Theme.fontSizeSmall
+                                onLinkActivated: { Qt.openUrlExternally(link) }
+                                text: _RICHTEXT_STYLESHEET_PREAMBLE + model.description + issueUrl + _RICHTEXT_STYLESHEET_APPENDIX
+                            }
+                        }
                     }
 
-                    SectionHeader { text: qsTr("Donate"); visible: root.paypalEmail }
+                    SectionHeader { text: root.donationHeader; visible: root.donationHeader }
 
                     Text {
                         anchors { left: parent.left; leftMargin: Theme.paddingLarge; right: parent.right; rightMargin: Theme.paddingLarge }
@@ -110,8 +131,8 @@ Item {
                         wrapMode: Text.WordWrap
                         font.pixelSize: Theme.fontSizeSmall
                         onLinkActivated: { Qt.openUrlExternally(link) }
-                        text: qsTr("If you like %1 and you want to support the development, consider a small donation.", "first is name of the application").arg(root.name)
-                        visible: root.paypalEmail
+                        text: root.donationText
+                        visible: root.donationText
                     }
 
                     PaypalChooser {
@@ -121,7 +142,9 @@ Item {
                         email: root.paypalEmail
                         message: root.paypalMessage
                         visible: root.paypalEmail
+                        label: root.paypalLabel
                     }
+
 
                     Row {
                         anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }

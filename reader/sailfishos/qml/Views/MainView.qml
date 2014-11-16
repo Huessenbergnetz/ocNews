@@ -5,6 +5,7 @@ import "../Delegates"
 import "../Dialogs"
 import "../Common"
 import "../BTComponents"
+import "../Models"
 import "../JS/globals.js" as GLOBALS
 
 
@@ -18,11 +19,16 @@ Page {
         name: "ocNews"
         version: versionString
 //        helpPage: "../pages/Help.qml"
+        donationHeader: qsTr("Donate")
+        donationText: qsTr("If you like ocNews and you want to support the development, consider a small donation.")
         paypalOrganization: "Buschtrommel"
         paypalItem: "ocNews"
         paypalEmail: "kontakt@buschmann23.de"
         paypalMessage: qsTr("Leave a message (English or German):")
-        description: qsTr("ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. ")
+        paypalLabel: qsTr("Donate via PayPal")
+        description: qsTr("ocNews is a client for the ownCloud News app, a cloud based RSS/Atom feed aggregator. ")
+        changeLogModel: ChangelogModel {}
+        changeLogTracker: "https://github.com/Buschtrommel/ocNews/issues/"
         onClicked: config.displayedVersion = versionInt
     }
 

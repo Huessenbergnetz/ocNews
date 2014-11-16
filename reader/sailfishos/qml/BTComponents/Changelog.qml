@@ -27,54 +27,104 @@ Page {
     property string _RICHTEXT_STYLESHEET_PREAMBLE: "<html><style>a { text-decoration: none; color: '" + Theme.secondaryHighlightColor + "' }</style><body>";
     property string _RICHTEXT_STYLESHEET_APPENDIX: "</body></html>";
 
+    property alias model: changelogList.model
+    property string bugTrackerBase: ""
 
     SilicaListView {
+        id: changelogList
         anchors.fill: parent
         anchors.bottomMargin: Theme.paddingLarge
-        model: ChangelogModel {}
-        header: PageHeader { title: qsTr("Changelog") }
+
+        header: Column {
+            id: headerContainer
+            width: changelogPage.width
+
+            PageHeader { title: qsTr("Changelog") }
+
+            Row {
+                width: parent.width
+
+                Column {
+                    width: parent.width/4
+
+                    Image {
+                        width: 32; height: 32;
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        source: "image://theme/icon-m-add"
+                    }
+
+                    Label {
+                        width: parent.width
+                        truncationMode: TruncationMode.Fade
+                        color: Theme.secondaryColor
+                        font.pixelSize: Theme.fontSizeExtraSmall
+                        horizontalAlignment: Text.AlignHCenter
+                        text: qsTr("New")
+                    }
+                }
+
+                Column {
+                    width: parent.width/4
+
+                    Image {
+                        width: 32; height: 32;
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        source: "image://theme/icon-m-favorite"
+                    }
+
+                    Label {
+                        width: parent.width
+                        truncationMode: TruncationMode.Fade
+                        color: Theme.secondaryColor
+                        font.pixelSize: Theme.fontSizeExtraSmall
+                        horizontalAlignment: Text.AlignHCenter
+                        text: qsTr("Improved")
+                    }
+                }
+
+                Column {
+                    width: parent.width/4
+
+                    Image {
+                        width: 32; height: 32;
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        source: "image://theme/icon-m-crash-reporter"
+                    }
+
+                    Label {
+                        width: parent.width
+                        truncationMode: TruncationMode.Fade
+                        color: Theme.secondaryColor
+                        font.pixelSize: Theme.fontSizeExtraSmall
+                        horizontalAlignment: Text.AlignHCenter
+                        text: qsTr("Fixed")
+                    }
+                }
+
+                Column {
+                    width: parent.width/4
+
+                    Image {
+                        width: 32; height: 32;
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        source: "image://theme/icon-s-high-importance"
+                    }
+
+                    Label {
+                        width: parent.width
+                        truncationMode: TruncationMode.Fade
+                        color: Theme.secondaryColor
+                        font.pixelSize: Theme.fontSizeExtraSmall
+                        horizontalAlignment: Text.AlignHCenter
+                        text: qsTr("Note")
+                    }
+                }
+            }
+        }
 
         VerticalScrollDecorator {}
 
-        section {
-            property: 'version'
-            delegate: SectionHeader {
-                text: qsTr("Version") + " " + section
-                height: Theme.itemSizeExtraSmall
-            }
-        }
-
-        delegate: Item {
-            width: parent.width
-            height: col.height
-
-            Column {
-                id: col
-                anchors { left: parent.left; right: parent.right; rightMargin: Theme.paddingLarge }
-
-                Text {
-                    id: date
-                    width: parent.width
-                    textFormat: Text.PlainText
-                    color: Theme.secondaryColor
-                    wrapMode: Text.WordWrap
-                    font.pixelSize: Theme.fontSizeSmall
-                    horizontalAlignment: Text.AlignRight
-                    text: Qt.formatDateTime(new Date(model.date), Qt.DefaultLocaleShortDate)
-                }
-
-                Text {
-                    id: text
-                    width: parent.width
-                    textFormat: Text.RichText
-                    color: Theme.primaryColor
-                    wrapMode: Text.WordWrap
-                    font.pixelSize: Theme.fontSizeSmall
-                    onLinkActivated: { Qt.openUrlExternally(link) }
-                    text: _RICHTEXT_STYLESHEET_PREAMBLE + model.text + _RICHTEXT_STYLESHEET_APPENDIX
-                }
-            }
-        }
+        delegate: ChangelogDelegate { trackerUrl: changelogPage.bugTrackerBase }
     }
 }
 

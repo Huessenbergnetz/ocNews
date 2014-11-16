@@ -21,86 +21,138 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-Row {
-    spacing: 10
-    anchors { left: parent.left; leftMargin: Theme.paddingLarge; right: parent.right; rightMargin: Theme.paddingLarge }
+ListItem {
+    id: root
+    width: parent.width
+    contentHeight: Math.max(contentRow.height, Theme.itemSizeLarge)
+    contentWidth: parent.width
 
     property string avatarPath
-    property string iconPath
+    property string website: model.website ? model.website : ""
+    property string twitter: model.twitter ? model.twitter : ""
+    property string github: model.github ? model.github : ""
+    property string bitbucket: model.bitbucket ? model.bitbucket : ""
+    property string linkedin: model.linkedin ? model.linkedin : ""
+    property string weibo: model.weibo ? model.weibo : ""
 
-    Image {
-        id:contribImage
-        source: model.image ? avatarPath + "/" + model.image : avatarPath + "/placeholder.png"
-        sourceSize.height: 86
-        sourceSize.width: 86
-        width: 86
-        height: 86
+    enabled: (website || twitter || github || bitbucket || linkedin || weibo)
+
+    showMenuOnPressAndHold: true
+
+    menu: root.enabled ? contextMenu : null
+
+    onClicked: root.menuOpen ? hideMenu() : showMenu()
+
+    Row {
+        id: contentRow
+        spacing: 10
+        anchors { left: parent.left; leftMargin: Theme.paddingLarge; right: parent.right; rightMargin: Theme.paddingLarge }
+
+        Image {
+            id:contribImage
+            source: model.image ? avatarPath + "/" + model.image : "images/placeholder.png"
+            sourceSize.height: 86
+            sourceSize.width: 86
+            width: 86
+            height: 86
+        }
+
+        Column {
+            spacing: 1
+            width: parent.width - contribImage.width
+
+            Label {
+                text: qsTranslate("ContributorsModel", model.name)
+                font.pixelSize: Theme.fontSizeSmall
+                width: parent.width
+                wrapMode: Text.WordWrap
+                color: root.highlighted ? Theme.highlightColor : Theme.primaryColor
+            }
+
+            Label {
+                text: qsTranslate("ContributorsModel", model.role)
+                font.pixelSize: Theme.fontSizeExtraSmall
+                width: parent.width
+                wrapMode: Text.WordWrap
+                color: root.highlighted ? Theme.highlightColor : Theme.primaryColor
+            }
+
+            Row {
+                id: serviceImages
+                spacing: Theme.paddingSmall
+
+                Image {
+                    sourceSize.width: 32; sourceSize.height: 32
+                    source: "images/icon-s-browser.png"
+                    visible: root.website
+                }
+
+                Image {
+                    sourceSize.width: 32; sourceSize.height: 32
+                    source: "images/icon-s-twitter.png"
+                    visible: root.twitter
+                }
+
+                Image {
+                    sourceSize.width: 32; sourceSize.height: 32
+                    source: "images/icon-s-github.png"
+                    visible: root.github
+                }
+
+                Image {
+                    sourceSize.width: 32; sourceSize.height: 32
+                    source: "images/icon-s-bitbucket.png"
+                    visible: root.bitbucket
+                }
+
+                Image {
+                    sourceSize.width: 32; sourceSize.height: 32
+                    source: "images/icon-s-linkedin.png"
+                    visible: root.linkedin
+                }
+
+                Image {
+                    sourceSize.width: 32; sourceSize.height: 32
+                    source: "images/icon-s-weibo.png"
+                    visible: root.weibo
+                }
+            }
+        }
     }
 
-    Column {
-        spacing: 1
-        width: parent.width - contribImage.width
-
-        Label {
-            text: qsTranslate("ContributorsModel", model.name)
-            font.pixelSize: Theme.fontSizeSmall
-            width: parent.width
-            wrapMode: Text.WordWrap
-        }
-
-        Label {
-            text: qsTranslate("ContributorsModel", model.role)
-            font.pixelSize: Theme.fontSizeExtraSmall
-            width: parent.width
-            wrapMode: Text.WordWrap
-        }
-
-        Row {
-            id: imageLinks
-            spacing: 10
-
-            IconButton {
-                icon.source: iconPath + "/icon-m-browser.png"
-                visible: model.website ? true : false
-                width: icon.width; height: icon.height
-                onClicked: Qt.openUrlExternally(model.website)
+    Component {
+        id: contextMenu
+        ContextMenu {
+            MenuItem {
+                text: qsTr("Website")
+                visible: root.website
+                onClicked: Qt.openUrlExternally(root.website)
             }
-
-            IconButton {
-                icon.source: iconPath + "/icon-m-twitter.png"
-                visible: model.twitter ? true : false
-                width: icon.width; height: icon.height
-                onClicked: Qt.openUrlExternally("https://twitter.com/" + model.twitter)
+            MenuItem {
+                text: "Twitter"
+                visible: root.twitter
+                onClicked: Qt.openUrlExternally("https://twitter.com/" + root.twitter)
             }
-
-            IconButton {
-                icon.source: iconPath + "/icon-m-github.png"
-                visible: model.github ? true : false
-                width: icon.width; height: icon.height
-                onClicked: Qt.openUrlExternally("https://github.com/" + model.github)
+            MenuItem {
+                text: "GitHub"
+                visible: root.github
+                onClicked: Qt.openUrlExternally("https://github.com/" + root.github)
             }
-
-            IconButton {
-                icon.source: iconPath + "/icon-m-bitbucket.png"
-                visible: model.bitbucket ? true : false
-                width: icon.width; height: icon.height
-                onClicked: Qt.openUrlExternally("https://bitbucket.org/" + model.bitbucket)
+            MenuItem {
+                text: "Bitbucket"
+                visible: root.bitbucket
+                onClicked: Qt.openUrlExternally("https://bitbucket.org/" + root.bitbucket)
             }
-
-            IconButton {
-                icon.source: iconPath + "/icon-m-linkedin.png"
-                visible: model.linkedin ? true : false
-                width: icon.width; height: icon.height
-                onClicked: Qt.openUrlExternally("http://www.linkedin.com/profile/view?id=" + model.linkedin)
+            MenuItem {
+                text: "LinkedIn"
+                visible: root.linkedin
+                onClicked: Qt.openUrlExternally("http://www.linkedin.com/profile/view?id=" + root.linkedin)
             }
-
-            IconButton {
-                icon.source: iconPath + "/icon-m-weibo.png"
-                visible: model.weibo ? true : false
-                width: icon.width; height: icon.height
-                onClicked: Qt.openUrlExternally("http://www.weibo.com/" + model.weibo)
+            MenuItem {
+                text: qsTr("Sina Weibo")
+                visible: root.weibo
+                onClicked: Qt.openUrlExternally("http://www.weibo.com/" + root.weibo)
             }
         }
     }
 }
-
