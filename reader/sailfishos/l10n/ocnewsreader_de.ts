@@ -1387,7 +1387,22 @@
         <translation>Cookies in Web-Vorschau erlauben</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+6"/>
+        <source>Maintenance</source>
+        <translation>Wartung</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Create log files</source>
+        <translation>Protokollierung aktivieren</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>This option needs a complete application restart. After that it will create log files in %1.</source>
+        <translation>Diese Option benötigt einen kompletten Neustart der Anwendung. Danach wird eine Protokollierungsdatei %1 erstellt.</translation>
+    </message>
+    <message>
+        <location line="+7"/>
         <source>Deleting database</source>
         <translation>Lösche Datenbank</translation>
     </message>

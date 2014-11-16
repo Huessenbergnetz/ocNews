@@ -124,7 +124,7 @@
     <message>
         <location line="+11"/>
         <source>Dutch (Netherlands) translation</source>
-        <translation type="unfinished"/>
+        <translation>Hollandsk (Nederlandene) oversættelse</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -852,7 +852,7 @@
     <message>
         <location filename="../qml/Dialogs/OpenLink.qml" line="+44"/>
         <source>Open</source>
-        <translation type="unfinished"/>
+        <translation>Åben</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1387,7 +1387,22 @@
         <translation>Tillad cookies ved netvisning</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+6"/>
+        <source>Maintenance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Create log files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>This option needs a complete application restart. After that it will create log files in %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
         <source>Deleting database</source>
         <translation>Tømmer database</translation>
     </message>

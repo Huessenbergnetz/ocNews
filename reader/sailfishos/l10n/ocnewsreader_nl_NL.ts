@@ -124,7 +124,7 @@
     <message>
         <location line="+11"/>
         <source>Dutch (Netherlands) translation</source>
-        <translation type="unfinished"/>
+        <translation>Nederlandse (Nederland) vertaling</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -852,7 +852,7 @@
     <message>
         <location filename="../qml/Dialogs/OpenLink.qml" line="+44"/>
         <source>Open</source>
-        <translation type="unfinished"/>
+        <translation>Openen</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -900,97 +900,97 @@
     <message>
         <location line="+1"/>
         <source>Pound Sterling</source>
-        <translation type="unfinished"/>
+        <translation>Pond</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Deense Kroon</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hong Kong Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Hong Kong Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Israel New Shekel</source>
-        <translation type="unfinished"/>
+        <translation>Israëlische Nieuwe Schenkel</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Japanese Yen</source>
-        <translation type="unfinished"/>
+        <translation>Japanse Yen</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Canadian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Canadese Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Mexican Peso</source>
-        <translation type="unfinished"/>
+        <translation>Mexicaanse Peso</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Taiwan Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Nieuwe Taiwanese Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Zealand Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Nieuw Zeelandse Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Norwegian Krone</source>
-        <translation type="unfinished"/>
+        <translation>Noorweegse Kroo</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Philippine Peso</source>
-        <translation type="unfinished"/>
+        <translation>Filipijnse Peso</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Polish Zloty</source>
-        <translation type="unfinished"/>
+        <translation>Poolse Zloty</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian Ruble</source>
-        <translation type="unfinished"/>
+        <translation>Russische Roebel</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swedish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Zweedse Kroon</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swiss Franc</source>
-        <translation type="unfinished"/>
+        <translation>Zwitserse Frank</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Singapore Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Singapoerse Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Thai Baht</source>
-        <translation type="unfinished"/>
+        <translation>Thaise Baht</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Czech Koruna</source>
-        <translation type="unfinished"/>
+        <translation>Tjechische Kroon</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hungarian Forint</source>
-        <translation type="unfinished"/>
+        <translation>Hongaarse Florijn</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1023,7 +1023,7 @@
     <message>
         <location line="+9"/>
         <source>In order to log in to your ownCloud server, ocNews collects the server address, your user name and your password. These information is not given to the author of ocNews or other third parties.</source>
-        <translation type="unfinished"/>
+        <translation>Om uit te loggen op uw ownCloud-server verzamalt ocNews het serveradres, uw gebruikersnaam en uw wachtwoord. Deze informatie zal niet worden verstrekt aan de auteur van ocNews of derde partijen.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1033,17 +1033,17 @@
     <message>
         <location line="+8"/>
         <source>ocNews needs your log in data to connect to your ownCloud server. Your log in data is used to log in to your ownCloud server to perform the tasks of synchronizing your ownCloud News App data with your device.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews heeft uw inloggegevens nodig om te kunnen verbinden met uw ownCloud-server. Uw inloggegevens worden gebruikt om in te loggen op uw ownCloud-server en om de synchronisatietaken naar uw apparaat uit te voeren.</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Does ocNews disclose any information to outside parties?</source>
-        <translation type="unfinished"/>
+        <translation>Verstrekt ocNews informatie aan derde partijen?</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>ocNews only uses your data for the log in process into the server that you configure in the settings. ocNews does not send these data to the author of ocNews or other third parties. For questions concerning the privacy on the server side, you have to contact your ownCloud service provider.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews gebruikt uw data alleen voor inlogproces naar de server die u heeft opgegeven in de instellingen. ocNews verstrekt geen data aan de auteur van ocNews of derde partijen. Voor vragen omtrent de privacy aan de serverkant kunt u contact opnemen met uw ownCloud-dienstprovider.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1053,7 +1053,7 @@
     <message>
         <location line="+8"/>
         <source>ocNews is a cloud based RSS/Atom feed reader. It has no preinstalled third party links other than the own application website links on the About page and on this page. Showing feed content and/or opening feed link addresses is in the user&apos;s responsibility. For questions concerning the privacy of the used feed content and/or website content you have to contact the feed provider.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews is een cloud-gebaseerde RSS/Atom-feedlezer. Het heeft geen voorgeïnstalleerde links van derde partijen anders die van de applicatiewebsite op de Over-pagina en op deze pagina. Feedinhoud en/of het openen van feedlinks is de verantwoordelijkheid van de gebruiker. Voor vragen omtrent de privacy van de feeds kunt u contact opnemen met de feedprovider.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1138,22 +1138,22 @@
     <message>
         <location line="+11"/>
         <source>Server: e.g. cloud.example.com</source>
-        <translation type="unfinished"/>
+        <translation>Server: bijv. cloud.voorbeeld.nl</translation>
     </message>
     <message>
         <location line="+28"/>
         <source>Found ownCloud News Version %1</source>
-        <translation type="unfinished"/>
+        <translation>ownCloud Nieuws-versie %1 aangetroffen</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Use HTTPS (SSL/TLS) connection</source>
-        <translation type="unfinished"/>
+        <translation>HTTPS (SSL/TLS)-verbinding gebruiken</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Because ownCloud News requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption.</source>
-        <translation type="unfinished"/>
+        <translation>Omdat ownCloud Nieuws vereist dat de gebruikersnaam en het wachtwoord worden verzonden met elke aanvraag, is het belangrijk dat u een versleutelde verbinding gebruikt wanneer uw server dit ondersteund of encryptie vereist.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1163,7 +1163,7 @@
     <message>
         <location line="+2"/>
         <source>Only ignore SSL errors when you really know what you are doing. (Currently there is no system service for handling SSL certificates. ocNews will implement it&apos;s own in the future, but for now you have to ignore SSL errors when you are using a self signed certificate.)</source>
-        <translation type="unfinished"/>
+        <translation>Negeer alleen SSL-fouten wanneer u echt weet wat u doet. (Er is momenteel geen systeemdienst voor het behandelen van SSL-certificaten. ocNews zal haar eigen dienst implementeren in de toekomst, maar anno nu moet u SSL-fouten negeren wanneer u een zelfgesigneerd certifciaat hebt.)</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1239,7 +1239,7 @@
     <message>
         <location line="+2"/>
         <source>By default the engine daemon ist started on application startup and keeps running after closing the application to operate/synchronize in the background. This option needs an application restart.</source>
-        <translation type="unfinished"/>
+        <translation>Standaard zal de motordaemon gestart worden bij het opstarten van de applicatie en draaiende blijven nadat de applicatie wordt gesloten om synchronisatietaken te kunnen uitvoeren op de achtergrond. Deze optie vereist een applicatie-herstart.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1344,17 +1344,17 @@
     <message>
         <location line="+7"/>
         <source>Show article excerpts</source>
-        <translation type="unfinished"/>
+        <translation>Artikeluittreksels weergeven</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Shows some lines of the article content in the article list.</source>
-        <translation type="unfinished"/>
+        <translation>Zal enkele regels artikelinhoud weergeven in de artikellijst.</translation>
     </message>
     <message>
         <location line="+21"/>
         <source>Item view font size</source>
-        <translation type="unfinished"/>
+        <translation>Lettertypegrootte van itemweergave</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1364,12 +1364,12 @@
     <message>
         <location line="+4"/>
         <source>Notify about added/removed feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Melding bij het toevoegen/verwijderen van feeds en mappen</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Notify about new articles</source>
-        <translation type="unfinished"/>
+        <translation>Melding bij nieuwe artikelen</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1379,7 +1379,7 @@
     <message>
         <location line="+3"/>
         <source>Enable private browsing for web view</source>
-        <translation type="unfinished"/>
+        <translation>Incognito browser inschakelen voor webweergave</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1387,14 +1387,29 @@
         <translation>Cookies toestaan in webweergave</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+6"/>
+        <source>Maintenance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Create log files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>This option needs a complete application restart. After that it will create log files in %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
         <source>Deleting database</source>
         <translation>Bezig met verwijderne van database</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Resetting configuration</source>
-        <translation type="unfinished"/>
+        <translation>Bezig met herstellen van standaardwaarde van configuratie</translation>
     </message>
 </context>
 <context>
@@ -1502,7 +1517,7 @@
     <message>
         <location filename="../qml/Views/SpecialItemListView.qml" line="+61"/>
         <source>Update running...</source>
-        <translation type="unfinished"/>
+        <translation>Bezig met bijwerken...</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1512,87 +1527,87 @@
     <message>
         <location line="+40"/>
         <source>Hide sorting options</source>
-        <translation type="unfinished"/>
+        <translation>Sorteeropties verbergen</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Show sorting options</source>
-        <translation type="unfinished"/>
+        <translation>Sorteeropties weergeven</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Mark folder as read</source>
-        <translation type="unfinished"/>
+        <translation>Map markeren als gelezen</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark all as read</source>
-        <translation type="unfinished"/>
+        <translation>Alles markeren als gelezen</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Update folder</source>
-        <translation type="unfinished"/>
+        <translation>Map bijwerken</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Update all</source>
-        <translation type="unfinished"/>
+        <translation>Alles bijwerken</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Hide search</source>
-        <translation type="unfinished"/>
+        <translation>Zoeken verbergen</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Show search</source>
-        <translation type="unfinished"/>
+        <translation>Zoeken weergeven</translation>
     </message>
     <message>
         <location line="+20"/>
         <source>Scroll to top</source>
-        <translation type="unfinished"/>
+        <translation>Naar bovenkant scrollen</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Marking %1 as read</source>
-        <translation type="unfinished"/>
+        <translation>Bezig met markeren van %1 als gelezen</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Marking all entries as read</source>
-        <translation type="unfinished"/>
+        <translation>Bezig met markeren van alles als gelezen</translation>
     </message>
     <message>
         <location line="+21"/>
         <source>Show newest on top</source>
-        <translation type="unfinished"/>
+        <translation>Nieuwste bovenaan weergeven</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Show oldest on top</source>
-        <translation type="unfinished"/>
+        <translation>Nieuwste onderaan weergeven</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Show</source>
-        <translation type="unfinished"/>
+        <translation>Weergeven</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hide</source>
-        <translation type="unfinished"/>
+        <translation>Verbergen</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation type="unfinished"/>
+        <translation>Weergeven na ongelezen</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Read articles</source>
-        <translation type="unfinished"/>
+        <translation>Gelezen artikelen</translation>
     </message>
 </context>
 </TS>
