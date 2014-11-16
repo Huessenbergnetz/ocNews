@@ -1,5 +1,5 @@
 #include "ocnotifications.h"
-#include <QDebug>
+#include "QsLog.h"
 
 OcNotifications::OcNotifications(QObject *parent) :
     QObject(parent)
@@ -67,6 +67,7 @@ void OcNotifications::showNotification(const QString &body, const QString &summa
     notification = new MNotification(type, QString("ocNews - ").append(summary), body);
     notification->setImage(image);
     notification->setAction(action);
-    if (!notification->publish())
-        qDebug() << "Failed to publish notification.";
+    if (!notification->publish()) {
+        QLOG_ERROR() << "Notifications: publishing failed.";
+    }
 }

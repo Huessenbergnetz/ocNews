@@ -33,6 +33,8 @@ CONFIG += mobility
 MOBILITY += systeminfo
 }
 
+include("../qslog/QsLog.pri")
+
 TEMPLATE = app
 
 dbus.path = /usr/share/dbus-1/interfaces

@@ -1,10 +1,13 @@
 #include <QtCore/QCoreApplication>
 #include <QSettings>
+#include <QDateTime>
 //#include <MRemoteAction>
 #if defined(MEEGO_EDITION_HARMATTAN)
 #include <aegis_certman.h>
 #endif
 
+#include "QsLog.h"
+#include "QsLogDest.h"
 #include "../common/globals.h"
 #include "ocdbmanager.h"
 #include "ocupgradehelper.h"
@@ -75,11 +78,6 @@ int main(int argc, char *argv[])
     a.setApplicationName("ocNewsEngine");
     a.setApplicationVersion(VERSION_STRING);
 
-    QString locale = QLocale::system().name();
-    QTranslator translator;
-    if ((translator.load("ocnewsengine_"+locale, L10N_PATH)))
-        a.installTranslator(&translator);
-
     // set paths
     QString basePath(QDir::homePath().append(BASE_PATH));
 
@@ -103,21 +101,47 @@ int main(int argc, char *argv[])
     // create storage dirs
     QDir().mkpath(basePath + "/favicons");
     QDir().mkpath(basePath + "/certs");
+    QDir().mkpath(basePath + "/logs");
     QDir().mkpath(QDir::homePath() + IMAGE_CACHE);
     QDir().mkpath(QDir::homePath() + MEDIA_PATH_AUDIO);
     QDir().mkpath(QDir::homePath() + MEDIA_PATH_IMAGE);
     QDir().mkpath(QDir::homePath() + MEDIA_PATH_PDF);
     QDir().mkpath(QDir::homePath() + MEDIA_PATH_VIDEO);
 
+    // init the logging mechanism
+    QsLogging::Logger& logger = QsLogging::Logger::instance();
+
+    // set minimum log level and file name
+    QString dt =  QDateTime::currentDateTime().toString(QString("yyyy-MM-ddTHH-mm-ss"));
+    logger.setLoggingLevel(QsLogging::TraceLevel);
+    const QString sLogPath(QDir(basePath.append("/logs")).filePath("ocnews-engine-" + dt + ".log"));
+
+    // Create log destinations
+    QsLogging::DestinationPtr fileDestination(QsLogging::DestinationFactory::MakeFileDestination(sLogPath));
+    QsLogging::DestinationPtr debugDestination(QsLogging::DestinationFactory::MakeDebugOutputDestination());
+
+    // set log destinations on the logger
+    logger.addDestination(debugDestination);
+    logger.addDestination(fileDestination);
+
+    QLOG_INFO() << "Starting ocNews Engine version " << VERSION_STRING;
+    QLOG_INFO() << "Built with Qt" << QT_VERSION_STR << "running on" << qVersion();
+
+    // setting locale
+    QString locale = QLocale::system().name();
+    QTranslator translator;
+    if ((translator.load("ocnewsengine_"+locale, L10N_PATH)))
+        a.installTranslator(&translator);
+
 #if defined(MEEGO_EDITION_HARMATTAN)
     // set credential for ssl domain
     int credSuc = aegis_certman_set_credentials("buschtrommel-ocnews::CertOCNewsSSL");
-    if (credSuc != 0) qDebug() << "set credential error: " << credSuc;
+    if (credSuc != 0) QLOG_ERROR() << "set credential error: " << credSuc;
 
     // open ssl domain
     domain_handle ownDomain;
     int openCheck = aegis_certman_open_domain("ssl-ocnews", AEGIS_CERTMAN_DOMAIN_PRIVATE, &ownDomain);
-    if (openCheck != 0) qDebug() << "Error Opening Domain: " << openCheck;
+    if (openCheck != 0) QLOG_ERROR() << "Error Opening Domain: " << openCheck;
 
     aegis_certman_iterate_certs(ownDomain, &addCert, NULL);
 
@@ -130,7 +154,7 @@ int main(int argc, char *argv[])
             aegis_certman_str_to_key_id(localCertsToDelete.at(i).toLocal8Bit().data(),crtKey);
             int rmCertCheck = aegis_certman_rm_cert(ownDomain, crtKey);
             if (rmCertCheck != 0)
-                qDebug() << "Error removing Certificate from private domain.";
+                QLOG_ERROR() << "Error removing Certificate from private domain.";
         }
     }
 
@@ -146,11 +170,8 @@ int main(int argc, char *argv[])
     QSslSocket::setDefaultCaCertificates(certs);
 #endif
 
-
-#ifdef QT_DEBUG
-    qDebug() << "Locale: " << locale;
-    qDebug() << "Read SSL Certificates: " << QSslSocket::defaultCaCertificates().count();
-#endif
+    QLOG_INFO() << "Locale: " << locale;
+    QLOG_INFO() << "Read SSL Certificates: " << QSslSocket::defaultCaCertificates().count();
 
     // create database
     OcDbManager dbman;
@@ -163,7 +184,7 @@ int main(int argc, char *argv[])
     int oldVersion = configuration->value("system/version", 0).toInt();
     if (oldVersion > 0 && oldVersion < VERSION)
     {
-        qDebug() << "Performing internal updrades.";
+        QLOG_INFO() << "Performing internal updrades from version " << oldVersion << "to " << VERSION;
         OcUpgradeHelper *upHelper = new OcUpgradeHelper;
         upHelper->init(oldVersion, VERSION);
         upHelper->deleteLater();

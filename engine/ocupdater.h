@@ -2,6 +2,7 @@
 #define OCUPDATER_H
 
 #include <QObject>
+#include <QSqlError>
 #include "ocnetwork.h"
 #include "occonfiguration.h"
 #include "../common/globals.h"

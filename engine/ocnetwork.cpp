@@ -1,4 +1,4 @@
-#include <QDebug>
+#include "QsLog.h"
 
 #include "ocnetwork.h"
 
@@ -66,13 +66,12 @@ void OcNetwork::slotAuthenticationRequired(QNetworkReply* rep, QAuthenticator *a
                 authenticator->setPassword(account["pword"].toString());
             } else {
                 rep->abort();
-                #ifdef QT_DEBUG
-                qDebug() << "Abort authentication!";
-                #endif
+                QLOG_ERROR() << "Network: Abort authentication";
             }
         }
     } else {
         rep->abort();
+        QLOG_ERROR() << "Network: Abort authentication, account state: " << account["state"].toInt();
     }
 }
 
@@ -103,18 +102,14 @@ void OcNetwork::sslErrorHandler(QNetworkReply* rep,const QList<QSslError> &error
     {
         rep->ignoreSslErrors();
 
-#ifdef QT_DEBUG
-        qDebug() << "Ignore SSL-Errors";
-#endif
+        QLOG_WARN() << "Network: ignore SSL errors";
 
     } else {
 
-        #ifdef QT_DEBUG
         foreach (const QSslError &error, errors)
         {
-            qDebug() << error.errorString();
+            QLOG_ERROR() << "Network SSL error: " << error.errorString();
         }
-        #endif
 
         // get certificate checksum
         QString checksum = QString::fromLatin1(rep->sslConfiguration().peerCertificateChain().last().digest(QCryptographicHash::Md5).toHex().toLower());
@@ -153,10 +148,10 @@ void OcNetwork::sslErrorHandler(QNetworkReply* rep,const QList<QSslError> &error
         // open ssl domain
         domain_handle ownDomain;
         int openCheck = aegis_certman_open_domain("ssl-ocnews", AEGIS_CERTMAN_DOMAIN_PRIVATE, &ownDomain);
-        if (openCheck != 0) qDebug() << "Error Opening Domain: " << openCheck;
+        if (openCheck != 0) QLOG_ERROR() << "Network: Error Opening SSL Domain: " << openCheck;
 
         int guiCheck = aegis_certman_gui_check_certificate(crt, 120);
-        qDebug() << "Certcheck: " << guiCheck;
+        QLOG_INFO() << "Network Certificate check: " << guiCheck;
         if (guiCheck == 0)
         {
             // check if cert is already in domain
@@ -165,7 +160,7 @@ void OcNetwork::sslErrorHandler(QNetworkReply* rep,const QList<QSslError> &error
 
             if (loadStoredCert == 0 && storedCert != NULL)
             {
-                qDebug() << "Load Cert: " << loadStoredCert;
+                QLOG_INFO() << "Network Load Cert: " << loadStoredCert;
 
                 // convert internal X509 structure to DER
                 int len;
@@ -197,14 +192,14 @@ void OcNetwork::sslErrorHandler(QNetworkReply* rep,const QList<QSslError> &error
                     sslConfig.setCaCertificates(sslCerts);
                     rep->setSslConfiguration(sslConfig);
 
-                    // ignore only these ssl error
+                    // ignore only this ssl error
                     rep->ignoreSslErrors(expectedSslErrors);
                 } else {
-                    qDebug() << "Can not decode cert to DER.";
+                    QLOG_ERROR() << "Network: Can not decode cert to DER.";
                 }
             } else {
                 int addCheck = aegis_certman_add_cert(ownDomain, crt);
-                qDebug() << "Add Cert: " << addCheck;
+                QLOG_INFO() << "Network Add Cert: " << addCheck;
 
 
                 // convert internal X509 structure to DER
@@ -240,13 +235,13 @@ void OcNetwork::sslErrorHandler(QNetworkReply* rep,const QList<QSslError> &error
                     // ignore only these ssl error
                     rep->ignoreSslErrors(expectedSslErrors);
                 } else {
-                    qDebug() << "Can not decode cert to DER.";
+                    QLOG_ERROR() << "Network: Can not decode cert to DER.";
                 }
             }
         } else {
             // remove cert if not approved
             int removeCheck = aegis_certman_rm_cert(ownDomain, crtKeyId);
-            qDebug() << "Remove Cert: " << removeCheck;
+            QLOG_INFO() << "Network Remove Cert: " << removeCheck;
         }
 
         aegis_certman_close_domain(ownDomain);
@@ -256,7 +251,7 @@ void OcNetwork::sslErrorHandler(QNetworkReply* rep,const QList<QSslError> &error
 
 //        rep->ignoreSslErrors();
         rep->abort();
-        qDebug() << "Abort network operation...";
+        QLOG_WARN() << "Abort network operation...";
 
 #endif
     }
@@ -296,9 +291,7 @@ bool OcNetwork::isFlightMode()
             break;
     }
 #endif
-#ifdef QT_DEBUG
-    qDebug() << "Fligth Mode: " << flightMode;
-#endif
+    QLOG_DEBUG() << "Network Flight mode: " << flightMode;
 
     return flightMode;
 }
@@ -319,9 +312,7 @@ int OcNetwork::bearerType()
 {
     QNetworkConfiguration netConf = this->activeConfiguration();
 
-#ifdef QT_DEBUG
-    qDebug() << netConf.bearerTypeName();
-#endif
+    QLOG_DEBUG() << "Network bearer type name: " << netConf.bearerTypeName();
 
     QNetworkConfiguration::BearerType bt;
     bt = netConf.bearerType();
@@ -354,9 +345,7 @@ int OcNetwork::bearerType()
 void OcNetwork::networkStatusChanged(bool isOnline)
 {
 
-#ifdef QT_DEBUG
-    qDebug() << "Network is online? " << isOnline;
-#endif
+    QLOG_DEBUG() << "Network is online? " << isOnline;
 
     if (isOnline)
         emit networkOnline();
@@ -366,12 +355,11 @@ void OcNetwork::networkStatusChanged(bool isOnline)
 void OcNetwork::networkConfigurationChanged()
 {
 
-#ifdef QT_DEBUG
-    qDebug() << "Network configuration changed.";
-#endif
+    QLOG_INFO() << "Network configuration changed.";
 
     emit networkConfigChanged();
 }
 
 #endif
+
 

@@ -1,5 +1,5 @@
 #include "ocupdater.h"
-#include <QDebug>
+#include "QsLog.h"
 
 #define TIMER_DELTA 90
 #define MINIMUM_BATTERY 20
@@ -41,10 +41,8 @@ OcUpdater::OcUpdater(QObject *parent) :
         timer->start();
     }
 
-#ifdef QT_DEBUG
-    qDebug() << "Initial update minimum interval: " << timer->minimumInterval();
-    qDebug() << "Initial update maximum interval: " << timer->maximumInterval();
-#endif
+    QLOG_DEBUG() << "Updater: Initial minimum interval: " << timer->minimumInterval();
+    QLOG_DEBUG() << "Updater: Initial maximum interval: " << timer->maximumInterval();
 
     connect(batteryInfo, SIGNAL(chargingStateChanged(QSystemBatteryInfo::ChargingState)), this, SLOT(handleNetAndConfChanges()));
     connect(networkInfo, SIGNAL(networkStatusChanged(QSystemNetworkInfo::NetworkMode,QSystemNetworkInfo::NetworkStatus)), this, SLOT(handleNetAndConfChanges()));
@@ -54,10 +52,8 @@ OcUpdater::OcUpdater(QObject *parent) :
     if (m_updateBehavior != 0)
         m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
 
-#ifdef QT_DEBUG
-    qDebug() << "Initial update minimum interval: " << m_interval - TIMER_DELTA;
-    qDebug() << "Initial update maximum interval: " << m_interval + TIMER_DELTA;
-#endif
+    QLOG_DEBUG() << "Updater: Initial minimum interval: " << m_interval - TIMER_DELTA;
+    QLOG_DEBUG() << "Updater: Initial maximum interval: " << m_interval + TIMER_DELTA;
 
     connect(&network, SIGNAL(networkOnline()), this, SLOT(handleNetAndConfChanges()));
     connect(&network, SIGNAL(networkConfigChanged()), this, SLOT(handleNetAndConfChanges()));
@@ -81,9 +77,7 @@ void OcUpdater::handleNetAndConfChanges()
 {
 
 #if defined(MEEGO_EDITION_HARMATTAN)
-#ifdef QT_DEBUG
-    qDebug() << "Networkmode changed to: " << networkInfo->currentMode();
-#endif
+    QLOG_INFO() << "Updater: Network mode changed to: " << networkInfo->currentMode();
 #endif
 
     if (!updateRunning) {
@@ -96,12 +90,10 @@ void OcUpdater::handleNetAndConfChanges()
         uint timeDiff = currentTime - lastFullUpdate;
         uint triggerTime = config.value("update/interval", 3600).toUInt();
 
-#ifdef QT_DEBUG
-    qDebug() << "Last full update: " << lastFullUpdate;
-    qDebug() << "Current time: " << currentTime;
-    qDebug() << "Time difference: " << timeDiff;
-    qDebug() << "Trigger time: " << triggerTime;
-#endif
+        QLOG_INFO() << "Updater: last full update: " << lastFullUpdate;
+        QLOG_INFO() << "Updater: current time: " << currentTime;
+        QLOG_INFO() << "Updater: time difference: " << timeDiff;
+        QLOG_INFO() << "Updater: trigger time " << triggerTime;
 
         if (timeDiff >= triggerTime)
         {
@@ -135,17 +127,17 @@ void OcUpdater::startUpdateTimed()
 {
 #if defined(MEEGO_EDITION_HARMATTAN)
 
-#ifdef QT_DEBUG
-    qDebug() << "Settings before timed update start:";
-    qDebug() << "-----------------------------------";
-    qDebug() << "Update behavior: " << m_updateBehavior;
-    qDebug() << "Mimimum interval: " << timer->minimumInterval();
-    qDebug() << "Maximum interval: " << timer->maximumInterval();
-    qDebug() << "Battery load in %: " << batteryInfo->remainingCapacityPercent();
-    qDebug() << "Battery charging state: " << batteryInfo->chargingState();
-    qDebug() << "Network mode: " << networkInfo->currentMode();
-    qDebug() << "Network status: " << networkInfo->networkStatus(networkInfo->currentMode());
-#endif
+
+    QLOG_INFO() << "Settings before timed update start:";
+    QLOG_INFO() << "-----------------------------------";
+    QLOG_INFO() << "Update behavior: " << m_updateBehavior;
+    QLOG_INFO() << "Mimimum interval: " << timer->minimumInterval();
+    QLOG_INFO() << "Maximum interval: " << timer->maximumInterval();
+    QLOG_INFO() << "Battery load in %: " << batteryInfo->remainingCapacityPercent();
+    QLOG_INFO() << "Battery charging state: " << batteryInfo->chargingState();
+    QLOG_INFO() << "Network mode: " << networkInfo->currentMode();
+    QLOG_INFO() << "Network status: " << networkInfo->networkStatus(networkInfo->currentMode());
+
 
     if (batteryInfo->remainingCapacityPercent() >= MINIMUM_BATTERY || batteryInfo->chargingState() == QSystemBatteryInfo::Charging )
     {
@@ -214,6 +206,7 @@ void OcUpdater::startUpdate()
 
         startUpdatePrivate();
     } else {
+        QLOG_WARN() << "Updater: can not start, account disabled or note set yet";
         emit updateError(tr("Your account is disabled or you have not created an account yet."));
     }
 }
@@ -239,11 +232,8 @@ void OcUpdater::startUpdatePrivate()
         updateRunning = true;
         inOperation = true;
 
-#ifdef QT_DEBUG
-        qDebug() << "Start Update";
-        qDebug() << "Updating Folders";
-#endif
-
+        QLOG_INFO() << "Updater: starting update";
+        QLOG_INFO() << "Updater: updating folders";
 
 #if defined(MEEGO_EDITION_HARMATTAN)
         transferItem = transferClient->registerTransfer(tr("Synchronizing ownCloud News"), TransferUI::Client::TRANSFER_TYPES_SYNC);
@@ -276,9 +266,7 @@ void OcUpdater::updateFeeds()
     if (updateRunning)
     {
 
-#ifdef QT_DEBUG
-        qDebug() << "Updating Feeds";
-#endif
+        QLOG_INFO() << "Updater: updating feeds";
 
 #if defined(MEEGO_EDITION_HARMATTAN)
         transferItem->setProgress(.33);
@@ -303,9 +291,7 @@ void OcUpdater::updateItems()
     if (updateRunning)
     {
 
-#ifdef QT_DEBUG
-        qDebug() << "Updating Items";
-#endif
+        QLOG_INFO() << "Updater: updating items";
 
 #if defined(MEEGO_EDITION_HARMATTAN)
         transferItem->setProgress(.66);
@@ -313,7 +299,10 @@ void OcUpdater::updateItems()
 #endif
 
         QSqlQuery query;
-        query.exec("SELECT id FROM items LIMIT 1;");
+        if (!query.exec("SELECT id FROM items LIMIT 1;")) {
+            QLOG_ERROR() << "Updater: error while selecting ID from items database table: " << query.lastError().text();
+        }
+
         if (query.next())
         {
             if (query.value(0).toString() != "")
@@ -355,6 +344,7 @@ void OcUpdater::endUpdate()
         if (m_updateBehavior != 0)
             m_timer->wait(m_interval - TIMER_DELTA, m_interval + TIMER_DELTA);
 #endif
+        QLOG_INFO() << "Updater: finished";
 
         updateRunning = false;
         inOperation = false;
@@ -378,6 +368,7 @@ void OcUpdater::errorInUpdate(QString errorMessage)
 {
     if (updateRunning)
     {
+        QLOG_ERROR() << "Updater: error: " << errorMessage;
 
 #if defined(MEEGO_EDITION_HARMATTAN)
         transferItem->markFailure(tr("Update Failed"), errorMessage);

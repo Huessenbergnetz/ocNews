@@ -1,5 +1,5 @@
 //#include <QtNetwork>
-#include <QDebug>
+#include "QsLog.h"
 #include "ocgeneric.h"
 
 
@@ -29,8 +29,10 @@ void OcGeneric::getVersion()
 {
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not request News app version: Device is in flight mode.";
         emit gotVersionError(tr("Device is in flight mode."));
     } else {
+        QLOG_INFO() << "Start to request News app version.";
 
         QNetworkRequest request = helper.buildRequest("version");
         reply = network.get(request);
@@ -66,9 +68,8 @@ void OcGeneric::getVersionFinished()
             errmsg = tr("Can not find ownCloud News, maybe wrong path or server");
         } else {
             errmsg = reply->errorString();
-#ifdef QT_DEBUG
-            qDebug() << reply->errorString();
-#endif
+
+            QLOG_ERROR() << "Faild to request News app version: " << reply->errorString();
         }
 
         reply->deleteLater();
@@ -84,12 +85,21 @@ void OcGeneric::getVersionFinished()
         if (result.contains("version"))
         {
             version = result["version"].toString();
+
+            QLOG_INFO() << "Successfully requested News app version: " << version;
+
             emit gotVersion(version);
 
         } else if (result.contains("message")) {
             errmsg = result["message"].toString();
+
+            QLOG_ERROR() << "Failed to request News app version: " << errmsg;
+
             emit gotVersionError(errmsg);
         } else {
+
+            QLOG_ERROR() << "Failed to request News app version: Server reply was empty.";
+
             emit gotVersionError(tr("Server reply was empty."));
         }
     }
@@ -107,7 +117,7 @@ void OcGeneric::getVersionFinished()
 void OcGeneric::quitEngine()
 {
     while(inOperation) {
-        qDebug() << "Operation running: " << inOperation;
+        QLOG_WARN() << "Can not quit engine. Operation running.";
         QEventLoop loop;
         QTimer::singleShot(1000, &loop, SLOT(quit()));
         loop.exec();

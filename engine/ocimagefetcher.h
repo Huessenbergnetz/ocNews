@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QSqlQuery>
+#include <QSqlError>
 #include <QImage>
 #include <QEventLoop>
 #include <QNetworkReply>

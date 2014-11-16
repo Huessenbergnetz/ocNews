@@ -1,4 +1,4 @@
-#include <QDebug>
+#include "QsLog.h"
 #include "ocimagefetcher.h"
 
 OcImageFetcher::OcImageFetcher(QObject *parent) :
@@ -10,7 +10,7 @@ OcImageFetcher::OcImageFetcher(QObject *parent) :
     transferClient = new TransferUI::Client();
 
     if(!transferClient->init()) {
-        qDebug()<<"Cannot initialize TUIClient";//error
+        QLOG_ERROR() << "Image fetcher: Cannot initialize TUIClient";
         delete transferClient;
     }
 #endif
@@ -29,9 +29,7 @@ void OcImageFetcher::fetchImages(const QList<int> &updated, const QList<int> &ne
         QTimer::singleShot(1000, &loop, SLOT(quit()));
         loop.exec();
 
-#ifdef QT_DEBUG
-        qDebug() << "Start fetching images.";
-#endif
+        QLOG_INFO() << "Start fetching images. Handling type: " << imgHandling;
 
         itemsToFetchImages = newItems.size();
 
@@ -47,6 +45,8 @@ void OcImageFetcher::fetchImages(const QList<int> &updated, const QList<int> &ne
                 transferItem->setIcon("icon-m-ocnews");
                 transferItem->setActive(0);
                 transferItem->commit();
+            } else {
+                QLOG_ERROR() << "Image fetcher: can not register transfer on transfer client.";
             }
         }
 #endif
@@ -55,7 +55,6 @@ void OcImageFetcher::fetchImages(const QList<int> &updated, const QList<int> &ne
 
         for (int i = 0; i < newItems.size(); ++i)
         {
-
 #if defined(MEEGO_EDITION_HARMATTAN)
             transferItem->setProgress((float)i/itemsToFetchImages);
 #endif
@@ -65,7 +64,9 @@ void OcImageFetcher::fetchImages(const QList<int> &updated, const QList<int> &ne
             QString body = QString("");
 
             QSqlQuery query;
-            query.exec(QString("SELECT body FROM items WHERE id = %1").arg(newItems.at(i)));
+            if (!query.exec(QString("SELECT body FROM items WHERE id = %1").arg(newItems.at(i)))) {
+                QLOG_ERROR() << "Image fetcher database error when selecting body text of item ID " << newItems.at(i) << ": " << query.lastError().text();
+            }
 
             if (query.next())
                 body = cacheImages(query.value(0).toString(), newItems.at(i), imgHandling);
@@ -78,7 +79,9 @@ void OcImageFetcher::fetchImages(const QList<int> &updated, const QList<int> &ne
                 query2.prepare("UPDATE items SET body = :body WHERE id = :id;");
                 query2.bindValue(":body", body);
                 query2.bindValue(":id", newItems.at(i));
-                query2.exec();
+                if (!query2.exec()) {
+                    QLOG_ERROR() << "Image fetcher database error while writing new body text for item ID " << newItems.at(i) << " to DB: " << query2.lastError().text();
+                }
             }
         }
 
@@ -94,9 +97,7 @@ void OcImageFetcher::fetchImages(const QList<int> &updated, const QList<int> &ne
         itemsToFetchImages = 0;
         emit finishedFetchingImages(itemsToFetchImages);
 
-#ifdef QT_DEBUG
-        qDebug() << "Finished fetching images.";
-#endif
+        QLOG_INFO() << "Image fetcher: finished.";
     }
 
     if (!deleted.isEmpty())
@@ -107,6 +108,8 @@ void OcImageFetcher::fetchImages(const QList<int> &updated, const QList<int> &ne
 
 QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHandling)
 {
+    QLOG_INFO() << "Image fetcher: Analyzing body text of item ID " << id;
+
     QString newBodyText = bodyText;
     QRegExp findImg("<img[^>]*>");
     QStringList foundImages;
@@ -117,9 +120,8 @@ QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHa
         foundImages << findImg.cap(0);
         pos += findImg.matchedLength();
     }
-#ifdef QT_DEBUG
-    qDebug() << "Found imgs: " << foundImages;
-#endif
+
+    QLOG_DEBUG() << "Image fetcher: found images: " << foundImages;
 
     if (!foundImages.isEmpty())
     {
@@ -140,9 +142,8 @@ QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHa
                 newBodyText.remove(QRegExp("<a[^>]*>\\s*</a>"));
 #endif
 
-#ifdef QT_DEBUG
-                qDebug() << "Remove tracker image";
-#endif
+                QLOG_DEBUG() << "Image fetcher: Removing possible tracker image";
+
             }
             else
             {
@@ -151,6 +152,8 @@ QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHa
                 {
 
                     QUrl fileUrl(imageInfo["src"].toString());
+
+                    QLOG_DEBUG() << "Image fetcher: Start to download image: " << imageInfo["src"].toString();
 
                     QEventLoop dlLoop;
 
@@ -181,9 +184,7 @@ QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHa
                                 newBodyText.remove(QRegExp("<a[^>]*>\\s*</a>"));
 #endif
 
-#ifdef QT_DEBUG
-                                qDebug() << "Remove tracker image";
-#endif
+                                QLOG_DEBUG() << "Removing possible tracker image.";
                             }
                             else
                             {
@@ -203,9 +204,7 @@ QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHa
 
                                 storagePath.append(getFileTypeSuffix(recData));
 
-#ifdef QT_DEBUG
-                                qDebug() << storagePath;
-#endif
+                                QLOG_DEBUG() << "Image fetcher: image storage path: " << storagePath;
 
                                 QString oldSrc = imageInfo["src"].toString();
                                 QString newSrc = storagePath;
@@ -213,9 +212,7 @@ QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHa
                                 oldSrc.prepend("src=\"");
                                 newSrc.prepend("src=\"");
 
-#ifdef QT_DEBUG
-                                qDebug() << "Image Size: " << imageInfo["width"].toInt() << " x " << imageInfo["height"].toInt();
-#endif
+                                QLOG_DEBUG() << "Image fetcher: image size: " << imageInfo["width"].toInt() << " x " << imageInfo["height"].toInt();
 
                                 if (image.save(storagePath))
                                 {
@@ -225,9 +222,8 @@ QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHa
                                 }
                                 else
                                 {
-#ifdef QT_DEBUG
-                                    qDebug() << "Try to save image with QFile method.";
-#endif
+                                    QLOG_WARN() << "Image fetcher: try to save image with QFile method.";
+
                                     QFile file(storagePath);
                                     file.open(QIODevice::WriteOnly);
 
@@ -239,11 +235,10 @@ QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHa
                                         replyGetImage->deleteLater();
 
                                     } else {
-#ifdef QT_DEBUG
-                                        qDebug() << "Failed to save image";
-#endif
-                                        replyGetImage->deleteLater();
 
+                                        QLOG_ERROR() << "Image fetcher: failed to save image.";
+
+                                        replyGetImage->deleteLater();
                                     }
 
                                     file.close();
@@ -254,17 +249,15 @@ QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHa
                         }
                         else
                         {
-#ifdef QT_DEBUG
-                            qDebug() << "Can not load image data.";
-#endif
+                            QLOG_ERROR() << "Image fetcher: cann not download image.";
+
                             replyGetImage->deleteLater();
                         }
                     }
                     else
                     {
-#ifdef QT_DEBUG
-                        qDebug() << "Can not download image file.";
-#endif
+                        QLOG_ERROR() << "Image fetcher: cann not download image.";
+
                         replyGetImage->deleteLater();
                     }
                 }
@@ -275,7 +268,9 @@ QString OcImageFetcher::cacheImages(const QString &bodyText, int id, int imageHa
                     query.bindValue(":path", imageInfo["src"]);
                     query.bindValue(":width", imageInfo["width"]);
                     query.bindValue(":height", imageInfo["height"]);
-                    query.exec();
+                    if (!query.exec()) {
+                        QLOG_ERROR() << "Image fetcher: Database error while creating new entry in image database: " << query.lastError().text();
+                    }
                 }
             }
         }
@@ -314,9 +309,7 @@ QVariantMap OcImageFetcher::extractImgData(const QString &imgStr)
     result["height"] = height;
     result["tracker"] = bool(width == 1 && height == 1);
 
-#ifdef QT_DEBUG
-    qDebug() << "Image information: " << result;
-#endif
+    QLOG_DEBUG() << "Image fetcher: image information: " << result;
 
     return result;
 }
@@ -344,9 +337,9 @@ void OcImageFetcher::deleteCachedImages(const QList<int> &idsToDelte)
         for (int f = 0; f < imagesToDelete.size(); ++f)
         {
             if (!imagesToDelete.at(f).startsWith("http", Qt::CaseInsensitive)) {
-#ifdef QT_DEBUG
-                qDebug() << "Deleting image: " << imagesToDelete.at(f);
-#endif
+
+                QLOG_DEBUG() << "Image fetcher: deleting image: " << imagesToDelete.at(f);
+
                 QFile::remove(imagesToDelete.at(f));
             }
         }
@@ -361,10 +354,6 @@ QString OcImageFetcher::getFileTypeSuffix(const QByteArray &data)
     QString magic = t_data.left(16);
     QString result;
 
-#ifdef QT_DEBUG
-    qDebug() << "Try to get suffix from: " << magic;
-#endif
-
     if (magic.contains("474946383961") || magic.contains("474946383761")) {
         result = "gif";
     } else if (magic.contains("FFD8FF")) {
@@ -375,6 +364,8 @@ QString OcImageFetcher::getFileTypeSuffix(const QByteArray &data)
         result = "";
     }
 
+    QLOG_DEBUG() << "Image fetcher: try to get suffix from: " << magic << " - Result: " << result;
+
     return result;
 }
 
@@ -382,9 +373,8 @@ QString OcImageFetcher::getFileTypeSuffix(const QByteArray &data)
 
 int OcImageFetcher::isFetchImagesRunning()
 {
-#ifdef QT_DEBUG
-    qDebug() << "Items is fetching images: " << itemsToFetchImages;
-#endif
+    QLOG_INFO() << "Items is fetching images: " << itemsToFetchImages;
+
     return itemsToFetchImages;
 }
 

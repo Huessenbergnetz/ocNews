@@ -1,5 +1,6 @@
 #include <QtNetwork>
 #include "ocfeeds.h"
+#include "QsLog.h"
 
 
 /*!
@@ -32,11 +33,11 @@ void OcFeeds::requestFeeds()
 {
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not request feeds: Device is in flight mode.";
         emit requestedFeedsError(tr("Device is in flight mode."));
     } else {
-#ifdef QT_DEBUG
-        qDebug() << "Start to fetch feeds from server.";
-#endif
+
+        QLOG_INFO() << "Start to fetch feeds from server.";
 
         replyRequestFeeds = network.get(helper.buildRequest("feeds"));
 
@@ -57,9 +58,7 @@ void OcFeeds::requestFeeds()
 void OcFeeds::feedsRequested()
 {
 
-#ifdef QT_DEBUG
-    qDebug() << "Requested Feeds from Server";
-#endif
+    QLOG_INFO() << "Requested Feeds from Server";
 
     if (replyRequestFeeds->error() == QNetworkReply::NoError)
     {
@@ -78,9 +77,8 @@ void OcFeeds::feedsRequested()
 
     } else {
 
-#ifdef QT_DEBUG
-        qDebug() << "HTTP-Error:" << replyRequestFeeds->errorString();
-#endif
+        QLOG_ERROR() << "HTTP-Error:" << replyRequestFeeds->errorString();
+
         notify.showNotification(replyRequestFeeds->errorString(), tr("Failed to request feeds"), OcNotifications::Error);
         emit requestedFeedsError(replyRequestFeeds->errorString());
         replyRequestFeeds->deleteLater();
@@ -102,9 +100,9 @@ void OcFeeds::feedsRequested()
 
 void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
 {
-#ifdef QT_DEBUG
-    qDebug() << "Start updating feeds database";
-#endif
+
+    QLOG_INFO() << "Start updating feeds database";
+
     QSqlQuery query;
     QStringList newFeeds = QStringList();
 
@@ -187,6 +185,8 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
             if (updated)
                 updatedFeeds << map["id"].toInt();
 
+            QLOG_DEBUG() << "Updated feed: " << map["title"].toString();
+
         } else { // if feed is not in database, create it there
             query.prepare("INSERT INTO feeds (id, url, title, faviconLink, added, folderId, unreadCount, link) VALUES (:id, :url, :tit, :fav, :add, :fol, :unr, :lin);");
             query.bindValue(":id", map["id"].toInt());
@@ -198,9 +198,9 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
             query.bindValue(":unr", map["unreadCount"].toInt());
             query.bindValue(":lin", map["link"].toString());
             query.exec();
-#ifdef QT_DEBUG
-            qDebug() << "Added Feed: " << map["title"].toString();
-#endif
+
+            QLOG_DEBUG() << "Added Feed: " << map["title"].toString();
+
             newFeeds << map["title"].toString();
             newFeedIds << map["id"].toInt();
 
@@ -277,10 +277,8 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
 
     }
 
+    QLOG_INFO() << "Successfully fetched feeds from server";
 
-#ifdef QT_DEBUG
-    qDebug() << "Emit requestedFeedsSuccess signal";
-#endif
     emit requestedFeedsSuccess(updatedFeeds, newFeedIds, idListDeleted);
 }
 
@@ -303,8 +301,11 @@ void OcFeeds::createFeed(const QString &url, const QString &folderId, const bool
 {
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not create feed: Device is in flight mode.";
         emit createdFeedError(tr("Device is in flight mode."));
     } else {
+        QLOG_INFO() << "Adding feed: " << url;
+        QLOG_INFO() << "Folder ID: " << folderId << ", add to eventView: " << eventView;
         QString t_folderId = folderId;
         addFeedToEventView = eventView;
 
@@ -350,10 +351,13 @@ void OcFeeds::feedCreated()
 
         if (createFeedResult.isEmpty())
         {
+            QLOG_ERROR() << "Failed to add new feed, server reply was empty.";
             notify.showNotification(tr("Server reply was empty."), tr("Failed to add feed"), OcNotifications::Error);
             emit createdFeedError(tr("Server reply was empty."));
             return;
         }
+
+        QLOG_INFO() << "Added new feed.";
 
         feedCreatedUpdateDb(createFeedResult);
 
@@ -364,6 +368,8 @@ void OcFeeds::feedCreated()
 
         if (createFeedResultError.isEmpty())
             createFeedResultError = replyCreateFeed->errorString();
+
+        QLOG_ERROR() << "Failed to add feed: " << createFeedResultError;
 
         replyCreateFeed->deleteLater();
 
@@ -389,6 +395,7 @@ void OcFeeds::feedCreated()
 
 void OcFeeds::feedCreatedUpdateDb(const QVariantMap &createFeedResult)
 {
+    QLOG_INFO() << "Creating newly added feed in database.";
     QSqlQuery query;
     foreach (QVariant feed, createFeedResult["feeds"].toList())
     {
@@ -402,7 +409,11 @@ void OcFeeds::feedCreatedUpdateDb(const QVariantMap &createFeedResult)
         query.bindValue(":fol", map["folderId"].toInt());
         query.bindValue(":unr", map["unreadCount"].toInt());
         query.bindValue(":lin", map["link"].toString());
-        query.exec();
+
+        if (!query.exec()) {
+            QLOG_ERROR() << "Creating feed database error: " << query.lastError().text();
+        };
+
         getFavicon( map["id"].toString(), map["faviconLink"].toString());
 
         // check if the feed should be shown in the event view
@@ -438,8 +449,10 @@ void OcFeeds::deleteFeed(const QString &id)
 {
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not delete feed: Device is in flight mode.";
         emit deletedFeedError(tr("Device is in flight mode."));
     } else {
+        QLOG_INFO() << "Request for deleting feed ID: " << id;
         // Create the API URL
         QString feed = "feeds/";
         feed.append(id);
@@ -467,6 +480,8 @@ void OcFeeds::feedDeleted()
     {
         int id = replyDeleteFeed->url().toString().split("/").last().toInt();
 
+        QLOG_INFO() << "Successfully requested deletion of feed id: " << id;
+
         replyDeleteFeed->deleteLater();
 
         feedDeletedUpdateDb(id);
@@ -482,9 +497,7 @@ void OcFeeds::feedDeleted()
 
         replyDeleteFeed->deleteLater();
 
-#ifdef QT_DEBUG
-        qDebug() << deleteFeedResultError;
-#endif
+        QLOG_ERROR() << "Failed to delete feed: " << deleteFeedResultError;
 
         notify.showNotification(deleteFeedResultError, tr("Failed to delete feed"), OcNotifications::Error);
 
@@ -507,9 +520,13 @@ void OcFeeds::feedDeleted()
 
 void OcFeeds::feedDeletedUpdateDb(const int &id)
 {
+    QLOG_INFO() << "Updating database after deletion of feed id: " << id;
+
     QSqlQuery query;
 
-    query.exec(QString("DELETE FROM feeds WHERE id = %1").arg(id));
+    if (!query.exec(QString("DELETE FROM feeds WHERE id = %1").arg(id))) {
+        QLOG_ERROR() << "Failed to update database after deletion of feed ID: " << ". Error: " << query.lastError().text();
+    }
 
     // remove id from the list of the feeds for the event view
     QString feedsForEventView = config.getSetting(QString("event/feeds"), QDBusVariant("")).variant().toString();
@@ -560,8 +577,11 @@ void OcFeeds::moveFeed(const QString &id, const QString &folderId)
 {
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not move feed: Device is in flight mode.";
         emit movedFeedError(tr("Device is in flight mode."));
     } else {
+
+        QLOG_INFO() << "Starting request to move feed id " << id << " to folder id " << folderId;
 
         QSqlQuery query;
 
@@ -570,6 +590,7 @@ void OcFeeds::moveFeed(const QString &id, const QString &folderId)
         query.next();
 
         if (query.value(0).toString() == folderId) {
+            QLOG_ERROR() << "Feed is already part of the destination folder.";
             emit movedFeedError(tr("Feed is already part of the destination folder"));
             return;
         }
@@ -617,6 +638,8 @@ void OcFeeds::feedMoved()
 
         replyMoveFeed->deleteLater();
 
+        QLOG_INFO() << "Successfully requested move of feed ID: " << id;
+
         feedMovedUpdateDb(id, folderIdToMoveTo);
 
     } else {
@@ -630,9 +653,8 @@ void OcFeeds::feedMoved()
 
         replyMoveFeed->deleteLater();
 
-#ifdef QT_DEBUG
-        qDebug() << moveFeedResultError;
-#endif
+        QLOG_ERROR() << "Request to move feed failed: " << moveFeedResultError;
+
         notify.showNotification(moveFeedResultError, tr("Failed to move feed"), OcNotifications::Error);
 
         emit movedFeedError(moveFeedResultError);
@@ -654,12 +676,16 @@ void OcFeeds::feedMoved()
 
 void OcFeeds::feedMovedUpdateDb(const int &id, const QString &folderId)
 {
+    QLOG_INFO() << "Updating database after feed ID " << id << " was moved to folder ID: " << folderId;
     QSqlQuery query;
 
     query.prepare("UPDATE feeds SET folderId = :folderId WHERE id = :id;");
     query.bindValue(":folderId", folderId);
     query.bindValue(":id", id);
-    query.exec();
+
+    if (!query.exec()) {
+        QLOG_ERROR() << "Failed to update database after moving feed: " << query.lastError().text();
+    }
 
     emit movedFeedSuccess(id, folderId.toInt());
 }
@@ -680,6 +706,9 @@ void OcFeeds::feedMovedUpdateDb(const int &id, const QString &folderId)
 
 void OcFeeds::getFavicon(QString feedId, QString faviconLink)
 {
+    QLOG_INFO() << "Getting favicon for feed ID: " << feedId;
+    QLOG_INFO() << faviconLink;
+
     // Building the request
     QNetworkRequest request(faviconLink);
 
@@ -718,12 +747,12 @@ void OcFeeds::getFavicon(QString feedId, QString faviconLink)
             }
             else
             {
-                qDebug() << "Failed to save icon";
+                QLOG_ERROR() << "Failed to save icon";
             }
         }
         else
         {
-            qDebug() << "Favicon can not be load";
+            QLOG_ERROR() << "Favicon can not be load";
         }
     }
 
@@ -748,8 +777,11 @@ void OcFeeds::markFeedRead(const QString &feedId)
 {
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not mark feed read: Device is in flight mode.";
         emit markedReadFeedError(tr("Device is in flight mode."));
     } else {
+        QLOG_INFO() << "Starting request to mark feed ID " << feedId << " as read.";
+
         // Create API URL
         QString feed = "feeds/";
         feed.append(feedId).append("/read");
@@ -761,18 +793,12 @@ void OcFeeds::markFeedRead(const QString &feedId)
         if (query.next())
             newestItemId = query.value(0).toString();
 
-#ifdef QT_DEBUG
-        qDebug() << __func__ << "- newest itemId: " << newestItemId;
-#endif
+        QLOG_DEBUG() << "Marking feed as read, newest itemId: " << newestItemId;
 
         // Create JSON String
         QByteArray parameters("{\"newestItemId\": ");
         parameters.append(newestItemId);
         parameters.append("}");
-
-#ifdef QT_DEBUG
-        qDebug() << __func__ << "- parameters: " << parameters;
-#endif
 
         replyMarkFeedRead = network.put(helper.buildRequest(feed, parameters.length()), parameters);
 
@@ -801,9 +827,7 @@ void OcFeeds::feedMarkedRead()
         urlParts.removeLast();
         int id = urlParts.last().toInt();
 
-#ifdef QT_DEBUG
-        qDebug() << __func__ << "- feedId: " << id;
-#endif
+        QLOG_INFO() << "Successfully requested to mark feed id " << id << " as read.";
 
         replyMarkFeedRead->deleteLater();
 
@@ -816,6 +840,8 @@ void OcFeeds::feedMarkedRead()
 
         if (markedReadFeedErrorResult.isEmpty())
             markedReadFeedErrorResult = replyMarkFeedRead->errorString();
+
+        QLOG_ERROR() << "Failed to mark feed as read: " << markedReadFeedErrorResult;
 
         notify.showNotification(markedReadFeedErrorResult, tr("Failed to mark feed as read"), OcNotifications::Error);
 
@@ -840,10 +866,14 @@ void OcFeeds::feedMarkedRead()
 
 void OcFeeds::feedMarkedReadUpdateDb(const int &id)
 {
+    QLOG_INFO() << "Updating database after marked feed ID " << id << " as read.";
+
     QDateTime ts;
     QSqlQuery query;
     QSqlDatabase::database().transaction();
-    query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE unread = %4 AND feedId = %1").arg(id).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE).arg(SQL_TRUE));
+    if (!query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE unread = %4 AND feedId = %1").arg(id).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE).arg(SQL_TRUE))) {
+        QLOG_ERROR() << "Failed to update database after marking feed as read: " << query.lastError().text();
+    }
     QSqlDatabase::database().commit();
 
     emit markedReadFeedSuccess(id);
@@ -863,7 +893,9 @@ QVariantMap OcFeeds::getFeeds()
 {
     QSqlQuery query;
     QVariantMap feeds;
-    query.exec(QString("SELECT id, title FROM feeds ORDER BY title COLLATE NOCASE ASC;"));
+    if (!query.exec(QString("SELECT id, title FROM feeds ORDER BY title COLLATE NOCASE ASC;"))) {
+        QLOG_ERROR() << "Failed to get IDs and titles of feeds from database: " << query.lastError().text();
+    }
     while (query.next())
         feeds[query.value(1).toString()] = query.value(0).toString();
 
@@ -885,8 +917,11 @@ void OcFeeds::renameFeed(const QString &id, const QString &newName)
 {
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not rename feed: Device is in flight mode.";
         emit renamedFeedError(tr("Device is in flight mode."));
     } else {
+        QLOG_INFO() << "Starting request to rename feed ID " << id << " to " << newName;
+
         // Create the API URL
         QString feed = "feeds/";
         feed.append(id);
@@ -924,6 +959,8 @@ void OcFeeds::feedRenamed()
 
         replyRenameFeed->deleteLater();
 
+        QLOG_INFO() << "Success: request to rename feed ID " << id;
+
         feedRenamedUpdateDb(id, newFeedName);
 
     } else {
@@ -935,9 +972,8 @@ void OcFeeds::feedRenamed()
             renameresulterror = replyRenameFeed->errorString();
 
         replyRenameFeed->deleteLater();
-#ifdef QT_DEBUG
-        qDebug() << renameresulterror;
-#endif
+
+        QLOG_ERROR() << "Failed to request feed renaming: " << renameresulterror;
 
         notify.showNotification(renameresulterror, tr("Failed to rename feed"));
 
@@ -957,12 +993,15 @@ void OcFeeds::feedRenamed()
  */
 void OcFeeds::feedRenamedUpdateDb(const int &id, const QString &name)
 {
+    QLOG_INFO() << "Updating database after renaming feed ID " << id << " to " << name;
     QSqlQuery query;
 
     query.prepare("UPDATE feeds SET title = :name WHERE id = :id;");
     query.bindValue(":name", name);
     query.bindValue(":id", id);
-    query.exec();
+    if (!query.exec()) {
+        QLOG_ERROR() << "Failed to update database after renaming feed: " << query.lastError().text();
+    }
 
     emit renamedFeedSuccess(name, id);
 }

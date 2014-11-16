@@ -1,4 +1,5 @@
 #include <QtNetwork>
+#include "QsLog.h"
 #include "ocitems.h"
 
 OcItems::OcItems(QObject *parent) :
@@ -14,12 +15,10 @@ void OcItems::requestItems(const QString &batchSize, const QString &offset, cons
 {
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not request items: Device is in flight mode.";
         emit requestedItemsError(tr("Device is in flight mode."));
     } else {
-
-#ifdef QT_DEBUG
-        qDebug() << "Start to fetch items from server.";
-#endif
+        QLOG_INFO() << "Start to request items from server.";
 
         QList<QPair<QString, QString> > query;
         query << qMakePair(QString("batchSize"), batchSize);
@@ -40,9 +39,6 @@ void OcItems::itemsRequested()
 {
     if (replyRequestItems->error() == QNetworkReply::NoError)
     {
-#ifdef QT_DEBUG
-        qDebug() << "Start to parse JSON into QVariantMap.";
-#endif
         QVariantMap requestItemsResult = helper.jsonToQt(replyRequestItems->readAll());
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
@@ -54,11 +50,10 @@ void OcItems::itemsRequested()
 #endif
 
         replyRequestItems->deleteLater();
-#ifdef QT_DEBUG
-        qDebug() << "Finished parsing.";
-#endif
+
         if (requestItemsResult.isEmpty())
         {
+            QLOG_ERROR() << "Failed to request items: Server reply was empty.";
             notify.showNotification(tr("Server reply was empty."), tr("Error in server reply"), OcNotifications::Error);
             emit requestedItemsError(tr("Server reply was empty."));
 
@@ -69,18 +64,16 @@ void OcItems::itemsRequested()
     } else {
         notify.showNotification(replyRequestItems->errorString(), tr("HTTP error"), OcNotifications::Error);
         emit requestedItemsError(replyRequestItems->errorString());
-#ifdef QT_DEBUG
-        qDebug() << "HTTP-Error:" << replyRequestItems->errorString();
-#endif
+
+        QLOG_ERROR() << "Failed to request items: " << replyRequestItems->errorString();
+
         replyRequestItems->deleteLater();
     }
 }
 
 void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, const QString &type, const QString &fId)
 {
-#ifdef QT_DEBUG
-    qDebug() << "Start updating items database.";
-#endif
+    QLOG_INFO() << "Updating database after requesting items from server.";
 
     QList<int> newEventItems; // list for the new items, for sending to event feed
     QList<int> newItems; // list for fetching images
@@ -88,9 +81,7 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
     int unreadCount = 0;
     QStringList feedsForEventsList = config.value("event/feeds", "").toString().split(",");
 
-#ifdef QT_DEBUG
-    qDebug() << "EventViewList: " << feedsForEventsList;
-#endif
+    QLOG_DEBUG() << "Request items: Event view feeds list: " << feedsForEventsList;
 
     QSqlQuery query;
 
@@ -108,9 +99,8 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
             // check if item was modified on server
             if (query.value(1).toInt() < map["lastModified"].toInt())
             {
-#ifdef QT_DEBUG
-                qDebug() << "Update ID:" << map["id"].toInt() << "|" << map["lastModified"].toInt();
-#endif
+                QLOG_DEBUG() << "Updating item ID " << map["id"].toInt() << " | " << map["lastModified"].toInt();
+
                 updatedItems << map["id"].toInt();
 
                 query.prepare("UPDATE items SET "
@@ -142,13 +132,14 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
                 query.bindValue(":starred", map["starred"].toBool());
                 query.bindValue(":lastModified", map["lastModified"].toInt());
                 query.bindValue(":id", map["id"].toInt());
-                query.exec();
+                if (!query.exec()) {
+                    QLOG_ERROR() << "Updating item database error: " << query.lastError().text();
+                }
             }
 
         } else { // if item is not in database, create it there
-#ifdef QT_DEBUG
-            qDebug() << "Create ID:" << map["id"].toInt();
-#endif
+
+            QLOG_DEBUG() << "Creating new item ID: " << map["id"].toInt();
 
             newItems.append(map["id"].toInt());
 
@@ -178,16 +169,15 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
             query.bindValue(":unread", map["unread"].toBool());
             query.bindValue(":starred", map["starred"].toBool());
             query.bindValue(":lastModified", map["lastModified"].toInt());
-            query.exec();
+            if (!query.exec()) {
+                QLOG_ERROR() << "Creating item database error: " << query.lastError().text();
+            }
         }
 
     }
     QSqlDatabase::database().commit();
 
-#ifdef QT_DEBUG
-    qDebug() << "New Items for EventView:" << newEventItems;
-#endif
-
+    QLOG_INFO() << "New items for EventView: " << newEventItems;
 
     // now check if items were deleted on server
 
@@ -225,9 +215,8 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
     for (int i = 0; i < idListDeleted.size(); ++i)
     {
         query.exec(QString("DELETE FROM items WHERE id = %1").arg(idListDeleted.at(i)));
-#ifdef QT_DEBUG
-        qDebug() << "Deleted ID:" << idListDeleted.at(i);
-#endif
+
+        QLOG_DEBUG() << "Deleted item ID: " << idListDeleted.at(i);
     }
     QSqlDatabase::database().commit();
 
@@ -239,9 +228,6 @@ void OcItems::itemsRequestedUpdateDb(const QVariantMap &requestItemsResult, cons
     if (!newEventItems.isEmpty())
         updateEventFeed(newEventItems);
 
-#ifdef QT_DEBUG
-    qDebug() << "Finished updating database, emit requestedItemsSuccess";
-#endif
     emit requestedItemsSuccess(updatedItems, newItems, idListDeleted);
 }
 
@@ -254,6 +240,7 @@ void OcItems::updateItems(const QString &lastModified, const QString &type, cons
 
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not update items: Device is in flight mode.";
         emit updatedItemsError(tr("Device is in flight mode."));
 
     } else {
@@ -261,7 +248,10 @@ void OcItems::updateItems(const QString &lastModified, const QString &type, cons
         QSqlQuery query;
 
         // work queued items
-        query.exec("SELECT id FROM queue LIMIT 1");
+        if (!query.exec("SELECT id FROM queue LIMIT 1")) {
+            QLOG_ERROR() << "Updating items DB error while selecting queued items: " << query.lastError().text();
+        }
+
         if (query.next())
         {
             QEventLoop loop;
@@ -270,10 +260,8 @@ void OcItems::updateItems(const QString &lastModified, const QString &type, cons
             loop.exec();
         }
 
+        QLOG_INFO() << "Start updating items from Server: Last modified: " << t_lastModified << " | Update type: " << type << " | ID: " << id;
 
-    #ifdef QT_DEBUG
-        qDebug() << "Start updating items from Server: " << t_lastModified << " | " << type << " | " << id;
-    #endif
         if (t_lastModified == "0")
         {
                 QString querystring = "";
@@ -302,10 +290,7 @@ void OcItems::updateItems(const QString &lastModified, const QString &type, cons
                 }
         }
 
-
-    #ifdef QT_DEBUG
-        qDebug() << "Last Modified: " << t_lastModified;
-    #endif
+        QLOG_DEBUG() << "Update items: Last Modified: " << t_lastModified;
 
         QList<QPair<QString, QString> > urlQuery;
         urlQuery << qMakePair(QString("lastModified"), t_lastModified);
@@ -324,9 +309,6 @@ void OcItems::itemsUpdated()
 {
     if (replyUpdateItems->error() == QNetworkReply::NoError)
     {
-#ifdef QT_DEBUG
-        qDebug() << "Start to parse JSON into QVariantMap.";
-#endif
 
         QVariantMap updateItemsResult = helper.jsonToQt(replyUpdateItems->readAll());
 
@@ -340,13 +322,9 @@ void OcItems::itemsUpdated()
 
         replyUpdateItems->deleteLater();
 
-#ifdef QT_DEBUG
-        qDebug() << updateItemsResult;
-        qDebug() << "Finished parsing.";
-#endif
-
         if (updateItemsResult.isEmpty())
         {
+            QLOG_ERROR() << "Failed to request updated items from server: Server reply was empty.";
             notify.showNotification(tr("Server reply was empty."), tr("Error in server reply"), OcNotifications::Error);
             emit updatedItemsError(tr("Server reply was empty."));
         } else {
@@ -354,9 +332,9 @@ void OcItems::itemsUpdated()
         }
 
     } else {
-#ifdef QT_DEBUG
-        qDebug() << "HTTP-Error:" << replyUpdateItems->errorString();
-#endif
+
+        QLOG_ERROR() << "Failed to request updated items from server: " << replyUpdateItems->errorString();
+
         notify.showNotification(replyUpdateItems->errorString(), tr("HTTP error"), OcNotifications::Error);
         emit updatedItemsError(replyUpdateItems->errorString());
     }
@@ -366,9 +344,7 @@ void OcItems::itemsUpdated()
 
 void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const QString &type, const QString &fid)
 {
-#ifdef QT_DEBUG
-    qDebug() << "Start updating database.";
-#endif
+    QLOG_INFO() << "Updating database after requesting updated items.";
 
     QList<int> newEventItems; // list for the new items, for sending to event feed
     QList<int> newItems; // list for fetching images
@@ -376,9 +352,8 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
     int unreadCount = 0;
     QStringList feedsForEventsList = config.value("event/feeds", "").toString().split(",");
 
-#ifdef QT_DEBUG
-    qDebug() << "EventViewList: " << feedsForEventsList;
-#endif
+
+    QLOG_INFO() << "Updating items: Event view list: " << feedsForEventsList;
 
     QSqlQuery query;
 
@@ -397,9 +372,8 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
             // check if item was modified on server
             if (query.value(1).toInt() < map["lastModified"].toInt())
             {
-#ifdef QT_DEBUG
-                qDebug() << "Update Item ID:" << map["id"].toInt() << "|" << map["lastModified"].toInt();
-#endif
+                QLOG_DEBUG() << "Update Item ID:" << map["id"].toInt() << "|" << map["lastModified"].toInt();
+
                 updatedItems << map["id"].toInt();
 
                 query.prepare("UPDATE items SET "
@@ -431,13 +405,14 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
                 query.bindValue(":starred", map["starred"].toBool());
                 query.bindValue(":lastModified", map["lastModified"].toInt());
                 query.bindValue(":id", map["id"].toInt());
-                query.exec();
+                if (!query.exec()) {
+                    QLOG_ERROR() << "Error while updating DB after updating item: " << query.lastError().text();
+                }
             }
 
         } else { // if item is not in database, create it there
-#ifdef QT_DEBUG
-            qDebug() << "Create Item ID:" << map["id"].toInt();
-#endif
+
+            QLOG_DEBUG() << "Update items: Create item ID: " << map["id"].toInt();
 
             newItems.append(map["id"].toInt());
 
@@ -450,9 +425,8 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
                 if (feedsForEventsList.contains(map["feedId"].toString()))
                     newEventItems.append(map["id"].toInt());
             }
-#ifdef QT_DEBUG
-            qDebug() << "New Items for EventView:" << newEventItems;
-#endif
+
+            QLOG_DEBUG() << "Item updates: New items for EventView: " << newEventItems;
 
             query.prepare("INSERT INTO items (id, guid, guidHash, url, title, author, pubDate, body, enclosureMime, enclosureLink, feedId, unread, starred, lastModified) "
                           "VALUES (:id, :guid, :guidHash, :url, :title, :author, :pubDate, :body, :enclosureMime, :enclosureLink, :feedId, :unread, :starred, :lastModified);");
@@ -470,7 +444,9 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
             query.bindValue(":unread", map["unread"].toBool());
             query.bindValue(":starred", map["starred"].toBool());
             query.bindValue(":lastModified", map["lastModified"].toInt());
-            query.exec();
+            if (!query.exec()) {
+                QLOG_ERROR() << "Database error while updating item: " << query.lastError().text();
+            }
         }
 
     }
@@ -489,9 +465,8 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
 
     // now delete Items that exceed the maximum amount of items to store per feed
     // get feed ids
-#ifdef QT_DEBUG
-    qDebug() << "Start cleaning Database";
-#endif
+    QLOG_INFO() << "Updating items, start to clean database.";
+
 
     QList<int> imageItemIdsToDelete;
 
@@ -504,11 +479,15 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
         {
             feedIds << fid.toInt();
         } else if (type == "1") {
-            query.exec(QString("SELECT id FROM feeds WHERE folderId = %1").arg(fid.toInt()));
+            if (!query.exec(QString("SELECT id FROM feeds WHERE folderId = %1").arg(fid.toInt()))) {
+                QLOG_ERROR() << "Update items: database error: " << query.lastError().text();
+            }
             while (query.next())
                 feedIds << query.value(0).toInt();
         } else if (type == "3") {
-            query.exec("SELECT id FROM feeds;");
+            if (!query.exec("SELECT id FROM feeds;")) {
+                QLOG_ERROR() << "Update items: database error: " << query.lastError().text();
+            }
             while (query.next())
                 feedIds << query.value(0).toInt();
         }
@@ -517,7 +496,9 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
         QSqlDatabase::database().transaction();
         for (int i = 0; i < feedIds.size(); ++i)
         {
-            query.exec(QString("SELECT MIN(id) FROM (SELECT id FROM items WHERE feedId = %1 ORDER BY id DESC LIMIT %2);").arg(feedIds.at(i)).arg(config.value("storage/maxitems", 100).toInt()));
+            if (!query.exec(QString("SELECT MIN(id) FROM (SELECT id FROM items WHERE feedId = %1 ORDER BY id DESC LIMIT %2);").arg(feedIds.at(i)).arg(config.value("storage/maxitems", 100).toInt()))) {
+                QLOG_ERROR() << "Update items: Error while getting lowest ID from database: " << query.lastError().text();
+            }
             if (query.next())
                 lowestId = query.value(0).toInt();
 
@@ -544,11 +525,14 @@ void OcItems::itemsUpdatedUpdateDb(const QVariantMap &updateItemsResult, const Q
     if (!newEventItems.isEmpty())
         updateEventFeed(newEventItems);
 
-#ifdef QT_DEBUG
-    qDebug() << "Emit updatedItemsSuccess";
-#endif
     emit updatedItemsSuccess(updatedItems, newItems, imageItemIdsToDelete);
 }
+
+
+
+
+
+
 
 
 void OcItems::markItemsTillThis(const QString &action, const QDBusVariant &pubDate, const QDBusVariant &feedId)
@@ -556,9 +540,7 @@ void OcItems::markItemsTillThis(const QString &action, const QDBusVariant &pubDa
     QVariant t_pubDate = pubDate.variant();
     QVariant t_feedId = feedId.variant();
 
-#ifdef QT_DEBUG
-    qDebug() << action << " | " << t_pubDate << " | " << t_feedId;
-#endif
+    QLOG_INFO() << "Mark items till this: Action: " << action << " | Pubdate: " << t_pubDate << " | Feed ID: " << t_feedId;
 
 #if defined(MEEGO_EDITION_HARMATTAN)
     QString readStatus;
@@ -579,19 +561,16 @@ void OcItems::markItemsTillThis(const QString &action, const QDBusVariant &pubDa
 #endif
 
     QSqlQuery query;
-    query.exec(QString("SELECT id FROM items WHERE pubDate <= %1 AND feedId = %2 AND unread = %3").arg(t_pubDate.toInt()).arg(t_feedId.toInt()).arg(readStatus));
 
-#ifdef QT_DEBUG
-    qDebug() << query.lastError();
-#endif
+    if (!query.exec(QString("SELECT id FROM items WHERE pubDate <= %1 AND feedId = %2 AND unread = %3").arg(t_pubDate.toInt()).arg(t_feedId.toInt()).arg(readStatus))) {
+        QLOG_ERROR() << "Mark items till this: Error while selecting IDs from items: " << query.lastError().text();
+    }
 
     QVariantList itemIds;
     while(query.next())
         itemIds << query.value(0).toString();
 
-#ifdef QT_DEBUG
-    qDebug() << itemIds;
-#endif
+    QLOG_DEBUG() << "Mark items till this: Item IDs: " << itemIds;
 
     if (!itemIds.isEmpty()) {
         markItems(action, itemIds);
@@ -606,11 +585,11 @@ void OcItems::markItemsTillThis(const QString &action, const QDBusVariant &pubDa
 
 void OcItems::markItems(const QString &action, const QVariantList &ids)
 {
-#ifdef QT_DEBUG
-    qDebug() << "markItems: " << ids;
-#endif
+
+    QLOG_INFO() << "Start to request marking items: action: " << action;
 
     if (ids.isEmpty()) {
+        QLOG_INFO() << "No items to mark.";
         emit markedItemsSuccess(QStringList(), QString());
         return;
     }
@@ -625,13 +604,12 @@ void OcItems::markItems(const QString &action, const QVariantList &ids)
     parameters.append(itemsToMark.join(", "));
     parameters.append("]}");
 
-#ifdef QT_DEBUG
-    qDebug() << "markItems: " << itemsToMark;
-    qDebug() << parameters;
-#endif
+    QLOG_DEBUG() << "Items to mark: " << itemsToMark;
 
     if (network.isFlightMode())
     {
+
+        QLOG_INFO() << "Mark items: Device is in flight mode. Add items to queue.";
         if (action == "read")
         {
             queueItems(OcItems::MarkRead, itemsToMark);
@@ -662,16 +640,16 @@ void OcItems::itemsMarked()
 
     if (replyMarkItems->error() == QNetworkReply::NoError)
     {
+        QLOG_INFO() << "Successfully requested the marking of items on the server.";
         itemsMarkedUpdateDb(itemsToMark);
     } else {
 
-#ifdef QT_DEBUG
-        qDebug() << "HTTP-Error:" << replyMarkItems->errorString();
-        qDebug() << replyMarkItems->error();
-#endif
+        QLOG_ERROR() << "Failed to mark items: " << replyMarkItems->errorString();
 
         if (replyMarkItems->error() == QNetworkReply::TimeoutError || replyMarkItems->error() == QNetworkReply::UnknownNetworkError)
         {
+            QLOG_INFO() << "Queue items to mark: " << itemsToMark;
+
             QStringList queueItemIds = itemsToMark;
             QString action = queueItemIds.last();
             queueItemIds.removeLast();
@@ -686,6 +664,8 @@ void OcItems::itemsMarked()
             itemsMarkedUpdateDb(itemsToMark);
 
         } else {
+            QLOG_ERROR() << "Failed to request the marking of items: " << replyMarkItems->errorString();
+
             notify.showNotification(replyMarkItems->errorString(), tr("Failed to mark articles"), OcNotifications::Error);
             emit markedItemsError(replyMarkItems->errorString());
         }
@@ -697,9 +677,8 @@ void OcItems::itemsMarked()
 
 void OcItems::itemsMarkedUpdateDb(const QStringList &ids)
 {
-#ifdef QT_DEBUG
-    qDebug() << "markItems Update DB: " << ids;
-#endif
+    QLOG_INFO() << "Updating DB after marking items.";
+
     QStringList t_ids = ids;
     QString action = t_ids.last();
     t_ids.removeLast();
@@ -718,10 +697,10 @@ void OcItems::itemsMarkedUpdateDb(const QStringList &ids)
     }
 
     QSqlDatabase::database().commit();
-#ifdef QT_DEBUG
-    qDebug() << "markItems DB Error: " <<  QSqlDatabase::database().lastError();
-#endif
 
+    if (QSqlDatabase::database().lastError().type() !=  QSqlError::NoError) {
+        QLOG_ERROR() << "Marking items DB error: " << QSqlDatabase::database().lastError().text();
+    }
 
     emit markedItemsSuccess(t_ids, action);
 }
@@ -732,7 +711,6 @@ void OcItems::itemsMarkedUpdateDb(const QStringList &ids)
 
 void OcItems::starItems(const QString &action, const QVariantMap &itemIds)
 {
-
     hashesToStar.clear();
 
     // Create the JSON string
@@ -754,14 +732,10 @@ void OcItems::starItems(const QString &action, const QVariantMap &itemIds)
     }
     parameters.append("]}");
 
-#ifdef QT_DEBUG
-    qDebug() << parameters;
-#endif
-
-
-
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not star or unstar items: Device is in flight mode. Adding action and items to queue.";
+
         if (action == "star")
         {
             queueItems(OcItems::Star, hashesToStar);
@@ -774,6 +748,8 @@ void OcItems::starItems(const QString &action, const QVariantMap &itemIds)
         itemsStarredUpdateDb(hashesToStar);
 
     } else {
+
+        QLOG_INFO() << "Starting a request to star or unstar items: " << action;
 
         hashesToStar << action;
 
@@ -794,14 +770,18 @@ void OcItems::itemsStarred()
     {
         replyStarItems->deleteLater();
 
+        QLOG_INFO() << "Successfully starred or unstarred items.";
+
         itemsStarredUpdateDb(hashesToStar);
 
     } else {
-#ifdef QT_DEBUG
-        qDebug() << "HTTP-Error:" << replyStarItems->errorString();
-#endif
+
+        QLOG_ERROR() << "Failed to star or unstar items: " << replyStarItems->errorString();
+
         if (replyStarItems->error() == QNetworkReply::TimeoutError || replyStarItems->error() == QNetworkReply::UnknownNetworkError)
         {
+
+            QLOG_INFO() << "Adding items to star/unstar to queue.";
 
             QStringList queueHashes = hashesToStar;
             QString action = queueHashes.last();
@@ -817,6 +797,7 @@ void OcItems::itemsStarred()
              itemsStarredUpdateDb(hashesToStar);
 
         } else {
+            QLOG_ERROR() << "Failed to un/star items: " << replyStarItems->errorString();
             notify.showNotification(replyStarItems->errorString(), tr("Failed to un/star articles"), OcNotifications::Error);
             emit starredItemsError(replyStarItems->errorString());
         }
@@ -827,23 +808,28 @@ void OcItems::itemsStarred()
 
 void OcItems::itemsStarredUpdateDb(const QStringList &hashes)
 {
+    QLOG_INFO() << "Updating database after un/staring items.";
+
     QStringList t_hashes = hashes;
     QString action = t_hashes.last();
     t_hashes.removeLast();
-#ifdef QT_DEBUG
-    qDebug() << t_hashes;
-#endif
+
+    QLOG_DEBUG() << "Hashes to un/star: " << t_hashes;
 
     QDateTime ts;
     QSqlQuery query;
     if (action == "star")
     {
         for (int i = 0; i < t_hashes.size(); ++i)
-            query.exec(QString("UPDATE items SET starred = %3, lastModified = %2  WHERE guidHash = \"%1\";").arg(t_hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_TRUE));
+            if (!query.exec(QString("UPDATE items SET starred = %3, lastModified = %2  WHERE guidHash = \"%1\";").arg(t_hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_TRUE))) {
+                QLOG_ERROR() << "Failed to update database after staring item: " << query.lastError().text();
+            }
 
     } else {
         for (int i = 0; i < t_hashes.size(); ++i)
-            query.exec(QString("UPDATE items SET starred = %3, lastModified = %2 WHERE guidHash = \"%1\";").arg(t_hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE));
+            if (!query.exec(QString("UPDATE items SET starred = %3, lastModified = %2 WHERE guidHash = \"%1\";").arg(t_hashes.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE))) {
+                QLOG_ERROR() << "Failed to update database after unstaring item: " << query.lastError().text();
+            }
     }
 
     emit starredItemsSuccess(t_hashes, action);
@@ -859,9 +845,14 @@ void OcItems::markAllItemsRead()
 
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not mark all items as read: Device is in flight mode.";
+
         emit markedAllItemsReadError(tr("Device is in flight mode."));
 
     } else {
+
+        QLOG_INFO() << "Starting to request the marking of all items as read.";
+
         // get newest item id
         QSqlQuery query;
         query.exec("SELECT MAX(id) FROM items;");
@@ -872,10 +863,6 @@ void OcItems::markAllItemsRead()
         QByteArray parameters("{\"newestItemId\": ");
         parameters.append(markAllReadNewestId);
         parameters.append("}");
-
-    #ifdef QT_DEBUG
-        qDebug() << parameters;
-    #endif
 
         replyMarkAllItemsRead = network.put(helper.buildRequest("items/read", parameters.length()), parameters);
 
@@ -890,12 +877,14 @@ void OcItems::itemsMarkedAllRead()
     {
         replyMarkAllItemsRead->deleteLater();
 
+        QLOG_INFO() << "Successfully requested the marking of all items as read.";
+
         itemsMarkedAllReadUpdateDb(markAllReadNewestId);
 
     } else {
-#ifdef QT_DEBUG
-        qDebug() << "HTTP-Error:" << replyMarkAllItemsRead->errorString();
-#endif
+
+        QLOG_ERROR() << "Failed to request the marking of all items as read: " << replyMarkAllItemsRead->errorString();
+
         notify.showNotification(replyMarkAllItemsRead->errorString(), tr("Failed to mark articles"), OcNotifications::Error);
         emit markedAllItemsReadError(replyMarkAllItemsRead->errorString());
         replyMarkAllItemsRead->deleteLater();
@@ -904,9 +893,13 @@ void OcItems::itemsMarkedAllRead()
 
 void OcItems::itemsMarkedAllReadUpdateDb(const QString &newestItemId)
 {
+    QLOG_INFO() << "Updating database after marking all items as read.";
+
     QDateTime ts;
     QSqlQuery query;
-    query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE id <= %1 AND unread = %4;").arg(newestItemId.toInt()).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE).arg(SQL_TRUE));
+    if (!query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE id <= %1 AND unread = %4;").arg(newestItemId.toInt()).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE).arg(SQL_TRUE))) {
+        QLOG_ERROR() << "Failed to update database after marking all items as read: " << query.lastError().text();
+    }
 
     emit markedAllItemsReadSuccess();
 }
@@ -937,20 +930,21 @@ void OcItems::cleanItems(const QList<int> &updated, const QList<int> &newFeeds, 
 
         for (int i = 0; i < deleted.size(); ++i)
         {
-
-#ifdef QT_DEBUG
-            qDebug() << "Deleting feed ID: " << deleted.at(i);
-#endif
+            QLOG_DEBUG() << "Clean items: Deleting feed ID: " << deleted.at(i);
 
             QSqlQuery query;
-            query.exec(QString("SELECT id FROM items WHERE feedId = %1;").arg(deleted.at(i)));
+            if (!query.exec(QString("SELECT id FROM items WHERE feedId = %1;").arg(deleted.at(i)))) {
+                QLOG_ERROR() << "Failed to select item IDs to delete from database: " << query.lastError().text();
+            }
 
             while(query.next())
             {
                 itemsToDelete << query.value(0).toInt();
             }
 
-            query.exec(QString("DELETE FROM items WHERE feedId = %1;").arg(deleted.at(i)));
+            if (!query.exec(QString("DELETE FROM items WHERE feedId = %1;").arg(deleted.at(i)))) {
+                QLOG_ERROR() << "Failed to delete items in DB: " << query.lastError().text();
+            }
 
 #if defined(MEEGO_EDITION_HARMATTAN)
             // remove items from event feed
@@ -968,9 +962,7 @@ void OcItems::queueItems(int action, QStringList &itemIds)
     QSqlQuery query;
     QDateTime ts;
 
-#ifdef QT_DEBUG
-    qDebug() << itemIds;
-#endif
+    QLOG_DEBUG() << "Queue item IDs: " << itemIds;
 
     if (action == OcItems::MarkRead || action == OcItems::MarkUnread)
     {
@@ -1013,12 +1005,14 @@ void OcItems::dequeueItems()
 {
     QSqlQuery query;
 
-    query.exec("SELECT id FROM queue LIMIT 1");
+    if (!query.exec("SELECT id FROM queue LIMIT 1")) {
+        QLOG_ERROR() << "Failed to select item ID from DB: " << query.lastError().text();
+    }
+
     if (query.next())
     {
-#ifdef QT_DEBUG
-        qDebug() << "Start dequeueing items.";
-#endif
+        QLOG_INFO() << "Start dequeueing items.";
+
         dequeueRead();
     } else {
         dequeueFinish();
@@ -1031,17 +1025,18 @@ void OcItems::dequeueRead()
     QVariantList markItemIds;
     QSqlQuery query;
 
-    query.exec(QString("SELECT itemId FROM queue WHERE action = %1").arg(OcItems::MarkRead));
+    if (!query.exec(QString("SELECT itemId FROM queue WHERE action = %1").arg(OcItems::MarkRead))) {
+        QLOG_ERROR() << "Failed to select item IDs from queue DB table: " << query.lastError().text();
+    }
+
     while (query.next())
     {
         markItemIds << query.value(0);
     }
     if (!markItemIds.isEmpty())
     {
+        QLOG_INFO() << "Dequeeue read items.";
 
-#ifdef QT_DEBUG
-        qDebug() << "Dequeue read items.";
-#endif
         connect(this,SIGNAL(markedItemsSuccess(QStringList,QString)),this,SLOT(dequeueUnread()),Qt::UniqueConnection);
         markItems("read", markItemIds);
         query.exec(QString("DELETE FROM queue WHERE action = %1").arg(OcItems::MarkRead));
@@ -1056,17 +1051,18 @@ void OcItems::dequeueUnread()
     QVariantList markItemIds;
     QSqlQuery query;
 
-    query.exec(QString("SELECT itemId FROM queue WHERE action = %1").arg(OcItems::MarkUnread));
+    if (!query.exec(QString("SELECT itemId FROM queue WHERE action = %1").arg(OcItems::MarkUnread))) {
+        QLOG_ERROR() << "Failed to select item IDs from queue DB table: " << query.lastError().text();
+    }
+
     while (query.next())
     {
         markItemIds << query.value(0);
     }
     if (!markItemIds.isEmpty())
     {
+        QLOG_INFO() << "Dequeue unread items.";
 
-#ifdef QT_DEBUG
-        qDebug() << "Dequeue unread items.";
-#endif
         connect(this,SIGNAL(markedItemsSuccess(QStringList,QString)),this,SLOT(dequeueStarred()),Qt::UniqueConnection);
         markItems("unread", markItemIds);
         query.exec(QString("DELETE FROM queue WHERE action = %1").arg(OcItems::MarkUnread));
@@ -1081,17 +1077,18 @@ void OcItems::dequeueStarred()
     QVariantMap starItemHashes;
     QSqlQuery query;
 
-    query.exec(QString("SELECT qu.guidHash, (SELECT feedId FROM items WHERE guidHash = qu.guidHash) AS feedId FROM queue qu WHERE action = %1").arg(OcItems::Star));
+    if (!query.exec(QString("SELECT qu.guidHash, (SELECT feedId FROM items WHERE guidHash = qu.guidHash) AS feedId FROM queue qu WHERE action = %1").arg(OcItems::Star))) {
+        QLOG_ERROR() << "Failed to select item hashes from queue DB table: " << query.lastError().text();
+    }
+
     while (query.next())
     {
         starItemHashes[query.value(1).toString()] = query.value(0).toString();
     }
     if (!starItemHashes.isEmpty())
     {
+        QLOG_INFO() << "Dequeue starred items.";
 
-#ifdef QT_DEBUG
-        qDebug() << "Dequeue starred items.";
-#endif
         connect(this,SIGNAL(starredItemsSuccess(QStringList,QString)),this,SLOT(dequeueUnstarred()),Qt::UniqueConnection);
         starItems("star", starItemHashes);
         query.exec(QString("DELETE FROM queue WHERE action = %1").arg(OcItems::Star));
@@ -1106,17 +1103,18 @@ void OcItems::dequeueUnstarred()
     QVariantMap starItemHashes;
     QSqlQuery query;
 
-    query.exec(QString("SELECT qu.guidHash, (SELECT feedId FROM items WHERE guidHash = qu.guidHash) AS feedId FROM queue qu WHERE action = %1").arg(OcItems::Unstar));
+    if (!query.exec(QString("SELECT qu.guidHash, (SELECT feedId FROM items WHERE guidHash = qu.guidHash) AS feedId FROM queue qu WHERE action = %1").arg(OcItems::Unstar))) {
+        QLOG_ERROR() << "Failed to select item hashes from queue DB table: " << query.lastError().text();
+    }
+
     while (query.next())
     {
         starItemHashes[query.value(1).toString()] = query.value(0).toString();
     }
     if (!starItemHashes.isEmpty())
     {
+        QLOG_INFO() << "Dequeue unstarred items.";
 
-#ifdef QT_DEBUG
-        qDebug() << "Dequeue unstarred items.";
-#endif
         connect(this,SIGNAL(starredItemsSuccess(QStringList,QString)),this,SLOT(dequeueFinish()),Qt::UniqueConnection);
         starItems("unstar", starItemHashes);
         query.exec(QString("DELETE FROM queue WHERE action = %1").arg(OcItems::Unstar));
@@ -1130,6 +1128,7 @@ void OcItems::dequeueFinish()
 {
     emit dequeueFinished();
 }
+
 
 void OcItems::updateEventFeed(const QList<int> &newsFeedItems)
 {
@@ -1160,10 +1159,8 @@ void OcItems::updateEventFeed(const QList<int> &newsFeedItems)
                                             QUrl(QString("ocnews://").append(QString::number(newsFeedItems.at(i)))),
                                             QString("ocnews-feed-").append(query.value(5).toString()),
                                             QString(query.value(4).toString()));
-#ifdef QT_DEBUG
-        qDebug() << "Event ID: " << id;
-#endif
 
+            QLOG_DEBUG() << "New ID for even view: " << id;
         }
     }
 #endif

@@ -1,5 +1,4 @@
 #include "ocaccount.h"
-#include <QDebug>
 
 OcAccount::OcAccount(QObject *parent) :
     QObject(parent)

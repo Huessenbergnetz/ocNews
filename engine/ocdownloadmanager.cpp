@@ -3,8 +3,8 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QTimer>
-#include <QDebug>
 #include <QSqlQuery>
+#include "QsLog.h"
 
 OcDownloadManager::OcDownloadManager(QObject *parent) :
     QObject(parent)
@@ -18,7 +18,7 @@ OcDownloadManager::OcDownloadManager(QObject *parent) :
     transferClient = new TransferUI::Client();
 
     if(!transferClient->init()) {
-        qDebug()<<"Cannot initialize TUIClient";//error
+        QLOG_ERROR()<<"Cannot initialize TUIClient";//error
         delete transferClient;
     }
 #endif
@@ -28,6 +28,7 @@ OcDownloadManager::OcDownloadManager(QObject *parent) :
 
 void OcDownloadManager::append(const QString &id)
 {
+    QLOG_DEBUG() << "Adding new ID: " << id << " to downloadmanager queue";
     if (currentItem == "" && downloadQueue.isEmpty())
         QTimer::singleShot(0, this, SLOT(startNextDownload()));
 
@@ -74,15 +75,17 @@ QString OcDownloadManager::saveFileName(const QString &url, const QString &mime)
 
 void OcDownloadManager::startNextDownload()
 {
+    QLOG_INFO() << "Download manager: starting next download";
 
     if (downloadQueue.isEmpty())
     {
+        QLOG_INFO() << "Download manager: finished queue";
         emit finished();
         return;
     }
 
     QString id = downloadQueue.dequeue();
-    qDebug() << "ItemID to download: " << id;
+    QLOG_DEBUG() << "Download manager: ItemID to download: " << id;
 
     QSqlQuery query;
     query.exec(QString("SELECT enclosureMime, enclosureLink FROM items WHERE id = %1").arg(id.toInt()));
@@ -95,19 +98,21 @@ void OcDownloadManager::startNextDownload()
         link = query.value(1).toString();
     }
 
-    qDebug() << "Download link: " << link;
-    qDebug() << "Download mime: " << mime;
+    QLOG_DEBUG() << "Download manager: link: " << link;
+    QLOG_DEBUG() << "Download manager: mime: " << mime;
 
     QUrl url(link);
 //    QString fileName = saveFileName(link);
     currentFile = saveFileName(link, mime);
     currentType = getEnclosureType(mime);
 
+    QLOG_DEBUG() << "Download manager: current file name: " << currentFile;
+
     output.setFileName(currentFile);
 
     if (output.exists())
     {
-        qDebug() << "File exits already";
+        QLOG_INFO() << "Download manager: File exits already";
         startNextDownload();
         return;
     }
@@ -115,7 +120,7 @@ void OcDownloadManager::startNextDownload()
 
     if (!output.open(QIODevice::WriteOnly))
     {
-        qDebug() << "Can not open file for downloading";
+        QLOG_ERROR() << "Can not open file for downloading";
         startNextDownload();
         return;
     }
@@ -156,6 +161,7 @@ void OcDownloadManager::downloadProgress(qint64 bytesReceived, qint64 bytesTotal
 
 void OcDownloadManager::downloadFinished()
 {
+    QLOG_INFO() << "Download manager: download finished";
     output.close();
 
 #if defined(MEEGO_EDITION_HARMATTAN)
@@ -197,6 +203,7 @@ bool OcDownloadManager::abortDownload(const QString &id)
 {
     if (currentItem == id)
     {
+        QLOG_INFO() << "Download manager: abort current download with ID: " << id;
         QFile file(currentFile);
         transferAborted = true;
         currentDownload->abort();
@@ -204,6 +211,7 @@ bool OcDownloadManager::abortDownload(const QString &id)
 //        startNextDownload();
         return true;
     } else if (downloadQueue.removeOne(id)) {
+        QLOG_INFO() << "Download manager: abort download ID: " << id;
         return true;
     } else {
         return false;
@@ -226,7 +234,7 @@ QString OcDownloadManager::itemExists(const QString &link, const QString &mime)
         result = file.fileName();
 
 
-    qDebug() << "Does file exists: " << result;
+    QLOG_DEBUG() << "Does file exists: " << result;
     return result;
 }
 

@@ -1,4 +1,4 @@
-#include <QDebug>
+#include "QsLog.h"
 #include "occonfiguration.h"
 
 #if defined(MEEGO_EDITION_HARMATTAN)
@@ -128,9 +128,9 @@ QDBusVariant OcConfiguration::getSetting(const QString &entry, const QDBusVarian
 void OcConfiguration::setSetting(const QString &entry, const QDBusVariant &value)
 {
     QVariant setvalue = value.variant();
-#ifdef QT_DEBUG
-        qDebug() << "Set Setting: " << entry << " : " << setvalue;
-#endif
+
+    QLOG_DEBUG() << "Set Setting: " << entry << " : " << setvalue;
+
     setValue(entry, setvalue);
 
     if (entry == "account/id")
@@ -157,6 +157,7 @@ void OcConfiguration::setSetting(const QString &entry, const QDBusVariant &value
 
 void OcConfiguration::resetConfig()
 {
+    QLOG_INFO() << "Resetting configuration";
    remove("server");
    remove("display");
    remove("storage/maxitems");
@@ -182,6 +183,7 @@ void OcConfiguration::resetConfig()
 
 void OcConfiguration::cleanDatabase()
 {
+    QLOG_INFO() << "Cleaning database";
     QSqlQuery query;
     query.exec("DELETE FROM folders");
     query.exec("DELETE FROM feeds");
@@ -213,6 +215,7 @@ QDBusVariant OcConfiguration::getStat(const int stat)
     QVariant qvResult = 0;
 
     if (stat == 0) {
+        QLOG_DEBUG() << "Getting all unread items statistic:";
         QSqlQuery query;
 
         query.exec(QString("SELECT COUNT(id) FROM items WHERE unread = ").append(SQL_TRUE));
@@ -220,11 +223,14 @@ QDBusVariant OcConfiguration::getStat(const int stat)
         if(query.next())
             qvResult = query.value(0);
     } else if (stat == 1) {
+        QLOG_DEBUG() << "Getting last full update statistic:";
         qvResult = value("storage/lastFullUpdate", 0) == 0 ? 0 :
                    QDateTime::fromTime_t(value("storage/lastFullUpdate",0).toInt()).toLocalTime().toMSecsSinceEpoch();
     }
 
     result.setVariant(qvResult);
+
+    QLOG_DEBUG() << "Statistic result: " << qvResult;
 
     return result;
 
@@ -247,6 +253,8 @@ QDBusVariant OcConfiguration::getStat(const int stat)
 
 QVariantMap OcConfiguration::getStatistics()
 {
+    QLOG_DEBUG() << "Getting statistics:";
+
     QVariantMap stats;
     QSqlQuery query;
 
@@ -267,6 +275,8 @@ QVariantMap OcConfiguration::getStatistics()
 
     emit gotStatistics(stats);
 
+    QLOG_TRACE() << stats;
+
     return stats;
 }
 
@@ -284,16 +294,17 @@ QVariantMap OcConfiguration::getStatistics()
 
 void OcConfiguration::cleanCertificates()
 {
+    QLOG_INFO() << "Cleaning certificates";
 
 #if defined(MEEGO_EDITION_HARMATTAN)
     // set credential for ssl domain
     int credSuc = aegis_certman_set_credentials("buschtrommel-ocnews::CertOCNewsSSL");
-    if (credSuc != 0) qDebug() << "set credential error: " << credSuc;
+    if (credSuc != 0) QLOG_ERROR() << "set credential error: " << credSuc;
 
     // open ssl domain
     domain_handle ownDomain;
     int openCheck = aegis_certman_open_domain("ssl-ocnews", AEGIS_CERTMAN_DOMAIN_PRIVATE, &ownDomain);
-    if (openCheck != 0) qDebug() << "Error Opening Domain: " << openCheck;
+    if (openCheck != 0) QLOG_ERROR() << "Error Opening Domain: " << openCheck;
 
     aegis_certman_iterate_certs(ownDomain, &collectCertsForDeletion, NULL);
 
@@ -305,7 +316,7 @@ void OcConfiguration::cleanCertificates()
             aegis_certman_str_to_key_id(certsToDelete.at(i).toLocal8Bit().data(),crtKey);
             int rmCertCheck = aegis_certman_rm_cert(ownDomain, crtKey);
             if (rmCertCheck != 0)
-                qDebug() << "Error removing Certificate from private domain.";
+                QLOG_ERROR() << "Error removing Certificate from private domain.";
         }
     }
 #endif
@@ -359,6 +370,8 @@ bool OcConfiguration::isConfigSet()
 
 #endif
 
+    QLOG_DEBUG() << "Config status: " << configStatus;
+
     return configStatus;
 }
 
@@ -397,9 +410,7 @@ bool OcConfiguration::isAccountEnabled()
 
 #endif
 
-#ifdef QT_DEBUG
-    qDebug() << "Account State: " << accountState;
-#endif
+    QLOG_DEBUG() << "Account State: " << accountState;
 
     return accountState;
 }
@@ -418,6 +429,8 @@ bool OcConfiguration::isAccountEnabled()
 
 QVariantMap OcConfiguration::getAccount()
 {
+    QLOG_DEBUG() << "Getting account data";
+
     QVariantMap result;
     if (isConfigSet())
     {
@@ -430,12 +443,11 @@ QVariantMap OcConfiguration::getAccount()
 
         account = accMan->account(id);
 
-#ifdef QT_DEBUG
-        qDebug() << "Acc Manager: " << accMan;
-        qDebug() << "Account ID: " << id;
-        qDebug() << "Account: " << account;
-        qDebug() << "Last account error: " << accMan->lastError().message();
-#endif
+        QLOG_DEBUG() << "Acc Manager: " << accMan;
+        QLOG_DEBUG() << "Account ID: " << id;
+        QLOG_DEBUG() << "Account: " << account;
+        QLOG_DEBUG() << "Last account error: " << accMan->lastError().message();
+
         if (account == NULL)
         {
             result["state"] = 2;
@@ -477,6 +489,10 @@ QVariantMap OcConfiguration::getAccount()
     } else {
         result["state"] = 1;
     }
+
+#ifdef QT_DEBUG
+    qDebug() << result;
+#endif
 
     return result;
 }

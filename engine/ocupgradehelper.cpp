@@ -1,4 +1,4 @@
-#include <QDebug>
+#include "QsLog.h"
 #include "ocupgradehelper.h"
 
 OcUpgradeHelper::OcUpgradeHelper(QObject *parent) :
@@ -21,12 +21,15 @@ void OcUpgradeHelper::init(int oldVersion, int currentVersion)
 
 bool OcUpgradeHelper::upgrade161AndOlder()
 {
-    qDebug() << "Performing internal upgrades for version 1.6.1 and lower.";
+    QLOG_INFO() << "Perfroming internal upgrade for version 1.6.1 and lower";
 
     QSqlQuery query;
 
     QStringList iconSourceList;
-    query.exec("SELECT iconSource FROM feeds");
+    if (!query.exec("SELECT iconSource FROM feeds")) {
+        QLOG_ERROR() << "Upgrade helper: Error while selecting iconSource from feeds: " << query.lastError().text();
+    }
+
     while(query.next())
         iconSourceList << query.value(0).toString();
 
@@ -39,7 +42,9 @@ bool OcUpgradeHelper::upgrade161AndOlder()
             query.prepare("UPDATE feeds SET iconSource = :newSource WHERE iconSource = :oldSource");
             query.bindValue(":oldSource", iconSourceList.at(i));
             query.bindValue(":newSource", fileInfo.fileName());
-            query.exec();
+            if (!query.exec()) {
+                QLOG_ERROR() << "Upgrade helper: error while writing new icon source to database: " << query.lastError().text();
+            }
         }
 
     }
@@ -54,7 +59,7 @@ bool OcUpgradeHelper::upgrade161AndOlder()
 
 bool OcUpgradeHelper::upgrade182AndOlder()
 {
-    qDebug() << "Performing internal upgrade for version 1.8.2 and lower.";
+    QLOG_INFO() << "Perfroming inernal upgrade for version 1.8.2 and lower.";
 
     QSqlQuery query;
 

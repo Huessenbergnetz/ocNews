@@ -1,4 +1,4 @@
-#include <QDebug>
+#include "QsLog.h"
 #include "ochelper.h"
 
 
@@ -98,9 +98,7 @@ QNetworkRequest OcHelper::buildRequest(const QString &apipart, const int &length
 #endif
     }
 
-#ifdef QT_DEBUG
-    qDebug() << url.toString();
-#endif
+    QLOG_DEBUG() << "Build request: " << url.toString();
 
     QNetworkRequest request;
     request.setUrl(url);

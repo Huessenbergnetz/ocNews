@@ -1,5 +1,6 @@
 #include <QtNetwork>
 #include "ocfolders.h"
+#include "QsLog.h"
 
 OcFolders::OcFolders(QObject *parent) :
     QObject(parent)
@@ -11,11 +12,10 @@ void OcFolders::requestFolders()
 {
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not request folders: Device is in flight mode.";
         emit requestedFoldersError(tr("Device is in flight mode."));
     } else {
-#ifdef QT_DEBUG
-        qDebug() << "Start to fetch folders from server";
-#endif
+        QLOG_INFO() << "Starting request to fetch folders.";
 
         replyRequestFolders = network.get(helper.buildRequest("folders"));
 
@@ -25,35 +25,31 @@ void OcFolders::requestFolders()
 
 void OcFolders::foldersRequested()
 {
-#ifdef QT_DEBUG
-    qDebug() << "Folders requested";
-#endif
 
     if (replyRequestFolders->error() == QNetworkReply::NoError)
     {
         QVariantMap foldersresult = helper.jsonToQt(replyRequestFolders->readAll());
 
-#ifdef QT_DEBUG
-        qDebug() << foldersresult;
-#endif
+
+
         if (foldersresult.isEmpty())
         {
+            QLOG_ERROR() << "Failed to request foders: Server reply was empty.";
             notify.showNotification(tr("Server reply was empty."), tr("Failed to request folders"), OcNotifications::Error);
             emit requestedFoldersError(tr("Server reply was empty."));
 
         } else {
 
-#ifdef QT_DEBUG
-            qDebug() << "Start updating DB with requested folders";
-#endif
+            QLOG_INFO() << "Successfully requested folders from the server.";
+
             foldersRequestedUpdateDb(foldersresult);
 
         }
 
     } else {
-#ifdef QT_DEBUG
-        qDebug() << "HTTP-Error:" << replyRequestFolders->errorString();
-#endif
+
+        QLOG_ERROR() << "Failed to request folders: " << replyRequestFolders->errorString();
+
         notify.showNotification(replyRequestFolders->errorString(), tr("Failed to request folders"), OcNotifications::Error);
         emit requestedFoldersError(replyRequestFolders->errorString());
     }
@@ -64,9 +60,8 @@ void OcFolders::foldersRequested()
 
 void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
 {
-#ifdef QT_DEBUG
-    qDebug() << "Update folder db";
-#endif
+    QLOG_INFO() << "Updating database after requestinf folders.";
+
     QSqlQuery query;
     QStringList newFolders = QStringList();
 
@@ -93,9 +88,7 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
 
                 updatedFolderIds << map["id"].toInt();
 
-#ifdef QT_DEBUG
-                qDebug() << "Updated folder: " << map["name"].toString();
-#endif
+                QLOG_DEBUG() << "Updated folder: " << map["name"].toString();
             }
 
         } else { // if folder is not in database, create it there
@@ -103,9 +96,9 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
             query.bindValue(":id", map["id"].toInt());
             query.bindValue(":name", map["name"].toString());
             query.exec();
-#ifdef QT_DEBUG
-            qDebug() << "Created folder: " << map["name"].toString();
-#endif
+
+            QLOG_DEBUG() << "Created folder: " << map["name"].toString();
+
             newFolders << map["name"].toString();
             newFolderIds << map["id"].toInt();
         }
@@ -143,11 +136,15 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
         QSqlDatabase::database().transaction();
         for (int i = 0; i < idListDeleted.size(); ++i) {
             query.exec(QString("DELETE FROM folders WHERE id = %1").arg(idListDeleted.at(i)));
-    #ifdef QT_DEBUG
-            qDebug() << "Deleted Folder ID: " << idListDeleted.at(i);
-    #endif
+
+            QLOG_DEBUG() << "Deleted Folder ID: " << idListDeleted.at(i);
+
         }
         QSqlDatabase::database().commit();
+    }
+
+    if (query.lastError().type() != QSqlError::NoError) {
+        QLOG_ERROR() << "Database error while deleting folder(s): " << query.lastError().text();
     }
 
     if ((!deleteFolderNames.isEmpty() || !newFolders.isEmpty()) && config.value("notifications/feedsFolders", false).toBool())
@@ -176,11 +173,7 @@ void OcFolders::foldersRequestedUpdateDb(const QVariantMap &foldersresult)
         notify.showNotification(body, summary);
     }
 
-#ifdef QT_DEBUG
-    qDebug() << "emit requestedFolderSuccess";
-#endif
     emit requestedFoldersSuccess(updatedFolderIds, newFolderIds, idListDeleted);
-
 }
 
 
@@ -189,9 +182,11 @@ void OcFolders::createFolder(const QString &name)
 {
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not create folder: Device is in flight mode.";
         emit createdFolderError(tr("Device is in flight mode."));
     } else {
 
+        QLOG_INFO() << "Start request to create new folder: " << name;
         // Create the JSON string
         QByteArray parameters("{\"name\": \"");
         parameters.append(name);
@@ -216,10 +211,12 @@ void OcFolders::folderCreated()
 
         if (createresult.isEmpty())
         {
+            QLOG_ERROR() << "Failed to create new folder: Server reply was empty.";
             notify.showNotification(tr("Server reply was empty."), tr("Failed to create folder"), OcNotifications::Error);
             emit createdFolderError(tr("Server reply was empty."));
         } else {
 
+            QLOG_INFO() << "Successfully requested the creation of new folder.";
             folderCreatedUpdateDb(createresult);
         }
 
@@ -232,9 +229,8 @@ void OcFolders::folderCreated()
             createresulterror = replyCreateFolder->errorString();
 
         replyCreateFolder->deleteLater();
-#ifdef QT_DEBUG
-        qDebug() << createresulterror;
-#endif
+
+        QLOG_ERROR() << "Failed to request the creation of a new folder: " << createresulterror;
 
         notify.showNotification(createresulterror, tr("Failed to create folder"), OcNotifications::Error);
 
@@ -245,6 +241,8 @@ void OcFolders::folderCreated()
 
 void OcFolders::folderCreatedUpdateDb(const QVariantMap &createresult)
 {
+    QLOG_INFO() << "Update database for newly created folder.";
+    QLOG_TRACE() << createresult;
     QSqlQuery query;
     foreach (QVariant folder, createresult["folders"].toList())
     {
@@ -252,7 +250,9 @@ void OcFolders::folderCreatedUpdateDb(const QVariantMap &createresult)
         query.prepare("INSERT INTO folders (id, name) VALUES (:id, :name);");
         query.bindValue(":id", map["id"].toInt());
         query.bindValue(":name", map["name"].toString());
-        query.exec();
+        if (!query.exec()) {
+            QLOG_ERROR() << "Database error while adding newly created folder: " << query.lastError().text();
+        }
         emit createdFolderSuccess(map["name"].toString(), map["id"].toInt());
 //        notify.showNotification(tr("Successfully created folder \"%1\"").arg(map["name"].toString()), tr("Created folder"), OcNotifications::Success);
     }
@@ -263,9 +263,12 @@ void OcFolders::deleteFolder(const QString &id)
 {
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not request to delete folder ID " << id << ": Device is in flight mode.";
         emit deletedFolderError(tr("Device is in flight mode."));
     } else {
         // Create the API URL
+        QLOG_INFO() << "Start to request the deletion of folder ID: " << id;
+
         QString folder = "folders/";
         folder.append(id);
 
@@ -283,6 +286,8 @@ void OcFolders::folderDeleted()
         // extract folder id out of URL
         int id = replyDeleteFolder->url().toString().split("/").last().toInt();
 
+        QLOG_INFO() << "Successfully requested the delition of folder ID: " << id;
+
         replyDeleteFolder->deleteLater();
 
         folderDeletedUpdateDb(id);
@@ -297,9 +302,8 @@ void OcFolders::folderDeleted()
             deleteresulterror = replyDeleteFolder->errorString();
 
         replyDeleteFolder->deleteLater();
-#ifdef QT_DEBUG
-        qDebug() << deleteresulterror;
-#endif
+
+        QLOG_ERROR() << "Failed to request the deletion of a folder: " << deleteresulterror;
 
         notify.showNotification(deleteresulterror, tr("Failed to delete folder"), OcNotifications::Error);
 
@@ -310,6 +314,8 @@ void OcFolders::folderDeleted()
 
 void OcFolders::folderDeletedUpdateDb(const int &id)
 {
+    QLOG_INFO() << "Updating the databse after deleting folder ID: " << id;
+
     QSqlQuery query;
 
     // query the ids of the affected feeds, used for deleting items
@@ -321,14 +327,17 @@ void OcFolders::folderDeletedUpdateDb(const int &id)
     }
 
     // delete the folder identified by id
-    query.exec(QString("DELETE FROM folders WHERE id = %1;").arg(id));
+    if (!query.exec(QString("DELETE FROM folders WHERE id = %1;").arg(id))) {
+        QLOG_ERROR() << "Database error while deleting folder ID " << id << ": " << query.lastError().text();
+    }
 
     // delete the feeds that are part of the deleted folder
-    query.exec(QString("DELETE FROM feeds WHERE folderId = %1;").arg(id));
+    if (!query.exec(QString("DELETE FROM feeds WHERE folderId = %1;").arg(id))) {
+        QLOG_ERROR() << "Database error while deleting feeds of folder ID: " << id << ": " << query.lastError().text();
+    }
 
-#ifdef QT_DEBUG
-    qDebug() << "Deleted Folder ID:" << id;
-#endif
+    QLOG_INFO() << "Deleted Folder ID: " << id;
+
     emit deletedFolderCleanItems(idListFeeds);
     emit deletedFolderSuccess(id);
 }
@@ -337,14 +346,13 @@ void OcFolders::folderDeletedUpdateDb(const int &id)
 
 void OcFolders::renameFolder(const QString &id, const QString &name)
 {
-#ifdef QT_DEBUG
-    qDebug() << "New folder name: " << name;
-#endif
-
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not request to rename folder ID " << id << ": Device is in flight mode.";
         emit renamedFolderError(tr("Device is in flight mode."));
     } else {
+        QLOG_INFO() << "Start request to rename folder ID " << id << " to " << name;
+
         // Create the API URL
         QString folder = "folders/";
         folder.append(id);
@@ -372,6 +380,8 @@ void OcFolders::folderRenamed()
 
         replyRenameFolder->deleteLater();
 
+        QLOG_INFO() << "Successfully requested to delete folder ID " << id;
+
         folderRenamedUpdateDb(id, newFolderName);
 
     } else {
@@ -384,11 +394,7 @@ void OcFolders::folderRenamed()
 
         replyRenameFolder->deleteLater();
 
-#ifdef QT_DEBUG
-        qDebug() << renameresulterror;
-        qDebug() << replyRenameFolder->error();
-        qDebug() << replyRenameFolder->errorString();
-#endif
+        QLOG_ERROR() << "Failed to request the deletion of a folder: " << renameresulterror;
 
         notify.showNotification(renameresulterror, tr("Failed to rename folder"), OcNotifications::Error);
 
@@ -399,12 +405,15 @@ void OcFolders::folderRenamed()
 
 void OcFolders::folderRenamedUpdateDb(const int &id, const QString &name)
 {
+    QLOG_INFO() << "Updating databse after renaming folder ID " << id << " to " << name;
     QSqlQuery query;
 
     query.prepare("UPDATE folders SET name = :name WHERE id = :id;");
     query.bindValue(":name", name);
     query.bindValue(":id", id);
-    query.exec();
+    if (!query.exec()) {
+        QLOG_ERROR() << "Database error while renaming a folder: " << query.lastError().text();
+    }
 
     emit renamedFolderSuccess(name, id);
 }
@@ -414,8 +423,11 @@ void OcFolders::markFolderRead(const QString &id)
 {
     if (network.isFlightMode())
     {
+        QLOG_INFO() << "Can not mark folder ID " << id << " as read: Device is in flight mode.";
         emit markedReadFolderError(tr("Device is in flight mode."));
     } else {
+        QLOG_INFO() << "Start request to mark folder ID " << id << " as read.";
+
         // Create the API URL
         QString folder = "folders/";
         folder.append(id);
@@ -428,9 +440,7 @@ void OcFolders::markFolderRead(const QString &id)
         if (query.next())
             newestItemId = query.value(0).toString();
 
-    #ifdef QT_DEBUG
-        qDebug() << "Newest ID: " << newestItemId;
-    #endif
+        QLOG_DEBUG() << "Mark folder ID " << id << " as read. Newest ID: " << newestItemId;
 
         // Create the JSON string
         QByteArray parameters("{\"newestItemId\": ");
@@ -454,9 +464,7 @@ void OcFolders::folderMarkedRead()
         urlParts.removeLast();
         int id = urlParts.last().toInt();
 
-#ifdef QT_DEBUG
-        qDebug() << "Folder ID: " << id;
-#endif
+        QLOG_INFO() << "Successfully requested the marking of the folder ID " << id << " as read.";
 
         replyMarkFolderRead->deleteLater();
 
@@ -471,9 +479,8 @@ void OcFolders::folderMarkedRead()
             markreaderror = replyMarkFolderRead->errorString();
 
         replyMarkFolderRead->deleteLater();
-#ifdef QT_DEBUG
-        qDebug() << markreaderror;
-#endif
+
+        QLOG_ERROR() << "Failed to mark folder as read: " << markreaderror;
 
         notify.showNotification(markreaderror, tr("Failed to mark folder as read"), OcNotifications::Error);
 
@@ -483,25 +490,33 @@ void OcFolders::folderMarkedRead()
 
 void OcFolders::folderMarkedReadUpdateDb(const int &id)
 {
+    QLOG_INFO() << "Updating database after marking folder ID " << id << " as read.";
+
     QDateTime ts;
     QSqlQuery query;
     QList<int> feedIds;
 
     // get feed ids
-    query.exec(QString("SELECT id FROM feeds WHERE folderId = %1;").arg(id));
+    if (!query.exec(QString("SELECT id FROM feeds WHERE folderId = %1;").arg(id))) {
+        QLOG_ERROR() << "Database error while selecting feed IDs for marking folder ID " << id << " as read: " << query.lastError().text();
+    }
+
     while(query.next())
     {
         feedIds << query.value(0).toInt();
     }
-#ifdef QT_DEBUG
-    qDebug() << "Feed IDs: " << feedIds;
-#endif
+
+    QLOG_DEBUG() << "Feed IDs belonging to the folder ID " << id << " that should be marked as read: " << feedIds;
 
     QSqlDatabase::database().transaction();
     for (int i = 0; i < feedIds.size(); ++i) {
         query.exec(QString("UPDATE items SET unread = %3, lastModified = %2 WHERE unread = %4 AND feedId = %1").arg(feedIds.at(i)).arg(ts.currentDateTimeUtc().toTime_t()).arg(SQL_FALSE).arg(SQL_TRUE));
     }
     QSqlDatabase::database().commit();
+
+    if (query.lastError().type() != QSqlError::NoError) {
+        QLOG_ERROR() << "Database error while marking items belonging to folder ID " << id << " as read: " << query.lastError().text();
+    }
 
     emit markedReadFolderSuccess(id);
 
@@ -512,7 +527,11 @@ QVariantMap OcFolders::getFolders()
 {
     QSqlQuery query;
     QVariantMap folders;
-    query.exec("SELECT id, name FROM folders;");
+
+    if (!query.exec("SELECT id, name FROM folders;")) {
+        QLOG_ERROR() << "Database error while selecting folde IDs and names: " << query.lastError().text();
+    }
+
     while (query.next())
         folders[query.value(0).toString()] = query.value(1).toString();
 

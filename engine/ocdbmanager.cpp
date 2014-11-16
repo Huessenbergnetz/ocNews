@@ -1,4 +1,4 @@
-#include <QDebug>
+#include "QsLog.h"
 #include "ocdbmanager.h"
 
 
@@ -28,11 +28,14 @@ OcDbManager::OcDbManager(QObject *parent) :
 
 bool OcDbManager::openDB()
 {
+    QLOG_INFO() << "Opening Sqlite database";
     db = QSqlDatabase::addDatabase("QSQLITE");
 
     QString path(QDir::homePath());
     path.append(BASE_PATH).append("/database.sqlite");
     db.setDatabaseName(path);
+
+    QLOG_DEBUG() << "Database path: " << db.databaseName();
 
     return db.open();
 }
@@ -52,7 +55,7 @@ bool OcDbManager::openDB()
 
 bool OcDbManager::createTables()
 {
-    bool ret = true;
+    bool success = false;
     if (db.isOpen())
     {
         QSqlQuery build;
@@ -63,9 +66,7 @@ bool OcDbManager::createTables()
                            "name VARCHAR, "
                            "localUnreadCount INT DEFAULT 0);"));
 
-#ifdef QT_DEBUG
-        qDebug() << "Created Table folders.";
-#endif
+        QLOG_INFO() << "Creating table folders if not exists";
 
 
         build.exec(QString("CREATE TABLE IF NOT EXISTS feeds "
@@ -81,9 +82,9 @@ bool OcDbManager::createTables()
                            "iconWidth INT, "
                            "iconHeight INT, "
                            "localUnreadCount INT DEFAULT 0);"));
-#ifdef QT_DEBUG
-        qDebug() << "Created Table feeds.";
-#endif
+
+        QLOG_INFO() << "Creating table feeds if not exists";
+
 
         build.exec(QString("CREATE TABLE IF NOT EXISTS items "
                            "(id INTEGER PRIMARY KEY NOT NULL, "
@@ -100,9 +101,9 @@ bool OcDbManager::createTables()
                            "unread BOOLEAN, "
                            "starred BOOLEAN, "
                            "lastModified INTEGER);"));
-#ifdef QT_DEBUG
-        qDebug() << "Created Table items.";
-#endif
+
+        QLOG_INFO() << "Creating table items if not exists";
+
 
         build.exec(QString("CREATE TABLE IF NOT EXISTS queue "
                            "(id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -110,9 +111,9 @@ bool OcDbManager::createTables()
                            "itemId INTEGER, "
                            "guidHash VARCHAR, "
                            "entryDate INTEGER NOT NULL);"));
-#ifdef QT_DEBUG
-        qDebug() << "Created Table queue.";
-#endif
+
+        QLOG_INFO() << "Creating table queue if not exists";
+
 
         build.exec(QString("CREATE TABLE IF NOT EXISTS images "
                            "(id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -120,6 +121,9 @@ bool OcDbManager::createTables()
                            "path TEXT, "
                            "width INT, "
                            "height INT);"));
+
+
+        QLOG_INFO() << "Creating database indexes if not exists";
 
         build.exec(QString("CREATE INDEX IF NOT EXISTS feeds_folder_id_index ON feeds (folderId)"));
 
@@ -129,9 +133,8 @@ bool OcDbManager::createTables()
 
         build.exec(QString("CREATE INDEX IF NOT EXISTS items_feed_id_index ON items (feedId)"));
 
-#ifdef QT_DEBUG
-        qDebug() << "Created Table indexes.";
-#endif
+
+        QLOG_INFO() << "Creating database triggers if not exists";
 
         build.exec(QString("CREATE TRIGGER IF NOT EXISTS feeds_localUnread_update_item AFTER UPDATE OF unread ON items "
                            "BEGIN "
@@ -168,13 +171,16 @@ bool OcDbManager::createTables()
                            "UPDATE folders SET localUnreadCount = (SELECT SUM(localUnreadCount) FROM feeds WHERE folderId = new.folderId) WHERE id = new.folderId; "
                            "UPDATE folders SET localUnreadCount = (SELECT SUM(localUnreadCount) FROM feeds WHERE folderId = old.folderId) WHERE id = old.folderId; "
                            "END;"));
-#ifdef QT_DEBUG
-        qDebug() << "Created Table triggers.";
-#endif
-        QSqlDatabase::database().commit();
+
+
+        success = QSqlDatabase::database().commit();
+
+        if (!success) {
+            QLOG_ERROR() << "Database Error: " << db.lastError().text();
+        };
 
     }
-    return ret;
+    return success;
 }
 
 
@@ -191,6 +197,7 @@ bool OcDbManager::createTables()
 
 bool OcDbManager::closeDB()
 {
+    QLOG_INFO() << "Closing database";
     db.close();
     return true;
 }
