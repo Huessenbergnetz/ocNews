@@ -217,6 +217,15 @@ Page {
 
             SectionHeader { text: qsTr("Appearance") }
 
+            LanguageChooser {
+                id: langChooser
+                anchors { left: parent.left; right: parent.right }
+                label: qsTr("Language")
+                choosenValue: config.displayLanguage
+                textChoosen: languageModel.getLanguageName(config.displayLanguage)
+                onChoosenValueChanged: config.displayLanguage = choosenValue
+            }
+
             ListModel {
                 id: viewModeModel
                 ListElement { name: ""; value: 0 }

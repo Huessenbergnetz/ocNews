@@ -65,7 +65,9 @@ SOURCES += main.cpp \
     ../common/models/ocfeedsmodelnew.cpp \
     ../common/models/ocfeedsmodelfilter.cpp \
     ../common/models/objects/ocitemobject.cpp \
-    ../common/models/ocitemsquery.cpp
+    ../common/models/ocitemsquery.cpp \
+    ../common/models/oclanguagemodel.cpp \
+    ../common/models/oclanguagemodelfilter.cpp
 
 OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Views/MainView.qml \
@@ -105,7 +107,8 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/BTComponents/Changelog.qml \
     qml/BTComponents/PaypalChooser.qml \
     misc/harbour.ocnews.reader.service \
-    ../common/dbus/adaptor/harbour.ocnews.reader.xml
+    ../common/dbus/adaptor/harbour.ocnews.reader.xml \
+    qml/Pages/LanguageChooser.qml
 
 HEADERS += \
     ../common/ocdbmanager.h \
@@ -152,7 +155,9 @@ HEADERS += \
     ../common/models/objects/ocfeedobjec.h \
     ../common/models/objects/occombinedobject.h \
     ../common/models/ocfeedsmodelfilter.h \
-    ../common/models/ocitemsquery.h
+    ../common/models/ocitemsquery.h \
+    ../common/models/oclanguagemodel.h \
+    ../common/models/oclanguagemodelfilter.h
 
 RESOURCES +=
 

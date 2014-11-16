@@ -29,6 +29,7 @@ OcConfiguration::OcConfiguration(QObject *parent) :
     m_privacyShown = config["privacyShown"].toBool();
     m_displayedVersion = config["displayversion"].toInt();
     m_createLogFile = config["createLogFile"].toBool();
+    m_displayLanguage = config["displayLanguage"].toString();
 #if !defined(MEEGO_EDITION_HARMATTAN)
     m_accountEnabled = config["enabled"].toBool();
     m_accountUser = config["uname"].toString();
@@ -321,6 +322,18 @@ void OcConfiguration::setAccountEnabled(const bool &nAccountEnabled)
         m_accountEnabled = nAccountEnabled;
         conf->setSetting("account/enabled", QDBusVariant(accountEnabled()));
         emit accountEnabledChanged(accountEnabled());
+    }
+}
+
+
+QString OcConfiguration::displayLanguage() const { return m_displayLanguage; }
+
+void OcConfiguration::setDisplayLanguage(const QString &nDisplayLanguage)
+{
+    if (nDisplayLanguage != m_displayLanguage) {
+        m_displayLanguage = nDisplayLanguage;
+        conf->setSetting("display/language", QDBusVariant(displayLanguage()));
+        emit displayLanguageChanged(displayLanguage());
     }
 }
 

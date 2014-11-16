@@ -145,7 +145,12 @@ int main(int argc, char *argv[])
     QLOG_INFO() << "Built with Qt" << QT_VERSION_STR << "running on" << qVersion();
 
     // setting locale
-    QString locale = QLocale::system().name();
+    QString locale = configuration->value("display/language", "C").toString();
+
+    if (locale == "C") {
+        locale = QLocale::system().name();
+    }
+
     QTranslator translator;
     if ((translator.load("ocnewsengine_"+locale, L10N_PATH)))
         a.installTranslator(&translator);

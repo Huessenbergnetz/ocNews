@@ -24,6 +24,7 @@
 #include "../common/models/occombinedmodelsql.h"
 #include "../common/models/occombinedmodelnew.h"
 #include "../common/models/occombinedmodelfilter.h"
+#include "../common/models/oclanguagemodelfilter.h"
 #include "../common/dbus/interfaces/ocdbusfolders.h"
 #include "../common/dbus/interfaces/ocdbusfeeds.h"
 #include "../common/dbus/interfaces/ocdbusitems.h"
@@ -49,14 +50,6 @@ int main(int argc, char *argv[])
     // set paths
     QString basePath(QDir::homePath().append(BASE_PATH));
 
-    QString locale = QLocale::system().name();
-    QTranslator *translator = new QTranslator;
-    if ((translator->load("ocnewsreader_"+locale, L10N_PATH)))
-        app->installTranslator(translator);
-#ifdef QT_DEBUG
-    qDebug() << locale;
-#endif
-
     // start background daemon ocnews-engine via dbus
     QDBusConnectionInterface* qDbusConInf = QDBusConnection::sessionBus().interface();
     qDbusConInf->startService("de.buschmann23.ocNewsEngine");
@@ -76,6 +69,20 @@ int main(int argc, char *argv[])
     OcDBusImageFetcher imageFetcher;
     OcConfiguration *config = new OcConfiguration;
 
+    QString locale = config->displayLanguage();
+
+    if (locale == "C") {
+        locale = QLocale::system().name();
+    }
+
+    QTranslator *translator = new QTranslator;
+    if ((translator->load("ocnewsreader_"+locale, L10N_PATH)))
+        app->installTranslator(translator);
+#ifdef QT_DEBUG
+    qDebug() << locale;
+#endif
+
+    OcLanguageModelFilter *languageModel = new OcLanguageModelFilter;
 
     OcFoldersModelNew *foldersModelSql = new OcFoldersModelNew;
     OcFoldersModelFilter *foldersModelFilter = new OcFoldersModelFilter;
@@ -238,6 +245,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("versionString", VERSION_STRING);
     view->rootContext()->setContextProperty("versionInt", VERSION);
     view->rootContext()->setContextProperty("logFilePath", basePath.append("/logs"));
+    view->rootContext()->setContextProperty("languageModel", languageModel);
 
     view->setSource(QUrl::fromLocalFile("/usr/share/harbour-ocnews-reader/qml/harbour-ocnews-reader.qml"));
     view->show();

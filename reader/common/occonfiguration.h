@@ -30,6 +30,7 @@ class OcConfiguration : public QObject
     Q_PROPERTY(bool privacyShown READ privacyShown WRITE setPrivacyShown NOTIFY privacyShownChanged)
     Q_PROPERTY(int displayedVersion READ displayedVersion WRITE setDisplayedVersion NOTIFY displayedVersionChanged)
     Q_PROPERTY(bool createLogFile READ createLogFile WRITE setCreateLogFile NOTIFY createLogFileChanged)
+    Q_PROPERTY(QString displayLanguage READ displayLanguage WRITE setDisplayLanguage NOTIFY displayLanguageChanged)
 #if !defined(MEEGO_EDITION_HARMATTAN)
     Q_PROPERTY(bool accountEnabled READ accountEnabled WRITE setAccountEnabled NOTIFY accountEnabledChanged)
     Q_PROPERTY(QString accountUser READ accountUser WRITE setAccountUser NOTIFY accountUserChanged)
@@ -66,6 +67,7 @@ public:
     bool privacyShown() const;
     int displayedVersion() const;
     bool createLogFile() const;
+    QString displayLanguage() const;
 #if !defined(MEEGO_EDITION_HARMATTAN)
     bool accountEnabled() const;
     QString accountUser() const;
@@ -101,6 +103,7 @@ signals:
     void privacyShownChanged(const bool &nPrivacyShown);
     void displayedVersionChanged(const int &nDisplayedVersion);
     void createLogFileChanged(const bool &nCreateLogFile);
+    void displayLanguageChanged(const QString &nDisplayLanguage);
 #if !defined(MEEGO_EDITION_HARMATTAN)
     void accountEnabledChanged(const bool &nAccountEnabled);
     void accountUserChanged(const QString &nAccountUser);
@@ -136,6 +139,7 @@ public slots:
     void setPrivacyShown(const bool &nPrivacyShown);
     void setDisplayedVersion(const int &nDisplayedVersion);
     void setCreateLogFile(const bool &nCreateLogFile);
+    void setDisplayLanguage(const QString &nDisplayLanguage);
 #if !defined(MEEGO_EDITION_HARMATTAN)
     void setAccountEnabled(const bool &nAccountEnabled);
     void setAccountUser(const QString &nAccountUser);
@@ -176,6 +180,7 @@ private:
     bool m_privacyShown;
     int m_displayedVersion;
     bool m_createLogFile;
+    QString m_displayLanguage;
 #if !defined(MEEGO_EDITION_HARMATTAN)
     bool m_accountEnabled;
     QString m_accountUser;
