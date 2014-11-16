@@ -572,6 +572,14 @@
     </message>
 </context>
 <context>
+    <name>LanguageChooser</name>
+    <message>
+        <location filename="../qml/Pages/LanguageChooser.qml" line="+92"/>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MainView</name>
     <message>
         <location filename="../qml/Views/MainView.qml" line="+24"/>
@@ -773,6 +781,59 @@
         <location line="+1"/>
         <source>hh:mm</source>
         <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcLanguageModel</name>
+    <message>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
+        <source>System default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>English</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Danish</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>German</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Spanish</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>French</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Italian</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Dutch (Netherlands)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Russian</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Chinese (China)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1247,7 +1308,12 @@
         <translation>Apparence</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+5"/>
+        <source>Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+11"/>
         <source>Folders</source>
         <translation>Dossiers</translation>
     </message>

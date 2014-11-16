@@ -572,6 +572,14 @@
     </message>
 </context>
 <context>
+    <name>LanguageChooser</name>
+    <message>
+        <location filename="../qml/Pages/LanguageChooser.qml" line="+92"/>
+        <source>Search</source>
+        <translation>Suche</translation>
+    </message>
+</context>
+<context>
     <name>MainView</name>
     <message>
         <location filename="../qml/Views/MainView.qml" line="+24"/>
@@ -773,6 +781,59 @@
         <location line="+1"/>
         <source>hh:mm</source>
         <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcLanguageModel</name>
+    <message>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
+        <source>System default</source>
+        <translation>Systemstandard</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>English</source>
+        <translation>Englisch</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Danish</source>
+        <translation>Dänisch</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>German</source>
+        <translation>Deutsch</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Spanish</source>
+        <translation>Spanisch</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>French</source>
+        <translation>Französisch</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Italian</source>
+        <translation>Italienisch</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Dutch (Netherlands)</source>
+        <translation>Holländisch (Niederlande)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Russian</source>
+        <translation>Russisch</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Chinese (China)</source>
+        <translation>Chinesisch (China)</translation>
     </message>
 </context>
 <context>
@@ -1247,7 +1308,12 @@
         <translation>Darstellung</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+5"/>
+        <source>Language</source>
+        <translation>Sprache</translation>
+    </message>
+    <message>
+        <location line="+11"/>
         <source>Folders</source>
         <translation>Ordner</translation>
     </message>
