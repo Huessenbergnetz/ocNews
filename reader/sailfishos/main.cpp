@@ -46,6 +46,9 @@ int main(int argc, char *argv[])
 
     qRegisterMetaType<OcItemObject>("OcItemObject");
 
+    // set paths
+    QString basePath(QDir::homePath().append(BASE_PATH));
+
     QString locale = QLocale::system().name();
     QTranslator *translator = new QTranslator;
     if ((translator->load("ocnewsreader_"+locale, L10N_PATH)))
@@ -234,6 +237,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("config", config);
     view->rootContext()->setContextProperty("versionString", VERSION_STRING);
     view->rootContext()->setContextProperty("versionInt", VERSION);
+    view->rootContext()->setContextProperty("logFilePath", basePath.append("/logs"));
 
     view->setSource(QUrl::fromLocalFile("/usr/share/harbour-ocnews-reader/qml/harbour-ocnews-reader.qml"));
     view->show();

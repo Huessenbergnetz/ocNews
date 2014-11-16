@@ -379,6 +379,16 @@ Page {
                 checked: config.enableCookies
                 onCheckedChanged: config.enableCookies = checked
             }
+
+            SectionHeader { text: qsTr("Maintenance") }
+
+            TextSwitch {
+                text: qsTr("Create log files")
+                anchors { left: parent.left; right: parent.right }
+                checked: config.createLogFile
+                onCheckedChanged: config.createLogFile = checked
+                description: qsTr("This option needs a complete application restart. After that it will create log files in %1.").arg(logFilePath)
+            }
         }
     }
 

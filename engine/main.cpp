@@ -108,21 +108,38 @@ int main(int argc, char *argv[])
     QDir().mkpath(QDir::homePath() + MEDIA_PATH_PDF);
     QDir().mkpath(QDir::homePath() + MEDIA_PATH_VIDEO);
 
+    // creating configuration interface
+    OcConfiguration* configuration = new OcConfiguration;
+    new OcConfigAdaptor(configuration);
+
     // init the logging mechanism
     QsLogging::Logger& logger = QsLogging::Logger::instance();
 
-    // set minimum log level and file name
-    QString dt =  QDateTime::currentDateTime().toString(QString("yyyy-MM-ddTHH-mm-ss"));
-    logger.setLoggingLevel(QsLogging::TraceLevel);
-    const QString sLogPath(QDir(basePath.append("/logs")).filePath("ocnews-engine-" + dt + ".log"));
+    // set minimum log level
+    bool useLogFile = configuration->value("support/createLogFile", false).toBool();
+    if (useLogFile) {
+        logger.setLoggingLevel(QsLogging::TraceLevel);
+    } else {
+        logger.setLoggingLevel(QsLogging::OffLevel);
+    }
 
-    // Create log destinations
-    QsLogging::DestinationPtr fileDestination(QsLogging::DestinationFactory::MakeFileDestination(sLogPath));
+    // enable log file
+    QString sLogPath;
+    if (useLogFile) {
+        // create file name
+        QString dt =  QDateTime::currentDateTime().toString(QString("yyyy-MM-ddTHH-mm-ss"));
+        sLogPath = QDir(basePath.append("/logs")).filePath("ocnews-engine-" + dt + ".log");
+        // create log destination
+        QsLogging::DestinationPtr fileDestination(QsLogging::DestinationFactory::MakeFileDestination(sLogPath));
+        // set log destination to logger
+        logger.addDestination(fileDestination);
+    }
+
+    // Create log destination for debug output
     QsLogging::DestinationPtr debugDestination(QsLogging::DestinationFactory::MakeDebugOutputDestination());
 
-    // set log destinations on the logger
+    // set log destination on the logger
     logger.addDestination(debugDestination);
-    logger.addDestination(fileDestination);
 
     QLOG_INFO() << "Starting ocNews Engine version " << VERSION_STRING;
     QLOG_INFO() << "Built with Qt" << QT_VERSION_STR << "running on" << qVersion();
@@ -177,9 +194,6 @@ int main(int argc, char *argv[])
     OcDbManager dbman;
     dbman.openDB();
     dbman.createTables();
-
-    OcConfiguration* configuration = new OcConfiguration;
-    new OcConfigAdaptor(configuration);
 
     int oldVersion = configuration->value("system/version", 0).toInt();
     if (oldVersion > 0 && oldVersion < VERSION)

@@ -28,6 +28,7 @@ OcConfiguration::OcConfiguration(QObject *parent) :
     m_isValid = conf->isConfigSet();
     m_privacyShown = config["privacyShown"].toBool();
     m_displayedVersion = config["displayversion"].toInt();
+    m_createLogFile = config["createLogFile"].toBool();
 #if !defined(MEEGO_EDITION_HARMATTAN)
     m_accountEnabled = config["enabled"].toBool();
     m_accountUser = config["uname"].toString();
@@ -294,6 +295,18 @@ void OcConfiguration::setIsValid(const bool &nIsValid)
     if (nIsValid != m_isValid) {
         m_isValid = nIsValid;
         emit isValidChanged(isValid());
+    }
+}
+
+
+bool OcConfiguration::createLogFile() const { return m_createLogFile; }
+
+void OcConfiguration::setCreateLogFile(const bool &nCreateLogFile)
+{
+    if (nCreateLogFile != m_createLogFile) {
+        m_createLogFile = nCreateLogFile;
+        conf->setSetting("support/createLogFile", QDBusVariant(createLogFile()));
+        emit createLogFileChanged(createLogFile());
     }
 }
 

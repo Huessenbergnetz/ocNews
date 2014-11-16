@@ -73,6 +73,7 @@ QVariantMap OcConfiguration::getConfig()
     config["quitengine"] = value("engine/quitonclose", false).toBool();
     config["notifyFeedsFolders"] = value("notifications/feedsFolders", false).toBool();
     config["notifyNewItems"] = value("notifications/newItems", false).toBool();
+    config["createLogFile"] = value("support/createLogFile", false).toBool();
 #if !defined(MEEGO_EDITION_HARMATTAN)
     config["enabled"] = value("account/enabled", true).toBool();
     config["uname"] = value("account/user", "").toString();
