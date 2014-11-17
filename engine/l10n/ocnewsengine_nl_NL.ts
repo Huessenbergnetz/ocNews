@@ -261,7 +261,7 @@
     <message>
         <location filename="../ocupdater.cpp" line="+210"/>
         <source>Your account is disabled or you have not created an account yet.</source>
-        <translation>Uw account is uitgeschakeld of u heeft nog geen account gecreërd.</translation>
+        <translation>Uw account is uitgeschakeld of u heeft nog geen account gecreeërd.</translation>
     </message>
     <message>
         <location line="+29"/>

@@ -14,27 +14,27 @@
     <message>
         <location line="+15"/>
         <source>Munich</source>
-        <translation type="unfinished"/>
+        <translation>München</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Germany</source>
-        <translation type="unfinished"/>
+        <translation>Duitsland</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Doneren via PayPal</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; door Martin Grimme is gelicenseerd onder de voorwaarden van de &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
+        <translation>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; door razvanpetru is gelicenseerd onder de voorwaarden van de &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;Nieuwe BSD-licentie&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="-7"/>
@@ -47,52 +47,52 @@
     <message>
         <location filename="../qml/BTComponents/AboutPage.qml" line="+77"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>Website</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Privacyovereenkomst</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Wijzigingslog</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Bijdragers</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Over</translation>
     </message>
     <message>
         <location line="+58"/>
         <source>Contact</source>
-        <translation type="unfinished"/>
+        <translation>Contact</translation>
     </message>
     <message>
         <location line="+84"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>Bijdragen</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Vertalen</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>Bugs rapporteren</translation>
     </message>
     <message>
         <location line="+23"/>
         <source>3rd party licenses</source>
-        <translation type="unfinished"/>
+        <translation>Licenties van derde partijen</translation>
     </message>
 </context>
 <context>
@@ -105,22 +105,22 @@
     <message>
         <location line="+20"/>
         <source>New</source>
-        <translation type="unfinished"/>
+        <translation>Nieuw</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Improved</source>
-        <translation type="unfinished"/>
+        <translation>Verbeterd</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Fixed</source>
-        <translation type="unfinished"/>
+        <translation>Vastgezet</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>Notitie</translation>
     </message>
 </context>
 <context>
@@ -136,12 +136,12 @@
     <message>
         <location filename="../qml/BTComponents/ContributorsDelegate.qml" line="+127"/>
         <source>Website</source>
-        <translation type="unfinished"/>
+        <translation>Website</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>Sina Weibo</source>
-        <translation type="unfinished"/>
+        <translation>Sina Weibo</translation>
     </message>
 </context>
 <context>
@@ -631,7 +631,7 @@
     <message>
         <location filename="../qml/Pages/LanguageChooser.qml" line="+92"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Zoeke</translation>
     </message>
 </context>
 <context>
@@ -644,22 +644,22 @@
     <message>
         <location line="-5"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>Doneren</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>If you like ocNews and you want to support the development, consider a small donation.</source>
-        <translation type="unfinished"/>
+        <translation>Als u ocNews goed vindt en u wilt de ontwikkeling steunen, overweeg dan een kleine donatie.</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Doneren via PayPal</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews is a client for the ownCloud News app, a cloud based RSS/Atom feed aggregator. </source>
-        <translation type="unfinished"/>
+        <translation>ocNews is een client-app voor de ownCloud Nieuws-app, een cloud-gebaseerde RSS/Atom-feedaggregator.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -858,52 +858,52 @@
     <message>
         <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Systeemstandaard</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>Engels</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>Deens</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Duits</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Spaans</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>Frans</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Italiaans</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Dutch (Netherlands)</source>
-        <translation type="unfinished"/>
+        <translation>Nederlands (Nederland)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Russisch</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"/>
+        <translation>Chinees (China)</translation>
     </message>
 </context>
 <context>
@@ -1375,7 +1375,7 @@
     <message>
         <location line="+5"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Taal</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1530,7 +1530,7 @@
     <message>
         <location line="+4"/>
         <source>This option needs a complete application restart. After that it will create log files in %1.</source>
-        <translation>Deze optie vereist een complete herstart van de applicatie. Na de herstart zullen logebestanden worden gecreërd in %1.</translation>
+        <translation>Deze optie vereist een complete herstart van de applicatie. Na de herstart zullen logebestanden worden gecreeërd in %1.</translation>
     </message>
     <message>
         <location line="+7"/>

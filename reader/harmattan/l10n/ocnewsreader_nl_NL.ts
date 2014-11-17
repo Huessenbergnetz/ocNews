@@ -779,52 +779,52 @@
     <message>
         <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Systeemstandaard</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>Engels</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>Deens</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Duits</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Spaans</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>Frans</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Italiaans</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Dutch (Netherlands)</source>
-        <translation type="unfinished"/>
+        <translation>Nederlands (Nederland)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Russisch</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"/>
+        <translation>Chinees (China)</translation>
     </message>
 </context>
 <context>
@@ -1722,7 +1722,7 @@
     <message>
         <location filename="../qml/ocNewsReader/main.qml" line="+44"/>
         <source>Created folder %1</source>
-        <translation>Map %1 gecreërd</translation>
+        <translation>Map %1 is gecreeërd</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1737,7 +1737,7 @@
     <message>
         <location line="+8"/>
         <source>Created feed %1</source>
-        <translation>Feed %1 gecreërd.</translation>
+        <translation>Feed %1 is gecreeërd.</translation>
     </message>
     <message>
         <location line="+2"/>
