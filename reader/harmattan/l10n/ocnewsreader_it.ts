@@ -20,27 +20,27 @@
     <message>
         <location line="+6"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>Contribuisci</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Lascia un messaggio (inglese o tedesco):</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Traduci</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>Segnala un bug</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Further information</source>
-        <translation type="unfinished"/>
+        <translation>Altre informazioni</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -70,7 +70,7 @@
     <message>
         <location line="+5"/>
         <source>UI, French translation</source>
-        <translation>UI, Traduttore per Francese</translation>
+        <translation>UI, traduzione francese</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -80,32 +80,32 @@
     <message>
         <location line="+5"/>
         <source>Chinese (China) translation</source>
-        <translation>Traduzione cinese (Cina)</translation>
+        <translation>traduzione cinese (Cina)</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Danish translation</source>
-        <translation>Traduzione danese</translation>
+        <translation>traduzione danese</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>French translation</source>
-        <translation>Traduzione francese</translation>
+        <translation>traduzione francese</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Italian translation</source>
-        <translation>Traduzione italiana</translation>
+        <translation>traduzione italiano</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Spanish translation</source>
-        <translation>Traduzione spagnola</translation>
+        <translation>traduzione spagnolo</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Russian translation</source>
-        <translation>Traduzione russa</translation>
+        <translation>traduzione russo</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -120,7 +120,7 @@
     <message>
         <location line="+26"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versione</translation>
     </message>
     <message>
         <location line="+65"/>
@@ -265,22 +265,22 @@
     <message>
         <location line="+20"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Segna come letto</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Aggiorna</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Sposta</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Rinomina</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -298,7 +298,7 @@
     <message>
         <location line="-27"/>
         <source>Do you really want to delete this folder? All feeds and posts in this folder will then be deleted, too.</source>
-        <translation type="unfinished"/>
+        <translation>Sei</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -491,12 +491,12 @@
     <message>
         <location filename="../qml/ocNewsReader/Views/MainView.qml" line="+26"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Lascia un messaggio (inglese o tedesco):</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. </source>
-        <translation type="unfinished"/>
+        <translation>ocNews è un client di ownCloud News, un aggregatore di feed basato su cloud RSS/Atom.</translation>
     </message>
     <message>
         <location line="+59"/>
@@ -569,19 +569,19 @@
         <location line="+18"/>
         <location line="+44"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Segna come letto</translation>
     </message>
     <message>
         <location line="-35"/>
         <location line="+43"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Aggiorna</translation>
     </message>
     <message>
         <location line="-35"/>
         <location line="+53"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Rinomina</translation>
     </message>
     <message>
         <location line="-44"/>
@@ -593,7 +593,7 @@
     <message>
         <location line="-74"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Sposta</translation>
     </message>
     <message>
         <location line="+75"/>
@@ -679,21 +679,21 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
-        <location line="+99"/>
-        <location line="+201"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location line="+107"/>
+        <location line="+225"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Senza categoria</translation>
     </message>
     <message>
-        <location line="-296"/>
+        <location line="-328"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tutti i post</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Post preferiti</translation>
     </message>
 </context>
 <context>
@@ -719,7 +719,7 @@
     <message>
         <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tutti i post</translation>
     </message>
 </context>
 <context>
@@ -746,14 +746,14 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tutti i post</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Post preferiti</translation>
     </message>
 </context>
 <context>
@@ -784,47 +784,47 @@
     <message>
         <location line="+1"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>Inglese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>Danese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Tedesco</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Spagnolo</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>Francese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Italiano</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Dutch (Netherlands)</source>
-        <translation type="unfinished"/>
+        <translation>Olandese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Russo</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"/>
+        <translation>Cinese</translation>
     </message>
 </context>
 <context>
@@ -832,35 +832,35 @@
     <message>
         <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Oggi</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
     <name>OcSingleItemModelNew</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+450"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Oggi</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -904,22 +904,22 @@
     <message>
         <location filename="../qml/ocNewsReader/Common/PayPalChooser.qml" line="+107"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Valuta</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Euro</source>
-        <translation type="unfinished"/>
+        <translation>Euro</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>US Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Dollaro USA</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Australian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Dollaro australiano</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1024,7 +1024,7 @@
     <message>
         <location line="+6"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Dona con PayPal</translation>
     </message>
 </context>
 <context>
@@ -1057,7 +1057,7 @@
     <message>
         <location line="+9"/>
         <source>In order to log in to your ownCloud server, ocNews collects the server address, your user name and your password. These data is stored in a protected/private folder on your device. The data is not given to the author of ocNews or other third parties.</source>
-        <translation type="unfinished"/>
+        <translation>Per accedere al tuo server su ownCloud, ocNews salva l&apos;indirizzo del server, nome utente e password. I dati vengono salvati in una cartella privata e protetta nel dispositivo. Queste informazioni non verrano comunicate all&apos;autore di ocNews né ad altri.</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -1307,7 +1307,7 @@
     <message>
         <location line="+9"/>
         <source>Invert the theme color</source>
-        <translation type="unfinished"/>
+        <translation>Inverti colore del tema</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1367,12 +1367,12 @@
     <message>
         <location line="+19"/>
         <source>Notify about added/removed feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Notifica aggiunte/rimozioni di feed e cartelle</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Notify about new articles</source>
-        <translation type="unfinished"/>
+        <translation>Notifica nuovi articoli</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1387,7 +1387,7 @@
     <message>
         <location line="+43"/>
         <source>Select feeds for the event view</source>
-        <translation type="unfinished"/>
+        <translation>Seleziona i feed per la schermata eventi</translation>
     </message>
     <message>
         <location line="+25"/>
@@ -1437,7 +1437,7 @@
     <message>
         <location line="+13"/>
         <source>Query statistics</source>
-        <translation type="unfinished"/>
+        <translation>Statistiche ricerche</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -1689,32 +1689,32 @@
         <location filename="../qml/ocNewsReader/Sheets/StartUpInfoSheet.qml" line="+44"/>
         <source>Welcome to %1 %2</source>
         <comment>First is app name, second is version number</comment>
-        <translation type="unfinished"/>
+        <translation>Benvenuto in %1 %2</translation>
     </message>
     <message>
         <location line="+17"/>
         <source>Last changes</source>
-        <translation type="unfinished"/>
+        <translation>Ultime modifiche</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>Dona</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>If you like ocNews and have not purchased it alread via Ovi Store and you want to support the development, consider a small donation.</source>
-        <translation type="unfinished"/>
+        <translation>Se ti piace ocNews e vuoi aiutare lo sviluppo, prendi in considerazione una piccola donazione.</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Aiuto</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Chiudi</translation>
     </message>
 </context>
 <context>

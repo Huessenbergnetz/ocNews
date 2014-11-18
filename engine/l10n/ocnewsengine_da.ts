@@ -2,7 +2,7 @@
 <context>
     <name>OcDownloadManager</name>
     <message>
-        <location filename="../ocdownloadmanager.cpp" line="+124"/>
+        <location filename="../ocdownloadmanager.cpp" line="+134"/>
         <source>Downloading enclosure </source>
         <translation>Henter enclosure</translation>
     </message>
@@ -10,31 +10,31 @@
 <context>
     <name>OcFeeds</name>
     <message>
-        <location filename="../ocfeeds.cpp" line="+35"/>
-        <location line="+271"/>
-        <location line="+135"/>
-        <location line="+122"/>
-        <location line="+188"/>
-        <location line="+137"/>
+        <location filename="../ocfeeds.cpp" line="+37"/>
+        <location line="+280"/>
+        <location line="+150"/>
+        <location line="+128"/>
+        <location line="+204"/>
+        <location line="+148"/>
         <source>Device is in flight mode.</source>
         <translation>Enhed er i flytilstand.</translation>
     </message>
     <message>
-        <location line="-816"/>
+        <location line="-876"/>
         <location line="+1"/>
-        <location line="+280"/>
+        <location line="+297"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation>Svar fra server var tomt.</translation>
     </message>
     <message>
-        <location line="-282"/>
-        <location line="+12"/>
+        <location line="-299"/>
+        <location line="+11"/>
         <source>Failed to request feeds</source>
         <translation>Kunne ikke anmode om foldere</translation>
     </message>
     <message numerus="yes">
-        <location line="+175"/>
+        <location line="+189"/>
         <source>%n feed(s) added</source>
         <translation><numerusform>%n feed tilføjet</numerusform><numerusform>%n feeds tilføjet</numerusform></translation>
     </message>
@@ -54,33 +54,40 @@
         <translation>Fjernet:</translation>
     </message>
     <message>
-        <location line="+81"/>
-        <location line="+17"/>
+        <location line="+85"/>
+        <location line="+21"/>
         <source>Failed to add feed</source>
         <translation>Tilføjelse af feed mislykkedes</translation>
     </message>
     <message>
-        <location line="+119"/>
+        <location line="+126"/>
         <source>Failed to delete feed</source>
         <translation>Fjernelse af feed mislykkedes</translation>
     </message>
     <message>
-        <location line="+84"/>
+        <location line="+92"/>
         <source>Feed is already part of the destination folder</source>
         <translation>Feed er allerede oprettet i målfolderen</translation>
     </message>
     <message>
-        <location line="+63"/>
+        <location line="+66"/>
         <source>Failed to move feed</source>
         <translation>Flytning af feed mislykkedes</translation>
     </message>
     <message>
-        <location line="+184"/>
+        <location line="+140"/>
+        <location line="+58"/>
         <source>Failed to mark feed as read</source>
         <translation>Markering af feed som læst mislykkedes</translation>
     </message>
     <message>
-        <location line="+122"/>
+        <location line="-58"/>
+        <location line="+1"/>
+        <source>Database error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+189"/>
         <source>Failed to rename feed</source>
         <translation>Omdøb af feed mislykkedes</translation>
     </message>
@@ -88,30 +95,30 @@
 <context>
     <name>OcFolders</name>
     <message>
-        <location filename="../ocfolders.cpp" line="+14"/>
-        <location line="+178"/>
-        <location line="+74"/>
-        <location line="+80"/>
-        <location line="+71"/>
+        <location filename="../ocfolders.cpp" line="+16"/>
+        <location line="+170"/>
+        <location line="+81"/>
+        <location line="+85"/>
+        <location line="+75"/>
         <source>Device is in flight mode.</source>
         <translation>Enhed er i flytilstand.</translation>
     </message>
     <message>
-        <location line="-376"/>
+        <location line="-389"/>
         <location line="+1"/>
-        <location line="+177"/>
+        <location line="+176"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation>Svar fra server var tomt.</translation>
     </message>
     <message>
-        <location line="-179"/>
-        <location line="+16"/>
+        <location line="-178"/>
+        <location line="+15"/>
         <source>Failed to request folders</source>
         <translation>Anmodning om foldere mislykkedes</translation>
     </message>
     <message numerus="yes">
-        <location line="+102"/>
+        <location line="+103"/>
         <source>%n folder(s) added</source>
         <translation><numerusform>%n folder tilføjet</numerusform><numerusform>%n foldere tilføjet</numerusform></translation>
     </message>
@@ -131,23 +138,23 @@
         <translation>Fjernet:</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+46"/>
         <location line="+20"/>
         <source>Failed to create folder</source>
         <translation>Oprettelse af folder mislykkedes</translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+73"/>
         <source>Failed to delete folder</source>
         <translation>Fjernelse af folder mislykkedes</translation>
     </message>
     <message>
-        <location line="+89"/>
+        <location line="+91"/>
         <source>Failed to rename folder</source>
         <translation>Omdøbning af folder mislykkedes</translation>
     </message>
     <message>
-        <location line="+85"/>
+        <location line="+86"/>
         <source>Failed to mark folder as read</source>
         <translation>Markering af folder som læst mislykkedes</translation>
     </message>
@@ -155,12 +162,12 @@
 <context>
     <name>OcGeneric</name>
     <message>
-        <location filename="../ocgeneric.cpp" line="+32"/>
+        <location filename="../ocgeneric.cpp" line="+33"/>
         <source>Device is in flight mode.</source>
         <translation>Enhed er i flytilstand.</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+31"/>
         <source>Request canceled, maybe wrong username or password</source>
         <translation>Forespørgsel afbrudt, måske på grund af forkert brugernavn eller adgangskode</translation>
     </message>
@@ -175,12 +182,12 @@
         <translation>Kan ikke finde ownCloud News, måske på grund af forkert sti eller server</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+9"/>
         <source>Connection error</source>
         <translation>Forbindelsesfejl</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+26"/>
         <source>Server reply was empty.</source>
         <translation>Svar fra server var tomt.</translation>
     </message>
@@ -188,7 +195,7 @@
 <context>
     <name>OcImageFetcher</name>
     <message>
-        <location filename="../ocimagefetcher.cpp" line="+40"/>
+        <location filename="../ocimagefetcher.cpp" line="+38"/>
         <source>ocNews Image Fetcher</source>
         <translation>ovNews Billedhenter</translation>
     </message>
@@ -198,7 +205,7 @@
         <translation>Henter billeder</translation>
     </message>
     <message>
-        <location line="+43"/>
+        <location line="+48"/>
         <source>Fetching images finished</source>
         <translation>Billeder hentet</translation>
     </message>
@@ -206,52 +213,52 @@
 <context>
     <name>OcItems</name>
     <message>
-        <location filename="../ocitems.cpp" line="+17"/>
-        <location line="+240"/>
-        <location line="+605"/>
+        <location filename="../ocitems.cpp" line="+19"/>
+        <location line="+225"/>
+        <location line="+606"/>
         <source>Device is in flight mode.</source>
         <translation>Enhed er i flytilstand.</translation>
     </message>
     <message>
-        <location line="-800"/>
+        <location line="-793"/>
         <location line="+1"/>
-        <location line="+287"/>
+        <location line="+270"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation>Svar fra server var tomt.</translation>
     </message>
     <message>
-        <location line="-289"/>
-        <location line="+288"/>
+        <location line="-272"/>
+        <location line="+271"/>
         <source>Error in server reply</source>
         <translation>Fejl i svar fra server</translation>
     </message>
     <message>
-        <location line="-280"/>
-        <location line="+290"/>
+        <location line="-263"/>
+        <location line="+273"/>
         <source>HTTP error</source>
         <translation>HTTP fejl</translation>
     </message>
     <message numerus="yes">
-        <location line="-124"/>
-        <location line="+305"/>
+        <location line="-113"/>
+        <location line="+297"/>
         <source>%n new unread item(s)</source>
         <translation><numerusform>%n nyt ulæst emne</numerusform><numerusform>%n nye ulæste emne(r)</numerusform></translation>
     </message>
     <message>
-        <location line="-305"/>
-        <location line="+305"/>
+        <location line="-297"/>
+        <location line="+297"/>
         <source>New articles available</source>
         <translation>Nye artikler tilgængelige</translation>
     </message>
     <message>
-        <location line="+148"/>
-        <location line="+210"/>
+        <location line="+147"/>
+        <location line="+219"/>
         <source>Failed to mark articles</source>
         <translation>Markering af artikel mislykkedes</translation>
     </message>
     <message>
-        <location line="-79"/>
+        <location line="-87"/>
         <source>Failed to un/star articles</source>
         <translation>Stjerne af / markering af artikler mislykkedes</translation>
     </message>
@@ -259,12 +266,12 @@
 <context>
     <name>OcUpdater</name>
     <message>
-        <location filename="../ocupdater.cpp" line="+217"/>
+        <location filename="../ocupdater.cpp" line="+210"/>
         <source>Your account is disabled or you have not created an account yet.</source>
         <translation>Du har endnu ikke oprettet en konto, eller den er blevet deaktiveret.</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+29"/>
         <source>Synchronizing ownCloud News</source>
         <translation>Ajourfør ownCloud News</translation>
     </message>
@@ -274,22 +281,22 @@
         <translation>Ajourfører foldere.</translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+31"/>
         <source>Updating Feeds</source>
         <translation>Ajourfører feeds</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+25"/>
         <source>Updating Items</source>
         <translation>Ajourfører Poster</translation>
     </message>
     <message>
-        <location line="+38"/>
+        <location line="+41"/>
         <source>Update Finished</source>
         <translation>Ajourføring Fuldført</translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+35"/>
         <source>Update Failed</source>
         <translation>Ajourføring mislykkedes</translation>
     </message>

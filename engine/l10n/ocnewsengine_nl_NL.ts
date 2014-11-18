@@ -2,7 +2,7 @@
 <context>
     <name>OcDownloadManager</name>
     <message>
-        <location filename="../ocdownloadmanager.cpp" line="+129"/>
+        <location filename="../ocdownloadmanager.cpp" line="+134"/>
         <source>Downloading enclosure </source>
         <translation>Bezig met downloaden van bijlage</translation>
     </message>
@@ -11,30 +11,30 @@
     <name>OcFeeds</name>
     <message>
         <location filename="../ocfeeds.cpp" line="+37"/>
-        <location line="+268"/>
-        <location line="+148"/>
+        <location line="+280"/>
+        <location line="+150"/>
         <location line="+128"/>
-        <location line="+200"/>
-        <location line="+140"/>
+        <location line="+204"/>
+        <location line="+148"/>
         <source>Device is in flight mode.</source>
         <translation>Apparaat is ingesteld op vliegtuigmodus.</translation>
     </message>
     <message>
-        <location line="-850"/>
+        <location line="-876"/>
         <location line="+1"/>
-        <location line="+283"/>
+        <location line="+297"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
         <translation>Serverantwoord was leeg.</translation>
     </message>
     <message>
-        <location line="-285"/>
+        <location line="-299"/>
         <location line="+11"/>
         <source>Failed to request feeds</source>
         <translation>Feeds aanvragen mislukt</translation>
     </message>
     <message numerus="yes">
-        <location line="+177"/>
+        <location line="+189"/>
         <source>%n feed(s) added</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -54,7 +54,7 @@
         <translation>Verwijderd:</translation>
     </message>
     <message>
-        <location line="+83"/>
+        <location line="+85"/>
         <location line="+21"/>
         <source>Failed to add feed</source>
         <translation>Mislukt om feed toe te voegen</translation>
@@ -70,17 +70,24 @@
         <translation>Feed is al onderdeel van de bestemmingsmap</translation>
     </message>
     <message>
-        <location line="+64"/>
+        <location line="+66"/>
         <source>Failed to move feed</source>
         <translation>Mislukt om feed te verplaatsen</translation>
     </message>
     <message>
-        <location line="+188"/>
+        <location line="+140"/>
+        <location line="+58"/>
         <source>Failed to mark feed as read</source>
         <translation>Mislukt om feed te markeren als gelezen</translation>
     </message>
     <message>
-        <location line="+132"/>
+        <location line="-58"/>
+        <location line="+1"/>
+        <source>Database error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+189"/>
         <source>Failed to rename feed</source>
         <translation>Mislukt om feed te hernoemen</translation>
     </message>

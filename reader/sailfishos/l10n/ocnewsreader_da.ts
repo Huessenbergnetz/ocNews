@@ -14,17 +14,17 @@
     <message>
         <location line="+15"/>
         <source>Munich</source>
-        <translation type="unfinished"/>
+        <translation>München</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Germany</source>
-        <translation type="unfinished"/>
+        <translation>Tyskland</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Donér via PayPal</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
+        <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -47,52 +47,52 @@
     <message>
         <location filename="../qml/BTComponents/AboutPage.qml" line="+77"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>Hjemmeside</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Privatlivspolitik</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Ændringslog</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Bidragydere</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Om</translation>
     </message>
     <message>
         <location line="+58"/>
         <source>Contact</source>
-        <translation type="unfinished"/>
+        <translation>Kontakt</translation>
     </message>
     <message>
         <location line="+84"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>Bidrag</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Oversæt</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>Fejlrapportering</translation>
     </message>
     <message>
         <location line="+23"/>
         <source>3rd party licenses</source>
-        <translation type="unfinished"/>
+        <translation>3. parts licenser</translation>
     </message>
 </context>
 <context>
@@ -105,22 +105,22 @@
     <message>
         <location line="+20"/>
         <source>New</source>
-        <translation type="unfinished"/>
+        <translation>Ny</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Improved</source>
-        <translation type="unfinished"/>
+        <translation>Forbedret</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Fixed</source>
-        <translation type="unfinished"/>
+        <translation>Fast</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>Bemærk</translation>
     </message>
 </context>
 <context>
@@ -136,7 +136,7 @@
     <message>
         <location filename="../qml/BTComponents/ContributorsDelegate.qml" line="+127"/>
         <source>Website</source>
-        <translation type="unfinished"/>
+        <translation>Hjemmeside</translation>
     </message>
     <message>
         <location line="+25"/>
@@ -631,7 +631,7 @@
     <message>
         <location filename="../qml/Pages/LanguageChooser.qml" line="+92"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Søg</translation>
     </message>
 </context>
 <context>
@@ -659,7 +659,7 @@
     <message>
         <location line="+1"/>
         <source>ocNews is a client for the ownCloud News app, a cloud based RSS/Atom feed aggregator. </source>
-        <translation type="unfinished"/>
+        <translation>ocNews er en klient for ownCloud News app, en sky baseret RSS / Atom-feed aggregator.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -758,14 +758,14 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
-        <location line="+99"/>
-        <location line="+201"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location line="+107"/>
+        <location line="+225"/>
         <source>Uncategorized</source>
         <translation>Ikke kategoriseret</translation>
     </message>
     <message>
-        <location line="-296"/>
+        <location line="-328"/>
         <source>All posts</source>
         <translation>Alle poster</translation>
     </message>
@@ -825,7 +825,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
         <source>All posts</source>
         <translation>Alle poster</translation>
     </message>
@@ -858,52 +858,52 @@
     <message>
         <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Systemets standard</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>Engelsk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>Dansk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Tysk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Spansk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>Fransk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Italiensk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Dutch (Netherlands)</source>
-        <translation type="unfinished"/>
+        <translation>Hollandsk (Nederlandene)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Russisk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"/>
+        <translation>Kinesisk (Kina)</translation>
     </message>
 </context>
 <context>
@@ -927,7 +927,7 @@
 <context>
     <name>OcSingleItemModelNew</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+450"/>
         <source>Today</source>
         <translation>I dag</translation>
     </message>
@@ -1026,7 +1026,7 @@
     <message>
         <location line="+1"/>
         <source>Brazilian Real</source>
-        <translation>Brasilianske Real</translation>
+        <translation>Brasiliansk Real</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1375,7 +1375,7 @@
     <message>
         <location line="+5"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Sprog</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1520,12 +1520,12 @@
     <message>
         <location line="+6"/>
         <source>Maintenance</source>
-        <translation type="unfinished"/>
+        <translation>Vedligeholdelse</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Create log files</source>
-        <translation type="unfinished"/>
+        <translation>Opret logfiler</translation>
     </message>
     <message>
         <location line="+4"/>

@@ -14,32 +14,32 @@
     <message>
         <location line="+15"/>
         <source>Munich</source>
-        <translation type="unfinished"/>
+        <translation>Monaco</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Germany</source>
-        <translation type="unfinished"/>
+        <translation>Germania</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Dona con PayPal</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme è in licenza sotto i termini d&apos;uso &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
+        <translation>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru è in licenza sotto i termini d&apos;uso &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="-7"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Lascia un messaggio (inglese o tedesco):</translation>
     </message>
 </context>
 <context>
@@ -47,52 +47,52 @@
     <message>
         <location filename="../qml/BTComponents/AboutPage.qml" line="+77"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>Homepage</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Informativa sulla Privacy</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Collaboratori</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Crediti</translation>
     </message>
     <message>
         <location line="+58"/>
         <source>Contact</source>
-        <translation type="unfinished"/>
+        <translation>Contatta</translation>
     </message>
     <message>
         <location line="+84"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>Contribuisci</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Traduci</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>Segnala un bug</translation>
     </message>
     <message>
         <location line="+23"/>
         <source>3rd party licenses</source>
-        <translation type="unfinished"/>
+        <translation>Licenze di terze parti</translation>
     </message>
 </context>
 <context>
@@ -105,22 +105,22 @@
     <message>
         <location line="+20"/>
         <source>New</source>
-        <translation type="unfinished"/>
+        <translation>Nuovo</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Improved</source>
-        <translation type="unfinished"/>
+        <translation>Migliorato</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Fixed</source>
-        <translation type="unfinished"/>
+        <translation>Sistemato</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>Note</translation>
     </message>
 </context>
 <context>
@@ -136,12 +136,12 @@
     <message>
         <location filename="../qml/BTComponents/ContributorsDelegate.qml" line="+127"/>
         <source>Website</source>
-        <translation type="unfinished"/>
+        <translation>Sito web</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>Sina Weibo</source>
-        <translation type="unfinished"/>
+        <translation>Sina Weibo</translation>
     </message>
 </context>
 <context>
@@ -149,27 +149,27 @@
     <message>
         <location filename="../qml/Models/ContributorsModel.qml" line="+26"/>
         <source>Main developer, ocNews creator</source>
-        <translation type="unfinished"/>
+        <translation>Sviluppatore principale ed ideatore</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Autore</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>UI, French translation</source>
-        <translation type="unfinished"/>
+        <translation>UI, traduzione francese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Major contributors</source>
-        <translation type="unfinished"/>
+        <translation>Principali collaboratori</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Chinese (China) translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduzione cinese (Cina)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -180,37 +180,37 @@
         <location line="+8"/>
         <location line="+5"/>
         <source>Thanks to</source>
-        <translation type="unfinished"/>
+        <translation>Grazie a</translation>
     </message>
     <message>
         <location line="-39"/>
         <source>Danish translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzione danese</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>Dutch (Netherlands) translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzione olandese</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>French translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzione francese</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Italian translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzione italiano</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Spanish translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzione spagnolo</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation type="unfinished"/>
+        <translation>Notizie di Martin Grimme</translation>
     </message>
 </context>
 <context>
@@ -340,27 +340,27 @@
     <message>
         <location filename="../qml/Delegates/FeedListDelegate.qml" line="+124"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Aggiorna</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Segna come letto</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Sposta</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Rinomina</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Elimina</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -435,22 +435,22 @@
         <location filename="../qml/BTComponents/FirstStartInfo.qml" line="+76"/>
         <source>Welcome to %1 %2</source>
         <comment>First is app name, second is version number</comment>
-        <translation type="unfinished"/>
+        <translation>Benvenuto in %1 %2</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Last changes</source>
-        <translation type="unfinished"/>
+        <translation>Ultime modifiche</translation>
     </message>
     <message>
         <location line="+63"/>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Aiuto</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Chiudi</translation>
     </message>
 </context>
 <context>
@@ -459,30 +459,30 @@
         <location filename="../qml/Delegates/FolderListDelegate.qml" line="+150"/>
         <location line="+29"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Aggiorna</translation>
     </message>
     <message>
         <location line="-24"/>
         <location line="+29"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Segna come letto</translation>
     </message>
     <message>
         <location line="-24"/>
         <location line="+37"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Rinomina</translation>
     </message>
     <message>
         <location line="-29"/>
         <location line="+37"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Elimina</translation>
     </message>
     <message>
         <location line="-16"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Sposta</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -631,7 +631,7 @@
     <message>
         <location filename="../qml/Pages/LanguageChooser.qml" line="+92"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Cerca</translation>
     </message>
 </context>
 <context>
@@ -639,27 +639,27 @@
     <message>
         <location filename="../qml/Views/MainView.qml" line="+27"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Lascia un messaggio (inglese o tedesco):</translation>
     </message>
     <message>
         <location line="-5"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>Dona</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>If you like ocNews and you want to support the development, consider a small donation.</source>
-        <translation type="unfinished"/>
+        <translation>Se ti piace ocNews e vuoi aiutare lo sviluppo, prendi in considerazione una piccola donazione.</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Dona con PayPal</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews is a client for the ownCloud News app, a cloud based RSS/Atom feed aggregator. </source>
-        <translation type="unfinished"/>
+        <translation>ocNews è un client di ownCloud News, un aggregatore di feed basato su cloud RSS/Atom.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -714,7 +714,7 @@
     <message>
         <location line="+5"/>
         <source>No unread or favorite articles to show. Enable your option to show hide read feeds and folders to see content.</source>
-        <translation type="unfinished"/>
+        <translation>Nesun articolo non letto o preferito da mostrare. Attiva l&apos;opzione per mostrare feed e cartelle letti per vederne il contenuto.</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -758,21 +758,21 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
-        <location line="+99"/>
-        <location line="+201"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location line="+107"/>
+        <location line="+225"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Senza categoria</translation>
     </message>
     <message>
-        <location line="-296"/>
+        <location line="-328"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tutti i post</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Post preferiti</translation>
     </message>
 </context>
 <context>
@@ -798,7 +798,7 @@
     <message>
         <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tutti i post</translation>
     </message>
 </context>
 <context>
@@ -825,14 +825,14 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tutti i post</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Post preferiti</translation>
     </message>
 </context>
 <context>
@@ -863,47 +863,47 @@
     <message>
         <location line="+1"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>Inglese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>Danese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Tedesco</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Spagnolo</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>Francese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Italiano</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Dutch (Netherlands)</source>
-        <translation type="unfinished"/>
+        <translation>Olandese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Russo</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"/>
+        <translation>Cinese</translation>
     </message>
 </context>
 <context>
@@ -911,35 +911,35 @@
     <message>
         <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Oggi</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
     <name>OcSingleItemModelNew</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+450"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Oggi</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -983,7 +983,7 @@
     <message>
         <location filename="../qml/Dialogs/OpenLink.qml" line="+44"/>
         <source>Open</source>
-        <translation type="unfinished"/>
+        <translation>Apri</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1375,7 +1375,7 @@
     <message>
         <location line="+5"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Lingua</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1481,7 +1481,7 @@ Puoi comunque cambiarlo dal menu.</translation>
     <message>
         <location line="+2"/>
         <source>Shows some lines of the article content in the article list.</source>
-        <translation type="unfinished"/>
+        <translation>Mostra alcune righe di articolo nella lista articoli.</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -1491,47 +1491,47 @@ Puoi comunque cambiarlo dal menu.</translation>
     <message>
         <location line="+5"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notifiche</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Notify about added/removed feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Notifica aggiunte/rimozioni di feed e cartelle</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Notify about new articles</source>
-        <translation type="unfinished"/>
+        <translation>Notifica nuovi articoli</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Privacy</source>
-        <translation type="unfinished"/>
+        <translation>Privacy</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Enable private browsing for web view</source>
-        <translation type="unfinished"/>
+        <translation>Attiva ricerca anonima nella vista web</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Allow cookies in web view</source>
-        <translation type="unfinished"/>
+        <translation>Consenti cookies nella vista web</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Maintenance</source>
-        <translation type="unfinished"/>
+        <translation>Manutenzione</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Create log files</source>
-        <translation type="unfinished"/>
+        <translation>Crea file di log</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>This option needs a complete application restart. After that it will create log files in %1.</source>
-        <translation type="unfinished"/>
+        <translation>Questa opzione necessita un riavvio completo dell&apos;app. I file di log verranno salvati in %1.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1598,7 +1598,7 @@ Puoi comunque cambiarlo dal menu.</translation>
     <message>
         <location filename="../qml/Views/SingleItemWebView.qml" line="+34"/>
         <source>Clear cookies</source>
-        <translation type="unfinished"/>
+        <translation>Pulisci cookies</translation>
     </message>
     <message>
         <location line="+4"/>
