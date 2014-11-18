@@ -7,6 +7,8 @@
 
 #include <sailfishapp.h>
 
+#include "QsLog.h"
+#include "QsLogDest.h"
 #include "../../common/globals.h"
 #include "../common/ocdbmanager.h"
 #include "../common/occonfiguration.h"
@@ -54,6 +56,39 @@ int main(int argc, char *argv[])
     QDBusConnectionInterface* qDbusConInf = QDBusConnection::sessionBus().interface();
     qDbusConInf->startService("de.buschmann23.ocNewsEngine");
 
+    OcConfiguration *config = new OcConfiguration;
+
+    // init the logging mechanism
+    QsLogging::Logger& logger = QsLogging::Logger::instance();
+
+    // set minimum log level
+    if (config->createLogFile()) {
+        logger.setLoggingLevel(QsLogging::TraceLevel);
+    } else {
+        logger.setLoggingLevel(QsLogging::OffLevel);
+    }
+
+    // enable log file
+    QString sLogPath;
+    if (config->createLogFile()) {
+        // create file name
+        QString dt =  QDateTime::currentDateTime().toString(QString("yyyy-MM-ddTHH-mm-ss"));
+        sLogPath = QDir(basePath.append("/logs")).filePath("ocnews-reader-" + dt + ".log");
+        // create log destination
+        QsLogging::DestinationPtr fileDestination(QsLogging::DestinationFactory::MakeFileDestination(sLogPath));
+        // set log destination to logger
+        logger.addDestination(fileDestination);
+    }
+
+    // Create log destination for debug output
+    QsLogging::DestinationPtr debugDestination(QsLogging::DestinationFactory::MakeDebugOutputDestination());
+
+    // set log destination on the logger
+    logger.addDestination(debugDestination);
+
+    QLOG_INFO() << "Starting ocNews Reader version " << VERSION_STRING;
+    QLOG_INFO() << "Built with Qt" << QT_VERSION_STR << "running on" << qVersion();
+
     OcDbManager dbman;
     dbman.openDB();
 
@@ -67,7 +102,6 @@ int main(int argc, char *argv[])
     OcDBusUpdater updater;
     OcDBusDownloads downloads;
     OcDBusImageFetcher imageFetcher;
-    OcConfiguration *config = new OcConfiguration;
 
     QString locale = config->displayLanguage();
 
@@ -78,9 +112,8 @@ int main(int argc, char *argv[])
     QTranslator *translator = new QTranslator;
     if ((translator->load("ocnewsreader_"+locale, L10N_PATH)))
         app->installTranslator(translator);
-#ifdef QT_DEBUG
-    qDebug() << locale;
-#endif
+
+    QLOG_INFO() << "ocNews Reader locale set to " << locale;
 
     OcLanguageModelFilter *languageModel = new OcLanguageModelFilter;
 
@@ -209,8 +242,9 @@ int main(int argc, char *argv[])
     bool ret = connection.registerService("harbour.ocnews.reader");
     ret = connection.registerObject("/", dbusproxy);
 
-    if (!ret)
-        qDebug() << "Failed to register D-Bus interface...";
+    if (!ret) {
+        QLOG_ERROR() << "Failed to register D-Bus interface!";
+    }
 
     QQuickView* view = SailfishApp::createView();
 

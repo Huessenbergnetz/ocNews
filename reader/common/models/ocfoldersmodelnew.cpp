@@ -1,6 +1,6 @@
 #include "ocfoldersmodelnew.h"
 #include "objects/ocfolerdobject.h"
-#include <QDebug>
+#include "QsLog.h"
 
 const int OcFoldersModelNew::IdRole = Qt::UserRole + 1;
 const int OcFoldersModelNew::TypeRole = Qt::UserRole + 2;
@@ -31,6 +31,8 @@ void OcFoldersModelNew::setActive(const bool &nActive)
     if (nActive != m_active) {
         m_active = nActive;
 
+        QLOG_DEBUG() << "Folder model: set active to " << active();
+
         if (active()) {
             init();
         } else {
@@ -48,6 +50,7 @@ void OcFoldersModelNew::setTotalUnread(const int &nTotalUnread)
 {
     if (nTotalUnread != m_totalUnread) {
         m_totalUnread = nTotalUnread;
+        QLOG_DEBUG() << "Folder model: set total unread count to " << totalUnread();
         emit totalUnreadChanged(totalUnread());
     }
 }
@@ -123,11 +126,9 @@ QModelIndex OcFoldersModelNew::index(int row, int column, const QModelIndex &par
 
 void OcFoldersModelNew::init()
 {
-#ifdef QT_DEBUG
-    qDebug() << "Init Folder Model";
-#endif
-
     clear();
+
+    QLOG_INFO() << "Initialize folders model";
 
     QSqlQuery query;
 
@@ -135,7 +136,9 @@ void OcFoldersModelNew::init()
 
     QString querystring("SELECT ((SELECT COUNT(id) FROM feeds WHERE folderId = 0) + (SELECT COUNT(id) FROM folders))");
 
-    query.exec(querystring);
+    if (!query.exec(querystring)) {
+        QLOG_ERROR() << "Folders model: failed to select item count from database: " << query.lastError().text();
+    }
 
     query.next();
 
@@ -186,6 +189,8 @@ void OcFoldersModelNew::init()
 
 void OcFoldersModelNew::clear()
 {
+    QLOG_INFO() << "Clearing folders model";
+
     beginRemoveRows(QModelIndex(), 0, rowCount()-1);
 
     while (!m_items.isEmpty()) {
@@ -224,7 +229,9 @@ void OcFoldersModelNew::itemsMarked()
 
     QString queryString("SELECT id, localUnreadCount FROM feeds WHERE folderId = 0");
 
-    query.exec(queryString);
+    if (!query.exec(queryString)) {
+        QLOG_ERROR() << "Folders model: failed to select feed data from database: " << query.lastError().text();
+    }
 
     while(query.next()) {
         idsAndUnread[query.value(0).toInt()] = query.value(1).toInt();
@@ -232,7 +239,9 @@ void OcFoldersModelNew::itemsMarked()
 
     queryString = "SELECT id, localUnreadCount FROM folders";
 
-    query.exec(queryString);
+    if (!query.exec(queryString)) {
+        QLOG_ERROR() << "Folders model: failed to select folder data from database: " << query.lastError().text();
+    }
 
     while(query.next()) {
         idsAndUnread[query.value(0).toInt()] = query.value(1).toInt();
@@ -240,7 +249,9 @@ void OcFoldersModelNew::itemsMarked()
 
     queryString = "SELECT ((SELECT IFNULL(SUM(localUnreadCount),0) FROM feeds WHERE folderId = 0) + (SELECT IFNULL(SUM(localUnreadCount),0) FROM folders))";
 
-    query.exec(queryString);
+    if (!query.exec(queryString)) {
+        QLOG_ERROR() << "Folders model: failed to select total unread count from database: " << query.lastError().text();
+    }
 
     query.next();
 
@@ -272,9 +283,13 @@ void OcFoldersModelNew::itemsStarred()
     if (!active())
         return;
 
+    QLOG_INFO() << "Folders model: updating starred count";
+
     QSqlQuery query;
 
-    query.exec(QString("SELECT COUNT(id) FROM items WHERE starred = %1").arg(SQL_TRUE));
+    if (!query.exec(QString("SELECT COUNT(id) FROM items WHERE starred = %1").arg(SQL_TRUE))) {
+        QLOG_ERROR() << "Folders model: failed to select starred items count from database: " << query.lastError().text();
+    }
 
     query.next();
 
@@ -300,6 +315,8 @@ void OcFoldersModelNew::itemsMarkedAllRead()
 {
     if (!active())
         return;
+
+    QLOG_INFO() << "Folders model: marking all items as read";
 
     for (int i = 0; i < rowCount(); ++i)
     {
@@ -331,18 +348,24 @@ void OcFoldersModelNew::feedsRequested(const QList<int> &updated, const QList<in
 
     if (!updated.isEmpty()) {
 
+        QLOG_INFO() << "Folders model: updating changed feeds in root folder";
+
         for (int i = 0; i < updated.size(); ++i) {
 
             int idx = findIndex(updated.at(i), 0);
 
             query.exec(QString("SELECT title, iconSource, iconWidth, iconHeight, folderId, localUnreadCount FROM feeds WHERE id = %1").arg(updated.at(i)));
 
-            query.next();
+            if (!query.next()) {
+                QLOG_ERROR() << "Folders model: failed to select updated feeds in root folder: " << query.lastError().text();
+            }
 
             int folderId = query.value(4).toInt();
 
             // check if updated feed is still child of root folder
             if ((idx != -999) && (folderId == 0)) {
+
+                QLOG_DEBUG() << "Folders model: updating changed feed data at index " << idx;
 
                 //update the feed, because it is still children of root
                 m_items.at(idx)->title = query.value(0).toString();
@@ -355,6 +378,9 @@ void OcFoldersModelNew::feedsRequested(const QList<int> &updated, const QList<in
             } else if ((idx != -999) && (folderId != 0)) {
 
                 //the updated feed is no longer child of root, remove it
+
+                QLOG_DEBUG() << "Folders model: removing feed at index " << idx << " that is not longer child of root folder";
+
                 beginRemoveRows(QModelIndex(), idx, idx);
 
                 delete m_items.takeAt(idx);
@@ -364,6 +390,8 @@ void OcFoldersModelNew::feedsRequested(const QList<int> &updated, const QList<in
             } else if ((idx == -999) && (folderId == 0)) {
 
                 // the feed has been moved to the root folder
+
+                QLOG_DEBUG() << "Folders model: adding feed that was moved to root folder";
 
                 beginInsertRows(QModelIndex(), 0, 0);
 
@@ -396,7 +424,9 @@ void OcFoldersModelNew::feedsRequested(const QList<int> &updated, const QList<in
         feedList.chop(2);
         feedList.append(")");
 
-        query.exec(QString("SELECT COUNT(id) FROM feeds WHERE folderId = 0 AND id IN %1").arg(feedList));
+        if (!query.exec(QString("SELECT COUNT(id) FROM feeds WHERE folderId = 0 AND id IN %1").arg(feedList))) {
+            QLOG_ERROR() << "Folders model: failed to select count of feeds from databast newly added to the root folder: " << query.lastError().text();
+        }
 
         query.next();
 
@@ -404,7 +434,11 @@ void OcFoldersModelNew::feedsRequested(const QList<int> &updated, const QList<in
 
         if (length > 0) {
 
-            query.exec(QString("SELECT id, title, localUnreadCount, iconSource, iconWidth, iconHeight FROM feeds WHERE folderId = 0 AND id IN %1").arg(feedList));
+            QLOG_INFO() << "Folders model: adding newly created feeds";
+
+            if (!query.exec(QString("SELECT id, title, localUnreadCount, iconSource, iconWidth, iconHeight FROM feeds WHERE folderId = 0 AND id IN %1").arg(feedList))) {
+                QLOG_ERROR() << "Folders model: failed to select data of newly added feed from database: " << query.lastError().text();
+            }
 
             beginInsertRows(QModelIndex(), rowCount(), (rowCount() + length - 1));
 
@@ -438,9 +472,13 @@ void OcFoldersModelNew::feedsRequested(const QList<int> &updated, const QList<in
 
         if (!idxs.isEmpty()) {
 
+            QLOG_INFO() << "Folders model: removing delte feeds";
+
             for (int j = 0; j < idxs.size(); ++j) {
 
                 int idx = idxs.at(j);
+
+                QLOG_DEBUG() << "Folders model: removing delted feed at index " << idx;
 
                 beginRemoveRows(QModelIndex(), idx, idx);
 
@@ -461,11 +499,15 @@ void OcFoldersModelNew::feedCreated(const QString &name, const int &id)
 
     QSqlQuery query;
 
-    query.exec(QString("SELECT localUnreadCount, iconSource, iconWidth, iconHeight, folderId FROM feeds WHERE id = %1").arg(id));
+    if (!query.exec(QString("SELECT localUnreadCount, iconSource, iconWidth, iconHeight, folderId FROM feeds WHERE id = %1").arg(id))) {
+        QLOG_ERROR() << "Folders model: failed to select feed data from database";
+    }
 
     query.next();
 
     if (query.value(4).toInt() == 0) {
+
+        QLOG_INFO() << "Folders model: adding newly created feed";
 
         beginInsertRows(QModelIndex(), 0 , 0);
 
@@ -496,6 +538,8 @@ void OcFoldersModelNew::feedDeleted(const int &id)
 
     if (idx != -999) {
 
+        QLOG_INFO() << "Folders model: removing deleted feed at index " << idx;
+
         beginRemoveRows(QModelIndex(), idx, idx);
 
         delete m_items.takeAt(idx);
@@ -515,6 +559,8 @@ void OcFoldersModelNew::feedMarkedRead(const int &id)
     int idx = findIndex(id, 0);
 
     if (idx != -999) {
+
+        QLOG_INFO() << "Folders model: marking feed at index " << idx << " as read";
 
         m_items.at(idx)->unreadCount = 0;
 
@@ -539,9 +585,13 @@ void OcFoldersModelNew::feedMoved(const int &feedId, const int &folderId)
 
     if ((idx == -999) && (folderId == 0)) {
 
+        QLOG_INFO() << "Folders model: adding feed that was moved to root folder";
+
         QSqlQuery query;
 
-        query.exec(QString("SELECT title, localUnreadCount, iconSource, iconWidth, iconHeight FROM feeds WHERE id = %1").arg(feedId));
+        if (!query.exec(QString("SELECT title, localUnreadCount, iconSource, iconWidth, iconHeight FROM feeds WHERE id = %1").arg(feedId))) {
+            QLOG_ERROR() << "Folders model: failed to select feed data from database: " << query.lastError().text();
+        }
 
         query.next();
 
@@ -560,6 +610,8 @@ void OcFoldersModelNew::feedMoved(const int &feedId, const int &folderId)
         endInsertRows();
 
     } else if ((idx != -999) && (folderId != 0)) {
+
+        QLOG_INFO() << "Folders model: removing feed that was moved away from root folder";
 
         beginRemoveRows(QModelIndex(), idx, idx);
 
@@ -583,6 +635,8 @@ void OcFoldersModelNew::feedRenamed(const QString &newName, const int &feedId)
 
     if (idx != -999)
     {
+        QLOG_INFO() << "Folders model: updating renamed feed at index " << idx << " to " << newName;
+
         m_items.at(idx)->title = newName;
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
@@ -610,7 +664,11 @@ void OcFoldersModelNew::foldersRequested(const QList<int> &updated, const QList<
 
             int idx = findIndex(updated.at(i), 1);
 
-            query.exec(QString("SELECT name FROM folders WHERE id = %1").arg(updated.at(i)));
+            QLOG_INFO() << "Folders model: updating folder name at index " << idx;
+
+            if (!query.exec(QString("SELECT name FROM folders WHERE id = %1").arg(updated.at(i)))) {
+                QLOG_ERROR() << "Folders model: failed to select folder name from database: " << query.lastError().text();
+            }
 
             query.next();
 
@@ -627,9 +685,13 @@ void OcFoldersModelNew::foldersRequested(const QList<int> &updated, const QList<
 
     if (!newFolders.isEmpty()) {
 
+        QLOG_INFO() << "Folders model: adding new folder entries";
+
         for (int i = 0; i < newFolders.size(); ++i) {
 
-            query.exec(QString("SELECT fo.name, fo.localUnreadCount, (SELECT COUNT(id) FROM feeds WHERE folderId = fo.id) AS feedCount FROM folders fo WHERE id = %1").arg(newFolders.at(i)));
+            if (!query.exec(QString("SELECT fo.name, fo.localUnreadCount, (SELECT COUNT(id) FROM feeds WHERE folderId = fo.id) AS feedCount FROM folders fo WHERE id = %1").arg(newFolders.at(i)))) {
+                QLOG_ERROR() << "Folders model: failed to select folder data from database";
+            }
 
             query.next();
 
@@ -664,6 +726,9 @@ void OcFoldersModelNew::foldersRequested(const QList<int> &updated, const QList<
 
             for (int j = 0; j < idxs.size(); ++j) {
                 int idx = idxs.at(j);
+
+                QLOG_INFO() << "Folders model: remove deleted folder at index " << idx;
+
                 beginRemoveRows(QModelIndex(), idx, idx);
 
                 delete m_items.takeAt(idx);
@@ -677,6 +742,8 @@ void OcFoldersModelNew::foldersRequested(const QList<int> &updated, const QList<
 
 void OcFoldersModelNew::folderCreated(const QString &foldername, const int &folderId)
 {
+    QLOG_INFO() << "Folders model: add newly created folder";
+
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
 
     OcFolderObject *fobj = new OcFolderObject(folderId, 1, foldername, 0, "", 0, 0, 0);
@@ -694,6 +761,8 @@ void OcFoldersModelNew::folderDeleted(const int &id)
 
     if (idx != -999) {
 
+        QLOG_INFO() << "Folders model: remove deleted folder at index " << idx;
+
         beginRemoveRows(QModelIndex(), idx, idx);
 
         delete m_items.takeAt(idx);
@@ -710,6 +779,8 @@ void OcFoldersModelNew::folderMarkedRead(const int &id)
     int idx = findIndex(id, 1);
 
     if (idx != -999) {
+
+        QLOG_INFO() << "Folders model: marking folder as read at index " << idx;
 
         m_items.at(idx)->unreadCount = 0;
 
@@ -729,6 +800,8 @@ void OcFoldersModelNew::folderRenamed(const QString &newName, const int &id)
     int idx = findIndex(id, 1);
 
     if (idx != -999) {
+
+        QLOG_INFO() << "Folders model: update renamed folder at index " << idx;
 
         m_items.at(idx)->title = newName;
 
@@ -767,7 +840,9 @@ void OcFoldersModelNew::queryAndSetTotalCount()
 {
     QSqlQuery query;
 
-    query.exec("SELECT ((SELECT IFNULL(SUM(localUnreadCount),0) FROM feeds WHERE folderId = 0) + (SELECT IFNULL(SUM(localUnreadCount),0) FROM folders))");
+    if (!query.exec("SELECT ((SELECT IFNULL(SUM(localUnreadCount),0) FROM feeds WHERE folderId = 0) + (SELECT IFNULL(SUM(localUnreadCount),0) FROM folders))")) {
+        QLOG_ERROR() << "Folders model: failed to select total unread count from database: " << query.lastError().text();
+    }
 
     query.next();
 

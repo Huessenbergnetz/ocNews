@@ -87,6 +87,8 @@ QVariantMap OcConfiguration::getConfig()
     config["themeinverted"] = value("display/themeInverted", false).toBool();
 #endif
 
+    QLOG_TRACE() << "Get config: " << config;
+
     emit gotConfig(config);
 
     return config;
@@ -112,6 +114,8 @@ QDBusVariant OcConfiguration::getSetting(const QString &entry, const QDBusVarian
     qvResult = value(entry, defaultValue.variant());
     result.setVariant(qvResult);
 
+    QLOG_TRACE() << "Get Setting \"" << entry << "\": " << qvResult;
+
     return result;
 }
 
@@ -131,7 +135,7 @@ void OcConfiguration::setSetting(const QString &entry, const QDBusVariant &value
 {
     QVariant setvalue = value.variant();
 
-    QLOG_DEBUG() << "Set Setting: " << entry << " : " << setvalue;
+    QLOG_TRACE() << "Set Setting: " << entry << " : " << setvalue;
 
     setValue(entry, setvalue);
 
@@ -160,17 +164,16 @@ void OcConfiguration::setSetting(const QString &entry, const QDBusVariant &value
 void OcConfiguration::resetConfig()
 {
     QLOG_INFO() << "Resetting configuration";
-   remove("server");
-   remove("display");
-   remove("storage/maxitems");
-   remove("update");
-   remove("event");
+    remove("server");
+    remove("display");
+    remove("storage/maxitems");
+    remove("update");
+    remove("event");
 #if !defined(MEEGO_EDITION_HARMATTAN)
-   remove("account");
+    remove("account");
 #endif
 
-   emit configReset();
-
+    emit configReset();
 }
 
 
@@ -220,7 +223,9 @@ QDBusVariant OcConfiguration::getStat(const int stat)
         QLOG_DEBUG() << "Getting all unread items statistic:";
         QSqlQuery query;
 
-        query.exec(QString("SELECT COUNT(id) FROM items WHERE unread = ").append(SQL_TRUE));
+        if (!query.exec(QString("SELECT COUNT(id) FROM items WHERE unread = ").append(SQL_TRUE))) {
+            QLOG_ERROR() << "Failed to get all unread items statistic: " << query.lastError().text();
+        }
 
         if(query.next())
             qvResult = query.value(0);
@@ -277,7 +282,7 @@ QVariantMap OcConfiguration::getStatistics()
 
     emit gotStatistics(stats);
 
-    QLOG_TRACE() << stats;
+    QLOG_TRACE() << "Statistics: " << stats;
 
     return stats;
 }

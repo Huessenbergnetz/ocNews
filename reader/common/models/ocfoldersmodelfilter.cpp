@@ -1,5 +1,5 @@
 #include "ocfoldersmodelfilter.h"
-#include <QDebug>
+#include "QsLog.h"
 
 OcFoldersModelFilter::OcFoldersModelFilter(QObject *parent) :
     QSortFilterProxyModel(parent)
@@ -19,6 +19,7 @@ void OcFoldersModelFilter::setHideRead(const bool &nHideRead)
 {
     if (nHideRead != m_hideRead) {
         m_hideRead = nHideRead;
+        QLOG_DEBUG() << "Folders model filter: set hide read to " << hideRead();
         this->invalidateFilter();
         this->invalidate();
         emit hideReadChanged(hideRead());
@@ -32,6 +33,7 @@ void OcFoldersModelFilter::setOrderBy(const QString &nOrderBy)
 {
     if (nOrderBy != m_orderBy) {
         m_orderBy = nOrderBy;
+        QLOG_DEBUG() << "Folders model filter: set order by to " << orderBy();
         setSorting();
         emit orderByChanged(orderBy());
     }

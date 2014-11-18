@@ -5,6 +5,7 @@
 #include <QDir>
 #include <QSettings>
 #include <QSqlQuery>
+#include <QSqlError>
 #include <QDateTime>
 #include <QtDBus/QDBusVariant>
 #if defined(MEEGO_EDITION_HARMATTAN)

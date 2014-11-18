@@ -1,6 +1,6 @@
 #include "occombinedmodelnew.h"
 #include "objects/occombinedobject.h"
-#include <QDebug>
+#include "QsLog.h"
 
 const int OcCombinedModelNew::IdRole = Qt::UserRole + 1;
 const int OcCombinedModelNew::TypeRole = Qt::UserRole + 2;
@@ -32,6 +32,8 @@ void OcCombinedModelNew::setActive(const bool &nActive)
     if (nActive != m_active) {
         m_active = nActive;
 
+        QLOG_DEBUG() << "Combined model: set active to " << active();
+
         if (active()) {
             init();
         } else {
@@ -49,6 +51,7 @@ void OcCombinedModelNew::setTotalUnread(const int &nTotalUnread)
 {
     if (nTotalUnread != m_totalUnread) {
         m_totalUnread = nTotalUnread;
+        QLOG_DEBUG() << "Combined model: set total unread to " << totalUnread();
         emit totalUnreadChanged(totalUnread());
     }
 }
@@ -128,9 +131,7 @@ QModelIndex OcCombinedModelNew::index(int row, int column, const QModelIndex &pa
 
 void OcCombinedModelNew::init()
 {
-#ifdef QT_DEBUG
-    qDebug() << "Refresh Combined Model";
-#endif
+    QLOG_INFO() << "Initialize combined model";
 
     clear();
 
@@ -140,7 +141,9 @@ void OcCombinedModelNew::init()
 
     QString querystring("SELECT COUNT(id) FROM feeds");
 
-    query.exec(querystring);
+    if (!query.exec(querystring)) {
+        QLOG_ERROR() << "Combined model: failed to select feed count from database: " << query.lastError().text();
+    }
 
     query.next();
 
@@ -166,7 +169,9 @@ void OcCombinedModelNew::init()
 
         querystring.append("ORDER BY TYPE DESC");
 
-        query.exec(querystring);
+        if (!query.exec(querystring)) {
+            QLOG_ERROR() << "Combined model: failed to select items from database: " << query.lastError().text();
+        }
 
         beginInsertRows(QModelIndex(), 0, length-1);
 
@@ -194,6 +199,8 @@ void OcCombinedModelNew::init()
 
 void OcCombinedModelNew::clear()
 {
+    QLOG_INFO() << "Clearing combined model";
+
     beginRemoveRows(QModelIndex(), 0, rowCount()-1);
 
     while (!m_items.isEmpty()) {
@@ -233,13 +240,17 @@ void OcCombinedModelNew::feedsRequested(const QList<int> &updated, const QList<i
 
     if (!updated.isEmpty()) {
 
+        QLOG_INFO() << "Combined model: updating existing items";
+
         for (int i = 0; i < rowCount(); ++i) {
 
             if (updated.contains(m_items.at(i)->id)) {
 
                 queryString = QString("SELECT fe.id, fe.title, fe.localUnreadCount AS unreadCount, fe.iconSource, fe.iconWidth, fe.iconHeight, fe.folderId, (SELECT name FROM folders WHERE id = fe.folderId) AS folderName FROM feeds fe WHERE fe.id = %1").arg(m_items.at(i)->id);
 
-                query.exec(queryString);
+                if (!query.exec(queryString)) {
+                    QLOG_ERROR() << "Combined model: failed to select feed data from database: " << query.lastError().text();
+                }
 
                 if (query.next()) {
 
@@ -269,6 +280,8 @@ void OcCombinedModelNew::feedsRequested(const QList<int> &updated, const QList<i
 
     if (!newFeeds.isEmpty()) {
 
+        QLOG_INFO() << "Combined model: adding new items";
+
         QString feedList("(");
 
         for (int i = 0; i < newFeeds.size(); ++i)
@@ -282,7 +295,9 @@ void OcCombinedModelNew::feedsRequested(const QList<int> &updated, const QList<i
 
         queryString = QString("SELECT fe.id AS id, 0 AS type, fe.title, fe.localUnreadCount AS unreadCount, fe.iconSource, fe.iconWidth, fe.iconHeight, fe.folderId, (SELECT name FROM folders WHERE id = fe.folderId) AS folderName FROM feeds fe WHERE fe.id IN %1 ORDER BY TYPE DESC").arg(feedList);
 
-        query.exec(queryString);
+        if (!query.exec(queryString)) {
+            QLOG_ERROR() << "Combined model: Failed to select feed data from database: " << query.lastError().text();
+        }
 
         beginInsertRows(QModelIndex(), rowCount(), (rowCount() + newFeeds.size()-1));
 
@@ -309,6 +324,8 @@ void OcCombinedModelNew::feedsRequested(const QList<int> &updated, const QList<i
 
     if (!deleted.isEmpty()) {
 
+        QLOG_INFO() << "Combined model: removing deleted items";
+
         QList<int> deletedIdxs = QList<int>();
 
         for (int i = 0; i < rowCount(); ++i) {
@@ -322,6 +339,8 @@ void OcCombinedModelNew::feedsRequested(const QList<int> &updated, const QList<i
             for (int j = 0; j < deletedIdxs.size(); ++j) {
 
                 int idx = deletedIdxs.at(j);
+
+                QLOG_DEBUG() << "Combined model: removing delete item at index " << idx;
 
                 beginRemoveRows(QModelIndex(), idx, idx);
 
@@ -340,6 +359,8 @@ void OcCombinedModelNew::itemsMarkedAllRead()
 {
     if (!active())
         return;
+
+    QLOG_INFO() << "Combined model: marking all items as read";
 
     for (int i = 0; i < rowCount(); ++i) {
 
@@ -363,13 +384,17 @@ void OcCombinedModelNew::itemsMarked()
     if (!active())
         return;
 
+    QLOG_INFO() << "Combined model: update unread count";
+
     QHash<int, int> idsAndUnread;
 
     QSqlQuery query;
 
     QString queryString("SELECT id, localUnreadCount FROM feeds");
 
-    query.exec(queryString);
+    if (!query.exec(queryString)) {
+        QLOG_ERROR() << "Combined model: update unread count: failed to select feed data from database: " << query.lastError().text();
+    }
 
     while(query.next()) {
         idsAndUnread[query.value(0).toInt()] = query.value(1).toInt();
@@ -377,7 +402,9 @@ void OcCombinedModelNew::itemsMarked()
 
     queryString = "SELECT ((SELECT IFNULL(SUM(localUnreadCount),0) FROM feeds WHERE folderId = 0) + (SELECT IFNULL(SUM(localUnreadCount),0) FROM folders))";
 
-    query.exec(queryString);
+    if (!query.exec(queryString)) {
+        QLOG_ERROR() << "Combined model: update unread count: failed to select fedd data from database: " << query.lastError().text();
+    }
 
     query.next();
 
@@ -410,13 +437,17 @@ void OcCombinedModelNew::itemsStarred()
     if (!active())
         return;
 
+    QLOG_INFO() << "Combined model: updating starred items count";
+
     QSqlQuery query;
 
     QString queryString;
 
     queryString = QString("SELECT COUNT(id) FROM items WHERE starred = %1").arg(SQL_TRUE);
 
-    query.exec(queryString);
+    if (!query.exec(queryString)) {
+        QLOG_ERROR() << "Combined model: failed to update starred items count from database: " << query.lastError().text();
+    }
 
     query.next();
 
@@ -438,9 +469,13 @@ void OcCombinedModelNew::feedCreated(const QString &name, const int &id)
     if (!active())
         return;
 
+    QLOG_INFO() << "Combined model: adding newly created feedd";
+
     QSqlQuery query;
 
-    query.exec(QString("SELECT fe.id AS id, 0 AS type, fe.localUnreadCount AS unreadCount, fe.iconSource, fe.iconWidth, fe.iconHeight, fe.folderId, (SELECT name FROM folders WHERE id = fe.folderId) AS folderName FROM feeds fe WHERE fe.id = %1").arg(id));
+    if (!query.exec(QString("SELECT fe.id AS id, 0 AS type, fe.localUnreadCount AS unreadCount, fe.iconSource, fe.iconWidth, fe.iconHeight, fe.folderId, (SELECT name FROM folders WHERE id = fe.folderId) AS folderName FROM feeds fe WHERE fe.id = %1").arg(id))) {
+        QLOG_ERROR() << "Combined model: failed to add newly created feed from database: " << query.lastError();
+    }
 
     if(query.next()) {
 
@@ -466,14 +501,12 @@ void OcCombinedModelNew::feedCreated(const QString &name, const int &id)
 
 void OcCombinedModelNew::feedDeleted(const int &id)
 {
-    qDebug() << "DELETING FEED";
-
     if (!active())
         return;
 
     int idx = findIndex(id);
 
-    qDebug() << "INDEX: " << idx;
+    QLOG_INFO() << "Combined model: removing delted feed at index " << idx;
 
     beginRemoveRows(QModelIndex(), idx, idx);
 
@@ -493,6 +526,8 @@ void OcCombinedModelNew::feedMarkedRead(const int &id)
 
     int idx = findIndex(id);
 
+    QLOG_INFO() << "Combined model: marking feed at index " << idx << " as read";
+
     m_items.at(idx)->unreadCount = 0;
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
@@ -510,9 +545,13 @@ void OcCombinedModelNew::feedMoved(const int &feedId, const int &folderId)
     if (!active())
         return;
 
+    QLOG_INFO() << "Combined model: update moved feed";
+
     QSqlQuery query;
 
-    query.exec(QString("SELECT name FROM folders WHERE id = %1").arg(folderId));
+    if (!query.exec(QString("SELECT name FROM folders WHERE id = %1").arg(folderId))) {
+        QLOG_ERROR() << "Combined model: failed to update moved feed: failed to select new folder name from database: " << query.lastError().text();
+    }
 
     query.next();
 
@@ -538,6 +577,8 @@ void OcCombinedModelNew::feedRenamed(const QString &newName, const int &feedId)
         return;
 
     int idx = findIndex(feedId);
+
+    QLOG_INFO() << "Combined model: upadting renamed feed at index " << idx;
 
     m_items.at(idx)->title = newName;
 
@@ -578,7 +619,9 @@ void OcCombinedModelNew::queryAndSetTotalCount()
 
     query.exec("SELECT ((SELECT IFNULL(SUM(localUnreadCount),0) FROM feeds WHERE folderId = 0) + (SELECT IFNULL(SUM(localUnreadCount),0) FROM folders))");
 
-    query.next();
+    if (!query.next()) {
+        QLOG_ERROR() << "Combined model: failed to query total count fromo database: " << query.lastError().text();
+    }
 
     int totalCount = query.value(0).toInt();
 

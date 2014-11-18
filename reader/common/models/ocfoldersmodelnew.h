@@ -3,6 +3,7 @@
 
 #include <QAbstractListModel>
 #include <QSqlQuery>
+#include <QSqlError>
 #include <QDir>
 #include "../../../common/globals.h"
 

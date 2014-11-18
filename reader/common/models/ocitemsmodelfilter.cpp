@@ -1,3 +1,4 @@
+#include "QsLog.h"
 #include "ocitemsmodelfilter.h"
 
 OcItemsModelFilter::OcItemsModelFilter(QObject *parent) :
@@ -24,6 +25,7 @@ void OcItemsModelFilter::setSearch(const QString &nSearch)
 {
     if (nSearch != m_search) {
         m_search = nSearch;
+        QLOG_DEBUG() << "Items model filter: changed search to " << search();
         this->invalidateFilter();
         this->invalidate();
         emit searchChanged(search());
@@ -41,6 +43,7 @@ void OcItemsModelFilter::setSortAsc(const bool &nSortAsc)
 {
     if (nSortAsc != m_sortAsc) {
         m_sortAsc = nSortAsc;
+        QLOG_DEBUG() << "Items model filter: changed sortAsc to " << sortAsc();
         setSortOrder();
         emit sortAscChanged(sortAsc());
     }
@@ -58,6 +61,7 @@ void OcItemsModelFilter::setHandleRead(const int &nHandleRead)
 {
     if (nHandleRead != m_handleRead) {
         m_handleRead = nHandleRead;
+        QLOG_DEBUG() << "Items model filter: changed handleRead to " << handleRead();
         if (handleRead() == 2) {
             setSortOrder();
         } else {

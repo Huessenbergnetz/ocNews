@@ -1,4 +1,4 @@
-#include <QDebug>
+#include "QsLog.h"
 #include "ocfoldermodelsql.h"
 #include "../../../common/globals.h"
 

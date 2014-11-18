@@ -1,5 +1,5 @@
 #include "ocitemsmodelnew.h"
-#include <QDebug>
+#include "QsLog.h"
 
 const int OcItemsModelNew::TitleRole = Qt::UserRole + 1;
 const int OcItemsModelNew::ItemIdRole = Qt::UserRole + 2;
@@ -102,9 +102,7 @@ QVariant OcItemsModelNew::data(const QModelIndex &index, int role) const
 
 void OcItemsModelNew::init()
 {
-#ifdef QT_DEBUG
-    qDebug() << "Init Items Model";
-#endif
+    QLOG_INFO() << "Initialize items model";
 
     setPopulating(true);
 
@@ -118,7 +116,9 @@ void OcItemsModelNew::init()
 
     queryString = QString("SELECT COUNT(id) FROM items WHERE feedId = %1").arg(feedId());
 
-    query.exec(queryString);
+    if (!query.exec(queryString)) {
+        QLOG_ERROR() << "Items model: failed to count database items in this feed: " << query.lastError().text();
+    }
 
     query.next();
 
@@ -154,7 +154,9 @@ void OcItemsModelNew::init()
 
         queryString.append(" ORDER BY pubDate DESC");
 
-        query.exec(queryString);
+        if (!query.exec(queryString)) {
+            QLOG_ERROR() << "Items model: failed to query items from database: " << query.lastError().text();
+        }
 
 
         beginInsertRows(QModelIndex(), 0, length-1);
@@ -196,6 +198,8 @@ QModelIndex OcItemsModelNew::index(int row, int column, const QModelIndex &paren
 
 void OcItemsModelNew::clear()
 {
+    QLOG_INFO() << "Clearing items model";
+
     beginRemoveRows(QModelIndex(), 0, rowCount()-1);
 
     while (!m_items.isEmpty()) {
@@ -219,6 +223,7 @@ void OcItemsModelNew::setFeedId(const int &nFeedId)
     timer->stop();
     if (nFeedId != m_feedId) {
         m_feedId = nFeedId;
+        QLOG_DEBUG() << "Items model: changing feed ID to " << feedId();
         init();
         emit feedIdChanged(feedId());
     }
@@ -232,6 +237,7 @@ void OcItemsModelNew::setPopulating(const bool &nPopulating)
 {
     if (nPopulating != m_populating) {
         m_populating = nPopulating;
+        QLOG_DEBUG() << "Items model: changing populating to " << populating();
         emit populatingChanged(populating());
     }
 }
@@ -244,6 +250,7 @@ void OcItemsModelNew::setShowExcerpts(const bool &nShowExcerpts)
 {
     if (nShowExcerpts != m_showExcerpts) {
         m_showExcerpts = nShowExcerpts;
+        QLOG_DEBUG() << "Items model: changing showExcerpts to " << showExcerpts();
         emit showExcerptsChanged(showExcerpts());
     }
 }
@@ -255,6 +262,7 @@ void OcItemsModelNew::setShowImages(const bool &nShowImages)
 {
     if (nShowImages != m_showImages) {
         m_showImages = nShowImages;
+        QLOG_DEBUG() << "Items model: changing showImages to " << showImages();
         emit showImagesChanged(showImages());
     }
 }
@@ -264,6 +272,8 @@ void OcItemsModelNew::setShowImages(const bool &nShowImages)
 void OcItemsModelNew::itemsMarked(const QStringList &ids, const QString &action)
 {
     if (!ids.isEmpty() && !m_populating) {
+
+        QLOG_INFO() << "Items model: updating un/marked items";
 
         for (int i = 0; i < rowCount(); ++i) {
             if (ids.contains(QString::number(m_items.at(i)->itemId))) {
@@ -286,6 +296,8 @@ void OcItemsModelNew::itemsStarred(const QStringList &hashes, const QString &act
 {
     if (!hashes.isEmpty() && !m_populating) {
 
+        QLOG_INFO() << "Items model: updating un/starred items";
+
         for (int i = 0; i < rowCount(); ++i) {
             if (hashes.contains(m_items.at(i)->guidHash)) {
 
@@ -306,6 +318,8 @@ void OcItemsModelNew::itemsStarred(const QStringList &hashes, const QString &act
 void OcItemsModelNew::feedMarkedRead(const int &markedFeedId)
 {
     if (markedFeedId == feedId() && !m_populating) {
+
+        QLOG_INFO() << "Items model: feed was marked as read, updating items";
 
         for (int i = 0; i < rowCount(); ++i) {
 
@@ -347,7 +361,9 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
 
         queryString = QString("SELECT COUNT(id) FROM items WHERE feedId = %1 AND id IN %2").arg(feedId()).arg(itemList);
 
-        q.exec(queryString);
+        if (!q.exec(queryString)) {
+            QLOG_ERROR() << "Items model: failed to count newly added items from this feed in database: " << q.lastError().text();
+        }
 
         q.next();
 
@@ -356,6 +372,8 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
         q.clear();
 
         if (length > 0) {
+
+            QLOG_INFO() << "Items model: Adding new items";
 
             queryString = QString("SELECT it.id, "
                                          "it.title, "
@@ -415,6 +433,8 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
 
     if (!updated.isEmpty())
     {
+        QLOG_INFO() << "Items model: updating items";
+
         for (int i = 0; i < rowCount(); ++i) {
 
             if (updated.contains(m_items.at(i)->itemId)) {
@@ -453,6 +473,8 @@ void OcItemsModelNew::itemsUpdated(const QList<int> &updated, const QList<int> &
 
     if (!deleted.isEmpty())
     {
+        QLOG_INFO() << "Items model: remove deleted items";
+
         QList<int> deleteIdxs;
 
         for (int i = 0; i < rowCount(); ++i)
@@ -480,6 +502,8 @@ void OcItemsModelNew::allMarkedRead()
 {
     if (!m_items.isEmpty() && !m_populating)
     {
+        QLOG_INFO() << "Items model: marking all items as read";
+
         for (int i = 0; i < rowCount(); ++i)
         {
             OcItemObject *iobj = m_items.at(i);

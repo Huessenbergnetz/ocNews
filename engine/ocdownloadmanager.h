@@ -8,6 +8,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
+#include <QSqlError>
 
 #if defined(MEEGO_EDITION_HARMATTAN)
 #include <TransferUI/Client>

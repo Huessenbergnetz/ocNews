@@ -1,5 +1,5 @@
 #include "occombinedmodelfilter.h"
-#include <QDebug>
+#include "QsLog.h"
 
 OcCombinedModelFilter::OcCombinedModelFilter(QObject *parent) :
     QSortFilterProxyModel(parent)
@@ -20,6 +20,7 @@ void OcCombinedModelFilter::setHideRead(const bool &nHideRead)
 {
     if (nHideRead != m_hideRead) {
         m_hideRead = nHideRead;
+        QLOG_DEBUG() << "Combined model filter: Changed hide read to " << hideRead();
         this->invalidateFilter();
         this->invalidate();
         emit hideReadChanged(hideRead());
@@ -33,6 +34,7 @@ void OcCombinedModelFilter::setOrderBy(const QString &nOrderBy)
 {
     if (nOrderBy != m_orderBy) {
         m_orderBy = nOrderBy;
+        QLOG_DEBUG() << "Combined model filter: Changed order by to " << orderBy();
         setSorting();
         emit orderByChanged(orderBy());
     }

@@ -134,7 +134,9 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
                 query.prepare("UPDATE feeds SET title = :title WHERE id = :id;");
                 query.bindValue(":title", map["title"].toString());
                 query.bindValue(":id", map["id"].toInt());
-                query.exec();
+                if (!query.exec()) {
+                    QLOG_ERROR() << "Request feeds: failed to update database: " << query.lastError().text();
+                }
 
                 updated = true;
             }
@@ -145,7 +147,9 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
                 query.prepare("UPDATE feeds SET faviconLink = :faviconLink WHERE id = :id;");
                 query.bindValue(":faviconLink", map["faviconLink"].toString());
                 query.bindValue(":id", map["id"].toInt());
-                query.exec();
+                if (!query.exec()) {
+                    QLOG_ERROR() << "Request feeds: failed to update database: " << query.lastError().text();
+                }
                 getFavicon( map["id"].toString(), map["faviconLink"].toString());
 
                 updated = true;
@@ -157,7 +161,9 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
                 query.prepare("UPDATE feeds SET folderId = :folderId WHERE id = :id;");
                 query.bindValue(":folderId", map["folderId"].toInt());
                 query.bindValue(":id", map["id"].toInt());
-                query.exec();
+                if (!query.exec()) {
+                    QLOG_ERROR() << "Request feeds: failed to update database: " << query.lastError().text();
+                }
 
                 updated = true;
             }
@@ -168,7 +174,9 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
                 query.prepare("UPDATE feeds SET unreadCount = :unreadCount WHERE id = :id;");
                 query.bindValue(":unreadCount", map["unreadCount"].toInt());
                 query.bindValue(":id", map["id"].toInt());
-                query.exec();
+                if (!query.exec()) {
+                    QLOG_ERROR() << "Request feeds: failed to update database: " << query.lastError().text();
+                }
             }
 
             // check if feed has changed it's link
@@ -177,7 +185,9 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
                 query.prepare("UPDATE feeds SET link = :link WHERE id = :id;");
                 query.bindValue(":link", map["link"].toString());
                 query.bindValue(":id", map["id"].toInt());
-                query.exec();
+                if (!query.exec()) {
+                    QLOG_ERROR() << "Request feeds: failed to update database: " << query.lastError().text();
+                }
 
                 updated = true;
             }
@@ -197,7 +207,9 @@ void OcFeeds::feedsRequestedUpdateDb(const QVariantMap &feedsresult)
             query.bindValue(":fol", map["folderId"].toInt());
             query.bindValue(":unr", map["unreadCount"].toInt());
             query.bindValue(":lin", map["link"].toString());
-            query.exec();
+            if (!query.exec()) {
+                QLOG_ERROR() << "Request feeds: failed to add entry to database: " << query.lastError().text();
+            }
 
             QLOG_DEBUG() << "Added Feed: " << map["title"].toString();
 
@@ -322,6 +334,8 @@ void OcFeeds::createFeed(const QString &url, const QString &folderId, const bool
         parameters.append("\", \"folderId\": ");
         parameters.append(t_folderId.replace(QString("/"), QString("\\/")));
         parameters.append("}");
+
+        QLOG_TRACE() << "Add feed: parameters: " << parameters;
 
         replyCreateFeed = network.post(helper.buildRequest("feeds", parameters.size()), parameters);
 
@@ -605,6 +619,8 @@ void OcFeeds::moveFeed(const QString &id, const QString &folderId)
         parameters.append(folderId);
         parameters.append("}");
 
+        QLOG_TRACE() << "Move feed: Parameters: " << parameters;
+
         folderIdToMoveTo = folderId;
 
         replyMoveFeed = network.put(helper.buildRequest(feed, parameters.length()), parameters);
@@ -707,7 +723,7 @@ void OcFeeds::feedMovedUpdateDb(const int &id, const QString &folderId)
 void OcFeeds::getFavicon(QString feedId, QString faviconLink)
 {
     QLOG_INFO() << "Getting favicon for feed ID: " << feedId;
-    QLOG_INFO() << faviconLink;
+    QLOG_INFO() << "Favicon link: " << faviconLink;
 
     // Building the request
     QNetworkRequest request(faviconLink);
@@ -743,7 +759,9 @@ void OcFeeds::getFavicon(QString feedId, QString faviconLink)
                 query.bindValue(":width", favicon.width());
                 query.bindValue(":height", favicon.height());
                 query.bindValue(":id", feedId.toInt());
-                query.exec();
+                if (!query.exec()) {
+                    QLOG_ERROR() << "Get favicon: Failed to update database: " << query.lastError().text();
+                }
             }
             else
             {
@@ -789,7 +807,15 @@ void OcFeeds::markFeedRead(const QString &feedId)
         // Determine newest item ID
         QSqlQuery query;
         QString newestItemId;
-        query.exec(QString("SELECT MAX(id) FROM items WHERE feedId = %1;").arg(feedId.toInt()));
+
+        if (!query.exec(QString("SELECT MAX(id) FROM items WHERE feedId = %1;").arg(feedId.toInt())))
+        {
+            QLOG_ERROR() << "Mark feed read: failed to select newest ID from database: " << query.lastError().text();
+            notify.showNotification(tr("Database error"), tr("Failed to mark feed as read"), OcNotifications::Error);
+            emit markedReadFeedError(tr("Database error"));
+            return;
+        }
+
         if (query.next())
             newestItemId = query.value(0).toString();
 

@@ -68,6 +68,8 @@ QString OcDownloadManager::saveFileName(const QString &url, const QString &mime)
 
     storagePath.append("/").append(basename);
 
+    QLOG_DEBUG() << "Download manager: storage path: " << storagePath;
+
     return storagePath;
 }
 
@@ -88,7 +90,10 @@ void OcDownloadManager::startNextDownload()
     QLOG_DEBUG() << "Download manager: ItemID to download: " << id;
 
     QSqlQuery query;
-    query.exec(QString("SELECT enclosureMime, enclosureLink FROM items WHERE id = %1").arg(id.toInt()));
+    if (!query.exec(QString("SELECT enclosureMime, enclosureLink FROM items WHERE id = %1").arg(id.toInt()))) {
+        QLOG_ERROR() << "Download manager: failed to select mime type and enclosure link from database: " << query.lastError().text();
+        return;
+    }
 
     QString link;
     QString mime;
@@ -120,7 +125,7 @@ void OcDownloadManager::startNextDownload()
 
     if (!output.open(QIODevice::WriteOnly))
     {
-        QLOG_ERROR() << "Can not open file for downloading";
+        QLOG_ERROR() << "Download manager: Can not open target file for writing";
         startNextDownload();
         return;
     }
@@ -234,7 +239,7 @@ QString OcDownloadManager::itemExists(const QString &link, const QString &mime)
         result = file.fileName();
 
 
-    QLOG_DEBUG() << "Does file exists: " << result;
+    QLOG_DEBUG() << "Download manager: Does file exists: " << result;
     return result;
 }
 

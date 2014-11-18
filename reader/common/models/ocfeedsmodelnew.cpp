@@ -1,6 +1,6 @@
 #include "ocfeedsmodelnew.h"
 #include "objects/ocfeedobjec.h"
-#include <QDebug>
+#include "QsLog.h"
 
 const int OcFeedsModelNew::IdRole = Qt::UserRole + 1;
 const int OcFeedsModelNew::TypeRole = Qt::UserRole + 2;
@@ -27,6 +27,7 @@ void OcFeedsModelNew::setFolderId(const int &nFolderId)
 {
     if (nFolderId != m_folderId) {
         m_folderId = nFolderId;
+        QLOG_DEBUG() << "Feeds model: setting folder ID to " << folderId();
         init();
         emit folderIdChanged(folderId());
     }
@@ -100,10 +101,7 @@ QModelIndex OcFeedsModelNew::index(int row, int column, const QModelIndex &paren
 
 void OcFeedsModelNew::init()
 {
-
-#ifdef QT_DEBUG
-    qDebug() << "Init feeds model";
-#endif
+    QLOG_INFO() << "Initializing feeds model";
 
     if (!m_items.isEmpty())
         clear(false);
@@ -114,7 +112,9 @@ void OcFeedsModelNew::init()
 
     QString querystring(QString("SELECT COUNT(id) FROM feeds WHERE folderId = %1").arg(folderId()));
 
-    query.exec(querystring);
+    if (!query.exec(querystring)) {
+        QLOG_ERROR() << "Feeds mode: failed to select feeds count from database: " << query.lastError().text();
+    }
 
     query.next();
 
@@ -132,7 +132,9 @@ void OcFeedsModelNew::init()
 
     querystring.append("ORDER BY type DESC");
 
-    query.exec(querystring);
+    if (!query.exec(querystring)) {
+        QLOG_ERROR() << "Feeds mode: failed to select feeds from database: " << query.lastError().text();
+    }
 
     beginInsertRows(QModelIndex(), 0, length-1);
 
@@ -155,6 +157,8 @@ void OcFeedsModelNew::init()
 
 void OcFeedsModelNew::clear(const bool &resetId)
 {
+    QLOG_INFO() << "Clearing feeds model";
+
     beginRemoveRows(QModelIndex(), 0, rowCount()-1);
 
     while (!m_items.isEmpty()) {
@@ -188,11 +192,15 @@ void OcFeedsModelNew::itemsMarked()
     if (rowCount() < 2)
         return;
 
+    QLOG_INFO() << "Feeds model: update unread count";
+
     QHash<int, int> idsAndUnread;
 
     QSqlQuery query;
 
-    query.exec(QString("SELECT id, localUnreadCount FROM feeds WHERE folderId = %1").arg(folderId()));
+    if (!query.exec(QString("SELECT id, localUnreadCount FROM feeds WHERE folderId = %1").arg(folderId()))) {
+        QLOG_ERROR() << "Feeds model: failed to select feeds data from database: " << query.lastError().text();
+    }
 
     while(query.next()) {
         idsAndUnread[query.value(0).toInt()] = query.value(1).toInt();
@@ -224,6 +232,8 @@ void OcFeedsModelNew::itemsMarkedAllRead()
     if (m_items.isEmpty())
         return;
 
+    QLOG_INFO() << "Feeds model: marking all items as read";
+
     for (int i = 0; i < rowCount(); ++i)
     {
         m_items.at(i)->unreadCount = 0;
@@ -247,11 +257,15 @@ void OcFeedsModelNew::feedsRequested(const QList<int> &updated, const QList<int>
 
     if (!updated.isEmpty()) {
 
+        QLOG_INFO() << "Feeds model: updating changed feeds";
+
         for (int i = 0; i < updated.size(); ++i)
         {
             int idx = findIndex(updated.at(i), 0);
 
-            query.exec(QString("SELECT title, iconSource, iconWidth, iconHeight, folderId, localUnreadCount, FROM feeds WHERE id = %1").arg(updated.at(i)));
+            if (!query.exec(QString("SELECT title, iconSource, iconWidth, iconHeight, folderId, localUnreadCount, FROM feeds WHERE id = %1").arg(updated.at(i)))) {
+                QLOG_ERROR() << "Feeds model: failed to select data for changed feeds from database: " << query.lastError().text();
+            }
 
             query.next();
 
@@ -259,6 +273,8 @@ void OcFeedsModelNew::feedsRequested(const QList<int> &updated, const QList<int>
 
             // check if updated feed is still child of these folder
             if ((idx != -999) && (fId == folderId())) {
+
+                QLOG_DEBUG() << "Feeds model: updating feed at index " << idx;
 
                 m_items.at(i)->title = query.value(0).toString();
                 m_items.at(i)->iconSource = query.value(1).toString();
@@ -279,6 +295,8 @@ void OcFeedsModelNew::feedsRequested(const QList<int> &updated, const QList<int>
 
                 // the updated feed is no longer child of these folder
 
+                QLOG_DEBUG() << "Feeds model: removing feed at index " << idx << " because it is no longer child of this folder";
+
                 beginRemoveRows(QModelIndex(), idx, idx);
 
                 delete m_items.takeAt(i);
@@ -287,6 +305,8 @@ void OcFeedsModelNew::feedsRequested(const QList<int> &updated, const QList<int>
             } else if ((idx == -999) && (fId == folderId())) {
 
                 // the feed has been moved to this folder
+
+                QLOG_DEBUG() << "Feeds model: adding feed that has been moved to this folder";
 
                 beginInsertRows(QModelIndex(), rowCount(), rowCount());
 
@@ -317,7 +337,9 @@ void OcFeedsModelNew::feedsRequested(const QList<int> &updated, const QList<int>
 
         int length = 0;
 
-        query.exec(QString("SELECT COUNT(id) FROM feeds WHERE folderId = %1 AND id IN %2").arg(folderId()).arg(feedList));
+        if (!query.exec(QString("SELECT COUNT(id) FROM feeds WHERE folderId = %1 AND id IN %2").arg(folderId()).arg(feedList))) {
+            QLOG_ERROR() << "Feeds model: failed to select count of new feeds in this folder from database: " << query.lastError().text();
+        }
 
         query.next();
 
@@ -325,7 +347,11 @@ void OcFeedsModelNew::feedsRequested(const QList<int> &updated, const QList<int>
 
         if (length > 0) {
 
-            query.exec(QString("SELECT id, title, localUnreadCount, iconSource, iconWidth, iconHeight WHERE folderId = %1 AND id IN %2").arg(folderId()).arg(feedList));
+            QLOG_INFO() << "Feeds model: adding new feeds";
+
+            if (!query.exec(QString("SELECT id, title, localUnreadCount, iconSource, iconWidth, iconHeight WHERE folderId = %1 AND id IN %2").arg(folderId()).arg(feedList))) {
+                QLOG_ERROR() << "Feeds model: failed to select data for newly added feeds from database: " << query.lastError().text();
+            }
 
             beginInsertRows(QModelIndex(), rowCount(), (rowCount() + length - 1));
 
@@ -356,6 +382,8 @@ void OcFeedsModelNew::feedsRequested(const QList<int> &updated, const QList<int>
 
             if (idx != -999) {
 
+                QLOG_INFO() << "Feeds model: removing deleted feed at index " << idx;
+
                 beginRemoveRows(QModelIndex(), idx, idx);
 
                 delete m_items.takeAt(idx);
@@ -376,6 +404,8 @@ void OcFeedsModelNew::feedDeleted(const int &id)
 
     if (idx != -999) {
 
+        QLOG_INFO() << "Feeds model: removing deleted feed at index " << idx;
+
         beginRemoveRows(QModelIndex(), idx, idx);
 
         delete m_items.takeAt(idx);
@@ -391,11 +421,15 @@ void OcFeedsModelNew::feedCreated(const QString &name, const int &id)
 {
     QSqlQuery query;
 
-    query.exec(QString("SELECT id, localUnreadCount, iconSource, iconWidth, iconHeight, folderId FROM feeds WHERE id = %1").arg(id));
+    if (!query.exec(QString("SELECT id, localUnreadCount, iconSource, iconWidth, iconHeight, folderId FROM feeds WHERE id = %1").arg(id))) {
+        QLOG_ERROR() << "Feeds model: failed to select data of newly created feed from database: " << query.lastError().text();
+    }
 
     query.next();
 
     if (query.value(5).toInt() == folderId()) {
+
+        QLOG_INFO() << "Feeds model: adding newly created feed";
 
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
 
@@ -424,9 +458,13 @@ void OcFeedsModelNew::feedMoved(const int &feedId, const int &fId)
 
         // feed was added to this folder, so create it
 
+        QLOG_INFO() << "Feeds model: add feed that was moved to this folder";
+
         QSqlQuery query;
 
-        query.exec(QString("SELECT id, title, localUnreadCount, iconSource, iconWidth, iconHeight, folderId FROM feeds WHERE id = %1").arg(feedId));
+        if (!query.exec(QString("SELECT id, title, localUnreadCount, iconSource, iconWidth, iconHeight, folderId FROM feeds WHERE id = %1").arg(feedId))) {
+            QLOG_ERROR() << "Feeds model: failed to select feed data from database: " << query.lastError().text();
+        }
 
         query.next();
 
@@ -449,6 +487,8 @@ void OcFeedsModelNew::feedMoved(const int &feedId, const int &fId)
 
         // feed was removed from this folder, so delete it
 
+        QLOG_INFO() << "Feeds model: remove feed at index " << idx << " that was moved to another folder";
+
         beginRemoveRows(QModelIndex(), idx, idx);
 
         delete m_items.takeAt(idx);
@@ -465,6 +505,8 @@ void OcFeedsModelNew::feedMarkedRead(const int &id)
     int idx = findIndex(id, 0);
 
     if (idx != -999) {
+
+        QLOG_INFO() << "Combined model: feed at index " << idx << " was marked as read";
 
         m_items.at(idx)->unreadCount = 0;
 
@@ -489,7 +531,9 @@ void OcFeedsModelNew::feedRenamed(const QString &newName, const int &feedId)
 
      if (idx != -999) {
 
-         m_items.at(idx)->title = newName;
+        QLOG_INFO() << "Feeds model: feed at index " << idx  << " was renamed to " << newName;
+
+        m_items.at(idx)->title = newName;
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
         emit dataChanged(index(idx), index(idx), QVector<int>(1, TitleRole));
@@ -505,6 +549,8 @@ void OcFeedsModelNew::feedRenamed(const QString &newName, const int &feedId)
 void OcFeedsModelNew::folderMarkedRead(const int &id)
 {
     if (id == folderId()) {
+
+        QLOG_INFO() << "Feeds model: marking whole folder as read";
 
         for (int i = 0; i < rowCount(); ++i) {
 
@@ -543,7 +589,9 @@ void OcFeedsModelNew::queryAndSetTotalUnread()
 
     QSqlQuery query;
 
-    query.exec(QString("SELECT localUnreadCount FROM folders WHERE id = %1").arg(folderId()));
+    if (!query.exec(QString("SELECT localUnreadCount FROM folders WHERE id = %1").arg(folderId()))) {
+        QLOG_ERROR() << "Feeds model: failed to select folder unread count from database: " << query.lastError().text();
+    }
 
     query.next();
 

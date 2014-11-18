@@ -1,5 +1,5 @@
 #include "ocsingleitemmodelnew.h"
-#include <QDebug>
+#include "QsLog.h"
 
 OcSingleItemModelNew::OcSingleItemModelNew(QObject *parent) :
     QObject(parent)
@@ -38,6 +38,7 @@ void OcSingleItemModelNew::setItemId(const int &nItemId)
 {
     if (nItemId != m_itemId) {
         m_itemId = nItemId;
+        QLOG_DEBUG() << "Single item model: item ID: " << itemId();
         get();
         emit itemIdChanged(itemId());
     }
@@ -50,6 +51,7 @@ void OcSingleItemModelNew::setHandleRead(const int &nHandleRead)
 {
     if (nHandleRead != m_handleRead) {
         m_handleRead = nHandleRead;
+        QLOG_DEBUG() << "Single item: handleRead: " << handleRead();
         emit handleReadChanged(handleRead());
     }
 }
@@ -61,6 +63,7 @@ void OcSingleItemModelNew::setEnclosureType(const int &nEnclosureType)
 {
     if (nEnclosureType != m_enclosureType) {
         m_enclosureType = nEnclosureType;
+        QLOG_DEBUG() << "Single item: enclosure Type: ";
         emit enclosureTypeChanged(enclosureType());
     }
 }
@@ -72,6 +75,7 @@ void OcSingleItemModelNew::setPrevious(const int &nPrevious)
 {
     if (nPrevious != m_previous) {
         m_previous = nPrevious;
+        QLOG_DEBUG() << "Single item model: previous item ID: " << previous();
         emit previousChanged(previous());
     }
 }
@@ -83,6 +87,7 @@ void OcSingleItemModelNew::setNext(const int &nNext)
 {
     if (nNext != m_next) {
         m_next = nNext;
+        QLOG_DEBUG() << "Single item model: next item ID: " << previous();
         emit nextChanged(next());
     }
 }
@@ -94,6 +99,7 @@ void OcSingleItemModelNew::setSortAsc(const bool &nSortAsc)
 {
     if (nSortAsc != m_sortAsc) {
         m_sortAsc = nSortAsc;
+        QLOG_DEBUG() << "Single item model: changed sort ascending to " << sortAsc();
         emit sortAscChanged(sortAsc());
     }
 }
@@ -105,6 +111,7 @@ void OcSingleItemModelNew::setUnread(const bool &nUnread)
 {
     if (nUnread != m_unread) {
         m_unread = nUnread;
+        QLOG_DEBUG() << "Single item model: unread: " << unread();
         emit unreadChanged(unread());
     }
 }
@@ -116,6 +123,7 @@ void OcSingleItemModelNew::setStarred(const bool &nStarred)
 {
     if (nStarred != m_starred) {
         m_starred = nStarred;
+        QLOG_DEBUG() << "Single item model: starred: " << starred();
         emit starredChanged(starred());
     }
 }
@@ -127,6 +135,7 @@ void OcSingleItemModelNew::setContainsImg(const bool &nContainsImg)
 {
     if (nContainsImg != m_containsImg) {
         m_containsImg = nContainsImg;
+        QLOG_DEBUG() << "Single item model: contains images: " << containsImg();
         emit containsImgChanged(containsImg());
     }
 }
@@ -138,6 +147,7 @@ void OcSingleItemModelNew::setShowImg(const bool &nShowImg)
 {
     if (nShowImg != m_showImg) {
         m_showImg = nShowImg;
+        QLOG_DEBUG() << "Single item model: show images: " <<showImg();
         get();
         emit showImgChanged(showImg());
     }
@@ -150,6 +160,7 @@ void OcSingleItemModelNew::setSearchString(const QString &nSearchString)
 {
     if (nSearchString != m_searchString) {
         m_searchString = nSearchString;
+        QLOG_DEBUG() << "Single item model: search string: " << searchString();
         emit searchStringChanged(searchString());
     }
 }
@@ -161,6 +172,7 @@ void OcSingleItemModelNew::setFeedType(const int &nFeedType)
 {
     if (nFeedType != m_feedType) {
         m_feedType = nFeedType;
+        QLOG_DEBUG() << "Single item model: feed type: " << feedType();
         emit feedTypeChanged(feedType());
     }
 }
@@ -172,6 +184,7 @@ void OcSingleItemModelNew::setParentFeedId(const int &nParentFeedId)
 {
     if (nParentFeedId != m_parentFeedId) {
         m_parentFeedId = nParentFeedId;
+        QLOG_DEBUG() << "Single item model: parent feed ID: " << parentFeedId();
         emit parentFeedIdChanged(parentFeedId());
     }
 }
@@ -183,6 +196,7 @@ void OcSingleItemModelNew::setGuidHash(const QString &nGuidHash)
 {
     if (nGuidHash != m_guidHash) {
         m_guidHash = nGuidHash;
+        QLOG_DEBUG() << "Single item model: guid hash: " << guidHash();
         emit guidHashChanged(guidHash());
     }
 }
@@ -194,6 +208,7 @@ void OcSingleItemModelNew::setUrl(const QString &nUrl)
 {
     if (nUrl != m_url) {
         m_url = nUrl;
+        QLOG_DEBUG() << "Single item model: url: " << url();
         emit urlChanged(url());
     }
 }
@@ -205,6 +220,7 @@ void OcSingleItemModelNew::setTitle(const QString &nTitle)
 {
     if (nTitle != m_title) {
         m_title = nTitle;
+        QLOG_DEBUG() << "Single item model: title: " << title();
         emit titleChanged(title());
     }
 }
@@ -216,6 +232,7 @@ void OcSingleItemModelNew::setAuthor(const QString &nAuthor)
 {
     if (nAuthor != m_author) {
         m_author = nAuthor;
+        QLOG_DEBUG() << "Single item model: author: " << author();
         emit authorChanged(author());
     }
 }
@@ -227,6 +244,7 @@ void OcSingleItemModelNew::setPubDate(const QString &nPubDate)
 {
     if (nPubDate != m_pubDate) {
         m_pubDate = nPubDate;
+        QLOG_DEBUG() << "Single item model: publish date: " << pubDate();
         emit pubDateChanged(pubDate());
     }
 }
@@ -249,6 +267,7 @@ void OcSingleItemModelNew::setEnclosureMime(const QString &nEnclosureMime)
 {
     if (nEnclosureMime != m_enclosureMime) {
         m_enclosureMime = nEnclosureMime;
+        QLOG_DEBUG() << "Single item model: enclosure mime: " << enclosureMime();
         emit enclosureMimeChanged(enclosureMime());
     }
 }
@@ -260,6 +279,7 @@ void OcSingleItemModelNew::setEnclosureLink(const QString &nEnclosureLink)
 {
     if (nEnclosureLink != m_enclosureLink) {
         m_enclosureLink = nEnclosureLink;
+        QLOG_DEBUG() << "Single item model: enclosure link: " << enclosureLink();
         emit enclosureLinkChanged(enclosureLink());
     }
 }
@@ -271,6 +291,7 @@ void OcSingleItemModelNew::setFeedName(const QString &nFeedName)
 {
     if (nFeedName != m_feedName) {
         m_feedName = nFeedName;
+        QLOG_DEBUG() << "Single item model: feed name: " << feedName();
         emit feedNameChanged(feedName());
     }
 }
@@ -282,6 +303,7 @@ void OcSingleItemModelNew::setFeedId(const int &nFeedId)
 {
     if (nFeedId != m_feedId) {
         m_feedId = nFeedId;
+        QLOG_DEBUG() << "Single item model: feed ID: " << feedId();
         emit feedIdChanged(feedId());
     }
 }
@@ -293,6 +315,7 @@ void OcSingleItemModelNew::setEnclosureHost(const QString &nEnclosureHost)
 {
     if (nEnclosureHost != m_enclosureHost) {
         m_enclosureHost = nEnclosureHost;
+        QLOG_DEBUG() << "Single item model: enclosure host: " << enclosureHost();
         emit enclosureHostChanged(enclosureHost());
     }
 }
@@ -304,6 +327,7 @@ void OcSingleItemModelNew::setEnclosureName(const QString &nEnclosureName)
 {
     if (nEnclosureName != m_enclosureName) {
         m_enclosureName = nEnclosureName;
+        QLOG_DEBUG() << "Single item model: enclosure name: " << enclosureName();
         emit enclosureNameChanged(enclosureName());
     }
 }
@@ -312,6 +336,8 @@ void OcSingleItemModelNew::setEnclosureName(const QString &nEnclosureName)
 
 void OcSingleItemModelNew::get()
 {
+    QLOG_INFO() << "Single item model: requesting item data";
+
     QSqlQuery query;
 
     QString queryString = "SELECT it.id, it.guidHash, it.url, it.title, it.author, it.pubDate, it.body, it.enclosureMime, it.enclosureLink, it.unread, it.starred, it.feedId, "
@@ -408,7 +434,9 @@ void OcSingleItemModelNew::get()
 
     queryString.append(QString("FROM items it WHERE id = %1").arg(itemId()));
 
-    query.exec(queryString);
+    if (!query.exec(queryString)) {
+        QLOG_ERROR() << "Single item model: database error while querying item data: " << query.lastError().text();
+    }
 
 
     if (query.next())
@@ -447,18 +475,6 @@ void OcSingleItemModelNew::get()
             setEnclosureName(QFileInfo(query.value(8).toString()).fileName());
         }
     }
-
-#ifdef QT_DEBUG
-    qDebug() << "Item ID: " << itemId();
-    qDebug() << "Show Img: " << showImg();
-    qDebug() << "Handle read: " << handleRead();
-    qDebug() << "Sort ascending: " << sortAsc();
-    qDebug() << "Search string: " << searchString();
-    qDebug() << "Parent Feed type: " << feedType();
-    qDebug() << "Parent Feed id: " << parentFeedId();
-    qDebug() << "Next id: " << next();
-    qDebug() << "Previous id: " << previous();
-#endif
 }
 
 
@@ -504,7 +520,9 @@ void OcSingleItemModelNew::showImages()
 {
     QSqlQuery q;
 
-    q.exec(QString("SELECT body FROM items WHERE id = %1").arg(itemId()));
+    if (!q.exec(QString("SELECT body FROM items WHERE id = %1").arg(itemId()))) {
+        QLOG_ERROR() << "Single item model: failed to get item body from database: " << q.lastError().text();
+    }
 
     q.next();
 

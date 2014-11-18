@@ -1,4 +1,5 @@
 #include "ocfeedsmodelfilter.h"
+#include "QsLog.h"
 
 OcFeedsModelFilter::OcFeedsModelFilter(QObject *parent) :
     QSortFilterProxyModel(parent)
@@ -19,6 +20,7 @@ void OcFeedsModelFilter::setOrderBy(const QString &nOrderBy)
 {
     if (nOrderBy != m_orderBy) {
         m_orderBy = nOrderBy;
+        QLOG_DEBUG() << "Feeds model filter: changed sort order to " << orderBy();
         setSorting();
         emit orderByChanged(orderBy());
     }
@@ -31,6 +33,7 @@ void OcFeedsModelFilter::setHideRead(const bool &nHideRead)
 {
     if (nHideRead != m_hideRead) {
         m_hideRead = nHideRead;
+        QLOG_DEBUG() << "Feeds model filter: changed hide read to " << hideRead();
         this->invalidateFilter();
         this->invalidate();
         emit hideReadChanged(hideRead());

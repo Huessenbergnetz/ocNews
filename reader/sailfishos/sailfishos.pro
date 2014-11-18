@@ -24,6 +24,8 @@ INSTALLS += dbusservice
 
 CONFIG += sailfishapp
 
+include("../../qslog/QsLog.pri")
+
 SOURCES += main.cpp \
     ../common/ocdbmanager.cpp \
     ../common/models/ocitemsmodelsql.cpp \

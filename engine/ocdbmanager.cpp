@@ -28,7 +28,6 @@ OcDbManager::OcDbManager(QObject *parent) :
 
 bool OcDbManager::openDB()
 {
-    QLOG_INFO() << "Opening Sqlite database";
     db = QSqlDatabase::addDatabase("QSQLITE");
 
     QString path(QDir::homePath());
@@ -37,7 +36,16 @@ bool OcDbManager::openDB()
 
     QLOG_DEBUG() << "Database path: " << db.databaseName();
 
-    return db.open();
+    bool dbOpened = db.open();
+
+    if (dbOpened) {
+        QLOG_INFO() << "Opening Sqlite database: success";
+    } else {
+        QLOG_FATAL() << "Opening Sqlite database: failed";
+        QLOG_ERROR() << "Error opening databse: " << db.lastError().text();
+    }
+
+    return dbOpened;
 }
 
 
