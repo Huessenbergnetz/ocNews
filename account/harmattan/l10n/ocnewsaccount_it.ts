@@ -34,7 +34,7 @@
     <message id="qtn_help_server_text">
         <location line="+7"/>
         <source/>
-        <translation>qtn_help_server_text</translation>
+        <translation type="unfinished"/>
     </message>
     <message id="qtn_help_ssl_label">
         <location line="+10"/>
@@ -44,7 +44,7 @@
     <message id="qtn_help_ssl_text">
         <location line="+7"/>
         <source/>
-        <translation>qtn_help_ssl_text</translation>
+        <translation type="unfinished"/>
     </message>
     <message id="qtn_help_ignoressl_label">
         <location line="+10"/>
@@ -54,7 +54,7 @@
     <message id="qtn_help_ignoressl_text">
         <location line="+7"/>
         <source/>
-        <translation>qtn_help_ignoressl_text</translation>
+        <translation type="unfinished"/>
     </message>
     <message id="qtn_button_save">
         <location filename="../qml/main.qml" line="+31"/>

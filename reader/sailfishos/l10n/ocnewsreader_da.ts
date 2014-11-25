@@ -644,17 +644,17 @@
     <message>
         <location line="-5"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>Donér</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>If you like ocNews and you want to support the development, consider a small donation.</source>
-        <translation type="unfinished"/>
+        <translation>Hvis du kan lide ocNews, og du ønsker at støtte udviklingen, så overvej en lille donation.</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Donér via PayPal</translation>
     </message>
     <message>
         <location line="+1"/>

@@ -33,7 +33,7 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
+        <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -758,14 +758,14 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
-        <location line="+99"/>
-        <location line="+201"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location line="+107"/>
+        <location line="+225"/>
         <source>Uncategorized</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-296"/>
+        <location line="-328"/>
         <source>All posts</source>
         <translation type="unfinished"/>
     </message>
@@ -825,7 +825,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
         <source>All posts</source>
         <translation type="unfinished"/>
     </message>
@@ -927,7 +927,7 @@
 <context>
     <name>OcSingleItemModelNew</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+450"/>
         <source>Today</source>
         <translation>Сегодня</translation>
     </message>

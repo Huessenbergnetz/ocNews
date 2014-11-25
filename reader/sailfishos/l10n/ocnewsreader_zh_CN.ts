@@ -14,27 +14,27 @@
     <message>
         <location line="+15"/>
         <source>Munich</source>
-        <translation type="unfinished"/>
+        <translation>慕尼黑</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Germany</source>
-        <translation type="unfinished"/>
+        <translation>德国</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>通过贝宝（PayPal）捐赠</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Martin Grimme 的 &lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; 通过 &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt; 许可协议授权。</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
+        <translation>razvanpetru的 &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; 通过 &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt; 许可协议授权。</translation>
     </message>
     <message>
         <location line="-7"/>
@@ -47,52 +47,52 @@
     <message>
         <location filename="../qml/BTComponents/AboutPage.qml" line="+77"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>主页</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>隐私政策</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>更新日志</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>贡献者</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>关于</translation>
     </message>
     <message>
         <location line="+58"/>
         <source>Contact</source>
-        <translation type="unfinished"/>
+        <translation>联系方式</translation>
     </message>
     <message>
         <location line="+84"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>贡献</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>翻译</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>报告Bug</translation>
     </message>
     <message>
         <location line="+23"/>
         <source>3rd party licenses</source>
-        <translation type="unfinished"/>
+        <translation>第三方许可协议</translation>
     </message>
 </context>
 <context>
@@ -105,22 +105,22 @@
     <message>
         <location line="+20"/>
         <source>New</source>
-        <translation type="unfinished"/>
+        <translation>新增</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Improved</source>
-        <translation type="unfinished"/>
+        <translation>改进</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Fixed</source>
-        <translation type="unfinished"/>
+        <translation>修复</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>注意</translation>
     </message>
 </context>
 <context>
@@ -136,12 +136,12 @@
     <message>
         <location filename="../qml/BTComponents/ContributorsDelegate.qml" line="+127"/>
         <source>Website</source>
-        <translation type="unfinished"/>
+        <translation>网站</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>Sina Weibo</source>
-        <translation type="unfinished"/>
+        <translation>新浪微博</translation>
     </message>
 </context>
 <context>
@@ -190,7 +190,7 @@
     <message>
         <location line="+11"/>
         <source>Dutch (Netherlands) translation</source>
-        <translation type="unfinished"/>
+        <translation>荷兰语（荷兰）翻译</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -631,7 +631,7 @@
     <message>
         <location filename="../qml/Pages/LanguageChooser.qml" line="+92"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>搜索</translation>
     </message>
 </context>
 <context>
@@ -644,22 +644,22 @@
     <message>
         <location line="-5"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>捐赠</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>If you like ocNews and you want to support the development, consider a small donation.</source>
-        <translation type="unfinished"/>
+        <translation>如果你喜欢并想支持ocNews的开发，请考虑进行捐赠。</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>通过贝宝（PayPal）捐赠</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews is a client for the ownCloud News app, a cloud based RSS/Atom feed aggregator. </source>
-        <translation type="unfinished"/>
+        <translation>ocNews是ownCloud News，一个基于云的RSS/Atom订阅器的客户端。</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -758,14 +758,14 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
-        <location line="+99"/>
-        <location line="+201"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location line="+107"/>
+        <location line="+225"/>
         <source>Uncategorized</source>
         <translation>未分类</translation>
     </message>
     <message>
-        <location line="-296"/>
+        <location line="-328"/>
         <source>All posts</source>
         <translation>所有帖子</translation>
     </message>
@@ -825,7 +825,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
         <source>All posts</source>
         <translation>所有帖子</translation>
     </message>
@@ -858,52 +858,52 @@
     <message>
         <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>系统默认</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>English</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>Danish</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>German</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Spanish</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>French</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Italian</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Dutch (Netherlands)</source>
-        <translation type="unfinished"/>
+        <translation>Dutch (Netherlands)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Russian</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"/>
+        <translation>中文 （中国大陆）</translation>
     </message>
 </context>
 <context>
@@ -927,7 +927,7 @@
 <context>
     <name>OcSingleItemModelNew</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+450"/>
         <source>Today</source>
         <translation>今天</translation>
     </message>
@@ -983,7 +983,7 @@
     <message>
         <location filename="../qml/Dialogs/OpenLink.qml" line="+44"/>
         <source>Open</source>
-        <translation type="unfinished"/>
+        <translation>打开</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1375,7 +1375,7 @@
     <message>
         <location line="+5"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>语言</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1520,17 +1520,17 @@
     <message>
         <location line="+6"/>
         <source>Maintenance</source>
-        <translation type="unfinished"/>
+        <translation>维护</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Create log files</source>
-        <translation type="unfinished"/>
+        <translation>创建记录文件</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>This option needs a complete application restart. After that it will create log files in %1.</source>
-        <translation type="unfinished"/>
+        <translation>此选项需要程序完全重启。之后会在 %1 创建记录文件。</translation>
     </message>
     <message>
         <location line="+7"/>

@@ -679,14 +679,14 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+157"/>
-        <location line="+99"/>
-        <location line="+201"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location line="+107"/>
+        <location line="+225"/>
         <source>Uncategorized</source>
         <translation>未分类</translation>
     </message>
     <message>
-        <location line="-296"/>
+        <location line="-328"/>
         <source>All posts</source>
         <translation>所有帖子</translation>
     </message>
@@ -746,7 +746,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+152"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
         <source>All posts</source>
         <translation>所有帖子</translation>
     </message>
@@ -848,7 +848,7 @@
 <context>
     <name>OcSingleItemModelNew</name>
     <message>
-        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+422"/>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+450"/>
         <source>Today</source>
         <translation>今天</translation>
     </message>
