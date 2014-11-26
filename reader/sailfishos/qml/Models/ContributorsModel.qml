@@ -60,6 +60,12 @@ ListModel {
     }
 
     ListElement {
+        name: "gexc"
+        role: QT_TR_NOOP("Chinese (China) translation")
+        section: QT_TR_NOOP("Thanks to")
+    }
+
+    ListElement {
         name: "Heimen Stoffels"
         role: QT_TR_NOOP("Dutch (Netherlands) translation")
         section: QT_TR_NOOP("Thanks to")
