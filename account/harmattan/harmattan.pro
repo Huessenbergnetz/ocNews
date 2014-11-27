@@ -9,6 +9,8 @@ CONFIG += qdeclarative-boostable
 PKGCONFIG += accounts-qt \
              AccountSetup
 
+include("../../qslog/QsLog.pri")
+
 qml.files = qml/*.qml
 qml.path = /opt/ocNewsAccount/qml
 INSTALLS += qml

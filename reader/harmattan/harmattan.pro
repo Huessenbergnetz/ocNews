@@ -36,6 +36,8 @@ INSTALLS += readerl10n
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
 
+include("../../qslog/QsLog.pri")
+
 symbian:TARGET.UID3 = 0xE86F743E
 
 # Smart Installer package's UID

@@ -425,134 +425,166 @@ Page {
             id: tab4
             orientationLock: PageOrientation.LockPortrait
 
-            Column {
-                id: statCol
-                anchors { top: parent.top; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; topMargin: 20 }
-                spacing: 10
+            Flickable {
+                id: tab4Content
+                anchors { right: parent.right; left: parent.left; top: parent.top; bottom: parent.bottom; bottomMargin: 70 }
+                contentWidth: parent.width
+                contentHeight: statCol.height + buttonCol.height + 50
 
-                Label {
-                    id: statsLabel
-                    text: qsTr("Database statistics")
-                    width: parent.width
-                    textFormat: Text.PlainText
-                    visible: folderCount.visible
-                }
+                Column {
+                    id: statCol
+                    anchors { top: parent.top; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; topMargin: 20 }
+                    spacing: 10
 
-                Text {
-                    id: folderCount
-                    width: parent.width
-                    font.pointSize: 17
-                    font.weight: Font.Light
-                    textFormat: Text.PlainText
-                    color: theme.inverted ? "white" : "black"
-                    visible: text != ""
-                    Connections {
-                        target: dbus
-                        onGotStatistics: folderCount.text = qsTr("Folders: ") + stats["folderCount"]
+                    Label {
+                        id: statsLabel
+                        text: qsTr("Database statistics")
+                        width: parent.width
+                        textFormat: Text.PlainText
+                        visible: folderCount.visible
+                    }
+
+                    Text {
+                        id: folderCount
+                        width: parent.width
+                        font.pointSize: 17
+                        font.weight: Font.Light
+                        textFormat: Text.PlainText
+                        color: theme.inverted ? "white" : "black"
+                        visible: text != ""
+                        Connections {
+                            target: dbus
+                            onGotStatistics: folderCount.text = qsTr("Folders: ") + stats["folderCount"]
+                        }
+                    }
+
+                    Text {
+                        id: feedCount
+                        width: parent.width
+                        font.pointSize: 17
+                        font.weight: Font.Light
+                        textFormat: Text.PlainText
+                        color: theme.inverted ? "white" : "black"
+                        visible: text != ""
+                        Connections {
+                            target: dbus
+                            onGotStatistics: feedCount.text = qsTr("Feeds: ") + stats["feedCount"]
+                        }
+                    }
+
+                    Text {
+                        id: itemCount
+                        width: parent.width
+                        font.pointSize: 17
+                        font.weight: Font.Light
+                        textFormat: Text.PlainText
+                        color: theme.inverted ? "white" : "black"
+                        visible: text != ""
+                        Connections {
+                            target: dbus
+                            onGotStatistics: itemCount.text = qsTr("Posts: ") + stats["itemCount"]
+                        }
+                    }
+
+                    Text {
+                        id: unreadCount
+                        width: parent.width
+                        font.pointSize: 17
+                        font.weight: Font.Light
+                        textFormat: Text.PlainText
+                        color: theme.inverted ? "white" : "black"
+                        visible: text != ""
+                        Connections {
+                            target: dbus
+                            onGotStatistics: unreadCount.text = qsTr("Unread: ") + stats["unreadCount"]
+                        }
+                    }
+
+                    Text {
+                        id: lastFullUpdate
+                        width: parent.width
+                        font.pointSize: 17
+                        font.weight: Font.Light
+                        textFormat: Text.StyledText
+                        color: theme.inverted ? "white" : "black"
+                        visible: text != ""
+                        Connections {
+                            target: dbus
+                            onGotStatistics: lastFullUpdate.text = qsTr("Last full update:<br />") + Qt.formatDateTime(new Date(stats["lastFullUpdate"]), qsTr("d. MMMM yyyy, hh:mm"))
+                        }
                     }
                 }
 
-                Text {
-                    id: feedCount
-                    width: parent.width
-                    font.pointSize: 17
-                    font.weight: Font.Light
-                    textFormat: Text.PlainText
-                    color: theme.inverted ? "white" : "black"
-                    visible: text != ""
-                    Connections {
-                        target: dbus
-                        onGotStatistics: feedCount.text = qsTr("Feeds: ") + stats["feedCount"]
+
+                Column {
+                    id: buttonCol
+                    anchors { top: statCol.bottom; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; topMargin: 40 }
+                    spacing: 20
+
+                    Button {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Query statistics")
+                        visible: lastFullUpdate.text === ""
+                        onClicked: { text = ""; qbi.visible = true; dbus.getStatistics(); enabled = false }
+
+                        BusyIndicator {
+                            id: qbi
+                            platformStyle: BusyIndicatorStyle { id: headerBusyIndicatorStyle; size: "small"; inverted: theme.inverted }
+                            anchors.centerIn: parent
+                            visible: false
+                            running: visible
+                        }
                     }
-                }
 
-                Text {
-                    id: itemCount
-                    width: parent.width
-                    font.pointSize: 17
-                    font.weight: Font.Light
-                    textFormat: Text.PlainText
-                    color: theme.inverted ? "white" : "black"
-                    visible: text != ""
-                    Connections {
-                        target: dbus
-                        onGotStatistics: itemCount.text = qsTr("Posts: ") + stats["itemCount"]
+                    Button {
+                        id: resetConfigButton
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Reset configuration")
+                        onClicked: resetConfigQuery.open()
                     }
-                }
 
-                Text {
-                    id: unreadCount
-                    width: parent.width
-                    font.pointSize: 17
-                    font.weight: Font.Light
-                    textFormat: Text.PlainText
-                    color: theme.inverted ? "white" : "black"
-                    visible: text != ""
-                    Connections {
-                        target: dbus
-                        onGotStatistics: unreadCount.text = qsTr("Unread: ") + stats["unreadCount"]
+                    Button {
+                        id: deleteDBButton
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Delete database")
+                        onClicked: deleteDBQuery.open()
+                        Connections {
+                            target: dbus
+                            onGotStatistics: stats["feedCount"] + stats["folderCount"] + stats["itemCount"] == 0 ? deleteDBButton.enabled = false : deleteDBButton.enabled = true
+                        }
                     }
-                }
 
-                Text {
-                    id: lastFullUpdate
-                    width: parent.width
-                    font.pointSize: 17
-                    font.weight: Font.Light
-                    textFormat: Text.StyledText
-                    color: theme.inverted ? "white" : "black"
-                    visible: text != ""
-                    Connections {
-                        target: dbus
-                        onGotStatistics: lastFullUpdate.text = qsTr("Last full update:<br />") + Qt.formatDateTime(new Date(stats["lastFullUpdate"]), qsTr("d. MMMM yyyy, hh:mm"))
+                    Button {
+                        id: deleteCertsButton
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Remove certificates")
+                        onClicked: deleteCertsQuery.open()
                     }
-                }
-            }
 
+                    Item {
+                        width: parent.width
+                        height: createLog.height + createLogDesc.height
 
-            Column {
-                id: buttonCol
-                anchors { top: statCol.bottom; left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; topMargin: 40 }
-                spacing: 20
+                        LabeledSwitch {
+                            id: createLog
+                            anchors { left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; top: parent.top }
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: qsTr("Create log files")
+                            checked: config.createLogFile
+                            onCheckedChanged: config.createLogFile = checked
+                        }
 
-                Button {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: qsTr("Query statistics")
-                    visible: lastFullUpdate.text === ""
-                    onClicked: { text = ""; qbi.visible = true; dbus.getStatistics(); enabled = false }
-
-                    BusyIndicator {
-                        id: qbi
-                        platformStyle: BusyIndicatorStyle { id: headerBusyIndicatorStyle; size: "small"; inverted: theme.inverted }
-                        anchors.centerIn: parent
-                        visible: false
-                        running: visible
+                        Text {
+                            id: createLogDesc
+                            text: qsTr("This option needs a complete application restart. After that it will create log files in %1.").arg(logFilePath)
+                            anchors { left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; top: createLog.bottom }
+                            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                            font.pointSize: 15
+                            font.weight: Font.Light
+                            color: theme.inverted ? "white" : "black"
+                            textFormat: Text.PlainText
+                        }
                     }
-                }
-
-                Button {
-                    id: resetConfigButton
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: qsTr("Reset configuration")
-                    onClicked: resetConfigQuery.open()
-                }
-
-                Button {
-                    id: deleteDBButton
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: qsTr("Delete database")
-                    onClicked: deleteDBQuery.open()
-                    Connections {
-                        target: dbus
-                        onGotStatistics: stats["feedCount"] + stats["folderCount"] + stats["itemCount"] == 0 ? deleteDBButton.enabled = false : deleteDBButton.enabled = true
-                    }
-                }
-
-                Button {
-                    id: deleteCertsButton
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: qsTr("Remove certificates")
-                    onClicked: deleteCertsQuery.open()
                 }
             }
         }

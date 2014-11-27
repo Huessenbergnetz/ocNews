@@ -312,6 +312,18 @@ void OcConfiguration::setCreateLogFile(const bool &nCreateLogFile)
 }
 
 
+QString OcConfiguration::displayLanguage() const { return m_displayLanguage; }
+
+void OcConfiguration::setDisplayLanguage(const QString &nDisplayLanguage)
+{
+    if (nDisplayLanguage != m_displayLanguage) {
+        m_displayLanguage = nDisplayLanguage;
+        conf->setSetting("display/language", QDBusVariant(displayLanguage()));
+        emit displayLanguageChanged(displayLanguage());
+    }
+}
+
+
 #if !defined(MEEGO_EDITION_HARMATTAN)
 
 bool OcConfiguration::accountEnabled() const { return m_accountEnabled; }
@@ -322,18 +334,6 @@ void OcConfiguration::setAccountEnabled(const bool &nAccountEnabled)
         m_accountEnabled = nAccountEnabled;
         conf->setSetting("account/enabled", QDBusVariant(accountEnabled()));
         emit accountEnabledChanged(accountEnabled());
-    }
-}
-
-
-QString OcConfiguration::displayLanguage() const { return m_displayLanguage; }
-
-void OcConfiguration::setDisplayLanguage(const QString &nDisplayLanguage)
-{
-    if (nDisplayLanguage != m_displayLanguage) {
-        m_displayLanguage = nDisplayLanguage;
-        conf->setSetting("display/language", QDBusVariant(displayLanguage()));
-        emit displayLanguageChanged(displayLanguage());
     }
 }
 

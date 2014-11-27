@@ -1,12 +1,13 @@
 #include <QtGui/QApplication>
 #include <QDeclarativeContext>
-#include <QDebug>
 #include <QGraphicsObject>
 #include <QDeclarativeContext>
 #include <QtDeclarative>
 #include <QMetaType>
 #include "qmlapplicationviewer.h"
 
+#include "QsLog.h"
+#include "QsLogDest.h"
 #include "../../common/globals.h"
 #include "../common/ocdbmanager.h"
 #include "../common/occonfiguration.h"
@@ -45,14 +46,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     qRegisterMetaType<OcItemObject>("OcItemObject");
 
-    QString locale = QLocale::system().name();
-    QTranslator translator;
-    if ((translator.load("ocnewsreader_"+locale, L10N_PATH)))
-        app->installTranslator(&translator);
-
-#ifdef QT_DEBUG
-    qDebug() << "Locale: " << locale;
-#endif
+    // set paths
+    QString basePath(QDir::homePath().append(BASE_PATH));
 
     // start background daemon ocnews-engine via dbus
     QDBusConnectionInterface* qDbusConInf = QDBusConnection::sessionBus().interface();
@@ -64,11 +59,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         openItemId = startupArgs.at(1);
         openItemId.remove(QRegExp("ocnews://"));
     }
-
-
-#ifdef QT_DEBUG
-    qDebug() << QApplication::applicationName() << " " << QApplication::applicationVersion() << " by " << QApplication::organizationName();
-#endif
 
     // create database
     OcDbManager dbman;
@@ -89,6 +79,55 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     OcShareUi shareUi;
     OcLauncher launcher;
 
+
+//    QString locale = QLocale::system().name();
+//    QTranslator translator;
+//    if ((translator.load("ocnewsreader_"+locale, L10N_PATH)))
+//        app->installTranslator(&translator);
+
+    // init the logging mechanism
+    QsLogging::Logger& logger = QsLogging::Logger::instance();
+
+    // set minimum log level
+    if (config->createLogFile()) {
+        logger.setLoggingLevel(QsLogging::TraceLevel);
+    } else {
+        logger.setLoggingLevel(QsLogging::OffLevel);
+    }
+
+    // enable log file
+    QString sLogPath;
+    if (config->createLogFile()) {
+        // create file name
+        QString dt =  QDateTime::currentDateTime().toString(QString("yyyy-MM-ddTHH-mm-ss"));
+        sLogPath = QDir(basePath.append("/logs")).filePath("ocnews-reader-" + dt + ".log");
+        // create log destination
+        QsLogging::DestinationPtr fileDestination(QsLogging::DestinationFactory::MakeFileDestination(sLogPath));
+        // set log destination to logger
+        logger.addDestination(fileDestination);
+    }
+
+    // Create log destination for debug output
+    QsLogging::DestinationPtr debugDestination(QsLogging::DestinationFactory::MakeDebugOutputDestination());
+
+    // set log destination on the logger
+    logger.addDestination(debugDestination);
+
+    QLOG_INFO() << "Starting ocNews Reader version " << VERSION_STRING;
+    QLOG_INFO() << "Built with Qt" << QT_VERSION_STR << "running on" << qVersion();
+
+    QString locale = config->displayLanguage();
+
+    if (locale == "C") {
+        locale = QLocale::system().name();
+    }
+
+    QTranslator *translator = new QTranslator;
+    if ((translator->load("ocnewsreader_"+locale, L10N_PATH))) {
+        app->installTranslator(translator);
+    }
+
+    QLOG_INFO() << "ocNews Reader locale set to " << locale;
 
 
     OcFoldersModelNew *foldersModelSql = new OcFoldersModelNew;
@@ -249,6 +288,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("versionString", VERSION_STRING);
     viewer.rootContext()->setContextProperty("versionInt", VERSION);
     viewer.rootContext()->setContextProperty("locale", locale);
+    viewer.rootContext()->setContextProperty("logFilePath", basePath.append("/logs"));
 
 
     viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
