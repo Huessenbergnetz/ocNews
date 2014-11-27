@@ -1175,12 +1175,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+531"/>
+        <location line="+563"/>
         <source>Account Settings</source>
         <translation>账号设置</translation>
     </message>
     <message>
-        <location line="-512"/>
+        <location line="-544"/>
         <source>Open account manager</source>
         <translation>账号管理</translation>
     </message>
@@ -1400,7 +1400,7 @@
         <translation>点击按钮选择你要添加到事件视窗的订阅源.只有最新地内容才会显示.</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+22"/>
         <source>Database statistics</source>
         <translation>数据库统计</translation>
     </message>
@@ -1455,7 +1455,17 @@
         <translation>删除证书</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+12"/>
+        <source>Create log files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>This option needs a complete application restart. After that it will create log files in %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+36"/>
         <source>Display &amp; Update Settings</source>
         <translation>显示 &amp; 更新设置</translation>
     </message>

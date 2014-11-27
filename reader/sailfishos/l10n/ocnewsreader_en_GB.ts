@@ -170,13 +170,15 @@
     </message>
     <message>
         <location line="+7"/>
+        <location line="+19"/>
         <source>Chinese (China) translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-18"/>
         <location line="+8"/>
         <location line="+11"/>
+        <location line="+6"/>
         <location line="+6"/>
         <location line="+8"/>
         <location line="+8"/>
@@ -185,12 +187,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-39"/>
+        <location line="-45"/>
         <source>Danish translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+17"/>
         <source>Dutch (Netherlands) translation</source>
         <translation type="unfinished"></translation>
     </message>

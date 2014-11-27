@@ -1175,12 +1175,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+531"/>
+        <location line="+563"/>
         <source>Account Settings</source>
         <translation>Konto Indstillinger</translation>
     </message>
     <message>
-        <location line="-512"/>
+        <location line="-544"/>
         <source>Open account manager</source>
         <translation>Åben kontohåndtering</translation>
     </message>
@@ -1400,7 +1400,7 @@
         <translation>Klik på knappen for at vælge de feeds, som du ønsker at samle til elementvisning. Kun nyligt hentede emner vil blive tilføjet til elementvisning.</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+22"/>
         <source>Database statistics</source>
         <translation>Database statistik</translation>
     </message>
@@ -1455,7 +1455,17 @@
         <translation>Fjern certifikater</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+12"/>
+        <source>Create log files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>This option needs a complete application restart. After that it will create log files in %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+36"/>
         <source>Display &amp; Update Settings</source>
         <translation>Visnings &amp; Opdaterings Indstillinger</translation>
     </message>

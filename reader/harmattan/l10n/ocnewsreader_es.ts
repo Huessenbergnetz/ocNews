@@ -1175,12 +1175,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+531"/>
+        <location line="+563"/>
         <source>Account Settings</source>
         <translation>Configuración de la cuenta</translation>
     </message>
     <message>
-        <location line="-512"/>
+        <location line="-544"/>
         <source>Open account manager</source>
         <translation>Abrir administrador de cuenta</translation>
     </message>
@@ -1400,7 +1400,7 @@
         <translation>Toque el botón para seleccionar el feed que quiere agregar a la pantalla de eventos. Solo items recientemente bajados serán agregados a la pantalla de eventos.</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+22"/>
         <source>Database statistics</source>
         <translation>Estadística de la base de datos</translation>
     </message>
@@ -1455,7 +1455,17 @@
         <translation>Remover certificados</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+12"/>
+        <source>Create log files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>This option needs a complete application restart. After that it will create log files in %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+36"/>
         <source>Display &amp; Update Settings</source>
         <translation>Mostrar y Actualizar Configuraciones</translation>
     </message>
