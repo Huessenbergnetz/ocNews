@@ -273,12 +273,12 @@ Page {
         visualParent: pageStack
         MenuLayout {
             MenuItem {
-                text: qsTr("Settings")
-                onClicked: openFile("../Pages/Settings.qml")
-            }
-            MenuItem {
                 text: qsTr("About")
                 onClicked: openFile("../Pages/About.qml")
+            }
+            MenuItem {
+                text: qsTr("Settings")
+                onClicked: openFile("../Pages/Settings.qml")
             }
             MenuItem {
                 text: qsTr("Quit completely")
