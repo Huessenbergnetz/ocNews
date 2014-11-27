@@ -171,28 +171,32 @@
     <message>
         <location line="+7"/>
         <location line="+19"/>
+        <location line="+6"/>
         <source>Chinese (China) translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-18"/>
+        <location line="-24"/>
         <location line="+8"/>
         <location line="+11"/>
         <location line="+6"/>
         <location line="+6"/>
+        <location line="+6"/>
+        <location line="+13"/>
         <location line="+8"/>
-        <location line="+8"/>
+        <location line="+6"/>
+        <location line="+6"/>
         <location line="+5"/>
         <source>Thanks to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-45"/>
+        <location line="-68"/>
         <source>Danish translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+23"/>
         <source>Dutch (Netherlands) translation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -203,16 +207,23 @@
     </message>
     <message>
         <location line="+8"/>
+        <location line="+25"/>
+        <source>Russian translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-20"/>
         <source>Italian translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+8"/>
+        <location line="+6"/>
         <source>Spanish translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+11"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
         <translation type="unfinished"></translation>
     </message>

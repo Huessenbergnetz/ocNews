@@ -150,7 +150,8 @@ Page {
 
             Flickable {
                 id: contributorsContent
-                anchors { right: parent.right; rightMargin: 15; left: parent.left; leftMargin: 15; top: parent.top; topMargin: 10 }
+//                anchors { right: parent.right; rightMargin: 15; left: parent.left; leftMargin: 15; top: parent.top; topMargin: 10 }
+                anchors.fill: parent
                 contentHeight: contentCol.height + aboutTabs.height + 50
                 flickableDirection:  Flickable.VerticalFlick
 
@@ -158,7 +159,8 @@ Page {
                 Column {
                     id: contentCol
                     spacing: 10
-                    width: parent.width
+//                    width: parent.width
+                    anchors { right: parent.right; rightMargin: 15; left: parent.left; leftMargin: 15 }
 
                     GroupHeader {
                         text: qsTr("Upstream author")
@@ -206,10 +208,25 @@ Page {
                     }
 
                     ContributorItem {
+                        name: "gwmgdemj"
+                        role: qsTr("Chinese (China) translation")
+                    }
+
+                    ContributorItem {
+                        name: "Heimen Stoffels"
+                        role: qsTr("Dutch (Netherlands) translation")
+                    }
+
+                    ContributorItem {
                         name: "Jean Clovis"
                         role: qsTr("French translation")
                         github: "jean-clovis"
                         image: "jean-clovis.png"
+                    }
+
+                    ContributorItem {
+                        name: "lewa (Alexey)"
+                        role: qsTr("Russian translation")
                     }
 
                     ContributorItem {
@@ -225,7 +242,7 @@ Page {
                     }
 
                     ContributorItem {
-                        name: "Palacex"
+                        name: "Palacex (Lutsenko Denis)"
                         role: qsTr("Russian translation")
                     }
 

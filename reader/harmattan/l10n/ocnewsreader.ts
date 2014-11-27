@@ -5,12 +5,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+24"/>
-        <location line="+299"/>
+        <location line="+314"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-253"/>
+        <location line="-268"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation type="unfinished"></translation>
     </message>
@@ -81,21 +81,27 @@
     </message>
     <message>
         <location line="+5"/>
+        <location line="+17"/>
         <source>Chinese (China) translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-10"/>
         <source>Danish translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+15"/>
+        <source>Dutch (Netherlands) translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>French translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+12"/>
         <source>Italian translation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -105,7 +111,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-12"/>
+        <location line="+17"/>
         <source>Russian translation</source>
         <translation type="unfinished"></translation>
     </message>

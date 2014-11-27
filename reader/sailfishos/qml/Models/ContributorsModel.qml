@@ -66,6 +66,12 @@ ListModel {
     }
 
     ListElement {
+        name: "gwmgdemj"
+        role: QT_TR_NOOP("Chinese (China) translation")
+        section: QT_TR_NOOP("Thanks to")
+    }
+
+    ListElement {
         name: "Heimen Stoffels"
         role: QT_TR_NOOP("Dutch (Netherlands) translation")
         section: QT_TR_NOOP("Thanks to")
@@ -80,6 +86,11 @@ ListModel {
     }
 
     ListElement {
+        name: "lewa (Alexey)"
+        role: QT_TR_NOOP("Russian translation")
+    }
+
+    ListElement {
         name: "Lorenzo Facca"
         role: QT_TR_NOOP("Italian translation")
         section: QT_TR_NOOP("Thanks to")
@@ -90,6 +101,18 @@ ListModel {
     ListElement {
         name: "Mariano Flotron"
         role: QT_TR_NOOP("Spanish translation")
+        section: QT_TR_NOOP("Thanks to")
+    }
+
+    ListElement {
+        name: "pakoR"
+        role: QT_TR_NOOP("Spanish translation")
+        section: QT_TR_NOOP("Thanks to")
+    }
+
+    ListElement {
+        name: "Palacex (Lutsenko Denis)"
+        role: QT_TR_NOOP("Russian translation")
         section: QT_TR_NOOP("Thanks to")
     }
 
