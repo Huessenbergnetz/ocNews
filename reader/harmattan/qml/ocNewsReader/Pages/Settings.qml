@@ -429,7 +429,7 @@ Page {
                 id: tab4Content
                 anchors { right: parent.right; left: parent.left; top: parent.top; bottom: parent.bottom; bottomMargin: 70 }
                 contentWidth: parent.width
-                contentHeight: statCol.height + buttonCol.height + 50
+                contentHeight: statCol.height + buttonCol.height + 70
 
                 Column {
                     id: statCol
@@ -561,6 +561,13 @@ Page {
                         onClicked: deleteCertsQuery.open()
                     }
 
+                    Button {
+                        id: deleteAllAccountsButton
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Remove accounts")
+                        onClicked: removeAllAccountsQuery.open()
+                    }
+
                     Item {
                         width: parent.width
                         height: createLog.height + createLogDesc.height
@@ -585,6 +592,11 @@ Page {
                             textFormat: Text.PlainText
                         }
                     }
+                }
+
+                ScrollDecorator {
+                    flickableItem: tab4Content
+                    anchors { right: parent.right }
                 }
             }
         }
@@ -672,6 +684,16 @@ Page {
         titleText: qsTr("Disable HTTPS?")
         onAccepted: sslCheck.checked = "false"
         onRejected: sslCheck.checked = "true"
+    }
+
+    QueryDialog {
+        id: removeAllAccountsQuery
+        icon: "image://theme/icon-m-bootloader-warning"
+        acceptButtonText: qsTr("Remove all")
+        rejectButtonText: qsTr("Cancel")
+        message: qsTr("Are you really sure you want to remove all ocNews accounts? You should only use this option when there are issues with the account management.")
+        titleText: qsTr("Remove all ocNews accounts?")
+        onAccepted: dbus.removeAllAccounts()
     }
 
 // ----------------- Dialogs End --------------------

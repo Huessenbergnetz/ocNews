@@ -23,6 +23,7 @@ public:
     Q_INVOKABLE bool isConfigSet();
     Q_INVOKABLE bool isAccountEnabled();
     Q_INVOKABLE QVariant getStat(int stat);
+    Q_INVOKABLE void removeAllAccounts();
     
 signals:
     // generic
@@ -38,6 +39,7 @@ signals:
     void cleanedCertificates();
     void changedConfig();
     void configReset();
+    void removedAllAccounts();
     
 public slots:
     // generic
@@ -57,6 +59,7 @@ private slots:
     void dbusCleanedCertificates();
     void dbusChangedConfig();
     void dbusConfigReset();
+    void dbusRemovedAllAccounts();
     
 private:
     de::buschmann23::ocNewsEngine::Generic *generic;

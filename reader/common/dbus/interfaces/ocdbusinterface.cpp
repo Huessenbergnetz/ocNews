@@ -18,6 +18,7 @@ OcDBusInterface::OcDBusInterface(QObject *parent) :
     connect(configuration, SIGNAL(cleanedCertificates()), this, SLOT(dbusCleanedCertificates()));
     connect(configuration, SIGNAL(changedConfig()), this, SLOT(dbusChangedConfig()));
     connect(configuration, SIGNAL(configReset()), this, SLOT(dbusConfigReset()));
+    connect(configuration, SIGNAL(removedAllAccounts()), this, SLOT(dbusRemovedAllAccounts()));
 }
 
 /*
@@ -121,6 +122,11 @@ bool OcDBusInterface::isAccountEnabled()
     return configuration->isAccountEnabled();
 }
 
+void OcDBusInterface::removeAllAccounts()
+{
+    configuration->removeAllAccounts();
+}
+
 void OcDBusInterface::dbusGotConfig(const QVariantMap &config)
 {
     emit gotConfig(config);
@@ -149,4 +155,9 @@ void OcDBusInterface::dbusChangedConfig()
 void OcDBusInterface::dbusConfigReset()
 {
     emit configReset();
+}
+
+void OcDBusInterface::dbusRemovedAllAccounts()
+{
+    emit removedAllAccounts();
 }

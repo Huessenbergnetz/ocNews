@@ -79,12 +79,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     OcShareUi shareUi;
     OcLauncher launcher;
 
-
-//    QString locale = QLocale::system().name();
-//    QTranslator translator;
-//    if ((translator.load("ocnewsreader_"+locale, L10N_PATH)))
-//        app->installTranslator(&translator);
-
     // init the logging mechanism
     QsLogging::Logger& logger = QsLogging::Logger::instance();
 
@@ -165,6 +159,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     // connections to configuration system
     QObject::connect(&dbus, SIGNAL(configReset()), config, SLOT(configReset()));
+    QObject::connect(&dbus, SIGNAL(removedAllAccounts()), config, SLOT(configReset()));
 
 
     // connections to the items model

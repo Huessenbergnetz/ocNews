@@ -1183,12 +1183,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+563"/>
+        <location line="+575"/>
         <source>Account Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-544"/>
+        <location line="-556"/>
         <source>Open account manager</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1463,6 +1463,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+7"/>
+        <source>Remove accounts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+12"/>
         <source>Create log files</source>
         <translation type="unfinished"></translation>
@@ -1473,7 +1478,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+41"/>
         <source>Display &amp; Update Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1496,11 +1501,12 @@
         <location line="+1"/>
         <location line="+11"/>
         <location line="+10"/>
+        <location line="+21"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-20"/>
+        <location line="-41"/>
         <source>Do you really want reset your configuration?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1557,6 +1563,21 @@
     <message>
         <location line="+1"/>
         <source>Disable HTTPS?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Remove all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Are you really sure you want to remove all ocNews accounts? You should only use this option when there are issues with the account management.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Remove all ocNews accounts?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

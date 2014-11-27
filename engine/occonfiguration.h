@@ -33,6 +33,7 @@ public Q_SLOTS: // METHODS
     void cleanCertificates();
     bool isConfigSet();
     bool isAccountEnabled();
+    void removeAllAccounts();
     
 signals:
     void updateIntervalChanged(const int &nInterval);
@@ -45,6 +46,7 @@ Q_SIGNALS: // SIGNALS
     void cleanedCertificates();
     void changedConfig();
     void configReset();
+    void removedAllAccounts();
 
     
 public slots:

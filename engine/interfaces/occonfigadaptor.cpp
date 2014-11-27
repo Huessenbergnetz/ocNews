@@ -105,3 +105,8 @@ void OcConfigAdaptor::setSetting(const QString &entry, const QDBusVariant &value
     QMetaObject::invokeMethod(parent(), "setSetting", Q_ARG(QString, entry), Q_ARG(QDBusVariant, value));
 }
 
+void OcConfigAdaptor::removeAllAccounts()
+{
+    // handle method call de.buschmann23.ocNewsEngine.Configuration.removeAllAccounts
+    QMetaObject::invokeMethod(parent(), "removeAllAccounts");
+}

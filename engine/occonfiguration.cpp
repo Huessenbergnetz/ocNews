@@ -468,6 +468,8 @@ QVariantMap OcConfiguration::getAccount()
             result["usessl"] = account->valueAsBool("usessl");
             result["ignoresslerror"] = account->valueAsBool("ignoresslerrors");
         }
+
+        delete accMan;
 #else
 
         bool enabled = value("account/enabled", true).toBool();
@@ -502,4 +504,46 @@ QVariantMap OcConfiguration::getAccount()
 #endif
 
     return result;
+}
+
+
+
+/*!
+ * \fn void OcConfiguration::removeAllAccounts()
+ * \brief Removes all created accounts
+ */
+void OcConfiguration::removeAllAccounts()
+{
+#if defined(MEEGO_EDITION_HARMATTAN)
+    accMan = new Accounts::Manager();
+
+    Accounts::AccountIdList accounts = accMan->accountList();
+
+    if (accounts.isEmpty()) {
+        QLOG_ERROR() << "Remove all accounts: account list is empty";
+        return;
+    }
+
+    QLOG_TRACE() << "Remove all accounts: IDs: " << accounts;
+
+    Accounts::Account *acc;
+
+    for (int i = 0; i < accounts.size(); ++i) {
+
+        acc = accMan->account(accounts.at(i));
+
+        QLOG_DEBUG() << "Remove all accounts: account provider: " << acc->providerName();
+
+        if (acc->providerName() == "ocnews") {
+            acc->remove();
+            acc->sync();
+        }
+    }
+
+    remove("account");
+
+    emit removedAllAccounts();
+
+#else
+#endif
 }

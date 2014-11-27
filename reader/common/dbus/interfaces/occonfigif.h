@@ -99,6 +99,12 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QLatin1String("setSetting"), argumentList);
     }
 
+    inline QDBusPendingReply<> removeAllAccounts()
+    {
+        QList<QVariant> argumentList;
+        return asyncCallWithArgumentList(QLatin1String("removeAllAccounts"), argumentList);
+    }
+
 Q_SIGNALS: // SIGNALS
     void changedConfig();
     void cleanedCertificates();
@@ -106,6 +112,7 @@ Q_SIGNALS: // SIGNALS
     void gotConfig(const QVariantMap &config);
     void gotStatistics(const QVariantMap &stats);
     void configReset();
+    void removedAllAccounts();
 };
 
 namespace de {

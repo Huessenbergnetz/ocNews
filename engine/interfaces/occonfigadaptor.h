@@ -72,6 +72,8 @@ class OcConfigAdaptor: public QDBusAbstractAdaptor
 "    </method>\n"
 "    <signal name=\"changedConfig\"/>\n"
 "    <signal name=\"configReset\" />\n"
+"    <method name=\"removeAllAccounts\" />\n"
+"    <signal name=\"removedAllAccounts\" />\n"
 "  </interface>\n"
         "")
 public:
@@ -90,6 +92,7 @@ public Q_SLOTS: // METHODS
     bool isConfigSet();
     void resetConfig();
     void setSetting(const QString &entry, const QDBusVariant &value);
+    void removeAllAccounts();
 Q_SIGNALS: // SIGNALS
     void changedConfig();
     void cleanedCertificates();
@@ -97,6 +100,7 @@ Q_SIGNALS: // SIGNALS
     void gotConfig(const QVariantMap &config);
     void gotStatistics(const QVariantMap &stats);
     void configReset();
+    void removedAllAccounts();
 };
 
 #endif

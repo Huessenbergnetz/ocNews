@@ -43,5 +43,7 @@
     </method>
     <signal name="changedConfig" />
     <signal name="configReset" />
+    <method name="removeAllAccounts" />
+    <signal name="removedAllAccounts" />
  </interface>
 </node>
