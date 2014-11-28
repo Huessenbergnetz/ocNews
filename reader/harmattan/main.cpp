@@ -90,13 +90,14 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     }
 
     // enable log file
-    QString sLogPath;
+    QString logPath = basePath.append("/logs");
+    QString logFile;
     if (config->createLogFile()) {
         // create file name
         QString dt =  QDateTime::currentDateTime().toString(QString("yyyy-MM-ddTHH-mm-ss"));
-        sLogPath = QDir(basePath.append("/logs")).filePath("ocnews-reader-" + dt + ".log");
+        logFile = QDir(logPath).filePath("ocnews-reader-" + dt + ".log");
         // create log destination
-        QsLogging::DestinationPtr fileDestination(QsLogging::DestinationFactory::MakeFileDestination(sLogPath));
+        QsLogging::DestinationPtr fileDestination(QsLogging::DestinationFactory::MakeFileDestination(logFile));
         // set log destination to logger
         logger.addDestination(fileDestination);
     }
@@ -283,7 +284,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("versionString", VERSION_STRING);
     viewer.rootContext()->setContextProperty("versionInt", VERSION);
     viewer.rootContext()->setContextProperty("locale", locale);
-    viewer.rootContext()->setContextProperty("logFilePath", basePath.append("/logs"));
+    viewer.rootContext()->setContextProperty("logFilePath", logPath);
 
 
     viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
