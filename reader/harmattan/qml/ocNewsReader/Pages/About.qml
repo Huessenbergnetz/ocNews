@@ -138,6 +138,32 @@ Page {
                         text: qsTr("Visit website")
                         onClicked: Qt.openUrlExternally("http://ocnews.buschmann23.de")
                     }
+
+                    GroupHeader { text: qsTr("Third party licenses") }
+
+                    Text {
+                        id: rescalingRichtextLicense
+                        width: parent.width
+                        font.pointSize: 17
+                        font.weight: Font.Light
+                        text: _RICHTEXT_STYLESHEET_PREAMBLE + qsTr("<a href='https://github.com/pycage/tidings'>RescalingRichtext</a> by Martin Grimme is licensed under the terms of the <a href='http://www.gnu.org/licenses/gpl-2.0.en.html'>GNU GPL v2</a>.") + _RICHTEXT_STYLESHEET_APPENDIX
+                        textFormat: Text.RichText
+                        color: theme.inverted ? "white" : "black"
+                        wrapMode: Text.WordWrap
+                        onLinkActivated: { Qt.openUrlExternally(link) }
+                    }
+
+                    Text {
+                        id: qsLogLicense
+                        width: parent.width
+                        font.pointSize: 17
+                        font.weight: Font.Light
+                        text: _RICHTEXT_STYLESHEET_PREAMBLE + qsTr("<a href='https://bitbucket.org/razvanpetru/qslog/'>QsLog</a> by razvanpetru is licensed under the terms of the <a href='https://bitbucket.org/razvanpetru/qslog/src'>New BSD license</a>.") + _RICHTEXT_STYLESHEET_APPENDIX
+                        textFormat: Text.RichText
+                        color: theme.inverted ? "white" : "black"
+                        wrapMode: Text.WordWrap
+                        onLinkActivated: { Qt.openUrlExternally(link) }
+                    }
                 }
             }
 
@@ -150,7 +176,6 @@ Page {
 
             Flickable {
                 id: contributorsContent
-//                anchors { right: parent.right; rightMargin: 15; left: parent.left; leftMargin: 15; top: parent.top; topMargin: 10 }
                 anchors.fill: parent
                 contentHeight: contentCol.height + aboutTabs.height + 50
                 flickableDirection:  Flickable.VerticalFlick
@@ -159,7 +184,6 @@ Page {
                 Column {
                     id: contentCol
                     spacing: 10
-//                    width: parent.width
                     anchors { right: parent.right; rightMargin: 15; left: parent.left; leftMargin: 15 }
 
                     GroupHeader {

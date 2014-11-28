@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+24"/>
-        <location line="+316"/>
+        <location line="+340"/>
         <source>About</source>
         <translation>Sobre</translation>
     </message>
     <message>
-        <location line="-270"/>
+        <location line="-294"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>Cliente ownCloud News para Harmattan</translation>
     </message>
@@ -53,7 +53,22 @@
         <translation>Visitar sitio web</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+4"/>
+        <source>Third party licenses</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+29"/>
         <source>Upstream author</source>
         <translation>Autor upstream</translation>
     </message>

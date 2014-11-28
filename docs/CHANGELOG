@@ -1,3 +1,16 @@
+Version 1.9.4, 2014-11-28 10:37:10 +0100
+
+  General
+  * New: implement QsLog to create log files
+  * Improved: translation updates
+  
+  SailfishOS
+  * New: application language chooser in settings
+  * Imporved: updated BTComponents (About page, Changelog, Contributors, etc)
+  
+  Harmattan
+  * New: maintenance option to delete all ocNews accounts
+
 Version 1.9.3, 2014-11-12 18:04:41 +0100
 
   General
