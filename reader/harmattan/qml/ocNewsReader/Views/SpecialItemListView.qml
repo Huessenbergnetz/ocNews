@@ -128,14 +128,24 @@ Page {
         model: specialItemsModelFilter
         delegate: SpecialItemListDelegate {
                  onClicked: {
-                     item.searchString = specialItemListView.searchString
-                     item.handleRead = specialItemListView.handleRead
-                     item.sortAsc = specialItemListView.sortAsc
-                     item.feedType = specialItemListView.feedType
-                     item.parentFeedId = specialItemListView.feedId
-                     item.showImg = config.handleImgs > 0
-                     item.itemId = itemId
-                     openFile("SingleItemView.qml") }
+                     if (config.articleOpening === 0) {
+                        item.searchString = specialItemListView.searchString
+                        item.handleRead = specialItemListView.handleRead
+                        item.sortAsc = specialItemListView.sortAsc
+                        item.feedType = specialItemListView.feedType
+                        item.parentFeedId = specialItemListView.feedId
+                        item.showImg = config.handleImgs > 0
+                        item.itemId = itemId
+                        openFile("SingleItemView.qml")
+                     } else {
+                        if (unread) {
+                            var params = new Array();
+                            params[0] = itemId;
+                            items.markItems("read", params)
+                        }
+                        Qt.openUrlExternally(url)
+                    }
+                 }
                  onPressAndHold: {
                      contextMenuEffect.play()
                      itemContextMenu.itId = itemId

@@ -19,18 +19,6 @@ ListItem {
 
     menu: itemContextMenu
 
-    onClicked: {
-        if (model.unread) busyIndicator.state = "RUNNING"
-        item.searchString = searchString
-        item.handleRead = handleRead
-        item.sortAsc = sortAsc
-        item.feedType = feedType
-        item.parentFeedId = feedId
-        item.showImg = config.handleImgs > 0
-        item.itemId = model.itemId
-        pageStack.push(Qt.resolvedUrl("../Views/SingleItemView.qml"))
-    }
-
     function starParams() {
         var params={};
         params[feedId]=model.guidHash;
@@ -41,6 +29,27 @@ ListItem {
         var params = [];
         params[0]=model.itemId;
         return params;
+    }
+
+    onClicked: {
+        if (config.articleOpening === 0) {
+            if (model.unread) busyIndicator.state = "RUNNING"
+            item.searchString = searchString
+            item.handleRead = handleRead
+            item.sortAsc = sortAsc
+            item.feedType = feedType
+            item.parentFeedId = feedId
+            item.showImg = config.handleImgs > 0
+            item.itemId = model.itemId
+            pageStack.push(Qt.resolvedUrl("../Views/SingleItemView.qml"))
+        } else if (config.articleOpening === 1) {
+            pageStack.push(Qt.resolvedUrl("../Views/SingleItemWebView.qml"), {itemUrl: model.url, itemId: model.itemId, itemUnread: model.unread})
+        } else if (config.articleOpening === 2) {
+            Qt.openUrlExternally(model.url)
+            if (model.unread) {
+                items.markItems("read", markParams())
+            }
+        }
     }
 
     Item {

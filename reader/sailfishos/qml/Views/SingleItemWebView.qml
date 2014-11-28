@@ -8,9 +8,22 @@ Page {
 
     allowedOrientations: Orientation.Landscape | Orientation.Portrait
 
+    property string itemUrl: ""
+    property int itemId: -1
+    property bool itemUnread: true
+
     onStatusChanged: {
         if (status === PageStatus.Active) {
-            webView.url = item.url
+            if (config.articleOpening === 1) {
+                webView.url = itemUrl
+                if (itemUnread) {
+                    var params = [];
+                    params[0] = itemId;
+                    items.markItems("read", params)
+                }
+            } else {
+                webView.url = item.url
+            }
         }
     }
 
@@ -44,7 +57,7 @@ Page {
             }
             MenuItem {
                 text: qsTr("Back")
-                onClicked: pageStack.popAttached()
+                onClicked: (config.articleOpening !== 1) ? pageStack.popAttached() : pageStack.pop()
             }
         }
 

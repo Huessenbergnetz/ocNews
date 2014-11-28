@@ -366,6 +366,27 @@ Page {
                 onCheckedChanged: config.directLinkOpening = checked
             }
 
+            ListModel {
+                id: articleOpeningModel
+                ListElement { name: ""; value: 0 }
+                ListElement { name: ""; value: 1 }
+                ListElement { name: ""; value: 2 }
+                Component.onCompleted: {
+                    articleOpeningModel.get(0).name = qsTr("ocNews")
+                    articleOpeningModel.get(1).name = qsTr("ocNews WebView")
+                    articleOpeningModel.get(2).name = qsTr("External browser")
+                }
+            }
+
+            ComboBoxList {
+                id: articleOpening
+                anchors { left: parent.left; right: parent.right }
+                label: qsTr("Open articles in")
+                model: articleOpeningModel
+                initialValue: config.articleOpening
+                onChoosenValueChanged: config.articleOpening = choosenValue
+            }
+
             SectionHeader { text: qsTr("Notifications") }
 
             TextSwitch {

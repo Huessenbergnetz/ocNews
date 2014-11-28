@@ -527,7 +527,7 @@
 <context>
     <name>ItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+162"/>
+        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+171"/>
         <source>Mark as read</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1517,6 +1517,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+12"/>
+        <source>ocNews</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ocNews WebView</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>External browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Open articles in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+6"/>
         <source>Notifications</source>
         <translation type="unfinished"></translation>
@@ -1532,7 +1552,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-332"/>
+        <location line="-353"/>
         <source>Reset configuration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1542,7 +1562,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+342"/>
+        <location line="+363"/>
         <source>Privacy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1634,7 +1654,7 @@
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../qml/Views/SingleItemWebView.qml" line="+34"/>
+        <location filename="../qml/Views/SingleItemWebView.qml" line="+47"/>
         <source>Clear cookies</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1662,7 +1682,7 @@
 <context>
     <name>SpecialItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+169"/>
+        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+178"/>
         <source>Mark as read</source>
         <translation type="unfinished"></translation>
     </message>
