@@ -4,7 +4,7 @@ import QtQuick 1.1
 ListModel {
     ListElement {
         version: "1.9.4"
-        time: 0
+        time: 1417168815000
         text: "<ul>
                 <li>New: implement QsLog to create log files</li>
                 <li>New: maintenance option to delete all ocNews accounts</li>
