@@ -312,6 +312,22 @@ Page {
                         onCheckedChanged: config.directLinkOpening = checked
                     }
 
+                    ListModel {
+                        id: articleOpeningModel
+                        ListElement { name: "ocNews"; value: 0 }
+                        ListElement { name: QT_TR_NOOP("External browser"); value: 2 }
+                    }
+
+                    SelectionItem {
+                       id: articleOpening
+                       title: qsTr("Open articles in")
+                       width: parent.width - 40
+                       anchors.horizontalCenter: parent.horizontalCenter
+                       model: articleOpeningModel
+                       initialValue: config.articleOpening
+                       onCurrentValueChanged: config.articleOpening = currentValue
+                    }
+
                     LabeledSwitch {
                         id: feedsFoldersNotify
                         width: parent.width - 40
@@ -346,7 +362,7 @@ Page {
                         Text {
                             id: quitEngineDesc
                             text: qsTr("This option needs an application restart.")
-                            anchors { left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; top: quitEngine.bottom }
+                            anchors { left: parent.left; leftMargin: 20; right: parent.right; rightMargin: 20; top: quitEngine.bottom; topMargin: 7 }
                             wrapMode: Text.WordWrap
                             font.pointSize: 17
                             font.weight: Font.Light

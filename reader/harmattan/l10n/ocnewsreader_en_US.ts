@@ -421,7 +421,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+126"/>
+        <location line="+135"/>
         <source>Mark feed as read</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1205,12 +1205,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+584"/>
+        <location line="+600"/>
         <source>Account Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-565"/>
+        <location line="-581"/>
         <source>Open account manager</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1400,7 +1400,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+8"/>
+        <source>External browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Open articles in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>Notify about added/removed feeds and folders</source>
         <translation type="unfinished"></translation>
     </message>

@@ -131,14 +131,23 @@ Page {
         model: itemsModelFilter
         delegate: ItemListDelegate {
             onClicked: {
-                item.searchString = itemListView.searchString
-                item.handleRead = itemListView.handleRead
-                item.sortAsc = itemListView.sortAsc
-                item.feedType = 0
-                item.parentFeedId = itemListView.feedId
-                item.showImg = config.handleImgs > 0
-                item.itemId = itemId
-                openFile("SingleItemView.qml")
+                if (config.articleOpening === 0) {
+                    item.searchString = itemListView.searchString
+                    item.handleRead = itemListView.handleRead
+                    item.sortAsc = itemListView.sortAsc
+                    item.feedType = 0
+                    item.parentFeedId = itemListView.feedId
+                    item.showImg = config.handleImgs > 0
+                    item.itemId = itemId
+                    openFile("SingleItemView.qml")
+                } else {
+                    if (unread) {
+                        var params = new Array();
+                        params[0] = itemId;
+                        items.markItems("read", params)
+                    }
+                    Qt.openUrlExternally(url)
+                }
             }
             onPressAndHold: {
                      contextMenuEffect.play()

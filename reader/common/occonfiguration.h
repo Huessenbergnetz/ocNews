@@ -32,6 +32,7 @@ class OcConfiguration : public QObject
     Q_PROPERTY(bool createLogFile READ createLogFile WRITE setCreateLogFile NOTIFY createLogFileChanged)
     Q_PROPERTY(QString displayLanguage READ displayLanguage WRITE setDisplayLanguage NOTIFY displayLanguageChanged)
     Q_PROPERTY(bool directLinkOpening READ directLinkOpening WRITE setDirectLinkOpening NOTIFY directLinkOpeningChanged)
+    Q_PROPERTY(int articleOpening READ articleOpening WRITE setArticleOpening NOTIFY articleOpeningChanged)
 #if !defined(MEEGO_EDITION_HARMATTAN)
     Q_PROPERTY(bool accountEnabled READ accountEnabled WRITE setAccountEnabled NOTIFY accountEnabledChanged)
     Q_PROPERTY(QString accountUser READ accountUser WRITE setAccountUser NOTIFY accountUserChanged)
@@ -70,6 +71,7 @@ public:
     bool createLogFile() const;
     QString displayLanguage() const;
     bool directLinkOpening() const;
+    int articleOpening() const;
 #if !defined(MEEGO_EDITION_HARMATTAN)
     bool accountEnabled() const;
     QString accountUser() const;
@@ -107,6 +109,7 @@ signals:
     void createLogFileChanged(const bool &nCreateLogFile);
     void displayLanguageChanged(const QString &nDisplayLanguage);
     void directLinkOpeningChanged(const bool &nDirectLinkOpening);
+    void articleOpeningChanged(const int &nArticleOpening);
 #if !defined(MEEGO_EDITION_HARMATTAN)
     void accountEnabledChanged(const bool &nAccountEnabled);
     void accountUserChanged(const QString &nAccountUser);
@@ -144,6 +147,7 @@ public slots:
     void setCreateLogFile(const bool &nCreateLogFile);
     void setDisplayLanguage(const QString &nDisplayLanguage);
     void setDirectLinkOpening(const bool &nDirectLinkOpening);
+    void setArticleOpening(const int &nArticleOpening);
 #if !defined(MEEGO_EDITION_HARMATTAN)
     void setAccountEnabled(const bool &nAccountEnabled);
     void setAccountUser(const QString &nAccountUser);
@@ -186,6 +190,7 @@ private:
     bool m_createLogFile;
     QString m_displayLanguage;
     bool m_directLinkOpening;
+    int m_articleOpening;
 #if !defined(MEEGO_EDITION_HARMATTAN)
     bool m_accountEnabled;
     QString m_accountUser;

@@ -31,6 +31,7 @@ OcConfiguration::OcConfiguration(QObject *parent) :
     m_createLogFile = config["createLogFile"].toBool();
     m_displayLanguage = config["displayLanguage"].toString();
     m_directLinkOpening = config["directLinkOpening"].toBool();
+    m_articleOpening = config["articleOpening"].toInt();
 #if !defined(MEEGO_EDITION_HARMATTAN)
     m_accountEnabled = config["enabled"].toBool();
     m_accountUser = config["uname"].toString();
@@ -332,8 +333,21 @@ void OcConfiguration::setDirectLinkOpening(const bool &nDirectLinkOpening)
 {
     if (nDirectLinkOpening != m_directLinkOpening) {
         m_directLinkOpening = nDirectLinkOpening;
-        conf->setSetting("display/directLinkOpening", QDBusVariant(directLinkOpening()));
+        conf->setSetting("behaviour/directLinkOpening", QDBusVariant(directLinkOpening()));
         emit directLinkOpeningChanged(directLinkOpening());
+    }
+}
+
+
+
+int OcConfiguration::articleOpening() const { return m_articleOpening; }
+
+void OcConfiguration::setArticleOpening(const int &nArticleOpening)
+{
+    if (nArticleOpening != m_articleOpening) {
+        m_articleOpening = nArticleOpening;
+        conf->setSetting("behaviour/articleOpening", QDBusVariant(articleOpening()));
+        emit articleOpeningChanged(articleOpening());
     }
 }
 
