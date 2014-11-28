@@ -304,6 +304,15 @@ Page {
                     }
 
                     LabeledSwitch {
+                        id: directLinkOpening
+                        width: parent.width - 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Open links directly")
+                        checked: config.directLinkOpening
+                        onCheckedChanged: config.directLinkOpening = checked
+                    }
+
+                    LabeledSwitch {
                         id: feedsFoldersNotify
                         width: parent.width - 40
                         anchors.horizontalCenter: parent.horizontalCenter

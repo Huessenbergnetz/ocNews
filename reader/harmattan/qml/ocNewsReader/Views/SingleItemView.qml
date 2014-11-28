@@ -49,6 +49,10 @@ Page {
         }
     }
 
+    function openLink(link) {
+        if (isImageLink(link)) {imagePreview.link = link; imagePreview.open()} else {linkContextMenu.link = link; linkContextMenu.open()}
+    }
+
     function downloadEnclosure()
     {
         enclosureInQueue = true;
@@ -216,7 +220,8 @@ Page {
             text: item.body
             fontSize: config.fontSize
             anchors { top: headerSeperator.bottom; topMargin: 12; left: parent.left; right: parent.right }
-            onLinkActivated: if (isImageLink(link)) {imagePreview.link = link; imagePreview.open()} else {linkContextMenu.link = link; linkContextMenu.open()}
+//            onLinkActivated: if (isImageLink(link)) {imagePreview.link = link; imagePreview.open()} else {linkContextMenu.link = link; linkContextMenu.open()}
+            onLinkActivated: config.directLinkOpening ? Qt.openUrlExternally(link) : openLink(link)
             color: theme.inverted ? "white" : "black"
         }
 

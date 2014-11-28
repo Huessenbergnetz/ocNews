@@ -1203,12 +1203,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+575"/>
+        <location line="+584"/>
         <source>Account Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-556"/>
+        <location line="-565"/>
         <source>Open account manager</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1394,6 +1394,11 @@
     </message>
     <message>
         <location line="+19"/>
+        <source>Open links directly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
         <source>Notify about added/removed feeds and folders</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1604,7 +1609,7 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+244"/>
+        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+249"/>
         <source>Load images</source>
         <translation type="unfinished"></translation>
     </message>
