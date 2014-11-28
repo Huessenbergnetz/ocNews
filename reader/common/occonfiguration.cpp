@@ -30,6 +30,7 @@ OcConfiguration::OcConfiguration(QObject *parent) :
     m_displayedVersion = config["displayversion"].toInt();
     m_createLogFile = config["createLogFile"].toBool();
     m_displayLanguage = config["displayLanguage"].toString();
+    m_directLinkOpening = config["directLinkOpening"].toBool();
 #if !defined(MEEGO_EDITION_HARMATTAN)
     m_accountEnabled = config["enabled"].toBool();
     m_accountUser = config["uname"].toString();
@@ -322,6 +323,21 @@ void OcConfiguration::setDisplayLanguage(const QString &nDisplayLanguage)
         emit displayLanguageChanged(displayLanguage());
     }
 }
+
+
+
+bool OcConfiguration::directLinkOpening() const { return m_directLinkOpening; }
+
+void OcConfiguration::setDirectLinkOpening(const bool &nDirectLinkOpening)
+{
+    if (nDirectLinkOpening != m_directLinkOpening) {
+        m_directLinkOpening = nDirectLinkOpening;
+        conf->setSetting("display/directLinkOpening", QDBusVariant(directLinkOpening()));
+        emit directLinkOpeningChanged(directLinkOpening());
+    }
+}
+
+
 
 
 #if !defined(MEEGO_EDITION_HARMATTAN)

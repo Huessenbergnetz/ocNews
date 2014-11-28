@@ -66,6 +66,7 @@ QVariantMap OcConfiguration::getConfig()
     config["privacyShown"] = value("display/privacypolicy", false).toBool();
     config["displayversion"] = value("display/version", 0).toInt();
     config["displayLanguage"] = value("display/language", "C").toString();
+    config["directLinkOpening"] = value("display/directLinkOpening", false).toBool();
     config["privateBrowsing"] = value("privacy/privateBrowsing", false).toBool();
     config["enableCookies"] = value("privacy/enableCookies", true).toBool();
     config["updatebehavior"] = value("update/behavior", 0).toInt();

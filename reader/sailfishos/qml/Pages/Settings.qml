@@ -355,6 +355,17 @@ Page {
                 onValueChanged: config.fontSize = value
             }
 
+            SectionHeader { text: qsTr("Behaviour") }
+
+            TextSwitch {
+                id: openLinksDirectly
+                text: qsTr("Open links directly")
+                description: qsTr("If enabled, you will not be asked if you want to open a link in a browser.")
+                anchors { left: parent.left; right: parent.right }
+                checked: config.directLinkOpening
+                onCheckedChanged: config.directLinkOpening = checked
+            }
+
             SectionHeader { text: qsTr("Notifications") }
 
             TextSwitch {

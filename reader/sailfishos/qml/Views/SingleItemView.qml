@@ -201,7 +201,7 @@ Page {
                 fontSize: config.fontSize
                 color: Theme.primaryColor
                 anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
-                onLinkActivated: pageStack.push(Qt.resolvedUrl("../Dialogs/OpenLink.qml"), {link: link})
+                onLinkActivated: config.directLinkOpening ? Qt.openUrlExternally(link) : pageStack.push(Qt.resolvedUrl("../Dialogs/OpenLink.qml"), {link: link})
             }
 
             EnclosureItem {

@@ -1503,6 +1503,21 @@
     </message>
     <message>
         <location line="+5"/>
+        <source>Behaviour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Open links directly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>If enabled, you will not be asked if you want to open a link in a browser.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1517,7 +1532,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-321"/>
+        <location line="-332"/>
         <source>Reset configuration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1527,7 +1542,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+331"/>
+        <location line="+342"/>
         <source>Privacy</source>
         <translation type="unfinished"></translation>
     </message>
