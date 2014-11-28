@@ -168,27 +168,33 @@
     </message>
     <message>
         <location line="+7"/>
+        <location line="+19"/>
+        <location line="+6"/>
         <source>Chinese (China) translation</source>
         <translation>Traduction chinoise (Chine)</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-24"/>
         <location line="+8"/>
         <location line="+11"/>
         <location line="+6"/>
+        <location line="+6"/>
+        <location line="+6"/>
+        <location line="+13"/>
         <location line="+8"/>
-        <location line="+8"/>
+        <location line="+6"/>
+        <location line="+6"/>
         <location line="+5"/>
         <source>Thanks to</source>
         <translation>Remerciements à</translation>
     </message>
     <message>
-        <location line="-39"/>
+        <location line="-68"/>
         <source>Danish translation</source>
         <translation>Traduction danoise</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+23"/>
         <source>Dutch (Netherlands) translation</source>
         <translation>Tranduction hollandais (Pays-Bas)</translation>
     </message>
@@ -199,16 +205,23 @@
     </message>
     <message>
         <location line="+8"/>
+        <location line="+25"/>
+        <source>Russian translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="-20"/>
         <source>Italian translation</source>
         <translation>Traduction italienne</translation>
     </message>
     <message>
         <location line="+8"/>
+        <location line="+6"/>
         <source>Spanish translation</source>
         <translation>Traduction espagnole</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+11"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
         <translation>Elements de Tidings par Martin Grimme</translation>
     </message>

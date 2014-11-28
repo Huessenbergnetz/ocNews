@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+24"/>
-        <location line="+299"/>
+        <location line="+316"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location line="-253"/>
+        <location line="-270"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation>&lt;b&gt;OwnCloud News&lt;/b&gt; For Harmattan</translation>
     </message>
@@ -53,7 +53,7 @@
         <translation>访问项目主页</translation>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+28"/>
         <source>Upstream author</source>
         <translation>核心作者</translation>
     </message>
@@ -79,21 +79,27 @@
     </message>
     <message>
         <location line="+5"/>
+        <location line="+17"/>
         <source>Chinese (China) translation</source>
         <translation>中文翻译(简体中文)</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-10"/>
         <source>Danish translation</source>
         <translation>丹麦语翻译</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+15"/>
+        <source>Dutch (Netherlands) translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>French translation</source>
         <translation>法语翻译</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+12"/>
         <source>Italian translation</source>
         <translation>意大利语翻译</translation>
     </message>
@@ -103,7 +109,8 @@
         <translation>西班牙语翻译</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-12"/>
+        <location line="+17"/>
         <source>Russian translation</source>
         <translation>俄语翻译</translation>
     </message>
@@ -530,17 +537,17 @@
         <translation>账号已停用,使用本程序需要开启账号.</translation>
     </message>
     <message>
-        <location line="+118"/>
+        <location line="+122"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="-4"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+8"/>
         <source>Quit completely</source>
         <translation>完全退出</translation>
     </message>
@@ -779,52 +786,52 @@
     <message>
         <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>系统默认</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>英语</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>丹麦语</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>德语</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>西班牙语</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>法语</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>印度语</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Dutch (Netherlands)</source>
-        <translation type="unfinished"/>
+        <translation>荷兰语(Netherlands)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>俄罗斯语</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"/>
+        <translation>中文(简体)</translation>
     </message>
 </context>
 <context>
@@ -1175,12 +1182,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+563"/>
+        <location line="+575"/>
         <source>Account Settings</source>
         <translation>账号设置</translation>
     </message>
     <message>
-        <location line="-544"/>
+        <location line="-556"/>
         <source>Open account manager</source>
         <translation>账号管理</translation>
     </message>
@@ -1455,17 +1462,22 @@
         <translation>删除证书</translation>
     </message>
     <message>
+        <location line="+7"/>
+        <source>Remove accounts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location line="+12"/>
         <source>Create log files</source>
-        <translation type="unfinished"/>
+        <translation>创建记录文件</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>This option needs a complete application restart. After that it will create log files in %1.</source>
-        <translation type="unfinished"/>
+        <translation>此选项需要程序完全重启。之后会在 %1 创建记录文件。</translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+41"/>
         <source>Display &amp; Update Settings</source>
         <translation>显示 &amp; 更新设置</translation>
     </message>
@@ -1488,11 +1500,12 @@
         <location line="+1"/>
         <location line="+11"/>
         <location line="+10"/>
+        <location line="+21"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location line="-20"/>
+        <location line="-41"/>
         <source>Do you really want reset your configuration?</source>
         <translation>是否重置?</translation>
     </message>
@@ -1550,6 +1563,21 @@
         <location line="+1"/>
         <source>Disable HTTPS?</source>
         <translation>禁用HTTPS?</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Remove all</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Are you really sure you want to remove all ocNews accounts? You should only use this option when there are issues with the account management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Remove all ocNews accounts?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

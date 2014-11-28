@@ -168,27 +168,33 @@
     </message>
     <message>
         <location line="+7"/>
+        <location line="+19"/>
+        <location line="+6"/>
         <source>Chinese (China) translation</source>
         <translation>Chinese (China) vertaling</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-24"/>
         <location line="+8"/>
         <location line="+11"/>
         <location line="+6"/>
+        <location line="+6"/>
+        <location line="+6"/>
+        <location line="+13"/>
         <location line="+8"/>
-        <location line="+8"/>
+        <location line="+6"/>
+        <location line="+6"/>
         <location line="+5"/>
         <source>Thanks to</source>
         <translation>Bedankt aan</translation>
     </message>
     <message>
-        <location line="-39"/>
+        <location line="-68"/>
         <source>Danish translation</source>
         <translation>Deense vertaling</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+23"/>
         <source>Dutch (Netherlands) translation</source>
         <translation>Nederlandse (Nederland) vertaling</translation>
     </message>
@@ -199,16 +205,23 @@
     </message>
     <message>
         <location line="+8"/>
+        <location line="+25"/>
+        <source>Russian translation</source>
+        <translation>Russische vertaling</translation>
+    </message>
+    <message>
+        <location line="-20"/>
         <source>Italian translation</source>
         <translation>Italiaanse vertaling</translation>
     </message>
     <message>
         <location line="+8"/>
+        <location line="+6"/>
         <source>Spanish translation</source>
         <translation>Spaanse vertaling</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+11"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
         <translation>Martin Grimme&apos;s Tidings Elements</translation>
     </message>
@@ -1525,12 +1538,12 @@
     <message>
         <location line="+3"/>
         <source>Create log files</source>
-        <translation>Logbestanden creëren</translation>
+        <translation>Logbestanden creeëren</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>This option needs a complete application restart. After that it will create log files in %1.</source>
-        <translation>Deze optie vereist een complete herstart van de applicatie. Na de herstart zullen logebestanden worden gecreeërd in %1.</translation>
+        <translation>Deze optie vereist een complete herstart van de applicatie. Na de herstart zullen logbestanden worden gecreeërd in %1.</translation>
     </message>
     <message>
         <location line="+7"/>

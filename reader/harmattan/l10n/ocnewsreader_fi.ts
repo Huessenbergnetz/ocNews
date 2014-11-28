@@ -3,12 +3,12 @@
     <name>About</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+24"/>
-        <location line="+299"/>
+        <location line="+316"/>
         <source>About</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-253"/>
+        <location line="-270"/>
         <source>The ownCloud News App client for Harmattan</source>
         <translation type="unfinished"/>
     </message>
@@ -53,7 +53,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+28"/>
         <source>Upstream author</source>
         <translation type="unfinished"/>
     </message>
@@ -79,21 +79,27 @@
     </message>
     <message>
         <location line="+5"/>
+        <location line="+17"/>
         <source>Chinese (China) translation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-10"/>
         <source>Danish translation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+15"/>
+        <source>Dutch (Netherlands) translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>French translation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+12"/>
         <source>Italian translation</source>
         <translation type="unfinished"/>
     </message>
@@ -103,7 +109,8 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-12"/>
+        <location line="+17"/>
         <source>Russian translation</source>
         <translation type="unfinished"/>
     </message>
@@ -530,17 +537,17 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+118"/>
+        <location line="+122"/>
         <source>Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="-4"/>
         <source>About</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+8"/>
         <source>Quit completely</source>
         <translation type="unfinished"/>
     </message>
@@ -1175,12 +1182,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+563"/>
+        <location line="+575"/>
         <source>Account Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-544"/>
+        <location line="-556"/>
         <source>Open account manager</source>
         <translation type="unfinished"/>
     </message>
@@ -1455,6 +1462,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <location line="+7"/>
+        <source>Remove accounts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location line="+12"/>
         <source>Create log files</source>
         <translation type="unfinished"/>
@@ -1465,7 +1477,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+41"/>
         <source>Display &amp; Update Settings</source>
         <translation type="unfinished"/>
     </message>
@@ -1488,11 +1500,12 @@
         <location line="+1"/>
         <location line="+11"/>
         <location line="+10"/>
+        <location line="+21"/>
         <source>Cancel</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-20"/>
+        <location line="-41"/>
         <source>Do you really want reset your configuration?</source>
         <translation type="unfinished"/>
     </message>
@@ -1549,6 +1562,21 @@
     <message>
         <location line="+1"/>
         <source>Disable HTTPS?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Remove all</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Are you really sure you want to remove all ocNews accounts? You should only use this option when there are issues with the account management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Remove all ocNews accounts?</source>
         <translation type="unfinished"/>
     </message>
 </context>
