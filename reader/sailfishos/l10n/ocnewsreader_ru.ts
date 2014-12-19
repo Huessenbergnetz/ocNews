@@ -24,7 +24,7 @@
     <message>
         <location line="+4"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Пожертвовать через PayPal</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -47,47 +47,47 @@
     <message>
         <location filename="../qml/BTComponents/AboutPage.qml" line="+77"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>Домашняя страница</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Политика конфиденциальности</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Список изменений</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Авторы</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>О программе</translation>
     </message>
     <message>
         <location line="+58"/>
         <source>Contact</source>
-        <translation type="unfinished"/>
+        <translation>Контактная информация</translation>
     </message>
     <message>
         <location line="+84"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>Поддержка</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Перевод</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>Сообщения об ошибках</translation>
     </message>
     <message>
         <location line="+23"/>
@@ -105,22 +105,22 @@
     <message>
         <location line="+20"/>
         <source>New</source>
-        <translation type="unfinished"/>
+        <translation>Новое</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Improved</source>
-        <translation type="unfinished"/>
+        <translation>Улучшено</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Fixed</source>
-        <translation type="unfinished"/>
+        <translation>Исправлено</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>Примечание</translation>
     </message>
 </context>
 <context>
@@ -136,7 +136,7 @@
     <message>
         <location filename="../qml/BTComponents/ContributorsDelegate.qml" line="+127"/>
         <source>Website</source>
-        <translation type="unfinished"/>
+        <translation>Вебсайт</translation>
     </message>
     <message>
         <location line="+25"/>
@@ -154,24 +154,24 @@
     <message>
         <location line="+1"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Автор</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>UI, French translation</source>
-        <translation type="unfinished"/>
+        <translation>UI, Перевод на Французский язык</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Major contributors</source>
-        <translation type="unfinished"/>
+        <translation>Основные разработчики</translation>
     </message>
     <message>
         <location line="+7"/>
         <location line="+19"/>
         <location line="+6"/>
         <source>Chinese (China) translation</source>
-        <translation type="unfinished"/>
+        <translation>Перевод на Китайский(Сhina) язык</translation>
     </message>
     <message>
         <location line="-24"/>
@@ -191,34 +191,34 @@
     <message>
         <location line="-68"/>
         <source>Danish translation</source>
-        <translation type="unfinished"/>
+        <translation>Перевод на Датский язык</translation>
     </message>
     <message>
         <location line="+23"/>
         <source>Dutch (Netherlands) translation</source>
-        <translation type="unfinished"/>
+        <translation>Перевод на Галландский(Нидерланды) язык</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>French translation</source>
-        <translation type="unfinished"/>
+        <translation>Перевод на Французский язык</translation>
     </message>
     <message>
         <location line="+8"/>
         <location line="+25"/>
         <source>Russian translation</source>
-        <translation type="unfinished"/>
+        <translation>Перевод на Русский язык</translation>
     </message>
     <message>
         <location line="-20"/>
         <source>Italian translation</source>
-        <translation type="unfinished"/>
+        <translation>Перевод на Итальянский язык</translation>
     </message>
     <message>
         <location line="+8"/>
         <location line="+6"/>
         <source>Spanish translation</source>
-        <translation type="unfinished"/>
+        <translation>Перевод на Испанский язык</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -274,22 +274,22 @@
     <message>
         <location line="+15"/>
         <source>Add feed</source>
-        <translation>Добавить ленту новостей</translation>
+        <translation>Добавить ленту</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Feed address</source>
-        <translation>Адрес ленты новостей</translation>
+        <translation>Адрес ленты</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Add feed to folder</source>
-        <translation>Добавить ленту новостей в папку</translation>
+        <translation>Добавить ленту в папку</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Show feed in event view</source>
-        <translation type="unfinished"/>
+        <translation>Отображать ленту на странице уведомлений</translation>
     </message>
 </context>
 <context>
@@ -315,37 +315,37 @@
     <message>
         <location line="+3"/>
         <source>Enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Вложение</translation>
     </message>
     <message>
         <location line="+52"/>
         <source>Download finished</source>
-        <translation>Загрузка закончена</translation>
+        <translation>Загрузка завершена</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>In queue</source>
-        <translation type="unfinished"/>
+        <translation>В очереди</translation>
     </message>
     <message>
         <location line="+35"/>
         <source>Open enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Открыть вложение</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Abort download</source>
-        <translation>Отменить загрузку</translation>
+        <translation>Прервать загрузку</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Delete enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Удалить вложение</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Download enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Скачать вложение</translation>
     </message>
 </context>
 <context>
@@ -378,7 +378,7 @@
     <message>
         <location line="+8"/>
         <source>Deleting feed %1</source>
-        <translation>Удаление новостной ленты %1</translation>
+        <translation>Удаление ленты %1</translation>
     </message>
 </context>
 <context>
@@ -386,7 +386,7 @@
     <message>
         <location filename="../qml/Views/FeedListView.qml" line="+30"/>
         <source>Update running...</source>
-        <translation type="unfinished"/>
+        <translation>Идет обновление...</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -401,7 +401,7 @@
     <message>
         <location line="+9"/>
         <source>Add feed</source>
-        <translation type="unfinished"/>
+        <translation>Добавить новостную ленту</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -416,12 +416,12 @@
     <message>
         <location line="+8"/>
         <source>This folder is empty. Add some feeds to it.</source>
-        <translation>Это папку пуста. Добавить новостную ленту.</translation>
+        <translation>Это папка пуста. Добавьте в неё ленты новостей.</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Scroll to top</source>
-        <translation type="unfinished"/>
+        <translation>Наверх</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -431,7 +431,7 @@
     <message>
         <location line="+5"/>
         <source>Marking folder %1 as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить папку %1 как прочитанную</translation>
     </message>
 </context>
 <context>
@@ -439,7 +439,7 @@
     <message>
         <location filename="../qml/Common/FetchImagesIndicator.qml" line="+21"/>
         <source>Fetching images</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка изображений</translation>
     </message>
 </context>
 <context>
@@ -500,50 +500,50 @@
     <message>
         <location line="+24"/>
         <source>Deleting feed %1</source>
-        <translation type="unfinished"/>
+        <translation>Удаление ленты %1</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Deleting folder %1</source>
-        <translation type="unfinished"/>
+        <translation>Удаление папки %1</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Mark folder %1 as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить папку %1 как прочитанную</translation>
     </message>
 </context>
 <context>
     <name>ItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+162"/>
+        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+171"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить как прочитанное</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark as unread</source>
-        <translation type="unfinished"/>
+        <translation>Отметить как непрочитанное</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>Удалить из избранного</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Добавить в избранное</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Mark as read up to this point</source>
-        <translation type="unfinished"/>
+        <translation>Отметить как прочитанное до этого места</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Mark as unread up to this point</source>
-        <translation type="unfinished"/>
+        <translation>Отметить как непрочитанное до этого места</translation>
     </message>
 </context>
 <context>
@@ -551,7 +551,7 @@
     <message>
         <location filename="../qml/Views/ItemListView.qml" line="+44"/>
         <source>Update running...</source>
-        <translation type="unfinished"/>
+        <translation>Идёт обновление...</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -561,32 +561,32 @@
     <message>
         <location line="+40"/>
         <source>Delete feed</source>
-        <translation>Удалить новостную ленту</translation>
+        <translation>Удалить ленту</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Rename feed</source>
-        <translation>Переименовать новостную ленту</translation>
+        <translation>Переименовать ленту</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Hide sorting options</source>
-        <translation type="unfinished"/>
+        <translation>Скрыть параметры сортировки</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Show sorting options</source>
-        <translation type="unfinished"/>
+        <translation>Показать параметры сортировки</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Mark feed as read</source>
-        <translation>Отметить новостную ленту как прочитанную</translation>
+        <translation>Отметить ленту как прочитанную</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Update feed</source>
-        <translation>Обновить новостную ленту</translation>
+        <translation>Обновить ленту</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -601,12 +601,12 @@
     <message>
         <location line="+20"/>
         <source>Scroll to top</source>
-        <translation type="unfinished"/>
+        <translation>Наверх</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Deleting feed %1</source>
-        <translation type="unfinished"/>
+        <translation>Удаление ленты %1</translation>
     </message>
     <message>
         <location line="+25"/>
@@ -621,22 +621,22 @@
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation type="unfinished"/>
+        <translation>Показать после непрочитанных</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Read articles</source>
-        <translation type="unfinished"/>
+        <translation>Читать статьи</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Show newest on top</source>
-        <translation type="unfinished"/>
+        <translation>Сначала новые сообщения</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Show oldest on top</source>
-        <translation>Показать старые в первую очередь</translation>
+        <translation>Вначале старые сообщения</translation>
     </message>
 </context>
 <context>
@@ -644,7 +644,7 @@
     <message>
         <location filename="../qml/Pages/LanguageChooser.qml" line="+92"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Поиск</translation>
     </message>
 </context>
 <context>
@@ -652,32 +652,32 @@
     <message>
         <location filename="../qml/Views/MainView.qml" line="+27"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Оставить сообщение(Английский или Немецкий):</translation>
     </message>
     <message>
         <location line="-5"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>Пожертвовать</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>If you like ocNews and you want to support the development, consider a small donation.</source>
-        <translation type="unfinished"/>
+        <translation>Если вам понравился ocNews и вы хотите поддержать его дальнейшую разработку, то вы можете сделать небольшое пожертвование.</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Пожертвовать через PayPal</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews is a client for the ownCloud News app, a cloud based RSS/Atom feed aggregator. </source>
-        <translation type="unfinished"/>
+        <translation>ocNews - это клиент облачного приложения ownCloud News, являющегося агрегатором лент в формате RSS/Atom.</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Update running...</source>
-        <translation type="unfinished"/>
+        <translation>Идет обновление...</translation>
     </message>
     <message>
         <location line="+25"/>
@@ -712,7 +712,7 @@
     <message>
         <location line="+3"/>
         <source>Last update: </source>
-        <translation type="unfinished"/>
+        <translation>Последнее обновление:</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -722,7 +722,7 @@
     <message>
         <location line="+5"/>
         <source>The local database is empty. Please make an update or add new feeds and folders.</source>
-        <translation type="unfinished"/>
+        <translation>Локальная база данных пуста. Пожалуйста обновите или добавьте новые ленты или папки.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -732,12 +732,12 @@
     <message>
         <location line="+24"/>
         <source>Scroll to top</source>
-        <translation type="unfinished"/>
+        <translation>Наверх</translation>
     </message>
     <message>
         <location line="+22"/>
         <source>Add feed</source>
-        <translation type="unfinished"/>
+        <translation>Добавить ленту</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -760,12 +760,12 @@
     <message>
         <location line="+15"/>
         <source>Move feed</source>
-        <translation type="unfinished"/>
+        <translation>Переместить ленту</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Move feed to folder</source>
-        <translation type="unfinished"/>
+        <translation>Переместить ленту в другую папку</translation>
     </message>
 </context>
 <context>
@@ -775,17 +775,17 @@
         <location line="+107"/>
         <location line="+225"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Неотсортировано</translation>
     </message>
     <message>
         <location line="-328"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Все сообщения</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Избранные сообщения</translation>
     </message>
 </context>
 <context>
@@ -793,17 +793,17 @@
     <message>
         <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Неотсортировано</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Все сообщения</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Избранные сообщения</translation>
     </message>
 </context>
 <context>
@@ -811,7 +811,7 @@
     <message>
         <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Все сообщения</translation>
     </message>
 </context>
 <context>
@@ -819,7 +819,7 @@
     <message>
         <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+83"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Все сообщения</translation>
     </message>
 </context>
 <context>
@@ -827,12 +827,12 @@
     <message>
         <location filename="../../common/models/ocfoldermodelsql.cpp" line="+88"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Все сообщения</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Избранные сообщения</translation>
     </message>
 </context>
 <context>
@@ -840,12 +840,12 @@
     <message>
         <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Все сообщения</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Избранные сообщения</translation>
     </message>
 </context>
 <context>
@@ -871,52 +871,52 @@
     <message>
         <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Язык системы</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>Английский</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>Датский</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Немецкий</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Испанский</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>Французский</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Итальянский</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Dutch (Netherlands)</source>
-        <translation type="unfinished"/>
+        <translation>Голландский(Нидерланды)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Русский</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"/>
+        <translation>Китайский(China)</translation>
     </message>
 </context>
 <context>
@@ -996,7 +996,7 @@
     <message>
         <location filename="../qml/Dialogs/OpenLink.qml" line="+44"/>
         <source>Open</source>
-        <translation type="unfinished"/>
+        <translation>Открыть</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1011,7 +1011,7 @@
     <message>
         <location line="+14"/>
         <source>Click button to load image</source>
-        <translation type="unfinished"/>
+        <translation>Нажать на кнопку для загрузки изображения</translation>
     </message>
 </context>
 <context>
@@ -1019,122 +1019,122 @@
     <message>
         <location filename="../qml/BTComponents/PaypalChooser.qml" line="+127"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Валюта</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Euro</source>
-        <translation type="unfinished"/>
+        <translation>Евро</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>US Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Доллар США</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Australian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Австралийский доллар</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Brazilian Real</source>
-        <translation type="unfinished"/>
+        <translation>Бразильский реал</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Pound Sterling</source>
-        <translation type="unfinished"/>
+        <translation>Фунт стерлингов</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Датская крона</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hong Kong Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Гонконгский доллар</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Israel New Shekel</source>
-        <translation type="unfinished"/>
+        <translation>Израильский шекель</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Japanese Yen</source>
-        <translation type="unfinished"/>
+        <translation>Японская йена</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Canadian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Канадский доллар</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Mexican Peso</source>
-        <translation type="unfinished"/>
+        <translation>Мексиканский песо</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Taiwan Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Тайваньский доллар</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Zealand Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Новозеландский доллар</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Norwegian Krone</source>
-        <translation type="unfinished"/>
+        <translation>Норвежская крона</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Philippine Peso</source>
-        <translation type="unfinished"/>
+        <translation>Филиппинский песо</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Polish Zloty</source>
-        <translation type="unfinished"/>
+        <translation>Польский злотый</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian Ruble</source>
-        <translation type="unfinished"/>
+        <translation>Российский рубль</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swedish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Шведская крона</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swiss Franc</source>
-        <translation type="unfinished"/>
+        <translation>Швейцарский франк</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Singapore Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Сингапурский доллар</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Thai Baht</source>
-        <translation type="unfinished"/>
+        <translation>Тайский бат</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Czech Koruna</source>
-        <translation type="unfinished"/>
+        <translation>Чешская крона</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hungarian Forint</source>
-        <translation type="unfinished"/>
+        <translation>Венгерский форинт</translation>
     </message>
 </context>
 <context>
@@ -1147,67 +1147,67 @@
     <message>
         <location line="+0"/>
         <source>Accept</source>
-        <translation type="unfinished"/>
+        <translation>Принять</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Политика конфиденциальности</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>What information does ocNews collect?</source>
-        <translation type="unfinished"/>
+        <translation>Какую информацию собирает ocNews?</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>In order to log in to your ownCloud server, ocNews collects the server address, your user name and your password. These information is not given to the author of ocNews or other third parties.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews хранит данные о адресе сервера, логине и пароле для входа на Ваш ownCloud сервер. Эти данные хранятся в закрытой/личной папке на вашем устройстве.  Данные не передаются ни автору ocNews ни третьим лицам.</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>What does ocNews use your information for?</source>
-        <translation type="unfinished"/>
+        <translation>Как ocNews использует полученную информацию?</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>ocNews needs your log in data to connect to your ownCloud server. Your log in data is used to log in to your ownCloud server to perform the tasks of synchronizing your ownCloud News App data with your device.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews необходима информация о вашей учётной записи для подключения вашего устройства к вашему ownCloud серверу с целью выполнения задач по синхронизации данных между вашим устройством и вашим сервером.</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Does ocNews disclose any information to outside parties?</source>
-        <translation type="unfinished"/>
+        <translation>Раскрывает ли ocNews  какую-либо информацию третьим лицам?</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>ocNews only uses your data for the log in process into the server that you configure in the settings. ocNews does not send these data to the author of ocNews or other third parties. For questions concerning the privacy on the server side, you have to contact your ownCloud service provider.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews использует данные вашей учётной записи только для авторизации на сервере адрес которого вы указали в настройках. ocNews не отправляет эти данные автору ocNews или третьим лицам. По вопросам конфиденциальности на стороне сервера, вы должны обратиться к поставщику услуг OwnCloud.</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Third party links</source>
-        <translation type="unfinished"/>
+        <translation>Ссылки на сторонние ресурсы</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>ocNews is a cloud based RSS/Atom feed reader. It has no preinstalled third party links other than the own application website links on the About page and on this page. Showing feed content and/or opening feed link addresses is in the user&apos;s responsibility. For questions concerning the privacy of the used feed content and/or website content you have to contact the feed provider.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews это облачный RSS/Atom ридер. Он не имеет предустановленных ссылок на ресурсы третьих лиц, кроме тех, что указаны в разделе &quot;О программе&quot;.  Ответственность за просмотр контента и/или открытие  ссылки на ленты новостей возлагается на пользователя. По вопросам конфиденциальности или правовых вопросов просматриваемого контента, вы можете обратиться к поставщику контента.</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Your consent</source>
-        <translation type="unfinished"/>
+        <translation>Ваше согласие</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>By using ocNews, you consent to this privacy policy.</source>
-        <translation type="unfinished"/>
+        <translation>Используя ocNews вы соглашаетесь с данной политикой конфиденциальности.</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Contact</source>
-        <translation type="unfinished"/>
+        <translation>Контакт</translation>
     </message>
 </context>
 <context>
@@ -1215,12 +1215,12 @@
     <message>
         <location filename="../qml/Dialogs/RenameFeed.qml" line="+17"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Переименовать</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Feed name</source>
-        <translation type="unfinished"/>
+        <translation>Название ленты</translation>
     </message>
 </context>
 <context>
@@ -1247,12 +1247,12 @@
         <location line="+2"/>
         <location line="+47"/>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Сервер</translation>
     </message>
     <message>
         <location line="-43"/>
         <source>Delete database</source>
-        <translation type="unfinished"/>
+        <translation>Удалить базу данных</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -1277,32 +1277,32 @@
     <message>
         <location line="+11"/>
         <source>Server: e.g. cloud.example.com</source>
-        <translation type="unfinished"/>
+        <translation>Сервер: e.g. cloud.example.com</translation>
     </message>
     <message>
         <location line="+28"/>
         <source>Found ownCloud News Version %1</source>
-        <translation type="unfinished"/>
+        <translation>Обнаружена версия ownCloud News %1</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Use HTTPS (SSL/TLS) connection</source>
-        <translation type="unfinished"/>
+        <translation>Использовать HTTPS (SSL/TLS) соединение</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Because ownCloud News requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption.</source>
-        <translation type="unfinished"/>
+        <translation>Так как ownCloud News требует отправлять логин и пароль при каждом запросе к серверу, вы можете оставить эту опцию включенной для использования шифрованного соединения в случае если ваш сервер поддерживает или требует шифрование.</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Ignore SSL errors</source>
-        <translation type="unfinished"/>
+        <translation>Игнорировать ошибки SSL</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Only ignore SSL errors when you really know what you are doing. (Currently there is no system service for handling SSL certificates. ocNews will implement it&apos;s own in the future, but for now you have to ignore SSL errors when you are using a self signed certificate.)</source>
-        <translation type="unfinished"/>
+        <translation>Если вы точно знаете что делаете, то можете игнорировать ошибки SSL сертификата. (В настоящий момент нет системы проверки SSL сертификатов. В будущем, ocNews внедрит свою систему проверки сертификатов, а пока вы можете игнорировать ошибки в SSL если используете самоподписанный сертификат.)</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1313,17 +1313,17 @@
     <message>
         <location line="-9"/>
         <source>Only manually</source>
-        <translation type="unfinished"/>
+        <translation>Только вручную</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Automatic on Wi-Fi</source>
-        <translation type="unfinished"/>
+        <translation>Автоматически при доступном Wi-Fi</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Always automatic</source>
-        <translation type="unfinished"/>
+        <translation>Всегда автоматически</translation>
     </message>
     <message>
         <location line="+22"/>
@@ -1368,17 +1368,17 @@
     <message>
         <location line="+12"/>
         <source>Number of items to keep</source>
-        <translation type="unfinished"/>
+        <translation>Количество хранимых элементов</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Quit engine on closing reader</source>
-        <translation type="unfinished"/>
+        <translation>Закрыть приложение при закрытии ридера</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>By default the engine daemon ist started on application startup and keeps running after closing the application to operate/synchronize in the background. This option needs an application restart.</source>
-        <translation type="unfinished"/>
+        <translation>По умолчанию, при запуске приложения также запускается и демон, который остается запущенным при закрытии приложения, для управления/синхронизации в фоновом режиме. При изменении данной опции необходим перезапуск.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1388,7 +1388,7 @@
     <message>
         <location line="+5"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Язык</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1398,52 +1398,52 @@
     <message>
         <location line="+1"/>
         <source>Feeds</source>
-        <translation>Новостные ленты</translation>
+        <translation>Ленты</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Main view layout</source>
-        <translation type="unfinished"/>
+        <translation>Основной вид</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Added (like on server)</source>
-        <translation type="unfinished"/>
+        <translation>Добавлено (как на сервере)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>Заголовок</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Unread count</source>
-        <translation type="unfinished"/>
+        <translation>Количество непрочитанного</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Order feeds and folders by</source>
-        <translation type="unfinished"/>
+        <translation>Сортировка лент и папок по</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>On request</source>
-        <translation type="unfinished"/>
+        <translation>По запросу</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>When item loads</source>
-        <translation type="unfinished"/>
+        <translation>При открытии</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Prefetch at updating</source>
-        <translation type="unfinished"/>
+        <translation>При обновлении ленты</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Load content images</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка изображений</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -1458,32 +1458,32 @@
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation type="unfinished"/>
+        <translation>Показать после непрочитанных</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Read articles</source>
-        <translation type="unfinished"/>
+        <translation>Читать статьи</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Hide read feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Скрыть прочитанные ленты и папки</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Hide feeds and folders that do not contain unread items.</source>
-        <translation type="unfinished"/>
+        <translation>Скрыть ленты и папки которые не содержат непрочитанные элементы</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Show oldest items on top</source>
-        <translation type="unfinished"/>
+        <translation>Сначала показывать старые элементы</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Set the default order of the news items to show the oldest at the top. You can still change it in the pully menu.</source>
-        <translation type="unfinished"/>
+        <translation>Установить сортировку по умолчанию для показа старых элементов вначале списка. Вы можете изменить это в выпадающем меню.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1498,62 +1498,97 @@
     <message>
         <location line="+21"/>
         <source>Item view font size</source>
-        <translation type="unfinished"/>
+        <translation>Размер шрифта:</translation>
     </message>
     <message>
         <location line="+5"/>
+        <source>Behaviour</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Open links directly</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>If enabled, you will not be asked if you want to open a link in a browser.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>ocNews</source>
+        <translation>ocNews</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ocNews WebView</source>
+        <translation>ocNews WebView</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>External browser</source>
+        <translation>Открыть в браузере</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Open articles in</source>
+        <translation>Открывать статьи в</translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Notifications</source>
         <translation>Уведомления</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Notify about added/removed feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Уведомлять о добавленных/удалённых лентах и папках</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Notify about new articles</source>
-        <translation type="unfinished"/>
+        <translation>Уведомлять  о новых статьях</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Privacy</source>
-        <translation type="unfinished"/>
+        <translation>Конфиденциальность</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Enable private browsing for web view</source>
-        <translation type="unfinished"/>
+        <translation>Включить приватный просмотр для web view</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Allow cookies in web view</source>
-        <translation type="unfinished"/>
+        <translation>Разрешить куки в web view</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Maintenance</source>
-        <translation type="unfinished"/>
+        <translation>Обслуживание</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Create log files</source>
-        <translation type="unfinished"/>
+        <translation>Создать лог файл</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>This option needs a complete application restart. After that it will create log files in %1.</source>
-        <translation type="unfinished"/>
+        <translation>При изменении этой опции потребуется перезапуск приложения, после чего приложение будет создавать лог-файлы в %1.</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Deleting database</source>
-        <translation type="unfinished"/>
+        <translation>Удаление базы данных</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Resetting configuration</source>
-        <translation type="unfinished"/>
+        <translation>Сброс конфигурации</translation>
     </message>
 </context>
 <context>
@@ -1572,7 +1607,7 @@
     <message>
         <location line="+0"/>
         <source>Mark as favourite</source>
-        <translation type="unfinished"/>
+        <translation>Отметить как избранное</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -1582,33 +1617,33 @@
     <message>
         <location line="+5"/>
         <source>Previous in list</source>
-        <translation type="unfinished"/>
+        <translation>Предыдущий в списке</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>First in list</source>
-        <translation type="unfinished"/>
+        <translation>Первый в списке</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Next in list</source>
-        <translation type="unfinished"/>
+        <translation>Следующий в списке</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Last in list</source>
-        <translation type="unfinished"/>
+        <translation>Последний в списке</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Scroll to top</source>
-        <translation type="unfinished"/>
+        <translation>Наверх</translation>
     </message>
 </context>
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../qml/Views/SingleItemWebView.qml" line="+34"/>
+        <location filename="../qml/Views/SingleItemWebView.qml" line="+47"/>
         <source>Clear cookies</source>
         <translation>Очистить cookies</translation>
     </message>
@@ -1625,35 +1660,35 @@
     <message>
         <location line="+4"/>
         <source>Open in browser</source>
-        <translation type="unfinished"/>
+        <translation>Открыть в браузере</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation>Назад</translation>
     </message>
 </context>
 <context>
     <name>SpecialItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+169"/>
+        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+178"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить как прочитанное</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark as unread</source>
-        <translation type="unfinished"/>
+        <translation>Отметить как непрочитанное</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Remove from favourites</source>
-        <translation type="unfinished"/>
+        <translation>Удалить из избранного</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Add to favourites</source>
-        <translation type="unfinished"/>
+        <translation>Добавить в избранное</translation>
     </message>
 </context>
 <context>
@@ -1661,97 +1696,97 @@
     <message>
         <location filename="../qml/Views/SpecialItemListView.qml" line="+61"/>
         <source>Update running...</source>
-        <translation type="unfinished"/>
+        <translation>Идет обновление...</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Поиск</translation>
     </message>
     <message>
         <location line="+40"/>
         <source>Hide sorting options</source>
-        <translation type="unfinished"/>
+        <translation>Скрыть параметры сортировки</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Show sorting options</source>
-        <translation type="unfinished"/>
+        <translation>Показать параметры сортировки</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Mark folder as read</source>
-        <translation type="unfinished"/>
+        <translation>Пометить папку как прочитанную</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark all as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить всё как прочитанное</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Update folder</source>
-        <translation type="unfinished"/>
+        <translation>Обновить папку</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Update all</source>
-        <translation type="unfinished"/>
+        <translation>Обновить всё</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Hide search</source>
-        <translation type="unfinished"/>
+        <translation>Скрыть поиск</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Show search</source>
-        <translation type="unfinished"/>
+        <translation>Показать поиск</translation>
     </message>
     <message>
         <location line="+20"/>
         <source>Scroll to top</source>
-        <translation type="unfinished"/>
+        <translation>Наверх</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Marking %1 as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить %1 как прочитанное</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Marking all entries as read</source>
-        <translation type="unfinished"/>
+        <translation>Отметить всё как прочитанное</translation>
     </message>
     <message>
         <location line="+21"/>
         <source>Show newest on top</source>
-        <translation type="unfinished"/>
+        <translation>Отображать вначале новые сообщения</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Show oldest on top</source>
-        <translation type="unfinished"/>
+        <translation>Отображать вначале старые сообщения</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Show</source>
-        <translation type="unfinished"/>
+        <translation>Показать</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hide</source>
-        <translation type="unfinished"/>
+        <translation>Скрыть</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation type="unfinished"/>
+        <translation>Показать после непрочитанных</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Read articles</source>
-        <translation type="unfinished"/>
+        <translation>Читать статьи</translation>
     </message>
 </context>
 </TS>

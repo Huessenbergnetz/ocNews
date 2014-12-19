@@ -55,17 +55,17 @@
     <message>
         <location line="+4"/>
         <source>Third party licenses</source>
-        <translation type="unfinished"/>
+        <translation>Licenties van derde partijen</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; door Martin Grimme is gelicenseerd onder de voorwaarden van de &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; door razvanpetru is gelicenseerd onder de voorwaarden van de &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;Nieuwe BSD-licentie&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -413,7 +413,7 @@
         <translation>Zoeken...</translation>
     </message>
     <message>
-        <location line="+126"/>
+        <location line="+135"/>
         <source>Mark feed as read</source>
         <translation>Feed markeren als gelezen</translation>
     </message>
@@ -1197,12 +1197,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+575"/>
+        <location line="+600"/>
         <source>Account Settings</source>
         <translation>Accountinstellingen</translation>
     </message>
     <message>
-        <location line="-556"/>
+        <location line="-581"/>
         <source>Open account manager</source>
         <translation>Accountbeheerder openen</translation>
     </message>
@@ -1388,6 +1388,21 @@
     </message>
     <message>
         <location line="+19"/>
+        <source>Open links directly</source>
+        <translation>Links direct openen</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>External browser</source>
+        <translation>Externe browser</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Open articles in</source>
+        <translation>Artikelen openen in</translation>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>Notify about added/removed feeds and folders</source>
         <translation>Melding bij het toevoegen/verwijderen van feeds en mappen</translation>
     </message>
@@ -1598,7 +1613,7 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+244"/>
+        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+249"/>
         <source>Load images</source>
         <translation>Afbeeldingen laden</translation>
     </message>
@@ -1671,7 +1686,7 @@
         <translation>Zoeken...</translation>
     </message>
     <message>
-        <location line="+143"/>
+        <location line="+153"/>
         <source>Mark folder as read</source>
         <translation>Map markeren als gelezen</translation>
     </message>

@@ -413,7 +413,7 @@
         <translation>Recherche...</translation>
     </message>
     <message>
-        <location line="+126"/>
+        <location line="+135"/>
         <source>Mark feed as read</source>
         <translation>Marquer le flux comme lu</translation>
     </message>
@@ -1197,12 +1197,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+575"/>
+        <location line="+600"/>
         <source>Account Settings</source>
         <translation>Paramètres du compte</translation>
     </message>
     <message>
-        <location line="-556"/>
+        <location line="-581"/>
         <source>Open account manager</source>
         <translation>Gestion du compte</translation>
     </message>
@@ -1388,6 +1388,21 @@
     </message>
     <message>
         <location line="+19"/>
+        <source>Open links directly</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>External browser</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Open articles in</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>Notify about added/removed feeds and folders</source>
         <translation>Notifier les d&apos;ajout/suppression de flux et dossiers</translation>
     </message>
@@ -1598,7 +1613,7 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+244"/>
+        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+249"/>
         <source>Load images</source>
         <translation>Charger les images</translation>
     </message>
@@ -1671,7 +1686,7 @@
         <translation>Rechercher...</translation>
     </message>
     <message>
-        <location line="+143"/>
+        <location line="+153"/>
         <source>Mark folder as read</source>
         <translation>Marquer le dossier comme lu</translation>
     </message>

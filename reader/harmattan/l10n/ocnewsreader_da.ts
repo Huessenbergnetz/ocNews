@@ -55,17 +55,17 @@
     <message>
         <location line="+4"/>
         <source>Third party licenses</source>
-        <translation type="unfinished"/>
+        <translation>Tredjepart licenser</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt; RescalingRichtext &lt;/a&gt; af Martin Grimme er licenseret under betingelserne i &lt;a href=&apos;http: //www.gnu.org/licenses/GPL-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt; QsLog &lt;/a&gt; af razvanpetru er udgivet under betingelserne i &lt;a href = &apos;https: //bitbucket.org/razvanpetru/qslog/ src &apos;&gt; Ny BSD licens &lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -106,7 +106,7 @@
     <message>
         <location line="+15"/>
         <source>Dutch (Netherlands) translation</source>
-        <translation type="unfinished"/>
+        <translation>Hollandsk (Nederlandene) oversættelse</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -413,7 +413,7 @@
         <translation>Søg...</translation>
     </message>
     <message>
-        <location line="+126"/>
+        <location line="+135"/>
         <source>Mark feed as read</source>
         <translation>Marker folder som læst</translation>
     </message>
@@ -801,52 +801,52 @@
     <message>
         <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Systemstandard</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>Engelsk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>Dansk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Tysk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Spansk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>Fransk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Italiensk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Dutch (Netherlands)</source>
-        <translation type="unfinished"/>
+        <translation>Hollandsk (Nederlandene)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Russisk</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"/>
+        <translation>Kinesisk (Kina)</translation>
     </message>
 </context>
 <context>
@@ -1197,12 +1197,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+575"/>
+        <location line="+600"/>
         <source>Account Settings</source>
         <translation>Konto Indstillinger</translation>
     </message>
     <message>
-        <location line="-556"/>
+        <location line="-581"/>
         <source>Open account manager</source>
         <translation>Åben kontohåndtering</translation>
     </message>
@@ -1388,6 +1388,21 @@
     </message>
     <message>
         <location line="+19"/>
+        <source>Open links directly</source>
+        <translation>Åbn links direkte</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>External browser</source>
+        <translation>Ekstern netlæser</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Open articles in</source>
+        <translation>Åben artikler i</translation>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>Notify about added/removed feeds and folders</source>
         <translation>Orienter om tilføjede/fjernede feeds og foldere</translation>
     </message>
@@ -1479,17 +1494,17 @@
     <message>
         <location line="+7"/>
         <source>Remove accounts</source>
-        <translation type="unfinished"/>
+        <translation>Fjern konti</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Create log files</source>
-        <translation type="unfinished"/>
+        <translation>Opret logfiler</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>This option needs a complete application restart. After that it will create log files in %1.</source>
-        <translation type="unfinished"/>
+        <translation>Denne indstilling har kræver en komplet genstart af programmet. Herefter vil det skabe logfiler i %1.</translation>
     </message>
     <message>
         <location line="+41"/>
@@ -1582,23 +1597,23 @@
     <message>
         <location line="+8"/>
         <source>Remove all</source>
-        <translation type="unfinished"/>
+        <translation>Fjern alle</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Are you really sure you want to remove all ocNews accounts? You should only use this option when there are issues with the account management.</source>
-        <translation type="unfinished"/>
+        <translation>Er du helt sikker på at du vil fjerne alle ocNews konti? Du bør kun bruge denne funktionalitet, når der er problemer med kontohåndteringen.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Remove all ocNews accounts?</source>
-        <translation type="unfinished"/>
+        <translation>Fjern alle ocNews konti?</translation>
     </message>
 </context>
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+244"/>
+        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+249"/>
         <source>Load images</source>
         <translation>Hent billeder</translation>
     </message>
@@ -1671,7 +1686,7 @@
         <translation>Søg...</translation>
     </message>
     <message>
-        <location line="+143"/>
+        <location line="+153"/>
         <source>Mark folder as read</source>
         <translation>Marker folder som læst</translation>
     </message>

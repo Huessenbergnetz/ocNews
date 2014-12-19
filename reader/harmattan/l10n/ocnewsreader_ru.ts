@@ -20,7 +20,7 @@
     <message>
         <location line="+6"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>Поддержка</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -35,7 +35,7 @@
     <message>
         <location line="+6"/>
         <source>Report bugs</source>
-        <translation>Сообщить об ошибке</translation>
+        <translation>Отчет об ошибках</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -106,7 +106,7 @@
     <message>
         <location line="+15"/>
         <source>Dutch (Netherlands) translation</source>
-        <translation type="unfinished"/>
+        <translation>Перевод на Галландский(Нидерланды) язык</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -200,7 +200,7 @@
     <message>
         <location line="+10"/>
         <source>Show feed in event view</source>
-        <translation type="unfinished"/>
+        <translation>Отображать ленту на странице уведомлений</translation>
     </message>
 </context>
 <context>
@@ -413,7 +413,7 @@
         <translation>Поиск...</translation>
     </message>
     <message>
-        <location line="+126"/>
+        <location line="+135"/>
         <source>Mark feed as read</source>
         <translation>Отметить ленту как прочитанную</translation>
     </message>
@@ -705,7 +705,7 @@
         <location line="+107"/>
         <location line="+225"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Нет категорий</translation>
     </message>
     <message>
         <location line="-328"/>
@@ -801,52 +801,52 @@
     <message>
         <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Язык системы</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>Английский</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>Датский</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Немецкий</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Испанский</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>Французский</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Итальянский</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Dutch (Netherlands)</source>
-        <translation type="unfinished"/>
+        <translation>Голландский(Нидерланды)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Русский</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"/>
+        <translation>Китайский(China)</translation>
     </message>
 </context>
 <context>
@@ -1197,12 +1197,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+575"/>
+        <location line="+600"/>
         <source>Account Settings</source>
         <translation>Настройки учётной записи</translation>
     </message>
     <message>
-        <location line="-556"/>
+        <location line="-581"/>
         <source>Open account manager</source>
         <translation>Открыть менеджер учётных записей</translation>
     </message>
@@ -1388,6 +1388,21 @@
     </message>
     <message>
         <location line="+19"/>
+        <source>Open links directly</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>External browser</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Open articles in</source>
+        <translation>Открывать статьи в</translation>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>Notify about added/removed feeds and folders</source>
         <translation>Уведомлять о добавленных/удалённых лентах и папках</translation>
     </message>
@@ -1409,12 +1424,12 @@
     <message>
         <location line="+43"/>
         <source>Select feeds for the event view</source>
-        <translation type="unfinished"/>
+        <translation>Выбрать ленту для показа на странице уведомлений</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>Select event view feeds</source>
-        <translation type="unfinished"/>
+        <translation>Отображать ленту на странице уведомлений</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -1479,17 +1494,17 @@
     <message>
         <location line="+7"/>
         <source>Remove accounts</source>
-        <translation type="unfinished"/>
+        <translation>Удалить из избранного</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Create log files</source>
-        <translation type="unfinished"/>
+        <translation>Создать лог файл</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>This option needs a complete application restart. After that it will create log files in %1.</source>
-        <translation type="unfinished"/>
+        <translation>При изменении этой опции потребуется перезапуск приложения, после чего приложение будет создавать лог-файлы в %1.</translation>
     </message>
     <message>
         <location line="+41"/>
@@ -1582,7 +1597,7 @@
     <message>
         <location line="+8"/>
         <source>Remove all</source>
-        <translation type="unfinished"/>
+        <translation>Удалить все</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1598,7 +1613,7 @@
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+244"/>
+        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+249"/>
         <source>Load images</source>
         <translation>Загрузить изображения</translation>
     </message>
@@ -1635,12 +1650,12 @@
     <message>
         <location line="+0"/>
         <source>Delete enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Удалить вложение</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Download enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Скачать вложение</translation>
     </message>
     <message>
         <location line="+81"/>
@@ -1671,7 +1686,7 @@
         <translation>Поиск...</translation>
     </message>
     <message>
-        <location line="+143"/>
+        <location line="+153"/>
         <source>Mark folder as read</source>
         <translation>Отметить папку как прочитанную</translation>
     </message>

@@ -55,17 +55,17 @@
     <message>
         <location line="+4"/>
         <source>Third party licenses</source>
-        <translation type="unfinished"/>
+        <translation>第三方许可协议</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -106,7 +106,7 @@
     <message>
         <location line="+15"/>
         <source>Dutch (Netherlands) translation</source>
-        <translation type="unfinished"/>
+        <translation>荷兰语(荷兰)翻译</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -413,7 +413,7 @@
         <translation>正在搜索...</translation>
     </message>
     <message>
-        <location line="+126"/>
+        <location line="+135"/>
         <source>Mark feed as read</source>
         <translation>将订阅标记为已读</translation>
     </message>
@@ -1197,12 +1197,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+575"/>
+        <location line="+600"/>
         <source>Account Settings</source>
         <translation>账号设置</translation>
     </message>
     <message>
-        <location line="-556"/>
+        <location line="-581"/>
         <source>Open account manager</source>
         <translation>账号管理</translation>
     </message>
@@ -1388,6 +1388,21 @@
     </message>
     <message>
         <location line="+19"/>
+        <source>Open links directly</source>
+        <translation>直接打开附件</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>External browser</source>
+        <translation>在浏览器中打开</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Open articles in</source>
+        <translation>打开</translation>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>Notify about added/removed feeds and folders</source>
         <translation>添加或删除订阅源/文件夹时通知</translation>
     </message>
@@ -1479,7 +1494,7 @@
     <message>
         <location line="+7"/>
         <source>Remove accounts</source>
-        <translation type="unfinished"/>
+        <translation>删除账号</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -1582,23 +1597,23 @@
     <message>
         <location line="+8"/>
         <source>Remove all</source>
-        <translation type="unfinished"/>
+        <translation>删除全部</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Are you really sure you want to remove all ocNews accounts? You should only use this option when there are issues with the account management.</source>
-        <translation type="unfinished"/>
+        <translation>确定删除账号?当账号管理出现问题时,可以尝试删除.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Remove all ocNews accounts?</source>
-        <translation type="unfinished"/>
+        <translation>删除所有账号?</translation>
     </message>
 </context>
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+244"/>
+        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+249"/>
         <source>Load images</source>
         <translation>读取图片</translation>
     </message>
@@ -1671,7 +1686,7 @@
         <translation>正在搜索...</translation>
     </message>
     <message>
-        <location line="+143"/>
+        <location line="+153"/>
         <source>Mark folder as read</source>
         <translation>将文件夹中的订阅标记为已读</translation>
     </message>

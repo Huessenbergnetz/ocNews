@@ -55,7 +55,7 @@
     <message>
         <location line="+4"/>
         <source>Third party licenses</source>
-        <translation type="unfinished"/>
+        <translation>Licenze di terze parti</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -106,7 +106,7 @@
     <message>
         <location line="+15"/>
         <source>Dutch (Netherlands) translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzione olandese</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -340,7 +340,7 @@
     <message>
         <location line="+1"/>
         <source>Do you really want to mark the whole content of this folder as read?</source>
-        <translation type="unfinished"/>
+        <translation>Sei sicuro di voler segnare tutto il contenuto della cartella come letto?</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -413,7 +413,7 @@
         <translation>Cerca...</translation>
     </message>
     <message>
-        <location line="+126"/>
+        <location line="+135"/>
         <source>Mark feed as read</source>
         <translation>Segna feed come letto</translation>
     </message>
@@ -625,7 +625,7 @@
     <message>
         <location line="+1"/>
         <source>Do you really want to delete this folder? All feeds and posts in this folder will then be deleted, too.</source>
-        <translation type="unfinished"/>
+        <translation>Sei sicuro di voler eliminare questa cartella? Tutti i feed e i post verranno di conseguenza eliminati.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -652,7 +652,7 @@
     <message>
         <location line="-12"/>
         <source>Do you really want to mark the whole content of this folder as read?</source>
-        <translation type="unfinished"/>
+        <translation>Sei sicuro di voler segnare tutto il contenuto della cartella come letto?</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1197,12 +1197,12 @@
     <name>Settings</name>
     <message>
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
-        <location line="+575"/>
+        <location line="+600"/>
         <source>Account Settings</source>
         <translation>Impostazioni Account</translation>
     </message>
     <message>
-        <location line="-556"/>
+        <location line="-581"/>
         <source>Open account manager</source>
         <translation>Apri il gestore account</translation>
     </message>
@@ -1388,6 +1388,21 @@
     </message>
     <message>
         <location line="+19"/>
+        <source>Open links directly</source>
+        <translation>Apri lonk direttamente</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>External browser</source>
+        <translation>Browser esterno</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Open articles in</source>
+        <translation>Apri articoli in</translation>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>Notify about added/removed feeds and folders</source>
         <translation>Notifica aggiunte/rimozioni di feed e cartelle</translation>
     </message>
@@ -1479,12 +1494,12 @@
     <message>
         <location line="+7"/>
         <source>Remove accounts</source>
-        <translation type="unfinished"/>
+        <translation>Elimina account</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Create log files</source>
-        <translation type="unfinished"/>
+        <translation>Crea file di log</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1582,7 +1597,7 @@
     <message>
         <location line="+8"/>
         <source>Remove all</source>
-        <translation type="unfinished"/>
+        <translation>Rimuovi tutto</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1592,13 +1607,13 @@
     <message>
         <location line="+1"/>
         <source>Remove all ocNews accounts?</source>
-        <translation type="unfinished"/>
+        <translation>Eliminare tutti gli account ocNews?</translation>
     </message>
 </context>
 <context>
     <name>SingleItemView</name>
     <message>
-        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+244"/>
+        <location filename="../qml/ocNewsReader/Views/SingleItemView.qml" line="+249"/>
         <source>Load images</source>
         <translation>Carica immagini</translation>
     </message>
@@ -1671,7 +1686,7 @@
         <translation>Cerca...</translation>
     </message>
     <message>
-        <location line="+143"/>
+        <location line="+153"/>
         <source>Mark folder as read</source>
         <translation>Segna cartella come letta</translation>
     </message>

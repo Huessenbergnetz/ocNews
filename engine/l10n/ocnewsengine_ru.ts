@@ -84,7 +84,7 @@
         <location line="-58"/>
         <location line="+1"/>
         <source>Database error</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка базы данных</translation>
     </message>
     <message>
         <location line="+189"/>

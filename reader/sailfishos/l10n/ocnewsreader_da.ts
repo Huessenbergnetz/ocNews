@@ -29,12 +29,12 @@
     <message>
         <location line="+10"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt; RescalingRichtext &lt;/a&gt; af Martin Grimme er licenseret under betingelserne i &lt;a href=&apos;http: //www.gnu.org/licenses/GPL-2.0.en.html&apos;&gt; GNU GPL v2 &lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt; QsLog &lt;/a&gt; ved razvanpetru er udgivet under betingelserne i den &lt;a href=&apos;https: //bitbucket.org/razvanpetru/qslog/src&apos;&gt; Nye BSD licens &lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="-7"/>
@@ -141,7 +141,7 @@
     <message>
         <location line="+25"/>
         <source>Sina Weibo</source>
-        <translation type="unfinished"/>
+        <translation>SinaWeibo</translation>
     </message>
 </context>
 <context>
@@ -207,7 +207,7 @@
         <location line="+8"/>
         <location line="+25"/>
         <source>Russian translation</source>
-        <translation type="unfinished"/>
+        <translation>Russisk oversættelse</translation>
     </message>
     <message>
         <location line="-20"/>
@@ -516,7 +516,7 @@
 <context>
     <name>ItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+162"/>
+        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+171"/>
         <source>Mark as read</source>
         <translation>Marker som læst</translation>
     </message>
@@ -1502,6 +1502,41 @@
     </message>
     <message>
         <location line="+5"/>
+        <source>Behaviour</source>
+        <translation>Opførsel</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Open links directly</source>
+        <translation>Åben links direkte</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>If enabled, you will not be asked if you want to open a link in a browser.</source>
+        <translation>Når aktiveret, vil du ikke blive spurgt, om du vil åbne et link i en netlæser..</translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>ocNews</source>
+        <translation>ocNews</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ocNews WebView</source>
+        <translation>ocNews intern Netlæser</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>External browser</source>
+        <translation>Ekstern netlæser</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Open articles in</source>
+        <translation>Åben artikler i</translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Notifications</source>
         <translation>Påmindelser</translation>
     </message>
@@ -1543,7 +1578,7 @@
     <message>
         <location line="+4"/>
         <source>This option needs a complete application restart. After that it will create log files in %1.</source>
-        <translation type="unfinished"/>
+        <translation>Denne indstilling kræver en komplet genstart af programmet. Herefter vil det oprette logfiler i %1.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1608,7 +1643,7 @@
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../qml/Views/SingleItemWebView.qml" line="+34"/>
+        <location filename="../qml/Views/SingleItemWebView.qml" line="+47"/>
         <source>Clear cookies</source>
         <translation>Ryd cookies</translation>
     </message>
@@ -1636,7 +1671,7 @@
 <context>
     <name>SpecialItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+169"/>
+        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+178"/>
         <source>Mark as read</source>
         <translation>Marker som læst</translation>
     </message>

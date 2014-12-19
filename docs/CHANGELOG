@@ -1,5 +1,6 @@
   General
   * New: option to open links directly (as proposed in issue #51)
+  * New: option to open articles in ocNews, Browser or ocNews WebView (SailfishOS only) as proposed in issue #51
 
 Version 1.9.4, 2014-11-28 10:37:10 +0100
 

@@ -207,7 +207,7 @@
         <location line="+8"/>
         <location line="+25"/>
         <source>Russian translation</source>
-        <translation type="unfinished"/>
+        <translation>俄语翻译</translation>
     </message>
     <message>
         <location line="-20"/>
@@ -516,7 +516,7 @@
 <context>
     <name>ItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+162"/>
+        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+171"/>
         <source>Mark as read</source>
         <translation>标记为已读条目</translation>
     </message>
@@ -1502,6 +1502,41 @@
     </message>
     <message>
         <location line="+5"/>
+        <source>Behaviour</source>
+        <translation>操作</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Open links directly</source>
+        <translation>直接打开附件</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>If enabled, you will not be asked if you want to open a link in a browser.</source>
+        <translation>启用后,点击链接后自动在浏览器中打开.</translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>ocNews</source>
+        <translation>OcNews</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ocNews WebView</source>
+        <translation>OcNews网页预览</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>External browser</source>
+        <translation>扩展浏览器</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Open articles in</source>
+        <translation>打开</translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Notifications</source>
         <translation>通知</translation>
     </message>
@@ -1608,7 +1643,7 @@
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../qml/Views/SingleItemWebView.qml" line="+34"/>
+        <location filename="../qml/Views/SingleItemWebView.qml" line="+47"/>
         <source>Clear cookies</source>
         <translation>清除cookies</translation>
     </message>
@@ -1636,7 +1671,7 @@
 <context>
     <name>SpecialItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+169"/>
+        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+178"/>
         <source>Mark as read</source>
         <translation>标记为已读条目</translation>
     </message>

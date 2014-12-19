@@ -516,7 +516,7 @@
 <context>
     <name>ItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+162"/>
+        <location filename="../qml/Delegates/ItemListDelegate.qml" line="+171"/>
         <source>Mark as read</source>
         <translation>Segna come letto</translation>
     </message>
@@ -1489,7 +1489,7 @@ Puoi comunque cambiarlo dal menu.</translation>
     <message>
         <location line="+7"/>
         <source>Show article excerpts</source>
-        <translation type="unfinished"/>
+        <translation>Mostra estratto articolo</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1503,6 +1503,41 @@ Puoi comunque cambiarlo dal menu.</translation>
     </message>
     <message>
         <location line="+5"/>
+        <source>Behaviour</source>
+        <translation>Comportamento</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Open links directly</source>
+        <translation>Apri lonk direttamente</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>If enabled, you will not be asked if you want to open a link in a browser.</source>
+        <translation>Se attivato, non ti verrà più chiesto se vuoi aprire il link con il browser.</translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>ocNews</source>
+        <translation>ocNews</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ocNews WebView</source>
+        <translation>ocNews WebView</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>External browser</source>
+        <translation>Browser esterno</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Open articles in</source>
+        <translation>Apri articoli in</translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Notifications</source>
         <translation>Notifiche</translation>
     </message>
@@ -1609,7 +1644,7 @@ Puoi comunque cambiarlo dal menu.</translation>
 <context>
     <name>SingleItemWebView</name>
     <message>
-        <location filename="../qml/Views/SingleItemWebView.qml" line="+34"/>
+        <location filename="../qml/Views/SingleItemWebView.qml" line="+47"/>
         <source>Clear cookies</source>
         <translation>Pulisci cookies</translation>
     </message>
@@ -1637,7 +1672,7 @@ Puoi comunque cambiarlo dal menu.</translation>
 <context>
     <name>SpecialItemListDelegate</name>
     <message>
-        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+169"/>
+        <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+178"/>
         <source>Mark as read</source>
         <translation>Segna come letto</translation>
     </message>
