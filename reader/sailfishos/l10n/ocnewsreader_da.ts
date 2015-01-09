@@ -223,7 +223,7 @@
     <message>
         <location line="+11"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation>Martin Grimme&apos;s Tidings Elements</translation>
+        <translation>Martin Grimmes Tidings Elements</translation>
     </message>
 </context>
 <context>
@@ -358,7 +358,7 @@
     <message>
         <location line="+5"/>
         <source>Mark as read</source>
-        <translation>Marker som læst</translation>
+        <translation>Markér som læst</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -406,7 +406,7 @@
     <message>
         <location line="+9"/>
         <source>Mark folder as read</source>
-        <translation>Marker folder som læst</translation>
+        <translation>Markér folder som læst</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -431,7 +431,7 @@
     <message>
         <location line="+5"/>
         <source>Marking folder %1 as read</source>
-        <translation>Mærker folder %1 som læst</translation>
+        <translation>Markerer folder %1 som læst</translation>
     </message>
 </context>
 <context>
@@ -478,7 +478,7 @@
         <location line="-24"/>
         <location line="+29"/>
         <source>Mark as read</source>
-        <translation>Marker som læst</translation>
+        <translation>Markér som læst</translation>
     </message>
     <message>
         <location line="-24"/>
@@ -510,7 +510,7 @@
     <message>
         <location line="+4"/>
         <source>Mark folder %1 as read</source>
-        <translation>Mærk folder %1 som læst</translation>
+        <translation>Markér folder %1 som læst</translation>
     </message>
 </context>
 <context>
@@ -518,12 +518,12 @@
     <message>
         <location filename="../qml/Delegates/ItemListDelegate.qml" line="+171"/>
         <source>Mark as read</source>
-        <translation>Marker som læst</translation>
+        <translation>Markér som læst</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark as unread</source>
-        <translation>Marker som ulæst</translation>
+        <translation>Markér som ulæst</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -538,12 +538,12 @@
     <message>
         <location line="+5"/>
         <source>Mark as read up to this point</source>
-        <translation>Marker som læst op til denne post</translation>
+        <translation>Markér som læst op til denne post</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Mark as unread up to this point</source>
-        <translation>Marker som ulæst op til denne post</translation>
+        <translation>Markér som ulæst op til denne post</translation>
     </message>
 </context>
 <context>
@@ -581,7 +581,7 @@
     <message>
         <location line="+9"/>
         <source>Mark feed as read</source>
-        <translation>Marker feed som læst</translation>
+        <translation>Markér feed som læst</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1302,7 +1302,7 @@
     <message>
         <location line="+2"/>
         <source>Only ignore SSL errors when you really know what you are doing. (Currently there is no system service for handling SSL certificates. ocNews will implement it&apos;s own in the future, but for now you have to ignore SSL errors when you are using a self signed certificate.)</source>
-        <translation>Ignorer kun SSL-fejl, når du virkelig ved hvad du gør. (I øjeblikket er der ikke nogen systemtjeneste til håndtering af SSL-certifikater. OcNews vil implementere sin egen på et tidspunkt, men for øjeblikket er du nødt til at ignorere SSL-fejl, når du bruger et selvsigneret certifikat.)</translation>
+        <translation>Ignorer kun SSL-fejl, hvis du virkelig ved hvad du gør. (I øjeblikket er der ikke nogen systemtjeneste til håndtering af SSL-certifikater. OcNews vil implementere sin egen på et tidspunkt, men for øjeblikket er du nødt til at ignorere SSL-fejl, når du bruger et selvsigneret certifikat.)</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1607,7 +1607,7 @@
     <message>
         <location line="+0"/>
         <source>Mark as favourite</source>
-        <translation>Marker som favorit</translation>
+        <translation>Markér som favorit</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -1673,12 +1673,12 @@
     <message>
         <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+178"/>
         <source>Mark as read</source>
-        <translation>Marker som læst</translation>
+        <translation>Markér som læst</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark as unread</source>
-        <translation>Marker som ulæst</translation>
+        <translation>Markér som ulæst</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1716,12 +1716,12 @@
     <message>
         <location line="+10"/>
         <source>Mark folder as read</source>
-        <translation>Marker folder som læst</translation>
+        <translation>Markér folder som læst</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark all as read</source>
-        <translation>Marker alt som læst</translation>
+        <translation>Markér alt som læst</translation>
     </message>
     <message>
         <location line="+7"/>

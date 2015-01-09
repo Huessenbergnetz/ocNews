@@ -55,7 +55,7 @@
     <message>
         <location line="+4"/>
         <source>Third party licenses</source>
-        <translation type="unfinished"/>
+        <translation>Сторонние лицензии</translation>
     </message>
     <message>
         <location line="+7"/>
