@@ -50,6 +50,7 @@ QHash<int, QByteArray> OcFeedsModelNew::roleNames() const
 
 int OcFeedsModelNew::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
     return m_items.size();
 }
 

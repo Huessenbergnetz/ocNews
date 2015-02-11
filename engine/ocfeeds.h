@@ -28,9 +28,6 @@ public Q_SLOTS: // METHODS
     void renameFeed(const QString &id, const QString &newName);
     void requestFeeds();
 
-public slots:
-    void feedDeletedCleanItems(int id);
-
 Q_SIGNALS: // SIGNALS
     void createdFeedError(const QString &createFeedResultError);
     void createdFeedSuccess(const QString &feedname, const int &feedId);

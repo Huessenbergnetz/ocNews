@@ -924,6 +924,8 @@ void OcItems::cleanItems(const QList<int> &feedIds)
 
 void OcItems::cleanItems(const QList<int> &updated, const QList<int> &newFeeds, const QList<int> &deleted)
 {
+    Q_UNUSED(updated);
+    Q_UNUSED(newFeeds);
     if (!deleted.isEmpty())
     {
         QList<int> itemsToDelete;
@@ -1163,5 +1165,7 @@ void OcItems::updateEventFeed(const QList<int> &newsFeedItems)
             QLOG_DEBUG() << "New ID for even view: " << id;
         }
     }
+#else
+    Q_UNUSED(newsFeedItems); // has to be removed when SailfishOS supports it.
 #endif
 }

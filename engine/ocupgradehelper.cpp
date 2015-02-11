@@ -9,6 +9,7 @@ OcUpgradeHelper::OcUpgradeHelper(QObject *parent) :
 
 void OcUpgradeHelper::init(int oldVersion, int currentVersion)
 {
+    Q_UNUSED(currentVersion); // maybe used in future situations
     if (oldVersion <= 161)
     {
         upgrade161AndOlder();

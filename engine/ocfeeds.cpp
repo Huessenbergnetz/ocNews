@@ -551,27 +551,10 @@ void OcFeeds::feedDeletedUpdateDb(const int &id)
 
     config.setSetting(QString("event/feeds"), QDBusVariant(feedsForEventView));
 
-//    items.cleanItems(id);
-
     emit deletedFeedSuccess(id);
 }
 
 
-
-
-/*!
- * \fn void OcFeeds::feedDeletedCleanItems(int id)
- * \brief Deletes items of a deleted feed
- *
- * This internal functions deletes the items of a deleted feed in the database.
- *
- * \param id    ID of the the feed
- */
-
-void OcFeeds::feedDeletedCleanItems(int id)
-{
-//    items.cleanItems(id);
-}
 
 
 

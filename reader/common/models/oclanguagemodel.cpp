@@ -20,6 +20,7 @@ QHash<int, QByteArray> OcLanguageModel::roleNames() const {
 
 int OcLanguageModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
     return m_langs.size();
 }
 

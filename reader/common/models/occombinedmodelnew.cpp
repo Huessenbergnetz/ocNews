@@ -76,6 +76,7 @@ QHash<int, QByteArray> OcCombinedModelNew::roleNames() const
 
 int OcCombinedModelNew::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
     return m_items.size();
 }
 

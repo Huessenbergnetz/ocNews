@@ -88,6 +88,7 @@ ListModel {
     ListElement {
         name: "lewa (Alexey)"
         role: QT_TR_NOOP("Russian translation")
+        section: QT_TR_NOOP("Thanks to")
     }
 
     ListElement {

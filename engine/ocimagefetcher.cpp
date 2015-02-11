@@ -19,6 +19,8 @@ OcImageFetcher::OcImageFetcher(QObject *parent) :
 
 void OcImageFetcher::fetchImages(const QList<int> &updated, const QList<int> &newItems, const QList<int> &deleted)
 {
+    Q_UNUSED(updated);
+
     int imgHandling = config.value("display/handleimgs", 0).toInt();
 
     if (!newItems.isEmpty())

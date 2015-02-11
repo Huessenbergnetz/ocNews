@@ -112,6 +112,7 @@ QHash<int, QByteArray> OcSpecialItemsModelNew::roleNames() const
 
 int OcSpecialItemsModelNew::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
     return m_items.size();
 }
 

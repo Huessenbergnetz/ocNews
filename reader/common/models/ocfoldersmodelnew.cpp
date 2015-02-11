@@ -58,6 +58,7 @@ void OcFoldersModelNew::setTotalUnread(const int &nTotalUnread)
 
 int OcFoldersModelNew::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
     return m_items.size();
 }
 
