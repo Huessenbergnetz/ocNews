@@ -4,7 +4,7 @@
     <message>
         <location filename="../ocdownloadmanager.cpp" line="+134"/>
         <source>Downloading enclosure </source>
-        <translation>Download contenitore</translation>
+        <translation>Scaricamento contenitore</translation>
     </message>
 </context>
 <context>
@@ -13,14 +13,14 @@
         <location filename="../ocfeeds.cpp" line="+37"/>
         <location line="+280"/>
         <location line="+150"/>
-        <location line="+128"/>
+        <location line="+111"/>
         <location line="+204"/>
         <location line="+148"/>
         <source>Device is in flight mode.</source>
         <translation>Il dispositivo è in modalità aereo.</translation>
     </message>
     <message>
-        <location line="-876"/>
+        <location line="-859"/>
         <location line="+1"/>
         <location line="+297"/>
         <location line="+1"/>
@@ -36,7 +36,7 @@
     <message numerus="yes">
         <location line="+189"/>
         <source>%n feed(s) added</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n feed aggiunto</numerusform><numerusform>%n feed aggiunti</numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -46,7 +46,7 @@
     <message numerus="yes">
         <location line="+11"/>
         <source>%n feed(s) removed</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n feed rimosso</numerusform><numerusform>%n feed rimossi</numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -65,7 +65,7 @@
         <translation>Eliminazione feed fallita</translation>
     </message>
     <message>
-        <location line="+92"/>
+        <location line="+75"/>
         <source>Feed is already part of the destination folder</source>
         <translation>Il feed è già presente nella cartella destinazione</translation>
     </message>
@@ -120,7 +120,7 @@
     <message numerus="yes">
         <location line="+103"/>
         <source>%n folder(s) added</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n cartella aggiunta</numerusform><numerusform>%n cartelle aggiunte</numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -130,7 +130,7 @@
     <message numerus="yes">
         <location line="+11"/>
         <source>%n folder(s) removed</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n cartella rimossa</numerusform><numerusform>%n  cartelle rimosse</numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -169,7 +169,7 @@
     <message>
         <location line="+31"/>
         <source>Request canceled, maybe wrong username or password</source>
-        <translation>Richiesta annullata, errato nome utente o password</translation>
+        <translation>Richiesta annullata, nome utente o password errati</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -179,7 +179,7 @@
     <message>
         <location line="+2"/>
         <source>Can not find ownCloud News, maybe wrong path or server</source>
-        <translation>Impossibile trovare Notizie ownCloud, errato indirizzo o server</translation>
+        <translation>Impossibile trovare ownCloud News, indirizzo o server errati</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -195,7 +195,7 @@
 <context>
     <name>OcImageFetcher</name>
     <message>
-        <location filename="../ocimagefetcher.cpp" line="+38"/>
+        <location filename="../ocimagefetcher.cpp" line="+40"/>
         <source>ocNews Image Fetcher</source>
         <translation>ocNews Recupero Immagini</translation>
     </message>
@@ -243,13 +243,13 @@
         <location line="-113"/>
         <location line="+297"/>
         <source>%n new unread item(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elemento non letto</numerusform><numerusform>%n elementi non letti</numerusform></translation>
     </message>
     <message>
         <location line="-297"/>
         <location line="+297"/>
         <source>New articles available</source>
-        <translation>Nuovi articoli disponibili</translation>
+        <translation>Nuovi articoli</translation>
     </message>
     <message>
         <location line="+147"/>
@@ -260,7 +260,7 @@
     <message>
         <location line="-87"/>
         <source>Failed to un/star articles</source>
-        <translation>Articoli non (de)asteriscati</translation>
+        <translation>Articoli non rimossi dai preferiti</translation>
     </message>
 </context>
 <context>
@@ -273,7 +273,7 @@
     <message>
         <location line="+29"/>
         <source>Synchronizing ownCloud News</source>
-        <translation>Sincronizzazione Notizie ownCloud</translation>
+        <translation>Sincronizzazione ownCloud News</translation>
     </message>
     <message>
         <location line="+3"/>

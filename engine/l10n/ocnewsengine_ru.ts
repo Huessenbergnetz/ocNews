@@ -13,14 +13,14 @@
         <location filename="../ocfeeds.cpp" line="+37"/>
         <location line="+280"/>
         <location line="+150"/>
-        <location line="+128"/>
+        <location line="+111"/>
         <location line="+204"/>
         <location line="+148"/>
         <source>Device is in flight mode.</source>
         <translation>Устройство находится в режиме полёта.</translation>
     </message>
     <message>
-        <location line="-876"/>
+        <location line="-859"/>
         <location line="+1"/>
         <location line="+297"/>
         <location line="+1"/>
@@ -31,7 +31,7 @@
         <location line="-299"/>
         <location line="+11"/>
         <source>Failed to request feeds</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при запросе лент</translation>
     </message>
     <message numerus="yes">
         <location line="+189"/>
@@ -65,7 +65,7 @@
         <translation>Ошибка при удалении ленты новостей</translation>
     </message>
     <message>
-        <location line="+92"/>
+        <location line="+75"/>
         <source>Feed is already part of the destination folder</source>
         <translation type="unfinished"/>
     </message>
@@ -78,7 +78,7 @@
         <location line="+140"/>
         <location line="+58"/>
         <source>Failed to mark feed as read</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при попытке пометить ленту прочтенной</translation>
     </message>
     <message>
         <location line="-58"/>
@@ -115,7 +115,7 @@
         <location line="-178"/>
         <location line="+15"/>
         <source>Failed to request folders</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при запросе папок</translation>
     </message>
     <message numerus="yes">
         <location line="+103"/>
@@ -156,7 +156,7 @@
     <message>
         <location line="+86"/>
         <source>Failed to mark folder as read</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при попытке пометить папку как прочтенную</translation>
     </message>
 </context>
 <context>
@@ -195,7 +195,7 @@
 <context>
     <name>OcImageFetcher</name>
     <message>
-        <location filename="../ocimagefetcher.cpp" line="+38"/>
+        <location filename="../ocimagefetcher.cpp" line="+40"/>
         <source>ocNews Image Fetcher</source>
         <translation type="unfinished"/>
     </message>
@@ -231,13 +231,13 @@
         <location line="-272"/>
         <location line="+271"/>
         <source>Error in server reply</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка в ответе сервера</translation>
     </message>
     <message>
         <location line="-263"/>
         <location line="+273"/>
         <source>HTTP error</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка HTTP</translation>
     </message>
     <message numerus="yes">
         <location line="-113"/>
@@ -249,13 +249,13 @@
         <location line="-297"/>
         <location line="+297"/>
         <source>New articles available</source>
-        <translation type="unfinished"/>
+        <translation>доступны новые статьи</translation>
     </message>
     <message>
         <location line="+147"/>
         <location line="+219"/>
         <source>Failed to mark articles</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при попытке отметить статьи</translation>
     </message>
     <message>
         <location line="-87"/>

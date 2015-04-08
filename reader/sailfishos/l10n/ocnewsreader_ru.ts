@@ -9,17 +9,17 @@
     <message>
         <location line="+4"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Лицензия &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Munich</source>
-        <translation type="unfinished"/>
+        <translation>Мюнхен</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Germany</source>
-        <translation type="unfinished"/>
+        <translation>Германия</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -180,7 +180,8 @@
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+13"/>
+        <location line="+8"/>
+        <location line="+6"/>
         <location line="+8"/>
         <location line="+6"/>
         <location line="+6"/>
@@ -189,7 +190,7 @@
         <translation>Благодарности</translation>
     </message>
     <message>
-        <location line="-68"/>
+        <location line="-69"/>
         <source>Danish translation</source>
         <translation>Перевод на Датский язык</translation>
     </message>
@@ -205,7 +206,7 @@
     </message>
     <message>
         <location line="+8"/>
-        <location line="+25"/>
+        <location line="+26"/>
         <source>Russian translation</source>
         <translation>Перевод на Русский язык</translation>
     </message>
@@ -771,7 +772,7 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+161"/>
         <location line="+107"/>
         <location line="+225"/>
         <source>Uncategorized</source>
@@ -809,7 +810,7 @@
 <context>
     <name>OcFeedsModelNew</name>
     <message>
-        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+124"/>
         <source>All posts</source>
         <translation>Все сообщения</translation>
     </message>
@@ -838,7 +839,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+156"/>
         <source>All posts</source>
         <translation>Все сообщения</translation>
     </message>
@@ -858,18 +859,18 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>д.ММММ</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>чч:мм</translation>
     </message>
 </context>
 <context>
     <name>OcLanguageModel</name>
     <message>
-        <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
         <source>System default</source>
         <translation>Язык системы</translation>
     </message>
@@ -929,12 +930,12 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>д.ММММ</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>чч:мм</translation>
     </message>
 </context>
 <context>
@@ -947,12 +948,12 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>д.ММММ</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>чч:мм</translation>
     </message>
 </context>
 <context>
@@ -965,12 +966,12 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>д.ММММ</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>чч:мм</translation>
     </message>
 </context>
 <context>
@@ -983,12 +984,12 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>д.ММММ</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>чч:мм</translation>
     </message>
 </context>
 <context>
@@ -1363,7 +1364,7 @@
     <message>
         <location line="+6"/>
         <source>Engine</source>
-        <translation type="unfinished"/>
+        <translation>Приложение</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -1383,7 +1384,7 @@
     <message>
         <location line="+5"/>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Внешний вид</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1488,12 +1489,12 @@
     <message>
         <location line="+7"/>
         <source>Show article excerpts</source>
-        <translation type="unfinished"/>
+        <translation>Показывать отрывки статей</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Shows some lines of the article content in the article list.</source>
-        <translation type="unfinished"/>
+        <translation>Показывать несколько строк из статьи в списке статей.</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -1503,7 +1504,7 @@
     <message>
         <location line="+5"/>
         <source>Behaviour</source>
-        <translation type="unfinished"/>
+        <translation>Поведение</translation>
     </message>
     <message>
         <location line="+4"/>

@@ -4,7 +4,7 @@
     <message>
         <location filename="../qml/Pages/About.qml" line="+10"/>
         <source>The ownCloud News App client for Sailfish OS</source>
-        <translation>Il client di Notizie ownClowd per SailfishOS</translation>
+        <translation>Il client di ownClowd News per SailfishOS</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -52,7 +52,7 @@
     <message>
         <location line="+5"/>
         <source>Privacy Policy</source>
-        <translation>Informativa sulla Privacy</translation>
+        <translation>Informativa sulla privacy</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -67,7 +67,7 @@
     <message>
         <location line="+10"/>
         <source>About</source>
-        <translation>Crediti</translation>
+        <translation>Info</translation>
     </message>
     <message>
         <location line="+58"/>
@@ -180,7 +180,8 @@
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+13"/>
+        <location line="+8"/>
+        <location line="+6"/>
         <location line="+8"/>
         <location line="+6"/>
         <location line="+6"/>
@@ -189,7 +190,7 @@
         <translation>Grazie a</translation>
     </message>
     <message>
-        <location line="-68"/>
+        <location line="-69"/>
         <source>Danish translation</source>
         <translation>traduzione danese</translation>
     </message>
@@ -205,9 +206,9 @@
     </message>
     <message>
         <location line="+8"/>
-        <location line="+25"/>
+        <location line="+26"/>
         <source>Russian translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzione russo</translation>
     </message>
     <message>
         <location line="-20"/>
@@ -236,17 +237,17 @@
     <message numerus="yes">
         <location line="+2"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n giorno fa</numerusform><numerusform>%n giorni fa</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
         <source>%n hour(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n ora fa</numerusform><numerusform>%n ore fa</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
         <source>%n minute(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n minuto fa</numerusform><numerusform>%n minuti fa</numerusform></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -261,7 +262,7 @@
     <message>
         <location line="+27"/>
         <source>Updating</source>
-        <translation>In aggiornamento</translation>
+        <translation>Aggiornamento</translation>
     </message>
 </context>
 <context>
@@ -320,7 +321,7 @@
     <message>
         <location line="+52"/>
         <source>Download finished</source>
-        <translation>Download terminato</translation>
+        <translation>Scaricamento terminato</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -345,7 +346,7 @@
     <message>
         <location line="+0"/>
         <source>Download enclosure</source>
-        <translation>Download contenitore</translation>
+        <translation>Scarica contenitore</translation>
     </message>
 </context>
 <context>
@@ -416,7 +417,7 @@
     <message>
         <location line="+8"/>
         <source>This folder is empty. Add some feeds to it.</source>
-        <translation>La cartella è vuota. Aggiungi i feed</translation>
+        <translation>La cartella è vuota. Aggiungi i feed.</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -687,7 +688,7 @@
     <message>
         <location line="+6"/>
         <source>About</source>
-        <translation>Crediti</translation>
+        <translation>Info</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -717,7 +718,7 @@
     <message>
         <location line="+7"/>
         <source>With these app you can synchronize and view your ownCloud News App content on your smartphone. Before you can start, you have to setup your ownCloud server account in the settings.</source>
-        <translation>Con quest&apos;app puoi sincronizzare e visualizzare il contenuto delle Notizie  ownCloud sul tuo smartphone. Prima di iniziare devi configurare il tuo account del server di ownCloud nelle impostazioni.</translation>
+        <translation>Con quest&apos;app puoi sincronizzare e visualizzare il contenuto di ownCloud News sul tuo smartphone. Prima di iniziare devi configurare il tuo account del server di ownCloud nelle impostazioni.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -727,7 +728,7 @@
     <message>
         <location line="+5"/>
         <source>No unread or favorite articles to show. Enable your option to show hide read feeds and folders to see content.</source>
-        <translation>Nesun articolo non letto o preferito da mostrare. Attiva l&apos;opzione per mostrare feed e cartelle letti per vederne il contenuto.</translation>
+        <translation>Nessun articolo non letto o preferito da mostrare. Attiva l&apos;opzione per mostrare feed e cartelle letti per vederne il contenuto.</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -771,7 +772,7 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+161"/>
         <location line="+107"/>
         <location line="+225"/>
         <source>Uncategorized</source>
@@ -809,7 +810,7 @@
 <context>
     <name>OcFeedsModelNew</name>
     <message>
-        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+124"/>
         <source>All posts</source>
         <translation>Tutti i post</translation>
     </message>
@@ -838,7 +839,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+156"/>
         <source>All posts</source>
         <translation>Tutti i post</translation>
     </message>
@@ -869,9 +870,9 @@
 <context>
     <name>OcLanguageModel</name>
     <message>
-        <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1039,7 +1040,7 @@
     <message>
         <location line="+1"/>
         <source>Brazilian Real</source>
-        <translation type="unfinished"/>
+        <translation>Real brasiliano</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1049,17 +1050,17 @@
     <message>
         <location line="+1"/>
         <source>Danish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Corona danese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hong Kong Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Dollaro di Hong Kong</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Israel New Shekel</source>
-        <translation type="unfinished"/>
+        <translation>Nuovo siclo israeliano</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1069,72 +1070,72 @@
     <message>
         <location line="+1"/>
         <source>Canadian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Dollaro canadese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Mexican Peso</source>
-        <translation type="unfinished"/>
+        <translation>Peso messicano</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Taiwan Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Dollaro taiwanese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Zealand Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Dollaro neozelandese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Norwegian Krone</source>
-        <translation type="unfinished"/>
+        <translation>Corona norvegese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Philippine Peso</source>
-        <translation type="unfinished"/>
+        <translation>Peso filippino</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Polish Zloty</source>
-        <translation type="unfinished"/>
+        <translation>Zloty polacco</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian Ruble</source>
-        <translation type="unfinished"/>
+        <translation>Rublo russo</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swedish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Corona svedese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swiss Franc</source>
-        <translation type="unfinished"/>
+        <translation>Franco svizzero</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Singapore Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Dollaro di Singapore</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Thai Baht</source>
-        <translation type="unfinished"/>
+        <translation>Baht thailandese</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Czech Koruna</source>
-        <translation type="unfinished"/>
+        <translation>Corona ceca</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hungarian Forint</source>
-        <translation type="unfinished"/>
+        <translation>Fiorino ungherese</translation>
     </message>
 </context>
 <context>
@@ -1152,7 +1153,7 @@
     <message>
         <location line="+8"/>
         <source>Privacy Policy</source>
-        <translation>Informativa sulla Privacy</translation>
+        <translation>Informativa sulla privacy</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -1177,7 +1178,7 @@
     <message>
         <location line="+10"/>
         <source>Does ocNews disclose any information to outside parties?</source>
-        <translation>ocNews divulga a terzi alcune informazioni?</translation>
+        <translation>ocNews condivide informazioni con terzi?</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -1292,7 +1293,7 @@
     <message>
         <location line="+2"/>
         <source>Because ownCloud News requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption.</source>
-        <translation>Dato che Notizie ownCloud richiede di inviare nome utente e password ad ogni sincronizzazione, dovresti mantenere questo abilitato per usare una connessione criptata, se il tuo server supporta o richiede la crittografia.</translation>
+        <translation>ownCloud News richiede di inviare nome utente e password ad ogni sincronizzazione, quindi dovresti mantenere questo abilitato per usare una connessione criptata, se il tuo server supporta o richiede la crittografia.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1313,7 +1314,7 @@
     <message>
         <location line="-9"/>
         <source>Only manually</source>
-        <translation>Solo manuale</translation>
+        <translation>Manuale</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1483,8 +1484,7 @@
     <message>
         <location line="+2"/>
         <source>Set the default order of the news items to show the oldest at the top. You can still change it in the pully menu.</source>
-        <translation>Imposta l&apos;ordine delle notizie con gli elementi vecchi in cima.
-Puoi comunque cambiarlo dal menu.</translation>
+        <translation>Imposta l&apos;ordine delle notizie con gli elementi vecchi in cima. Puoi comunque cambiarlo dal menu.</translation>
     </message>
     <message>
         <location line="+7"/>

@@ -180,7 +180,8 @@
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+13"/>
+        <location line="+8"/>
+        <location line="+6"/>
         <location line="+8"/>
         <location line="+6"/>
         <location line="+6"/>
@@ -189,7 +190,7 @@
         <translation>Remerciements à</translation>
     </message>
     <message>
-        <location line="-68"/>
+        <location line="-69"/>
         <source>Danish translation</source>
         <translation>Traduction danoise</translation>
     </message>
@@ -205,9 +206,9 @@
     </message>
     <message>
         <location line="+8"/>
-        <location line="+25"/>
+        <location line="+26"/>
         <source>Russian translation</source>
-        <translation type="unfinished"/>
+        <translation>Traduction russe</translation>
     </message>
     <message>
         <location line="-20"/>
@@ -771,7 +772,7 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+161"/>
         <location line="+107"/>
         <location line="+225"/>
         <source>Uncategorized</source>
@@ -809,7 +810,7 @@
 <context>
     <name>OcFeedsModelNew</name>
     <message>
-        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+124"/>
         <source>All posts</source>
         <translation>Tous les articles</translation>
     </message>
@@ -838,7 +839,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+156"/>
         <source>All posts</source>
         <translation>Tous les articles</translation>
     </message>
@@ -869,7 +870,7 @@
 <context>
     <name>OcLanguageModel</name>
     <message>
-        <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
         <source>System default</source>
         <translation>Valeur par défaut du système</translation>
     </message>
@@ -1503,37 +1504,37 @@
     <message>
         <location line="+5"/>
         <source>Behaviour</source>
-        <translation type="unfinished"/>
+        <translation>Comportement</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Open links directly</source>
-        <translation type="unfinished"/>
+        <translation>Ouvrir les liens directement</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>If enabled, you will not be asked if you want to open a link in a browser.</source>
-        <translation type="unfinished"/>
+        <translation>Si activé, on ne vous demandera pas si vous voulez ouvrir un lien dans le navigateur.</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>ocNews</source>
-        <translation type="unfinished"/>
+        <translation>ocNews</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews WebView</source>
-        <translation type="unfinished"/>
+        <translation>Vue Web ocNews</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>External browser</source>
-        <translation type="unfinished"/>
+        <translation>Navigateur Externe</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Open articles in</source>
-        <translation type="unfinished"/>
+        <translation>Ouvrir les articles dans</translation>
     </message>
     <message>
         <location line="+6"/>

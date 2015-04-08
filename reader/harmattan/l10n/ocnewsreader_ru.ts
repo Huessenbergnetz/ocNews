@@ -701,7 +701,7 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+161"/>
         <location line="+107"/>
         <location line="+225"/>
         <source>Uncategorized</source>
@@ -739,7 +739,7 @@
 <context>
     <name>OcFeedsModelNew</name>
     <message>
-        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+124"/>
         <source>All posts</source>
         <translation>Все записи</translation>
     </message>
@@ -768,7 +768,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+156"/>
         <source>All posts</source>
         <translation>Все записи</translation>
     </message>
@@ -799,7 +799,7 @@
 <context>
     <name>OcLanguageModel</name>
     <message>
-        <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
         <source>System default</source>
         <translation>Язык системы</translation>
     </message>
@@ -859,12 +859,12 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>д.ММММ</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>чч:мм</translation>
     </message>
 </context>
 <context>
@@ -877,12 +877,12 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>д.ММММ</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>чч:мм</translation>
     </message>
 </context>
 <context>
@@ -1379,7 +1379,7 @@
     <message>
         <location line="+9"/>
         <source>Show article excerpts in list</source>
-        <translation type="unfinished"/>
+        <translation>Показывать выдержки из статей в списке</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -1434,7 +1434,7 @@
     <message>
         <location line="+12"/>
         <source>Click the button to select the feeds that you want to aggregate to the Event screen. Only newly downloaded items will be added to the Events screen.</source>
-        <translation type="unfinished"/>
+        <translation>Выберите ленты, которые необходимо показывать на странице событий. Уже загруженные записи не будут удалены с ленты.</translation>
     </message>
     <message>
         <location line="+22"/>
@@ -1514,7 +1514,7 @@
     <message>
         <location line="+5"/>
         <source>Event Feed Integration</source>
-        <translation type="unfinished"/>
+        <translation>Интеграция в ленту событий</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1602,12 +1602,12 @@
     <message>
         <location line="+2"/>
         <source>Are you really sure you want to remove all ocNews accounts? You should only use this option when there are issues with the account management.</source>
-        <translation type="unfinished"/>
+        <translation>Вы уверены, что хотите удалить все учетные записи ocNews? Рекомендуется использовать эту функцию только при проблемах с управлением учетными записями.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Remove all ocNews accounts?</source>
-        <translation type="unfinished"/>
+        <translation>Удалить все учетные записи ocNews?</translation>
     </message>
 </context>
 <context>

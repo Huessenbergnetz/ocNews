@@ -709,7 +709,7 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+161"/>
         <location line="+107"/>
         <location line="+225"/>
         <source>Uncategorized</source>
@@ -747,7 +747,7 @@
 <context>
     <name>OcFeedsModelNew</name>
     <message>
-        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+124"/>
         <source>All posts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -776,7 +776,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+156"/>
         <source>All posts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -807,7 +807,7 @@
 <context>
     <name>OcLanguageModel</name>
     <message>
-        <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
         <source>System default</source>
         <translation type="unfinished"></translation>
     </message>

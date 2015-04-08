@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="en_GB">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="el" sourcelanguage="en" version="2.0">
 <context>
     <name>OcDownloadManager</name>
     <message>
         <location filename="../ocdownloadmanager.cpp" line="+134"/>
         <source>Downloading enclosure </source>
-        <translation type="unfinished"></translation>
+        <translation>Λήψη περιβλήματος</translation>
     </message>
 </context>
 <context>
@@ -19,7 +17,7 @@
         <location line="+204"/>
         <location line="+148"/>
         <source>Device is in flight mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Η συσκευή είναι σε λειτουργία πτήσης.</translation>
     </message>
     <message>
         <location line="-859"/>
@@ -27,77 +25,71 @@
         <location line="+297"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>H απάντηση από το διακομιστή ήταν κενή.</translation>
     </message>
     <message>
         <location line="-299"/>
         <location line="+11"/>
         <source>Failed to request feeds</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία αιτήματος τροφοδοσίας</translation>
     </message>
     <message numerus="yes">
         <location line="+189"/>
         <source>%n feed(s) added</source>
-        <translation>
-            <numerusform>%n feed added</numerusform>
-            <numerusform>%n feeds added</numerusform>
-        </translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Added:</source>
-        <translation type="unfinished"></translation>
+        <translation>Προστέθηκε:</translation>
     </message>
     <message numerus="yes">
         <location line="+11"/>
         <source>%n feed(s) removed</source>
-        <translation>
-            <numerusform>%n feed removed</numerusform>
-            <numerusform>%n feeds removed</numerusform>
-        </translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Removed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Αφαιρέθηκε:</translation>
     </message>
     <message>
         <location line="+85"/>
         <location line="+21"/>
         <source>Failed to add feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία προσθήκης ροής δεδομένων</translation>
     </message>
     <message>
         <location line="+126"/>
         <source>Failed to delete feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Απέτυχε η διαγραφή τροφοδοσίας</translation>
     </message>
     <message>
         <location line="+75"/>
         <source>Feed is already part of the destination folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Τροφοδοσία είναι ήδη μέρος του φακέλου προορισμού</translation>
     </message>
     <message>
         <location line="+66"/>
         <source>Failed to move feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία στην μετακίνηση τροφοδοσίας</translation>
     </message>
     <message>
         <location line="+140"/>
         <location line="+58"/>
         <source>Failed to mark feed as read</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία επισημάνσης τροφοδοσίας ως αναγνωσμένη</translation>
     </message>
     <message>
         <location line="-58"/>
         <location line="+1"/>
         <source>Database error</source>
-        <translation type="unfinished"></translation>
+        <translation>Σφάλμα βάσης δεδομένων</translation>
     </message>
     <message>
         <location line="+189"/>
         <source>Failed to rename feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία μετονομασίας τροφοδοσίας</translation>
     </message>
 </context>
 <context>
@@ -109,7 +101,7 @@
         <location line="+85"/>
         <location line="+75"/>
         <source>Device is in flight mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Η συσκευή είναι σε λειτουργία πτήσης.</translation>
     </message>
     <message>
         <location line="-389"/>
@@ -117,60 +109,54 @@
         <location line="+176"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>Απάντηση από το διακομιστή ήταν κενή.</translation>
     </message>
     <message>
         <location line="-178"/>
         <location line="+15"/>
         <source>Failed to request folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία αιτήματος φακέλων</translation>
     </message>
     <message numerus="yes">
         <location line="+103"/>
         <source>%n folder(s) added</source>
-        <translation>
-            <numerusform>%n folder added</numerusform>
-            <numerusform>%n folders added</numerusform>
-        </translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Added:</source>
-        <translation type="unfinished"></translation>
+        <translation>Προστέθηκε:</translation>
     </message>
     <message numerus="yes">
         <location line="+11"/>
         <source>%n folder(s) removed</source>
-        <translation>
-            <numerusform>%n folder removed</numerusform>
-            <numerusform>%n folders removed</numerusform>
-        </translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Removed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Αφαιρέθηκε:</translation>
     </message>
     <message>
         <location line="+46"/>
         <location line="+20"/>
         <source>Failed to create folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία δημιουργίας φακέλου</translation>
     </message>
     <message>
         <location line="+73"/>
         <source>Failed to delete folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Απέτυχε η διαγραφή του φακέλου</translation>
     </message>
     <message>
         <location line="+91"/>
         <source>Failed to rename folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Απέτυχε η μετονομασία φακέλου</translation>
     </message>
     <message>
         <location line="+86"/>
         <source>Failed to mark folder as read</source>
-        <translation type="unfinished"></translation>
+        <translation>Απέτυχε η επισημάνση φακέλου ως αναγνωσμένος</translation>
     </message>
 </context>
 <context>
@@ -178,32 +164,32 @@
     <message>
         <location filename="../ocgeneric.cpp" line="+33"/>
         <source>Device is in flight mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Η συσκευή είναι σε λειτουργία πτήσης.</translation>
     </message>
     <message>
         <location line="+31"/>
         <source>Request canceled, maybe wrong username or password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ακυρώνεται η αίτηση, ίσως  ειναι λάθος το όνομα χρήστη ή ο κωδικός πρόσβασης</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Remote host not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Ο κεντρικος υπολογιστής δεν βρέθηκε</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Can not find ownCloud News, maybe wrong path or server</source>
-        <translation type="unfinished"></translation>
+        <translation>Αδυναμια ευρεσης ownCloud Ειδήσεων, ίσως λάθος μονοπάτι ή διακομιστής</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Connection error</source>
-        <translation type="unfinished"></translation>
+        <translation>Σφάλμα σύνδεσης</translation>
     </message>
     <message>
         <location line="+26"/>
         <source>Server reply was empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>Απάντηση από το διακομιστή ήταν κενή.</translation>
     </message>
 </context>
 <context>
@@ -211,17 +197,17 @@
     <message>
         <location filename="../ocimagefetcher.cpp" line="+40"/>
         <source>ocNews Image Fetcher</source>
-        <translation type="unfinished"></translation>
+        <translation>ocNews Image Fetcher</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Fetching images</source>
-        <translation type="unfinished"></translation>
+        <translation>Ανάκτηση εικόνων</translation>
     </message>
     <message>
         <location line="+48"/>
         <source>Fetching images finished</source>
-        <translation type="unfinished"></translation>
+        <translation>Η ανάκτηση εικόνων τελείωσε</translation>
     </message>
 </context>
 <context>
@@ -231,7 +217,7 @@
         <location line="+225"/>
         <location line="+606"/>
         <source>Device is in flight mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Η συσκευή είναι σε λειτουργία πτήσης.</translation>
     </message>
     <message>
         <location line="-793"/>
@@ -239,45 +225,42 @@
         <location line="+270"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>Απάντηση από το διακομιστή ήταν κενή.</translation>
     </message>
     <message>
         <location line="-272"/>
         <location line="+271"/>
         <source>Error in server reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Σφάλμα στην απάντηση του διακομιστή</translation>
     </message>
     <message>
         <location line="-263"/>
         <location line="+273"/>
         <source>HTTP error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-113"/>
-        <location line="+297"/>
-        <source>New articles available</source>
-        <translation type="unfinished"></translation>
+        <translation>HTTP σφάλμα</translation>
     </message>
     <message numerus="yes">
-        <location line="-297"/>
+        <location line="-113"/>
         <location line="+297"/>
         <source>%n new unread item(s)</source>
-        <translation>
-            <numerusform>%n new unread item</numerusform>
-            <numerusform>%n new unread items</numerusform>
-        </translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <location line="-297"/>
+        <location line="+297"/>
+        <source>New articles available</source>
+        <translation>Νέα άρθρα διατίθενται</translation>
     </message>
     <message>
         <location line="+147"/>
         <location line="+219"/>
         <source>Failed to mark articles</source>
-        <translation type="unfinished"></translation>
+        <translation>Απέτυχε η επισημανση άρθρων</translation>
     </message>
     <message>
         <location line="-87"/>
         <source>Failed to un/star articles</source>
-        <translation type="unfinished"></translation>
+        <translation>Failed to un/star articles</translation>
     </message>
 </context>
 <context>
@@ -285,37 +268,37 @@
     <message>
         <location filename="../ocupdater.cpp" line="+210"/>
         <source>Your account is disabled or you have not created an account yet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ο λογαριασμός σας έχει απενεργοποιηθεί ή δεν έχετε δημιουργήσει ακόμη έναν λογαριασμό.</translation>
     </message>
     <message>
         <location line="+29"/>
         <source>Synchronizing ownCloud News</source>
-        <translation type="unfinished"></translation>
+        <translation>Συγχρονισμός ownCloud Επικαιρότητα</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Updating Folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Επικαιροποίηση φακέλων</translation>
     </message>
     <message>
         <location line="+31"/>
         <source>Updating Feeds</source>
-        <translation type="unfinished"></translation>
+        <translation>Επικαιροποίηση Ροων δεδομένων</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>Updating Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Επικαιροποίηση στοιχείων</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Update Finished</source>
-        <translation type="unfinished"></translation>
+        <translation>Η επικαιροποίηση ολοκληρώθηκε</translation>
     </message>
     <message>
         <location line="+35"/>
         <source>Update Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Η επικαιροποίηση απέτυχε</translation>
     </message>
 </context>
 </TS>
