@@ -97,7 +97,6 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Common/FetchImagesIndicator.qml \
     qml/Dialogs/OpenLink.qml \
     qml/Common/EnclosureItem.qml \
-    qml/Common/RescalingRichText.qml \
     l10n/*.ts \
     qml/Dialogs/RenameFeed.qml \
     qml/BTComponents/FirstStartInfo.qml \
@@ -112,7 +111,9 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/BTComponents/AboutPage.qml \
     qml/BTComponents/ChangelogDelegate.qml \
     qml/Models/ChangelogModel.qml \
-    qml/Models/ContributorsModel.qml
+    qml/Models/ContributorsModel.qml \
+    qml/Common/RescalingRichText.qml.bak \
+    qml/Common/RescalingRichText.qml
 
 HEADERS += \
     ../common/ocdbmanager.h \

@@ -80,16 +80,16 @@ QVariantMap OcConfiguration::getConfig()
 #if !defined(MEEGO_EDITION_HARMATTAN)
     config["enabled"] = value("account/enabled", true).toBool();
     config["uname"] = value("account/user", "").toString();
-    config["pword"] = value("account/password", "").toString();
     config["server"] = value("account/server", "").toString();
     config["usessl"] = value("account/usessl", true).toBool();
     config["ignoresslerrors"] = value("account/ignoresslerrors", false).toBool();
+    QLOG_TRACE() << "Get config: " << config;
+    config["pword"] = value("account/password", "").toString();
 #else
     config["userichtext"] = value("display/richText", true).toBool();
     config["themeinverted"] = value("display/themeInverted", false).toBool();
-#endif
-
     QLOG_TRACE() << "Get config: " << config;
+#endif
 
     emit gotConfig(config);
 
@@ -116,7 +116,11 @@ QDBusVariant OcConfiguration::getSetting(const QString &entry, const QDBusVarian
     qvResult = value(entry, defaultValue.variant());
     result.setVariant(qvResult);
 
-    QLOG_TRACE() << "Get Setting \"" << entry << "\": " << qvResult;
+    if (entry == "account/password") {
+        QLOG_TRACE() << "Get Setting \"" << entry << "\": " << "xxxxxx";
+    } else {
+        QLOG_TRACE() << "Get Setting \"" << entry << "\": " << qvResult;
+    }
 
     return result;
 }
@@ -137,7 +141,11 @@ void OcConfiguration::setSetting(const QString &entry, const QDBusVariant &value
 {
     QVariant setvalue = value.variant();
 
-    QLOG_TRACE() << "Set Setting: " << entry << " : " << setvalue;
+    if (entry == "account/password") {
+        QLOG_TRACE() << "Set Setting: " << entry << " : " << "xxxxxxx";
+    } else {
+        QLOG_TRACE() << "Set Setting: " << entry << " : " << setvalue;
+    }
 
     setValue(entry, setvalue);
 
