@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" sourcelanguage="en" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" sourcelanguage="en" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -27,7 +27,12 @@
         <translation>Пожертвовать через PayPal</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+4"/>
+        <source>Leave a message (English or German):</source>
+        <translation>Отправить сообщение (English or German):</translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
         <translation type="unfinished"/>
     </message>
@@ -35,11 +40,6 @@
         <location line="+1"/>
         <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-7"/>
-        <source>Leave a message (English or German):</source>
-        <translation>Отправить сообщение (English or German):</translation>
     </message>
 </context>
 <context>
@@ -237,17 +237,17 @@
     <message numerus="yes">
         <location line="+2"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
         <source>%n hour(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
         <source>%n minute(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -651,12 +651,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+27"/>
-        <source>Leave a message (English or German):</source>
-        <translation>Оставить сообщение(Английский или Немецкий):</translation>
-    </message>
-    <message>
-        <location line="-5"/>
+        <location filename="../qml/Views/MainView.qml" line="+22"/>
         <source>Donate</source>
         <translation>Пожертвовать</translation>
     </message>
@@ -666,7 +661,12 @@
         <translation>Если вам понравился ocNews и вы хотите поддержать его дальнейшую разработку, то вы можете сделать небольшое пожертвование.</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+4"/>
+        <source>Leave a message (English or German):</source>
+        <translation>Оставить сообщение(Английский или Немецкий):</translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Donate via PayPal</source>
         <translation>Пожертвовать через PayPal</translation>
     </message>
@@ -893,6 +893,11 @@
         <location line="+1"/>
         <source>Spanish</source>
         <translation>Испанский</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Greek</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>

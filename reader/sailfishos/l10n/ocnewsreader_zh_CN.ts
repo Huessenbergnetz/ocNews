@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" sourcelanguage="en" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" sourcelanguage="en" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -27,7 +27,12 @@
         <translation>通过贝宝（PayPal）捐赠</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+4"/>
+        <source>Leave a message (English or German):</source>
+        <translation>留言(仅支持英文和德语):</translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
         <translation>Martin Grimme 的 &lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; 通过 &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt; 许可协议授权。</translation>
     </message>
@@ -35,11 +40,6 @@
         <location line="+1"/>
         <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
         <translation>razvanpetru的 &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; 通过 &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt; 许可协议授权。</translation>
-    </message>
-    <message>
-        <location line="-7"/>
-        <source>Leave a message (English or German):</source>
-        <translation>留言(仅支持英文和德语):</translation>
     </message>
 </context>
 <context>
@@ -180,7 +180,8 @@
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+13"/>
+        <location line="+8"/>
+        <location line="+6"/>
         <location line="+8"/>
         <location line="+6"/>
         <location line="+6"/>
@@ -189,7 +190,7 @@
         <translation>鸣谢</translation>
     </message>
     <message>
-        <location line="-68"/>
+        <location line="-69"/>
         <source>Danish translation</source>
         <translation>丹麦语翻译</translation>
     </message>
@@ -205,7 +206,7 @@
     </message>
     <message>
         <location line="+8"/>
-        <location line="+25"/>
+        <location line="+26"/>
         <source>Russian translation</source>
         <translation>俄语翻译</translation>
     </message>
@@ -650,12 +651,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+27"/>
-        <source>Leave a message (English or German):</source>
-        <translation>发消息（英文或德语）：</translation>
-    </message>
-    <message>
-        <location line="-5"/>
+        <location filename="../qml/Views/MainView.qml" line="+22"/>
         <source>Donate</source>
         <translation>捐赠</translation>
     </message>
@@ -665,7 +661,12 @@
         <translation>如果你喜欢并想支持ocNews的开发，请考虑进行捐赠。</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+4"/>
+        <source>Leave a message (English or German):</source>
+        <translation>发消息（英文或德语）：</translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Donate via PayPal</source>
         <translation>通过贝宝（PayPal）捐赠</translation>
     </message>
@@ -771,7 +772,7 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+161"/>
         <location line="+107"/>
         <location line="+225"/>
         <source>Uncategorized</source>
@@ -809,7 +810,7 @@
 <context>
     <name>OcFeedsModelNew</name>
     <message>
-        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+124"/>
         <source>All posts</source>
         <translation>所有帖子</translation>
     </message>
@@ -838,7 +839,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+156"/>
         <source>All posts</source>
         <translation>所有帖子</translation>
     </message>
@@ -869,7 +870,7 @@
 <context>
     <name>OcLanguageModel</name>
     <message>
-        <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
         <source>System default</source>
         <translation>系统默认</translation>
     </message>
@@ -892,6 +893,11 @@
         <location line="+1"/>
         <source>Spanish</source>
         <translation>Spanish</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Greek</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>

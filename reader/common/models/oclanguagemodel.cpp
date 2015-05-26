@@ -62,6 +62,7 @@ void OcLanguageModel::init()
     m_langCode["da"] = tr("Danish");
     m_langCode["de"] = tr("German");
     m_langCode["es"] = tr("Spanish");
+    m_langCode["el"] = tr("Greek");
     m_langCode["fr"] = tr("French");
     m_langCode["it"] = tr("Italian");
     m_langCode["nl_NL"] = tr("Dutch (Netherlands)");

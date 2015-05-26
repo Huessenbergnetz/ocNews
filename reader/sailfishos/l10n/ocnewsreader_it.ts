@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" sourcelanguage="en" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" sourcelanguage="en" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -27,7 +27,12 @@
         <translation>Dona con PayPal</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+4"/>
+        <source>Leave a message (English or German):</source>
+        <translation>Lascia un messaggio (inglese o tedesco):</translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
         <translation>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme è in licenza sotto i termini d&apos;uso &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</translation>
     </message>
@@ -35,11 +40,6 @@
         <location line="+1"/>
         <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
         <translation>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru è in licenza sotto i termini d&apos;uso &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</translation>
-    </message>
-    <message>
-        <location line="-7"/>
-        <source>Leave a message (English or German):</source>
-        <translation>Lascia un messaggio (inglese o tedesco):</translation>
     </message>
 </context>
 <context>
@@ -651,12 +651,7 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/Views/MainView.qml" line="+27"/>
-        <source>Leave a message (English or German):</source>
-        <translation>Lascia un messaggio (inglese o tedesco):</translation>
-    </message>
-    <message>
-        <location line="-5"/>
+        <location filename="../qml/Views/MainView.qml" line="+22"/>
         <source>Donate</source>
         <translation>Dona</translation>
     </message>
@@ -666,7 +661,12 @@
         <translation>Se ti piace ocNews e vuoi aiutare lo sviluppo, prendi in considerazione una piccola donazione.</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+4"/>
+        <source>Leave a message (English or German):</source>
+        <translation>Lascia un messaggio (inglese o tedesco):</translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Donate via PayPal</source>
         <translation>Dona con PayPal</translation>
     </message>
@@ -893,6 +893,11 @@
         <location line="+1"/>
         <source>Spanish</source>
         <translation>Spagnolo</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Greek</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>

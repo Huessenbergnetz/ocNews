@@ -114,7 +114,13 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+7"/>
+        <location line="+17"/>
+        <source>Russian translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="-12"/>
         <source>Italian translation</source>
         <translation type="unfinished"/>
     </message>
@@ -124,13 +130,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-12"/>
-        <location line="+17"/>
-        <source>Russian translation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+9"/>
         <source>Used third party elements</source>
         <translation type="unfinished"/>
     </message>
@@ -552,17 +552,17 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+122"/>
-        <source>Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-4"/>
+        <location line="+118"/>
         <source>About</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+4"/>
+        <source>Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Quit completely</source>
         <translation type="unfinished"/>
     </message>
@@ -821,6 +821,11 @@
     <message>
         <location line="+1"/>
         <source>Spanish</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Greek</source>
         <translation type="unfinished"/>
     </message>
     <message>

@@ -114,7 +114,13 @@
         <translation>法语翻译</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+7"/>
+        <location line="+17"/>
+        <source>Russian translation</source>
+        <translation>俄语翻译</translation>
+    </message>
+    <message>
+        <location line="-12"/>
         <source>Italian translation</source>
         <translation>意大利语翻译</translation>
     </message>
@@ -124,13 +130,7 @@
         <translation>西班牙语翻译</translation>
     </message>
     <message>
-        <location line="-12"/>
-        <location line="+17"/>
-        <source>Russian translation</source>
-        <translation>俄语翻译</translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+9"/>
         <source>Used third party elements</source>
         <translation>使用的第三方素材</translation>
     </message>
@@ -552,17 +552,17 @@
         <translation>账号已停用,使用本程序需要开启账号.</translation>
     </message>
     <message>
-        <location line="+122"/>
-        <source>Settings</source>
-        <translation>设置</translation>
-    </message>
-    <message>
-        <location line="-4"/>
+        <location line="+118"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+4"/>
+        <source>Settings</source>
+        <translation>设置</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Quit completely</source>
         <translation>完全退出</translation>
     </message>
@@ -701,7 +701,7 @@
 <context>
     <name>OcCombinedModelNew</name>
     <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+160"/>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+161"/>
         <location line="+107"/>
         <location line="+225"/>
         <source>Uncategorized</source>
@@ -739,7 +739,7 @@
 <context>
     <name>OcFeedsModelNew</name>
     <message>
-        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+123"/>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+124"/>
         <source>All posts</source>
         <translation>所有帖子</translation>
     </message>
@@ -768,7 +768,7 @@
 <context>
     <name>OcFoldersModelNew</name>
     <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+155"/>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+156"/>
         <source>All posts</source>
         <translation>所有帖子</translation>
     </message>
@@ -799,7 +799,7 @@
 <context>
     <name>OcLanguageModel</name>
     <message>
-        <location filename="../../common/models/oclanguagemodel.cpp" line="+59"/>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
         <source>System default</source>
         <translation>系统默认</translation>
     </message>
@@ -822,6 +822,11 @@
         <location line="+1"/>
         <source>Spanish</source>
         <translation>西班牙语</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Greek</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>

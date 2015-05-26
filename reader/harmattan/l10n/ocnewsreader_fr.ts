@@ -114,7 +114,13 @@
         <translation>Traduction française</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+7"/>
+        <location line="+17"/>
+        <source>Russian translation</source>
+        <translation>Traduction russe</translation>
+    </message>
+    <message>
+        <location line="-12"/>
         <source>Italian translation</source>
         <translation>Traduction italienne</translation>
     </message>
@@ -124,13 +130,7 @@
         <translation>Traduction espagnole</translation>
     </message>
     <message>
-        <location line="-12"/>
-        <location line="+17"/>
-        <source>Russian translation</source>
-        <translation>Traduction russe</translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+9"/>
         <source>Used third party elements</source>
         <translation>Éléments de tierces parties réutilisés</translation>
     </message>
@@ -552,17 +552,17 @@
         <translation>Votre compte ocNews est actuellement désactivé. Pour utiliser ocNews vous devez activer votre compte.</translation>
     </message>
     <message>
-        <location line="+122"/>
-        <source>Settings</source>
-        <translation>Paramètres</translation>
-    </message>
-    <message>
-        <location line="-4"/>
+        <location line="+118"/>
         <source>About</source>
         <translation>A propos</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+4"/>
+        <source>Settings</source>
+        <translation>Paramètres</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Quit completely</source>
         <translation>Quitter complètement</translation>
     </message>
@@ -822,6 +822,11 @@
         <location line="+1"/>
         <source>Spanish</source>
         <translation>Espagnol</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Greek</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>

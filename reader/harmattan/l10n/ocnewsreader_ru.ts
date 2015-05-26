@@ -114,7 +114,13 @@
         <translation>Перевод на Французский язык</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+7"/>
+        <location line="+17"/>
+        <source>Russian translation</source>
+        <translation>Перевод на Русский язык</translation>
+    </message>
+    <message>
+        <location line="-12"/>
         <source>Italian translation</source>
         <translation>Перевод на Итальянский язык</translation>
     </message>
@@ -124,13 +130,7 @@
         <translation>Перевод на Испанский язык</translation>
     </message>
     <message>
-        <location line="-12"/>
-        <location line="+17"/>
-        <source>Russian translation</source>
-        <translation>Перевод на Русский язык</translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+9"/>
         <source>Used third party elements</source>
         <translation>Использует сторонние элементы</translation>
     </message>
@@ -371,12 +371,12 @@
     <message numerus="yes">
         <location line="+0"/>
         <source>%n unread post(s) in</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+0"/>
         <source>%n feed(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -552,17 +552,17 @@
         <translation>Ваша учётная запись ocNews отключена. Для использования ocNews Вам необходимо активировать учётную запись.</translation>
     </message>
     <message>
-        <location line="+122"/>
-        <source>Settings</source>
-        <translation>Настройки</translation>
-    </message>
-    <message>
-        <location line="-4"/>
+        <location line="+118"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+4"/>
+        <source>Settings</source>
+        <translation>Настройки</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Quit completely</source>
         <translation>Выход</translation>
     </message>
@@ -822,6 +822,11 @@
         <location line="+1"/>
         <source>Spanish</source>
         <translation>Испанский</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Greek</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
