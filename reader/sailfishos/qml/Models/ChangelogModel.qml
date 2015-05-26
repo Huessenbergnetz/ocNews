@@ -30,6 +30,15 @@ import QtQuick 2.0
 
 ListModel {
     ListElement {
+        version: "1.9.5"
+        date: 1432645932000
+        entries: [
+            ListElement { type: 0; issue: "51"; description: "optional direct opening in WebView or Browser" },
+            ListElement { type: 2; issue: "65"; description: "crash on opening news item" }
+        ]
+    }
+
+    ListElement {
         version: "1.9.4"
         date: 1416161271000
         entries: [

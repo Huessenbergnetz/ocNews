@@ -1,3 +1,9 @@
+buschtrommel-ocnews (1.9.5) stable; urgency=low
+
+  * New: optional direct opening in Browser
+
+ -- Buschtrommel <kontakt@buschmann23.de>  Tue, 26 May 2015 15:25:31 +0200
+
 buschtrommel-ocnews (1.9.4) stable; urgency=low
 
   * New: implement QsLog to create log files

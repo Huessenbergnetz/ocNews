@@ -3,6 +3,14 @@ import QtQuick 1.1
 
 ListModel {
     ListElement {
+        version: "1.9.5"
+        time: 1432645932000
+        text: "<ul>
+                <li>New: optional direct opening in Browser</li>
+               </ul>"
+    }
+
+    ListElement {
         version: "1.9.4"
         time: 1417168815000
         text: "<ul>
