@@ -56,13 +56,13 @@ QModelIndex OcLanguageModel::index(int row, int column, const QModelIndex &paren
 
 void OcLanguageModel::init()
 {
-    m_langs << "C" << "en_GB" << "da" << "de" << "es" << "fr" << "it" << "nl_NL" << "ru" << "zh_CN";
+    m_langs << "C" << "en_GB" << "da" << "de" << "el" << "es" << "fr" << "it" << "nl_NL" << "ru" << "zh_CN";
     m_langCode["C"] = tr("System default");
     m_langCode["en_GB"] = tr("English");
     m_langCode["da"] = tr("Danish");
     m_langCode["de"] = tr("German");
-    m_langCode["es"] = tr("Spanish");
     m_langCode["el"] = tr("Greek");
+    m_langCode["es"] = tr("Spanish");
     m_langCode["fr"] = tr("French");
     m_langCode["it"] = tr("Italian");
     m_langCode["nl_NL"] = tr("Dutch (Netherlands)");
