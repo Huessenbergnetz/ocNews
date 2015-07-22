@@ -826,7 +826,7 @@
     <message>
         <location line="+1"/>
         <source>Greek</source>
-        <translation type="unfinished"/>
+        <translation>Græsk</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1519,7 +1519,7 @@
     <message>
         <location line="+5"/>
         <source>Event Feed Integration</source>
-        <translation type="unfinished"/>
+        <translation>Element Feed Integration</translation>
     </message>
     <message>
         <location line="+5"/>

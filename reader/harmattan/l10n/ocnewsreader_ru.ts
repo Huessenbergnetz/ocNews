@@ -1399,7 +1399,7 @@
     <message>
         <location line="+8"/>
         <source>External browser</source>
-        <translation type="unfinished"/>
+        <translation>Открыть в браузере</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1645,7 +1645,7 @@
     <message>
         <location line="+0"/>
         <source>Open enclosure directly</source>
-        <translation type="unfinished"/>
+        <translation>Открыть вложение</translation>
     </message>
     <message>
         <location line="+5"/>

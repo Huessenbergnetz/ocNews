@@ -14,17 +14,17 @@
     <message>
         <location line="+15"/>
         <source>Munich</source>
-        <translation type="unfinished"/>
+        <translation>Munich</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Germany</source>
-        <translation type="unfinished"/>
+        <translation>Alemania</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Donar via PayPal</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -47,52 +47,52 @@
     <message>
         <location filename="../qml/BTComponents/AboutPage.qml" line="+77"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>Página de inicio</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Política de privacidad</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Cambios</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Contribuidores</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Sobre</translation>
     </message>
     <message>
         <location line="+58"/>
         <source>Contact</source>
-        <translation type="unfinished"/>
+        <translation>Contacto</translation>
     </message>
     <message>
         <location line="+84"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>Contribuir</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Traducir</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>Reportar fallos</translation>
     </message>
     <message>
         <location line="+23"/>
         <source>3rd party licenses</source>
-        <translation type="unfinished"/>
+        <translation>Licencias de terceros</translation>
     </message>
 </context>
 <context>
@@ -105,22 +105,22 @@
     <message>
         <location line="+20"/>
         <source>New</source>
-        <translation type="unfinished"/>
+        <translation>Nuevo</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Improved</source>
-        <translation type="unfinished"/>
+        <translation>Mejorado</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Fixed</source>
-        <translation type="unfinished"/>
+        <translation>Arreglado</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>Nota</translation>
     </message>
 </context>
 <context>
@@ -136,12 +136,12 @@
     <message>
         <location filename="../qml/BTComponents/ContributorsDelegate.qml" line="+127"/>
         <source>Website</source>
-        <translation type="unfinished"/>
+        <translation>Website</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>Sina Weibo</source>
-        <translation type="unfinished"/>
+        <translation>Sina Weibo</translation>
     </message>
 </context>
 <context>
@@ -197,7 +197,7 @@
     <message>
         <location line="+23"/>
         <source>Dutch (Netherlands) translation</source>
-        <translation type="unfinished"/>
+        <translation>Traducción al holandes</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -208,7 +208,7 @@
         <location line="+8"/>
         <location line="+26"/>
         <source>Russian translation</source>
-        <translation type="unfinished"/>
+        <translation>Traducción al ruso</translation>
     </message>
     <message>
         <location line="-20"/>
@@ -645,7 +645,7 @@
     <message>
         <location filename="../qml/Pages/LanguageChooser.qml" line="+92"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Buscar</translation>
     </message>
 </context>
 <context>
@@ -653,7 +653,7 @@
     <message>
         <location filename="../qml/Views/MainView.qml" line="+22"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>Donar</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -668,12 +668,12 @@
     <message>
         <location line="+1"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Donar via PayPal</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews is a client for the ownCloud News app, a cloud based RSS/Atom feed aggregator. </source>
-        <translation type="unfinished"/>
+        <translation>ocNews es un cliente para la app ownCloud News, un agregador de noticias RSS/Atom basado en la nube.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -872,57 +872,57 @@
     <message>
         <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Por defecto del sistema</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>Ingles</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>Danes</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Aleman</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Español</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Greek</source>
-        <translation type="unfinished"/>
+        <translation>Griego</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>Frances</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Italiano</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Dutch (Netherlands)</source>
-        <translation type="unfinished"/>
+        <translation>Holandes</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Ruso</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"/>
+        <translation>Chino</translation>
     </message>
 </context>
 <context>
@@ -1002,7 +1002,7 @@
     <message>
         <location filename="../qml/Dialogs/OpenLink.qml" line="+44"/>
         <source>Open</source>
-        <translation type="unfinished"/>
+        <translation>Abrir</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1163,7 +1163,7 @@
     <message>
         <location line="+8"/>
         <source>What information does ocNews collect?</source>
-        <translation>Que información ocNews recolecta?</translation>
+        <translation>Que información recolecta ocNews?</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1173,7 +1173,7 @@
     <message>
         <location line="+10"/>
         <source>What does ocNews use your information for?</source>
-        <translation>Para que fin ocNews utiliza su información?</translation>
+        <translation>Para que fin utiliza ocNews su información?</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -1394,7 +1394,7 @@
     <message>
         <location line="+5"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Idioma</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1524,22 +1524,22 @@
     <message>
         <location line="+12"/>
         <source>ocNews</source>
-        <translation type="unfinished"/>
+        <translation>ocNews</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews WebView</source>
-        <translation type="unfinished"/>
+        <translation>ocNews WebView</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>External browser</source>
-        <translation type="unfinished"/>
+        <translation>Navegador externo</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Open articles in</source>
-        <translation type="unfinished"/>
+        <translation>Abrir articulos en</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1712,12 +1712,12 @@
     <message>
         <location line="+40"/>
         <source>Hide sorting options</source>
-        <translation>Ocultar les opciones de orden</translation>
+        <translation>Ocultar las opciones de orden</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Show sorting options</source>
-        <translation>Mostrar les opciones de orden</translation>
+        <translation>Mostrar las opciones de orden</translation>
     </message>
     <message>
         <location line="+10"/>

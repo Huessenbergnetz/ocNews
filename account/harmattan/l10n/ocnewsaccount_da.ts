@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="da" sourcelanguage="en" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="da" version="2.0">
 <context>
     <name/>
     <message id="qtn_help_close">
@@ -9,52 +9,52 @@
     <message id="qtn_help_username_label">
         <location line="+13"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Brugernavn label hjælp</translation>
     </message>
     <message id="qtn_help_username_text">
         <location line="+7"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Brugernavn hjælpetekst</translation>
     </message>
     <message id="qtn_help_password_label">
         <location line="+10"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Adgangskode label hjælp</translation>
     </message>
     <message id="qtn_help_password_text">
         <location line="+7"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Adgangskode hjælpetekst</translation>
     </message>
     <message id="qtn_help_server_label">
         <location line="+10"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Serverlabel hjælp</translation>
     </message>
     <message id="qtn_help_server_text">
         <location line="+7"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Server hjælpetekst</translation>
     </message>
     <message id="qtn_help_ssl_label">
         <location line="+10"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>SSL label hjælp</translation>
     </message>
     <message id="qtn_help_ssl_text">
         <location line="+7"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>SSL tekst hjælp</translation>
     </message>
     <message id="qtn_help_ignoressl_label">
         <location line="+10"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Ignorer SSL label hjælp</translation>
     </message>
     <message id="qtn_help_ignoressl_text">
         <location line="+7"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>Ignorer SSL hjælpetekst</translation>
     </message>
     <message id="qtn_button_save">
         <location filename="../qml/main.qml" line="+31"/>

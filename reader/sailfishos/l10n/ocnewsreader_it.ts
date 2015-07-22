@@ -897,7 +897,7 @@
     <message>
         <location line="+1"/>
         <source>Greek</source>
-        <translation type="unfinished"/>
+        <translation>Greco</translation>
     </message>
     <message>
         <location line="+1"/>
