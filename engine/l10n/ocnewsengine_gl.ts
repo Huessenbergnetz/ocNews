@@ -1,10 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" sourcelanguage="en" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="gl" sourcelanguage="en" version="2.0">
 <context>
     <name>OcDownloadManager</name>
     <message>
         <location filename="../ocdownloadmanager.cpp" line="+134"/>
         <source>Downloading enclosure </source>
-        <translation>Descargando cercado</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -17,7 +17,7 @@
         <location line="+204"/>
         <location line="+148"/>
         <source>Device is in flight mode.</source>
-        <translation>El dispositivo se encuentra en modo avión</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="-859"/>
@@ -25,71 +25,71 @@
         <location line="+297"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
-        <translation>La respuesta del servidor fue vacía</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="-299"/>
         <location line="+11"/>
         <source>Failed to request feeds</source>
-        <translation>Fallo la peticion de feeds</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <location line="+189"/>
         <source>%n feed(s) added</source>
-        <translation><numerusform>%n feed añadido</numerusform><numerusform>%n feeds añadidos</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Added:</source>
-        <translation>Añadido:</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <location line="+11"/>
         <source>%n feed(s) removed</source>
-        <translation><numerusform>%n feed eliminado</numerusform><numerusform>%n feeds eliminados</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Removed:</source>
-        <translation>Eliminado:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+85"/>
         <location line="+21"/>
         <source>Failed to add feed</source>
-        <translation>Fallo al añadir el feed</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+126"/>
         <source>Failed to delete feed</source>
-        <translation>Fallo al borrar el feed</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+75"/>
         <source>Feed is already part of the destination folder</source>
-        <translation>El feed ya existe en la carpeta de destino</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+66"/>
         <source>Failed to move feed</source>
-        <translation>Fallo al mover el feed</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+140"/>
         <location line="+1"/>
         <source>Database error</source>
-        <translation>Error de base de datos</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="-1"/>
         <location line="+58"/>
         <source>Failed to mark feed as read</source>
-        <translation>Fallo al marcar el feed como leido</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+132"/>
         <source>Failed to rename feed</source>
-        <translation>Fallo al renombrar el feed</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -101,7 +101,7 @@
         <location line="+85"/>
         <location line="+75"/>
         <source>Device is in flight mode.</source>
-        <translation>El dispositivo se encuentra en modo vuelo.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="-389"/>
@@ -109,54 +109,54 @@
         <location line="+176"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
-        <translation>La respuesta del servidor fue vacía</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="-178"/>
         <location line="+15"/>
         <source>Failed to request folders</source>
-        <translation>Fallo la peticion de carpetas</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <location line="+103"/>
         <source>%n folder(s) added</source>
-        <translation><numerusform>%n carpeta añadida</numerusform><numerusform>%n carpetas añadidas</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Added:</source>
-        <translation>Añadido:</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <location line="+11"/>
         <source>%n folder(s) removed</source>
-        <translation><numerusform>%n carpeta  borrada</numerusform><numerusform>%n carpetas  borradas</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Removed:</source>
-        <translation>Eliminado:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+46"/>
         <location line="+20"/>
         <source>Failed to create folder</source>
-        <translation>Fallo al crear la carpeta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+73"/>
         <source>Failed to delete folder</source>
-        <translation>Fallo al borrar la carpeta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+91"/>
         <source>Failed to rename folder</source>
-        <translation>Fallo al renombrar la carpeta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+86"/>
         <source>Failed to mark folder as read</source>
-        <translation>Fallo al marcar la carpeta como leido</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -164,32 +164,32 @@
     <message>
         <location filename="../ocgeneric.cpp" line="+33"/>
         <source>Device is in flight mode.</source>
-        <translation>El dispositivo se encuentra en modo vuelo.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+31"/>
         <source>Request canceled, maybe wrong username or password</source>
-        <translation>Pedido cancelado, quizás usuario o contraseña incorrecto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+2"/>
         <source>Remote host not found</source>
-        <translation>Host remoto no encontrado</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+2"/>
         <source>Can not find ownCloud News, maybe wrong path or server</source>
-        <translation>No se puede encontrar ownCloud News, quizás path o servidor incorrecto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+9"/>
         <source>Connection error</source>
-        <translation>Error de conexión</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+26"/>
         <source>Server reply was empty.</source>
-        <translation>La respuesta del servidor fue vacía</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -197,17 +197,17 @@
     <message>
         <location filename="../ocimagefetcher.cpp" line="+40"/>
         <source>ocNews Image Fetcher</source>
-        <translation>Recopilador de Imágenes ocNews</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+4"/>
         <source>Fetching images</source>
-        <translation>Cargando imágenes</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+48"/>
         <source>Fetching images finished</source>
-        <translation>Recopilación de imágenes finalizada</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -217,7 +217,7 @@
         <location line="+225"/>
         <location line="+606"/>
         <source>Device is in flight mode.</source>
-        <translation>El dispositivo se encuentra en modo avión</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="-793"/>
@@ -225,42 +225,42 @@
         <location line="+270"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
-        <translation>La respuesta del servidor fue vacía</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="-272"/>
         <location line="+271"/>
         <source>Error in server reply</source>
-        <translation>Error en la respuesta del servidor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="-263"/>
         <location line="+273"/>
         <source>HTTP error</source>
-        <translation>Error HTTP</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <location line="-113"/>
         <location line="+297"/>
         <source>%n new unread item(s)</source>
-        <translation><numerusform>%n nuevo sin leer</numerusform><numerusform>%n nuevos sin leer</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="-297"/>
         <location line="+297"/>
         <source>New articles available</source>
-        <translation>Artículos nuevos disponibles</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+147"/>
         <location line="+219"/>
         <source>Failed to mark articles</source>
-        <translation>Fallo al marcar los artículos</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="-87"/>
         <source>Failed to un/star articles</source>
-        <translation>Fallo al desmarcar articulos</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -268,37 +268,37 @@
     <message>
         <location filename="../ocupdater.cpp" line="+210"/>
         <source>Your account is disabled or you have not created an account yet.</source>
-        <translation>Su cuenta se encuentra desactivada o usted aún no creó una</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+29"/>
         <source>Synchronizing ownCloud News</source>
-        <translation>Sincronizando ownCloud News</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+3"/>
         <source>Updating Folders</source>
-        <translation>Actualizando carpetas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+31"/>
         <source>Updating Feeds</source>
-        <translation>Actualizando Feeds</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+25"/>
         <source>Updating Items</source>
-        <translation>Actualizando Items</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+41"/>
         <source>Update Finished</source>
-        <translation>Actualización Terminada</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+35"/>
         <source>Update Failed</source>
-        <translation>Falló la actualización</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
