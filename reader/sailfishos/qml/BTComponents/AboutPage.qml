@@ -112,7 +112,7 @@ Page {
 
        Column {
            id: aboutCol
-           anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; top: imgCol.bottom; topMargin: Theme.paddingMedium }
+           anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; top: imgCol.bottom; topMargin: Theme.paddingMedium }
            spacing: Theme.paddingSmall
 
             Label {
@@ -155,7 +155,7 @@ Page {
 
        Column {
            id: contactCol
-           anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; top: aboutCol.bottom; topMargin: Theme.paddingMedium }
+           anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; top: aboutCol.bottom; topMargin: Theme.paddingMedium }
 
             SectionHeader { text: qsTr("Contact") }
 
@@ -239,13 +239,13 @@ Page {
 
         Column {
             id: contributeCol
-            anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; top: contactCol.bottom; topMargin: Theme.paddingMedium }
+            anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; top: contactCol.bottom; topMargin: Theme.paddingMedium }
 
             SectionHeader { text: qsTr("Contribute"); visible: translateUrl || bugUrl || donation.visible }
 
             Row {
                 id: contributeRow
-                width: parent.width - Theme.paddingLarge
+                width: parent.width - Theme.horizontalPageMargin
 
                 Button {
                     width: parent.width/contributeRow.visibleChildren.length
@@ -264,7 +264,7 @@ Page {
 
             PaypalChooser {
                 id: donation
-                anchors { left: parent.left; leftMargin: -Theme.paddingLarge; right: parent.right }
+                anchors { left: parent.left; leftMargin: -Theme.horizontalPageMargin; right: parent.right }
                 organization: paypalOrganization
                 item: paypalItem
                 email: paypalEmail
@@ -276,7 +276,7 @@ Page {
 
         Column {
             id: licensesCol
-            anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; top: contributeCol.bottom; topMargin: Theme.paddingMedium }
+            anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; top: contributeCol.bottom; topMargin: Theme.paddingMedium }
             spacing: Theme.paddingSmall
 
             SectionHeader { text: qsTr("3rd party licenses"); visible: licensesRepeater.count > 0 }

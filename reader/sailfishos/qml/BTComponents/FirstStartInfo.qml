@@ -71,7 +71,7 @@ Item {
 
                     Label {
                         id: title
-                        anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                        anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
                         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                         text: qsTr("Welcome to %1 %2", "First is app name, second is version number").arg(root.name).arg(root.version)
                         color: Theme.highlightColor
@@ -79,7 +79,7 @@ Item {
 
                     Text {
                         id: description
-                        anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                        anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
                         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                         textFormat: Text.RichText
                         color: Theme.primaryColor
@@ -93,7 +93,7 @@ Item {
                     Repeater {
                         id: clRepeater
                         model: changeLogModel.get(0).entries
-                        anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                        anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
 
                         Item {
                             anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
@@ -125,7 +125,7 @@ Item {
                     SectionHeader { text: root.donationHeader; visible: root.donationHeader }
 
                     Text {
-                        anchors { left: parent.left; leftMargin: Theme.paddingLarge; right: parent.right; rightMargin: Theme.paddingLarge }
+                        anchors { left: parent.left; leftMargin: Theme.horizontalPageMargin; right: parent.right; rightMargin: Theme.horizontalPageMargin }
                         textFormat: Text.PlainText
                         color: Theme.primaryColor
                         wrapMode: Text.WordWrap
@@ -147,7 +147,7 @@ Item {
 
 
                     Row {
-                        anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                        anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
 
 
                         Button {

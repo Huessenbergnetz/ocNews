@@ -42,7 +42,7 @@ BackgroundItem {
 
         anchors {
             left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter
-            leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge
+            leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin
         }
 
         move: Transition { NumberAnimation { properties: "x,y"; easing.type: Easing.InOutQuad; duration: root._duration } }
@@ -116,7 +116,7 @@ BackgroundItem {
 
                     Label {
                         id: signLabel
-                        anchors { left: parent.left; leftMargin: Theme.paddingLarge; right: parent.right; rightMargin: Theme.paddingLarge; verticalCenter: parent.verticalCenter }
+                        anchors { left: parent.left; leftMargin: Theme.horizontalPageMargin; right: parent.right; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
                         text: Theme.highlightText(model.name, search.text, Theme.highlightColor)
                     }
 

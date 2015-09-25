@@ -83,7 +83,7 @@ Dialog {
     }
 
     Label {
-        anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge; verticalCenter: !isImageLink(link) ? parent.verticalCenter : ""; bottom: isImageLink(link) ? parent.bottom : ""; bottomMargin: isImageLink(link) ? Theme.paddingLarge : ""}
+        anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; verticalCenter: !isImageLink(link) ? parent.verticalCenter : ""; bottom: isImageLink(link) ? parent.bottom : ""; bottomMargin: isImageLink(link) ? Theme.paddingLarge : ""}
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: Theme.fontSizeMedium
         color: Theme.highlightColor

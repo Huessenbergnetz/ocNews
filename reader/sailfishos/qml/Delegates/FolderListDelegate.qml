@@ -59,8 +59,8 @@ ListItem {
     Row {
         id: mainRow
         anchors.fill: parent
-        anchors.leftMargin: Theme.paddingLarge
-        anchors.rightMargin: Theme.paddingLarge
+        anchors.leftMargin: Theme.horizontalPageMargin
+        anchors.rightMargin: Theme.horizontalPageMargin
         spacing: 8
 
         Item {
@@ -102,14 +102,14 @@ ListItem {
         id: cntBub
         value: model.unreadCount
         visible: !busyIndicator.visible
-        anchors { right: parent.right; rightMargin: Theme.paddingLarge; verticalCenter: parent.verticalCenter }
+        anchors { right: parent.right; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
         color: if (model.unreadCount > 0) { folderListItem.highlighted ? Theme.highlightColor : Theme.primaryColor } else { folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor }
     }
 
     BusyIndicator {
         id: busyIndicator
         size: BusyIndicatorSize.Small
-        anchors { right: parent.right; rightMargin: Theme.paddingLarge; verticalCenter: parent.verticalCenter }
+        anchors { right: parent.right; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
         state: "NORMAL"
         states: [
             State {

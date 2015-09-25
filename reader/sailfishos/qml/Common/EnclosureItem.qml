@@ -86,7 +86,7 @@ Item {
             id: encRow
             spacing: 10
             width: parent.width
-            anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+            anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
 
 
             Image {

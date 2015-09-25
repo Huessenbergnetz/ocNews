@@ -129,7 +129,7 @@ Page {
 
             Row {
                 id: headerRow
-                anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
                 spacing: 5
 
                 Label {
@@ -157,7 +157,7 @@ Page {
 
             Row {
                 id: pubInfos
-                anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
 
                 Label {
                     id: pubDateText
@@ -185,7 +185,7 @@ Page {
 
             Separator {
                 id: sep
-                anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
                 width: parent.width
                 color: Theme.primaryColor
             }
@@ -200,7 +200,7 @@ Page {
                 text: item.body
                 fontSize: config.fontSize
                 color: Theme.primaryColor
-                anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
+                anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
                 onLinkActivated: config.directLinkOpening ? Qt.openUrlExternally(link) : pageStack.push(Qt.resolvedUrl("../Dialogs/OpenLink.qml"), {link: link})
             }
 

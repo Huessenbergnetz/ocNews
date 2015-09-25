@@ -71,8 +71,8 @@ ListItem {
     Row {
         id: mainRow
         anchors.fill: parent
-        anchors.leftMargin: Theme.paddingLarge
-        anchors.rightMargin: Theme.paddingLarge
+        anchors.leftMargin: Theme.horizontalPageMargin
+        anchors.rightMargin: Theme.horizontalPageMargin
         spacing: 8
 
         Column {
