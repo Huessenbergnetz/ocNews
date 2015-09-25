@@ -26,7 +26,7 @@
   3 - Note
 */
 
-import QtQuick 2.0
+import QtQuick 2.2
 
 ListModel {
     ListElement {
