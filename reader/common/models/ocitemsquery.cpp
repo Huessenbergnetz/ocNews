@@ -68,7 +68,7 @@ void OcItemsQuery::run()
         while(query.next())
         {
             OcItemObject *iobj = new OcItemObject(query.value(0).toInt(),
-                                                  query.value(1).toString().toHtmlEscaped(),
+                                                  query.value(1).toString(),
                                                   query.value(2).toUInt(),
                                                   query.value(3).toString(),
                                                   query.value(4).toString(),
@@ -86,7 +86,7 @@ void OcItemsQuery::run()
         while(query.next())
         {
             OcItemObject *iobj = new OcItemObject(query.value(0).toInt(),
-                                                  query.value(1).toString().toHtmlEscaped(),
+                                                  query.value(1).toString(),
                                                   query.value(2).toUInt(),
                                                   query.value(3).toString(),
                                                   query.value(4).toString(),
