@@ -64,7 +64,11 @@ void OcNotifications::showNotification(const QString &body, const QString &summa
 
 #endif
 
+#if defined(MEEGO_EDITION_HARMATTAN)
     notification = new MNotification(type, QString("ocNews - ").append(summary), body);
+#else
+    notification = new MNotification(type, summary, body);
+#endif
     notification->setImage(image);
     notification->setAction(action);
     if (!notification->publish()) {
