@@ -14,22 +14,22 @@
     <message>
         <location line="+15"/>
         <source>Munich</source>
-        <translation type="unfinished"/>
+        <translation>Munich</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Germany</source>
-        <translation type="unfinished"/>
+        <translation>Alemaña</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Doar con PayPal</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Deixa mensaxe (Inglés ou aleman):</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -47,12 +47,12 @@
     <message>
         <location filename="../qml/BTComponents/AboutPage.qml" line="+77"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>Páxina de inicio</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Politica de privacidade</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -67,12 +67,12 @@
     <message>
         <location line="+10"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <location line="+58"/>
         <source>Contact</source>
-        <translation type="unfinished"/>
+        <translation>Contacto</translation>
     </message>
     <message>
         <location line="+84"/>
@@ -92,7 +92,7 @@
     <message>
         <location line="+23"/>
         <source>3rd party licenses</source>
-        <translation type="unfinished"/>
+        <translation>Licenzas de terceiros</translation>
     </message>
 </context>
 <context>
@@ -105,22 +105,22 @@
     <message>
         <location line="+20"/>
         <source>New</source>
-        <translation type="unfinished"/>
+        <translation>Novo</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Improved</source>
-        <translation type="unfinished"/>
+        <translation>Mellorado</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Fixed</source>
-        <translation type="unfinished"/>
+        <translation>Amañado</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>Nota</translation>
     </message>
 </context>
 <context>
@@ -136,12 +136,12 @@
     <message>
         <location filename="../qml/BTComponents/ContributorsDelegate.qml" line="+127"/>
         <source>Website</source>
-        <translation type="unfinished"/>
+        <translation>Páxina web</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>Sina Weibo</source>
-        <translation type="unfinished"/>
+        <translation>Sina Weibo</translation>
     </message>
 </context>
 <context>
@@ -154,7 +154,7 @@
     <message>
         <location line="+1"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -262,7 +262,7 @@
     <message>
         <location line="+27"/>
         <source>Updating</source>
-        <translation type="unfinished"/>
+        <translation>Actualizando</translation>
     </message>
 </context>
 <context>
@@ -270,12 +270,12 @@
     <message>
         <location filename="../qml/Dialogs/CreateFeed.qml" line="+25"/>
         <source>Root</source>
-        <translation type="unfinished"/>
+        <translation>Root</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Add feed</source>
-        <translation type="unfinished"/>
+        <translation>Engadir feed</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -285,12 +285,12 @@
     <message>
         <location line="+9"/>
         <source>Add feed to folder</source>
-        <translation type="unfinished"/>
+        <translation>Engadir feed ao cartafol</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Show feed in event view</source>
-        <translation type="unfinished"/>
+        <translation>Amosar feed na vista de eventos</translation>
     </message>
 </context>
 <context>
@@ -298,7 +298,7 @@
     <message>
         <location filename="../qml/Dialogs/CreateFolder.qml" line="+14"/>
         <source>Add folder</source>
-        <translation type="unfinished"/>
+        <translation>Engadir cartafol</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -354,12 +354,12 @@
     <message>
         <location filename="../qml/Delegates/FeedListDelegate.qml" line="+124"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma lido</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -387,7 +387,7 @@
     <message>
         <location filename="../qml/Views/FeedListView.qml" line="+30"/>
         <source>Update running...</source>
-        <translation type="unfinished"/>
+        <translation>Actualización en curso...</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -402,7 +402,7 @@
     <message>
         <location line="+9"/>
         <source>Add feed</source>
-        <translation type="unfinished"/>
+        <translation>Engadir feed</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -412,7 +412,7 @@
     <message>
         <location line="+6"/>
         <source>Update folder</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar cartafol</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -422,7 +422,7 @@
     <message>
         <location line="+16"/>
         <source>Scroll to top</source>
-        <translation type="unfinished"/>
+        <translation>Ir ao inicio</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -440,7 +440,7 @@
     <message>
         <location filename="../qml/Common/FetchImagesIndicator.qml" line="+21"/>
         <source>Fetching images</source>
-        <translation type="unfinished"/>
+        <translation>Recadando imaxes</translation>
     </message>
 </context>
 <context>
@@ -479,7 +479,7 @@
         <location line="-24"/>
         <location line="+29"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma lido</translation>
     </message>
     <message>
         <location line="-24"/>
@@ -519,12 +519,12 @@
     <message>
         <location filename="../qml/Delegates/ItemListDelegate.qml" line="+171"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma lido</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark as unread</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma non lido</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -534,7 +534,7 @@
     <message>
         <location line="+0"/>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Engadir a favoritos</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -552,7 +552,7 @@
     <message>
         <location filename="../qml/Views/ItemListView.qml" line="+44"/>
         <source>Update running...</source>
-        <translation type="unfinished"/>
+        <translation>Actualización en curso...</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -567,7 +567,7 @@
     <message>
         <location line="+6"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Renomear o feed</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -602,7 +602,7 @@
     <message>
         <location line="+20"/>
         <source>Scroll to top</source>
-        <translation type="unfinished"/>
+        <translation>Ir ao inicio</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -632,7 +632,7 @@
     <message>
         <location line="+8"/>
         <source>Show newest on top</source>
-        <translation type="unfinished"/>
+        <translation>Amosar novos primeiro</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -678,7 +678,7 @@
     <message>
         <location line="+13"/>
         <source>Update running...</source>
-        <translation type="unfinished"/>
+        <translation>Actualización en curso...</translation>
     </message>
     <message>
         <location line="+25"/>
@@ -693,7 +693,7 @@
     <message>
         <location line="+5"/>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Preferencias</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -733,12 +733,12 @@
     <message>
         <location line="+24"/>
         <source>Scroll to top</source>
-        <translation type="unfinished"/>
+        <translation>Ir ao inicio</translation>
     </message>
     <message>
         <location line="+22"/>
         <source>Add feed</source>
-        <translation type="unfinished"/>
+        <translation>Engadir feed</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -756,7 +756,7 @@
     <message>
         <location filename="../qml/Dialogs/MoveFeed.qml" line="+26"/>
         <source>Root</source>
-        <translation type="unfinished"/>
+        <translation>Root</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -859,7 +859,7 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -887,20 +887,20 @@
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Alemán</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Spanish</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-1"/>
         <source>Greek</source>
-        <translation type="unfinished"/>
+        <translation>Grego</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>French</source>
         <translation type="unfinished"/>
     </message>
@@ -1007,12 +1007,12 @@
     <message>
         <location line="+1"/>
         <source>Write e-mail</source>
-        <translation type="unfinished"/>
+        <translation>Escribir email</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Open in browser</source>
-        <translation type="unfinished"/>
+        <translation>Abrir no navegador</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -1135,7 +1135,7 @@
     <message>
         <location line="+1"/>
         <source>Czech Koruna</source>
-        <translation type="unfinished"/>
+        <translation>Checo</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1168,7 +1168,7 @@
     <message>
         <location line="+9"/>
         <source>In order to log in to your ownCloud server, ocNews collects the server address, your user name and your password. These information is not given to the author of ocNews or other third parties.</source>
-        <translation type="unfinished"/>
+        <translation>Para entrar no seu servidor ownCloud, ocNews recada a dirección do servidor, o nome de usuario e o seu contrasinal. Esa información non é compartida co autor do ocNews nin con terceiros.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1524,7 +1524,7 @@
     <message>
         <location line="+12"/>
         <source>ocNews</source>
-        <translation type="unfinished"/>
+        <translation>ocNews</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1579,7 +1579,7 @@
     <message>
         <location line="+3"/>
         <source>Create log files</source>
-        <translation type="unfinished"/>
+        <translation>Crear arquivos de log</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -1603,7 +1603,7 @@
         <location filename="../qml/Views/SingleItemView.qml" line="+74"/>
         <location line="+38"/>
         <source>Open in Browser</source>
-        <translation type="unfinished"/>
+        <translation>Abrir no navegador</translation>
     </message>
     <message>
         <location line="-34"/>
@@ -1618,7 +1618,7 @@
     <message>
         <location line="+8"/>
         <source>Show images</source>
-        <translation type="unfinished"/>
+        <translation>Amosar imaxes</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1633,7 +1633,7 @@
     <message>
         <location line="+10"/>
         <source>Next in list</source>
-        <translation type="unfinished"/>
+        <translation>Seguinte na lista</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1666,12 +1666,12 @@
     <message>
         <location line="+4"/>
         <source>Open in browser</source>
-        <translation type="unfinished"/>
+        <translation>Abrir no navegador</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation>Atras</translation>
     </message>
 </context>
 <context>
@@ -1679,7 +1679,7 @@
     <message>
         <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+178"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma lido</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1702,7 +1702,7 @@
     <message>
         <location filename="../qml/Views/SpecialItemListView.qml" line="+61"/>
         <source>Update running...</source>
-        <translation type="unfinished"/>
+        <translation>Actualización en curso...</translation>
     </message>
     <message>
         <location line="+6"/>

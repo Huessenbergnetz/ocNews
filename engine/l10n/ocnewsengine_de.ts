@@ -13,14 +13,14 @@
         <location filename="../ocfeeds.cpp" line="+37"/>
         <location line="+280"/>
         <location line="+150"/>
-        <location line="+128"/>
+        <location line="+111"/>
         <location line="+204"/>
         <location line="+148"/>
         <source>Device is in flight mode.</source>
         <translation>Gerät ist im Flugmodus.</translation>
     </message>
     <message>
-        <location line="-876"/>
+        <location line="-859"/>
         <location line="+1"/>
         <location line="+297"/>
         <location line="+1"/>
@@ -65,7 +65,7 @@
         <translation>Löschen des Feeds fehlgeschlagen</translation>
     </message>
     <message>
-        <location line="+92"/>
+        <location line="+75"/>
         <source>Feed is already part of the destination folder</source>
         <translation>Der Feed befindet sich bereits im Zielordner</translation>
     </message>
@@ -76,18 +76,18 @@
     </message>
     <message>
         <location line="+140"/>
-        <location line="+58"/>
-        <source>Failed to mark feed as read</source>
-        <translation>Markieren des Feeds als gelesen fehlgeschlagen</translation>
-    </message>
-    <message>
-        <location line="-58"/>
         <location line="+1"/>
         <source>Database error</source>
         <translation>Datenbankfehler</translation>
     </message>
     <message>
-        <location line="+189"/>
+        <location line="-1"/>
+        <location line="+58"/>
+        <source>Failed to mark feed as read</source>
+        <translation>Markieren des Feeds als gelesen fehlgeschlagen</translation>
+    </message>
+    <message>
+        <location line="+132"/>
         <source>Failed to rename feed</source>
         <translation>Umbenennen des Feeds fehlgeschlagen</translation>
     </message>
@@ -195,7 +195,7 @@
 <context>
     <name>OcImageFetcher</name>
     <message>
-        <location filename="../ocimagefetcher.cpp" line="+38"/>
+        <location filename="../ocimagefetcher.cpp" line="+40"/>
         <source>ocNews Image Fetcher</source>
         <translation>ocNews Bilderlader</translation>
     </message>
