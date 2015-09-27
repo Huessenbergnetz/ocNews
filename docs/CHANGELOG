@@ -1,3 +1,12 @@
+Version 1.9.6, 2015-09-27 18:38:00 +0200
+
+  General
+  * Improved: translation updates
+  
+  SailfishOS
+  * Improved: small adoptions to changes in Sailfish OS 1.1.9.28
+  * Fixed: escaped HTML entities in list titles
+
 Version 1.9.5, 2015-05-26 19:02:00 +0200
 
   General
