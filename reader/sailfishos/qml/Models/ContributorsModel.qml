@@ -22,7 +22,7 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
-        name: "Buschmann (Matthias Fehring)"
+        name: "Matthias Fehring (Buschmann)"
         role: QT_TR_NOOP("Main developer, ocNews creator")
         section: QT_TR_NOOP("Author")
         image: "buschmann.png"
@@ -31,13 +31,30 @@ ListModel {
         github: "buschmann23"
     }
 
-
     ListElement {
-        name: "Tigre-Bleu (Antoine Vacher)"
+        name: "Antoine Vacher (Tigre-Bleu)"
         role: QT_TR_NOOP("UI, French translation")
         section: QT_TR_NOOP("Major contributors")
         image: "tigre-bleu.png"
         twitter: "tigre_bleu"
+    }
+
+    ListElement {
+        name: "Alexey (lewa)"
+        role: QT_TR_NOOP("Russian translation")
+        section: QT_TR_NOOP("Thanks to")
+    }
+
+    ListElement {
+        name: "Ari Järviö"
+        role: QT_TR_NOOP("Finnish translation")
+        section: QT_TR_NOOP("Thanks to")
+    }
+
+    ListElement {
+        name: "beonex"
+        role: QT_TR_NOOP("Greek translation")
+        section: QT_TR_NOOP("Thanks to")
     }
 
     ListElement {
@@ -49,14 +66,9 @@ ListModel {
     }
 
     ListElement {
-        name: "Flywheeldk (Peter Jespersen)"
-        role: QT_TR_NOOP("Danish translation")
+        name: "Francesco Vaccaro (ghostofasmile)"
+        role: QT_TR_NOOP("Italian translation")
         section: QT_TR_NOOP("Thanks to")
-        image: "flywheeldk.png"
-        website: "http://illogical.dk/"
-        twitter: "myflywheel"
-        linkedin: "pjespersen"
-        bitbucket: "flywheel"
     }
 
     ListElement {
@@ -72,7 +84,7 @@ ListModel {
     }
 
     ListElement {
-        name: "Heimen Stoffels"
+        name: "Heimen Stoffels (Vistaus)"
         role: QT_TR_NOOP("Dutch (Netherlands) translation")
         section: QT_TR_NOOP("Thanks to")
     }
@@ -86,13 +98,7 @@ ListModel {
     }
 
     ListElement {
-        name: "lewa (Alexey)"
-        role: QT_TR_NOOP("Russian translation")
-        section: QT_TR_NOOP("Thanks to")
-    }
-
-    ListElement {
-        name: "Lorenzo Facca"
+        name: "Lorenzo Facca (koenigseggCCGT)"
         role: QT_TR_NOOP("Italian translation")
         section: QT_TR_NOOP("Thanks to")
         twitter: "LorenzoFacca"
@@ -100,8 +106,20 @@ ListModel {
     }
 
     ListElement {
-        name: "Mariano Flotron"
+        name: "Lutsenko Denis (Palacex)"
+        role: QT_TR_NOOP("Russian translation")
+        section: QT_TR_NOOP("Thanks to")
+    }
+
+    ListElement {
+        name: "Mariano Flotron (flotron)"
         role: QT_TR_NOOP("Spanish translation")
+        section: QT_TR_NOOP("Thanks to")
+    }
+
+    ListElement {
+        name: "Nikita (zxcvbnm3230)"
+        role: QT_TR_NOOP("Russian translation")
         section: QT_TR_NOOP("Thanks to")
     }
 
@@ -112,9 +130,14 @@ ListModel {
     }
 
     ListElement {
-        name: "Palacex (Lutsenko Denis)"
-        role: QT_TR_NOOP("Russian translation")
+        name: "Peter Jespersen (Flywheeldk)"
+        role: QT_TR_NOOP("Danish translation")
         section: QT_TR_NOOP("Thanks to")
+        image: "flywheeldk.png"
+        website: "http://illogical.dk/"
+        twitter: "myflywheel"
+        linkedin: "pjespersen"
+        bitbucket: "flywheel"
     }
 
     ListElement {
