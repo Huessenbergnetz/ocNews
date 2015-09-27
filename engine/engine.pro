@@ -31,6 +31,8 @@ CONFIG += meegotouchevents
 
 CONFIG += mobility
 MOBILITY += systeminfo
+} else {
+CONFIG += c++11
 }
 
 include("../qslog/QsLog.pri")
@@ -144,9 +146,10 @@ unix: PKGCONFIG += aegis-certman
 unix: PKGCONFIG += accounts-qt
 unix: PKGCONFIG += AccountSetup
 } else {
-LIBS += -lmlite5
-INCLUDEPATH += /usr/include/mlite5
+#LIBS += -lmlite5
+#INCLUDEPATH += /usr/include/mlite5
 PKGCONFIG += keepalive
+PKGCONFIG += nemonotifications-qt5
 }
 
 OTHER_FILES += \

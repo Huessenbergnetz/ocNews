@@ -7,9 +7,7 @@
 #include <MNotification>
 #include <MRemoteAction>
 #else
-#include <mlite-global.h>
-#include <mlite5/MNotification>
-#include <mlite5/MRemoteAction>
+#include <nemonotifications-qt5/notification.h>
 #endif
 
 class OcNotifications : public QObject
@@ -27,7 +25,11 @@ signals:
 public slots:
 
 private:
+#if defined(MEEGO_EDITION_HARMATTAN)
     MNotification *notification;
+#else
+    Notification *notification;
+#endif
 
 };
 

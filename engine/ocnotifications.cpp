@@ -4,12 +4,18 @@
 OcNotifications::OcNotifications(QObject *parent) :
     QObject(parent)
 {
+#if defined(MEEGO_EDITION_HARMATTAN)
     notification = 0;
+#else
+    notification = nullptr;
+#endif
 }
 
 
 void OcNotifications::showNotification(const QString &body, const QString &summary, const Type &notificationType)
 {
+#if defined(MEEGO_EDITION_HARMATTAN)
+
     if (notification)
     {
         if (notification->isPublished()) {
@@ -22,7 +28,6 @@ void OcNotifications::showNotification(const QString &body, const QString &summa
     QString type = "";
     QString image = "";
 
-#if defined(MEEGO_EDITION_HARMATTAN)
 
     image = "/usr/share/themes/blanco/meegotouch/icons/icon-m-ocnews.png";
     MRemoteAction action("de.buschmann23.ocNewsReader", "/", "de.buschmann23.ocNewsReader", "activate");
@@ -41,37 +46,43 @@ void OcNotifications::showNotification(const QString &body, const QString &summa
         break;
     }
 
-#else
-
-    MRemoteAction action("harbour.ocnews.reader", "/", "harbour.ocnews.reader", "activate");
-
-    switch (notificationType)
-    {
-    case Success:
-        type = MNotification::TransferCompleteEvent;
-        image = "/usr/share/harbour-ocnews-reader/icons/harbour-ocnews-popup-success.png";
-        break;
-    case Error:
-        type = MNotification::TransferErrorEvent;
-        image = "/usr/share/harbour-ocnews-reader/icons/harbour-ocnews-popup-error.png";
-        break;
-    case Default:
-    default:
-        type = MNotification::TransferEvent;
-        image = "/usr/share/harbour-ocnews-reader/icons/harbour-ocnews-popup.png";
-        break;
-    }
-
-#endif
-
-#if defined(MEEGO_EDITION_HARMATTAN)
     notification = new MNotification(type, QString("ocNews - ").append(summary), body);
-#else
-    notification = new MNotification(type, summary, body);
-#endif
+
     notification->setImage(image);
     notification->setAction(action);
     if (!notification->publish()) {
         QLOG_ERROR() << "Notifications: publishing failed.";
     }
+
+#else
+
+    notification = new Notification;
+
+    notification->setAppName(QStringLiteral("ocNews"));
+    notification->setPreviewBody(body);
+    notification->setPreviewSummary(summary);
+    notification->setBody(body);
+    notification->setSummary(summary);
+    notification->setRemoteAction(Notification::remoteAction(QStringLiteral("default"), QString(), QStringLiteral("harbour.ocnews.reader"), QStringLiteral("/"), QStringLiteral("harbour.ocnews.reader"), QStringLiteral("activate")));
+
+    switch (notificationType) {
+    case Success:
+        notification->setAppIcon(QStringLiteral("/usr/share/harbour-ocnews-reader/icons/harbour-ocnews-popup-success.png"));
+        notification->setUrgency(Notification::Normal);
+        break;
+    case Error:
+        notification->setAppIcon(QStringLiteral("usr/share/harbour-ocnews-reader/icons/harbour-ocnews-popup-error.png"));
+        notification->setUrgency(Notification::Critical);
+        break;
+    case Default:
+    default:
+        notification->setAppIcon(QStringLiteral("/usr/share/harbour-ocnews-reader/icons/harbour-ocnews-popup.png"));
+        notification->setUrgency(Notification::Low);
+        break;
+    }
+
+    notification->publish();
+
+#endif
+
 }
