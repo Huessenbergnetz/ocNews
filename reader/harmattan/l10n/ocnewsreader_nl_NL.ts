@@ -819,19 +819,29 @@
         <translation>Duits</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Spanish</source>
         <translation>Spaans</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-1"/>
         <source>Greek</source>
         <translation>Grieks</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Finnish</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
         <translation>Frans</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Galician</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>

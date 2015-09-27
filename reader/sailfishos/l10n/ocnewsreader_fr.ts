@@ -157,7 +157,7 @@
         <translation>Auteur</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+9"/>
         <source>UI, French translation</source>
         <translation>Interface Utilisateur, Traduction française</translation>
     </message>
@@ -167,35 +167,49 @@
         <translation>Contributeurs principaux</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <location line="+19"/>
+        <location line="+13"/>
+        <source>Finnish translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Greek translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
+        <location line="+14"/>
         <location line="+6"/>
         <source>Chinese (China) translation</source>
         <translation>Traduction chinoise (Chine)</translation>
     </message>
     <message>
-        <location line="-24"/>
-        <location line="+8"/>
-        <location line="+11"/>
+        <location line="-37"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+8"/>
         <location line="+6"/>
+        <location line="+6"/>
+        <location line="+6"/>
+        <location line="+6"/>
+        <location line="+8"/>
         <location line="+8"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+5"/>
+        <location line="+6"/>
+        <location line="+6"/>
+        <location line="+10"/>
         <source>Thanks to</source>
         <translation>Remerciements à</translation>
     </message>
     <message>
-        <location line="-69"/>
+        <location line="-11"/>
         <source>Danish translation</source>
         <translation>Traduction danoise</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="-46"/>
         <source>Dutch (Netherlands) translation</source>
         <translation>Tranduction hollandais (Pays-Bas)</translation>
     </message>
@@ -205,24 +219,26 @@
         <translation>Traduction française</translation>
     </message>
     <message>
-        <location line="+8"/>
-        <location line="+26"/>
+        <location line="-50"/>
+        <location line="+66"/>
+        <location line="+12"/>
         <source>Russian translation</source>
         <translation>Traduction russe</translation>
     </message>
     <message>
-        <location line="-20"/>
+        <location line="-52"/>
+        <location line="+32"/>
         <source>Italian translation</source>
         <translation>Traduction italienne</translation>
     </message>
     <message>
-        <location line="+8"/>
-        <location line="+6"/>
+        <location line="+14"/>
+        <location line="+12"/>
         <source>Spanish translation</source>
         <translation>Traduction espagnole</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+16"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
         <translation>Elements de Tidings par Martin Grimme</translation>
     </message>
@@ -890,19 +906,29 @@
         <translation>Allemand</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Spanish</source>
         <translation>Espagnol</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-1"/>
         <source>Greek</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Finnish</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
         <translation>Français</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Galician</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>

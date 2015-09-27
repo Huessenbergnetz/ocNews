@@ -159,7 +159,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+9"/>
         <source>UI, French translation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -169,35 +169,49 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
-        <location line="+19"/>
+        <location line="+13"/>
+        <source>Finnish translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Greek translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <location line="+14"/>
         <location line="+6"/>
         <source>Chinese (China) translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-24"/>
-        <location line="+8"/>
-        <location line="+11"/>
+        <location line="-37"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+8"/>
         <location line="+6"/>
+        <location line="+6"/>
+        <location line="+6"/>
+        <location line="+6"/>
+        <location line="+8"/>
         <location line="+8"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+5"/>
+        <location line="+6"/>
+        <location line="+6"/>
+        <location line="+10"/>
         <source>Thanks to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-69"/>
+        <location line="-11"/>
         <source>Danish translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="-46"/>
         <source>Dutch (Netherlands) translation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -207,24 +221,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
-        <location line="+26"/>
+        <location line="-50"/>
+        <location line="+66"/>
+        <location line="+12"/>
         <source>Russian translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-20"/>
+        <location line="-52"/>
+        <location line="+32"/>
         <source>Italian translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
-        <location line="+6"/>
+        <location line="+14"/>
+        <location line="+12"/>
         <source>Spanish translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+16"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
         <translation type="unfinished"></translation>
     </message>
@@ -909,7 +925,17 @@
     </message>
     <message>
         <location line="+2"/>
+        <source>Finnish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>French</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Galician</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

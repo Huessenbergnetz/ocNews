@@ -819,19 +819,29 @@
         <translation>Deutsch</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Spanish</source>
         <translation>Spanisch</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-1"/>
         <source>Greek</source>
         <translation>Griechisch</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Finnish</source>
+        <translation>Finnisch</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
         <translation>Französisch</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Galician</source>
+        <translation>Galicisch</translation>
     </message>
     <message>
         <location line="+1"/>
