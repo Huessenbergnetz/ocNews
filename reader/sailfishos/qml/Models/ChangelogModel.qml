@@ -30,6 +30,16 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "1.9.6"
+        date: 1443358099000
+        entries: [
+            ListElement { type: 1; issue: ""; description: "translation updates" },
+            ListElement { type: 1; issue: ""; desctiption: "small adoptions to changes in Sailfish OS 1.1.9.28" },
+            ListElement { type: 2; issue: ""; description: "escaped HTML entities in list titles" }
+        ]
+    }
+
+    ListElement {
         version: "1.9.5"
         date: 1432645932000
         entries: [

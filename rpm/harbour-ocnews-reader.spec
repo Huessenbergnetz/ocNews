@@ -14,7 +14,7 @@ Name:       harbour-ocnews-reader
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    ownCloud News App Client
-Version:    1.9.5
+Version:    1.9.6
 Release:    1
 Group:      Qt/Qt
 License:    GPL-2.0
