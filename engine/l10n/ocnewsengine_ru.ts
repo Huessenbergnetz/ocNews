@@ -36,7 +36,7 @@
     <message numerus="yes">
         <location line="+189"/>
         <source>%n feed(s) added</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -46,7 +46,7 @@
     <message numerus="yes">
         <location line="+11"/>
         <source>%n feed(s) removed</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -67,7 +67,7 @@
     <message>
         <location line="+75"/>
         <source>Feed is already part of the destination folder</source>
-        <translation type="unfinished"/>
+        <translation>Лента уже находится в папке назначения</translation>
     </message>
     <message>
         <location line="+66"/>
@@ -76,18 +76,18 @@
     </message>
     <message>
         <location line="+140"/>
-        <location line="+58"/>
-        <source>Failed to mark feed as read</source>
-        <translation>Ошибка при попытке пометить ленту прочтенной</translation>
-    </message>
-    <message>
-        <location line="-58"/>
         <location line="+1"/>
         <source>Database error</source>
         <translation>Ошибка базы данных</translation>
     </message>
     <message>
-        <location line="+189"/>
+        <location line="-1"/>
+        <location line="+58"/>
+        <source>Failed to mark feed as read</source>
+        <translation>Ошибка при попытке пометить ленту прочтенной</translation>
+    </message>
+    <message>
+        <location line="+132"/>
         <source>Failed to rename feed</source>
         <translation>Ошибка при переименовании папки</translation>
     </message>
@@ -120,7 +120,7 @@
     <message numerus="yes">
         <location line="+103"/>
         <source>%n folder(s) added</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -130,7 +130,7 @@
     <message numerus="yes">
         <location line="+11"/>
         <source>%n folder(s) removed</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -202,12 +202,12 @@
     <message>
         <location line="+4"/>
         <source>Fetching images</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка изображений</translation>
     </message>
     <message>
         <location line="+48"/>
         <source>Fetching images finished</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка изображений завершена</translation>
     </message>
 </context>
 <context>
@@ -243,13 +243,13 @@
         <location line="-113"/>
         <location line="+297"/>
         <source>%n new unread item(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="-297"/>
         <location line="+297"/>
         <source>New articles available</source>
-        <translation>доступны новые статьи</translation>
+        <translation>Доступны новые статьи</translation>
     </message>
     <message>
         <location line="+147"/>

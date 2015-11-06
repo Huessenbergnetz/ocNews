@@ -169,12 +169,12 @@
     <message>
         <location line="+13"/>
         <source>Finnish translation</source>
-        <translation type="unfinished"/>
+        <translation>Finsk oversættelse</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Greek translation</source>
-        <translation type="unfinished"/>
+        <translation>Græsk oversættelse</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -918,7 +918,7 @@
     <message>
         <location line="+2"/>
         <source>Finnish</source>
-        <translation type="unfinished"/>
+        <translation>Finsk</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -928,7 +928,7 @@
     <message>
         <location line="+1"/>
         <source>Galician</source>
-        <translation type="unfinished"/>
+        <translation>Galicisk</translation>
     </message>
     <message>
         <location line="+1"/>

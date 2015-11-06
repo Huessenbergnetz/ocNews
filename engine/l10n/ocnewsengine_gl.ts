@@ -31,7 +31,7 @@
         <location line="-299"/>
         <location line="+11"/>
         <source>Failed to request feeds</source>
-        <translation>Faio na petición de feeds</translation>
+        <translation>Fallou a petición dos feeds</translation>
     </message>
     <message numerus="yes">
         <location line="+189"/>
@@ -115,7 +115,7 @@
         <location line="-178"/>
         <location line="+15"/>
         <source>Failed to request folders</source>
-        <translation>Faio ao pedir os cartafois</translation>
+        <translation>Fallou a petición dos cartafois</translation>
     </message>
     <message numerus="yes">
         <location line="+103"/>

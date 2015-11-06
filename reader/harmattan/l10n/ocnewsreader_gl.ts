@@ -5,154 +5,154 @@
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+24"/>
         <location line="+340"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <location line="-294"/>
         <source>The ownCloud News App client for Harmattan</source>
-        <translation type="unfinished"/>
+        <translation>Cliente da app ownCloud News para Harmattan</translation>
     </message>
     <message>
         <location line="+24"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Licenzado baixo a </translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>Contribuir</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Deixar mensaxe (Inglés ou aleman):</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Traducir</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>Informar de erros</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Further information</source>
-        <translation type="unfinished"/>
+        <translation>Outra información</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Politica de privacidade</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Visit website</source>
-        <translation type="unfinished"/>
+        <translation>Visitar páxina</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Third party licenses</source>
-        <translation type="unfinished"/>
+        <translation>Licenzas de terceiros</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; por Martin Grimme licenzado baixo os termos da &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; por razvanpetru licenzado baixo os termos da &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+29"/>
         <source>Upstream author</source>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Main developer, ocNews creator</source>
-        <translation type="unfinished"/>
+        <translation>Desarroiador principal, creador de ocNews</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Major contributors</source>
-        <translation type="unfinished"/>
+        <translation>Maiores contribuintes</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>UI, French translation</source>
-        <translation type="unfinished"/>
+        <translation>IU, traduzón ao francés</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Thanks to</source>
-        <translation type="unfinished"/>
+        <translation>Grazas a</translation>
     </message>
     <message>
         <location line="+5"/>
         <location line="+17"/>
         <source>Chinese (China) translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzón ao chino</translation>
     </message>
     <message>
         <location line="-10"/>
         <source>Danish translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzón ao danés</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Dutch (Netherlands) translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzón ao holandés</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>French translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzón ao francés</translation>
     </message>
     <message>
         <location line="+7"/>
         <location line="+17"/>
         <source>Russian translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzón ao ruso</translation>
     </message>
     <message>
         <location line="-12"/>
         <source>Italian translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzón ao italiano</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Spanish translation</source>
-        <translation type="unfinished"/>
+        <translation>traduzón ao español</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Used third party elements</source>
-        <translation type="unfinished"/>
+        <translation>Elementos de terceiros empregados</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation type="unfinished"/>
+        <translation>Elementos anunciadores Martin Grimme</translation>
     </message>
     <message>
         <location line="+26"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
     <message>
         <location line="+65"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Contribuintes</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Lista de cambios</translation>
     </message>
 </context>
 <context>
@@ -160,47 +160,47 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="+8"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Engadir</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Root</source>
-        <translation type="unfinished"/>
+        <translation>Root</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Add Feed</source>
-        <translation type="unfinished"/>
+        <translation>Engadir feed</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Add Feed to Folder&lt;br /&gt;%1</source>
-        <translation type="unfinished"/>
+        <translation>Engadir feed ao cartafol&lt;br /&gt;%1</translation>
     </message>
     <message>
         <location line="+17"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Enderezo</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Enter new feed address</source>
-        <translation type="unfinished"/>
+        <translation>Enderezo do Feed</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Select folder</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione cartafol</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Show feed in event view</source>
-        <translation type="unfinished"/>
+        <translation>Amosar feed na vista de eventos</translation>
     </message>
 </context>
 <context>
@@ -208,27 +208,27 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/AddFolderSheet.qml" line="+5"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Engadir</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Add Folder</source>
-        <translation type="unfinished"/>
+        <translation>Engadir cartafol</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Nome</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Enter folder name</source>
-        <translation type="unfinished"/>
+        <translation>Nome do cartafol</translation>
     </message>
 </context>
 <context>
@@ -236,7 +236,7 @@
     <message>
         <location filename="../qml/ocNewsReader/Pages/CLItem.qml" line="+36"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
 </context>
 <context>
@@ -244,17 +244,17 @@
     <message>
         <location filename="../qml/ocNewsReader/Common/EnclosureItem.qml" line="+48"/>
         <source>Enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Cerco</translation>
     </message>
     <message>
         <location line="+53"/>
         <source>Download finished</source>
-        <translation type="unfinished"/>
+        <translation>Rematou a descarga</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>In queue</source>
-        <translation type="unfinished"/>
+        <translation>Agardando</translation>
     </message>
 </context>
 <context>
@@ -262,60 +262,60 @@
     <message>
         <location filename="../qml/ocNewsReader/Views/FeedListView.qml" line="+72"/>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Todo</translation>
     </message>
     <message>
         <location line="+62"/>
         <source>Add feed</source>
-        <translation type="unfinished"/>
+        <translation>Engadir feed</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Mark folder as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar cartafol coma lido</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Rename folder </source>
-        <translation type="unfinished"/>
+        <translation>Renomear cartafol</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar cartafol</translation>
     </message>
     <message>
         <location line="+20"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma lido</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Mover</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Renomear</translation>
     </message>
     <message>
         <location line="+9"/>
         <location line="+41"/>
         <location line="+28"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Borrar</translation>
     </message>
     <message>
         <location line="-27"/>
         <location line="+28"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location line="-27"/>
@@ -325,17 +325,17 @@
     <message>
         <location line="+1"/>
         <source>Delete folder %1?</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar cartafol %1?</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Si</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Non</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -345,12 +345,12 @@
     <message>
         <location line="+1"/>
         <source>Mark folder %1 as read?</source>
-        <translation type="unfinished"/>
+        <translation>Marcar cartafol %1 coma lido?</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Delete feed %1?</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar feed %1?</translation>
     </message>
 </context>
 <context>
@@ -358,7 +358,7 @@
     <message>
         <location filename="../qml/ocNewsReader/Common/FetchImagesIndicator.qml" line="+21"/>
         <source>Fetching images</source>
-        <translation type="unfinished"/>
+        <translation>Recadando imaxes</translation>
     </message>
 </context>
 <context>
@@ -366,7 +366,7 @@
     <message>
         <location filename="../qml/ocNewsReader/Delegates/FolderListDelegate.qml" line="+84"/>
         <source>Empty folder</source>
-        <translation type="unfinished"/>
+        <translation>Cartafol baleiro</translation>
     </message>
     <message numerus="yes">
         <location line="+0"/>
@@ -384,7 +384,7 @@
     <message>
         <location filename="../qml/ocNewsReader/Common/Header.qml" line="+20"/>
         <source>ocNews</source>
-        <translation type="unfinished"/>
+        <translation>ocNews</translation>
     </message>
 </context>
 <context>
@@ -392,17 +392,17 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/ImagePreviewSheet.qml" line="+6"/>
         <source>Open in browser</source>
-        <translation type="unfinished"/>
+        <translation>Abrir no navegador</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Pechar</translation>
     </message>
     <message>
         <location line="+17"/>
         <source>Load image</source>
-        <translation type="unfinished"/>
+        <translation>Cargar imaxe</translation>
     </message>
 </context>
 <context>
@@ -410,102 +410,102 @@
     <message>
         <location filename="../qml/ocNewsReader/Views/ItemListView.qml" line="+88"/>
         <source>Search...</source>
-        <translation type="unfinished"/>
+        <translation>Búsqueda...</translation>
     </message>
     <message>
         <location line="+135"/>
         <source>Mark feed as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar feed coma lido</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Delete feed</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar feed</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Renomear feed</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Show newest on top</source>
-        <translation type="unfinished"/>
+        <translation>Amosar novos ao inicio</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Show oldest on top</source>
-        <translation type="unfinished"/>
+        <translation>Amosar os antigos ao inicio</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Read articles</source>
-        <translation type="unfinished"/>
+        <translation>Ler noticias</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Show</source>
-        <translation type="unfinished"/>
+        <translation>Amosar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hide</source>
-        <translation type="unfinished"/>
+        <translation>Agochar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation type="unfinished"/>
+        <translation>Amosar logo dos non lidos</translation>
     </message>
     <message>
         <location line="+42"/>
         <source>Add to favourites</source>
-        <translation type="unfinished"/>
+        <translation>Engadir aos favoritos</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Remove from favourites</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar dos favoritos</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma lido</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark as unread</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma non lido</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Mark as read up to this point</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma lido ata este punto</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Mark as unread up to this point</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma non lido ata este punto</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Share</source>
-        <translation type="unfinished"/>
+        <translation>Compartir</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Borrar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Delete feed %1?</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar feed %1?</translation>
     </message>
 </context>
 <context>
@@ -513,22 +513,22 @@
     <message>
         <location filename="../qml/ocNewsReader/Views/MainView.qml" line="+26"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Deixar mensaxe (Inglés ou aleman):</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. </source>
-        <translation type="unfinished"/>
+        <translation>ocNews é un cliente para a app ownCloud News, un agregador de RSS/Atom feeds baseado na nube.</translation>
     </message>
     <message>
         <location line="+59"/>
         <source>ocNews</source>
-        <translation type="unfinished"/>
+        <translation>ocNews</translation>
     </message>
     <message>
         <location line="+17"/>
         <source>&lt;b&gt;Welcome to ocNews&lt;/b&gt;&lt;br /&gt;With these app you can synchronize and view your ownCloud News App content on your smartphone. Before you can start, you have to setup your ownCloud server account.</source>
-        <translation type="unfinished"/>
+        <translation>Con esta app pode sincronizar e ver no seu dispositivo o contido da app ownCloud News. Antes de comezar tera que configurar a sua conta do servidor de ownCloud nas preferencias.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -538,89 +538,89 @@
     <message>
         <location line="+12"/>
         <source>Privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Politica de privacidade</translation>
     </message>
     <message>
         <location line="+11"/>
         <location line="+31"/>
         <source>Setup account</source>
-        <translation type="unfinished"/>
+        <translation>Configurar conta</translation>
     </message>
     <message>
         <location line="-12"/>
         <source>Your ocNews account is currently disabled. In order to use ocNews you have to enable your account.</source>
-        <translation type="unfinished"/>
+        <translation>A sua conta está desactivada, activea.</translation>
     </message>
     <message>
         <location line="+118"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Preferencias</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Quit completely</source>
-        <translation type="unfinished"/>
+        <translation>Sair completamente</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Add Folder</source>
-        <translation type="unfinished"/>
+        <translation>Engadir cartafol</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Add Feed</source>
-        <translation type="unfinished"/>
+        <translation>Engadir feed</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Update all</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar todo</translation>
     </message>
     <message>
         <location line="+7"/>
         <location line="+3"/>
         <source>Last:</source>
-        <translation type="unfinished"/>
+        <translation>Ultimo:</translation>
     </message>
     <message>
         <location line="+18"/>
         <location line="+44"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma lido</translation>
     </message>
     <message>
         <location line="-35"/>
         <location line="+43"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <location line="-35"/>
         <location line="+53"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Renomear</translation>
     </message>
     <message>
         <location line="-44"/>
         <location line="+53"/>
         <location line="+55"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Borrar</translation>
     </message>
     <message>
         <location line="-74"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Mover</translation>
     </message>
     <message>
         <location line="+75"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -630,24 +630,24 @@
     <message>
         <location line="+1"/>
         <source>Delete folder %1?</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar cartafol %1?</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Delete feed %1?</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar feed %1?</translation>
     </message>
     <message>
         <location line="+12"/>
         <location line="+13"/>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Si</translation>
     </message>
     <message>
         <location line="-12"/>
         <location line="+13"/>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Non</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -657,7 +657,7 @@
     <message>
         <location line="+1"/>
         <source>Mark folder %1 as read?</source>
-        <translation type="unfinished"/>
+        <translation>Marcar cartafol %1 coma lido?</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -667,7 +667,7 @@
     <message>
         <location line="+1"/>
         <source>Quit completely?</source>
-        <translation type="unfinished"/>
+        <translation>Sair completamente?</translation>
     </message>
 </context>
 <context>
@@ -675,27 +675,27 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/MoveFeedSheet.qml" line="+8"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Mover</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Root</source>
-        <translation type="unfinished"/>
+        <translation>Root</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Move feed to another folder</source>
-        <translation type="unfinished"/>
+        <translation>Mover feed a cartafol</translation>
     </message>
     <message>
         <location line="+26"/>
         <source>Select folder</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione cartafol</translation>
     </message>
 </context>
 <context>
@@ -705,17 +705,17 @@
         <location line="+107"/>
         <location line="+225"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Sen categoria</translation>
     </message>
     <message>
         <location line="-328"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tódalas noticias</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Favoritos</translation>
     </message>
 </context>
 <context>
@@ -723,17 +723,17 @@
     <message>
         <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
         <source>Uncategorized</source>
-        <translation type="unfinished"/>
+        <translation>Sen categoria</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tódalas noticias</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Favoritos</translation>
     </message>
 </context>
 <context>
@@ -741,7 +741,7 @@
     <message>
         <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+124"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tódalas noticias</translation>
     </message>
 </context>
 <context>
@@ -749,7 +749,7 @@
     <message>
         <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+83"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tódalas noticias</translation>
     </message>
 </context>
 <context>
@@ -757,12 +757,12 @@
     <message>
         <location filename="../../common/models/ocfoldermodelsql.cpp" line="+88"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tódalas noticias</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Favoritos</translation>
     </message>
 </context>
 <context>
@@ -770,12 +770,12 @@
     <message>
         <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+156"/>
         <source>All posts</source>
-        <translation type="unfinished"/>
+        <translation>Tódalas noticias</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Favourite posts</source>
-        <translation type="unfinished"/>
+        <translation>Favoritos</translation>
     </message>
 </context>
 <context>
@@ -783,17 +783,17 @@
     <message>
         <location filename="../../common/models/ocitemsmodelsql.cpp" line="+65"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Hoxe</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -801,67 +801,67 @@
     <message>
         <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Por defecto do sistema</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>Ingles</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>Danes</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Alemán</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Español</translation>
     </message>
     <message>
         <location line="-1"/>
         <source>Greek</source>
-        <translation type="unfinished"/>
+        <translation>Grego</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Finnish</source>
-        <translation type="unfinished"/>
+        <translation>Finés</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>Francés</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Galician</source>
-        <translation type="unfinished"/>
+        <translation>Galego</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Italiano</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Dutch (Netherlands)</source>
-        <translation type="unfinished"/>
+        <translation>Holandés</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Ruso</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"/>
+        <translation>Chino</translation>
     </message>
 </context>
 <context>
@@ -869,17 +869,17 @@
     <message>
         <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Hoxe</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -887,17 +887,17 @@
     <message>
         <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+450"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Hoxe</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -905,17 +905,17 @@
     <message>
         <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+136"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Hoxe</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -923,17 +923,17 @@
     <message>
         <location filename="../../common/models/ocspecialitemsmodelsql.cpp" line="+66"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Hoxe</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation type="unfinished"/>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -941,127 +941,127 @@
     <message>
         <location filename="../qml/ocNewsReader/Common/PayPalChooser.qml" line="+107"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Moeda</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Euro</source>
-        <translation type="unfinished"/>
+        <translation>Euro</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>US Dollar</source>
-        <translation type="unfinished"/>
+        <translation>US Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Australian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Australian Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Brazilian Real</source>
-        <translation type="unfinished"/>
+        <translation>Brazilian Real</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Pound Sterling</source>
-        <translation type="unfinished"/>
+        <translation>Pound Sterling</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Danish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Danish Krone</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hong Kong Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Hong Kong Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Israel New Shekel</source>
-        <translation type="unfinished"/>
+        <translation>Israel New Shekel</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Japanese Yen</source>
-        <translation type="unfinished"/>
+        <translation>Japanese Yen</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Canadian Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Canadian Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Mexican Peso</source>
-        <translation type="unfinished"/>
+        <translation>Mexican Peso</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Taiwan Dollar</source>
-        <translation type="unfinished"/>
+        <translation>New Taiwan Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>New Zealand Dollar</source>
-        <translation type="unfinished"/>
+        <translation>New Zealand Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Norwegian Krone</source>
-        <translation type="unfinished"/>
+        <translation>Norwegian Krone</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Philippine Peso</source>
-        <translation type="unfinished"/>
+        <translation>Philippine Peso</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Polish Zloty</source>
-        <translation type="unfinished"/>
+        <translation>Polish Zloty</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Russian Ruble</source>
-        <translation type="unfinished"/>
+        <translation>Russian Ruble</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swedish Krone</source>
-        <translation type="unfinished"/>
+        <translation>Swedish Krone</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Swiss Franc</source>
-        <translation type="unfinished"/>
+        <translation>Swiss Franc</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Singapore Dollar</source>
-        <translation type="unfinished"/>
+        <translation>Singapore Dollar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Thai Baht</source>
-        <translation type="unfinished"/>
+        <translation>Thai Baht</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Czech Koruna</source>
-        <translation type="unfinished"/>
+        <translation>Czech Koruna</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hungarian Forint</source>
-        <translation type="unfinished"/>
+        <translation>Hungarian Forint</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Donate via PayPal</source>
-        <translation type="unfinished"/>
+        <translation>Doar con PayPal</translation>
     </message>
 </context>
 <context>
@@ -1069,42 +1069,42 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/PrivacySheet.qml" line="+10"/>
         <source>Accept</source>
-        <translation type="unfinished"/>
+        <translation>Aceptar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Pechar</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Reject</source>
-        <translation type="unfinished"/>
+        <translation>Rexeitar</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Politica de privacidade</translation>
     </message>
     <message>
         <location line="+17"/>
         <source>What information does ocNews collect?</source>
-        <translation type="unfinished"/>
+        <translation>Que información recada ocNews?</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>In order to log in to your ownCloud server, ocNews collects the server address, your user name and your password. These data is stored in a protected/private folder on your device. The data is not given to the author of ocNews or other third parties.</source>
-        <translation type="unfinished"/>
+        <translation>Para entrar no seu servidor ownCloud, ocNews recada o enderezo do servidor, o nome de usuario e o seu contrasinal. Esa información non é compartida co autor do ocNews nin con terceiros.</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>What does ocNews use your information for?</source>
-        <translation type="unfinished"/>
+        <translation>Para que emprega ocNews a sua información?</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>ocNews needs your log in data to connect to your ownCloud server. Your log in data is used to log in to your ownCloud server to perform the tasks of synchronizing your ownCloud News App data with your device.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews require seus datos para conectarse ao seu servidor de ownCloud. Empreganse para realizar as tarefas de sincronizado do seu dispositivo coa app de ownCloud News.</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -1119,17 +1119,17 @@
     <message>
         <location line="+12"/>
         <source>Does ocNews disclose any information to outside parties?</source>
-        <translation type="unfinished"/>
+        <translation>ocNews comparte algunha información con terceiros?</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>ocNews only uses your data for the log in process into the server that you configure in the settings. ocNews does not send these data to the author of ocNews or other third parties. For questions concerning the privacy on the server side, you have to contact your ownCloud service provider.</source>
-        <translation type="unfinished"/>
+        <translation>ocNews só emprega seus datos para o proceso de conexión co servidor que configure nas preferencias. ocNews non comparte eses datos co autor de ocNews ou terceiros. Para cuestións da privacidade do lado do servidor tera que contactar co seu fornecedor de servizos ownCloud.</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Third party links</source>
-        <translation type="unfinished"/>
+        <translation>Ligazóns a terceiros</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1139,17 +1139,17 @@
     <message>
         <location line="+12"/>
         <source>Your consent</source>
-        <translation type="unfinished"/>
+        <translation>Aceptar</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>By using ocNews, you consent to this privacy policy.</source>
-        <translation type="unfinished"/>
+        <translation>Empregando ocNews, acepta a sua politica de privacidade.</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Contact</source>
-        <translation type="unfinished"/>
+        <translation>Contacto</translation>
     </message>
 </context>
 <context>
@@ -1157,22 +1157,22 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/RenameFeedSheet.qml" line="+9"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Renomear</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Rename feed&lt;br /&gt;%1</source>
-        <translation type="unfinished"/>
+        <translation>Renomear o feed&lt;br /&gt;%1</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Nome</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1185,12 +1185,12 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/RenameFolderSheet.qml" line="+9"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Renomear</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1200,12 +1200,12 @@
     <message>
         <location line="+14"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Nome</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Enter new folder name</source>
-        <translation type="unfinished"/>
+        <translation>Nome do cartafol</translation>
     </message>
 </context>
 <context>
@@ -1214,12 +1214,12 @@
         <location filename="../qml/ocNewsReader/Pages/Settings.qml" line="+47"/>
         <location line="+600"/>
         <source>Account Settings</source>
-        <translation type="unfinished"/>
+        <translation>Preferencias da conta</translation>
     </message>
     <message>
         <location line="-581"/>
         <source>Open account manager</source>
-        <translation type="unfinished"/>
+        <translation>Abrir o manager de contas</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1239,102 +1239,102 @@
     <message>
         <location line="+31"/>
         <source>Number of items to keep</source>
-        <translation type="unfinished"/>
+        <translation>Número de artigos a manter</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Cartafois</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Feeds</source>
-        <translation type="unfinished"/>
+        <translation>Feeds</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Main view layout</source>
-        <translation type="unfinished"/>
+        <translation>Capa de vista principal</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>Added (like on server)</source>
-        <translation type="unfinished"/>
+        <translation>Engadido (coma no servidor)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>Título</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Unread count</source>
-        <translation type="unfinished"/>
+        <translation>Sen ler</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Order feeds and folders by</source>
-        <translation type="unfinished"/>
+        <translation>Ordear feeds e cartafois por</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Hide read feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Agochar feeds e cartafois lidos</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Only manually</source>
-        <translation type="unfinished"/>
+        <translation>Só manualmente</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Automatic on Wi-Fi</source>
-        <translation type="unfinished"/>
+        <translation>Automático con WiFi</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Always automatic</source>
-        <translation type="unfinished"/>
+        <translation>Sempre automático</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Updating</source>
-        <translation type="unfinished"/>
+        <translation>Actualizando</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>15 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>15 minutos</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>30 minutos</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 hora</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>3 Hours</source>
-        <translation type="unfinished"/>
+        <translation>3 horas</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>6 Hours</source>
-        <translation type="unfinished"/>
+        <translation>6 horas</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>12 Hours</source>
-        <translation type="unfinished"/>
+        <translation>12 horas</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Update interval</source>
-        <translation type="unfinished"/>
+        <translation>Intervalo de actualización</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1349,47 +1349,47 @@
     <message>
         <location line="+7"/>
         <source>On request</source>
-        <translation type="unfinished"/>
+        <translation>Coa petición</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>When item loads</source>
-        <translation type="unfinished"/>
+        <translation>Cando os artigos carguen</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Prefetch at updating</source>
-        <translation type="unfinished"/>
+        <translation>Coa actualización</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Load content images</source>
-        <translation type="unfinished"/>
+        <translation>Cargar imaxes do contido</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Show</source>
-        <translation type="unfinished"/>
+        <translation>Amosar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hide</source>
-        <translation type="unfinished"/>
+        <translation>Agochar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation type="unfinished"/>
+        <translation>Amosar logo dos non lidos</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Read articles</source>
-        <translation type="unfinished"/>
+        <translation>Ler noticias</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Show oldest items on top</source>
-        <translation type="unfinished"/>
+        <translation>Amosar os antigos ao inicio</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1404,32 +1404,32 @@
     <message>
         <location line="+19"/>
         <source>Open links directly</source>
-        <translation type="unfinished"/>
+        <translation>Abrir directamente as ligazóns</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>External browser</source>
-        <translation type="unfinished"/>
+        <translation>Navegador externo</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Open articles in</source>
-        <translation type="unfinished"/>
+        <translation>Abrir artigos en</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Notify about added/removed feeds and folders</source>
-        <translation type="unfinished"/>
+        <translation>Notificar feeds e cartafois engadidos ou eliminados</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Notify about new articles</source>
-        <translation type="unfinished"/>
+        <translation>Notificar novos artigos</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Quit engine on closing reader</source>
-        <translation type="unfinished"/>
+        <translation>Pechar o motor ao sair do lector</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1494,12 +1494,12 @@
     <message>
         <location line="+16"/>
         <source>Reset configuration</source>
-        <translation type="unfinished"/>
+        <translation>Reiniciar configuración</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Delete database</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar base de datos</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1519,7 +1519,7 @@
     <message>
         <location line="+7"/>
         <source>This option needs a complete application restart. After that it will create log files in %1.</source>
-        <translation type="unfinished"/>
+        <translation>Esta opción require o reinicio da aplicación. Logo disto crearase o arquivo de log en %1.</translation>
     </message>
     <message>
         <location line="+41"/>
@@ -1534,7 +1534,7 @@
     <message>
         <location line="+5"/>
         <source>Maintenance</source>
-        <translation type="unfinished"/>
+        <translation>Mantemento</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1547,7 +1547,7 @@
         <location line="+10"/>
         <location line="+21"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location line="-41"/>
@@ -1562,7 +1562,7 @@
     <message>
         <location line="+8"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Borrar</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1650,7 +1650,7 @@
     <message>
         <location line="+13"/>
         <source>Open enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Abrir cerco</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1660,27 +1660,27 @@
     <message>
         <location line="+5"/>
         <source>Abort download</source>
-        <translation type="unfinished"/>
+        <translation>Parar a descarga</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Delete enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Borrar cerco</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Download enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Descargar cerco</translation>
     </message>
     <message>
         <location line="+81"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Borrar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1698,72 +1698,72 @@
     <message>
         <location filename="../qml/ocNewsReader/Views/SpecialItemListView.qml" line="+90"/>
         <source>Search...</source>
-        <translation type="unfinished"/>
+        <translation>Búsqueda...</translation>
     </message>
     <message>
         <location line="+153"/>
         <source>Mark folder as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar cartafol coma lido</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark all as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar todo coma lido</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Show newest on top</source>
-        <translation type="unfinished"/>
+        <translation>Amosar novos ao inicio</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Show oldest on top</source>
-        <translation type="unfinished"/>
+        <translation>Amosar os antigos ao inicio</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Read articles</source>
-        <translation type="unfinished"/>
+        <translation>Ler noticias</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Show</source>
-        <translation type="unfinished"/>
+        <translation>Amosar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Hide</source>
-        <translation type="unfinished"/>
+        <translation>Agochar</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation type="unfinished"/>
+        <translation>Amosar logo dos non lidos</translation>
     </message>
     <message>
         <location line="+33"/>
         <source>Add to favourites</source>
-        <translation type="unfinished"/>
+        <translation>Engadir aos favoritos</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Remove from favourites</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar dos favoritos</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma lido</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark as unread</source>
-        <translation type="unfinished"/>
+        <translation>Marcar coma non lido</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Share</source>
-        <translation type="unfinished"/>
+        <translation>Compartir</translation>
     </message>
 </context>
 <context>
@@ -1772,17 +1772,17 @@
         <location filename="../qml/ocNewsReader/Sheets/StartUpInfoSheet.qml" line="+44"/>
         <source>Welcome to %1 %2</source>
         <comment>First is app name, second is version number</comment>
-        <translation type="unfinished"/>
+        <translation>Benvido a %1 %2</translation>
     </message>
     <message>
         <location line="+17"/>
         <source>Last changes</source>
-        <translation type="unfinished"/>
+        <translation>Últimos cambios</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Donate</source>
-        <translation type="unfinished"/>
+        <translation>Doar</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1792,12 +1792,12 @@
     <message>
         <location line="+14"/>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Axuda</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Pechar</translation>
     </message>
 </context>
 <context>
@@ -1840,7 +1840,7 @@
     <message>
         <location line="+23"/>
         <source>Found ownCloud News Version %1</source>
-        <translation type="unfinished"/>
+        <translation>Atopada versión %1 de ownCloud News</translation>
     </message>
     <message>
         <location line="+3"/>

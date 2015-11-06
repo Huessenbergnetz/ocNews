@@ -243,7 +243,7 @@
         <location line="-113"/>
         <location line="+297"/>
         <source>%n new unread item(s)</source>
-        <translation><numerusform>%n neuer ungelesene Artikel</numerusform><numerusform>%n neue ungelesene Artikel</numerusform></translation>
+        <translation><numerusform>%n neuer ungelesener Artikel</numerusform><numerusform>%n neue ungelesene Artikel</numerusform></translation>
     </message>
     <message>
         <location line="-297"/>
