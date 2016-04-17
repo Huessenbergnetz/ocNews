@@ -246,16 +246,17 @@ Page {
             Row {
                 id: contributeRow
                 width: parent.width - Theme.horizontalPageMargin
+                spacing: Theme.paddingSmall
 
                 Button {
-                    width: parent.width/contributeRow.visibleChildren.length
+                    width: parent.width/contributeRow.visibleChildren.length-Theme.paddingSmall
                     text: qsTr("Translate")
                     onClicked: Qt.openUrlExternally(translateUrl)
                     visible: translateUrl
                 }
 
                 Button {
-                    width: parent.width/contributeRow.visibleChildren.length
+                    width: parent.width/contributeRow.visibleChildren.length-Theme.paddingSmall
                     text: qsTr("Report bugs")
                     onClicked: Qt.openUrlExternally(bugUrl)
                     visible: bugUrl
