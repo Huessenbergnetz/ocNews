@@ -62,6 +62,9 @@ ApplicationWindow
 
     initialPage: Component { MainView { } }
 
+    allowedOrientations: Orientation.All
+    _defaultPageOrientations: Orientation.All
+
     cover: CoverPage {}
 
     QtObject {
