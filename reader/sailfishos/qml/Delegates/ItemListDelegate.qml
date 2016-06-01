@@ -85,7 +85,7 @@ ListItem {
                 text: Theme.highlightText(model.title, searchString, Theme.highlightColor)
                 width: parent.width
                 color: itemListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
-                maximumLineCount: 2
+                maximumLineCount: 3
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 elide: Text.ElideRight
                 textFormat: Text.StyledText
@@ -99,7 +99,7 @@ ListItem {
                 color: if (model.unread) { itemListItem.highlighted ? Theme.highlightColor : Theme.primaryColor } else { itemListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor }
                 font.pixelSize: Theme.fontSizeExtraSmall
                 width: parent.width
-                maximumLineCount: 3
+                maximumLineCount: 5
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 elide: Text.ElideRight
                 visible: text !== ""

@@ -7,22 +7,62 @@ target.path = /usr/bin
 INSTALLS += target
 
 icons.path = /usr/share/harbour-ocnews-reader/icons
-icons.files = icons/*
+icons.files = ocnews_icons/*
 INSTALLS += icons
 
 contributors.path = /usr/share/harbour-ocnews-reader/icons/contributors
 contributors.files = icons/contributors/*
 INSTALLS += contributors
 
-readerl10n.path = /usr/share/harbour-ocnews-reader/translations
-readerl10n.files = l10n/*.qm
-INSTALLS += readerl10n
+readertranslations.path = /usr/share/harbour-ocnews-reader/translations
+readertranslations.files = translations/*.qm
+INSTALLS += readertranslations
 
 dbusservice.path = /usr/share/dbus-1/services
 dbusservice.files = misc/harbour.ocnews.reader.service
 INSTALLS += dbusservice
 
+TARGET_ICON_ROOT = /usr/share/icons/hicolor
+
+icon86.files = icons/86x86/harbour-ocnews-reader.png
+icon86.path = $$TARGET_ICON_ROOT/86x86/apps
+INSTALLS += icon86
+
+icon108.files = icons/108x108/harbour-ocnews-reader.png
+icon108.path = $$TARGET_ICON_ROOT/108x108/apps
+INSTALLS += icon108
+
+icon128.files = icons/128x128/harbour-ocnews-reader.png
+icon128.path = $$TARGET_ICON_ROOT/128x128/apps
+INSTALLS += icon128
+
+icon256.files = icons/256x256/harbour-ocnews-reader.png
+icon256.path = $$TARGET_ICON_ROOT/256x256/apps
+INSTALLS += icon256
+
 CONFIG += sailfishapp
+CONFIG += sailfishapp_i18n
+
+TRANSLATIONS += \
+    translations/ocnewsreader_ar.ts \
+    translations/ocnewsreader_ca.ts \
+    translations/ocnewsreader_da.ts \
+    translations/ocnewsreader_de.ts \
+    translations/ocnewsreader_el.ts \
+    translations/ocnewsreader_en_GB.ts \
+    translations/ocnewsreader_en.ts \
+    translations/ocnewsreader_en_US.ts \
+    translations/ocnewsreader_es.ts \
+    translations/ocnewsreader_fi.ts \
+    translations/ocnewsreader_fr.ts \
+    translations/ocnewsreader_gl.ts \
+    translations/ocnewsreader_it.ts \
+    translations/ocnewsreader_nl_NL.ts \
+    translations/ocnewsreader_ru.ts \
+    translations/ocnewsreader_sv.ts \
+    translations/ocnewsreader_tr_TR.ts \
+    translations/ocnewsreader.ts \
+    translations/ocnewsreader_zh_CN.ts
 
 include("../../qslog/QsLog.pri")
 
@@ -97,7 +137,7 @@ OTHER_FILES += qml/harbour-ocnews-reader.qml \
     qml/Common/FetchImagesIndicator.qml \
     qml/Dialogs/OpenLink.qml \
     qml/Common/EnclosureItem.qml \
-    l10n/*.ts \
+    translations/*.ts \
     qml/Dialogs/RenameFeed.qml \
     qml/BTComponents/FirstStartInfo.qml \
     qml/BTComponents/ContributorsDelegate.qml \

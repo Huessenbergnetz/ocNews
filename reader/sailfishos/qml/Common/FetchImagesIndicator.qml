@@ -3,7 +3,7 @@ import Sailfish.Silica 1.0
 
 Item {
     width: parent.width
-    height: imageFetcher.total > 0 ? 110 : 0
+    height: imageFetcher.total > 0 ? 3*Theme.fontSizeMedium : 0
     visible: height > 0
     anchors.bottom: parent.bottom
 

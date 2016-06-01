@@ -7,19 +7,23 @@ Item {
     property int value: 0
     property alias color: count.color
 
+    property int fontSize: Screen.sizeCategory >= Screen.Large
+                          ? Theme.fontSizeSmall
+                          : Theme.fontSizeExtraSmall
+
     function getBubbleWidth() {
         if (countBubble.value < 10)
-            return 26;
+            return fontSize*0.625*(1+0.5);
         else if (countBubble.value < 100)
-            return 35;
+            return fontSize*0.625*(2+0.5);
         else if (countBubble.value < 1000)
-            return 48;
+            return fontSize*0.625*(3+0.5);
         else
-            return 58;
+            return fontSize*0.625*(4+0.5);
     }
 
     width: countBubble.getBubbleWidth()
-    height: 32
+    height: fontSize*1.2
 
     Rectangle {
         id: backgroundRect
@@ -36,7 +40,7 @@ Item {
         id: count
         anchors.centerIn: backgroundRect
         text: countBubble.value
-        font.pixelSize: Theme.fontSizeExtraSmall
+        font.pixelSize: fontSize
         opacity: 1
         color: Theme.primaryColor
     }
