@@ -136,7 +136,7 @@ Page {
                         id: websiteLink
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: qsTr("Visit website")
-                        onClicked: Qt.openUrlExternally("http://ocnews.buschmann23.de")
+                        onClicked: Qt.openUrlExternally("https://www.buschmann23.de/entwicklung/anwendungen/ocnews/")
                     }
 
                     GroupHeader { text: qsTr("Third party licenses") }

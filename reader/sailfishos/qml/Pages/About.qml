@@ -8,7 +8,7 @@ AboutPage {
     appTitle: "ocNews"
     appVersion: versionString
     appDescription: qsTr("The ownCloud News App client for Sailfish OS")
-    appHomepage: "http://ocnews.buschmann23.de"
+    appHomepage: "https://www.buschmann23.de/entwicklung/anwendungen/ocnews/"
     appCover: "/usr/share/harbour-ocnews-reader/icons/ocNews-Sailfish-Cover.jpg"
     appCopyright: "© 2013-2014, Buschtrommel"
     appLicense: qsTr("Licensed under the <a href='http://www.gnu.org/licenses/gpl-2.0.en.html'>GNU GPL v2</a>")
