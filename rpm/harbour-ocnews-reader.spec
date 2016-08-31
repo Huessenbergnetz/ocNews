@@ -6,7 +6,7 @@
 Name:       harbour-ocnews-reader
 
 # >> macros
-%define __requires_exclude libQt5Declarative.*|libQt5Script.*|libQt5Widgets.*
+%define __requires_exclude libQt5Declarative.*|libQt5Script.*|libQt5Widgets.*|libkeepalive.*
 # << macros
 
 %{!?qtc_qmake:%define qtc_qmake %qmake}
@@ -79,6 +79,6 @@ desktop-file-install --delete-original       \
 %{_datadir}/dbus-1/services/harbour.ocnews.reader.service
 %{_datadir}/harbour-ocnews-reader/
 %{_datadir}/applications/harbour-ocnews-reader.desktop
-%{_datadir}/icons/hicolor/86x86/apps/harbour-ocnews-reader.png
+%{_datadir}/icons/hicolor/*/apps/harbour-ocnews-reader.png
 # >> files
 # << files

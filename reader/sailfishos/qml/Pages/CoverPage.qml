@@ -57,7 +57,7 @@ CoverBackground {
     Column {
         id: countColumn
         visible: !updateRunning.visible && coverConnector.mode === "overview"
-        anchors { top: parent.top; left: parent.left; right: parent.right; topMargin: Theme.paddingLarge; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
+        anchors { top: parent.top; left: parent.left; right: parent.right; topMargin: Theme.paddingLarge; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
 
         Text {
             id: count
@@ -83,7 +83,7 @@ CoverBackground {
     Label {
         id: lastUpdText
         color: Theme.highlightColor
-        anchors { top: countColumn.bottom; left: parent.left; right: parent.right; topMargin: Theme.paddingLarge * 1.5; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
+        anchors { top: countColumn.bottom; left: parent.left; right: parent.right; topMargin: Theme.paddingLarge * 1.5; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
         font.pixelSize: Theme.fontSizeLarge
         text: defCover.calcLastUpd(dbus.getStat(1));
         width: parent.width
@@ -97,7 +97,7 @@ CoverBackground {
         id: updateRunning
         color: Theme.highlightColor
         text: qsTr("Updating")
-        anchors { verticalCenter: parent.verticalCenter; left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
+        anchors { verticalCenter: parent.verticalCenter; left: parent.left; right: parent.right; leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge }
         width: parent.width
         visible: false
         font.pixelSize: Theme.fontSizeLarge
@@ -135,8 +135,8 @@ CoverBackground {
 
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.leftMargin: Theme.horizontalPageMargin
-        anchors.rightMargin: Theme.horizontalPageMargin
+        anchors.leftMargin: Theme.paddingLarge
+        anchors.rightMargin: Theme.paddingLarge
 
         Item {
             width: parent.width

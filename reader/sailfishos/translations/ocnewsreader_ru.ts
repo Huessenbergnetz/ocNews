@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" sourcelanguage="en" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ru" sourcelanguage="en">
 <context>
     <name>About</name>
     <message>
@@ -34,12 +36,12 @@
     <message>
         <location line="+6"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -80,7 +82,7 @@
         <translation>Поддержка</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+9"/>
         <source>Translate</source>
         <translation>Перевод</translation>
     </message>
@@ -92,7 +94,7 @@
     <message>
         <location line="+23"/>
         <source>3rd party licenses</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -141,7 +143,7 @@
     <message>
         <location line="+25"/>
         <source>Sina Weibo</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -169,12 +171,12 @@
     <message>
         <location line="+13"/>
         <source>Finnish translation</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Greek translation</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+6"/>
@@ -240,7 +242,7 @@
     <message>
         <location line="+16"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -253,17 +255,29 @@
     <message numerus="yes">
         <location line="+2"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
         <source>%n hour(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
         <source>%n minute(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <location line="+2"/>
@@ -286,7 +300,7 @@
     <message>
         <location filename="../qml/Dialogs/CreateFeed.qml" line="+25"/>
         <source>Root</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+15"/>
@@ -734,7 +748,7 @@
     <message>
         <location line="+7"/>
         <source>With these app you can synchronize and view your ownCloud News App content on your smartphone. Before you can start, you have to setup your ownCloud server account in the settings.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+5"/>
@@ -744,7 +758,7 @@
     <message>
         <location line="+5"/>
         <source>No unread or favorite articles to show. Enable your option to show hide read feeds and folders to see content.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+24"/>
@@ -764,7 +778,7 @@
     <message>
         <location line="+13"/>
         <source>Quit reader and engine</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -772,7 +786,7 @@
     <message>
         <location filename="../qml/Dialogs/MoveFeed.qml" line="+26"/>
         <source>Root</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+15"/>
@@ -783,244 +797,6 @@
         <location line="+12"/>
         <source>Move feed to folder</source>
         <translation>Переместить ленту в другую папку</translation>
-    </message>
-</context>
-<context>
-    <name>OcCombinedModelNew</name>
-    <message>
-        <location filename="../../common/models/occombinedmodelnew.cpp" line="+161"/>
-        <location line="+107"/>
-        <location line="+225"/>
-        <source>Uncategorized</source>
-        <translation>Неотсортировано</translation>
-    </message>
-    <message>
-        <location line="-328"/>
-        <source>All posts</source>
-        <translation>Все сообщения</translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Favourite posts</source>
-        <translation>Избранные сообщения</translation>
-    </message>
-</context>
-<context>
-    <name>OcCombinedModelSql</name>
-    <message>
-        <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
-        <source>Uncategorized</source>
-        <translation>Неотсортировано</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>All posts</source>
-        <translation>Все сообщения</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Favourite posts</source>
-        <translation>Избранные сообщения</translation>
-    </message>
-</context>
-<context>
-    <name>OcFeedsModelNew</name>
-    <message>
-        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+124"/>
-        <source>All posts</source>
-        <translation>Все сообщения</translation>
-    </message>
-</context>
-<context>
-    <name>OcFeedsModelSql</name>
-    <message>
-        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+83"/>
-        <source>All posts</source>
-        <translation>Все сообщения</translation>
-    </message>
-</context>
-<context>
-    <name>OcFolderModelSql</name>
-    <message>
-        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+88"/>
-        <source>All posts</source>
-        <translation>Все сообщения</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Favourite posts</source>
-        <translation>Избранные сообщения</translation>
-    </message>
-</context>
-<context>
-    <name>OcFoldersModelNew</name>
-    <message>
-        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+156"/>
-        <source>All posts</source>
-        <translation>Все сообщения</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Favourite posts</source>
-        <translation>Избранные сообщения</translation>
-    </message>
-</context>
-<context>
-    <name>OcItemsModelSql</name>
-    <message>
-        <location filename="../../common/models/ocitemsmodelsql.cpp" line="+65"/>
-        <source>Today</source>
-        <translation>Сегодня</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>d. MMMM</source>
-        <translation>д.ММММ</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>hh:mm</source>
-        <translation>чч:мм</translation>
-    </message>
-</context>
-<context>
-    <name>OcLanguageModel</name>
-    <message>
-        <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
-        <source>System default</source>
-        <translation>Язык системы</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>English</source>
-        <translation>Английский</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Danish</source>
-        <translation>Датский</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>German</source>
-        <translation>Немецкий</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Spanish</source>
-        <translation>Испанский</translation>
-    </message>
-    <message>
-        <location line="-1"/>
-        <source>Greek</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Finnish</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>French</source>
-        <translation>Французский</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Galician</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Italian</source>
-        <translation>Итальянский</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Dutch (Netherlands)</source>
-        <translation>Голландский(Нидерланды)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Russian</source>
-        <translation>Русский</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Chinese (China)</source>
-        <translation>Китайский(China)</translation>
-    </message>
-</context>
-<context>
-    <name>OcModelHelper</name>
-    <message>
-        <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
-        <source>Today</source>
-        <translation>Сегодня</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>d. MMMM</source>
-        <translation>д.ММММ</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>hh:mm</source>
-        <translation>чч:мм</translation>
-    </message>
-</context>
-<context>
-    <name>OcSingleItemModelNew</name>
-    <message>
-        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+450"/>
-        <source>Today</source>
-        <translation>Сегодня</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>d. MMMM</source>
-        <translation>д.ММММ</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>hh:mm</source>
-        <translation>чч:мм</translation>
-    </message>
-</context>
-<context>
-    <name>OcSingleItemModelSql</name>
-    <message>
-        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+136"/>
-        <source>Today</source>
-        <translation>Сегодня</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>d. MMMM</source>
-        <translation>д.ММММ</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>hh:mm</source>
-        <translation>чч:мм</translation>
-    </message>
-</context>
-<context>
-    <name>OcSpecialItemsModelSql</name>
-    <message>
-        <location filename="../../common/models/ocspecialitemsmodelsql.cpp" line="+66"/>
-        <source>Today</source>
-        <translation>Сегодня</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>d. MMMM</source>
-        <translation>д.ММММ</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>hh:mm</source>
-        <translation>чч:мм</translation>
     </message>
 </context>
 <context>
@@ -1540,12 +1316,12 @@
     <message>
         <location line="+4"/>
         <source>Open links directly</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>If enabled, you will not be asked if you want to open a link in a browser.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+12"/>
