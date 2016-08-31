@@ -1555,7 +1555,7 @@
     <message>
         <location line="+1"/>
         <source>ocNews WebView</source>
-        <translation>ocNews intern Netlæser</translation>
+        <translation>ocNews interne netlæser</translation>
     </message>
     <message>
         <location line="+1"/>

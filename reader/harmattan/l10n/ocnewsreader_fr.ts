@@ -826,12 +826,12 @@
     <message>
         <location line="-1"/>
         <source>Greek</source>
-        <translation type="unfinished"/>
+        <translation>Grec</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Finnish</source>
-        <translation type="unfinished"/>
+        <translation>Finlandais</translation>
     </message>
     <message>
         <location line="+1"/>
