@@ -20,7 +20,7 @@ source_lang = en
 type = QT
 
 [ocnews.sailfishosreader]
-file_filter = reader/sailfishos/l10n/ocnewsreader_<lang>.ts
-source_file = reader/sailfishos/l10n/ocnewsreader.ts
+file_filter = reader/sailfishos/translations/ocnewsreader_<lang>.ts
+source_file = reader/sailfishos/translations/ocnewsreader.ts
 source_lang = en
 type = QT

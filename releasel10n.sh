@@ -24,7 +24,7 @@ do
 lrelease ocnewsreader_$LANG.ts
 done
 
-cd ../../sailfishos/l10n
+cd ../../sailfishos/translations
 
 for LANG in el en en_GB en_US da de es fr fi gl it nl_NL ru zh_CN
 do
