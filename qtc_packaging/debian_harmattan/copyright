@@ -1,7 +1,7 @@
 This package was debianized by Buschtrommel <kontakt@buschman23.de> on
-Wed, 23 Oct 2013 01:00:34 +0200.
+Mon, 05 Sep 2016 21:10:34 +0200.
 
-It was downloaded from <http://ocnews.buschmann23.de>
+It was downloaded from <https://www.buschmann23.de/entwicklung/anwendungen/ocnews/>
 
 Upstream Author(s):
 
@@ -9,7 +9,7 @@ Upstream Author(s):
 
 Copyright:
 
-    <Copyright (C) 2013 Buschtrommel>
+    <Copyright (C) 2013-2016 Buschtrommel>
 
 License:
 
@@ -30,5 +30,5 @@ License:
 On Debian systems, the complete text of the GNU General
 Public License can be found in `/usr/share/common-licenses/GPL'.
 
-The Debian packaging is (C) 2013, Buschtrommel <kontakt@buschmann23.de> and
+The Debian packaging is (C) 2016, Buschtrommel <kontakt@buschmann23.de> and
 is licensed under the GPL, see above.

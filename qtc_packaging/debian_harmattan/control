@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Buschtrommel <kontakt@buschmann23.de>
 Build-Depends: debhelper (>= 5), libqt4-dev
 Standards-Version: 3.7.3
-Homepage: http://ocnews.buschmann23.de
+Homepage: https://www.buschmann23.de/entwicklung/anwendungen/ocnews/
 
 Package: buschtrommel-ocnews
 Architecture: any

@@ -30,6 +30,15 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "1.9.7"
+        date: 1473109119000
+        entries: [
+            ListElement { type: 1; issue: ""; description: "Jolla Tablet enhancements by Heiko Bauke" },
+            ListElement { type: 1; issue: ""; description: "translation updates" }
+        ]
+    }
+
+    ListElement {
         version: "1.9.6"
         date: 1443358099000
         entries: [

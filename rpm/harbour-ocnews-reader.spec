@@ -13,12 +13,12 @@ Name:       harbour-ocnews-reader
 %{!?qtc_qmake5:%define qtc_qmake5 %qmake5}
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
-Summary:    ownCloud News App Client
-Version:    1.9.6
+Summary:    ownCloud/nextCloud News App Client
+Version:    1.9.7
 Release:    1
 Group:      Qt/Qt
 License:    GPL-2.0
-URL:        http://example.org/
+URL:        https://www.buschmann23.de/entwicklung/anwendungen/ocnews/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-ocnews-reader.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
@@ -37,7 +37,7 @@ BuildRequires:  pkgconfig(keepalive)
 BuildRequires:  desktop-file-utils
 
 %description
-ocNews is a client for the ownCloud News app that supports the complete API and all functions of the news app. It consists of a reader that communicates with a background daemon through DBus.
+ocNews is a client for the ownCloud/nextCloud News app that supports the complete API and all functions of the news app. It consists of a reader that communicates with a background daemon through DBus.
 
 
 %prep
