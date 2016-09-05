@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="nl_NL" sourcelanguage="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl_NL" sourcelanguage="en" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -165,8 +163,14 @@
     </message>
     <message>
         <location line="+1"/>
+        <location line="+8"/>
         <source>Major contributors</source>
         <translation>Grote bijdragers</translation>
+    </message>
+    <message>
+        <location line="-1"/>
+        <source>Tablet enhancements</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+13"/>
@@ -255,26 +259,17 @@
     <message numerus="yes">
         <location line="+2"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
         <source>%n hour(s) ago</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
         <source>%n minute(s) ago</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -794,6 +789,244 @@
         <location line="+12"/>
         <source>Move feed to folder</source>
         <translation>Feed verplaatsen naar map</translation>
+    </message>
+</context>
+<context>
+    <name>OcCombinedModelNew</name>
+    <message>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+161"/>
+        <location line="+107"/>
+        <location line="+225"/>
+        <source>Uncategorized</source>
+        <translation>Ongecategoriseerd</translation>
+    </message>
+    <message>
+        <location line="-328"/>
+        <source>All posts</source>
+        <translation>Alle posts</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Favourite posts</source>
+        <translation>Favoriete posts</translation>
+    </message>
+</context>
+<context>
+    <name>OcCombinedModelSql</name>
+    <message>
+        <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
+        <source>Uncategorized</source>
+        <translation>Ongecategoriseerd</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>All posts</source>
+        <translation>Alle posts</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Favourite posts</source>
+        <translation>Favoriete posts</translation>
+    </message>
+</context>
+<context>
+    <name>OcFeedsModelNew</name>
+    <message>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+124"/>
+        <source>All posts</source>
+        <translation>Alle posts</translation>
+    </message>
+</context>
+<context>
+    <name>OcFeedsModelSql</name>
+    <message>
+        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+83"/>
+        <source>All posts</source>
+        <translation>Alle posts</translation>
+    </message>
+</context>
+<context>
+    <name>OcFolderModelSql</name>
+    <message>
+        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+88"/>
+        <source>All posts</source>
+        <translation>Alle posts</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Favourite posts</source>
+        <translation>Favoriete posts</translation>
+    </message>
+</context>
+<context>
+    <name>OcFoldersModelNew</name>
+    <message>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+156"/>
+        <source>All posts</source>
+        <translation>Alle posts</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Favourite posts</source>
+        <translation>Favoriete posts</translation>
+    </message>
+</context>
+<context>
+    <name>OcItemsModelSql</name>
+    <message>
+        <location filename="../../common/models/ocitemsmodelsql.cpp" line="+65"/>
+        <source>Today</source>
+        <translation>Vandaag</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation>d. MMMM</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcLanguageModel</name>
+    <message>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
+        <source>System default</source>
+        <translation>Systeemstandaard</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>English</source>
+        <translation>Engels</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Danish</source>
+        <translation>Deens</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>German</source>
+        <translation>Duits</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Greek</source>
+        <translation>Grieks</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Spanish</source>
+        <translation>Spaans</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Finnish</source>
+        <translation>Fins</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>French</source>
+        <translation>Frans</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Galician</source>
+        <translation>Gaelic</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Italian</source>
+        <translation>Italiaans</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Dutch (Netherlands)</source>
+        <translation>Nederlands (Nederland)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Russian</source>
+        <translation>Russisch</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Chinese (China)</source>
+        <translation>Chinees (China)</translation>
+    </message>
+</context>
+<context>
+    <name>OcModelHelper</name>
+    <message>
+        <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
+        <source>Today</source>
+        <translation>Vandaag</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation>d. MMMM</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcSingleItemModelNew</name>
+    <message>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+450"/>
+        <source>Today</source>
+        <translation>Vandaag</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation>d. MMMM</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcSingleItemModelSql</name>
+    <message>
+        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+136"/>
+        <source>Today</source>
+        <translation>Vandaag</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation>d. MMMM</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcSpecialItemsModelSql</name>
+    <message>
+        <location filename="../../common/models/ocspecialitemsmodelsql.cpp" line="+66"/>
+        <source>Today</source>
+        <translation>Vandaag</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation>d. MMMM</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
