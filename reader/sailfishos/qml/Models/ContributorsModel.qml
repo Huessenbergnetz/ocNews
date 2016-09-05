@@ -40,6 +40,13 @@ ListModel {
     }
 
     ListElement {
+        name: "Heiko Bauke (rabauke)"
+        role: QT_TR_NOOP("Tablet enhancements")
+        section: QT_TR_NOOP("Major contributors")
+        github: "rabauke"
+    }
+
+    ListElement {
         name: "Alexey (lewa)"
         role: QT_TR_NOOP("Russian translation")
         section: QT_TR_NOOP("Thanks to")
