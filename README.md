@@ -4,7 +4,7 @@ ocNews
 Qt/QML based ownCloud News App client for MeeGo and Sailfish OS
 Copyright (C) 2013  Buschtrommel
 
-More information: [ocnews.buschmann23.de](http://ocnews.buschmann23.de)
+More information: [buschmann23.de](https://www.buschmann23.de/entwicklung/anwendungen/ocnews/)
 
 Translations are now on Transifex: [www.transifex.com/projects/p/ocnews/](https://www.transifex.com/projects/p/ocnews/)
 
