@@ -655,7 +655,7 @@
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation>Visa efter oläst</translation>
+        <translation>Visa efter olästa</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -751,7 +751,7 @@
     <message>
         <location line="+7"/>
         <source>With these app you can synchronize and view your ownCloud News App content on your smartphone. Before you can start, you have to setup your ownCloud server account in the settings.</source>
-        <translation>Med denna app kan du synkronisera och visa ditt ownCloud News-innehåll på din telefon. Inan du kan börja, måste du konfigurera ditt ownCloud-konto i appens inställningar.</translation>
+        <translation>Med denna app kan du synkronisera och visa ditt ownCloud News-innehåll på din telefon. Innan du kan börja, måste du konfigurera ditt ownCloud-konto i appens inställningar.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -781,7 +781,7 @@
     <message>
         <location line="+13"/>
         <source>Quit reader and engine</source>
-        <translation>Avsluta läsare och motor</translation>
+        <translation>Avslutar läsare och motor</translation>
     </message>
 </context>
 <context>
@@ -1229,7 +1229,7 @@
     <message>
         <location line="+1"/>
         <source>Unread count</source>
-        <translation>Oläst antal</translation>
+        <translation>Antal olästa</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1269,7 +1269,7 @@
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation>Visa efter oläst</translation>
+        <translation>Visa efter olästa</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1294,7 +1294,7 @@
     <message>
         <location line="+2"/>
         <source>Set the default order of the news items to show the oldest at the top. You can still change it in the pully menu.</source>
-        <translation>Ange standardsortering för nyhetsobjekt, till att visa de äldsta överst. Du kan fortfarande ändra det i rullgardinsmenyn.</translation>
+        <translation>Anger standardsortering för nyhetsobjekt, till att visa de äldsta överst. Du kan fortfarande ändra det i rullgardinsmenyn.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1592,7 +1592,7 @@
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation>Visa efter oläst</translation>
+        <translation>Visa efter olästa</translation>
     </message>
     <message>
         <location line="+7"/>
