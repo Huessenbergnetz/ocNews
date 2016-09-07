@@ -45,6 +45,13 @@ ListModel {
         section: QT_TR_NOOP("Major contributors")
         github: "rabauke"
     }
+    
+    ListElement {
+        name: "Åke Engelbrektson"
+        role: QT_TR_NOOP("Swedish translation")
+        section: QT_TR_NOOP("Thanks to")
+        website: "https://svenskasprakfiler.se"
+    }
 
     ListElement {
         name: "Alexey (lewa)"
