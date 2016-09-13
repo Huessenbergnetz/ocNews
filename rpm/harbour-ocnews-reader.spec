@@ -14,9 +14,9 @@ Name:       harbour-ocnews-reader
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    ownCloud/nextCloud News App Client
-Version:    1.9.7
+Version:    1.9.8
 Release:    1
-Group:      Qt/Qt
+Group:      Applications/Internet
 License:    GPL-2.0
 URL:        https://www.buschmann23.de/entwicklung/anwendungen/ocnews/
 Source0:    %{name}-%{version}.tar.bz2
