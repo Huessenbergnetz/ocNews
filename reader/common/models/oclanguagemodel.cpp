@@ -56,7 +56,11 @@ QModelIndex OcLanguageModel::index(int row, int column, const QModelIndex &paren
 
 void OcLanguageModel::init()
 {
-    m_langs << "C" << "en_GB" << "da" << "de" << "el" << "es" << "fi" << "fr" << "gl" << "it" << "nl_NL" << "ru" << "zh_CN";
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    m_langs << "C" << "en_GB" << "da" << "de" << "el" << "es" << "fi" << "fr" << "gl" << "it" << "nl_NL" << "ru" << "sv" << "zh_CN";
+#else
+    m_langs << "C" << "en_GB" << "da" << "de" << "el" << "es" << "fr" << "gl" << "it" << "nl_NL" << "ru" << "zh_CN";
+#endif
     m_langCode["C"] = tr("System default");
     m_langCode["en_GB"] = tr("English");
     m_langCode["da"] = tr("Danish");
@@ -69,6 +73,7 @@ void OcLanguageModel::init()
     m_langCode["it"] = tr("Italian");
     m_langCode["nl_NL"] = tr("Dutch (Netherlands)");
     m_langCode["ru"] = tr("Russian");
+    m_langCode["sv"] = tr("Swedish");
     m_langCode["zh_CN"] = tr("Chinese (China)");
 }
 
