@@ -898,7 +898,7 @@
 <context>
     <name>OcLanguageModel</name>
     <message>
-        <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+64"/>
         <source>System default</source>
         <translation>Por defecto do sistema</translation>
     </message>
@@ -956,6 +956,11 @@
         <location line="+1"/>
         <source>Russian</source>
         <translation>Ruso</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Swedish</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>

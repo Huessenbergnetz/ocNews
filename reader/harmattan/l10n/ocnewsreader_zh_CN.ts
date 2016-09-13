@@ -799,7 +799,7 @@
 <context>
     <name>OcLanguageModel</name>
     <message>
-        <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+64"/>
         <source>System default</source>
         <translation>系统默认</translation>
     </message>
@@ -857,6 +857,11 @@
         <location line="+1"/>
         <source>Russian</source>
         <translation>俄罗斯语</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Swedish</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>

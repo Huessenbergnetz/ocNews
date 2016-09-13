@@ -175,78 +175,84 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/Models/ContributorsModel.qml" line="51"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="117"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="129"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="58"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="124"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="136"/>
         <source>Russian translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/Models/ContributorsModel.qml" line="52"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="58"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="64"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="70"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="78"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="84"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="90"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="96"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="102"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="110"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="118"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="124"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="130"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="136"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="142"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="152"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="59"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="65"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="71"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="77"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="85"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="91"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="97"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="103"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="109"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="117"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="125"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="131"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="137"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="143"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="149"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="159"/>
         <source>Thanks to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/Models/ContributorsModel.qml" line="57"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="51"/>
+        <source>Swedish translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/Models/ContributorsModel.qml" line="64"/>
         <source>Finnish translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/Models/ContributorsModel.qml" line="63"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="70"/>
         <source>Greek translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/Models/ContributorsModel.qml" line="69"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="83"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="89"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="76"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="90"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="96"/>
         <source>Chinese (China) translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/Models/ContributorsModel.qml" line="77"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="109"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="84"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="116"/>
         <source>Italian translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/Models/ContributorsModel.qml" line="95"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="102"/>
         <source>Dutch (Netherlands) translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/Models/ContributorsModel.qml" line="101"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="108"/>
         <source>French translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/Models/ContributorsModel.qml" line="123"/>
-        <location filename="../qml/Models/ContributorsModel.qml" line="135"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="130"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="142"/>
         <source>Spanish translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/Models/ContributorsModel.qml" line="141"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="148"/>
         <source>Danish translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/Models/ContributorsModel.qml" line="151"/>
+        <location filename="../qml/Models/ContributorsModel.qml" line="158"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
         <translation type="unfinished"></translation>
     </message>
