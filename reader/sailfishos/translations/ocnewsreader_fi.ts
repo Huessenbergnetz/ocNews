@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fi" sourcelanguage="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" sourcelanguage="en" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -11,7 +9,7 @@
     <message>
         <location line="+4"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+15"/>
@@ -36,12 +34,12 @@
     <message>
         <location line="+6"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -172,17 +170,22 @@
     <message>
         <location line="-1"/>
         <source>Tablet enhancements</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Swedish translation</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+13"/>
         <source>Finnish translation</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+6"/>
         <source>Greek translation</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+6"/>
@@ -192,7 +195,8 @@
         <translation>Kiinan kielen käännös</translation>
     </message>
     <message>
-        <location line="-37"/>
+        <location line="-44"/>
+        <location line="+7"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
@@ -261,26 +265,17 @@
     <message numerus="yes">
         <location line="+2"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
         <source>%n hour(s) ago</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+2"/>
         <source>%n minute(s) ago</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -781,7 +776,7 @@
     <message>
         <location line="+13"/>
         <source>Quit reader and engine</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -800,6 +795,244 @@
         <location line="+12"/>
         <source>Move feed to folder</source>
         <translation>Siirrä syöte kansioon</translation>
+    </message>
+</context>
+<context>
+    <name>OcCombinedModelNew</name>
+    <message>
+        <location filename="../../common/models/occombinedmodelnew.cpp" line="+161"/>
+        <location line="+107"/>
+        <location line="+225"/>
+        <source>Uncategorized</source>
+        <translation>Määrittelemätön</translation>
+    </message>
+    <message>
+        <location line="-328"/>
+        <source>All posts</source>
+        <translation>Kaikki viestit</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Favourite posts</source>
+        <translation>Suosikkiviestit</translation>
+    </message>
+</context>
+<context>
+    <name>OcCombinedModelSql</name>
+    <message>
+        <location filename="../../common/models/occombinedmodelsql.cpp" line="+89"/>
+        <source>Uncategorized</source>
+        <translation>Määrittelemätön</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>All posts</source>
+        <translation>Kaikki viestit</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Favourite posts</source>
+        <translation>Suosikkiviestit</translation>
+    </message>
+</context>
+<context>
+    <name>OcFeedsModelNew</name>
+    <message>
+        <location filename="../../common/models/ocfeedsmodelnew.cpp" line="+124"/>
+        <source>All posts</source>
+        <translation>Kaikki viestit</translation>
+    </message>
+</context>
+<context>
+    <name>OcFeedsModelSql</name>
+    <message>
+        <location filename="../../common/models/ocfeedsmodelsql.cpp" line="+83"/>
+        <source>All posts</source>
+        <translation>Kaikki viestit</translation>
+    </message>
+</context>
+<context>
+    <name>OcFolderModelSql</name>
+    <message>
+        <location filename="../../common/models/ocfoldermodelsql.cpp" line="+88"/>
+        <source>All posts</source>
+        <translation>Kaikki viestit</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Favourite posts</source>
+        <translation>Suosikkiviestit</translation>
+    </message>
+</context>
+<context>
+    <name>OcFoldersModelNew</name>
+    <message>
+        <location filename="../../common/models/ocfoldersmodelnew.cpp" line="+156"/>
+        <source>All posts</source>
+        <translation>Kaikki viestit</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Favourite posts</source>
+        <translation>Suosikkiviestit</translation>
+    </message>
+</context>
+<context>
+    <name>OcItemsModelSql</name>
+    <message>
+        <location filename="../../common/models/ocitemsmodelsql.cpp" line="+65"/>
+        <source>Today</source>
+        <translation>Tänään</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation>d.MMMM</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcLanguageModel</name>
+    <message>
+        <location filename="../../common/models/oclanguagemodel.cpp" line="+60"/>
+        <source>System default</source>
+        <translation>Järjestelmän oletusarvo</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>English</source>
+        <translation>englanti</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Danish</source>
+        <translation>tanska</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>German</source>
+        <translation>saksa</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Greek</source>
+        <translation>kreikka</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Spanish</source>
+        <translation>espanja</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Finnish</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>French</source>
+        <translation>ranska</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Galician</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Italian</source>
+        <translation>italia</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Dutch (Netherlands)</source>
+        <translation>hollanti</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Russian</source>
+        <translation>venäjä</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Chinese (China)</source>
+        <translation>kiina</translation>
+    </message>
+</context>
+<context>
+    <name>OcModelHelper</name>
+    <message>
+        <location filename="../../common/models/ocmodelhelper.cpp" line="+12"/>
+        <source>Today</source>
+        <translation>Tänään</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation>d. MMMM</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcSingleItemModelNew</name>
+    <message>
+        <location filename="../../common/models/ocsingleitemmodelnew.cpp" line="+450"/>
+        <source>Today</source>
+        <translation>Tänään</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation>d. MMMM</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcSingleItemModelSql</name>
+    <message>
+        <location filename="../../common/models/ocsingleitemmodelsql.cpp" line="+136"/>
+        <source>Today</source>
+        <translation>Tänään</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation>d. MMMM</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation>hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>OcSpecialItemsModelSql</name>
+    <message>
+        <location filename="../../common/models/ocspecialitemsmodelsql.cpp" line="+66"/>
+        <source>Today</source>
+        <translation>Tänään</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>d. MMMM</source>
+        <translation>d. MMMM</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>hh:mm</source>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -1095,17 +1328,17 @@
     <message>
         <location line="+28"/>
         <source>Found ownCloud News Version %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
         <source>Use HTTPS (SSL/TLS) connection</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+2"/>
         <source>Because ownCloud News requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
@@ -1115,7 +1348,7 @@
     <message>
         <location line="+2"/>
         <source>Only ignore SSL errors when you really know what you are doing. (Currently there is no system service for handling SSL certificates. ocNews will implement it&apos;s own in the future, but for now you have to ignore SSL errors when you are using a self signed certificate.)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+6"/>
@@ -1176,22 +1409,22 @@
     <message>
         <location line="+6"/>
         <source>Engine</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+12"/>
         <source>Number of items to keep</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
         <source>Quit engine on closing reader</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+2"/>
         <source>By default the engine daemon ist started on application startup and keeps running after closing the application to operate/synchronize in the background. This option needs an application restart.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+5"/>
@@ -1216,12 +1449,12 @@
     <message>
         <location line="+6"/>
         <source>Main view layout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+12"/>
         <source>Added (like on server)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
@@ -1231,32 +1464,32 @@
     <message>
         <location line="+1"/>
         <source>Unread count</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
         <source>Order feeds and folders by</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+12"/>
         <source>On request</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>When item loads</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>Prefetch at updating</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
         <source>Load content images</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+12"/>
@@ -1271,7 +1504,7 @@
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation type="unfinished">Näytä lukemattomien jälkeen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
@@ -1286,7 +1519,7 @@
     <message>
         <location line="+2"/>
         <source>Hide feeds and folders that do not contain unread items.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
@@ -1296,7 +1529,7 @@
     <message>
         <location line="+2"/>
         <source>Set the default order of the news items to show the oldest at the top. You can still change it in the pully menu.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
@@ -1306,102 +1539,102 @@
     <message>
         <location line="+2"/>
         <source>Shows some lines of the article content in the article list.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+21"/>
         <source>Item view font size</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+5"/>
         <source>Behaviour</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+4"/>
         <source>Open links directly</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>If enabled, you will not be asked if you want to open a link in a browser.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+12"/>
         <source>ocNews</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews WebView</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>External browser</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
         <source>Open articles in</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+6"/>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+4"/>
         <source>Notify about added/removed feeds and folders</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
         <source>Notify about new articles</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+6"/>
         <source>Privacy</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+3"/>
         <source>Enable private browsing for web view</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
         <source>Allow cookies in web view</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+6"/>
         <source>Maintenance</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+3"/>
         <source>Create log files</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+4"/>
         <source>This option needs a complete application restart. After that it will create log files in %1.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
         <source>Deleting database</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+5"/>
         <source>Resetting configuration</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1410,47 +1643,47 @@
         <location filename="../qml/Views/SingleItemView.qml" line="+74"/>
         <location line="+38"/>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="-34"/>
         <source>Remove from favourites</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark as favourite</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+8"/>
         <source>Show images</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+5"/>
         <source>Previous in list</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+0"/>
         <source>First in list</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+10"/>
         <source>Next in list</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+0"/>
         <source>Last in list</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+6"/>
         <source>Scroll to top</source>
-        <translation type="unfinished">Vieritä ylös</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1458,27 +1691,27 @@
     <message>
         <location filename="../qml/Views/SingleItemWebView.qml" line="+47"/>
         <source>Clear cookies</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+4"/>
         <source>Stop loading</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+0"/>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+4"/>
         <source>Open in browser</source>
-        <translation type="unfinished">Avaa selaimessa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+4"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1486,22 +1719,22 @@
     <message>
         <location filename="../qml/Delegates/SpecialItemListDelegate.qml" line="+178"/>
         <source>Mark as read</source>
-        <translation type="unfinished">Merkitse luetuksi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark as unread</source>
-        <translation type="unfinished">Merkitse lukemattomaksi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+9"/>
         <source>Remove from favourites</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+0"/>
         <source>Add to favourites</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1509,97 +1742,97 @@
     <message>
         <location filename="../qml/Views/SpecialItemListView.qml" line="+61"/>
         <source>Update running...</source>
-        <translation type="unfinished">Päivitys meneillään...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+6"/>
         <source>Search</source>
-        <translation type="unfinished">Etsi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+40"/>
         <source>Hide sorting options</source>
-        <translation type="unfinished">Piilota lajitteluvaihtoehdot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+0"/>
         <source>Show sorting options</source>
-        <translation type="unfinished">Näytä lajitteluvaihtoehdot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+10"/>
         <source>Mark folder as read</source>
-        <translation type="unfinished">Merkitse kansio luetuksi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+0"/>
         <source>Mark all as read</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
         <source>Update folder</source>
-        <translation type="unfinished">Päivitä kansio</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+0"/>
         <source>Update all</source>
-        <translation type="unfinished">Päivitä kaikki</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+5"/>
         <source>Hide search</source>
-        <translation type="unfinished">Piilota haku</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+0"/>
         <source>Show search</source>
-        <translation type="unfinished">Näytä haku</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+20"/>
         <source>Scroll to top</source>
-        <translation type="unfinished">Vieritä ylös</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+12"/>
         <source>Marking %1 as read</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+5"/>
         <source>Marking all entries as read</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+21"/>
         <source>Show newest on top</source>
-        <translation type="unfinished">Näytä uusin ylimpänä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+0"/>
         <source>Show oldest on top</source>
-        <translation type="unfinished">Näytä vanhin ylimpänä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+10"/>
         <source>Show</source>
-        <translation type="unfinished">Näytä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>Hide</source>
-        <translation type="unfinished">Piilota</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>Show after unread</source>
-        <translation type="unfinished">Näytä lukemattomien jälkeen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+7"/>
         <source>Read articles</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

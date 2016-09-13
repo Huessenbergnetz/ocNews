@@ -874,12 +874,12 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation>д.ММММ</translation>
+        <translation>d. MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation>чч:мм</translation>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>
@@ -892,12 +892,12 @@
     <message>
         <location line="+1"/>
         <source>d. MMMM</source>
-        <translation>д.ММММ</translation>
+        <translation>d.MMMM</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>hh:mm</source>
-        <translation>чч:мм</translation>
+        <translation>hh:mm</translation>
     </message>
 </context>
 <context>

@@ -4,7 +4,7 @@ STARTDIR=$PWD
 
 cd engine/l10n
 
-for LANG in el en en_GB en_US da de es fr fi gl it nl_NL ru zh_CN
+for LANG in el en en_GB en_US da de es fr fi gl it nl_NL ru sv zh_CN
 do
 lrelease ocnewsengine_$LANG.ts
 done
@@ -26,7 +26,7 @@ done
 
 cd ../../sailfishos/translations
 
-for LANG in el en en_GB en_US da de es fr fi gl it nl_NL ru zh_CN
+for LANG in el en en_GB en_US da de es fr fi gl it nl_NL ru sv zh_CN
 do
 lrelease-qt5 ocnewsreader_$LANG.ts
 done

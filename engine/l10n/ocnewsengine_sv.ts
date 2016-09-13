@@ -4,7 +4,7 @@
     <message>
         <location filename="../ocdownloadmanager.cpp" line="+134"/>
         <source>Downloading enclosure </source>
-        <translation type="unfinished"/>
+        <translation>Laddar ner bilaga</translation>
     </message>
 </context>
 <context>
@@ -13,25 +13,25 @@
         <location filename="../ocfeeds.cpp" line="+37"/>
         <location line="+280"/>
         <location line="+150"/>
-        <location line="+128"/>
+        <location line="+111"/>
         <location line="+204"/>
         <location line="+148"/>
         <source>Device is in flight mode.</source>
-        <translation type="unfinished"/>
+        <translation>Enheten är i flygläge</translation>
     </message>
     <message>
-        <location line="-876"/>
+        <location line="-859"/>
         <location line="+1"/>
         <location line="+297"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
-        <translation type="unfinished"/>
+        <translation>Serversvaret var tomt.</translation>
     </message>
     <message>
         <location line="-299"/>
         <location line="+11"/>
         <source>Failed to request feeds</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte begära flöden</translation>
     </message>
     <message numerus="yes">
         <location line="+189"/>
@@ -41,7 +41,7 @@
     <message>
         <location line="+1"/>
         <source>Added:</source>
-        <translation type="unfinished"/>
+        <translation>Tillagt:</translation>
     </message>
     <message numerus="yes">
         <location line="+11"/>
@@ -51,45 +51,45 @@
     <message>
         <location line="+1"/>
         <source>Removed:</source>
-        <translation type="unfinished"/>
+        <translation>Borttaget:</translation>
     </message>
     <message>
         <location line="+85"/>
         <location line="+21"/>
         <source>Failed to add feed</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte lägga till flöde</translation>
     </message>
     <message>
         <location line="+126"/>
         <source>Failed to delete feed</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte ta bort flöde</translation>
     </message>
     <message>
-        <location line="+92"/>
+        <location line="+75"/>
         <source>Feed is already part of the destination folder</source>
-        <translation type="unfinished"/>
+        <translation>Flödet finns redan i målmappen</translation>
     </message>
     <message>
         <location line="+66"/>
         <source>Failed to move feed</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte flytta flöde</translation>
     </message>
     <message>
         <location line="+140"/>
-        <location line="+58"/>
-        <source>Failed to mark feed as read</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-58"/>
         <location line="+1"/>
         <source>Database error</source>
-        <translation type="unfinished"/>
+        <translation>Databasfel</translation>
     </message>
     <message>
-        <location line="+189"/>
+        <location line="-1"/>
+        <location line="+58"/>
+        <source>Failed to mark feed as read</source>
+        <translation>Kunde inte markera flöde som läst</translation>
+    </message>
+    <message>
+        <location line="+132"/>
         <source>Failed to rename feed</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte byta namn på flöde</translation>
     </message>
 </context>
 <context>
@@ -101,7 +101,7 @@
         <location line="+85"/>
         <location line="+75"/>
         <source>Device is in flight mode.</source>
-        <translation type="unfinished"/>
+        <translation>Enheten är i flygläge.</translation>
     </message>
     <message>
         <location line="-389"/>
@@ -109,13 +109,13 @@
         <location line="+176"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
-        <translation type="unfinished"/>
+        <translation>Serversvaret var tomt.</translation>
     </message>
     <message>
         <location line="-178"/>
         <location line="+15"/>
         <source>Failed to request folders</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte begära mappar</translation>
     </message>
     <message numerus="yes">
         <location line="+103"/>
@@ -125,7 +125,7 @@
     <message>
         <location line="+1"/>
         <source>Added:</source>
-        <translation type="unfinished"/>
+        <translation>Tillagt:</translation>
     </message>
     <message numerus="yes">
         <location line="+11"/>
@@ -135,28 +135,28 @@
     <message>
         <location line="+1"/>
         <source>Removed:</source>
-        <translation type="unfinished"/>
+        <translation>Borttaget:</translation>
     </message>
     <message>
         <location line="+46"/>
         <location line="+20"/>
         <source>Failed to create folder</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte skapa mapp</translation>
     </message>
     <message>
         <location line="+73"/>
         <source>Failed to delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte ta bort mapp</translation>
     </message>
     <message>
         <location line="+91"/>
         <source>Failed to rename folder</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte byta namn på mapp</translation>
     </message>
     <message>
         <location line="+86"/>
         <source>Failed to mark folder as read</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte markera mapp som läst</translation>
     </message>
 </context>
 <context>
@@ -164,50 +164,50 @@
     <message>
         <location filename="../ocgeneric.cpp" line="+33"/>
         <source>Device is in flight mode.</source>
-        <translation type="unfinished"/>
+        <translation>Enheten är i flygläge</translation>
     </message>
     <message>
         <location line="+31"/>
         <source>Request canceled, maybe wrong username or password</source>
-        <translation type="unfinished"/>
+        <translation>Begäran avbröts. Kanske fel användarnamn eller lösenord.</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Remote host not found</source>
-        <translation type="unfinished"/>
+        <translation>Fjärrvärden kunde inte hittas</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Can not find ownCloud News, maybe wrong path or server</source>
-        <translation type="unfinished"/>
+        <translation>Kan inte hitta ownCloud News. Kanske fel sökväg eller server.</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Connection error</source>
-        <translation type="unfinished"/>
+        <translation>Anslutningsfel</translation>
     </message>
     <message>
         <location line="+26"/>
         <source>Server reply was empty.</source>
-        <translation type="unfinished"/>
+        <translation>Serversvaret var tomt.</translation>
     </message>
 </context>
 <context>
     <name>OcImageFetcher</name>
     <message>
-        <location filename="../ocimagefetcher.cpp" line="+38"/>
+        <location filename="../ocimagefetcher.cpp" line="+40"/>
         <source>ocNews Image Fetcher</source>
-        <translation type="unfinished"/>
+        <translation>ocNews bildhämtare</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Fetching images</source>
-        <translation type="unfinished"/>
+        <translation>Hämtar bilder</translation>
     </message>
     <message>
         <location line="+48"/>
         <source>Fetching images finished</source>
-        <translation type="unfinished"/>
+        <translation>Bildhämtning slutförd</translation>
     </message>
 </context>
 <context>
@@ -217,7 +217,7 @@
         <location line="+225"/>
         <location line="+606"/>
         <source>Device is in flight mode.</source>
-        <translation type="unfinished"/>
+        <translation>Enheten är i flygläge.</translation>
     </message>
     <message>
         <location line="-793"/>
@@ -225,19 +225,19 @@
         <location line="+270"/>
         <location line="+1"/>
         <source>Server reply was empty.</source>
-        <translation type="unfinished"/>
+        <translation>Serversvaret var tomt.</translation>
     </message>
     <message>
         <location line="-272"/>
         <location line="+271"/>
         <source>Error in server reply</source>
-        <translation type="unfinished"/>
+        <translation>Fel i serversvaret</translation>
     </message>
     <message>
         <location line="-263"/>
         <location line="+273"/>
         <source>HTTP error</source>
-        <translation type="unfinished"/>
+        <translation>HTTP-fel</translation>
     </message>
     <message numerus="yes">
         <location line="-113"/>
@@ -249,18 +249,18 @@
         <location line="-297"/>
         <location line="+297"/>
         <source>New articles available</source>
-        <translation type="unfinished"/>
+        <translation>Nya artiklar tillgängliga</translation>
     </message>
     <message>
         <location line="+147"/>
         <location line="+219"/>
         <source>Failed to mark articles</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte märka artiklar</translation>
     </message>
     <message>
         <location line="-87"/>
         <source>Failed to un/star articles</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte av-/stjärnmärka artiklar</translation>
     </message>
 </context>
 <context>
@@ -268,37 +268,37 @@
     <message>
         <location filename="../ocupdater.cpp" line="+210"/>
         <source>Your account is disabled or you have not created an account yet.</source>
-        <translation type="unfinished"/>
+        <translation>Ditt konto är avaktiverat eller du har inte skapat något konto ännu.</translation>
     </message>
     <message>
         <location line="+29"/>
         <source>Synchronizing ownCloud News</source>
-        <translation type="unfinished"/>
+        <translation>Synkroniserar </translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Updating Folders</source>
-        <translation type="unfinished"/>
+        <translation>Uppdaterar mappar</translation>
     </message>
     <message>
         <location line="+31"/>
         <source>Updating Feeds</source>
-        <translation type="unfinished"/>
+        <translation>Uppdaterar flöden</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>Updating Items</source>
-        <translation type="unfinished"/>
+        <translation>Uppdaterar objekt</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Update Finished</source>
-        <translation type="unfinished"/>
+        <translation>Uppdatering slutförd</translation>
     </message>
     <message>
         <location line="+35"/>
         <source>Update Failed</source>
-        <translation type="unfinished"/>
+        <translation>Uppdatering misslyckades</translation>
     </message>
 </context>
 </TS>
