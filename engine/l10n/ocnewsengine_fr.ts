@@ -76,18 +76,18 @@
     </message>
     <message>
         <location line="+140"/>
-        <location line="+58"/>
-        <source>Failed to mark feed as read</source>
-        <translation>Erreur dans le marquage du flux comme lu</translation>
-    </message>
-    <message>
-        <location line="-58"/>
         <location line="+1"/>
         <source>Database error</source>
         <translation>Erreur de base de données</translation>
     </message>
     <message>
-        <location line="+189"/>
+        <location line="-1"/>
+        <location line="+58"/>
+        <source>Failed to mark feed as read</source>
+        <translation>Erreur dans le marquage du flux comme lu</translation>
+    </message>
+    <message>
+        <location line="+132"/>
         <source>Failed to rename feed</source>
         <translation>Erreur dans le renommage du flux</translation>
     </message>

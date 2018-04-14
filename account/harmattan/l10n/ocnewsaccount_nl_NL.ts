@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl_NL" sourcelanguage="en" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl_NL" version="2.0">
 <context>
     <name/>
     <message id="qtn_help_close">
@@ -90,72 +90,72 @@
     <message id="qtn_delete_accept">
         <location line="+1"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_delete_accept</translation>
     </message>
     <message id="qtn_delete_reject">
         <location line="+1"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_delete_reject</translation>
     </message>
     <message id="qtn_ocnews_setup">
         <location filename="../qml/MainPage.qml" line="+63"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_ocnews_setup</translation>
     </message>
     <message id="qtn_ocnews_username">
         <location line="+9"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_ocnews_username</translation>
     </message>
     <message id="qtn_ocnews_set_username">
         <location line="+1"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_ocnews_set_username</translation>
     </message>
     <message id="qtn_password">
         <location line="+8"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_password</translation>
     </message>
     <message id="qtn_set_password">
         <location line="+1"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_set_password</translation>
     </message>
     <message id="qtn_server">
         <location line="+8"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_server</translation>
     </message>
     <message id="qtn_set_server">
         <location line="+1"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_set_server</translation>
     </message>
     <message id="qtn_ssl_enabled">
         <location line="+8"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_ssl_enabled</translation>
     </message>
     <message id="qtn_ignore_ssl">
         <location line="+7"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_ignore_ssl</translation>
     </message>
     <message id="qtn_create_account">
         <location line="+6"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_create_account</translation>
     </message>
     <message id="qtn_creating">
         <location line="+29"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_creating</translation>
     </message>
     <message id="qtn_only_one_account">
         <location line="+20"/>
         <source/>
-        <translation type="unfinished"/>
+        <translation>qtn_only_one_account</translation>
     </message>
 </context>
 </TS>

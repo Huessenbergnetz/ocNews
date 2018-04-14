@@ -13,14 +13,14 @@
         <location filename="../ocfeeds.cpp" line="+37"/>
         <location line="+280"/>
         <location line="+150"/>
-        <location line="+128"/>
+        <location line="+111"/>
         <location line="+204"/>
         <location line="+148"/>
         <source>Device is in flight mode.</source>
         <translation>Apparaat is ingesteld op vliegtuigmodus.</translation>
     </message>
     <message>
-        <location line="-876"/>
+        <location line="-859"/>
         <location line="+1"/>
         <location line="+297"/>
         <location line="+1"/>
@@ -31,7 +31,7 @@
         <location line="-299"/>
         <location line="+11"/>
         <source>Failed to request feeds</source>
-        <translation>Feeds aanvragen mislukt</translation>
+        <translation>Het aanvragen van feeds is mislukt</translation>
     </message>
     <message numerus="yes">
         <location line="+189"/>
@@ -57,39 +57,39 @@
         <location line="+85"/>
         <location line="+21"/>
         <source>Failed to add feed</source>
-        <translation>Mislukt om feed toe te voegen</translation>
+        <translation>Het toevoegen van de feed is mislukt</translation>
     </message>
     <message>
         <location line="+126"/>
         <source>Failed to delete feed</source>
-        <translation>Mislukt om feed te verwijderen</translation>
+        <translation>Het verwijderen van de feed is mislukt</translation>
     </message>
     <message>
-        <location line="+92"/>
+        <location line="+75"/>
         <source>Feed is already part of the destination folder</source>
-        <translation>Feed is al onderdeel van de bestemmingsmap</translation>
+        <translation>De feed is al onderdeel van de bestemmingsmap</translation>
     </message>
     <message>
         <location line="+66"/>
         <source>Failed to move feed</source>
-        <translation>Mislukt om feed te verplaatsen</translation>
+        <translation>Het verplaatsen van de feed is mislukt</translation>
     </message>
     <message>
         <location line="+140"/>
-        <location line="+58"/>
-        <source>Failed to mark feed as read</source>
-        <translation>Mislukt om feed te markeren als gelezen</translation>
-    </message>
-    <message>
-        <location line="-58"/>
         <location line="+1"/>
         <source>Database error</source>
         <translation>Database-fout</translation>
     </message>
     <message>
-        <location line="+189"/>
+        <location line="-1"/>
+        <location line="+58"/>
+        <source>Failed to mark feed as read</source>
+        <translation>Het als gelezen markeren van de feed is mislukt</translation>
+    </message>
+    <message>
+        <location line="+132"/>
         <source>Failed to rename feed</source>
-        <translation>Mislukt om feed te hernoemen</translation>
+        <translation>Naam wijzigen van de feed is mislukt</translation>
     </message>
 </context>
 <context>
@@ -115,7 +115,7 @@
         <location line="-178"/>
         <location line="+15"/>
         <source>Failed to request folders</source>
-        <translation>Mislukt om mappeen aan te vragen</translation>
+        <translation>Het aanvragen van mappen is mislukt</translation>
     </message>
     <message numerus="yes">
         <location line="+103"/>
@@ -141,22 +141,22 @@
         <location line="+46"/>
         <location line="+20"/>
         <source>Failed to create folder</source>
-        <translation>Map creëren mislukt</translation>
+        <translation>Het creëren van de map is mislukt</translation>
     </message>
     <message>
         <location line="+73"/>
         <source>Failed to delete folder</source>
-        <translation>Map verwijderen mislukt</translation>
+        <translation>Het verwijderen van de map is mislukt</translation>
     </message>
     <message>
         <location line="+91"/>
         <source>Failed to rename folder</source>
-        <translation>Map hernoemen mislukt</translation>
+        <translation>Naam wijzigen van de map is mislukt</translation>
     </message>
     <message>
         <location line="+86"/>
         <source>Failed to mark folder as read</source>
-        <translation>Map als gelezen markeren mislukt</translation>
+        <translation>Het als gelezen markeren van de map is mislukt</translation>
     </message>
 </context>
 <context>
@@ -169,17 +169,17 @@
     <message>
         <location line="+31"/>
         <source>Request canceled, maybe wrong username or password</source>
-        <translation>Aanvraag geannuleerd; wellicht gebruikte u de verkeerde inloggegevens</translation>
+        <translation>Aanvraag geannuleerd; wellicht hebt u de verkeerde inloggegevens gebruikt</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Remote host not found</source>
-        <translation>Externe host niet gevonden</translation>
+        <translation>De externe host kan niet worden gevonden</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Can not find ownCloud News, maybe wrong path or server</source>
-        <translation>Kan ownCloud Nieuws niet vinden; wellicht heeft u een verkeerd pad of verkeerde server opgegeven</translation>
+        <translation>ownCloud Nieuws kan niet worden gevonden; wellicht heeft u een verkeerd pad of verkeerde server opgegeven</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -195,7 +195,7 @@
 <context>
     <name>OcImageFetcher</name>
     <message>
-        <location filename="../ocimagefetcher.cpp" line="+38"/>
+        <location filename="../ocimagefetcher.cpp" line="+40"/>
         <source>ocNews Image Fetcher</source>
         <translation>ocNews-afbeeldingsophaler</translation>
     </message>
@@ -207,7 +207,7 @@
     <message>
         <location line="+48"/>
         <source>Fetching images finished</source>
-        <translation>Ophalen van afbeeldingen afgerond</translation>
+        <translation>Het ophalen van afbeelding is voltoid</translation>
     </message>
 </context>
 <context>
@@ -249,18 +249,18 @@
         <location line="-297"/>
         <location line="+297"/>
         <source>New articles available</source>
-        <translation>Nieuwe artikelen beschikbaar</translation>
+        <translation>Er zijn nieuwe artikelen beschikbaar</translation>
     </message>
     <message>
         <location line="+147"/>
         <location line="+219"/>
         <source>Failed to mark articles</source>
-        <translation>Markeren van artikelen mislukt</translation>
+        <translation>Het markeren van artikelen is mislukt</translation>
     </message>
     <message>
         <location line="-87"/>
         <source>Failed to un/star articles</source>
-        <translation>Favorieten/defavorieten van artikelen mislukt</translation>
+        <translation>Het favorieten/ontfavorieten van artikelen mislukt</translation>
     </message>
 </context>
 <context>
@@ -268,7 +268,7 @@
     <message>
         <location filename="../ocupdater.cpp" line="+210"/>
         <source>Your account is disabled or you have not created an account yet.</source>
-        <translation>Uw account is uitgeschakeld of u heeft nog geen account gecreeërd.</translation>
+        <translation>Uw account is uitgeschakeld of u heeft nog geen account gecreëerd.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -293,12 +293,12 @@
     <message>
         <location line="+41"/>
         <source>Update Finished</source>
-        <translation>Bijwerken voltooid</translation>
+        <translation>Het bijwerken is voltooid</translation>
     </message>
     <message>
         <location line="+35"/>
         <source>Update Failed</source>
-        <translation>Bijwerken mislukt</translation>
+        <translation>Het bijwerken is mislukt</translation>
     </message>
 </context>
 </TS>

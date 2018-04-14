@@ -13,14 +13,14 @@
         <location filename="../ocfeeds.cpp" line="+37"/>
         <location line="+280"/>
         <location line="+150"/>
-        <location line="+128"/>
+        <location line="+111"/>
         <location line="+204"/>
         <location line="+148"/>
         <source>Device is in flight mode.</source>
         <translation>设备处于飞行模式。</translation>
     </message>
     <message>
-        <location line="-876"/>
+        <location line="-859"/>
         <location line="+1"/>
         <location line="+297"/>
         <location line="+1"/>
@@ -65,7 +65,7 @@
         <translation>删除订阅失败</translation>
     </message>
     <message>
-        <location line="+92"/>
+        <location line="+75"/>
         <source>Feed is already part of the destination folder</source>
         <translation>该订阅已经是目标文件夹一部分</translation>
     </message>
@@ -76,18 +76,18 @@
     </message>
     <message>
         <location line="+140"/>
-        <location line="+58"/>
-        <source>Failed to mark feed as read</source>
-        <translation>订阅标记已读失败</translation>
-    </message>
-    <message>
-        <location line="-58"/>
         <location line="+1"/>
         <source>Database error</source>
         <translation>数据库错误</translation>
     </message>
     <message>
-        <location line="+189"/>
+        <location line="-1"/>
+        <location line="+58"/>
+        <source>Failed to mark feed as read</source>
+        <translation>订阅标记已读失败</translation>
+    </message>
+    <message>
+        <location line="+132"/>
         <source>Failed to rename feed</source>
         <translation>重命名订阅失败</translation>
     </message>
@@ -195,7 +195,7 @@
 <context>
     <name>OcImageFetcher</name>
     <message>
-        <location filename="../ocimagefetcher.cpp" line="+38"/>
+        <location filename="../ocimagefetcher.cpp" line="+40"/>
         <source>ocNews Image Fetcher</source>
         <translation>ocNews图片捕获器</translation>
     </message>

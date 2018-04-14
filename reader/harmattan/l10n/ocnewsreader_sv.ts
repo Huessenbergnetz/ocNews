@@ -5,154 +5,154 @@
         <location filename="../qml/ocNewsReader/Pages/About.qml" line="+24"/>
         <location line="+340"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Om</translation>
     </message>
     <message>
         <location line="-294"/>
         <source>The ownCloud News App client for Harmattan</source>
-        <translation type="unfinished"/>
+        <translation>ownCloud News klient-app för Harmattan</translation>
     </message>
     <message>
         <location line="+24"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Licensierad under &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Contribute</source>
-        <translation type="unfinished"/>
+        <translation>Medverka</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Leave a message (English or German):</source>
-        <translation type="unfinished"/>
+        <translation>Skicka ett meddelande (Engelska eller Tyska):</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Translate</source>
-        <translation type="unfinished"/>
+        <translation>Översätt</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Report bugs</source>
-        <translation type="unfinished"/>
+        <translation>Rapportera fel</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Further information</source>
-        <translation type="unfinished"/>
+        <translation>Mer information</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Sekretesspolicy</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Visit website</source>
-        <translation type="unfinished"/>
+        <translation>Besök hemsidan</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Third party licenses</source>
-        <translation type="unfinished"/>
+        <translation>Tredjepartslicenser</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; by Martin Grimme is licensed under the terms of the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://github.com/pycage/tidings&apos;&gt;RescalingRichtext&lt;/a&gt; av Martin Grimme är licensierat under villkoren för &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; by razvanpetru is licensed under the terms of the &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/&apos;&gt;QsLog&lt;/a&gt; av razvanpetru är licensierat under villkoren för &lt;a href=&apos;https://bitbucket.org/razvanpetru/qslog/src&apos;&gt;New BSD license&lt;/a&gt;.</translation>
     </message>
     <message>
         <location line="+29"/>
         <source>Upstream author</source>
-        <translation type="unfinished"/>
+        <translation>Uppströms utvecklare</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Main developer, ocNews creator</source>
-        <translation type="unfinished"/>
+        <translation>Huvudutvecklare, ocNews skapare</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Major contributors</source>
-        <translation type="unfinished"/>
+        <translation>Huvudmedverkande</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>UI, French translation</source>
-        <translation type="unfinished"/>
+        <translation>UI, Fransk översättning</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Thanks to</source>
-        <translation type="unfinished"/>
+        <translation>Tack till</translation>
     </message>
     <message>
         <location line="+5"/>
         <location line="+17"/>
         <source>Chinese (China) translation</source>
-        <translation type="unfinished"/>
+        <translation>Kinesisk översättning (Kina)</translation>
     </message>
     <message>
         <location line="-10"/>
         <source>Danish translation</source>
-        <translation type="unfinished"/>
+        <translation>Dansk översättning</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Dutch (Netherlands) translation</source>
-        <translation type="unfinished"/>
+        <translation>Holländsk översättning</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>French translation</source>
-        <translation type="unfinished"/>
+        <translation>Fransk översättning</translation>
     </message>
     <message>
         <location line="+7"/>
         <location line="+17"/>
         <source>Russian translation</source>
-        <translation type="unfinished"/>
+        <translation>Rysk översättning</translation>
     </message>
     <message>
         <location line="-12"/>
         <source>Italian translation</source>
-        <translation type="unfinished"/>
+        <translation>Italiensk översättning</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Spanish translation</source>
-        <translation type="unfinished"/>
+        <translation>Spansk översättning</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Used third party elements</source>
-        <translation type="unfinished"/>
+        <translation>Använda tredjepartsobjekt</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Martin Grimme&apos;s Tidings Elements</source>
-        <translation type="unfinished"/>
+        <translation>Martin Grimme&apos;s Tidings Elements</translation>
     </message>
     <message>
         <location line="+26"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
     <message>
         <location line="+65"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Medverkande</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Ändringslogg</translation>
     </message>
 </context>
 <context>
@@ -160,47 +160,47 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/AddFeedSheet.qml" line="+8"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Root</source>
-        <translation type="unfinished"/>
+        <translation>Root</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Add Feed</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till flöde</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Add Feed to Folder&lt;br /&gt;%1</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till flöde i mappen&lt;br /&gt;%1</translation>
     </message>
     <message>
         <location line="+17"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Adress</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Enter new feed address</source>
-        <translation type="unfinished"/>
+        <translation>Ange ny flödesadress</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Select folder</source>
-        <translation type="unfinished"/>
+        <translation>Välj mapp</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Show feed in event view</source>
-        <translation type="unfinished"/>
+        <translation>Visa flöde i händelsevyn</translation>
     </message>
 </context>
 <context>
@@ -208,27 +208,27 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/AddFolderSheet.qml" line="+5"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Add Folder</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till mapp</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Namn</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Enter folder name</source>
-        <translation type="unfinished"/>
+        <translation>Ange mappnamn</translation>
     </message>
 </context>
 <context>
@@ -236,7 +236,7 @@
     <message>
         <location filename="../qml/ocNewsReader/Pages/CLItem.qml" line="+36"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
 </context>
 <context>
@@ -244,17 +244,17 @@
     <message>
         <location filename="../qml/ocNewsReader/Common/EnclosureItem.qml" line="+48"/>
         <source>Enclosure</source>
-        <translation type="unfinished"/>
+        <translation>Bilaga</translation>
     </message>
     <message>
         <location line="+53"/>
         <source>Download finished</source>
-        <translation type="unfinished"/>
+        <translation>Nerladdning slutförd</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>In queue</source>
-        <translation type="unfinished"/>
+        <translation>I kö</translation>
     </message>
 </context>
 <context>
@@ -262,80 +262,80 @@
     <message>
         <location filename="../qml/ocNewsReader/Views/FeedListView.qml" line="+72"/>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Alla</translation>
     </message>
     <message>
         <location line="+62"/>
         <source>Add feed</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till flöde</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Mark folder as read</source>
-        <translation type="unfinished"/>
+        <translation>Markera mappen som läst</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Rename folder </source>
-        <translation type="unfinished"/>
+        <translation>Byt namn på mappen</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort mappen</translation>
     </message>
     <message>
         <location line="+20"/>
         <source>Mark as read</source>
-        <translation type="unfinished"/>
+        <translation>Markera som läst</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Uppdatera</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Move</source>
-        <translation type="unfinished"/>
+        <translation>Flytta</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Byt namn</translation>
     </message>
     <message>
         <location line="+9"/>
         <location line="+41"/>
         <location line="+28"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location line="-27"/>
         <location line="+28"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <location line="-27"/>
         <source>Do you really want to delete this folder? All feeds and posts in this folder will then be deleted, too.</source>
-        <translation type="unfinished"/>
+        <translation>Vill du verkligen ta bort den här mappen? Alla flöden och inlägg i mappen, kommer också att tas bort.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Delete folder %1?</source>
-        <translation type="unfinished"/>
+        <translation>Vill du ta bort mappen %1?</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Ja</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Nej</translation>
     </message>
     <message>
         <location line="+1"/>

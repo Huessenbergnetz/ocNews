@@ -170,12 +170,12 @@
     <message>
         <location line="-1"/>
         <source>Tablet enhancements</source>
-        <translation type="unfinished"/>
+        <translation>Tablet-tilpasninger</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Swedish translation</source>
-        <translation type="unfinished"/>
+        <translation>Svensk oversættelse</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -960,7 +960,7 @@
     <message>
         <location line="+1"/>
         <source>Swedish</source>
-        <translation type="unfinished"/>
+        <translation>Svensk</translation>
     </message>
     <message>
         <location line="+1"/>

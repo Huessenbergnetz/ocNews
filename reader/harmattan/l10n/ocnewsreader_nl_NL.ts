@@ -15,7 +15,7 @@
     <message>
         <location line="+24"/>
         <source>Licensed under the &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</source>
-        <translation>Gelicenseerd onder de &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;</translation>
+        <translation>Uitgebracht onder de voorwaarden van de &lt;a href=&apos;http://www.gnu.org/licenses/gpl-2.0.en.html&apos;&gt;GNU GPL v2&lt;/a&gt;-licentie</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -25,7 +25,7 @@
     <message>
         <location line="+8"/>
         <source>Leave a message (English or German):</source>
-        <translation>Een bericht achterlaten (Engels of Duits)</translation>
+        <translation>Laat een bericht achter (Engels of Duits):</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -40,7 +40,7 @@
     <message>
         <location line="+4"/>
         <source>Further information</source>
-        <translation>Additionele informatie</translation>
+        <translation>Extra informatie</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -80,17 +80,17 @@
     <message>
         <location line="+8"/>
         <source>Major contributors</source>
-        <translation>Grote bijdragers</translation>
+        <translation>Extra belangrijke medewerkers</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>UI, French translation</source>
-        <translation>GUI, Franse vertaling</translation>
+        <translation>Uiterlijk en Franse vertaling</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Thanks to</source>
-        <translation>Bedankt aan</translation>
+        <translation>Met dank aan</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -147,7 +147,7 @@
     <message>
         <location line="+65"/>
         <source>Contributors</source>
-        <translation>Bijdragers</translation>
+        <translation>Medewerkers</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -195,12 +195,12 @@
     <message>
         <location line="+8"/>
         <source>Select folder</source>
-        <translation>Map selecteren</translation>
+        <translation>Selecteer map</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Show feed in event view</source>
-        <translation>Feed weergeven in notificatieweergave</translation>
+        <translation>Feed weergeven in meldingsweergave</translation>
     </message>
 </context>
 <context>
@@ -228,7 +228,7 @@
     <message>
         <location line="+9"/>
         <source>Enter folder name</source>
-        <translation>Vul mapnaam i</translation>
+        <translation>Vul mapnaam in</translation>
     </message>
 </context>
 <context>
@@ -249,12 +249,12 @@
     <message>
         <location line="+53"/>
         <source>Download finished</source>
-        <translation>Downloaden afgerond</translation>
+        <translation>Het downloaden is voltooid</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>In queue</source>
-        <translation>In wachtrij</translation>
+        <translation>In de wachtrij</translation>
     </message>
 </context>
 <context>
@@ -277,7 +277,7 @@
     <message>
         <location line="+5"/>
         <source>Rename folder </source>
-        <translation>Map hernoemen</translation>
+        <translation>Mapnaam wijzigen</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -302,7 +302,7 @@
     <message>
         <location line="+10"/>
         <source>Rename</source>
-        <translation>Hernoemen</translation>
+        <translation>Naam wijzigen</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -320,12 +320,12 @@
     <message>
         <location line="-27"/>
         <source>Do you really want to delete this folder? All feeds and posts in this folder will then be deleted, too.</source>
-        <translation>Weet u zeker dat u deze map wilt verwijderen? Alle feeds en posts in deze map zullen eveneens verwijderd worden.</translation>
+        <translation>Weet u zeker dat u deze map wilt verwijderen? Alle feeds en berichten in deze map zullen eveneens worden verwijderd.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Delete folder %1?</source>
-        <translation>Map %1 verwijderen?</translation>
+        <translation>Wilt u de map %1 verwijderen?</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -340,17 +340,17 @@
     <message>
         <location line="+1"/>
         <source>Do you really want to mark the whole content of this folder as read?</source>
-        <translation>Weet u zeker dat u de volledige inhoud van deze map als gelezen wilt markeren?</translation>
+        <translation>Weet u zeker dat u de volledige inhoud van deze map wilt markeren als gelezen?</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Mark folder %1 as read?</source>
-        <translation>Map %1 als gelezen markeren?</translation>
+        <translation>Wilt u de map %1 markeren als gelezen?</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Delete feed %1?</source>
-        <translation>Feed %1 verwijderen?</translation>
+        <translation>Wilt u de feed %1 verwijderen?</translation>
     </message>
 </context>
 <context>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/ImagePreviewSheet.qml" line="+6"/>
         <source>Open in browser</source>
-        <translation>Openen in browser</translation>
+        <translation>Openen in webbrowser</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -425,7 +425,7 @@
     <message>
         <location line="+5"/>
         <source>Rename feed</source>
-        <translation>Feed hernoemen</translation>
+        <translation>Feednaam wijzigen</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -505,7 +505,7 @@
     <message>
         <location line="+1"/>
         <source>Delete feed %1?</source>
-        <translation>Feed %1 verwijderen?</translation>
+        <translation>Wilt u de feed %1 verwijderen?</translation>
     </message>
 </context>
 <context>
@@ -513,12 +513,12 @@
     <message>
         <location filename="../qml/ocNewsReader/Views/MainView.qml" line="+26"/>
         <source>Leave a message (English or German):</source>
-        <translation>Een bericht achterlaten (Engels of Duits):</translation>
+        <translation>Laat een bericht achter (Engels of Duits):</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>ocNews is a client for the ownCloud News app, a cloud base RSS/Atom feed aggregator. </source>
-        <translation>ocNews is een client voor de ownCloud-nieuwsapp, een cloudgebaseerde RSS/Atom-feedaggregator.</translation>
+        <translation>ocNews is een client voor de ownCloud-nieuwsapp, een cloud-gebaseerde RSS/Atom-feedverzamelaar.</translation>
     </message>
     <message>
         <location line="+59"/>
@@ -528,12 +528,12 @@
     <message>
         <location line="+17"/>
         <source>&lt;b&gt;Welcome to ocNews&lt;/b&gt;&lt;br /&gt;With these app you can synchronize and view your ownCloud News App content on your smartphone. Before you can start, you have to setup your ownCloud server account.</source>
-        <translation>&lt;b&gt;Welkom bij ocNews&lt;/b&gt;&lt;br /&gt;Met deze app kunt u uw ownCloud-nieuwsapp-inhoud bekijken en synchroniseren op uw smartphone. Voordat u begint moet u uw ownCloud-serveraccount instellen.</translation>
+        <translation>&lt;b&gt;Welkom bij ocNews&lt;/b&gt;&lt;br /&gt;Met deze app kunt u uw ownCloud-nieuwsapp-inhoud weergeven en synchroniseren op uw smartphone. Voordat u begint moet u uw ownCloud-serveraccount instellen.</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>&lt;i&gt;If you have updated ocNews from a version prior to 1.3.0, you have to resetup your account and resync your data, because of changed storage locations.&lt;/i&gt;</source>
-        <translation>&lt;i&gt;Als u ocNews heeft bijgewerkt vanaf een versie lager dan 1.3.0, moet u uw account opnieuw instellen en uw date opnieuw synchroniseren. Dit vanwege gewijzigde opslaglocaties.&lt;/i&gt;</translation>
+        <translation>&lt;i&gt;Als u ocNews heeft bijgewerkt vanaf een versie lager dan 1.3.0, moet u uw account opnieuw instellen en uw gegevens opnieuw synchroniseren vanwege gewijzigde opslaglocaties.&lt;/i&gt;</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -603,7 +603,7 @@
         <location line="-35"/>
         <location line="+53"/>
         <source>Rename</source>
-        <translation>Hernoemen</translation>
+        <translation>Naam wijzigen</translation>
     </message>
     <message>
         <location line="-44"/>
@@ -861,7 +861,7 @@
     <message>
         <location line="+1"/>
         <source>Swedish</source>
-        <translation type="unfinished"/>
+        <translation>Zweeds</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1162,7 +1162,7 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/RenameFeedSheet.qml" line="+9"/>
         <source>Rename</source>
-        <translation>Hernoemen</translation>
+        <translation>Naam wijzigen</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1172,7 +1172,7 @@
     <message>
         <location line="+7"/>
         <source>Rename feed&lt;br /&gt;%1</source>
-        <translation>Feed&lt;br /&gt;%1 hernoemen</translation>
+        <translation>Feednaam wijzigen van&lt;br /&gt;%1</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -1190,7 +1190,7 @@
     <message>
         <location filename="../qml/ocNewsReader/Sheets/RenameFolderSheet.qml" line="+9"/>
         <source>Rename</source>
-        <translation>Hernoemen</translation>
+        <translation>Naam wijzigen</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1200,7 +1200,7 @@
     <message>
         <location line="+7"/>
         <source>Rename Folder&lt;br /&gt;%1</source>
-        <translation>Map&lt;br /&gt; %1 hernoemen</translation>
+        <translation>Mapnaam wijzigen van&lt;br /&gt;%1</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -1815,7 +1815,7 @@
     <message>
         <location line="+2"/>
         <source>Renamed folder to %1</source>
-        <translation>Map hernoemd naar %1</translation>
+        <translation>De mapnaam is gewijzigd in %1</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1840,7 +1840,7 @@
     <message>
         <location line="+4"/>
         <source>Renamed feed to %1</source>
-        <translation>Feed hernoemd naar %1</translation>
+        <translation>De feednaam is gewijzigd in %1</translation>
     </message>
     <message>
         <location line="+23"/>

@@ -290,7 +290,7 @@
     <message>
         <location line="+27"/>
         <source>Updating</source>
-        <translation>Actualizando</translation>
+        <translation>Actualizar</translation>
     </message>
 </context>
 <context>
@@ -960,7 +960,7 @@
     <message>
         <location line="+1"/>
         <source>Swedish</source>
-        <translation type="unfinished"/>
+        <translation>Sueco</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1357,7 +1357,7 @@
         <location line="+6"/>
         <location line="+17"/>
         <source>Updating</source>
-        <translation>Actualizando</translation>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <location line="-9"/>

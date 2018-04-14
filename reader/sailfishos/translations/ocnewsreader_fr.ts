@@ -960,7 +960,7 @@
     <message>
         <location line="+1"/>
         <source>Swedish</source>
-        <translation type="unfinished"/>
+        <translation>Suédois</translation>
     </message>
     <message>
         <location line="+1"/>

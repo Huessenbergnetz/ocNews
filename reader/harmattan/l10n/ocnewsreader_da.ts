@@ -861,7 +861,7 @@
     <message>
         <location line="+1"/>
         <source>Swedish</source>
-        <translation type="unfinished"/>
+        <translation>Svensk</translation>
     </message>
     <message>
         <location line="+1"/>
