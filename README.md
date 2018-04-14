@@ -8,6 +8,10 @@ More information: [buschmann23.de](https://www.buschmann23.de/entwicklung/anwend
 
 Translations are now on Transifex: [www.transifex.com/projects/p/ocnews/](https://www.transifex.com/projects/p/ocnews/)
 
+Note
+----------
+This project has been superseded by [Fuoten](https://github.com/Huessenbergnetz/Fuoten).
+
 License
 ----------
 
